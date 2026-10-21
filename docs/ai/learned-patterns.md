@@ -304,3 +304,35 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
 - **Pergunta sobre estimativa diz o número e os meses exatos.** "2025 tem meses estimados" foi lido como "2025 é tudo
   estimativa" e o autor achou que a pesquisa tinha sido perdida. Dizer: só "o que cada estado pagou", de fev a dez/2025; o total
   do país e tudo o que voltou são oficiais.
+
+### Os 3 Poderes, DF e publicação (2026-10-21, D143 a D147)
+
+- **Soma de um grupo tem rótulo de soma.** O cartão dos 513 deputados mostrava a média por deputado com o rótulo "total médio
+  por pessoa", lido como o total do grupo. Mostrar "Os N juntos" com a soma e, embaixo, "Média por <cargo>", cada número com o
+  seu rótulo.
+- **Linha informativa fica fora do total.** O líquido do salário e a fatura do cartão repetem dinheiro que já está em outras
+  linhas; somados, contam duas vezes. Ficam ao lado como informação (marca "i"), fora da soma.
+- **Pagamento único não é mensal.** O 13º e outros pagamentos de uma vez são espalhados pelos meses do período antes de entrar
+  no "por mês".
+- **Cartão da Presidência pelas unidades certas.** A busca por órgão traz ABIN e EBC; o gasto ligado ao presidente usa só as três
+  unidades da Presidência de `data/federal/presidency-2026.json`.
+- **A janela da coleta não é um fato da pessoa.** "Câmara, desde 1987" era o início da varredura; a ficha mostra o primeiro e o
+  último ano dos projetos da própria pessoa. Todo "desde <ano>" na tela é conferido contra a idade e o mandato de quem aparece.
+- **Situação de um projeto da Câmara.** A referência é o campo "Situação" da página do projeto. Na API,
+  `statusProposicao.descricaoSituacao` de `/proposicoes/{id}` quase sempre traz o último passo de tramitação ("Aguardando
+  Encaminhamento"), não a situação. Na auditoria das três fichas de divulgação, nas 50 divergências entre a ficha e a API, a página
+  confirmou a ficha em 41; em 8 era o mesmo apensamento com outras palavras ou um passo atrás ("Tramitando em Conjunto" ou
+  "Aguardando Apensação" na ficha, "Apensado ao PL x" na página) e 1 página não tinha o campo.
+- **Fundeb só sobre os 22,5% do FPM.** A Lei 14.113/2020, art. 3, tira o Fundeb da alínea b (os 22,5% mensais); as parcelas
+  extras de 1% ficam fora. Aplicar sobre o FPM inteiro aumenta o Fundeb.
+- **Complemento de moradia da Câmara tem linha própria**, como dinheiro pago à pessoa, separado do que reembolsa gasto.
+- **Folha federal por estado é parcial.** Militares, aposentados e pensionistas não têm estado nos arquivos do Portal da
+  Transparência; `data/federal/payroll-by-uf-2024.json` tem só janeiro.
+- **A estimativa do DF (D146) se prova pela soma.** Em cada imposto, o DF conta no máximo a sua parte no PIB; ano a ano, o
+  estimado mais o que foi para a União dá o registrado, e nenhum outro estado muda.
+- **A planta do controle de vazamento é maior que a folga.** 40 letras cabiam no cartão e o controle passava; com 90 letras e uma
+  checagem de que a planta vazou, o controle vale. Texto vazio tem retângulo em (0,0) e é pulado.
+- **Tirar citações sem quebrar títulos.** `publish-decisions.py` tira só as citações em itálico, `(?<!\*)\*"[^\n]*?"\*(?!\*)`;
+  a forma larga cortava títulos em negrito como `**"..."**`. O script para se sobrar alguma citação.
+- **Primeiro commit público.** O email nos commits é o noreply do GitHub (D97 item 8), configurado no repositório local antes
+  do commit e conferido com `git log -1 --format=%ae`; o email pessoal ficaria em todo commit público.

@@ -1,6 +1,6 @@
 # Brasil-Imposto: publicação no GitHub e documentação
 
-Status: **Rascunho para aprovação, revisão 2** (D3). As respostas do autor de 2026-10-06 estão aplicadas (D97, D98). Nada de repositório, `git init` ou commit antes da aprovação. Criar o repositório e fazer o push são ações públicas e só acontecem com a ordem explícita do autor (D54).
+Status: **Aplicada em versão enxuta (D147, 2026-10-21)**, revisão 2. As respostas do autor de 2026-10-06 estão aplicadas (D97, D98). Repositório local e commit da v1 feitos; ficam para depois da v1 os itens que D147 lista. Criar o repositório e fazer o push são ações públicas e só acontecem com a ordem explícita do autor (D54).
 
 ### Summary (English)
 

@@ -175,7 +175,7 @@ As fontes publicam por mês, e algumas por dia. "Tempo real" aqui quer dizer: as
 | 5 | todas as telas lidas do livro; os scripts antigos saem | as telas mostram os mesmos totais da conta da União |
 | 6 | o calendário e a tarefa agendada | uma divulgação nova entra sem mudar nada mais |
 
-Até a fase 5, a prévia fica com os números de hoje, marcada "em revisão", e o DF em cinza (D120).
+Até a fase 5, a prévia fica com os números de hoje, marcada "em revisão", e o DF por estimativa marcada (D146; antes cinza, D120 e D138).
 
 ## 10. Limites conhecidos das fontes
 
