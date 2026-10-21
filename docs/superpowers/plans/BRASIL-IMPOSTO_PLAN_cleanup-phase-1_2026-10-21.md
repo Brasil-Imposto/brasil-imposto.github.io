@@ -158,7 +158,7 @@ Cada checagem nova ou refeita só conta depois de falhar num controle plantado p
 
 ### Tarefa 8: fecho da fase
 - [ ] Texto visível igual ao da base (100 de 100), 0 erros; arquivos gerados: só as mudanças das tarefas; 29 testes ou mais.
-- [ ] Registro: uma decisão no README, o acompanhamento da rodada 11, o `CLAUDE.md` ("Próxima sessão"), o estado de trabalho.
+- [ ] Registro: uma decisão em `private/decisions-original.md` (a versão pública sai de `publish-decisions.py`), o acompanhamento da rodada 11, o `CLAUDE.md` ("Próxima sessão"), o estado de trabalho.
 - [ ] Nada aberto no fim: nenhum Chrome sem tela, nenhum servidor.
 
 ---
