@@ -211,7 +211,7 @@ Mapa interativo e apartidário que mostra, com dados oficiais, como o imposto pa
 | Q38 | Doações (D123): GitHub Sponsors numa organização mantida por pessoa física, sem CNPJ; ponto não resolvido na pesquisa de colaboração (seção 9). Conferir no cadastro antes de pôr o botão. | Aberta |
 | Q39 | Doações (D123): tributação com o dinheiro na pessoa física (ITCMD, IRPF, pagamento a outros desenvolvedores e às entidades), pergunta para contador; no longo prazo, associação sem fins lucrativos, como a Open Knowledge Brasil. | Aberta |
 | Q40 | Formulário (D124): qual serviço hospedado, os limites do plano gratuito, e o email do projeto (D97) criado antes. | Aberta |
-| Q41 | Doações (D125): critérios objetivos para o botão de apoio ir ao ar: o que tem de estar conferido, em quais páginas, e quem confere. | Em parte (D126, D127): o que conferir, em quais páginas e nenhuma estimativa na tela; falta quem confere |
+| Q41 | Doações (D125): critérios objetivos para o botão de apoio ir ao ar: o que tem de estar conferido, em quais páginas, e quem confere. | Em parte (D126, D127): o que conferir, em quais páginas e nenhuma estimativa na tela; falta quem confere, e decidir se o DF por estimativa (D146) impede o botão |
 | Q42 | Auditoria de limpeza (D137): aprovar o plano das fases 1 a 3 (seção 8 do relatório) | Respondida (D139): aprovado |
 | Q43 | Estrutura alvo da seção 6 do relatório (`web/`, `pipelines/`, `data/`, `docs/`, `dev/`, `private/`) no lugar da seção 3 da spec da publicação | Respondida (D139): aprovada |
 | Q44 | DF no mapa da v1 (achado M1; item 1 da V1) | Respondida por D146 (2026-10-21): DF por estimativa marcada no mapa, na janela do DF e na rede (antes, por D138, cinza "em revisão") |

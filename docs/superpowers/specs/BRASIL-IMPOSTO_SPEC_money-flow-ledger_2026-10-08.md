@@ -180,7 +180,7 @@ Até a fase 5, a prévia fica com os números de hoje, marcada "em revisão", e 
 ## 10. Limites conhecidos das fontes
 
 - **Folha federal por estado em dinheiro:** o SIAPE publica só a contagem de servidores; o microdado de remuneração do Portal estava bloqueado na última coleta. Na fase 3, a ordem de busca é o microdado do Portal, o Atlas do Estado Brasileiro do IPEA e a RAIS; o que nenhuma fonte oficial põe num estado (militares, aposentados e pensionistas) fica em "sem informação de estado" (D127).
-- **Imposto centralizado nas sedes de empresas:** a Receita não publica por empresa, então o imposto de um banco com sede em Brasília conta no DF. Fica onde a Receita registra, com a marca de sede e sem tamanho estimado (D127), a menos que surja uma divisão oficial.
+- **Imposto centralizado nas sedes de empresas:** a Receita não publica por empresa, então o imposto de um banco com sede em Brasília conta no DF. Fica onde a Receita registra, com a marca de sede e sem tamanho estimado (D127), a menos que surja uma divisão oficial. No mapa, desde D146, cada imposto do DF conta no máximo a parte do DF no PIB, e o resto vai para o bloco da União, marcado como estimativa.
 - **Juros:** o Banco Central mede por competência (o que correu) e o Tesouro por caixa (o que foi pago). O livro guarda os dois e cada tela diz qual mostra.
 - **Arrecadação por estado de fev/2025 a jan/2026:** os meses da quebra da Receita voltam ao autor na fase 2, com opções (D127): o dado oficial existe, mas põe no DF a arrecadação de outros estados.
 
