@@ -1,0 +1,782 @@
+{
+ "status": "published",
+ "control_outcome": null,
+ "started_at": "2026-10-21T09:09:49",
+ "seconds": 3.9,
+ "duckdb": "1.5.6",
+ "period": [
+  "2019-01-01",
+  "2026-08-01"
+ ],
+ "loads": {},
+ "control": null,
+ "releases": [
+  {
+   "dataset": "bcb.sgs.4573",
+   "source_id": "bcb.sgs.4573@25541d9fcaa7",
+   "sha256": "25541d9fcaa75bb0a3f3ddabf28172d12a3395297339914c7460f8774e44f5a8",
+   "bytes": 3796,
+   "published_on": null,
+   "published_note": "o Banco Central não publica a data de divulgação na API"
+  },
+  {
+   "dataset": "bcb.sgs.4606",
+   "source_id": "bcb.sgs.4606@c29495deaefa",
+   "sha256": "c29495deaefac8833f390156935ad16677b910e3bbe8de404b079bee765a27e7",
+   "bytes": 3776,
+   "published_on": null,
+   "published_note": "o Banco Central não publica a data de divulgação na API"
+  },
+  {
+   "dataset": "bcb.sgs.4639",
+   "source_id": "bcb.sgs.4639@c8551539964e",
+   "sha256": "c8551539964ea1e6f324738bb7968b8a3e04b182e65d55099ca31e10c9f57628",
+   "bytes": 3791,
+   "published_on": null,
+   "published_note": "o Banco Central não publica a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.dtt.2019",
+   "source_id": "tesouro.dtt.2019@c6fd6e938193",
+   "sha256": "c6fd6e938193833e175d9ab7b236cb0e4280a71dff91bb87601cafaf6a9f61ab",
+   "bytes": 37127249,
+   "published_on": "2024-02-23",
+   "published_note": "data de atualização do arquivo no portal (CKAN last_modified)"
+  },
+  {
+   "dataset": "tesouro.dtt.2020",
+   "source_id": "tesouro.dtt.2020@1df8009cfb59",
+   "sha256": "1df8009cfb59333bfdb5acc1a97acaaa58e2b4e6cd0b60bf21f7fdeddf391bd2",
+   "bytes": 37455890,
+   "published_on": "2025-04-29",
+   "published_note": "data de atualização do arquivo no portal (CKAN last_modified)"
+  },
+  {
+   "dataset": "tesouro.dtt.2021",
+   "source_id": "tesouro.dtt.2021@0b0f7bcac494",
+   "sha256": "0b0f7bcac49467b12e5a2e188d3989387da2797ebca8f011b8beb8c9f2b553cf",
+   "bytes": 37840041,
+   "published_on": "2025-04-29",
+   "published_note": "data de atualização do arquivo no portal (CKAN last_modified)"
+  },
+  {
+   "dataset": "tesouro.dtt.2022",
+   "source_id": "tesouro.dtt.2022@d1a85f5b1d87",
+   "sha256": "d1a85f5b1d8771c62d3201d4d96143b259d9fbf0455eab4ecce50e59062de4c4",
+   "bytes": 36664339,
+   "published_on": "2025-04-29",
+   "published_note": "data de atualização do arquivo no portal (CKAN last_modified)"
+  },
+  {
+   "dataset": "tesouro.dtt.2023",
+   "source_id": "tesouro.dtt.2023@68f0be69a00d",
+   "sha256": "68f0be69a00db6dcffe3cc91ef0c71d2d7c92064550c870cbfe3cfc524122c8c",
+   "bytes": 31846187,
+   "published_on": "2025-04-29",
+   "published_note": "data de atualização do arquivo no portal (CKAN last_modified)"
+  },
+  {
+   "dataset": "tesouro.dtt.2024",
+   "source_id": "tesouro.dtt.2024@79147001fa45",
+   "sha256": "79147001fa457f8fb7c756d487a0a46654196b246c7a67c7645a8825c7e59c41",
+   "bytes": 29607403,
+   "published_on": "2025-12-30",
+   "published_note": "data de atualização do arquivo no portal (CKAN last_modified)"
+  },
+  {
+   "dataset": "tesouro.dtt.2025",
+   "source_id": "tesouro.dtt.2025@886f4e3266e9",
+   "sha256": "886f4e3266e99907f976c4815dfe8da99ebcf9c670a6ce331925913e88e64b88",
+   "bytes": 34500062,
+   "published_on": "2026-02-25",
+   "published_note": "data de atualização do arquivo no portal (CKAN last_modified)"
+  },
+  {
+   "dataset": "tesouro.dtt.2026",
+   "source_id": "tesouro.dtt.2026@986cafb6901e",
+   "sha256": "986cafb6901e6b8bae15aba245096065b4fcfb36c4afad98c17f8164cafe7199",
+   "bytes": 23113153,
+   "published_on": "2026-09-29",
+   "published_note": "data de atualização do arquivo no portal (CKAN last_modified)"
+  },
+  {
+   "dataset": "tesouro.rtn.serie_historica",
+   "source_id": "tesouro.rtn.serie_historica@0b4c8bbd6d5e",
+   "sha256": "0b4c8bbd6d5ea7fb2cadf306f0ed2c659c611056bf07d0ced7b8c57805583d45",
+   "bytes": 4316738,
+   "published_on": "2026-09-29",
+   "published_note": "data da publicação do RTN de agosto de 2026 na página do Tesouro"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2019.b1",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2019.b1@186dc08af4f0",
+   "sha256": "186dc08af4f0df617a35400f08c52a5a050306165f20068ae7fa410cc2c2b89e",
+   "bytes": 284633,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2019.b2",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2019.b2@5949f00f6eea",
+   "sha256": "5949f00f6eeada98a1136fc0d73cdfd05727b22125787bcc55f13af2090cd755",
+   "bytes": 284126,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2019.b3",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2019.b3@3a4bef493f2c",
+   "sha256": "3a4bef493f2c78193e76c47eb6891aa3379719b97c8ca0cc88ba51611ad6663b",
+   "bytes": 285089,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2019.b4",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2019.b4@3c129d84ce61",
+   "sha256": "3c129d84ce616111f0fc224dd101383af65485eb54b254efe7fbce5b89f8c346",
+   "bytes": 287463,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2019.b5",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2019.b5@d59d638da1a8",
+   "sha256": "d59d638da1a81789346a058e11e33f7bed2e87ab4e5ad4511f7afd1a0cd392ae",
+   "bytes": 289332,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2019.b6",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2019.b6@d922aec63bc5",
+   "sha256": "d922aec63bc5208a9c9a93e41a0da179f0c878ad4da2c87f00a4db49b40fca20",
+   "bytes": 301773,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2020.b1",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2020.b1@31512cd242b5",
+   "sha256": "31512cd242b534fcf37c4bb9b337e2ff2dbdcb229c5a8105fa95366a3e0edb6d",
+   "bytes": 276397,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2020.b2",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2020.b2@7fa50fa5a48c",
+   "sha256": "7fa50fa5a48c2005785306f6c4d0b3e160bb6d2f47b4715733f7b5053a3d013e",
+   "bytes": 280686,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2020.b3",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2020.b3@d2b581e996e0",
+   "sha256": "d2b581e996e04b641ff5e2a7438489a94aa1114b22e642670e62c92fa9a5ca30",
+   "bytes": 282301,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2020.b4",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2020.b4@e257624cd76b",
+   "sha256": "e257624cd76beeb0746b9417af22325f465dc49d040a499d0ee45a062da3d04a",
+   "bytes": 282973,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2020.b5",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2020.b5@27fe2206d9ed",
+   "sha256": "27fe2206d9ed2e5b6129007e56f9b42cad52106958452902fb5de49976a8bd98",
+   "bytes": 286403,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2020.b6",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2020.b6@02254b40cb0b",
+   "sha256": "02254b40cb0b7707a3136ee14b1890a83ec79438b8d16a577c2065e72517cd2a",
+   "bytes": 298917,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2021.b1",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2021.b1@81ad7c5843b7",
+   "sha256": "81ad7c5843b7adba58e0520408d3cf4c8673f70f2ef53e27b697d6593c0fc54d",
+   "bytes": 170844,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2021.b2",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2021.b2@b1811cfa2be2",
+   "sha256": "b1811cfa2be204d1ce74b3bd805d38afb649aa9fdb048f7892033e580aa62468",
+   "bytes": 275503,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2021.b3",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2021.b3@0a46b7e73119",
+   "sha256": "0a46b7e73119e6126a113119986f63b906f8c643cf96dd3571a8638dd19ae1d4",
+   "bytes": 275413,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2021.b4",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2021.b4@529926613d78",
+   "sha256": "529926613d784f25650511636eaa9a72849aecea7102acdd99f9c2a7e0bd8f60",
+   "bytes": 276629,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2021.b5",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2021.b5@59ba051d1644",
+   "sha256": "59ba051d1644a63264daa308fee4f2a90b2d492c309a05b1508a499b941d631a",
+   "bytes": 280906,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2021.b6",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2021.b6@766352977e82",
+   "sha256": "766352977e827d36fd7af54d0db1cdab048e534f24c2750ce53d58c64821d363",
+   "bytes": 272104,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2022.b1",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2022.b1@eddf8aeace7a",
+   "sha256": "eddf8aeace7ad65ce36e3b91f0f903e5ae8f9d2395eb65596897d63e92e1bd7e",
+   "bytes": 262859,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2022.b2",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2022.b2@75518771083b",
+   "sha256": "75518771083bded1fe49c54ce780f7654163a8297c0442d9d510d9c6d6251673",
+   "bytes": 265069,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2022.b3",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2022.b3@2d8cfbc8d60e",
+   "sha256": "2d8cfbc8d60ed15dcfe55685bd0a4412e071c632614b6c5b5268a22f40627e70",
+   "bytes": 266825,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2022.b4",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2022.b4@9893db00874d",
+   "sha256": "9893db00874d049cfe8ed08fd4840879ef9b59f2d1c19386bbc08c48677d3561",
+   "bytes": 270710,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2022.b5",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2022.b5@1d53447a5f6b",
+   "sha256": "1d53447a5f6ba6627be5237df1036d149a5d54c2517bf54e5ffc6160eb95a0e2",
+   "bytes": 272591,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2022.b6",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2022.b6@592422f9e5d5",
+   "sha256": "592422f9e5d5941d41eb56506305de7a5480d9303c043134f158842669c95d67",
+   "bytes": 280844,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2023.b1",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2023.b1@d11f797d3c42",
+   "sha256": "d11f797d3c42da8f4b83e8c5483793b0f0f500148fe9ac7b6fd107ad964bbcd7",
+   "bytes": 271569,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2023.b2",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2023.b2@040f02ad0035",
+   "sha256": "040f02ad0035b0b87537319bbe48f899a1679d3970e8a4230814cce5085c6e26",
+   "bytes": 269300,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2023.b3",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2023.b3@f524e610c55e",
+   "sha256": "f524e610c55eae9562ec89a70e4a49fb0e10048a53effce25587a1fc0dca98d7",
+   "bytes": 273861,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2023.b4",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2023.b4@2627e5c1c063",
+   "sha256": "2627e5c1c0633316fec771cdea2f964c4bd20fb3848fda92fd8797fd0e02b8e6",
+   "bytes": 272943,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2023.b5",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2023.b5@eb5e5f5e8fa3",
+   "sha256": "eb5e5f5e8fa3763d11a6e6349a94eb9d52a03a1890b7ddc63110390e7a3ed000",
+   "bytes": 274927,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2023.b6",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2023.b6@7600c3bc63b2",
+   "sha256": "7600c3bc63b221bae382740498183d195501ead5ee52b80ec8413808f4bb1ed2",
+   "bytes": 291941,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2024.b1",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2024.b1@5ab81d14a9b6",
+   "sha256": "5ab81d14a9b69bda3f77016290f44eb6377d54d36f5c7e61a243efd360dd020e",
+   "bytes": 275798,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2024.b2",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2024.b2@5ba433257c3f",
+   "sha256": "5ba433257c3ffabac2e30a010568ccc81012b433a4889a7fa4b022e04b75ece7",
+   "bytes": 276224,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2024.b3",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2024.b3@cb1c37b50f21",
+   "sha256": "cb1c37b50f21ae52873eed4765982d1e33ac7db39f1b932cb528b70114ada090",
+   "bytes": 280632,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2024.b4",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2024.b4@ad0f4caecf2f",
+   "sha256": "ad0f4caecf2f0a884584ee8955ee88101276a063b881e9e986c4d78edc1db92b",
+   "bytes": 286185,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2024.b5",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2024.b5@a31f8da7f14d",
+   "sha256": "a31f8da7f14d60ea3eb4e4e268d85d2b0cf47641b2a6a3da6229f7e9447c99b4",
+   "bytes": 279647,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2024.b6",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2024.b6@c5a0f15bc942",
+   "sha256": "c5a0f15bc942959ebffae2ba48bcd7ab6f56723f9a8434bbd6d57057c1bd763f",
+   "bytes": 293356,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2025.b1",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2025.b1@9a9eca65b917",
+   "sha256": "9a9eca65b917e905ffae35506469cc9ec578216e318b8e5dacb1fe99378d21af",
+   "bytes": 174988,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2025.b2",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2025.b2@f34f1a3a5fe5",
+   "sha256": "f34f1a3a5fe5bf0deabcd26b312ecc2f12ccc8f0c43821717ecf32ad9cabcae8",
+   "bytes": 282208,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2025.b3",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2025.b3@f9a1431fad43",
+   "sha256": "f9a1431fad435294cad2438f41d51402394a4c42f75bd92b4df218d7b81629a6",
+   "bytes": 289329,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2025.b4",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2025.b4@3e1fa2f21834",
+   "sha256": "3e1fa2f218341f7b4fdf0db3f1d4a452bad55191776049d96d44442681e6c993",
+   "bytes": 287193,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2025.b5",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2025.b5@8ba12e066638",
+   "sha256": "8ba12e0666382d6ffd59527414a40303a9dffc8ae8f6f8b0b74a1f4a628a5852",
+   "bytes": 290538,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2025.b6",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2025.b6@222c0529c903",
+   "sha256": "222c0529c903b6e3402c682228b7d1d677247be689a208a4ae84300a0e2c8f52",
+   "bytes": 298854,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2026.b1",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2026.b1@c45f0132f7ae",
+   "sha256": "c45f0132f7aef0e461c0951a97f9fca1110b7d7f428b5e96f2ca4d381a5b4df5",
+   "bytes": 276876,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2026.b2",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2026.b2@452444839ae7",
+   "sha256": "452444839ae724091a60633e9594e42a924dbe7fe1fb66fa3b2751b043786b80",
+   "bytes": 285666,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2026.b3",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2026.b3@0704e247b38c",
+   "sha256": "0704e247b38c24ded5b49381964256782917218754f76bad061acc931616676d",
+   "bytes": 286525,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  },
+  {
+   "dataset": "tesouro.siconfi.rreo.uniao.anexo01.2026.b4",
+   "source_id": "tesouro.siconfi.rreo.uniao.anexo01.2026.b4@e17522e1900a",
+   "sha256": "e17522e1900a5584643d045b522974e34db3d98d09a35753d090f1369ea1d033",
+   "bytes": 286122,
+   "published_on": null,
+   "published_note": "o SICONFI não informa a data de divulgação na API"
+  }
+ ],
+ "guarantees": [
+  {
+   "name": "G1 nenhum flow_id repetido",
+   "ok": true,
+   "failures": 0,
+   "sample": [],
+   "detail": {}
+  },
+  {
+   "name": "G2 toda linha tem origem, destino diferente, tipo, fonte e método de localização",
+   "ok": true,
+   "failures": 0,
+   "sample": [],
+   "detail": {}
+  },
+  {
+   "name": "G3 cada divulgação fecha com o total que ela mesma publica",
+   "ok": true,
+   "failures": 0,
+   "sample": [],
+   "detail": {
+    "rtn_parts_vs_totals_worst_reais": "0.00005475",
+    "rtn_lines_1_2_4_worst_cents": 3,
+    "rreo_checkpoints": 46,
+    "rreo_whole_reais_years": [
+     2019,
+     2020,
+     2021,
+     2022,
+     2023
+    ],
+    "rreo_worst_gap_cents_outside_known": 50,
+    "rreo_known_gaps_cents": {
+     "2023-10-01": -96,
+     "2023-12-01": -379
+    }
+   }
+  },
+  {
+   "name": "G4 as partes de cada linha oficial somam a linha, ao centavo (estados, União e sem informação de estado dão o total)",
+   "ok": true,
+   "failures": 0,
+   "sample": [],
+   "detail": {
+    "lines_checked": 12674
+   }
+  },
+  {
+   "name": "G5 o nó gov:uniao bate com o RTN e com o Banco Central, linha por linha",
+   "ok": true,
+   "failures": 0,
+   "sample": [],
+   "detail": {
+    "rtn_lines_checked": 14996,
+    "rtn_worst_cents_by_kind": {
+     "total": 3,
+     "leaf": 0,
+     "derived": 0,
+     "result": 4,
+     "memo": 0
+    },
+    "bcb_sgs_4606_worst_cents": 510564,
+    "bcb_sgs_4639_worst_cents": 593272,
+    "bcb_sgs_4573_worst_cents": 498371
+   }
+  },
+  {
+   "name": "G6 todo par salário e imposto retido mora no mesmo estado",
+   "ok": true,
+   "failures": 0,
+   "sample": [],
+   "detail": {
+    "pairs": 92
+   }
+  },
+  {
+   "name": "G7 fluxo entre governos nunca entra numa medida de gasto",
+   "ok": true,
+   "failures": 0,
+   "sample": [],
+   "detail": {}
+  }
+ ],
+ "planted_errors": {
+  "duplicate_row": {
+   "target": {
+    "line": "1.1.05",
+    "period": "2026-08-01",
+    "amount_cents": 3738179106850
+   },
+   "caught_by": [
+    "G1 nenhum flow_id repetido",
+    "G3 cada divulgação fecha com o total que ela mesma publica",
+    "G4 as partes de cada linha oficial somam a linha, ao centavo (estados, União e sem informação de estado dão o total)",
+    "G5 o nó gov:uniao bate com o RTN e com o Banco Central, linha por linha"
+   ]
+  },
+  "deleted_row": {
+   "target": {
+    "line": "2.1",
+    "period": "2026-08-01",
+    "amount_cents": 3881647635906
+   },
+   "caught_by": [
+    "G3 cada divulgação fecha com o total que ela mesma publica",
+    "G4 as partes de cada linha oficial somam a linha, ao centavo (estados, União e sem informação de estado dão o total)",
+    "G5 o nó gov:uniao bate com o RTN e com o Banco Central, linha por linha"
+   ]
+  },
+  "flipped_sign": {
+   "target": {
+    "line": "4.3.10",
+    "period": "2026-08-01",
+    "amount_cents": 554298656000
+   },
+   "caught_by": [
+    "G3 cada divulgação fecha com o total que ela mesma publica",
+    "G4 as partes de cada linha oficial somam a linha, ao centavo (estados, União e sem informação de estado dão o total)",
+    "G5 o nó gov:uniao bate com o RTN e com o Banco Central, linha por linha"
+   ]
+  },
+  "split_pair": {
+   "target": {
+    "line": "1.4.3",
+    "period": "2026-08-01",
+    "amount_cents": 169684363301
+   },
+   "caught_by": [
+    "G6 todo par salário e imposto retido mora no mesmo estado"
+   ]
+  },
+  "dtt_paid_shift": {
+   "target": {
+    "line": "25000.75101.0455.90|paid",
+    "period": "2022-05-01",
+    "amount_cents": 2693702647329,
+    "moved_cents": 1000
+   },
+   "caught_by": [
+    "G3 cada divulgação fecha com o total que ela mesma publica"
+   ]
+  },
+  "rtn_line_and_flow_shift": {
+   "target": {
+    "line": "9",
+    "period": "2022-11-01",
+    "amount_cents": 4204171357087,
+    "moved_cents": 2000000
+   },
+   "caught_by": [
+    "G5 o nó gov:uniao bate com o RTN e com o Banco Central, linha por linha"
+   ]
+  }
+ },
+ "flows_by_type": {
+  "court_order": 92,
+  "dividend_royalty": 329,
+  "interest": 592,
+  "lending": 368,
+  "mixed_spending": 1491,
+  "other_revenue": 300,
+  "public_payroll_gross": 276,
+  "public_payroll_withholding": 92,
+  "purchase": 184,
+  "social_benefit": 1091,
+  "subsidy": 1048,
+  "tax": 1985,
+  "transfer_to_society": 230,
+  "transfer_union_to_subnational": 703
+ },
+ "flow_before": {
+  "rows": 8781,
+  "sum_cents": 4297671103745857,
+  "id_hash": 7924407866924919040
+ },
+ "flow_after": {
+  "rows": 8781,
+  "sum_cents": 4297671103745857,
+  "id_hash": 7924407866924919040
+ },
+ "union_account_by_year_cents": {
+  "2019": {
+   "revenue": 163560786223003,
+   "transfers_to_subnationals": 28833076398146,
+   "revenue_net": 134727709824857,
+   "primary_spending": 144234184493975,
+   "primary_result": -9506474669118,
+   "primary_result_below_line": -8889890468163,
+   "nominal_interest": -31011506477194,
+   "nominal_result": -39901396945357,
+   "interest_paid_cash": 28208618207024
+  },
+  "2020": {
+   "revenue": 146809613723050,
+   "transfers_to_subnationals": 26379804789752,
+   "revenue_net": 120429808933298,
+   "primary_spending": 194755290693737,
+   "primary_result": -74325481760439,
+   "primary_result_below_line": -74526586568632,
+   "nominal_interest": -26665722489966,
+   "nominal_result": -101192309058598,
+   "interest_paid_cash": 34467097057536
+  },
+  "2021": {
+   "revenue": 193264967962274,
+   "transfers_to_subnationals": 35354683491182,
+   "revenue_net": 157910284471092,
+   "primary_spending": 161417077920128,
+   "primary_result": -3506793449036,
+   "primary_result_below_line": -3587217588189,
+   "nominal_interest": -40728223516923,
+   "nominal_result": -44315441105112,
+   "interest_paid_cash": 25635663232124
+  },
+  "2022": {
+   "revenue": 231330542584203,
+   "transfers_to_subnationals": 45720387293139,
+   "revenue_net": 185610155291064,
+   "primary_spending": 180969309130058,
+   "primary_result": 4640846161006,
+   "primary_result_below_line": 5494666333934,
+   "nominal_interest": -50323439651792,
+   "nominal_result": -44828773317858,
+   "interest_paid_cash": 24733996793680
+  },
+  "2023": {
+   "revenue": 235343224302850,
+   "transfers_to_subnationals": 45200908628278,
+   "revenue_net": 190142315674572,
+   "primary_spending": 212992253803840,
+   "primary_result": -22849938129268,
+   "primary_result_below_line": -26453276861239,
+   "nominal_interest": -61454808589738,
+   "nominal_result": -87908085450977,
+   "interest_paid_cash": 24066280913532
+  },
+  "2024": {
+   "revenue": 267944160626551,
+   "transfers_to_subnationals": 51765400423514,
+   "revenue_net": 216178760203037,
+   "primary_spending": 220471129357093,
+   "primary_result": -4292369154056,
+   "primary_result_below_line": -4536433318061,
+   "nominal_interest": -85520634790094,
+   "nominal_result": -90057068108155,
+   "interest_paid_cash": 34786711390685
+  },
+  "2025": {
+   "revenue": 290227456406460,
+   "transfers_to_subnationals": 56971926263312,
+   "revenue_net": 233255530143148,
+   "primary_spending": 239424961041249,
+   "primary_result": -6169430898101,
+   "primary_result_below_line": -5868709986693,
+   "nominal_interest": -89187989015513,
+   "nominal_result": -95056699002206,
+   "interest_paid_cash": 35069226065913
+  },
+  "2026 (jan a 08)": {
+   "revenue": 208162787651634,
+   "transfers_to_subnationals": 41189259007630,
+   "revenue_net": 166973528644004,
+   "primary_spending": 176460476504242,
+   "primary_result": -9486947860238,
+   "primary_result_below_line": -9708674222586,
+   "nominal_interest": -71440256107371,
+   "nominal_result": -81148930329957,
+   "interest_paid_cash": 41581166727472
+  }
+ },
+ "unassigned_by_year_cents": {
+  "gov:sub:br": {
+   "2019": 29432434148488,
+   "2020": 35161457439833,
+   "2021": 37462129083624,
+   "2022": 49798810062339,
+   "2023": 50918766068097,
+   "2024": 55797100174930,
+   "2025": 62035446455123,
+   "2026": 44529364736647
+  },
+  "soc:unknown": {
+   "2019": 304984103385876,
+   "2020": 330704842040001,
+   "2021": 350905561530883,
+   "2022": 407360953779744,
+   "2023": 442189331736106,
+   "2024": 483901241597116,
+   "2025": 524098051598055,
+   "2026": 380882784692001
+  }
+ },
+ "gap_to_union_json_cents": {
+  "revenue": 0,
+  "transfers_to_subnationals": 1,
+  "revenue_net": 1,
+  "primary_spending": 3,
+  "primary_result": 3,
+  "primary_result_below_line": 4,
+  "nominal_interest": 0,
+  "nominal_result": 4
+ },
+ "db_bytes": 14692352
+}

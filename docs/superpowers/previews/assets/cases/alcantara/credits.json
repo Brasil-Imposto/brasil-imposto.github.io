@@ -1,0 +1,31 @@
+{
+ "launch-towers-cla-2021.jpg": {
+  "file": "launch-towers-cla-2021.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Centro_de_Lan%C3%A7amento_de_Alc%C3%A2ntara_(51187445531).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "author": "Neila Rocha (ASCOM/SEAPC/MCTI), Ministério da Ciência, Tecnologia e Inovações",
+  "date": "2021-05-13",
+  "description": "Torres do setor de lançamento do Centro de Lançamento de Alcântara (CLA), com placas da Aeronáutica, da AEB e de outros órgãos, em 13/05/2021",
+  "modification": "Reduzida de 6720 x 4480 px para 960 x 639 px, sem recorte; distribuída sob a mesma licença CC BY 2.0",
+  "width_px": 960,
+  "height_px": 639,
+  "gps": null,
+  "bytes": 157744
+ },
+ "vls-pad-wreck-2003.jpg": {
+  "file": "vls-pad-wreck-2003.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:2003_Alc%C3%A2ntara_VLS_accident.jpg",
+  "license": "Attribution (Agência Brasil)",
+  "license_url": "https://commons.wikimedia.org/wiki/Template:Attribution",
+  "author": "Rose Brasil/ABr, Agência Brasil",
+  "date": "2003-08-25",
+  "description": "Estrutura da plataforma de lançamento do VLS destruída no acidente de 22/08/2003, foto de 25/08/2003",
+  "modification": "Reduzida de 1000 x 656 px para 960 x 629 px, sem recorte",
+  "source_gallery": "https://agenciabrasil.ebc.com.br/galeria/2003-08-25/25-de-agosto-de-2003?foto=3fde475346ce0",
+  "width_px": 960,
+  "height_px": 629,
+  "gps": null,
+  "bytes": 161142
+ }
+}

@@ -1,0 +1,1666 @@
+{
+ "slug": "br-470-duplicacao",
+ "collected_on": "2026-09-30",
+ "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_obras-sc-br-470-duplicacao_2026-09-30.md",
+ "rules": "Somente papéis e achados oficiais, com as palavras do órgão. Nenhuma inferência de irregularidade. Valores nominais salvo quando marcados como reais de dez/2024. Somas marcadas como computed são desta pesquisa.",
+ "work": {
+  "name": "Duplicação da BR-470/SC entre Navegantes e Indaial (km 0,00 a 73,18)",
+  "municipalities_ibge": [
+   {
+    "code": "4211306",
+    "name": "Navegantes"
+   },
+   {
+    "code": "4207106",
+    "name": "Ilhota"
+   },
+   {
+    "code": "4205902",
+    "name": "Gaspar"
+   },
+   {
+    "code": "4202404",
+    "name": "Blumenau",
+    "note": "trecho entre Gaspar e Indaial; o nome não aparece nos documentos oficiais lidos"
+   },
+   {
+    "code": "4207502",
+    "name": "Indaial"
+   }
+  ],
+  "level": "federal",
+  "agency": {
+   "name": "DNIT, Superintendência Regional em Santa Catarina",
+   "uasg": "393013"
+  },
+  "status": "Em execução nos quatro lotes. O TCU registrava 79% de execução financeira no quadro de 2024; contratos vigentes até 2026 e 2027.",
+  "dates": {
+   "start": "2013-07-30",
+   "start_note": "Ordem de serviço do lote 3 (TCU, Acórdão 1886/2022) e início de vigência dos lotes 3 e 4 (DOU 26/07/2013)",
+   "planned_end": "2018-08-04",
+   "planned_end_note": "Fim de vigência mais tardio nos extratos originais (lote 2); os lotes 3 e 4 terminavam em 06/10/2017 e o lote 1 em 22/04/2018",
+   "planned_end_current": "2027-11-04",
+   "actual_end": null,
+   "tcu_initial_vs_current_term_years": [
+    4.9,
+    13.6
+   ]
+  },
+  "length_km": 73.18,
+  "description": "Obra do governo federal (DNIT) que transforma em pista dupla os primeiros 73 km da BR-470, de Navegantes, no litoral, até Indaial, passando por Ilhota, Gaspar e Blumenau, no Vale do Itajaí. Além da segunda pista, inclui restaurar a pista antiga, ruas laterais para o trânsito local e viadutos e pontes. Foi licitada em 2012 e 2013, em quatro lotes, e começou em julho de 2013 para durar cerca de quatro anos; em 2026 os contratos ainda estão em andamento, com prazo até 2027.",
+  "siconfi_function": "Transporte"
+ },
+ "contracts": [
+  {
+   "group": "obra",
+   "lot": "1",
+   "number": "01093/2013",
+   "km_from": 0.0,
+   "km_to": 18.61,
+   "length_km": 18.61,
+   "object": "CONTRATO DE EMPREITADA POR PREÇO GLOBAL QUE ENTRE SI FAZEM, DE UM LADO, COMO CONTRATANTE, O DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTES, POR MEIO DE SUA SUPERINTENDÊNCIA REGIONAL EM SANTA CATARINA E, DO OUTRO COMO CONTRATADO, O CONSÓRCIO AZZA - SOGEL, PARA EXECUÇÃO DOS SERVIÇOS DAS OBRAS DE DUPLICAÇÃO E RESTAURAÇÃO DA PISTA EXISTENTE, IMPLANTAÇÃO DE RUASLATERAIS, RECUPERAÇÃO/REFORÇO/REABILITAÇÃO E CONSTRUÇÃO DE OAE'S NA RODOVIA BR-470/SC, SEGMENTO DO KM 0,00 AO KM 18,61, LOTE 01.",
+   "company": "Consórcio Azza-Sogel (2014); Sucesso-Azza-Sogel (2017); Planaterra-Azza-Sogel (2020); Planaterra/Sogel (2025)",
+   "company_in_record": "PLANATERRA-TERRAPLENAGEM E PAVIMENTACAO LTDA",
+   "cnpj_in_record": "82743832000162",
+   "cnpj_history": [
+    {
+     "cnpj": "85115053000100",
+     "note": "Terraplenagem Azza (CNPJ do contrato em 2014)"
+    },
+    {
+     "cnpj": "09588906000143",
+     "note": "Construtora Sucesso S.A. (líder a partir do TA 4/2017)"
+    },
+    {
+     "cnpj": "82743832000162",
+     "note": "Planaterra (líder a partir do TA 8/2020)"
+    }
+   ],
+   "signed_on": "2014-02-13",
+   "tender": "RDC presencial 200/2013",
+   "process": "50616.000597/2013-55",
+   "term_original_in_dou": "Vigência: 13/02/2014 a 22/04/2018. Valor Total: R$192.987.332,27. Data de Assinatura: 13/02/2014.",
+   "end_current": "2027-03-27",
+   "value_original_brl": 192987332.27,
+   "value_current_initial_prices_brl": 235771658.01,
+   "value_global_current_brl": 235771658.01,
+   "value_global_note": "O registro mostra só o valor a preços iniciais; os reequilíbrios de asfalto deste lote (2021 a 2023) não somam valor global no registro.",
+   "price_base_month": "2014-02",
+   "price_base_note": "mês de assinatura",
+   "amendments": {
+    "termos_aditivos": 27,
+    "apostilamentos": 0,
+    "ultimo_ato": "2026-06-18",
+    "value_changes": [
+     {
+      "date": "2017-03-24",
+      "number": "00001/2017",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E REVISÃO DE PROJETO EM FASE DE OBRAS COM REFLEXO FINANCEIRO NEGATIVO NO MONTANTE DE R$ 662.937,82, FAZENDO COM QUE O VALOR A PREÇOS INICIAIS DO CONTRATO PASSE DE R$ 192.987.332,26 PARA R$ 192.324.394,44."
+     },
+     {
+      "date": "2017-09-25",
+      "number": "00002/2017",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO",
+      "text": "2º TERMO ADITIVO DE RERRATIFICAÇÃO E ADEQUAÇÃO DOS CRITÉRIOS DE PAGAMENTO AO CONTRATO10/93, TENDO COMO CONTRATADO O CONSÓRCIO AZZA-SOGEL."
+     },
+     {
+      "date": "2017-10-11",
+      "number": "00003/2017",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E ALTERAÇÃO DA CONSTITUIÇÃO E PARTICIPAÇÃO DAS EMPRESAS NO CONSÓRCIO EM FASE DE OBRAS, COM A INCLUSÃO DA CONSTRUTORA SUCESSO S.A. A QUALIFICAÇÃO TÉCNICA E ECONÔMICO-FINANCEIRA PREVISTA NO EDITALPERMANECERÁ ATENDIDA. A LIDERANÇA DO CONSÓRCIOSUCESSO-AZZA-SOGEL É DA EMPRESA SUCESSO, CABENDO AO SR. JOÃO MARCELLO DE MACÊDO CLAUDINO A REPRESENTAÇÃO LEGAL, E AO SR. TULIO MARCELO DA COSTA BEZERRA, AVELINO ALVAREZ E JOÃO MIGUEL SEQUEIRA BASTIAN A RESPONSABILIDADE TÉCNICA."
+     },
+     {
+      "date": "2017-11-16",
+      "number": "00004/2017",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, FORNECEDOR",
+      "text": "TERMO ADITIVO DE ALTERAÇÃO DO CNPJ DO CONTRATO 1093/2013, PASSANDO O CONSÓRCIO SUCESSO-AZZA-SOGEL A UTILIZAR O CNPJ DA EMPRESA LÍDER, CONSTRUTORA SUCESSO, INSCRITA NO CNPJ SOB O N.º 09.588.906/0001-43."
+     },
+     {
+      "date": "2018-02-27",
+      "number": "00005/2018",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, VIGÊNCIA, FORNECEDOR",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E PRORROGAÇÃO DE PRAZO POR MAIS 730 (SETECENTOS E TRINTA) DIAS CONSECUTIVOS, SENDO QUE O PRAZO DE EXECUÇÃO DOS SERVIÇOS PASSA DE 23/02/2018 PARA 23/02/2020 E O PRAZO DE VIGÊNCIA DO CONTRATO PASSA DE 22/04/2018 PARA 21/04/2020."
+     },
+     {
+      "date": "2019-09-02",
+      "number": "00006/2019",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, VIGÊNCIA, FORNECEDOR",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E REVISÃO DE PROJETO EM FASE DE OBRAS, COM ADEQUAÇÃO DE QUANTIDADES E INCLUSÃO DE PREÇOS NOVOS, COM REFLEXO FINANCEIRO POSITIVO AO CONTRATO, NO MONTANTE DE R$ 8.084.632,26, A PREÇOS INICIAIS, QUE REPRESENTAM 4,189% DO CONTRATO ORIGINAL E REFLETEM EM 3,846% DE REFLEXO ACUMULADO, SENDO QUEO VALOR CONTRATUAL PASSA DE R$ 192.324.394,44 PARA R$ 200.409.026,70."
+     },
+     {
+      "date": "2020-03-18",
+      "number": "00007/2020",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, VIGÊNCIA, FORNECEDOR",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E ALTERAÇÃO DA CONSTITUIÇÃO E PARTICIPAÇÃO DAS EMPRESAS NO CONSÓRCIO, SUBSTITUINDO A CONSTRUTORA SUCESSO S.A. PELA EMPRESA PLANATERRA - TERRAPLENAGEM E PAVIMENTAÇÃO LTDA., QUE ATUARÁ COMO LÍDER DO CONSÓRCIO QUE PASSA A SER DENOMINADO PLANATERRA-AZZA-SOGEL, E PRORROGAÇÃO DO PRAZO DE EXECUÇÃO DE 730 DIAS CONSECUTIVOS, QUE PASSA DE 23/02/2020 PARA 22/02/2022, E PRORROGAÇÃO DO PRAZO DE VIGÊNCIA DE 762 DIAS CONSECUTIVOS, QUE PASSADE 21/04/2020 PARA 23/05/2022."
+     },
+     {
+      "date": "2020-06-19",
+      "number": "00008/2020",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, VIGÊNCIA, FORNECEDOR",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E ALTERAÇÃO DO CNPJ DO CONSÓRCIO PLANATERRA-AZZA-SOGEL, QUE PASSA A UTILIZAR O CNPJ DA EMPRESA LÍDER, PLANATERRA, CNPJ N.º 82.743.832/0001-62."
+     },
+     {
+      "date": "2020-07-08",
+      "number": "00009/2020",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, VIGÊNCIA, FORNECEDOR",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E REVISÃO DE PROJETO EM FASE DE OBRAS AO CONTRATO, PARA ADEQUAR O PROJETO DE RESTAURAÇÃO DO PAVIMENTO NA PISTA EXISTENTE ENTRE O KM 0,00 E O KM 7,00 DA RODOVIA BR-470, COM REFLEXO FINANCEIRO POSITIVO NO MONTANTE DE R$ 2.339.633,18, SENDO QUEO VALOR CONTRATUAL PASSA DE R$ 200.409.026,70 PARA R$ 202.748.659,88."
+     },
+     {
+      "date": "2021-06-29",
+      "number": "00010/2021",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO, REAJUSTE",
+      "text": "REEQUILÍBRIO ECONÔMICO FINANCEIRO AO CONTRATO 1093/2013, DECORRENTE DO AUMENTO DOS PREÇOS DOS MATERIAIS BETUMINOSOS. O PREÇO CONTRATUAL, À PREÇOS INICIAIS, MANTÉM-SE R$ 202.748.659,87 (DUZENTOS E DOIS MILHÕES, SETECENTOS E QUARENTA E OITO MIL, SEISCENTOS E CINQUENTA E NOVE REAIS E OITENTA E SETE CENTAVOS). SENDO INCLUÍDA UMA PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO NO VALOR DE R$ 2.399.165,65 (DOIS MILHÕES, TREZENTOS E NOVENTA E NOVE MIL, CENTO E SESSENTA E CINCO REAIS E SESSENTA E CINCO CENTAVOS), DECORRENTE DA ELEVAÇÃO EXTRAORDINÁRIA E IMPREVISÍVEL DOS CUSTOS DE AQUISIÇÃO DOS MATERIAIS BETUMI"
+     },
+     {
+      "date": "2022-03-31",
+      "number": "00014/2022",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E ADEQUAÇÃO DE QUANTITATIVOS COM REFLEXO FINANCEIRO POSITIVO, DECORRENTE DA 4ª (QUARTA) REVISÃO DE PROJETO EM FASE DE OBRAS DO CONTRATO, JUSTIFICADAS PELA NECESSIDADE DE ADEQUAR AS QUANTIDADES DE SERVIÇO ÀS REAIS NECESSIDADES DA OBRA, VISANDO A SUA CONCLUSÃO, SENDO QUE O VALOR CONTRATUAL ATUAL A PREÇOS INICIAIS PASSARÁ DE R$ 202.748.659,88 (DUZENTOS E DOIS MILHÕES SETECENTOS E QUARENTA E OITO MIL SEISCENTOS E CINQUENTA E NOVE REAIS E OITENTA E OITO CENTAVOS) PARA R$ 219.024.297,67 (DUZENTOS E DEZENOVE MILHÕES VINTE E QUATRO MIL DUZENTOS E NOVENTA E SETE REAIS E "
+     },
+     {
+      "date": "2022-04-11",
+      "number": "00015/2022",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E REEQUILÍBRIO ECONÔMICO-FINANCEIRO DO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, OBJETIVANDO MANTER O EQUILÍBRIO ECONÔMICO-FINANCEIRO, SENDO QUE O VALOR DO PRESENTE CONTRATO, À PREÇOS INICIAIS, É DE R$ 219.024.297,67 (DUZENTOS E DEZENOVE MILHÕES VINTE E QUATRO MIL DUZENTOS E NOVENTA E SETE REAIS E SESSENTA E SETE CENTAVOS), SENDO INCLUÍDA UMA PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO NO VALOR DE R$ 1.471.337,25 (UM MILHÃO QUATROCENTOS E SETENTA E UM MIL TREZENTOS E TRINTA E SETE REAIS E VINTE E CINCO CENTAVOS), DECORRENTE DA ELEVAÇÃO EXTRAO"
+     },
+     {
+      "date": "2022-08-05",
+      "number": "00016/2022",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO DECORRENTE DO REEQUILÍBRIO ECONÔMICO FINANCEIRO AO CONTRATO ORIUNDO DA ELEVAÇÃO EXTRAORDINÁRIA E IMPREVISÍVEL DOS CUSTOS DE AQUISIÇÃO DOS MATERIAIS BETUMINOSOS, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, SENDO QUE O VALOR GLOBAL (PI+R) DO PRESENTE CONTRATO É DE R$ 317.072.381,93 (TREZENTOS E DEZESSETE MILHÕES, SETENTA E DOIS MIL, TREZENTOS E OITENTA E UM REAIS E NOVENTA E TRÊS CENTAVOS), SENDO R$ 219.024.297,67 (DUZENTOS E DEZENOVE MILHÕES, VINTE E QUATRO MIL, DUZENTOS E NOVENTA E SETE REAIS E SESSENTA E SETE CENTAVOS) A PREÇOS INICIAIS, R$ 98.048.0"
+     },
+     {
+      "date": "2023-01-19",
+      "number": "00018/2023",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO DECORRENTE DO REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, TENDO EM VISTA OS AUMENTOS PROCEDIDOS PELA PETROBRAS NOS ITENS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), SENDO QUE O VALOR GLOBAL (PI+R) DO PRESENTE CONTRATO À PREÇOS É DE R$ 364.071.723,73 (TREZENTOS E SESSENTA E QUATRO MILHÕES, SETENTA E UM MIL, SETECENTOS E VINTE E TRÊS REAIS E SETENTA E TRÊS CENTAVOS), SENDO R$ 219.024.297,67 (DUZENTOS E DEZENOVE MILHÕES, VINTE E QUATRO MIL, DUZENTOS E NOVENTA E SETE REAIS E SESSENTA E SETE CENTAV"
+     },
+     {
+      "date": "2023-04-28",
+      "number": "00019/2023",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E AUMENTO DE VALOR EM DECORRÊNCIA DA REVISÃO DE PROJETO EM FASE DE OBRAS AO CONTRATO, JUSTIFICADA PELA NECESSIDADE DE ADEQUAR AS QUANTIDADES DE SERVIÇO ÀS REAIS NECESSIDADES DA OBRA, VISANDO A SUA CONCLUSÃO, SENDO QUE O REFLEXO FINANCEIRO ACUMULADO NESTA 5ª (QUINTA) REVISÃO DE PROJETO EM FASE DE OBRAS É DE 4,770%, PASSANDO O VALOR À PREÇOS INICIAIS CONTRATUAL DE R$ 219.024.297,67 (DUZENTOS E DEZENOVE MILHÕES, VINTE E QUATRO MIL DUZENTOS E NOVENTA E SETE REAIS E SESSENTA E SETE CENTAVOS) PARA R$ 228.229.973,20 (DUZENTOS E VINTE E OITO MILHÕES, DUZENTOS E VINTE E "
+     },
+     {
+      "date": "2023-09-01",
+      "number": "00020/2023",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO DECORRENTE DO REEQUILÍBRIO ECONÔMICO FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, TENDO EM VISTA AS DIMINUIÇÕES PROCEDIDAS PELA PETROBRAS NOS ITENS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), SENDO QUE O VALOR GLOBAL (PI+R) DO PRESENTE CONTRATO É DE R$ 373.277.399,26 (TREZENTOS E SETENTA E TRÊS MILHÕES, DUZENTOS E SETENTA E SETE MIL, TREZENTOS E NOVENTA E NOVE REAIS E VINTE E SEIS CENTAVOS), SENDO R$ 228.229.973,20 (DUZENTOS E VINTE E OITO MILHÕES, DUZENTOS E VINTE E NOVE MIL, NOVECENTOS E SETENTA E TRÊS REAIS E VINT"
+     },
+     {
+      "date": "2024-12-27",
+      "number": "00022/2024",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO, REAJUSTE",
+      "text": "ADEQUAÇÃO DE QUANTITATIVOS E AUMENTO DE VALOR A PREÇOS INICIAIS, DEVIDO A 6ª REVISÃO DE PROJETO EM FASE DE OBRAS. O VALOR CONTRATUAL A PREÇOS INICIAIS (PI - VIGENTE) PASSA DE R$ 228.229.973,20, PARA R$ 228.959.670,35, FACE AO R$ 729.697,15"
+     },
+     {
+      "date": "2026-03-16",
+      "number": "00026/2026",
+      "type": "Termo Aditivo",
+      "qualification": "REAJUSTE, ACRÉSCIMO / SUPRESSÃO",
+      "text": "adequação de quantitativos e aumento de valor a preços iniciais, devido a 7ª Revisão de Projeto em Fase de Obras. O valor contratual a preços iniciais (PI - Vigente) passa de R$ 228.959.670,35 (duzentos e vinte e oito milhões, novecentos e cinquenta e nove mil, seiscentos e setenta reais e trinta e cinco centavos) para R$ 235.771.658,01 (duzentos e trinta e cinco milhões, setecentos e setenta e um mil, seiscentos e cinquenta e oito reais e um centavo), face ao acréscimo de R$ 6.811.987,66 (seis milhões, oitocentos e onze mil, novecentos e oitenta e sete reais e sessenta e seis centavos) a P.I."
+     }
+    ]
+   },
+   "status_in_record": "Ativo",
+   "sources": [
+    {
+     "doc": "Extrato no DOU, Seção 3, 14/02/2014, p. 218",
+     "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?jornal=3&pagina=218&data=14/02/2014&captchafield=firstAccess"
+    },
+    {
+     "doc": "Contratos.gov.br, histórico do contrato (API pública)",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/80967/historico"
+    },
+    {
+     "doc": "Contratos.gov.br, contratos da UG 393013 (SR/DNIT-SC)",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/ug/393013"
+    },
+    {
+     "doc": "Registro anterior do mesmo contrato",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/106726/historico"
+    }
+   ]
+  },
+  {
+   "group": "obra",
+   "lot": "2",
+   "number": "00355/2014",
+   "km_from": 18.61,
+   "km_to": 44.87,
+   "length_km": 26.26,
+   "object": "CONTRATO DE EMPREITADA POR PREÇO GLOBAL QUE ENTRE SI FAZEM, DE UM LADO, COMO CONTRATANTE, O DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANPORTES, POR MEIO DE SUA SUPERINTENDÊNCIAREGIONAL EM SANTA CATARINA E, DO OUTRO, COMO CONTRATADO, O CONSÓRCIO IVAÍ-SETEP, PARA EXECUÇÃO DAS OBRAS DE DUPLICAÇÃO E RESTAURAÇÃO DA PISTA EXISTENTE, IMPLANTAÇÃO DE RUAS LATERAIS, RECUPERAÇÃO/REFORÇO/REABILITAÇÃO E CONSTRUÇÃO DE OAE'S NA BR-470/SC, NO SEGMENTO DO KM 18,61 AO KM44,87, LOTE 2.",
+   "company": "Consórcio Ivaí-Setep (Ivaí líder; participação 50%/50% desde o TA 1/2015)",
+   "company_in_record": "IVAI ENGENHARIA DE OBRAS S.A.",
+   "cnpj_in_record": "76592542000162",
+   "cnpj_history": [
+    {
+     "cnpj": "76592542000162",
+     "note": "Ivaí Engenharia de Obras S.A. (líder)"
+    },
+    {
+     "cnpj": "83665141000150",
+     "note": "Setep Construções S.A."
+    }
+   ],
+   "signed_on": "2014-05-28",
+   "tender": "RDC presencial 222/2013",
+   "process": "50616.002153/2013-54",
+   "term_original_in_dou": "Vigência: 28/05/2014 a 04/08/2018. Valor Total: R$293.590.000,00.",
+   "end_current": "2026-11-15",
+   "value_original_brl": 293590000.0,
+   "value_current_initial_prices_brl": 364979641.58,
+   "value_global_current_brl": 528670647.76,
+   "value_global_note": "Valor global no registro (preços iniciais + reajustamento, inclusive reequilíbrios pelo preço do asfalto).",
+   "price_base_month": "2013-05",
+   "price_base_note": "data-base informada pelo TCU (Acórdão 1704/2019): maio/2013",
+   "amendments": {
+    "termos_aditivos": 28,
+    "apostilamentos": 0,
+    "ultimo_ato": "2026-09-28",
+    "value_changes": [
+     {
+      "date": "2015-09-15",
+      "number": "00001/2015",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E ALTERAÇÃO DO INSTRUMENTO PARTICULAR DE CONSTITUIÇÃODE CONSÓRCIO FORMADO PELAS EMPRESAS SETEP E IVAÍ (LÍDER), PASSANDO A TER A SEGUINTE PARTICIPAÇÃO PERCENTUAL, RESPECTIVAMENTE: 50,00% E 50,00%, EM OPOSIÇÃO AOS 55,00% E 45,00% ORIGINAIS."
+     },
+     {
+      "date": "2016-07-27",
+      "number": "00002/2016",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E EXCLUSÃO DE RESPONSÁVEIS TÉCNICOS E ALTERAÇÃO DE REPRESENTANTE LEGAL DO CONTRATO, PROMOVENDO A EXCLUSÃO DO SR. ÂNGELO AUGUSTO MENDES, QUE ASSINA COMO REPRESENTANTE LEGAL E RESPONSÁVEL TÉCNICO DO CONTRATADO E DOS SRS. AYRTON RUY GIUBLIN E PAULO TADEU DZIEDRICKI, QUE ASSINAM COMO RESPONSÁVEIS TÉCNICOS DO CONTRATADO E INCLUIR O SR. GUILHERME HAESBAERT DE PAIVA, COMO REPRESENTANTE LEGAL DO CONTRATADO."
+     },
+     {
+      "date": "2017-01-17",
+      "number": "00003/2017",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E ADEQUAÇÃO DOS CRITÉRIOS DE PAGAMENTO AO CONTRATO, COM O INTUITO DE DETALHAR OS SERVIÇOS CONTRATADOS E SEUS RESPECTIVOS REAJUSTAMENTOS."
+     },
+     {
+      "date": "2018-05-08",
+      "number": "00004/2018",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, VIGÊNCIA",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E PRORROGAÇÃO DE PRAZO AO CONTRATO POR MAIS 720 (SETECENTOS E VINTE) DIAS CONSECUTIVOS. SENDO QUE O PRAZO DE EXECUÇÃO É ESTENDIDO PARA 22/05/2018 PARA 11/05/2020, E O PRAZO DE VIGÊNCIA CONTRATUAL, DE 04/08/2018 PARA 24/07/2020."
+     },
+     {
+      "date": "2019-02-28",
+      "number": "00005/2019",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E 1ª REVISÃO DE PROJETO EM FASE DE OBRAS COM ADEQUAÇÃO DE QUANTIDADES, COM INCLUSÃO DE PREÇOS NOVOS E ACRÉSCIMO DE VALOR AO CONTRATO, NO MONTANTE DE R$ 33.103.421,39, A PREÇOS INICIAIS, QUE REPRESENTAM 11,28% DO CONTRATO ORIGINAL, SENDO QUE O VALOR CONTRATUAL PASSA DE R$ 293.590.000,00 PARA R$ 326.693.421,39."
+     },
+     {
+      "date": "2020-04-27",
+      "number": "00006/2020",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, VIGÊNCIA",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO, PRORROGAÇÃO DE PRAZO, POR MAIS 360 (TREZENTOS E SESSENTA) DIAS CONSECUTIVOS, PASSANDO O PRAZO DE EXECUÇÃO DE 11/05/2020 PARA 06/05/2021 E O PRAZO DE VIGÊNCIA DE 24/07/2020 PARA 19/07/2021, E 2ªREVISÃO DE PROJETO EM FASE DE OBRAS, COM ADEQUAÇÃO DE QUANTIDADES, INCLUSÃO DE PREÇOS NOVOS EACRÉSCIMO DE VALOR, NO MONTANTE DE R$ 30.470.813,10, SENDO QUE VALOR CONTRATUAL ATUAL À PREÇOS INICIAIS PASSARÁ DE R$ 326.693.421,39 PARA R$357.164.234,48."
+     },
+     {
+      "date": "2021-08-13",
+      "number": "00008/2021",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "RERRATIFICAÇÃO E REEQUILÍBRIO ECONÔMICO FINANCEIRO DO CONTRATO AO 16 00355/2014. O VALOR DO CONTRATO, À PREÇOS INICIAIS, É R$ 357.164.234,48 (TREZENTOS E CINQUENTA E SETE MILHÕES, CENTO E SESSENTA E QUATRO MIL, DUZENTOS E TRINTA E QUATRO REAIS E QUARENTA E OITO CENTAVOS), SENDO INCLUÍDA UMA PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO NO VALOR DE R$ 2.345.738,92 (DOIS MILHÕES, TREZENTOS E QUARENTA E CINCO MIL, SETECENTOS E TRINTA E OITO REAIS E NOVENTA E DOIS CENTAVOS), DECORRENTE DA ELEVAÇÃO EXTRAORDINÁRIA E IMPREVISÍVEL DOS CUSTOS DE AQUISIÇÃO DOS MATERIAIS BETUMINOSOS, REFERENTE AOS PERÍODOS DE "
+     },
+     {
+      "date": "2021-08-13",
+      "number": "00008/2021",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "RERRATIFICAÇÃO E REEQUILÍBRIO ECONÔMICO FINANCEIRO DO CONTRATO AO 16 00355/2014. O VALOR DO CONTRATO, À PREÇOS INICIAIS, É R$ 357.164.234,48 (TREZENTOS E CINQUENTA E SETE MILHÕES, CENTO E SESSENTA E QUATRO MIL, DUZENTOS E TRINTA E QUATRO REAIS E QUARENTA E OITO CENTAVOS), SENDO INCLUÍDA UMA PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO NO VALOR DE R$ 2.345.738,92 (DOIS MILHÕES, TREZENTOS E QUARENTA E CINCO MIL, SETECENTOS E TRINTA E OITO REAIS E NOVENTA E DOIS CENTAVOS), DECORRENTE DA ELEVAÇÃO EXTRAORDINÁRIA E IMPREVISÍVEL DOS CUSTOS DE AQUISIÇÃO DOS MATERIAIS BETUMINOSOS, REFERENTE AOS PERÍODOS DE "
+     },
+     {
+      "date": "2021-12-23",
+      "number": "00010/2021",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, OBJETIVANDO MANTER O EQUILÍBRIO ECONÔMICO-FINANCEIRO, TENDO EM VISTA OS AUMENTOS PROCEDIDOS PELA PETROBRAS NOS ITENS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), ADOTANDO-SE UMA PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO, REFERENTE AO PERÍODO DE MAIO DE 2021 À OUTUBRO DE 2021, SENDO QUE O VALOR DO PRESENTE CONTRATO, À PREÇOS INICIAIS, É DE R$ 357.164.234,48 (TREZENTOS E CINQUENTA E SETE MILHÕES, CENTO E SESSENTA E QUATRO MIL, DUZENTOS E TRINTA E QUATRO"
+     },
+     {
+      "date": "2022-04-11",
+      "number": "00012/2022",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E REEQUILÍBRIO ECONÔMICO-FINANCEIRO DO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, OBJETIVANDO MANTER O EQUILÍBRIO ECONÔMICO-FINANCEIRO, SENDO QUE O VALOR DO PRESENTE CONTRATO, À PREÇOS INICIAIS, É DE R$ 357.164.234,48 (TREZENTOS E CINQUENTA E SETE MILHÕES CENTO E SESSENTA E QUATRO MIL, DUZENTOS E TRINTA E QUATRO REAIS E QUARENTA E OITO CENTAVOS), SENDO INCLUÍDA UMA PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO NO VALOR DE R$ 968.509,60 (NOVECENTOS E SESSENTA E OITO MIL QUINHENTOS E NOVE REAIS E SESSENTA CENTAVOS), DECORRENTE DA ELEVAÇÃO EXTRAORD"
+     },
+     {
+      "date": "2022-08-05",
+      "number": "00013/2022",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO DECORRENTE DO REEQUILÍBRIO ECONÔMICO FINANCEIRO AO CONTRATO ORIUNDO DA ELEVAÇÃO EXTRAORDINÁRIA E IMPREVISÍVEL DOS CUSTOS DE AQUISIÇÃO DOS MATERIAIS BETUMINOSOS, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, SENDO QUE O VALOR GLOBAL (PI+R) DO PRESENTE CONTRATO, À PREÇOS INICIAIS, É DE R$ 508.422.133,32 (QUINHENTOS E OITO MILHÕES, QUATROCENTOS E VINTE E DOIS MIL, CENTO E TRINTA E TRÊS REAIS E TRINTA E DOIS CENTAVOS), SENDO R$ 357.164.234,48 (TREZENTOS E CINQUENTA E SETE MILHÕES, CENTO E SESSENTA E QUATRO MIL, DUZENTOS E TRINTA E QUATRO REAIS E QUARENTA E"
+     },
+     {
+      "date": "2023-02-08",
+      "number": "00015/2023",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO DECORRENTE DO REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, TENDO EM VISTA OS AUMENTOS PROCEDIDOS PELA PETROBRAS NOS ITENS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), SENDO QUE O VALOR GLOBAL (PI+R) DO PRESENTE CONTRATO À PREÇOS É DE R$ 508.422.133,32 (QUINHENTOS E OITO MILHÕES, QUATROCENTOS E VINTE E DOIS MIL, CENTO E TRINTA E TRÊS REAIS E TRINTA E DOIS CENTAVOS), SENDO R$ 357.164.234,48 (TREZENTOS E CINQUENTA E SETE MILHÕES, CENTO E SESSENTA E QUATRO MIL, DUZENTOS E TRINTA E QUATRO REAIS E QUA"
+     },
+     {
+      "date": "2023-03-27",
+      "number": "00016/2023",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E AUMENTO DE VALOR EM DECORRÊNCIA DA REVISÃO DE PROJETO EM FASE DE OBRAS AO CONTRATO, SENDO QUE O VALOR CONTRATUAL ATUAL A PREÇOS INICIAIS PASSARÁ DE R$ 357.164.234,48 (TREZENTOS E CINQUENTA E SETE MILHÕES, CENTO E SESSENTA E QUATRO MIL, DUZENTOS E TRINTA E QUATRO REAIS E QUARENTA E OITO CENTAVOS) PARA R$ 364.979.641,58 (TREZENTOS E SESSENTA E QUATRO MILHÕES, NOVECENTOS E SETENTA E NOVE MIL, SEISCENTOS E QUARENTA E UM REAIS E CINQUENTA E OITO CENTAVOS), PERFAZENDO UM ACRÉSCIMO DE R$ 7.815.407,10 (SETE MILHÕES, OITOCENTOS E QUINZE MIL, QUATROCENTOS E SETE REAIS E"
+     },
+     {
+      "date": "2023-08-28",
+      "number": "00018/2023",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DECORRENTE DE REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, TENDO EM VISTA AS DIMINUIÇÕES PROCEDIDAS PELA PETROBRAS NOS ITENS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), SENDO QUE VALOR GLOBAL (PI+R) DO PRESENTE CONTRATO É DE R$ 527.077.739,17 (QUINHENTOS E VINTE E SETE MILHÕES, SETENTA E SETE MIL, SETECENTOS E TRINTA E NOVE REAIS E DEZESSETE CENTAVOS), SENDO R$ 364.979.641,58 (TREZENTOS E SESSENTA E QUATRO MILHÕES, NOVECENTOS E SETENTA E NOVE MIL, SETECENTOS E CINQUENTA E SETE REAIS E NOVENTA E UM CENTAVOS) A PR"
+     },
+     {
+      "date": "2024-01-09",
+      "number": "00020/2024",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO, REAJUSTE",
+      "text": "Termo Aditivo decorrente do reequilíbrio econômico-financeiro ao contrato, visando restabelecer suas condições iniciais, tendo em vista os aumentos procedidos pela Petrobras no custo de aquisição de materiais asfálticos, sendo o valor global do contrato (PI+R) de R$ 527.077.739,17 (quinhentos e vinte e sete milhões, setenta e sete mil setecentos e trinta e nove reais e dezessete centavos), dos quais R$ 364.979.641,58 (trezentos e sessenta e quatro milhões, novecentos e setenta e nove mil seiscentos e quarenta e um reais e cinquenta e oito centavos) à preços iniciais, R$ 162.098.097,59 (cento e"
+     },
+     {
+      "date": "2024-09-13",
+      "number": "00022/2024",
+      "type": "Termo Aditivo",
+      "qualification": "REAJUSTE",
+      "text": "TERMO ADITIVO DECORRENTE DE REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO E OBJETIVANDO MANTER O EQUILÍBRIO ECONÔMICO-FINANCEIRO, TENDO EM VISTA OS AUMENTOS PROCEDIDOS PELA PETROBRAS NOS ITENS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), ADOTANDO-SE UMA PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO, SENDO QUE O VALOR GLOBAL (PI+R) DO PRESENTE CONTRATO É DE R$ 527.653.976,86 (QUINHENTOS E VINTE E SETE MILHÕES, SEISCENTOS E CINQUENTA E TRÊS MIL NOVECENTOS E SETENTA E SEIS REAIS E OITENTA E SEIS CENTAVOS), SENDO R$ 364.979.641,58 (TREZEN"
+     },
+     {
+      "date": "2026-09-28",
+      "number": "00028/2026",
+      "type": "Termo Aditivo",
+      "qualification": "REAJUSTE",
+      "text": "TERMO ADITIVO DECORRENTE DE REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO E OBJETIVANDO MANTER O EQUILÍBRIO ECONÔMICO-FINANCEIRO, TENDO EM VISTA AS VARIAÇÕES DE PREÇOS EXTRAORDINÁRIAS OCORRIDAS NOS ITENS REFERENTES À AQUISIÇÃO DE MATERIAIS BETUMINOSOS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), ADOTA-SE UMA PARCELA POSITIVA DE REAJUSTAMENTO EXTRAORDINÁRIO, SENDO QUE O VALOR GLOBAL (PI+R) DO PRESENTE CONTRATO É DE R$ 528.670.647,76 (QUINHENTOS E VINTE E OITO MILHÕES, SEISCENTOS E SETENTA MIL SEISCENTOS E QUARENTA E SETE REAIS E "
+     }
+    ]
+   },
+   "status_in_record": "Ativo",
+   "sources": [
+    {
+     "doc": "Extrato no DOU, Seção 3, 29/05/2014, p. 140",
+     "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?jornal=3&pagina=140&data=29/05/2014&captchafield=firstAccess"
+    },
+    {
+     "doc": "Contratos.gov.br, histórico do contrato (API pública)",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/80916/historico"
+    },
+    {
+     "doc": "Contratos.gov.br, contratos da UG 393013 (SR/DNIT-SC)",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/ug/393013"
+    }
+   ]
+  },
+  {
+   "group": "obra",
+   "lot": "3",
+   "number": "00703/2013",
+   "km_from": 44.87,
+   "km_to": 57.78,
+   "length_km": 12.91,
+   "object": "CONTRATO DE EMPREITADA POR PREÇO GLOBAL, QUE ENTRE SI FAZEM, DE UM LADO, O DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTES, POR MEIO DE SUA SUPERINTENDÊNCIA REGIONAL EM SANTA CATARINA, E, DO OUTRO, COMO CONTRATADA, A EMPRESA SULCATARINENSE - MINERAÇÃO, ARTEFATOS DE CIMENTO, BRITAGEM E CONSTRUÇÕES LTDA., COM VISTAS À EXECUÇÃO DE OBRAS DE DUPLICAÇÃO E RESTAURAÇÃO DA PISTA EXISTENTE, IMPLANTAÇÃO DE RUAS LATERAIS, RECUPERAÇÃO, REFORÇO, REABILITAÇÃO E CONSTRUÇÃO DE OAE'S NA RODOVIA BR-470/SC, NO TRECHO: NAVEGANTES - DIVISA SC/RS, SUBTRECHO: ACESSO A GASPAR - ENTR. BR-477 (B) (P/ TIMBÓ), NO SEGMENTO DO KM 44,87 AO KM 57,78, LOTE 03",
+   "company": "Sulcatarinense Mineração, Artefatos de Cimento, Britagem e Construções Ltda.",
+   "company_in_record": "SULCATARINENSE MIN ARTEF DE CIM BRIT E CONSTRUCOES LTDA",
+   "cnpj_in_record": "76614254000161",
+   "cnpj_history": [
+    {
+     "cnpj": "76614254000161",
+     "note": "Sulcatarinense"
+    }
+   ],
+   "signed_on": "2013-07-17",
+   "tender": "RDC presencial 181/2012",
+   "process": "50616.001430/2012-21",
+   "term_original_in_dou": "Valor Total: R$167.555.244,30. Fonte: 100000000 - 2013NE801771. Data de Assinatura: 17/07/2013.",
+   "end_current": "2027-02-05",
+   "value_original_brl": 167555244.3,
+   "value_current_initial_prices_brl": 182249431.84,
+   "value_global_current_brl": 350938127.82,
+   "value_global_note": "Valor global no registro (preços iniciais + reajustamento, inclusive reequilíbrios pelo preço do asfalto).",
+   "price_base_month": "2013-07",
+   "price_base_note": "mês de assinatura",
+   "amendments": {
+    "termos_aditivos": 20,
+    "apostilamentos": 1,
+    "ultimo_ato": "2026-09-28",
+    "value_changes": [
+     {
+      "date": "2019-05-22",
+      "number": "00004/2019",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E DESMEMBRAMENTO DE MATERIAIS BETUMINOSOS E ABERTURA DOS CRITÉRIOS DE PAGAMENTO AO CONTRATO."
+     },
+     {
+      "date": "2021-06-18",
+      "number": "00007/2021",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO , VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, EM DECORRÊNCIA DA ELEVAÇÃO EXTRAORDINÁRIA E IMPREVISÍVEL DOS CUSTOS DE AQUISIÇÃO DOS MATERIAIS BETUMINOSOS, REFERENTE AO PERÍODO DE JUNHO DE 2019 À ABRIL DE 2021, SENDO QUE O VALOR DO PRESENTE CONTRATO, A PREÇOS INICIAIS É DE R$ 167.555.244,30 (CENTO E SESSENTA E SETE MILHÕES, QUINHENTOS E CINQUENTA E CINCO MIL, DUZENTOS E QUARENTA E QUATRO REAIS E TRINTA CENTAVOS), SENDO INCLUÍDA UMA PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO NO VALOR DE R$ 742.523,78 (SETECEN"
+     },
+     {
+      "date": "2021-07-30",
+      "number": "00008/2021",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E REEQUILÍBRIO ECONÔMICO-FINANCEIRO DEVIDO AO RESSARCIMENTO DO IMPOSTO SOBRE SERVIÇOS DE QUALQUER NATUREZA - ISSQN - AO CONTRATO, EM DECORRÊNCIA DO IMPACTO FINANCEIRO QUE OCORREU COM A ELEVAÇÃO DO PERCENTUAL DA ALÍQUOTA TRIBUTÁRIA DA PREFEITURA MUNICIPAL DE BLUMENAU, CONFORME LEI COMPLEMENTAR Nº 1147, DE 29 DE SETEMBRO DE 2017, PASSANDO A ALÍQUOTA DE ISS DE 3% PARA 5% DOS ITENS DE SERVIÇOS PRATICADOS, DADO QUE O VALOR DO PRESENTE CONTRATO, A PREÇOS INICIAIS É DE R$ 167.555.244,30, SENDO INCLUÍDA DUAS PARCELAS DE REAJUSTAMENTO EXTRAORDINÁRIO: R$ 1.797.303,49, REF"
+     },
+     {
+      "date": "2022-01-12",
+      "number": "00010/2022",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E AJUSTE CONTRATUAL REFERENTE À MEDIDA PROVISÓRIA 932/2020 QUANTO À REDUÇÃO DAS ALÍQUOTAS DE CONTRIBUIÇÃO DO SISTEMA \"S\", SOBRE OS MESES DE ABRIL, MAIO E JUNHO DE 2020, AO CONTRATO, ADOTANDO-SE UM VALOR DE ESTORNO EXTRAORDINÁRIO, NO VALOR DE - R$ 6.248,54 (SEIS MIL, DUZENTOS E QUARENTA E OITO REAIS E CINQUENTA E QUATRO CENTAVOS)."
+     },
+     {
+      "date": "2022-12-20",
+      "number": "00012/2022",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E ADEQUAÇÃO COM AUMENTO DE VALOR AO CONTRATO, SENDO QUE O VALOR ATUALIZADO DO CONTRATO PASSARÁ DE R$ 167.555.244,30 (CENTO E SESSENTA E SETE MILHÕES, QUINHENTOS E CINQUENTA E CINCO MIL, DUZENTOS E QUARENTA E QUATRO REAIS E TRINTA CENTAVOS) PARA R$ 177.574.761,55 (CENTO E SETENTA E SETE MILHÕES, QUINHENTOS E SETENTA E QUATRO MIL, SETECENTOS E SESSENTA E UM REAIS E CINQUENTA E CINCO CENTAVOS), DECORRENTE DO ACRÉSCIMO DE R$ 10.019.517,25 (DEZ MILHÕES, DEZENOVE MIL, QUINHENTOS E DEZESSETE REAIS E VINTE E CINCO CENTAVOS) E CUJO REFLEXO FINANCEIRO CORRESPONDE À 5,980%"
+     },
+     {
+      "date": "2023-09-21",
+      "number": "00014/2023",
+      "type": "Termo Aditivo",
+      "qualification": "REAJUSTE",
+      "text": "TERMO ADITIVO DECORRENTE DE REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, TENDO EM VISTA AS VARIAÇÕES DE PREÇOS EXTRAORDINÁRIAS OCORRIDAS NOS ITENS REFERENTES AOS MATERIAIS BETUMINOSOS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), SENDO QUE O VALOR GLOBAL (PI+R) AJUSTADO DO PRESENTE CONTRATO É DE R$ 258.527.660,42 (DUZENTOS E CINQUENTA E OITO MILHÕES, QUINHENTOS E VINTE E SETE MIL, SEISCENTOS E SESSENTA REAIS E QUARENTA E DOIS CENTAVOS), SENDO R$ 177.574.761,55 (CENTO E SETENTA E SETE MILHÕES, QUINHENTOS E SETENTA E QUATRO MIL, "
+     },
+     {
+      "date": "2023-12-28",
+      "number": "00015/2023",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO, REAJUSTE",
+      "text": "ADEQUAÇÃO DE QUANTITATIVOS, INCLUSÃO DE PREÇOS NOVOS E AUMENTO DE VALOR CONTRATUAL A (PI), DEVIDO A 2ª REVISÃO DE PROJETO EM FASE DE OBRAS. O VALOR CONTRATUAL A PREÇOS INICIAIS (PI - VIGENTE) PASSA DE R$ 177.574.761,55 (CENTO E SETENTA E SETE MILHÕES, QUINHENTOS E SETENTA E QUATRO MIL, SETECENTOS E SESSENTA E UM REAIS E CINQUENTA E CINCO CENTAVOS) PARA R$ 180.039.707,71 (CENTO E OITENTA MILHÕES, TRINTA E NOVE MIL, SETECENTOS E SETE REAIS E SETENTA E UM CENTAVOS)."
+     },
+     {
+      "date": "2024-01-10",
+      "number": "00016/2024",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO, REAJUSTE",
+      "text": "reequilíbrio econômico-financeiro ao contrato, visando restabelecer suas condições iniciais, tendo em vista os aumentos procedidos pela Petrobras no custo de aquisição de materiais asfálticos, sendo o valor global do contrato (PI+R) de R$ 258.527.660,42 (duzentos e cinquenta e oito milhões, quinhentos e vinte e sete mil, seiscentos e sessenta reais e quarenta e dois centavos), dos quais R$ 177.574.761,55 (cento e setenta e sete milhões, quinhentos e setenta e quatro mil, setecentos e sessenta e um reais e cinquenta e cinco centavos) à preços iniciais, R$ 80.952.898,87 (oitenta milhões, novecen"
+     },
+     {
+      "date": "2024-10-22",
+      "number": "00017/2024",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO, REAJUSTE",
+      "text": "Adequação de Quantitativos e Aumento de valor a Preços Iniciais, devido a 3ª Revisão de Projeto em Fase de Obras.. O valor contratual a preços iniciais (PI Vigente) passa de R$ 180.039.707,71 (cento e oitenta milhões, trinta e nove mil, setecentos e sete reais e setenta e um centavo) para R$ 182.249.431,84 (cento e oitenta e dois milhões, duzentos e quarenta e nove mil, quatrocentos e trinta e um reais e oitenta e quatro centavos), face ao acréscimo de R$ 2.209.724,13 (dois milhões, duzentos e nove mil setecentos e vinte e quatro reais e treze centavos)."
+     },
+     {
+      "date": "2025-02-24",
+      "number": "00018/2025",
+      "type": "Termo Aditivo",
+      "qualification": "REAJUSTE",
+      "text": "TERMO ADITIVO DECORRENTE DE REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, OBJETIVANDO MANTER O EQUILÍBRIO ECONÔMICO-FINANCEIRO, TENDO EM VISTA OS AUMENTOS PROCEDIDOS PELA PETROBRAS NOS ITENS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), ADOTANDO-SE UMA PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO, SENDO QUE O VALOR GLOBAL (PI+R) AJUSTADO DO PRESENTE CONTRATO É DE R$ 350.938.127,82 (TREZENTOS E CINQUENTA MILHÕES, NOVECENTOS E TRINTA E OITO MIL CENTO E VINTE E SETE REAIS E OITENTA E DOIS CENTAVOS) , SENDO R$ 182.249.431,84 (CENTO E OIT"
+     },
+     {
+      "date": "2026-09-28",
+      "number": "00020/2026",
+      "type": "Termo Aditivo",
+      "qualification": "REAJUSTE",
+      "text": "TERMO ADITIVO DECORRENTE DE REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO E OBJETIVANDO MANTER O EQUILÍBRIO ECONÔMICO-FINANCEIRO, TENDO EM VISTA AS VARIAÇÕES DE PREÇOS EXTRAORDINÁRIAS OCORRIDAS NOS ITENS REFERENTES À AQUISIÇÃO DE MATERIAIS BETUMINOSOS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), ADOTA-SE UMA PARCELA POSITIVA DE REAJUSTAMENTO EXTRAORDINÁRIO,, SENDO QUE O VALOR GLOBAL (PI+R) AJUSTADO DO PRESENTE CONTRATO É DE R$ 350.938.127,82 (TREZENTOS E CINQUENTA MILHÕES, NOVECENTOS E TRINTA E OITO MIL CENTO E VINTE E SETE REAI"
+     }
+    ]
+   },
+   "status_in_record": "Ativo",
+   "sources": [
+    {
+     "doc": "Extrato no DOU, Seção 3, 26/07/2013, p. 141",
+     "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?jornal=3&pagina=141&data=26/07/2013&captchafield=firstAccess"
+    },
+    {
+     "doc": "Contratos.gov.br, histórico do contrato (API pública)",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/98313/historico"
+    },
+    {
+     "doc": "Contratos.gov.br, contratos da UG 393013 (SR/DNIT-SC)",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/ug/393013"
+    },
+    {
+     "doc": "Registro anterior do mesmo contrato",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/76826/historico"
+    }
+   ]
+  },
+  {
+   "group": "obra",
+   "lot": "4",
+   "number": "00603/2013",
+   "km_from": 57.78,
+   "km_to": 73.18,
+   "length_km": 15.4,
+   "object": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DAS OBRAS DE DUPLICAÇÃO E RESTAURAÇÃO DA PISTA EXISTENTE, IMPLANTAÇÃO DASRUASLATERAIS,RECUPERAÇÃO,REFORÇO,REABILITAÇÃO E CONSTRUÇÃO DE OAE'S NA RODOVIA BR-470/SC; TRECHO: NAVEGANTES-DIV.SC/RS; SUBTRECHO: ENTR.SC-418 - ENTR.SC-416; SEGMENTO: KM 57,78 - KM 73,18; LOTE: 04.",
+   "company": "Sulcatarinense Mineração, Artefatos de Cimento, Britagem e Construções Ltda.",
+   "company_in_record": "SULCATARINENSE MIN ARTEF DE CIM BRIT E CONSTRUCOES LTDA",
+   "cnpj_in_record": "76614254000161",
+   "cnpj_history": [
+    {
+     "cnpj": "76614254000161",
+     "note": "Sulcatarinense"
+    }
+   ],
+   "signed_on": "2013-06-13",
+   "tender": "RDC presencial 191/2012",
+   "process": "50616.001853/12-41",
+   "term_original_in_dou": "Valor Total: R$205.915.971,00. Fonte: 100000000 - 2013NE801467. Data de Assinatura: 13/06/2013.",
+   "end_current": "2027-11-04",
+   "value_original_brl": 205915971.0,
+   "value_current_initial_prices_brl": 209075950.13,
+   "value_global_current_brl": 424765272.5,
+   "value_global_note": "Valor global no registro (preços iniciais + reajustamento, inclusive reequilíbrios pelo preço do asfalto).",
+   "price_base_month": "2013-06",
+   "price_base_note": "mês de assinatura",
+   "amendments": {
+    "termos_aditivos": 19,
+    "apostilamentos": 0,
+    "ultimo_ato": "2026-09-28",
+    "value_changes": [
+     {
+      "date": "2015-03-12",
+      "number": "00001/2015",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E SUSPENSÃO DE PRAZO AO CONTRATO A PARTIR DE 12/03/2015, RESTANDO UM SALDO DE 940 (NOVECENTOS E QUARENTA) DIAS CONSECUTIVOS PARA RESTITUIR AO PRAZODE VIGÊNCIA CONTRATUAL, E UM SALDO DE 850 (OITOCENTOS E CINQUENTA) DIAS CONSECUTIVOS PARA RESTITUIR AO PRAZO DE EXECUÇÃO DOS SERVIÇOS."
+     },
+     {
+      "date": "2018-05-25",
+      "number": "00002/2018",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, VIGÊNCIA",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO, REINÍCIO E DEVOLUÇÃO DE PRAZO AO CONTRATO, EM FUNÇÃODA ABERTURA DE FRENTES DE SERVIÇO NO LOTE EM QUESTÃO, EM DECORRÊNCIA DAS DESAPROPRIAÇÕES FEITAS EM DEZEMBRO/2017, A PARTIR DE 11/04/2018 (ORDEM DE REINÍCIO) E LHE É DEVOLVIDO 850 (OITOCENTOS E CINQUENTA) DIAS CONSECUTIVOS PARA EXECUÇÃO DOS SERVIÇOS, LEVANDO A DATA DE CONCLUSÃO PARA 07/08/2020, E DE 940 (NOVECENTOS E QUARENTA) DIAS CONSECUTIVOS PARA A VIGÊNCIA, LEVANDO O FIM DESTA PARA 05/11/2020."
+     },
+     {
+      "date": "2018-11-27",
+      "number": "00003/2018",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, VIGÊNCIA",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E REDUÇÃO DE VALOR AO CONTRATO, NO MONTANTE DE R$ 5.173.094,95, EM DECORRÊNCIA DAS JUSTIFICATIVAS APRESENTADAS NO 1º (PRIMEIRO) RELATÓRIO DE REVISÃO DE PROJETOS EM FASE DE OBRAS, SENDO QUE O VALOR DO CONTRATO PASSA DE R$ 205.915.971,00 PARA R$ 200.742.876,05."
+     },
+     {
+      "date": "2019-05-22",
+      "number": "00004/2019",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, VIGÊNCIA",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E DESMEMBRAMENTO DE MATERIAIS BETUMINOSOS E ABERTURA DOS CRITÉRIOS DE PAGAMENTO AO CONTRATO."
+     },
+     {
+      "date": "2020-08-03",
+      "number": "00005/2020",
+      "type": "Termo Aditivo",
+      "qualification": "INFORMATIVO, ACRÉSCIMO / SUPRESSÃO, VIGÊNCIA",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E PRORROGAÇÃO DE PRAZO AO CONTRATO POR MAIS 365 (TREZENTOS E SESSENTA E CINCO) DIAS CONSECUTIVOS, SENDO QUE O PRAZO DE ENCERRAMENTO DA EXECUÇÃO DOSSERVIÇOS PASSA DE 07/08/2020 PARA 07/08/2021, E O PRAZO DE ENCERRAMENTO DA VIGÊNCIA PASSA DE 05/11/2020 PARA 05/11/2021."
+     },
+     {
+      "date": "2021-06-17",
+      "number": "00006/2021",
+      "type": "Termo Aditivo",
+      "qualification": "REAJUSTE, INFORMATIVO",
+      "text": "6º TERMO ADITIVO DE RERRATIFICAÇÃO E REEQUILÍBRIO ECONÔMICO FINANCEIRO AO CONTRATO 603/2013, DECORRENTE DO AUMENTO DOS PREÇOS DOS MATERIAIS BETUMINOSOS. O PREÇO CONTRATUAL, À PREÇOS INICIAIS, MANTÉM-SE R$ 205.915.971,00 , VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, TENDO EM VISTA OS AUMENTOS PROCEDIDOS PELA PETROBRAS NOS ITENS DE MATERIAIS ASFÁLTICOS (CIMENTOS ASFÁLTICOS DE PETRÓLEO, ASFALTOS DILUÍDOS E EMULSÕES), ADOTA-SE A PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO DE R$ 1.015.199,94 (UM MILHÃO, QUINZE MIL, NOVECENTOS E NOVENTA E NOVE REAIS E NOVENTA E QUATRO CENTAVOS), DECORRENTE D"
+     },
+     {
+      "date": "2022-01-12",
+      "number": "00009/2022",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E AJUSTE CONTRATUAL REFERENTE À MEDIDA PROVISÓRIA 932/2020 QUANTO À REDUÇÃO DAS ALÍQUOTAS DE CONTRIBUIÇÃO DO SISTEMA \"S\", SOBRE OS MESES DE ABRIL, MAIO E JUNHO DE 2020, AO CONTRATO, ADOTANDO-SE UM VALOR DE ESTORNO EXTRAORDINÁRIO, NO VALOR DE - R$ 7.841,87 (SETE MIL, OITOCENTOS E QUARENTA E UM REAIS E OITENTA E SETE CENTAVOS)."
+     },
+     {
+      "date": "2022-03-28",
+      "number": "00010/2022",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, SENDO QUE O VALOR DO PRESENTE CONTRATO, A PREÇOS INICIAIS, É DE R$ 205.915.971,00 (DUZENTOS E CINCO MILHÕES NOVECENTOS E QUINZE MIL NOVECENTOS E SETENTA E UM REAIS), SENDO INCLUÍDA UMA PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO NO VALOR DE R$ 232.802,21 (DUZENTOS E TRINTA E DOIS MIL OITOCENTOS E DOIS REAIS E VINTE E UM CENTAVOS), DECORRENTE DA ELEVAÇÃO EXTRAORDINÁRIA E IMPREVISÍVEL DOS CUSTOS DE AQUISIÇÃO DOS MATERIAIS BETUMINOSOS, REFERENTE AO PERÍODO DE MAIO/2"
+     },
+     {
+      "date": "2022-09-20",
+      "number": "00012/2022",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO E REVISÃO DE PROJETO EM FASE DE OBRAS AO CONTRATO, SENDO QUE O VALOR CONTRATUAL ATUAL A PREÇOS INICIAIS PASSARÁ DE R$ 200.742.875,48 (DUZENTOS MILHÕES, SETECENTOS E QUARENTA E DOIS MIL, OITOCENTOS E SETENTA E CINCO REAIS E QUARENTA E OITO CENTAVOS) PARA R$ 205.030.594,82 (DUZENTOS E CINCO MILHÕES, TRINTA MIL, QUINHENTOS E NOVENTA E QUATRO REAIS E OITENTA E DOIS CENTAVOS), PERFAZENDO UM ACRÉSCIMO DE R$ 4.287.719,34 (QUATRO MILHÕES, DUZENTOS E OITENTA E SETE MIL, SETECENTOS E DEZENOVE REAIS E TRINTA E QUATRO CENTAVOS), REFERENTES À 2ª REVISÃO DE PROJETO EM FASE DE"
+     },
+     {
+      "date": "2023-09-28",
+      "number": "00014/2023",
+      "type": "Termo Aditivo",
+      "qualification": "REAJUSTE",
+      "text": "TERMO ADITIVO DE RERRATIFICAÇÃO DECORRENTE DE REEQUILÍBRIO ECONÔMICO FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, TENDO EM VISTA AS VARIAÇÕES DE PREÇOS EXTRAORDINÁRIAS OCORRIDAS NOS ITENS REFERENTES AOS MATERIAIS BETUMINOSOS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), SENDO QUE O VALOR GLOBAL (PI+R) AJUSTADO DO PRESENTE CONTRATO É DE R$ 307.184.326,64 (TREZENTOS E SETE MILHÕES, CENTO E OITENTA E QUATRO MIL, TREZENTOS E VINTE E SEIS REAIS E SESSENTA E QUATRO CENTAVOS), SENDO R$ 205.030.594,82 (DUZENTOS E CINCO MILHÕES, TRINTA MIL, QUINHENTOS E NOVEN"
+     },
+     {
+      "date": "2024-09-17",
+      "number": "00015/2024",
+      "type": "Termo Aditivo",
+      "qualification": "ACRÉSCIMO / SUPRESSÃO, REAJUSTE",
+      "text": "15° TERMO ADITIVO DE ADEQUAÇÃO DE QUANTITATIVOS E AUMENTO DE VALOR A PREÇOS INICIAIS, DEVIDO A 3ª REVISÃO DE PROJETO EM FASE DE OBRAS. O VALOR CONTRATUAL A PREÇOS INICIAIS (PI - VIGENTE) PASSA DE R$ 205.030.594,82, PARA R$ 208.986.561,74, FACE AO ACRÉSCIMO DE R$ 3.955.966,92, A PI."
+     },
+     {
+      "date": "2025-02-25",
+      "number": "00016/2025",
+      "type": "Termo Aditivo",
+      "qualification": "REAJUSTE",
+      "text": "TERMO ADITIVO DECORRENTE DE REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO, OBJETIVANDO MANTER O EQUILÍBRIO ECONÔMICO-FINANCEIRO, TENDO EM VISTA OS AUMENTOS PROCEDIDOS PELA PETROBRAS NOS ITENS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), ADOTANDO-SE UMA PARCELA DE REAJUSTAMENTO EXTRAORDINÁRIO, SENDO QUE O VALOR GLOBAL (PI+R) AJUSTADO DO PRESENTE CONTRATO É DE R$ 311.140.293,56 (TREZENTOS E ONZE MILHÕES, CENTO E QUARENTA MIL DUZENTOS E NOVENTA E TRÊS REAIS E CINQUENTA E SEIS CENTAVOS), SENDO R$ 208.986.561,74 (DUZENTOS E OITO MILH"
+     },
+     {
+      "date": "2025-11-19",
+      "number": "00018/2025",
+      "type": "Termo Aditivo",
+      "qualification": "REAJUSTE, ACRÉSCIMO / SUPRESSÃO",
+      "text": "ADEQUAÇÃO DE QUANTITATIVOS, COM AUMENTO DE VALOR A PREÇOS INICIAIS, DEVIDO À 4ª REVISÃO DE PROJETO EM FASE DE OBRAS, REFERENTE AO CONTRATO 16.00603/2013. O VALOR CONTRATUAL A PREÇOS INICIAIS (PI VIGENTE) PASSA DE R$ 208.986.561,74 (DUZENTOS E OITO MILHÕES, NOVECENTOS E OITENTA E SEIS MIL, QUINHENTOS E SESSENTA E UM REAIS E SETENTA E QUATRO CENTAVOS) PARA R$ 209.075.950,13 (DUZENTOS E NOVE MILHÕES, SETENTA E CINCO MIL, NOVECENTOS E CINQUENTA REAIS E TREZE CENTAVOS), FACE AO ACRÉSCIMO DE 0,043%, EQUIVALENTE A R$ 89.388,39 (OITENTA E NOVE MIL TREZENTOS E OITENTA E OITO REAIS E TRINTA E NOVE CENTA"
+     },
+     {
+      "date": "2026-09-28",
+      "number": "00019/2026",
+      "type": "Termo Aditivo",
+      "qualification": "REAJUSTE",
+      "text": "TERMO ADITIVO DECORRENTE DE REEQUILÍBRIO ECONÔMICO-FINANCEIRO AO CONTRATO, VISANDO RESTABELECER AS CONDIÇÕES INICIAIS DO CONTRATO E OBJETIVANDO MANTER O EQUILÍBRIO ECONÔMICO-FINANCEIRO, TENDO EM VISTA AS VARIAÇÕES DE PREÇOS EXTRAORDINÁRIAS OCORRIDAS NOS ITENS REFERENTES À AQUISIÇÃO DE MATERIAIS BETUMINOSOS (CIMENTOS ASFÁLTICOS DE PETRÓLEO E ASFALTOS DILUÍDOS), ADOTA-SE UMA PARCELA POSITIVA DE REAJUSTAMENTO EXTRAORDINÁRIO, SENDO QUE O VALOR GLOBAL (PI+R) AJUSTADO DO PRESENTE CONTRATO É DE R$ 424.765.272,50 (QUATROCENTOS E VINTE E QUATRO MILHÕES, SETECENTOS E SESSENTA E CINCO MIL DUZENTOS E SETE"
+     }
+    ]
+   },
+   "status_in_record": "Ativo",
+   "sources": [
+    {
+     "doc": "Extrato no DOU, Seção 3, 26/07/2013, p. 141",
+     "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?jornal=3&pagina=141&data=26/07/2013&captchafield=firstAccess"
+    },
+    {
+     "doc": "Contratos.gov.br, histórico do contrato (API pública)",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/80873/historico"
+    },
+    {
+     "doc": "Contratos.gov.br, contratos da UG 393013 (SR/DNIT-SC)",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/ug/393013"
+    }
+   ]
+  },
+  {
+   "group": "apoio",
+   "number": "00729/2013",
+   "role": "supervisão dos lotes 3 e 4 (lote único na licitação)",
+   "object": "EXECUÇÃO DOS SERVIÇOS DE CONSULTORIA PARA A SUPERVISÃO DAS OBRAS DE DUPLICAÇÃO, DE RESTAURAÇÃO DA PISTA EXISTENTE, DE IMPLANTAÇÃO DERUAS LATERAIS E DE RECUPERAÇÃO, REFORÇO, REABILITAÇÃO E CONSTRUÇÃO DE OBRAS DE ARTE ESPECIAIS, NA RODOVIA BR-470/SC - LOTE ÚNICO.",
+   "company": "IGUATEMI CONSULTORIA E SERVICOS DE ENGENHARIA LTDA",
+   "cnpj_in_record": "83256172000158",
+   "signed_on": null,
+   "start": "2013-10-01",
+   "end_current": "2023-05-31",
+   "value_original_brl": null,
+   "value_global_current_brl": 14148000.0,
+   "value_note": "Só o \"valor global\" do registro de compras; histórico de aditivos não disponível (contrato encerrado, fora da API de contratos ativos).",
+   "sources": [
+    {
+     "doc": "Dados abertos de compras do governo federal, módulo contratos",
+     "url": "https://dadosabertos.compras.gov.br/modulo-contratos/1_consultarContratos?codigoOrgao=39252&codigoUnidadeGestora=393013"
+    }
+   ]
+  },
+  {
+   "group": "apoio",
+   "number": "00563/2014",
+   "role": "supervisão dos lotes 1 e 2",
+   "object": "CONTRATO DE EMPREITADA POR PREÇO GLOBAL QUE ENTRE SI FAZEM, DE UM LADO, COMO CONTRATANTE, O DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTES, POR MEIO DE SUA SUPERINTENDÊNCIA REGIONAL EM SANTA CATARINA, E, DO OUTRO, COMOCONTRATADA, A EMPRESA PROSUL - PROJETOS, SUPERVISÃO E PLANEJAMENTO LTDA., COM VISTAS À EXECUÇÃO DOS SERVIÇOS DE CONSULTORIA PARA COORDENAÇÃO, SUPERVISÃO, CONTROLE E DE SUBSÍDIOS À FISCALIZAÇÃO DA EXECUÇÃO DAS OBRAS DE DUPLICAÇÃO DA RODOVIA BR-470/SC, LOTES 01 E 02.",
+   "company": "PROSUL PROJETOS SUPERVISAO E PLANEJAMENTO LTDA",
+   "cnpj_in_record": "80996861000100",
+   "signed_on": null,
+   "start": "2014-07-04",
+   "end_current": "2023-05-12",
+   "value_original_brl": null,
+   "value_global_current_brl": 15366612.9,
+   "value_note": "Só o \"valor global\" do registro de compras; histórico de aditivos não disponível (contrato encerrado, fora da API de contratos ativos).",
+   "sources": [
+    {
+     "doc": "Dados abertos de compras do governo federal, módulo contratos",
+     "url": "https://dadosabertos.compras.gov.br/modulo-contratos/1_consultarContratos?codigoOrgao=39252&codigoUnidadeGestora=393013"
+    }
+   ]
+  },
+  {
+   "group": "apoio",
+   "number": "01055/2013",
+   "role": "gestão ambiental (2013 a 2023)",
+   "object": "GESTÃO AMBIENTAL, ABRANGENDO A SUPERVISÃO E O GERENCIAMENTO AMBIENTAL, BEM COMO A EXECUÇÃO DE PROGRAMAS AMBIENTAIS, DAS OBRAS DE DUPLICAÇÃO DA BR-470/SC, TRECHO: NAVEGANTES - DIV.SC/RS, SUBTRECHO: NAVEGANTES - ENTR. SC-416 (P/RODEIO), SEGMENTO: KM 0,00 - KM 74,0, EXTENSÃO:73,18 KM.",
+   "company": "MPB SANEAMENTOS LTDA",
+   "cnpj_in_record": "78221066000107",
+   "signed_on": "2013-12-12",
+   "end_current": "2023-07-29",
+   "value_original_brl": 13513000.0,
+   "value_global_current_brl": 26805115.98,
+   "sources": [
+    {
+     "doc": "Contratos.gov.br (API pública)",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/80935/historico"
+    }
+   ]
+  },
+  {
+   "group": "apoio",
+   "number": "00059/2023",
+   "role": "supervisão (consórcio MPB-Enecon, 2023 a 2024)",
+   "object": "TERMO DE CONTRATO DE PRESTAÇÃO DE SERVIÇO DE ENGENHARIA QUE CELEBRAM ENTRE SI O DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTES E O CONSÓRCIO MPB-ENECON-BR 470, TENDO EM VISTA A PRESTAÇÃO DOS SERVIÇOS DE SUPERVISÃO DAS OBRAS DE DUPLICAÇÃO DA RODOVIA BR-470/SC, TRECHO: ENTR R. FCO. DE PAULA SEARA (NAVEGANTES) - DIV SC/RS (INÍCIO DA PONTE SOBRE O RIO PELOTAS), SUBTRECHO: ENTR R. FCO. DE PAULA SEARA (NAVEGANTES) - ENTR SC[1]110(A) (P/RODEIO), NO SEGMENTO DO KM 0,00 AO KM 73,18, NUMA EXTENSÃO DE 73,18 KM.",
+   "company": "MPB SANEAMENTOS LTDA",
+   "cnpj_in_record": "78221066000107",
+   "signed_on": null,
+   "start": "2023-03-15",
+   "end_current": "2024-09-04",
+   "value_original_brl": null,
+   "value_global_current_brl": 13548591.6,
+   "value_note": "Só o \"valor global\" do registro de compras; histórico de aditivos não disponível (contrato encerrado, fora da API de contratos ativos).",
+   "sources": [
+    {
+     "doc": "Dados abertos de compras do governo federal, módulo contratos",
+     "url": "https://dadosabertos.compras.gov.br/modulo-contratos/1_consultarContratos?codigoOrgao=39252&codigoUnidadeGestora=393013"
+    }
+   ]
+  },
+  {
+   "group": "apoio",
+   "number": "00332/2023",
+   "role": "gestão ambiental (desde 2023)",
+   "object": "O OBJETO DA PRESENTE LICITAÇÃO É A CONTRATAÇÃO DE EMPRESA PARA A EXECUÇÃO DOS SERVIÇOS DE GESTÃO AMBIENTAL, ABRANGENDO O GERENCIAMENTO AMBIENTAL, A SUPERVISÃO AMBIENTAL E A EXECUÇÃO DOS PROGRAMAS AMBIENTAIS NO ÂMBITO DAS OBRAS DE DUPLICAÇÃO E ADEQUAÇÃO DE CAPACIDADE DA RODOVIA BR-470/SC - TRECHO NAVEGANTES - DIVISA SC/RS, CONFORME CONDIÇÕES, QUANTIDADES, EXIGÊNCIAS E ESPECIFICAÇÕES DISCRIMINADAS NOS PROJETOS E ESTABELECIDAS NESTE EDITAL, SEUS ANEXOS E NA PROPOSTA DA CONTRATADA. ESTE TERMO DE CONTRATO VINCULA-SE AO EDITAL DE RDC ELETRÔNICO Nº 403/2022-16 E SEUS ANEXOS, IDENTIFICADO NO PREÂMBULO ACIMA E À PROPOSTA VENCEDORA, INDEPENDENTEMENTE DE TRANSCRIÇÃO.",
+   "company": "MPB SANEAMENTOS LTDA",
+   "cnpj_in_record": "78221066000107",
+   "signed_on": "2023-07-24",
+   "end_current": "2027-07-28",
+   "value_original_brl": 8089000.0,
+   "value_global_current_brl": 10040134.71,
+   "sources": [
+    {
+     "doc": "Contratos.gov.br (API pública)",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/204225/historico"
+    }
+   ]
+  },
+  {
+   "group": "apoio",
+   "number": "00606/2024",
+   "role": "supervisão (desde 2024)",
+   "object": "Contratação de empresa especializada para prestação dos serviços de supervisão das obras de duplicação da rodovia BR-470/SC, Trecho: Entr R. Fco. de Paula Seara (Navegantes) - Div SC/RS (Início da Ponte sobre o Rio Pelotas), Subtrecho: Entr R. Fco. de Paula Seara (Navegantes) - Entr SC[1]110(A) (P/Rodeio), Segmento: km 0,00 - km 73,18, Extensão: 73,18 km.",
+   "company": "PROSUL PROJETOS SUPERVISAO E PLANEJAMENTO LTDA",
+   "cnpj_in_record": "80996861000100",
+   "signed_on": "2024-10-18",
+   "end_current": "2027-07-08",
+   "value_original_brl": 9347488.86,
+   "value_global_current_brl": 10584002.98,
+   "sources": [
+    {
+     "doc": "Contratos.gov.br (API pública)",
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/327515/historico"
+    }
+   ]
+  }
+ ],
+ "contracts_totals_computed": {
+  "works_contracts": 4,
+  "length_km": 73.18,
+  "value_original_brl": 860048547.57,
+  "value_current_initial_prices_brl": 992076681.56,
+  "value_global_current_brl_as_recorded": 1540145706.09,
+  "support_contracts_value_brl_as_recorded": 90492458.17,
+  "note": "Somas calculadas. O total \"como registrado\" mistura o lote 1 (só preços iniciais) com os lotes 2 a 4 (preços iniciais + reajustamento)."
+ },
+ "payments": {
+  "federal": {
+   "source": {
+    "doc": "Portal da Transparência (CGU), arquivos mensais de execução da despesa; conferido com o SIOP (dados abertos do orçamento)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/AAAAMM",
+    "check_url": "https://www1.siop.planejamento.gov.br/sparql/",
+    "collected_on": "2026-09-30"
+   },
+   "budget_actions": [
+    "7530 Adequação de Trecho Rodoviário - Navegantes - Rio do Sul - na BR-470/SC",
+    "7X58 Adequação de Trecho Rodoviário - Navegantes - Indaial - na BR-470/SC (só em 2017)"
+   ],
+   "by_year": [
+    {
+     "year": 2014,
+     "paid_in_year_brl": 7606142.92,
+     "prior_year_commitments_paid_brl": 5775425.66,
+     "total_brl": 13381568.58,
+     "siop_paid_in_year_brl": 7606143.0,
+     "diff_vs_siop_brl": -0.08
+    },
+    {
+     "year": 2015,
+     "paid_in_year_brl": 0.0,
+     "prior_year_commitments_paid_brl": 91019742.82,
+     "total_brl": 91019742.82,
+     "siop_paid_in_year_brl": 0.0,
+     "diff_vs_siop_brl": 0.0
+    },
+    {
+     "year": 2016,
+     "paid_in_year_brl": 24845911.98,
+     "prior_year_commitments_paid_brl": 72611249.91,
+     "total_brl": 97457161.89,
+     "siop_paid_in_year_brl": 24845912.0,
+     "diff_vs_siop_brl": -0.02
+    },
+    {
+     "year": 2017,
+     "paid_in_year_brl": 55023728.47,
+     "prior_year_commitments_paid_brl": 33595616.52,
+     "total_brl": 88619344.99,
+     "siop_paid_in_year_brl": 55023728.0,
+     "diff_vs_siop_brl": 0.47
+    },
+    {
+     "year": 2018,
+     "paid_in_year_brl": 83097564.3,
+     "prior_year_commitments_paid_brl": 81490294.34,
+     "total_brl": 164587858.64,
+     "siop_paid_in_year_brl": 83097564.0,
+     "diff_vs_siop_brl": 0.3
+    },
+    {
+     "year": 2019,
+     "paid_in_year_brl": 91204090.06,
+     "prior_year_commitments_paid_brl": 89398338.15,
+     "total_brl": 180602428.21,
+     "siop_paid_in_year_brl": 91204090.0,
+     "diff_vs_siop_brl": 0.06
+    },
+    {
+     "year": 2020,
+     "paid_in_year_brl": 146735478.3,
+     "prior_year_commitments_paid_brl": 33571237.92,
+     "total_brl": 180306716.22,
+     "siop_paid_in_year_brl": 146735478.0,
+     "diff_vs_siop_brl": 0.3
+    },
+    {
+     "year": 2021,
+     "paid_in_year_brl": 74762465.45,
+     "prior_year_commitments_paid_brl": 24867607.28,
+     "total_brl": 99630072.73,
+     "siop_paid_in_year_brl": 74762465.0,
+     "diff_vs_siop_brl": 0.45
+    },
+    {
+     "year": 2022,
+     "paid_in_year_brl": 10217246.24,
+     "prior_year_commitments_paid_brl": 17694097.16,
+     "total_brl": 27911343.4,
+     "siop_paid_in_year_brl": 10217246.0,
+     "diff_vs_siop_brl": 0.24
+    },
+    {
+     "year": 2023,
+     "paid_in_year_brl": 191052829.67,
+     "prior_year_commitments_paid_brl": 58688351.13,
+     "total_brl": 249741180.8,
+     "siop_paid_in_year_brl": 191052830.0,
+     "diff_vs_siop_brl": -0.33
+    },
+    {
+     "year": 2024,
+     "paid_in_year_brl": 32432287.21,
+     "prior_year_commitments_paid_brl": 147666089.67,
+     "total_brl": 180098376.88,
+     "siop_paid_in_year_brl": 32432287.0,
+     "diff_vs_siop_brl": 0.21
+    },
+    {
+     "year": 2025,
+     "paid_in_year_brl": 27020623.09,
+     "prior_year_commitments_paid_brl": 70827576.44,
+     "total_brl": 97848199.53,
+     "siop_paid_in_year_brl": 27020623.0,
+     "diff_vs_siop_brl": 0.09
+    },
+    {
+     "year": 2026,
+     "paid_in_year_brl": 38366024.2,
+     "prior_year_commitments_paid_brl": 33397107.11,
+     "total_brl": 71763131.31,
+     "siop_paid_in_year_brl": 38352864.0,
+     "diff_vs_siop_brl": 13160.2
+    }
+   ],
+   "total_2014_to_sep2026_brl_computed": 1542967126.0,
+   "by_budget_plan_brl_computed": {
+    "ADEQUACAO DE TRECHO RODOVIARIO - NAVEGANTES - RIO DO SUL - NA BR-470/SC - DESPESAS DIVERSAS": 695150879.96,
+    "ADEQUACAO DE TRECHO RODOVIARIO - NAVEGANTES - RIO DO SUL - NA BR-470/SC": 561530776.05,
+    "DESPESAS COM DESAPROPRIACAO": 109553378.3,
+    "EMENDA DE BANCADA": 107708567.0,
+    "DOTACOES CLASSIFICADAS COM RP 2, INCLUIDAS OU ACRESCIDAS POR EMENDAS DE BANCADA ESTADUAL DO ESTADO DE SANTA CATARINA, EM OBSERVANCIA AO DISPOSTO NO INCISO I DO ? 7. DO ART. 4. DA LOA-2023": 48159741.97,
+    "DESPESAS COM GESTAO AMBIENTAL": 20863782.72,
+    "Sem informação": 0.0
+   },
+   "checks": [
+    "O valor pago no próprio ano bate com o SIOP ao centavo de 2014 a 2025 (arredondamento do SIOP). 2026 difere em R$ 13 mil porque as duas bases têm datas de carga diferentes."
+   ],
+   "caveats": [
+    "É pagamento da ação orçamentária, não de um contrato: inclui obra, supervisão, gestão ambiental e desapropriações do trecho Navegantes - Rio do Sul.",
+    "2013: os arquivos mensais do Portal devolveram HTTP 403; o SIOP registra pagamento no ano de R$ 0 em 2013 (restos a pagar de 2013 não verificados).",
+    "Meses de out a dez/2026 ainda não existem."
+   ]
+  },
+  "state_of_sc": {
+   "source": {
+    "doc": "Registro de contratos SIGEF (dados.sc.gov.br) e extratos SICOP: registros \"TC-00470/2021\" do Termo de Cooperação com o DNIT (processo 50600.020368/2021-36, SIE 21994/2021)",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-30"
+   },
+   "by_year_brl": {
+    "2021": 27952116.28,
+    "2022": 108047481.89,
+    "2023": 23355723.06
+   },
+   "total_brl_computed": 159355321.23,
+   "by_record": [
+    {
+     "record": "TC-00470/2021-00563-L1 E 2",
+     "company": "PROSUL PROJETOS, SUPERVISÃO E PLANEJAMENTO LTDA",
+     "cnpj": "80996861000100",
+     "value_current_brl": 6089159.09,
+     "status": "Concluído",
+     "paid_by_year_brl": {
+      "2021": 897398.76,
+      "2022": 2850819.33,
+      "2023": 575648.3
+     },
+     "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=101947"
+    },
+    {
+     "record": "TC-00470/2021-1055 GESTÃO AMBI",
+     "company": "MPB -  Saneamento Ltda.",
+     "cnpj": "78221066000107",
+     "value_current_brl": 4388794.45,
+     "status": "Andamento",
+     "paid_by_year_brl": {
+      "2021": 277487.68,
+      "2022": 2659197.72,
+      "2023": 367724.4
+     },
+     "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=101949"
+    },
+    {
+     "record": "TC-00470/2021-1600603-L4",
+     "company": "Sulcatarinense Min. Artef.Cimento, Brit.Const.Ltda",
+     "cnpj": "76614254000161",
+     "value_current_brl": 62713242.84,
+     "status": "Andamento",
+     "paid_by_year_brl": {
+      "2021": 1532391.09,
+      "2022": 20884400.97,
+      "2023": 6412421.67
+     },
+     "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=101946"
+    },
+    {
+     "record": "TC-00470/2021-1600703-L3",
+     "company": "Sulcatarinense Min. Artef.Cimento, Brit.Const.Ltda",
+     "cnpj": "76614254000161",
+     "value_current_brl": 57110687.01,
+     "status": "Concluído",
+     "paid_by_year_brl": {
+      "2021": 2432259.94,
+      "2022": 7091069.24,
+      "2023": 11231114.34
+     },
+     "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=101945"
+    },
+    {
+     "record": "TC-00470/2021-1601093-L",
+     "company": "PLANATERRA - TERRAPLENAGEM E PAVIMENTAÇÃO LTDA",
+     "cnpj": "82743832000162",
+     "value_current_brl": 150520696.96,
+     "status": "Andamento",
+     "paid_by_year_brl": {
+      "2021": 22532755.37,
+      "2022": 73017913.38,
+      "2023": 4548028.06
+     },
+     "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=101906"
+    },
+    {
+     "record": "TC-00470/2021-729-L3 - 4",
+     "company": "Iguatemi Consultoria e Serviços de Engenharia Ltda",
+     "cnpj": "83256172000158",
+     "value_current_brl": 5586591.78,
+     "status": "Andamento",
+     "paid_by_year_brl": {
+      "2021": 279823.44,
+      "2022": 1544081.25,
+      "2023": 220786.29
+     },
+     "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=101948"
+    }
+   ],
+   "note": "O Estado pagou diretamente às contratadas dos lotes 1, 3 e 4, da supervisão e da gestão ambiental, como aporte a obra federal. O lote 2 não aparece entre esses registros."
+  },
+  "total_public_paid_brl_computed": 1702322447.23,
+  "tcu_execution_quote": "Duplicação da BR-470/SC (Navegantes - Rio do Sul) (04 lotes) 1.669.899.804,20 1.896.069.990,08 79% 1,14"
+ },
+ "companies": [
+  {
+   "cnpj": "82743832000162",
+   "legal_name": "PLANATERRA-TERRAPLENAGEM E PAVIMENTACAO LTDA",
+   "name_in_contract_record": "PLANATERRA-TERRAPLENAGEM E PAVIMENTACAO LTDA",
+   "trade_name": "PLANATERRA",
+   "city": "CHAPECO/SC",
+   "registration_status": "ATIVA",
+   "head_or_branch": "MATRIZ",
+   "contracts": [
+    "01093/2013 (lote 1, líder desde 2020)"
+   ],
+   "identity_note": null,
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto.",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/82743832000162"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal via espelho",
+    "url": "https://brasilapi.com.br/api/cnpj/v1/82743832000162",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "cnpj": "85115053000100",
+   "legal_name": null,
+   "name_in_contract_record": "TERRAPLENAGEM AZZA (nome no DOU de 14/02/2014)",
+   "trade_name": null,
+   "city": null,
+   "registration_status": null,
+   "head_or_branch": null,
+   "contracts": [
+    "01093/2013 (lote 1, líder em 2014)"
+   ],
+   "identity_note": null,
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto.",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/85115053000100"
+   ],
+   "source": {
+    "doc": "Cadastro da Receita não lido (espelhos indisponíveis, HTTP 503, em 2026-09-30); nome conforme o registro de contratos",
+    "url": null
+   }
+  },
+  {
+   "cnpj": "09588906000143",
+   "legal_name": null,
+   "name_in_contract_record": "CONSTRUTORA SUCESSO SA (registro do TA 4/2017)",
+   "trade_name": null,
+   "city": null,
+   "registration_status": null,
+   "head_or_branch": null,
+   "contracts": [
+    "01093/2013 (lote 1, líder de 2017 a 2020)"
+   ],
+   "identity_note": null,
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto.",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/09588906000143"
+   ],
+   "source": {
+    "doc": "Cadastro da Receita não lido (espelhos indisponíveis, HTTP 503, em 2026-09-30); nome conforme o registro de contratos",
+    "url": null
+   }
+  },
+  {
+   "cnpj": "92694348000144",
+   "legal_name": null,
+   "name_in_contract_record": "SOCIEDADE GERAL DE EMPREITADAS LIMITADA (SOGEL)",
+   "trade_name": null,
+   "city": null,
+   "registration_status": null,
+   "head_or_branch": null,
+   "contracts": [
+    "01093/2013 (lote 1, consorciada \"Sogel\")"
+   ],
+   "identity_note": "Sogel: ligação ao consórcio só pelo nome \"SOGEL\" nos termos aditivos; o CNPJ vem de outro contrato do DNIT com a \"SOCIEDADE GERAL DE EMPREITADAS LTDA - SOGEL\".",
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto.",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/92694348000144"
+   ],
+   "source": {
+    "doc": "Cadastro da Receita não lido (espelhos indisponíveis, HTTP 503, em 2026-09-30); nome conforme o registro de contratos",
+    "url": null
+   }
+  },
+  {
+   "cnpj": "76592542000162",
+   "legal_name": "IVAI ENGENHARIA DE OBRAS S.A.",
+   "name_in_contract_record": "IVAI ENGENHARIA DE OBRAS S.A.",
+   "trade_name": null,
+   "city": "CURITIBA/PR",
+   "registration_status": "ATIVA",
+   "head_or_branch": "MATRIZ",
+   "contracts": [
+    "00355/2014 (lote 2, líder)"
+   ],
+   "identity_note": null,
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto.",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/76592542000162"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal via espelho",
+    "url": "https://brasilapi.com.br/api/cnpj/v1/76592542000162",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "cnpj": "83665141000150",
+   "legal_name": "SETEP CONSTRUCOES S.A",
+   "name_in_contract_record": "SETEP CONSTRUCOES S.A (consorciada do lote 2)",
+   "trade_name": "SETEP CONSTRUCOES S.A",
+   "city": "CRICIUMA/SC",
+   "registration_status": "ATIVA",
+   "head_or_branch": "MATRIZ",
+   "contracts": [
+    "00355/2014 (lote 2, consorciada)"
+   ],
+   "identity_note": null,
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto.",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/83665141000150"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal via espelho",
+    "url": "https://brasilapi.com.br/api/cnpj/v1/83665141000150",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "cnpj": "76614254000161",
+   "legal_name": null,
+   "name_in_contract_record": "SULCATARINENSE MIN ARTEF DE CIM BRIT E CONSTRUCOES LTDA",
+   "trade_name": null,
+   "city": null,
+   "registration_status": null,
+   "head_or_branch": null,
+   "contracts": [
+    "00703/2013 (lote 3)",
+    "00603/2013 (lote 4)"
+   ],
+   "identity_note": null,
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto.",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/76614254000161"
+   ],
+   "source": {
+    "doc": "Cadastro da Receita não lido (espelhos indisponíveis, HTTP 503, em 2026-09-30); nome conforme o registro de contratos",
+    "url": null
+   }
+  },
+  {
+   "cnpj": "83256172000158",
+   "legal_name": null,
+   "name_in_contract_record": "IGUATEMI CONSULTORIA E SERVICOS DE ENGENHARIA LTDA",
+   "trade_name": null,
+   "city": null,
+   "registration_status": null,
+   "head_or_branch": null,
+   "contracts": [
+    "00729/2013 (supervisão)"
+   ],
+   "identity_note": null,
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto.",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/83256172000158"
+   ],
+   "source": {
+    "doc": "Cadastro da Receita não lido (espelhos indisponíveis, HTTP 503, em 2026-09-30); nome conforme o registro de contratos",
+    "url": null
+   }
+  },
+  {
+   "cnpj": "80996861000100",
+   "legal_name": null,
+   "name_in_contract_record": "PROSUL PROJETOS SUPERVISAO E PLANEJAMENTO LTDA",
+   "trade_name": null,
+   "city": null,
+   "registration_status": null,
+   "head_or_branch": null,
+   "contracts": [
+    "00563/2014 e 00606/2024 (supervisão)"
+   ],
+   "identity_note": null,
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto.",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/80996861000100"
+   ],
+   "source": {
+    "doc": "Cadastro da Receita não lido (espelhos indisponíveis, HTTP 503, em 2026-09-30); nome conforme o registro de contratos",
+    "url": null
+   }
+  },
+  {
+   "cnpj": "78221066000107",
+   "legal_name": null,
+   "name_in_contract_record": "MPB SANEAMENTOS LTDA",
+   "trade_name": null,
+   "city": null,
+   "registration_status": null,
+   "head_or_branch": null,
+   "contracts": [
+    "01055/2013 e 00332/2023 (gestão ambiental); 00059/2023 (supervisão, líder do consórcio)"
+   ],
+   "identity_note": null,
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto.",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/78221066000107"
+   ],
+   "source": {
+    "doc": "Cadastro da Receita não lido (espelhos indisponíveis, HTTP 503, em 2026-09-30); nome conforme o registro de contratos",
+    "url": null
+   }
+  }
+ ],
+ "people": [
+  {
+   "name": "Vissilar Pretto",
+   "role": "Superintendente Regional do DNIT em Santa Catarina (unidade contratante, UASG 393013)",
+   "on_dates": [
+    "2014-05-28 (assinatura do lote 2)"
+   ],
+   "note": "Os extratos dos contratos no DOU (formato SICON) não trazem o nome de quem assinou. Na mesma edição de 29/05/2014, ele assina como Superintendente um aviso de licitação da mesma unidade, datado de 28/05/2014.",
+   "source": [
+    {
+     "doc": "DOU, Seção 3, 29/05/2014, p. 140",
+     "url": "https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?jornal=3&pagina=140&data=29/05/2014&captchafield=firstAccess"
+    }
+   ]
+  },
+  {
+   "name": "Dilma Rousseff",
+   "full_name": "Dilma Vana Rousseff",
+   "role": "Presidenta da República",
+   "head_of_government": true,
+   "on_dates": [
+    "2013-06-13 (lote 4)",
+    "2013-07-17 (lote 3)",
+    "2014-02-13 (lote 1)",
+    "2014-05-28 (lote 2)"
+   ],
+   "party_at_time": "PT",
+   "party_name": "Partido Dos Trabalhadores",
+   "term_note": "Eleita em 2010 para o mandato 2011 a 2014 (TSE). A biografia oficial da Biblioteca da Presidência estava \"em manutenção\" na coleta.",
+   "source": [
+    {
+     "doc": "TSE, candidaturas 2010 (BR), situação \"ELEITO\" no 2º turno",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2010.zip"
+    }
+   ]
+  },
+  {
+   "name": "Luiz Inácio Lula da Silva",
+   "role": "Presidente da República",
+   "head_of_government": true,
+   "on_dates": [
+    "2024-10-18 (supervisão 00606/2024)",
+    "2026-09-28 (reequilíbrios dos lotes 2, 3 e 4)"
+   ],
+   "party_at_time": "PT",
+   "party_name": "Partido Dos Trabalhadores",
+   "term_note": "Eleito em 2022 para o mandato 2023 a 2026 (TSE).",
+   "source": [
+    {
+     "doc": "TSE, candidaturas 2022 (BR)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
+    }
+   ]
+  }
+ ],
+ "people_gaps": [
+  "Superintendente Regional do DNIT em SC nas assinaturas de 2013 (lotes 3 e 4) e de fevereiro de 2014 (lote 1): não encontrado nas páginas do DOU lidas.",
+  "Diretor-Geral do DNIT nas datas das assinaturas: não verificado.",
+  "Governadores de SC não entram: a obra é federal. O Estado aportou recursos a partir de 2021 (ver pagamentos)."
+ ],
+ "findings": [
+  {
+   "body": "TCU",
+   "process": "TC 016.019/2017-2",
+   "decision": "Acórdão 1704/2019-Plenário (relator Bruno Dantas)",
+   "date": "2019-07-24",
+   "scope": "Auditoria do lote 2 (Contrato 355/2014)",
+   "summary_quote": "determinar ao Dnit que, no prazo de 60 (sessenta) dias, apresente a este Tribunal documento probatório da obtenção das autorizações de proprietários para uso dos terrenos privados ao longo da faixa de domínio, em especial, daqueles em que já houverem sido executadas intervenções no âmbito do Contrato 355/2014",
+   "status": "determinação ao DNIT com monitoramento pela unidade técnica; resultado do monitoramento não localizado",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1704/2019/Plen%C3%A1rio",
+   "api": "https://pesquisa.apps.tcu.gov.br/rest/publico/base/acordao-completo/documento?termo=KEY:ACORDAO-COMPLETO-2362146&quantidade=1&inicio=0"
+  },
+  {
+   "body": "TCU",
+   "process": "TC 014.951/2021-5",
+   "decision": "Acórdão 1886/2022-Plenário (relator Bruno Dantas)",
+   "date": "2022-08-17",
+   "scope": "Auditoria do lote 3 (Contrato 703/2013)",
+   "summary_quote": "sobrepreço no orçamento de referência decorrente da previsão em duplicidade de equipamentos para a fabricação de concreto",
+   "second_quote": "emissão da ordem de serviço das obras sem a prévia publicação da Declaração de Utilidade Pública dos imóveis abrangidos pelo empreendimento",
+   "materiality_quote": "Assim, o possível sobrepreço de R$ 510.205,50 corresponderia a somente 0,3% do valor contratado, sendo considerado de baixa materialidade frente ao desconto concedido pela empresa",
+   "status": "ciência ao DNIT (\"para que sejam adotadas medidas internas com vistas à prevenção de outras ocorrências semelhantes\") e arquivamento; sem multa nem débito",
+   "names_note": "O cabeçalho lista dois \"responsáveis\" (termo processual); o acórdão não aplicou sanção a pessoas, e por isso os nomes não são reproduzidos aqui.",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1886/2022/Plen%C3%A1rio",
+   "api": "https://pesquisa.apps.tcu.gov.br/rest/publico/base/acordao-completo/documento?termo=KEY:ACORDAO-COMPLETO-2535085&quantidade=1&inicio=0"
+  },
+  {
+   "body": "TCU",
+   "process": "TC 014.989/2024-7 e TC 000.866/2025-3",
+   "decision": "Acórdãos 2205/2024 e 2718/2025-Plenário (indicadores de valor e de prazo de obras)",
+   "date": "2024-10-16 e 2025-11-18",
+   "summary_quote": "Duplicação da BR-470/SC (Navegantes - Rio do Sul) (04 lotes) 4,9 13,6 2,79 NNN",
+   "value_quote": "Duplicação da BR-470/SC (Navegantes - Rio do Sul) (04 lotes) 1.669.899.804,20 1.896.069.990,08",
+   "reading": "Valor inicial de referência R$ 1,670 bi e valor final atual R$ 1,896 bi (ambos corrigidos pelo IPCA pelo TCU): iValor 1,14, isto é, 14% acima. Prazo inicial de 4,9 anos e prazo final atual de 13,6 anos: iPrazo 2,79. \"NNN\" é a pior classe da expectativa de prazo na escala do TCU.",
+   "status": "avaliação de desempenho; não é achado de irregularidade",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2205/2024/Plen%C3%A1rio",
+   "extra_urls": [
+    "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2718/2025/Plen%C3%A1rio"
+   ]
+  },
+  {
+   "body": "TCU",
+   "process": "TC 021.176/2022-1",
+   "decision": "Acórdão 2207/2023-Plenário (Fiscobras 2023)",
+   "date": "2023-11-01",
+   "summary_quote": "BR-470/SC - Adequação - Navegantes - Rio do Sul 8% 207%",
+   "status": "teste dos indicadores (versão anterior da fórmula); sem determinação sobre a obra",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2207/2023/Plen%C3%A1rio"
+  },
+  {
+   "body": "CGU, MPF, Justiça Federal",
+   "process": null,
+   "summary_quote": null,
+   "status": "Nenhum relatório da CGU, ação do MPF ou decisão judicial sobre a duplicação localizada nesta coleta (uma busca na web; sistemas da CGU, do MPF e do TRF4 não consultados por número).",
+   "url": null
+  }
+ ],
+ "terms_check": {
+  "terms": [
+   "superfaturamento",
+   "sobrepreço",
+   "desvio"
+  ],
+  "found": {
+   "1704/2019": [],
+   "1886/2022": [
+    "sobrepreço"
+   ]
+  },
+  "note": "O Acórdão 1886/2022 usa \"sobrepreço\" (R$ 510.205,50, 0,3% do contrato do lote 3, considerado de baixa materialidade). Nenhum dos dois acórdãos de auditoria usa \"superfaturamento\" ou \"desvio\". Controle positivo conferido."
+ },
+ "media": [
+  {
+   "file": "docs/superpowers/previews/assets/cases/br-470-duplicacao/road-indaial-2011.jpg",
+   "caption": "2011: BR-470 em Indaial, ainda em pista simples",
+   "author": "Elias C",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:BR_470_Indaial_-_panoramio.jpg",
+   "date": "Taken on 26 July 2011"
+  },
+  {
+   "file": "docs/superpowers/previews/assets/cases/br-470-duplicacao/urban-indaial-2011.jpg",
+   "caption": "2011: trecho urbano da BR-470 em Indaial, antes da duplicação",
+   "author": "Elias C",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Uniasselvi_Indaial_ao_lado_direito_-_BR_470_-_panoramio.jpg",
+   "date": "Taken on 26 July 2011"
+  },
+  {
+   "file": "docs/superpowers/previews/assets/cases/br-470-duplicacao/trucks-indaial-2011.jpg",
+   "caption": "2011: caminhões parados na BR-470 em Indaial",
+   "author": "Elias C",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Caminhoes_parados_em_Indaial_-_Br_470_-_panoramio.jpg",
+   "date": "Taken on 26 July 2011"
+  }
+ ],
+ "media_note": "Não há no Wikimedia Commons foto com licença livre das obras de duplicação (buscas: \"BR-470\", \"BR 470\", \"BR-470 duplicação\", \"BR-470 Gaspar/Blumenau/Navegantes/Indaial\"). As fotos são de 2011, antes da obra, no fim do trecho (Indaial).",
+ "comparison": {
+  "unit": "R$ por km de rodovia duplicada, em reais de dezembro de 2024",
+  "method": "Contratos a preços iniciais com aditivos de quantidade (sem reajustamento), corrigidos pelo IPCA do mês-base até dez/2024 (IBGE/SIDRA 1737). Mês-base = data-base oficial quando o documento a informa; senão, mês de assinatura. Tudo em reais: sem câmbio.",
+  "ipca_dec_2024": 7100.5,
+  "ipca_source": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/all?formato=json",
+  "this_work": {
+   "name": "BR-470/SC, duplicação Navegantes - Indaial (4 lotes)",
+   "category": "SC, urbana e periurbana, com obras de arte",
+   "scope": "Duplicação, restauração da pista existente, ruas laterais, viadutos e pontes; trecho urbano e periurbano no Vale do Itajaí.",
+   "lanes": "2 para 4 faixas (duplicação)",
+   "length_km": 73.18,
+   "cost_reported_brl": 992076681.56,
+   "cost_basis": "Soma dos 4 contratos de obra a preços iniciais vigentes (com aditivos de quantidade, sem reajustamento). Supervisão, gestão ambiental e desapropriações ficam fora.",
+   "parts": [
+    {
+     "value_brl": 235771658.01,
+     "price_base_month": "2014-02",
+     "ipca_index_base_month": 3862.84,
+     "ipca_factor_to_dec2024": 1.838155,
+     "value_brl_2024": 433384933.81,
+     "length_km": 18.61
+    },
+    {
+     "value_brl": 364979641.58,
+     "price_base_month": "2013-05",
+     "ipca_index_base_month": 3706.28,
+     "ipca_factor_to_dec2024": 1.915802,
+     "value_brl_2024": 699228861.56,
+     "length_km": 26.26
+    },
+    {
+     "value_brl": 182249431.84,
+     "price_base_month": "2013-07",
+     "ipca_index_base_month": 3717.03,
+     "ipca_factor_to_dec2024": 1.910262,
+     "value_brl_2024": 348144107.2,
+     "length_km": 12.91
+    },
+    {
+     "value_brl": 209075950.13,
+     "price_base_month": "2013-06",
+     "ipca_index_base_month": 3715.92,
+     "ipca_factor_to_dec2024": 1.910832,
+     "value_brl_2024": 399509080.9,
+     "length_km": 15.4
+    }
+   ],
+   "cost_brl_2024": 1880266983.47,
+   "cost_per_km_brl_2024": 25693727.57,
+   "sources": [
+    {
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/80967/historico"
+    },
+    {
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/80916/historico"
+    },
+    {
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/98313/historico"
+    },
+    {
+     "url": "https://contratos.comprasnet.gov.br/api/contrato/80873/historico"
+    }
+   ]
+  },
+  "comparables": [
+   {
+    "name": "BR-280/SC, duplicação São Francisco do Sul - Jaraguá do Sul (3 lotes)",
+    "category": "SC, urbana e periurbana, com obras de arte",
+    "scope": "Duplicação com restauração e melhoramentos para capacidade e segurança, km 0,70 a 74,58; mesma superintendência do DNIT e mesma época.",
+    "lanes": "2 para 4 faixas (duplicação)",
+    "length_km": 73.9,
+    "cost_reported_brl": 1091600109.47,
+    "cost_basis": "Preços iniciais vigentes: lote 1 (967/2014) R$ 344.301.403,99, mês-base mar/2014; lote 2.1 (574/2013) e lote 2.2 (614/2013), mês de assinatura (jun/2013).",
+    "parts": [
+     {
+      "value_brl": 344301403.99,
+      "price_base_month": "2014-03",
+      "ipca_index_base_month": 3898.38,
+      "ipca_factor_to_dec2024": 1.821398,
+      "value_brl_2024": 627109753.03,
+      "length_km": 36.0
+     },
+     {
+      "value_brl": 151206675.59,
+      "price_base_month": "2013-06",
+      "ipca_index_base_month": 3715.92,
+      "ipca_factor_to_dec2024": 1.910832,
+      "value_brl_2024": 288930601.31,
+      "length_km": 14.06
+     },
+     {
+      "value_brl": 596092029.89,
+      "price_base_month": "2013-06",
+      "ipca_index_base_month": 3715.92,
+      "ipca_factor_to_dec2024": 1.910832,
+      "value_brl_2024": 1139031910.87,
+      "length_km": 23.84
+     }
+    ],
+    "cost_brl_2024": 2055072265.21,
+    "cost_per_km_brl_2024": 27808826.32,
+    "sources": [
+     {
+      "url": "https://contratos.comprasnet.gov.br/api/contrato/80981/historico"
+     },
+     {
+      "url": "https://contratos.comprasnet.gov.br/api/contrato/81007/historico"
+     },
+     {
+      "url": "https://contratos.comprasnet.gov.br/api/contrato/81065/historico"
+     }
+    ]
+   },
+   {
+    "name": "BR-101/BA, duplicação Divisa SE/BA - Conceição do Jacuípe (lotes 1, 2 e 4)",
+    "category": "BA, rural, com obras de arte",
+    "scope": "Contratação integrada (projeto e obra) de duplicação e restauração com obras de arte especiais; rodovia rural.",
+    "lanes": "2 para 4 faixas (duplicação)",
+    "length_km": 124.38,
+    "cost_reported_brl": 626000000.0,
+    "cost_basis": "Valor dos contratos 748, 749 e 751/2014 (sem alteração de valor no registro). O lote 3 (750/2014) não está entre os contratos ativos da API e ficou fora.",
+    "parts": [
+     {
+      "value_brl": 195500000.0,
+      "price_base_month": "2014-09",
+      "ipca_index_base_month": 3991.24,
+      "ipca_factor_to_dec2024": 1.779021,
+      "value_brl_2024": 347798616.47,
+      "length_km": 41.6
+     },
+     {
+      "value_brl": 231000000.0,
+      "price_base_month": "2014-09",
+      "ipca_index_base_month": 3991.24,
+      "ipca_factor_to_dec2024": 1.779021,
+      "value_brl_2024": 410953863.96,
+      "length_km": 41.98
+     },
+     {
+      "value_brl": 199500000.0,
+      "price_base_month": "2014-09",
+      "ipca_index_base_month": 3991.24,
+      "ipca_factor_to_dec2024": 1.779021,
+      "value_brl_2024": 354914700.69,
+      "length_km": 40.8
+     }
+    ],
+    "cost_brl_2024": 1113667181.12,
+    "cost_per_km_brl_2024": 8953748.04,
+    "sources": [
+     {
+      "url": "https://contratos.comprasnet.gov.br/api/contrato/76890/historico"
+     },
+     {
+      "url": "https://contratos.comprasnet.gov.br/api/contrato/76891/historico"
+     },
+     {
+      "url": "https://contratos.comprasnet.gov.br/api/contrato/82000/historico"
+     }
+    ]
+   },
+   {
+    "name": "BR-230/PB, duplicação e contorno Campina Grande - Farinha",
+    "category": "PB, periurbana, com contorno e obras de arte",
+    "scope": "Contratação integrada de duplicação, contorno, restauração e obras de arte especiais, km 152,3 a 183,9.",
+    "lanes": "2 para 4 faixas (duplicação)",
+    "length_km": 31.6,
+    "cost_reported_brl": 317837148.73,
+    "cost_basis": "Preços iniciais vigentes depois do TA 11/2026; contrato 938/2017, assinado em 28/12/2017.",
+    "parts": [
+     {
+      "value_brl": 317837148.73,
+      "price_base_month": "2017-12",
+      "ipca_index_base_month": 4916.46,
+      "ipca_factor_to_dec2024": 1.44423,
+      "value_brl_2024": 459030008.29,
+      "length_km": 31.6
+     }
+    ],
+    "cost_brl_2024": 459030008.29,
+    "cost_per_km_brl_2024": 14526266.09,
+    "sources": [
+     {
+      "url": "https://contratos.comprasnet.gov.br/api/contrato/81013/historico"
+     }
+    ]
+   }
+  ],
+  "cross_check_tcu": {
+   "quote_br470": "Duplicação da BR-470/SC (Navegantes - Rio do Sul) (04 lotes) 1.669.899.804,20 1.896.069.990,08 79% 1,14",
+   "quote_br280": "Duplicação da BR-280/SC (São Francisco do Sul - Jaraguá do Sul) (03 lotes) 1.886.513.773,75 2.048.721.093,54 54% 1,09",
+   "reading": "No quadro do TCU (mesma data-base para todos), a BR-280/SC também custa mais por km que a BR-470: R$ 2,049 bi para 73,9 km contra R$ 1,896 bi para 73,18 km.",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2205/2024/Plen%C3%A1rio"
+  },
+  "result": "A BR-470 custou R$ 25,7 mi por km (dez/2024), MENOS que a obra mais parecida, a BR-280/SC (R$ 27,8 mi/km, mesma época e mesma superintendência), e mais que duplicações rurais ou com menos travessias urbanas (BR-101/BA: R$ 9,0 mi/km; BR-230/PB: R$ 14,5 mi/km).",
+  "caveats": [
+   "Valores de contrato, não custo final: as quatro obras comparadas ainda têm contratos em andamento.",
+   "O mês-base real dos preços pode ser anterior à assinatura; nesse caso a correção pelo IPCA fica um pouco subestimada em todos os casos.",
+   "Os reequilíbrios pelo preço do asfalto (2021 a 2026) ficam fora da comparação: são parcela de reajuste, e corrigi-los pelo IPCA contaria a inflação duas vezes.",
+   "Duplicações rurais em relevo plano (BR-101/BA) custam menos por km; a BR-470 atravessa áreas urbanas, com ruas laterais e muitos viadutos."
+  ]
+ },
+ "card": {
+  "image": "docs/superpowers/previews/assets/cases/br-470-duplicacao/urban-indaial-2011.jpg",
+  "stats": [
+   [
+    "Contratos de obra (preço inicial)",
+    "R$ 992,1 mi"
+   ],
+   [
+    "Pago (União e Estado)",
+    "R$ 1,70 bi"
+   ],
+   [
+    "Prazo",
+    "13,6 anos (previsto 4,9)"
+   ],
+   [
+    "Custo por km (dez/2024)",
+    "R$ 25,7 mi"
+   ]
+  ]
+ }
+}

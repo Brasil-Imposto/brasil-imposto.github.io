@@ -1,0 +1,2765 @@
+{
+ "collected_on": "2026-10-04",
+ "rule": "Movimentos individuais de dinheiro federal do lado do gasto, de 2019 a 2026: os 10 maiores de cada ano civil pelo valor oficial, com o mesmo critério para qualquer governo, sem filtro de partido ou de autor. Entram (1) atos federais (lei, lei complementar ou medida provisória) que fixam no próprio texto, ou na exposição de motivos oficial, um valor em reais de gasto, empréstimo com recursos da União, crédito extraordinário, renegociação de dívidas, garantia, ou renúncia e perda de receita, datados pela publicação no Diário Oficial da União; e (2) pagamentos de gastos fixados antes que o Resultado do Tesouro Nacional do mês destaca como atípicos ou extraordinários, datados pelo mês do pagamento (moved_on). Sem dupla contagem: quando um crédito extraordinário financia o programa criado por outro ato, entra só o de maior valor oficial (em empate, o ato que criou o programa) e o outro aparece na situação do item; lei de conversão que repete o valor de uma medida provisória fica com a medida provisória, no ano em que o valor foi fixado pela primeira vez; quando um programa tem um ato com teto e um pagamento depois, fica o movimento que é único e identificável, e a situação do item diz qual ato ou pagamento ficou de fora. Quando um ato fixa mais de um teto, o valor do item é o teto principal e os demais aparecem no resumo. Não entram a lei orçamentária anual nem as leis de crédito suplementar ou especial, que redistribuem o orçamento já aprovado. Nos atos, os valores são tetos ou estimativas oficiais, não valores pagos; nos pagamentos, são valores pagos lidos no Resultado do Tesouro Nacional. Em 2026 a coleta cobre janeiro a junho; julho a outubro de 2026 estão em recent.json.",
+ "coverage": {
+  "2026": "jan a jun",
+  "2025": "ano completo",
+  "2024": "ano completo",
+  "2023": "ano completo",
+  "2022": "ano completo",
+  "2021": "ano completo",
+  "2020": "ano completo",
+  "2019": "ano completo"
+ },
+ "items": [
+  {
+   "id": "precatorios-2026-03",
+   "title": "Pagamento concentrado de sentenças judiciais e precatórios em março de 2026",
+   "short_title": "Precatórios pagos em março",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 3 (março de 2026)",
+    "date": "2026-04-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/3"
+   },
+   "signed_by": [],
+   "amount_brl": 71374800000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de março de 2026, Tabela 3.1 (R$ milhões, preços correntes, coluna março de 2026), soma das cinco linhas de sentenças judiciais e precatórios (benefícios previdenciários urbano e rural, pessoal, BPC e custeio e capital)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/54551_1765837/boletim_mar26.pdf",
+    "quote": "Benefícios Previdenciários, Urbano: Sentenças Judiciais e Precatórios 20.481,0; Rural: Sentenças Judiciais e Precatórios 5.585,9; Pessoal e Encargos Sociais: d/q Sentenças Judiciais e Precatórios 9.057,4; BPC da LOAS/RMV: d/q Sentenças Judiciais e Precatórios 975,5; 4.3.14 Sentenças Judiciais e Precatórios (Custeio e Capital) 35.275,0. Nota 13 do mês: crescimento explicado pelo cronograma de pagamentos de sentenças judiciais e precatórios, que em 2026 concentrou- se em março, enquanto em 2025 a torre de pagamentos ocorreu em julho.",
+    "date": "2026-04-30"
+   },
+   "status": "Pago em março de 2026. O valor inclui as requisições de pequeno valor pagas no mês. Em 2025 a concentração dos pagamentos ocorreu em julho.",
+   "summary": "A União pagou R$ 71,4 bilhões em sentenças judiciais e precatórios em março de 2026, mês em que o Tesouro Nacional concentrou o pagamento anual dessas dívidas judiciais; em março de 2025 o mesmo grupo de despesas somou cerca de R$ 3,1 bilhões.",
+   "year": 2026,
+   "moved_on": "2026-03"
+  },
+  {
+   "id": "mp-1359-2026-driver-vehicle-financing",
+   "title": "Financiamento de carros novos para motoristas de aplicativo e taxistas (Medida Provisória nº 1.359)",
+   "short_title": "Carros para motoristas de app e taxistas",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.359",
+    "date": "2026-05-19",
+    "url": "https://legis.senado.leg.br/norma/43301927"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Rogério Ceron de Oliveira",
+     "office": null
+    },
+    {
+     "name": "Márcio Fernando Elias Rosa",
+     "office": null
+    }
+   ],
+   "amount_brl": 30000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.359/2026, art. 2º (Diário Oficial da União, edição extra de 19/05/2026; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/43301927/publicacao/43301142",
+    "quote": "Art. 2º Observada a disponibilidade orçamentária e financeira, fica a União autorizada a destinar o valor de até R$ 30.000.000.000,00 (trinta bilhões de reais), para disponibilizar linhas de financiamento reembolsável a profissionais de transporte remunerado privado individual de passageiros, taxistas e cooperativas de taxistas",
+    "date": "2026-05-19"
+   },
+   "status": "Incorporada pela Lei nº 15.503, de 14/09/2026 (conversão da MP nº 1.366), que manteve o teto de R$ 30 bilhões e revogou esta medida provisória (item de recent.json). O crédito extraordinário que financiou o teto, Medida Provisória nº 1.362, de 25/05/2026 (R$ 30 bilhões), não entra de novo; perdeu a eficácia em 22/09/2026, segundo o Senado Federal.",
+   "summary": "Autoriza a União a destinar até R$ 30 bilhões a empréstimos para motoristas de aplicativo, taxistas e cooperativas de táxi comprarem carros novos.",
+   "year": 2026,
+   "fiscal_nature": "financial",
+   "fiscal_nature_source": {
+    "body": "Exposição de Motivos da MP nº 1.359/2026 (Planalto)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/exm/exm-mp-1359-26.pdf",
+    "quote": "Vale destacar que essas operações não terão garantia do Tesouro Nacional e os seus riscos serão integralmente assumidos pela instituição financeira concedente do crédito, tratando-se, portanto, de despesa de natureza financeira, que não gera impacto fiscal primário.",
+    "note": "Segundo a exposição de motivos, o teto de R$ 30 bilhões é despesa financeira (empréstimo). Por isso fica fora da linha \"Despesas\" da conta da União, que é a despesa primária."
+   }
+  },
+  {
+   "id": "mp-1354-2026-truck-bus-fgi-credit",
+   "title": "Crédito extraordinário para financiar caminhões e ônibus e reforçar fundos garantidores (Medida Provisória nº 1.354)",
+   "short_title": "Caminhões, ônibus e fundos garantidores",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.354",
+    "date": "2026-04-30",
+    "url": "https://legis.senado.leg.br/norma/43212250"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Bruno Moretti",
+     "office": "Ministro de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 17000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.354/2026, art. 1º (Diário Oficial da União, edição extra de 30/04/2026; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/43212250/publicacao/43212656",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor de Encargos Financeiros da União e de Operações Oficiais de Crédito, no valor de R$ 17.000.000.000,00 (dezessete bilhões de reais), para atender às programações constantes do Anexo.",
+    "date": "2026-04-30"
+   },
+   "status": "Perdeu a eficácia em 27/08/2026, segundo o Senado Federal (a Medida Provisória nº 1.371, de 22/06/2026, alterou esta medida). Financia os tetos da Medida Provisória nº 1.353, de 30/04/2026 (até R$ 14,5 bilhões em linhas de financiamento e até R$ 2 bilhões a mais no FGI), que por isso não entra como item próprio; a Medida Provisória nº 1.353 também perdeu a eficácia em 27/08/2026. O Tesouro Nacional registrou o aporte de R$ 2 bilhões ao FGI em maio de 2026.",
+   "summary": "Abre R$ 17 bilhões fora do orçamento aprovado: R$ 14,5 bilhões em empréstimos para renovar frotas de caminhões, ônibus e implementos rodoviários, R$ 2 bilhões para o Fundo Garantidor para Investimentos (FGI) e R$ 500 milhões para o Fundo Garantidor de Operações de Comércio Exterior (FGCE), em resposta à alta dos combustíveis com o conflito no Oriente Médio (EXM nº 1022/2026).",
+   "year": 2026,
+   "fiscal_nature": "financial",
+   "fiscal_nature_source": {
+    "body": "Exposição de Motivos da MP nº 1.353/2026, cujos tetos este crédito financia (Planalto)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/exm/exm-mp-1353-26.pdf",
+    "quote": "A proposição também autoriza a disponibilização de até R$ 14,5 bilhões neste exercício para linhas de financiamento reembolsável para aquisição de caminhões, caminhões-tratores, ônibus, micro-ônibus ou implementos rodoviários, sem garantia do Tesouro Nacional e com risco da operação assumido pela instituição financeira concedente do crédito, o que configura despesa de natureza financeira, que não impõe impacto fiscal primário.",
+    "note": "Dos tetos financiados por este crédito, os R$ 14,5 bilhões em linhas de financiamento são despesa financeira (empréstimo) e ficam fora da linha \"Despesas\" da conta da União, que é a despesa primária; o aporte de até R$ 2 bilhões ao FGI \"tem natureza de despesa discricionária\", segundo a mesma exposição de motivos."
+   }
+  },
+  {
+   "id": "mp-1345-2026-export-credit-lines",
+   "title": "Plano Brasil Soberano: linhas de crédito a exportadores (Medida Provisória nº 1.345)",
+   "short_title": "Crédito a exportadores",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.345",
+    "date": "2026-03-25",
+    "url": "https://legis.senado.leg.br/norma/42930860"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Dario Carnevalli Durigan",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Geraldo José Rodrigues Alckmin Filho",
+     "office": "Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços"
+    }
+   ],
+   "amount_brl": 15000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.345/2026, art. 3º, § 1º, da Lei nº 12.712/2012 na redação dada pela medida (Diário Oficial da União de 25/03/2026; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/42930860/publicacao/42933964",
+    "quote": "§ 1º As linhas de financiamento de que trata o caput serão concedidas com a utilização de até R$ 15.000.000.000,00 (quinze bilhões de reais)",
+    "date": "2026-03-25"
+   },
+   "status": "Convertida na Lei nº 15.473, de 22/07/2026, que manteve o teto de R$ 15 bilhões (item de recent.json). O crédito extraordinário da Medida Provisória nº 1.352, de 28/04/2026 (R$ 5 bilhões ao Fundo de Garantia à Exportação para estas linhas), é parte deste teto e não entra de novo.",
+   "summary": "Autoriza até R$ 15 bilhões em linhas de financiamento a empresas exportadoras de bens industriais e a seus fornecedores, afetadas por tarifas comerciais majoradas e instabilidade internacional, com recursos do superávit do Fundo de Garantia à Exportação e outras fontes.",
+   "year": 2026,
+   "fiscal_nature": "financial",
+   "fiscal_nature_source": {
+    "body": "Exposição de Motivos da MP nº 1.345/2026 (Planalto)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/exm/exm-mp-1345-26.pdf",
+    "quote": "Trata-se de uma despesa financeira da União sem impacto no resultado primário do setor público, uma vez que o risco das operações será integralmente assumido pelo BNDES e as instituições financeiras por ele habilitadas.",
+    "note": "Segundo a exposição de motivos, o teto de R$ 15 bilhões é despesa financeira (empréstimo). Por isso fica fora da linha \"Despesas\" da conta da União, que é a despesa primária."
+   }
+  },
+  {
+   "id": "mp-1340-2026-diesel-subsidy",
+   "title": "Subvenção ao óleo diesel rodoviário de R$ 0,32 por litro (Medida Provisória nº 1.340)",
+   "short_title": "Subvenção ao diesel",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.340",
+    "date": "2026-03-12",
+    "url": "https://legis.senado.leg.br/norma/42896455"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Alexandre Silveira de Oliveira",
+     "office": "Ministro de Estado de Minas e Energia"
+    }
+   ],
+   "amount_brl": 10000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.340/2026, art. 2º (Diário Oficial da União, edição extra de 12/03/2026; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/42896455/publicacao/42897024",
+    "quote": "Art. 2º A subvenção econômica de que trata esta Medida Provisória ficará limitada ao valor total de R$ 10.000.000.000,00 (dez bilhões de reais).",
+    "date": "2026-03-12"
+   },
+   "status": "Perdeu a eficácia em 09/07/2026, segundo o Senado Federal. O crédito extraordinário da Medida Provisória nº 1.344, de 19/03/2026 (R$ 10 bilhões para esta subvenção), não entra de novo. A Medida Provisória nº 1.349 acrescentou R$ 0,80 por litro até 31/05/2026 (item próprio pela subvenção à importação).",
+   "summary": "Autoriza a União a pagar a produtores e importadores uma subvenção de R$ 0,32 por litro de diesel rodoviário vendido no país, de 12/03/2026 até 31/12/2026, com teto total de R$ 10 bilhões; a mesma medida trata do imposto de exportação sobre petróleo.",
+   "year": 2026
+  },
+  {
+   "id": "mp-1368-2026-airline-fuel-loans",
+   "title": "Crédito extraordinário para empréstimos a companhias aéreas (Medida Provisória nº 1.368)",
+   "short_title": "Empréstimos a companhias aéreas",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.368",
+    "date": "2026-06-19",
+    "url": "https://legis.senado.leg.br/norma/43432257"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Bruno Moretti",
+     "office": "Ministro de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 8000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.368/2026, art. 1º (Diário Oficial da União de 19/06/2026; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/43432257/publicacao/43429544",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério de Portos e Aeroportos, no valor de R$ 8.000.000.000,00 (oito bilhões de reais), para atender à programação constante do Anexo.",
+    "date": "2026-06-19"
+   },
+   "status": "Em tramitação no Congresso Nacional, vigência prorrogada (Ato do Presidente do Congresso Nacional nº 74/2026). Finalidade segundo a descrição da matéria no Senado Federal: empréstimo a companhias aéreas brasileiras para neutralizar o impacto no custo do querosene de aviação. O anexo do crédito não tem texto no sistema do Senado e não foi lido.",
+   "summary": "Abre R$ 8 bilhões fora do orçamento aprovado, em favor do Ministério de Portos e Aeroportos, para empréstimos a companhias aéreas brasileiras diante da alta do querosene de aviação.",
+   "year": 2026
+  },
+  {
+   "id": "fipem-2026-03",
+   "title": "Integralização de R$ 5,5 bilhões ao FIPEM em março de 2026",
+   "short_title": "Aporte ao fundo do ensino médio (FIPEM)",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 3 (março de 2026)",
+    "date": "2026-04-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/3"
+   },
+   "signed_by": [],
+   "amount_brl": 5500000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de março de 2026, Nota 15 do mês (Discricionárias)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/54551_1765837/boletim_mar26.pdf",
+    "quote": "explicado, principalmente, pelo crescimento nos pagamentos de ações nas funções Educação (+R$ 6,1 bilhões), que incluiu a integralização de R$ 5,5 bilhões ao Fundo de Incentivo à Permanência e Conclusão Escolar para Estudantes do Ensino Médio",
+    "date": "2026-04-30"
+   },
+   "status": "Pago em março de 2026. Em fevereiro de 2026 a União já tinha integralizado R$ 3,5 bilhões ao mesmo fundo; até maio, as integralizações de 2026 somaram R$ 9,5 bilhões, segundo o Tesouro Nacional.",
+   "summary": "A União integralizou R$ 5,5 bilhões ao Fundo de Incentivo à Permanência e Conclusão Escolar para Estudantes do Ensino Médio (FIPEM), segundo o Tesouro Nacional.",
+   "year": 2026,
+   "moved_on": "2026-03"
+  },
+  {
+   "id": "mp-1355-2026-novo-desenrola",
+   "title": "Novo Desenrola Brasil: garantia da União para renegociar dívidas de pessoas físicas (Medida Provisória nº 1.355)",
+   "short_title": "Novo Desenrola Brasil",
+   "kind": "debt_renegotiation",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.355",
+    "date": "2026-05-04",
+    "url": "https://legis.senado.leg.br/norma/43247820"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Dario Carnevalli Durigan",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Leonardo Osvaldo Barchini Rosa",
+     "office": null
+    },
+    {
+     "name": "Paulo Henrique Rodrigues Pereira",
+     "office": null
+    },
+    {
+     "name": "Esther Dweck",
+     "office": null
+    },
+    {
+     "name": "Bruno Moretti",
+     "office": "Ministro de Estado do Planejamento e Orçamento"
+    },
+    {
+     "name": "Wolney Queiroz Maciel",
+     "office": null
+    },
+    {
+     "name": "Luiz Marinho",
+     "office": null
+    }
+   ],
+   "amount_brl": 5000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.355/2026, art. 15 (Diário Oficial da União, edição extra de 04/05/2026; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/43247820/publicacao/43243323",
+    "quote": "Art. 15. Fica a União autorizada a aumentar em até R$ 5.000.000.000,00 (cinco bilhões de reais) a sua participação no FGO, por meio da subscrição adicional de cotas para constituição de patrimônio segregado no Fundo, com direitos e obrigações próprios, exclusivamente para a cobertura das operações de crédito a que se refere o art. 6º para reestruturação de dívidas de pessoas físicas beneficiárias nos termos do disposto no art. 3º.",
+    "date": "2026-05-04"
+   },
+   "status": "Perdeu a eficácia em 31/08/2026 sem conversão em lei, segundo o Senado Federal.",
+   "summary": "Cria o Novo Desenrola Brasil, para renegociar dívidas em atraso de pessoas físicas com bancos, e autoriza a União a colocar até R$ 5 bilhões no Fundo Garantidor de Operações (FGO) para garantir essas renegociações. A medida também permite saques do FGTS para pagar dívidas, limitados a R$ 8,2 bilhões no total, dinheiro dos trabalhadores e não da União.",
+   "year": 2026
+  },
+  {
+   "id": "lei-15367-2026-education-staff-pay",
+   "title": "Reconhecimento de Saberes e Competências dos técnico-administrativos em educação (Lei nº 15.367)",
+   "short_title": "Reajustes e carreiras de servidores federais (Lei 15.367)",
+   "kind": "spending",
+   "act": {
+    "type": "Lei",
+    "number": "15.367",
+    "date": "2026-03-31",
+    "url": "https://legis.senado.leg.br/norma/42966204"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Margareth Menezes da Purificação Costa",
+     "office": null
+    },
+    {
+     "name": "Camilo Sobreira de Santana",
+     "office": null
+    },
+    {
+     "name": "Esther Dweck",
+     "office": "Ministra de Estado da Gestão e da Inovação em Serviços Públicos"
+    },
+    {
+     "name": "Wolney Queiroz Maciel",
+     "office": null
+    }
+   ],
+   "amount_brl": 4166686095,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos nº 803/2025 MGI do projeto de lei, assinada por Esther Dweck em 02/12/2025 (Planalto, cópia do Internet Archive); valor de 2026",
+    "url": "https://web.archive.org/web/20260302005643/https://www.planalto.gov.br/CCIVIL_03/Projetos/Ato_2023_2026/2025/PL/Exm/Exm-803-25-MIGSP.doc",
+    "quote": "(ii) para 2026, um impacto orçamentário de R$ 4.166.686.095,16; e (iii) para 2027 e 2028, um impacto orçamentário de R$ 5.609.026.382,69.",
+    "date": "2025-12-02"
+   },
+   "status": "Lei em vigor (Diário Oficial da União de 31/03/2026). O valor é o impacto estimado para 2026 no projeto enviado pelo Executivo; a mesma exposição de motivos indica R$ 5,61 bilhões \"para 2027 e 2028\", sem deixar claro se o valor é anual, por isso só 2026 entra. A estimativa sobre o texto aprovado não foi lida.",
+   "summary": "Cria o Reconhecimento de Saberes e Competências no plano de carreira dos servidores técnico-administrativos em educação das instituições federais e reajusta a remuneração de médicos e médicos veterinários dessa carreira. O governo estimou o custo em R$ 4,17 bilhões em 2026.",
+   "year": 2026
+  },
+  {
+   "id": "mp-1349-2026-diesel-import-subsidy",
+   "title": "Regime Emergencial de Abastecimento de Combustíveis: subvenção ao diesel importado (Medida Provisória nº 1.349)",
+   "short_title": "Subvenção ao diesel importado",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.349",
+    "date": "2026-04-07",
+    "url": "https://legis.senado.leg.br/norma/43024252"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Dario Carnevalli Durigan",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Alexandre Silveira de Oliveira",
+     "office": "Ministro de Estado de Minas e Energia"
+    }
+   ],
+   "amount_brl": 4000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.349/2026, art. 5º (Diário Oficial da União, edição extra de 07/04/2026; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/43024252/publicacao/43027102",
+    "quote": "Art. 5º A subvenção econômica à importação de óleo diesel de uso rodoviário de que trata o art. 4º ficará limitada ao valor total de R$ 4.000.000.000,00 (quatro bilhões de reais).",
+    "date": "2026-04-07"
+   },
+   "status": "Perdeu a eficácia em 04/08/2026, segundo o Senado Federal. O crédito extraordinário da Medida Provisória nº 1.365, de 03/06/2026 (R$ 1 bilhão para o capital de giro das companhias aéreas previsto nesta medida), não entra de novo.",
+   "summary": "Paga aos importadores R$ 1,20 por litro de diesel rodoviário importado até 31/05/2026, com teto de R$ 4 bilhões (dos quais até R$ 2 bilhões a cargo dos estados que aderirem), soma R$ 0,80 por litro à subvenção da Medida Provisória nº 1.340 e autoriza até R$ 1 bilhão em financiamentos de capital de giro a companhias aéreas regulares, com risco integral da União.",
+   "year": 2026
+  },
+  {
+   "id": "lei-15270-2025-income-tax-exemption",
+   "title": "Isenção do Imposto de Renda para quem ganha até R$ 5 mil por mês (Lei nº 15.270)",
+   "short_title": "Isenção do IR até R$ 5 mil",
+   "kind": "revenue_waiver",
+   "act": {
+    "type": "Lei",
+    "number": "15.270",
+    "date": "2025-11-27",
+    "url": "https://legis.senado.leg.br/norma/41758136"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Manoel Carlos de Almeida Neto",
+     "office": null
+    },
+    {
+     "name": "Simone Nassar Tebet",
+     "office": "Ministra de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 83240000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos nº 19/2025 MF do Projeto de Lei nº 1.087/2025, item 24, assinada por Fernando Haddad (Planalto, cópia do Internet Archive); soma de 2026 a 2028",
+    "url": "https://web.archive.org/web/20260118063755/https://www.planalto.gov.br/ccivil_03/Projetos/Ato_2023_2026/2025/PL/Exm/Exm-0019-25-MF.doc",
+    "quote": "Estudo elaborado pela Secretaria Especial da Receita Federal do Brasil estima uma renúncia de receitas, em 2026, de R$ 25,84 bilhões (vinte e cinco bilhões e oitocentos e quarenta milhões de reais), em 2027, de R$ 27,72 bilhões (vinte e sete bilhões e setecentos e vinte milhões de reais), e em 2028, de R$ 29,68 (vinte e nove bilhões e seiscentos e oitenta milhões de reais).",
+    "date": "2025-03-15"
+   },
+   "status": "Lei em vigor (Diário Oficial da União de 27/11/2025), efeitos a partir de 2026. A estimativa é do projeto enviado pelo Executivo; o Congresso ampliou a faixa de redução parcial de R$ 7.000 para R$ 7.350, e a estimativa da lei aprovada não foi lida. A mesma exposição de motivos estima a arrecadação das medidas de compensação (imposto mínimo sobre altas rendas e dividendos remetidos ao exterior) em R$ 34,12 bilhões em 2026, R$ 39,18 bilhões em 2027 e R$ 39,64 bilhões em 2028.",
+   "summary": "Zera o Imposto de Renda de quem recebe até R$ 5 mil por mês e reduz o imposto até R$ 7.350, a partir de 2026. O Ministério da Fazenda estimou a perda de arrecadação do projeto em R$ 83,2 bilhões de 2026 a 2028 (R$ 25,8 bi, R$ 27,7 bi e R$ 29,7 bi), compensada por um imposto mínimo sobre rendas altas.",
+   "year": 2025
+  },
+  {
+   "id": "precatorios-2025-07",
+   "title": "Pagamento concentrado de sentenças judiciais e precatórios em julho de 2025",
+   "short_title": "Precatórios pagos em julho",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 31, N. 7 (julho de 2025)",
+    "date": "2025-08-28",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2025/7"
+   },
+   "signed_by": [],
+   "amount_brl": 63691900000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de julho de 2025, Tabela 3.1 (R$ milhões, preços correntes, coluna julho de 2025), soma das cinco linhas de sentenças judiciais e precatórios (benefícios previdenciários urbano e rural, pessoal, BPC e custeio e capital)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/52799_1666088/boletim_jul25.pdf",
+    "quote": "Benefícios Previdenciários, Urbano: Sentenças Judiciais e Precatórios 16.479,6; Rural: Sentenças Judiciais e Precatórios 4.471,7; Pessoal e Encargos Sociais: d/q Sentenças Judiciais e Precatórios 5.900,1; BPC da LOAS/RMV: d/q Sentenças Judiciais e Precatórios 913,1; 4.3.14 Sentenças Judiciais e Precatórios (Custeio e Capital) 35.927,4. Nota 12 do mês: elevação explicada, em grande parte, pelo cronograma de pagamentos de precatórios, que em 2025 foi concentrado em julho, enquanto em 2024 concentrou-se em fevereiro.",
+    "date": "2025-08-28"
+   },
+   "status": "Pago em julho de 2025. O valor inclui as requisições de pequeno valor pagas no mês. Em outubro de 2025 o Tesouro registrou mais R$ 1,4 bilhão de precatórios excedentes ao sublimite da EC nº 114/2021 que não tinham sido pagos com o lote de julho.",
+   "summary": "A União pagou R$ 63,7 bilhões em sentenças judiciais e precatórios em julho de 2025, mês em que o Tesouro Nacional concentrou o pagamento anual dessas dívidas judiciais; em 2024 a concentração ocorreu em fevereiro.",
+   "year": 2025,
+   "moved_on": "2025-07"
+  },
+  {
+   "id": "mp-1309-2025-brasil-soberano-credit",
+   "title": "Plano Brasil Soberano: até R$ 30 bilhões em financiamento a exportadores (Medida Provisória nº 1.309)",
+   "short_title": "Plano Brasil Soberano",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.309",
+    "date": "2025-08-13",
+    "url": "https://legis.senado.leg.br/norma/41236701"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Geraldo José Rodrigues Alckmin Filho",
+     "office": "Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços"
+    }
+   ],
+   "amount_brl": 30000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.309/2025, art. 5º-A da Lei nº 9.818/1999 na redação dada pela medida (Diário Oficial da União, edição extra de 13/08/2025; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/41236701/publicacao/41247297",
+    "quote": "Art. 5º-A. Fica autorizada a utilização do superávit financeiro do FGE, apurado em 31 de dezembro de 2024, inclusive do principal, limitada ao montante de R$ 30.000.000.000,00 (trinta bilhões de reais), como fonte de recursos para a disponibilização de linhas de financiamento a pessoas físicas e jurídicas de direito privado exportadoras de bens e serviços, bem como seus fornecedores",
+    "date": "2025-08-13"
+   },
+   "status": "Perdeu a eficácia em 10/12/2025 sem conversão em lei, segundo o Senado Federal. O crédito extraordinário da Medida Provisória nº 1.310, de 01/09/2025 (R$ 30 bilhões ao Fundo de Garantia à Exportação para estas linhas), não entra de novo.",
+   "summary": "Cria o Plano Brasil Soberano, resposta às tarifas adicionais dos Estados Unidos sobre produtos brasileiros, e autoriza o uso de até R$ 30 bilhões do superávit do Fundo de Garantia à Exportação em empréstimos a exportadores e seus fornecedores.",
+   "year": 2025
+  },
+  {
+   "id": "lc-214-2025-ibs-test-revenue-loss",
+   "title": "Regulamentação da reforma tributária: parcela do IBS descontada da CBS em 2026 a 2028 (Lei Complementar nº 214)",
+   "short_title": "IBS descontado da CBS (reforma tributária)",
+   "kind": "revenue_waiver",
+   "act": {
+    "type": "Lei Complementar",
+    "number": "214",
+    "date": "2025-01-16",
+    "url": "https://legis.senado.leg.br/norma/40180341"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Luiz Paulo Teixeira Ferreira",
+     "office": null
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Márcio Luiz França Gomes",
+     "office": null
+    },
+    {
+     "name": "Esther Dweck",
+     "office": null
+    },
+    {
+     "name": "Geraldo José Rodrigues Alckmin Filho",
+     "office": "Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços"
+    },
+    {
+     "name": "Maria Osmarina Marina da Silva Vaz de Lima",
+     "office": null
+    },
+    {
+     "name": "Silvio Serafim Costa Filho",
+     "office": null
+    },
+    {
+     "name": "Nísia Verônica Trindade Lima",
+     "office": null
+    }
+   ],
+   "amount_brl": 17900000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos nº 38/2024 MF do Projeto de Lei Complementar nº 68/2024, item 289, assinada por Fernando Haddad (Planalto, cópia do Internet Archive); soma de 2026 a 2028",
+    "url": "https://web.archive.org/web/20261003225658/https://www.planalto.gov.br/ccivil_03/projetos/ato_2023_2026/2024/plp/exm/exm-038-24-mf.doc",
+    "quote": "O impacto do projeto no tocante à alíquota de 0,1% do IBS que será descontada da CBS, nos termos dos arts. 125 e 127 do ADCT, foi estimado em até R$ 5,63 bilhões para o ano de 2026, em R$ 5,96 bilhões para o ano de 2027 e em R$ 6,31 bilhões para o ano de 2028 em redução de receitas da União",
+    "date": "2024-04-24"
+   },
+   "status": "Lei complementar em vigor desde 16/01/2025 (Diário Oficial da União, edição extra). A estimativa é do projeto enviado pelo Executivo; a estimativa sobre o texto aprovado não foi lida. A dedução decorre da transição prevista nos arts. 125 e 127 do Ato das Disposições Constitucionais Transitórias (Emenda Constitucional nº 132/2023).",
+   "summary": "Regulamenta o IBS, a CBS e o Imposto Seletivo da reforma tributária. Na fase de teste, a alíquota de 0,1% do IBS é descontada da CBS federal; o Ministério da Fazenda estimou a redução de receitas da União em até R$ 17,9 bilhões de 2026 a 2028 (R$ 5,63 bi, R$ 5,96 bi e R$ 6,31 bi).",
+   "year": 2025
+  },
+  {
+   "id": "lei-15294-2025-presiq",
+   "title": "Programa Especial de Sustentabilidade da Indústria Química (PRESIQ): créditos financeiros de 2027 a 2031 (Lei nº 15.294)",
+   "short_title": "Créditos à indústria química (PRESIQ)",
+   "kind": "revenue_waiver",
+   "act": {
+    "type": "Lei",
+    "number": "15.294",
+    "date": "2025-12-22",
+    "url": "https://legis.senado.leg.br/norma/41853726"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Geraldo José Rodrigues Alckmin Filho",
+     "office": "Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços"
+    },
+    {
+     "name": "Simone Nassar Tebet",
+     "office": "Ministra de Estado do Planejamento e Orçamento"
+    },
+    {
+     "name": "Jorge Rodrigo Araújo Messias",
+     "office": null
+    }
+   ],
+   "amount_brl": 12500000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei nº 15.294/2025, art. 3º, § 3º (Diário Oficial da União de 22/12/2025; texto oficial no Senado Federal); soma dos limites anuais de 2027 a 2031",
+    "url": "https://legis.senado.leg.br/norma/41853726/publicacao/41859066",
+    "quote": "Os créditos financeiros de que trata este artigo serão limitados aos seguintes valores globais para cada ano-calendário: [...] 2027 - R$ 2.500.000.000,00 (dois bilhões e quinhentos milhões de reais); [...] 2031 - R$ 2.500.000.000,00 (dois bilhões e quinhentos milhões de reais).",
+    "date": "2025-12-22"
+   },
+   "status": "Lei em vigor desde 22/12/2025. A mesma lei prevê outro grupo de créditos financeiros limitado a R$ 500 milhões por ano de 2027 a 2031.",
+   "summary": "Cria o PRESIQ, que concede créditos financeiros a indústrias químicas sobre compras de insumos, limitados a R$ 2,5 bilhões por ano de 2027 a 2031 (R$ 12,5 bilhões no total), com parte aplicada em pesquisa e desenvolvimento; outro grupo de créditos tem limite de R$ 500 milhões por ano.",
+   "year": 2025
+  },
+  {
+   "id": "mp-1314-2025-rural-debt-credit",
+   "title": "Linha de crédito para quitar dívidas de produtores rurais (Medida Provisória nº 1.314)",
+   "short_title": "Dívidas de produtores rurais",
+   "kind": "debt_renegotiation",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.314",
+    "date": "2025-09-05",
+    "url": "https://legis.senado.leg.br/norma/41397586"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    }
+   ],
+   "amount_brl": 12000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.314/2025, art. 2º (Diário Oficial da União, edição extra de 05/09/2025; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/41397586/publicacao/41397703",
+    "quote": "Art. 2º Fica autorizada a utilização do superávit financeiro apurado em 31 de dezembro de 2024 de fontes supervisionadas por unidades do Ministério da Fazenda, limitada ao montante de até R$ 12.000.000.000,00 (doze bilhões de reais), como fonte de recursos para a disponibilização de linha de crédito rural criada com o objetivo de permitir a liquidação ou a amortização das seguintes operações",
+    "date": "2025-09-05"
+   },
+   "status": "Perdeu a eficácia em 12/02/2026, segundo o Senado Federal. O crédito extraordinário da Medida Provisória nº 1.316, de 16/09/2025 (R$ 12 bilhões, anexo \"Financiamento Destinado à Liquidação ou à Amortização de Dívidas de Produtores Rurais Prejudicados por Eventos Adversos\"), financia este teto e não entra de novo.",
+   "summary": "Autoriza o uso de até R$ 12 bilhões do superávit de fundos supervisionados pelo Ministério da Fazenda numa linha de crédito para produtores rurais quitarem ou amortizarem dívidas de custeio e investimento, após eventos climáticos adversos.",
+   "year": 2025
+  },
+  {
+   "id": "mp-1293-2025-military-pay",
+   "title": "Reajuste dos soldos dos militares das Forças Armadas (Medida Provisória nº 1.293)",
+   "short_title": "Reajuste dos militares",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.293",
+    "date": "2025-03-28",
+    "url": "https://legis.senado.leg.br/norma/40493293"
+   },
+   "signed_by": [
+    {
+     "name": "Geraldo José Rodrigues Alckmin Filho",
+     "office": "Vice-Presidente da República, no exercício do cargo de Presidente da República"
+    },
+    {
+     "name": "José Múcio Monteiro Filho",
+     "office": "Ministro de Estado da Defesa"
+    },
+    {
+     "name": "Simone Nassar Tebet",
+     "office": "Ministra de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 8300000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos Interministerial nº 25/2025 MD MPO da Medida Provisória nº 1.293/2025, item 6 (Planalto, cópia do Internet Archive); soma do primeiro e do segundo ano",
+    "url": "https://web.archive.org/web/20260710074536/https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/exm/exm-1293-25.pdf",
+    "quote": "O impacto orçamentário estimado é de R$ 3 bilhões no primeiro ano e R$ 5,3 bilhões no segundo.",
+    "date": "2025-03-21"
+   },
+   "status": "Convertida na Lei nº 15.167, de 17/07/2025, segundo o Senado Federal.",
+   "summary": "Reajusta em 9% os soldos dos militares das Forças Armadas, em duas parcelas de 4,5% (abril de 2025 e janeiro de 2026). O governo estimou o custo em R$ 3 bilhões no primeiro ano e R$ 5,3 bilhões no segundo.",
+   "year": 2025
+  },
+  {
+   "id": "mp-1318-2025-redata",
+   "title": "Regime Especial de Tributação para Serviços de Datacenter (REDATA) (Medida Provisória nº 1.318)",
+   "short_title": "Benefício fiscal a datacenters (REDATA)",
+   "kind": "revenue_waiver",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.318",
+    "date": "2025-09-18",
+    "url": "https://legis.senado.leg.br/norma/41468171"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Geraldo José Rodrigues Alckmin Filho",
+     "office": "Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços"
+    },
+    {
+     "name": "Alexandre Silveira de Oliveira",
+     "office": "Ministro de Estado de Minas e Energia"
+    }
+   ],
+   "amount_brl": 7250000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos Interministerial nº 10/2025 MDIC MF MME da Medida Provisória nº 1.318/2025 (Planalto, cópia do Internet Archive); soma de 2026 a 2028",
+    "url": "https://web.archive.org/web/20260924164807/https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/exm/exm-1318-25.pdf",
+    "quote": "a Secretaria Especial da Receita Federal do Brasil estimou impacto orçamentário-financeiro negativo, decorrente da medida ora analisada, nos montantes aproximados de R$ 5,20 bilhões para o ano de 2026, de R$ 1,00 bilhão para o ano de 2027 e de R$ 1,05 bilhão para o ano de 2028.",
+    "date": "2025-09-16"
+   },
+   "status": "Perdeu a eficácia em 25/02/2026, segundo o Senado Federal.",
+   "summary": "Cria um regime de suspensão de tributos federais na compra de equipamentos para datacenters. A Receita Federal estimou a perda de arrecadação em R$ 7,25 bilhões de 2026 a 2028 (R$ 5,2 bi, R$ 1,0 bi e R$ 1,05 bi).",
+   "year": 2025
+  },
+  {
+   "id": "mp-1328-2025-truck-financing",
+   "title": "Financiamento para renovar a frota de caminhões (Medida Provisória nº 1.328)",
+   "short_title": "Caminhões novos",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.328",
+    "date": "2025-12-16",
+    "url": "https://legis.senado.leg.br/norma/41836886"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Geraldo José Rodrigues Alckmin Filho",
+     "office": "Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços"
+    }
+   ],
+   "amount_brl": 6000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.328/2025, art. 2º (Diário Oficial da União, edição extra de 16/12/2025; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/41836886/publicacao/41836963",
+    "quote": "Art. 2º Fica autorizada a destinação de até R$ 6.000.000.000,00 (seis bilhões de reais), obedecida a disponibilidade orçamentária, para disponibilizar linhas de financiamento reembolsável a pessoas físicas e jurídicas de direito privado para aquisição de caminhões novos ou seminovos para renovação de frota.",
+    "date": "2025-12-16"
+   },
+   "status": "Perdeu a eficácia em 27/05/2026, segundo o Senado Federal.",
+   "summary": "Autoriza até R$ 6 bilhões em empréstimos, geridos pelo Ministério da Fazenda e operados pelo BNDES, para caminhoneiros autônomos, cooperativas e empresas de transporte de carga comprarem caminhões novos ou seminovos.",
+   "year": 2025
+  },
+  {
+   "id": "mp-1289-2025-plano-safra-credit",
+   "title": "Crédito extraordinário para subvenções do Plano Safra (Medida Provisória nº 1.289)",
+   "short_title": "Subvenções do Plano Safra",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.289",
+    "date": "2025-02-24",
+    "url": "https://legis.senado.leg.br/norma/40391956"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Simone Nassar Tebet",
+     "office": "Ministra de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 4177883185,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.289/2025, art. 1º (Diário Oficial da União, edição extra de 24/02/2025; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/40391956/publicacao/40392123",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor de Operações Oficiais de Crédito, no valor de R$ 4.177.883.185,00 (quatro bilhões cento e setenta e sete milhões oitocentos e oitenta e três mil cento e oitenta e cinco reais)",
+    "date": "2025-02-24"
+   },
+   "status": "Perdeu a eficácia em 23/06/2025, segundo o Senado Federal.",
+   "summary": "Abre R$ 4,18 bilhões fora do orçamento aprovado para subvenções econômicas da União em operações de crédito rural de custeio, comercialização e investimento (Lei nº 8.427/1992).",
+   "year": 2025
+  },
+  {
+   "id": "mp-1286-2024-federal-staff-pay",
+   "title": "Reajustes e reestruturação das carreiras do Poder Executivo federal (Medida Provisória nº 1.286)",
+   "short_title": "Reajuste dos servidores federais",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.286",
+    "date": "2024-12-31",
+    "url": "https://legis.senado.leg.br/norma/40036017"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Cristina Kiomi Mori",
+     "office": null
+    },
+    {
+     "name": "Gustavo José de Guimarães e Souza",
+     "office": null
+    }
+   ],
+   "amount_brl": 73911637653,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos Interministerial nº 140/2024 MGI MPO da Medida Provisória nº 1.286/2024, item 15, assinada por Esther Dweck e Simone Tebet (Planalto, cópia do Internet Archive); soma de 2025 a 2027",
+    "url": "https://web.archive.org/web/20260710085015/https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/exm/exm-1286-24.pdf",
+    "quote": "Tudo somado, o impacto orçamentário acumulado da proposta nos exercícios de 2025, 2026 e 2027 será, respectivamente, de R$ 17.987.199.520,68, de R$ 26.756.859.315,88, e de R$ 29.167.578.816,57.",
+    "date": "2024-12-30"
+   },
+   "status": "Perdeu a eficácia em 02/06/2025, segundo o Senado Federal. O Executivo reenviou o mesmo conteúdo como projeto de lei (Exposição de Motivos nº 17/2025 MGI MPO: \"possui exatamente o mesmo teor da Medida Provisória nº 1.286\"); a lei resultante não entra de novo.",
+   "summary": "Reajusta a remuneração de servidores, aposentados e pensionistas do Poder Executivo federal a partir de janeiro de 2025, reestrutura carreiras e cria três carreiras novas. O governo estimou o custo em R$ 18,0 bilhões em 2025, R$ 26,8 bilhões em 2026 e R$ 29,2 bilhões em 2027, R$ 73,9 bilhões nos três anos.",
+   "year": 2024
+  },
+  {
+   "id": "precatorios-2024-02",
+   "title": "Pagamento concentrado de sentenças judiciais e precatórios em fevereiro de 2024",
+   "short_title": "Precatórios pagos em fevereiro",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 30, N. 2 (fevereiro de 2024)",
+    "date": "2024-03-26",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2024/2"
+   },
+   "signed_by": [],
+   "amount_brl": 32077000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de fevereiro de 2024, Tabela 3.1 (R$ milhões, preços correntes, coluna fevereiro de 2024), soma das cinco linhas de sentenças judiciais e precatórios (benefícios previdenciários urbano e rural, pessoal, BPC e custeio e capital)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/49174_1539700/boletim_fev24.pdf",
+    "quote": "Benefícios Previdenciários, Urbano: Sentenças Judiciais e Precatórios 1.305,6; Rural: Sentenças Judiciais e Precatórios 351,8; Pessoal e Encargos Sociais: d/q Sentenças Judiciais e Precatórios 667,7; BPC da LOAS/RMV: d/q Sentenças Judiciais e Precatórios 205,2; 4.3.14 Sentenças Judiciais e Precatórios (Custeio e Capital) 29.546,7. Nota 11 do mês: explicado pela diferença no cronograma de pagamentos dos precatórios em 2023 e 2024. Enquanto em 2023 a concentração de pagamento dos precatórios nesta rubrica ocorreu em maio (R$ 16,5 bilhões, a preços de fevereiro de 2024), em 2024 estes pagamentos foram concentrados em fevereiro (R$ 29,6 bilhões).",
+    "date": "2024-03-26"
+   },
+   "status": "Pago em fevereiro de 2024. O valor inclui as requisições de pequeno valor pagas no mês. Os precatórios de pessoal e de benefícios previdenciários devidos em 2024 foram antecipados para dezembro de 2023, após decisão do STF nas ADIs 7.047 e 7.064, por isso esta concentração é menor que a de outros anos.",
+   "summary": "A União pagou R$ 32,1 bilhões em sentenças judiciais e precatórios em fevereiro de 2024, mês em que o Tesouro Nacional concentrou o pagamento anual dessas dívidas judiciais; em 2023 a concentração ocorreu em maio.",
+   "year": 2024,
+   "moved_on": "2024-02"
+  },
+  {
+   "id": "lei-14981-2024-rs-social-fund-credit",
+   "title": "Financiamentos com o superávit do Fundo Social para o Rio Grande do Sul e o clima: até R$ 20 bilhões (Lei nº 14.981)",
+   "short_title": "Financiamentos do Fundo Social (RS)",
+   "kind": "spending",
+   "act": {
+    "type": "Lei",
+    "number": "14.981",
+    "date": "2024-09-23",
+    "url": "https://legis.senado.leg.br/norma/39686235"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Carlos Henrique Baqueta Fávaro",
+     "office": null
+    },
+    {
+     "name": "Luiz Paulo Teixeira Ferreira",
+     "office": null
+    },
+    {
+     "name": "Antônio Waldez Góes da Silva",
+     "office": null
+    },
+    {
+     "name": "Cristina Kiomi Mori",
+     "office": null
+    },
+    {
+     "name": "Maria Osmarina Marina da Silva Vaz de Lima",
+     "office": null
+    }
+   ],
+   "amount_brl": 20000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei nº 14.981/2024, art. 47-A da Lei nº 12.351/2010 na redação dada pela lei (Diário Oficial da União de 23/09/2024; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/39686235/publicacao/39689663",
+    "quote": "Art. 47-A. É autorizada a utilização do superávit financeiro do FS apurado em 31 de dezembro de 2023, inclusive do principal, limitada ao montante de R$ 20.000.000.000,00 (vinte bilhões de reais), incluídos os montantes do superávit financeiro já transferidos até a data de publicação da lei que introduziu este artigo, em decorrência da aplicação do disposto na Medida Provisória nº 1.226, de 29 de maio de 2024",
+    "date": "2024-09-23"
+   },
+   "status": "Lei em vigor. O limite começou em R$ 15 bilhões na Medida Provisória nº 1.226, de 29/05/2024 (revogada em 23/09/2024, segundo o Senado Federal). Os créditos extraordinários que financiaram a linha não entram de novo: Medida Provisória nº 1.233, de 18/06/2024 (R$ 17,6 bilhões, dos quais R$ 15 bilhões para esta linha e R$ 2 bilhões para o Fundo de Arrendamento Residencial), e Medida Provisória nº 1.269, de 22/10/2024 (R$ 5 bilhões, saldo do limite). A mesma lei autoriza subvenção de até R$ 3 bilhões e aporte de até R$ 4,5 bilhões no FGO, descontados os valores já concedidos pela Medida Provisória nº 1.216.",
+   "summary": "Autoriza usar até R$ 20 bilhões do superávit do Fundo Social em empréstimos a empresas e pessoas atingidas pela calamidade no Rio Grande do Sul e a ações de adaptação às mudanças climáticas.",
+   "year": 2024
+  },
+  {
+   "id": "lei-14990-2024-hydrogen-tax-credits",
+   "title": "Programa de Desenvolvimento do Hidrogênio de Baixa Emissão de Carbono (PHBC): créditos fiscais de 2028 a 2032 (Lei nº 14.990)",
+   "short_title": "Créditos fiscais ao hidrogênio verde",
+   "kind": "revenue_waiver",
+   "act": {
+    "type": "Lei",
+    "number": "14.990",
+    "date": "2024-09-30",
+    "url": "https://legis.senado.leg.br/norma/39716074"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Geraldo José Rodrigues Alckmin Filho",
+     "office": null
+    }
+   ],
+   "amount_brl": 18300000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei nº 14.990/2024, art. 4º, § 1º (Diário Oficial da União de 30/09/2024; texto oficial no Senado Federal); soma dos limites anuais de 2028 a 2032",
+    "url": "https://legis.senado.leg.br/norma/39716074/publicacao/39717103",
+    "quote": "Entre 2028 e 2032, os créditos fiscais mencionados neste artigo serão limitados aos seguintes valores globais para cada ano-calendário: [...] 2028: R$ 1.700.000.000,00 (um bilhão e setecentos milhões de reais); [...] 2029: R$ 2.900.000.000,00 (dois bilhões e novecentos milhões de reais); [...] 2030: R$ 4.200.000.000,00 (quatro bilhões e duzentos milhões de reais); [...] 2031: R$ 4.500.000.000,00 (quatro bilhões e quinhentos milhões de reais); [...] 2032: R$ 5.000.000.000,00 (cinco bilhões de reais).",
+    "date": "2024-09-30"
+   },
+   "status": "Lei em vigor. A Lei nº 15.269/2025 deslocou os mesmos limites anuais para 2030 a 2034; o total continua R$ 18,3 bilhões e não entra de novo.",
+   "summary": "Cria o PHBC, com créditos fiscais a produtores de hidrogênio de baixa emissão de carbono limitados a R$ 18,3 bilhões de 2028 a 2032 (de R$ 1,7 bilhão a R$ 5 bilhões por ano).",
+   "year": 2024
+  },
+  {
+   "id": "lei-14859-2024-perse",
+   "title": "Programa Emergencial de Retomada do Setor de Eventos (Perse): limite de R$ 15 bilhões de 2024 a 2026 (Lei nº 14.859)",
+   "short_title": "Benefício fiscal ao setor de eventos (Perse)",
+   "kind": "revenue_waiver",
+   "act": {
+    "type": "Lei",
+    "number": "14.859",
+    "date": "2024-05-23",
+    "url": "https://legis.senado.leg.br/norma/38539018"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    }
+   ],
+   "amount_brl": 15000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei nº 14.859/2024, art. 4º-A da Lei nº 14.148/2021 na redação dada pela lei (Diário Oficial da União de 23/05/2024; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/38539018/publicacao/38539287",
+    "quote": "Art. 4º-A. O benefício fiscal estabelecido no art. 4º terá o seu custo fiscal de gasto tributário fixado, nos meses de abril de 2024 a dezembro de 2026, no valor máximo de R$ 15.000.000.000,00 (quinze bilhões de reais)",
+    "date": "2024-05-23"
+   },
+   "status": "Lei em vigor. O texto prevê relatórios bimestrais da Receita Federal sobre o custo do benefício.",
+   "summary": "Mantém alíquotas reduzidas de tributos federais para empresas do setor de eventos e turismo e fixa o custo máximo do benefício em R$ 15 bilhões de abril de 2024 a dezembro de 2026.",
+   "year": 2024
+  },
+  {
+   "id": "mp-1218-2024-rs-emergency-credit",
+   "title": "Crédito extraordinário para a calamidade no Rio Grande do Sul (Medida Provisória nº 1.218)",
+   "short_title": "Crédito para o Rio Grande do Sul (maio)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.218",
+    "date": "2024-05-11",
+    "url": "https://legis.senado.leg.br/norma/38486396"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Simone Nassar Tebet",
+     "office": "Ministra de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 12179438240,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.218/2024, art. 1º (Diário Oficial da União, edição extra de 11/05/2024; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/38486396/publicacao/38486487",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor de diversos órgãos do Poder Executivo, de Encargos Financeiros da União, e de Operações Oficiais de Crédito, no valor de R$ 12.179.438.240,00 (doze bilhões cento e setenta e nove milhões quatrocentos e trinta e oito mil duzentos e quarenta reais)",
+    "date": "2024-05-11"
+   },
+   "status": "Convertida na Lei nº 14.962, de 05/09/2024, que repete o valor e não entra de novo. Pelo anexo, R$ 4,95 bilhões integralizam cotas do FGI e do FGO no Rio Grande do Sul e R$ 2 bilhões pagam subvenções a operações de crédito (rurais, Pronaf e Pronampe da Medida Provisória nº 1.216, de 09/05/2024). A Medida Provisória nº 1.216 (aporte de até R$ 4,5 bilhões no FGO e subvenção de até R$ 2 bilhões) é financiada por este crédito e não entra como item próprio.",
+   "summary": "Abre R$ 12,2 bilhões fora do orçamento aprovado para a calamidade no Rio Grande do Sul: garantias e subvenção a empréstimos de pequenos negócios, recuperação de rodovias federais, ação das Forças Armadas, defesa civil, saúde e seguro-desemprego.",
+   "year": 2024
+  },
+  {
+   "id": "mp-1206-2024-income-tax-table",
+   "title": "Isenção do Imposto de Renda até dois salários mínimos (Medida Provisória nº 1.206)",
+   "short_title": "Faixa de isenção do IR em 2024",
+   "kind": "revenue_waiver",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.206",
+    "date": "2024-02-06",
+    "url": "https://legis.senado.leg.br/norma/38192230"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    }
+   ],
+   "amount_brl": 10330000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos nº 4/2024 MF da Medida Provisória nº 1.206/2024, item 7 (Planalto, cópia do Internet Archive); soma de 2024 a 2026",
+    "url": "https://web.archive.org/web/20260516093153/https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/exm/exm-1206-24.pdf",
+    "quote": "estima-se uma redução de receitas em 2024 da ordem de R$ 3,03 bilhões (três bilhões e trinta milhões de reais), em 2025 de R$ 3,53 bilhões (três bilhões e quinhentos e trinta milhões de reais) e em 2026 de R$ 3,77 bilhões (três bilhões e setecentos e setenta milhões de reais)",
+    "date": "2024-02-06"
+   },
+   "status": "Revogada em 01/05/2024, segundo o Senado Federal.",
+   "summary": "Eleva a faixa de isenção da tabela mensal do Imposto de Renda da Pessoa Física a partir de fevereiro de 2024. A Receita Federal estimou a perda de arrecadação em R$ 10,3 bilhões de 2024 a 2026 (R$ 3,03 bi, R$ 3,53 bi e R$ 3,77 bi).",
+   "year": 2024
+  },
+  {
+   "id": "mp-1225-2024-rice-stocks-credit",
+   "title": "Crédito extraordinário para compra e estoques públicos de arroz (Medida Provisória nº 1.225)",
+   "short_title": "Compra pública de arroz",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.225",
+    "date": "2024-05-24",
+    "url": "https://legis.senado.leg.br/norma/38544035"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Simone Nassar Tebet",
+     "office": "Ministra de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 6698923000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.225/2024, art. 1º (Diário Oficial da União, edição extra de 24/05/2024; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/38544035/publicacao/38544671",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor dos Ministérios da Agricultura e Pecuária e do Desenvolvimento Agrário e Agricultura Familiar, no valor de R$ 6.698.923.000,00 (seis bilhões seiscentos e noventa e oito milhões novecentos e vinte e três mil reais)",
+    "date": "2024-05-24"
+   },
+   "status": "Perdeu a eficácia em 20/09/2024, segundo o Senado Federal.",
+   "summary": "Abre R$ 6,7 bilhões fora do orçamento aprovado para a formação de estoques públicos e subvenções na compra de arroz, depois da perda de safra causada pela calamidade no Rio Grande do Sul (descrição da matéria no Senado: importação de arroz).",
+   "year": 2024
+  },
+  {
+   "id": "mp-1278-2024-rs-infrastructure-fund",
+   "title": "Fundo para recuperar infraestruturas atingidas por eventos climáticos: aporte de até R$ 6,5 bilhões para o Rio Grande do Sul (Medida Provisória nº 1.278)",
+   "short_title": "Fundo de reconstrução do Rio Grande do Sul",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.278",
+    "date": "2024-12-12",
+    "url": "https://legis.senado.leg.br/norma/39923537"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Rui Costa dos Santos",
+     "office": "Ministro de Estado Chefe da Casa Civil da Presidência da República"
+    }
+   ],
+   "amount_brl": 6500000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.278/2024, art. 8º (Diário Oficial da União de 12/12/2024; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/39923537/publicacao/39923963",
+    "quote": "fica a União autorizada a integralizar o valor de até R$ 6.500.000.000,00 (seis bilhões e quinhentos milhões de reais) no fundo de que trata o art. 1º.",
+    "date": "2024-12-12"
+   },
+   "status": "Perdeu a eficácia em 21/05/2025, segundo o Senado Federal. O crédito extraordinário da Medida Provisória nº 1.282, de 23/12/2024 (R$ 6,5 bilhões ao Ministério das Cidades), financia este aporte e não entra de novo.",
+   "summary": "Autoriza a União a participar de um fundo para recuperar infraestruturas em áreas atingidas por eventos climáticos extremos e a integralizar nele até R$ 6,5 bilhões para obras no Rio Grande do Sul.",
+   "year": 2024
+  },
+  {
+   "id": "mp-1213-2024-fgeduc-to-fipem",
+   "title": "Até R$ 6 bilhões do FGEDUC para o fundo da poupança do ensino médio (Medida Provisória nº 1.213)",
+   "short_title": "FGEDUC para o fundo do ensino médio",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.213",
+    "date": "2024-04-23",
+    "url": "https://legis.senado.leg.br/norma/38343456"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "José Wellington Barroso de Araujo Dias",
+     "office": "Ministro de Estado do Desenvolvimento e Assistência Social, Família e Combate à Fome"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Márcio Luiz França Gomes",
+     "office": null
+    },
+    {
+     "name": "Luiz Marinho",
+     "office": null
+    }
+   ],
+   "amount_brl": 6000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.213/2024, § 6º-B incluído na lei do fundo garantidor (Diário Oficial da União de 23/04/2024; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/38343456/publicacao/38343797",
+    "quote": "§ 6º-B. Para cumprimento do disposto no § 6º-A, o fundo de que trata o inciso III do caput integralizará cotas no Fundo de Incentivo à Permanência no Ensino Médio - FIPEM, no montante de até R$ 6.000.000.000,00 (seis bilhões de reais), observado no Fundo de Garantia de Operações de Crédito Educativo - FGEDUC o montante de recursos financeiros disponíveis ainda não vinculados às garantias já contratadas.",
+    "date": "2024-04-23"
+   },
+   "status": "Perdeu a eficácia em 20/08/2024, segundo o Senado Federal. O fundo que recebe (FIPEM) custeia o incentivo da Lei nº 14.818/2024; a participação direta da União nele, de até R$ 20 bilhões, foi fixada pela Medida Provisória nº 1.198/2023 (item de 2023). Em dezembro de 2024, a Lei nº 15.076 mandou o FGO integralizar mais R$ 4 bilhões no mesmo fundo (abaixo do corte).",
+   "summary": "Manda o Fundo de Garantia de Operações de Crédito Educativo (FGEDUC), fundo garantidor com recursos da União, integralizar até R$ 6 bilhões no fundo que paga a poupança dos estudantes do ensino médio público (FIPEM). A mesma medida cria os programas Acredita no Primeiro Passo e Eco Invest Brasil.",
+   "year": 2024
+  },
+  {
+   "id": "mp-1164-2023-bolsa-familia",
+   "title": "Programa Bolsa Família recriado no lugar do Auxílio Brasil (Medida Provisória nº 1.164)",
+   "short_title": "Bolsa Família (2023)",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.164",
+    "date": "2023-03-02",
+    "url": "https://legis.senado.leg.br/norma/36861233"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "José Wellington Barroso de Araujo Dias",
+     "office": "Ministro de Estado do Desenvolvimento e Assistência Social, Família e Combate à Fome"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Simone Nassar Tebet",
+     "office": "Ministra de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 176500000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos Interministerial nº 6/2023 MDS MPO MF da Medida Provisória nº 1.164/2023 (Planalto, cópia do Internet Archive); valor de 2023",
+    "url": "https://web.archive.org/web/20260121104736/https://planalto.gov.br/CCIVIL_03/_Ato2023-2026/2023/Exm/Exm-1164-23.pdf",
+    "quote": "O novo Bolsa Família beneficiará em 2023 aproximadamente de 21 milhões de famílias, com orçamento no exercício aproximadamente R$ 175,7 bilhões. Estima-se para o ano de 2023 custos administrativos adicionais da ordem de R$ 850 milhões para apoio aos entes federados e outras ações de gestão. Com isso, o impacto orçamentário total previsto é de R$ 176,5 bilhões.",
+    "date": "2023-03-01"
+   },
+   "status": "Convertida na Lei nº 14.601, de 19/06/2023, segundo o Senado Federal. O valor é o orçamento do programa inteiro em 2023, a maior parte já prevista na lei orçamentária para o programa que ele substituiu; não é dinheiro novo somado ao orçamento.",
+   "summary": "Extingue o Auxílio Brasil e recria o Bolsa Família, para cerca de 21 milhões de famílias. O governo estimou o custo do programa em 2023 em R$ 176,5 bilhões (R$ 175,7 bilhões em benefícios e R$ 850 milhões em custos administrativos).",
+   "year": 2023
+  },
+  {
+   "id": "precatorios-2023-12",
+   "title": "Pagamento de precatórios atrasados após decisão do STF, em dezembro de 2023",
+   "short_title": "Precatórios pagos em dezembro (decisão do STF)",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 29, N. 12 (dezembro de 2023)",
+    "date": "2024-01-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2023/12"
+   },
+   "signed_by": [],
+   "amount_brl": 95274100000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2023, Tabela 3.1 (R$ milhões, preços correntes, coluna dezembro de 2023), soma das cinco linhas de sentenças judiciais e precatórios (benefícios previdenciários urbano e rural, pessoal, BPC e custeio e capital)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/48787_1551088/boletim_dez23.pdf",
+    "quote": "Benefícios Previdenciários, Urbano: Sentenças Judiciais e Precatórios 23.422,3; Rural: Sentenças Judiciais e Precatórios 6.217,6; Pessoal e Encargos Sociais: d/q Sentenças Judiciais e Precatórios 13.022,1; BPC da LOAS/RMV: d/q Sentenças Judiciais e Precatórios 808,7; 4.3.14 Sentenças Judiciais e Precatórios (Custeio e Capital) 51.803,4. Nota 12 do mês: crescimento explicado pela destinação de recursos para o adimplemento da decisão judicial de mérito do STF, no âmbito das ADIs nº 7.064 e nº 7.047",
+    "date": "2024-01-29"
+   },
+   "status": "Pago em dezembro de 2023. O valor inclui as requisições de pequeno valor pagas no mês. O dinheiro veio do crédito extraordinário da Medida Provisória nº 1.200, de 20/12/2023 (R$ 93,1 bilhões, dos quais R$ 92,4 bilhões para precatórios, segundo a EM nº 100/2023 MPO), que não entra de novo; a medida perdeu a eficácia em 28/05/2024, segundo o Senado Federal.",
+   "summary": "Depois que o STF derrubou o teto para pagamento de precatórios criado pelas Emendas Constitucionais 113 e 114 de 2021, a União pagou R$ 95,3 bilhões em sentenças judiciais e precatórios em dezembro de 2023, incluindo dívidas de 2022 e 2023 que estavam represadas e parte das de 2024.",
+   "year": 2023,
+   "moved_on": "2023-12"
+  },
+  {
+   "id": "precatorios-2023-05",
+   "title": "Pagamento concentrado de sentenças judiciais e precatórios em maio de 2023",
+   "short_title": "Precatórios pagos em maio",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 29, N. 5 (maio de 2023)",
+    "date": "2023-06-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2023/5"
+   },
+   "signed_by": [],
+   "amount_brl": 31041400000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2023, Tabela 3.1 (R$ milhões, preços correntes, coluna maio de 2023), soma das cinco linhas de sentenças judiciais e precatórios (benefícios previdenciários urbano e rural, pessoal, BPC e custeio e capital)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/47344_1471837/boletim_mai23.pdf",
+    "quote": "Benefícios Previdenciários, Urbano: Sentenças Judiciais e Precatórios 8.225,5; Rural: Sentenças Judiciais e Precatórios 2.543,5; Pessoal e Encargos Sociais: d/q Sentenças Judiciais e Precatórios 3.911,4; BPC da LOAS/RMV: d/q Sentenças Judiciais e Precatórios 355,6; 4.3.14 Sentenças Judiciais e Precatórios (Custeio e Capital) 16.005,4. Nota 10 do acumulado: explicado pela diferença no cronograma de pagamentos desta rubrica em 2023 e 2022. Enquanto em 2022 a concentração ocorreu em junho (R$ 7,3 bilhões) e agosto (R$ 6,7 bilhões), em 2023 estes pagamentos foram concentrados em maio (R$ 16,0 bilhões).",
+    "date": "2023-06-29"
+   },
+   "status": "Pago em maio de 2023, dentro do limite anual para precatórios que vigorava antes da decisão do STF. O valor inclui as requisições de pequeno valor pagas no mês.",
+   "summary": "A União pagou R$ 31,0 bilhões em sentenças judiciais e precatórios em maio de 2023, mês em que o Tesouro Nacional concentrou o pagamento anual dessas dívidas judiciais dentro do limite então em vigor.",
+   "year": 2023,
+   "moved_on": "2023-05"
+  },
+  {
+   "id": "lc-201-2023-icms-compensation",
+   "title": "Compensação aos estados pelas perdas de ICMS sobre combustíveis (Lei Complementar nº 201)",
+   "short_title": "Compensação do ICMS aos estados",
+   "kind": "spending",
+   "act": {
+    "type": "Lei Complementar",
+    "number": "201",
+    "date": "2023-10-24",
+    "url": "https://legis.senado.leg.br/norma/37740658"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Camilo Sobreira de Santana",
+     "office": "Ministro de Estado da Educação"
+    },
+    {
+     "name": "Nísia Verônica Trindade Lima",
+     "office": null
+    }
+   ],
+   "amount_brl": 27014900000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei Complementar nº 201/2023, art. 2º (Diário Oficial da União, edição extra de 24/10/2023; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/37740658/publicacao/37742111",
+    "quote": "Art. 2º Em observância ao disposto nos arts. 3º e 14 da Lei Complementar nº 194, de 23 de junho de 2022 , a União compensará a quantia nominal de R$ 27.014.900.000,00 (vinte e sete bilhões quatorze milhões e novecentos mil reais) aos Estados e ao Distrito Federal, a título de quitação total do valor devido em razão da redução da arrecadação do ICMS ocasionada pela aplicação do disposto na referida Lei Complementar",
+    "date": "2023-10-24"
+   },
+   "status": "Lei complementar em vigor. Pagamento em parcelas, por transferência direta e abatimento de dívidas dos estados com a União, de 2023 a 2025; o Resultado do Tesouro Nacional registra essas compensações mês a mês (por exemplo, novembro e dezembro de 2023 e janeiro a maio de 2025).",
+   "summary": "A União paga R$ 27,0 bilhões aos estados e ao Distrito Federal para quitar a perda de arrecadação do ICMS causada pela Lei Complementar nº 194/2022, que limitou o imposto sobre combustíveis, energia e comunicações em 2022.",
+   "year": 2023
+  },
+  {
+   "id": "mp-1157-2023-fuel-tax-cut",
+   "title": "Redução a zero de PIS/Pasep e Cofins sobre combustíveis em 2023 (Medida Provisória nº 1.157)",
+   "short_title": "Tributos zerados nos combustíveis",
+   "kind": "revenue_waiver",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.157",
+    "date": "2023-01-02",
+    "url": "https://legis.senado.leg.br/norma/36722080"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    }
+   ],
+   "amount_brl": 25000000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos da Medida Provisória nº 1.157/2023 (Planalto, cópia do Internet Archive)",
+    "url": "https://web.archive.org/web/20260613033336/http://planalto.gov.br/ccivil_03/_ato2023-2026/2023/exm/exm-1157-23.pdf",
+    "quote": "cabe informar que a medida em tela ocasiona renúncia de receitas tributárias estimada em R$ 25 bilhões (vinte e cinco bilhões), que já foi considerada na estimativa de receita orçamentária para 2023",
+    "date": "2023-01-01"
+   },
+   "status": "Perdeu a eficácia em 01/06/2023, segundo o Senado Federal. A Medida Provisória nº 1.163, de 28/02/2023, mudou as alíquotas da gasolina e do etanol (redução de receitas estimada em R$ 6,61 bilhões, abaixo do corte).",
+   "summary": "Zera as alíquotas de PIS/Pasep e Cofins sobre óleo diesel, biodiesel e gás de cozinha até 31/12/2023 e sobre gasolina e álcool até 28/02/2023. O governo estimou a perda de arrecadação em R$ 25 bilhões.",
+   "year": 2023
+  },
+  {
+   "id": "mp-1198-2023-student-savings",
+   "title": "Poupança para estudantes do ensino médio: fundo de até R$ 20 bilhões (Medida Provisória nº 1.198)",
+   "short_title": "Poupança do ensino médio (Pé-de-Meia)",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.198",
+    "date": "2023-11-28",
+    "url": "https://legis.senado.leg.br/norma/37874486"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Camilo Sobreira de Santana",
+     "office": "Ministro de Estado da Educação"
+    },
+    {
+     "name": "Alexandre Silveira de Oliveira",
+     "office": null
+    }
+   ],
+   "amount_brl": 20000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.198/2023, art. 6º (Diário Oficial da União, edição extra de 28/11/2023; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/37874486/publicacao/37874692",
+    "quote": "fica a União autorizada a participar, no limite global de até R$ 20.000.000.000,00 (vinte bilhões de reais), de fundo que, atendidos os requisitos estabelecidos nesta Medida Provisória, tenha por finalidade custear e gerir a poupança dos estudantes vinculados ao programa.",
+    "date": "2023-11-28"
+   },
+   "status": "Perdeu a eficácia em 06/05/2024, segundo o Senado Federal. A Lei nº 14.818, de 16/01/2024, repetiu o limite de R$ 20 bilhões e não entra de novo. Integralizações posteriores no fundo (FIPEM) vindas de outros fundos aparecem como itens próprios quando entram no corte.",
+   "summary": "Cria uma poupança de incentivo para estudantes de baixa renda do ensino médio público e autoriza a União a participar com até R$ 20 bilhões de um fundo que custeia e gere os depósitos.",
+   "year": 2023
+  },
+  {
+   "id": "mp-1205-2023-mover",
+   "title": "Programa Mobilidade Verde e Inovação (Mover): créditos financeiros às montadoras de 2024 a 2028 (Medida Provisória nº 1.205)",
+   "short_title": "Créditos às montadoras (Mover)",
+   "kind": "revenue_waiver",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.205",
+    "date": "2023-12-30",
+    "url": "https://legis.senado.leg.br/norma/38066962"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Luciana Barbosa de Oliveira Santos",
+     "office": "Ministra de Estado da Ciência, Tecnologia e Inovação"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Geraldo José Rodrigues Alckmin Filho",
+     "office": "Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços"
+    }
+   ],
+   "amount_brl": 19300000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.205/2023, art. 15, § 2º (Diário Oficial da União, edição extra de 30/12/2023; texto oficial no Senado Federal); soma dos limites anuais de 2024 a 2028, pelos valores por extenso",
+    "url": "https://legis.senado.leg.br/norma/38066962/publicacao/38083612",
+    "quote": "Os créditos financeiros de que trata esta Medida Provisória serão limitados aos seguintes valores globais para cada ano-calendário: [...] 2024 - R$ 3.500.000.000,00 (três bilhões e quinhentos milhões de reais); [...] 2025 - R$ 3.800.000,00 (três bilhões e oitocentos milhões de reais); [...] 2026 - R$ 3.900.000,00 (três bilhões e novecentos milhões de reais); [...] 2027 - R$ 4.000.000,00 (quatro bilhões de reais); [...] 2028 - R$ 4.100.000,00 (quatro bilhões e cem milhões de reais).",
+    "date": "2023-12-30"
+   },
+   "status": "Perdeu a eficácia em 31/05/2024, segundo o Senado Federal; a Lei nº 14.902, de 27/06/2024, criou o mesmo programa com os mesmos limites (R$ 3,5 bi, 3,8 bi, 3,9 bi, 4,0 bi e 4,1 bi) e não entra de novo. No texto da medida lido no Senado, os algarismos de 2025 a 2028 aparecem em milhões (por exemplo, \"R$ 3.800.000,00\") e o valor por extenso em bilhões; a soma usa o valor por extenso, confirmado pela Lei nº 14.902.",
+   "summary": "Cria o Programa Mover, que dá créditos financeiros a montadoras que investirem em pesquisa e descarbonização, limitados a R$ 19,3 bilhões de 2024 a 2028 (de R$ 3,5 bilhões a R$ 4,1 bilhões por ano).",
+   "year": 2023
+  },
+  {
+   "id": "mp-1172-2023-minimum-wage",
+   "title": "Salário mínimo de R$ 1.320 a partir de maio de 2023 (Medida Provisória nº 1.172)",
+   "short_title": "Salário mínimo de R$ 1.320",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.172",
+    "date": "2023-05-01",
+    "url": "https://legis.senado.leg.br/norma/37004638"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Simone Nassar Tebet",
+     "office": "Ministra de Estado do Planejamento e Orçamento"
+    },
+    {
+     "name": "Carlos Roberto Lupi",
+     "office": null
+    },
+    {
+     "name": "Luiz Marinho",
+     "office": null
+    }
+   ],
+   "amount_brl": 13000000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos Interministerial nº 54/2023 MF MPS MPO MTE da Medida Provisória nº 1.172/2023 (Planalto, cópia do Internet Archive); soma de 2023 a 2025",
+    "url": "https://web.archive.org/web/20260511154647/http://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/exm/exm-1172-23.pdf",
+    "quote": "calculou impacto total adicional de R$ 3,3 bilhões em 2023, de R$ 4,8 bilhões em 2024, e de R$ 4,9 bilhões em 2025.",
+    "date": "2023-04-28"
+   },
+   "status": "Convertida na Lei nº 14.663, de 28/08/2023, segundo o Senado Federal. O valor é o custo adicional na Previdência Social calculado pelo governo.",
+   "summary": "Eleva o salário mínimo de R$ 1.302 para R$ 1.320 a partir de 1º de maio de 2023. O governo calculou o custo adicional para a Previdência Social em R$ 13,0 bilhões de 2023 a 2025 (R$ 3,3 bi, R$ 4,8 bi e R$ 4,9 bi).",
+   "year": 2023
+  },
+  {
+   "id": "mp-1170-2023-federal-staff-raise",
+   "title": "Reajuste de 9% para servidores do Poder Executivo federal (Medida Provisória nº 1.170)",
+   "short_title": "Reajuste dos servidores federais (2023)",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.170",
+    "date": "2023-04-28",
+    "url": "https://legis.senado.leg.br/norma/37004516"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Esther Dweck",
+     "office": "Ministra de Estado da Gestão e da Inovação em Serviços Públicos"
+    },
+    {
+     "name": "Simone Nassar Tebet",
+     "office": "Ministra de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 9620000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos da Medida Provisória nº 1.170/2023, assinada por Esther Dweck e Simone Tebet (Planalto, cópia do Internet Archive); valor de 2023",
+    "url": "https://web.archive.org/web/20260110071855/https://www.planalto.gov.br/ccivIl_03/_Ato2023-2026/2023/Exm/Exm-1170-23.pdf",
+    "quote": "enquanto remete a um custo da ordem de R$ 9,62 bilhões para o exercício de 2023 e de R$ 13,82 bilhões anualizado.",
+    "date": "2023-04-27"
+   },
+   "status": "Convertida na Lei nº 14.673, de 14/09/2023, segundo o Senado Federal. O valor é o custo de 2023; anualizado, o governo estimou R$ 13,82 bilhões.",
+   "summary": "Reajusta a remuneração de servidores, empregados, aposentados e pensionistas do Poder Executivo federal a partir de maio de 2023. O governo estimou o custo em R$ 9,62 bilhões em 2023 e R$ 13,82 bilhões por ano.",
+   "year": 2023
+  },
+  {
+   "id": "mp-1160-2023-carf-penalty-waiver",
+   "title": "Dispensa de multas em processos do CARF decididos por voto de qualidade (Medida Provisória nº 1.160)",
+   "short_title": "Multas dispensadas no CARF",
+   "kind": "revenue_waiver",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.160",
+    "date": "2023-01-12",
+    "url": "https://legis.senado.leg.br/norma/36770869"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    }
+   ],
+   "amount_brl": 8049000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos nº 16/2023 MF da Medida Provisória nº 1.160/2023, item 15, assinada por Fernando Haddad (Planalto, cópia do Internet Archive)",
+    "url": "https://web.archive.org/web/20260304080937/https://www.planalto.gov.br/CCIVIL_03/////_Ato2023-2026/2023/Exm/Exm-1160-23.pdf",
+    "quote": "cabe informar que o art. 3º da medida em tela ocasiona renúncia de receitas tributárias estimada em R$ 8.049 milhões (oito bilhões e quarenta e nove milhões de reais) em 2023",
+    "date": "2023-01-10"
+   },
+   "status": "Perdeu a eficácia em 01/06/2023, segundo o Senado Federal. A exposição de motivos diz que a renúncia seria compensada pela arrecadação de outra medida provisória editada no mesmo dia.",
+   "summary": "Restabelece o voto de qualidade a favor da Fazenda no Conselho Administrativo de Recursos Fiscais e, nos casos decididos assim, dispensa as multas do contribuinte que pagar. A Receita Federal estimou essa renúncia em R$ 8,05 bilhões em 2023.",
+   "year": 2023
+  },
+  {
+   "id": "precatorios-2022-08",
+   "title": "Pagamento concentrado de sentenças judiciais e precatórios em agosto de 2022",
+   "short_title": "Precatórios pagos em agosto",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 8 (agosto de 2022)",
+    "date": "2022-09-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/8"
+   },
+   "signed_by": [],
+   "amount_brl": 27262100000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de agosto de 2022, Tabela 3.1 (R$ milhões, preços correntes, coluna agosto de 2022), soma das cinco linhas de sentenças judiciais e precatórios (benefícios previdenciários urbano e rural, pessoal, BPC e custeio e capital)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/44839_1419442/boletim_ago22.pdf",
+    "quote": "Benefícios Previdenciários, Urbano: Sentenças Judiciais e Precatórios 9.725,7; Rural: Sentenças Judiciais e Precatórios 2.530,1; Pessoal e Encargos Sociais: d/q Sentenças Judiciais e Precatórios 8.125,4; BPC da LOAS/RMV: d/q Sentenças Judiciais e Precatórios 418,9; 4.3.14 Sentenças Judiciais e Precatórios (Custeio e Capital) 6.462,0. Nota 10 do mês: explicado, principalmente, pelo pagamento de Sentenças Judiciais e Precatórios no montante de R$ 12,3 bilhões em agosto de 2022 frente a R$ 1,4 bilhão em agosto de 2021 (a valores de agosto de 2022).",
+    "date": "2022-09-29"
+   },
+   "status": "Pago em agosto de 2022. O valor inclui as requisições de pequeno valor pagas no mês. Em 2022 os pagamentos se dividiram entre junho e agosto; em 2021 ficaram concentrados em junho.",
+   "summary": "A União pagou R$ 27,3 bilhões em sentenças judiciais e precatórios em agosto de 2022, o principal dos dois meses em que o Tesouro Nacional concentrou o pagamento anual dessas dívidas judiciais naquele ano.",
+   "year": 2022,
+   "moved_on": "2022-08"
+  },
+  {
+   "id": "mp-1130-2022-auxilio-brasil-increase",
+   "title": "Crédito extraordinário para o adicional de R$ 200 do Auxílio Brasil e o Auxílio Gás (Medida Provisória nº 1.130)",
+   "short_title": "Adicional do Auxílio Brasil",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.130",
+    "date": "2022-07-22",
+    "url": "https://legis.senado.leg.br/norma/36111103"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 27094524171,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.130/2022, art. 1º (Diário Oficial da União, edição extra de 22/07/2022; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/36111103/publicacao/36111201",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Cidadania e de Encargos Financeiros da União, no valor de R$ 27.094.524.171,00 (vinte e sete bilhões noventa e quatro milhões quinhentos e vinte e quatro mil cento e setenta e um reais)",
+    "date": "2022-07-22"
+   },
+   "status": "Convertida na Lei nº 14.469, de 16/11/2022, que repete o valor e não entra de novo. O gasto foi autorizado pela Emenda Constitucional nº 123/2022, que não é lei nem medida provisória; esta medida abriu o crédito.",
+   "summary": "Abre R$ 27,1 bilhões fora do orçamento aprovado para pagar, de agosto a dezembro de 2022, o adicional de R$ 200 por mês do Auxílio Brasil (R$ 25,5 bilhões pelo anexo), o aumento do Auxílio Gás (R$ 1,05 bilhão) e compras de alimentos da agricultura familiar (R$ 500 milhões), previstos na Emenda Constitucional nº 123/2022.",
+   "year": 2022
+  },
+  {
+   "id": "lei-14399-2022-aldir-blanc",
+   "title": "Política Nacional Aldir Blanc de Fomento à Cultura: R$ 3 bilhões por ano durante cinco anos (Lei nº 14.399)",
+   "short_title": "Política Aldir Blanc (cultura)",
+   "kind": "spending",
+   "act": {
+    "type": "Lei",
+    "number": "14.399",
+    "date": "2022-07-08",
+    "url": "https://legis.senado.leg.br/norma/36062349"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    }
+   ],
+   "amount_brl": 15000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei nº 14.399/2022, art. 6º (Diário Oficial da União, edição extra de 08/07/2022; texto oficial no Senado Federal); cinco parcelas anuais de R$ 3 bilhões",
+    "url": "https://legis.senado.leg.br/norma/36062349/publicacao/36072638",
+    "quote": "Art. 6º A União entregará aos Estados, ao Distrito Federal e aos Municípios, a cada ano, em parcela única, o valor correspondente a R$ 3.000.000.000,00 (três bilhões de reais), no primeiro exercício subsequente ao da entrada em vigor desta Lei e nos 4 (quatro) anos seguintes.",
+    "date": "2022-07-08"
+   },
+   "status": "Lei em vigor; originada de projeto do Congresso Nacional. A Medida Provisória nº 1.135/2022 tentou adiar os pagamentos para 2024 a 2028 e perdeu a eficácia em 05/02/2023; a Medida Provisória nº 1.274/2024 e a Lei nº 15.132/2025 mudaram regras de execução sem reduzir os R$ 15 bilhões.",
+   "summary": "Cria a Política Nacional Aldir Blanc e obriga a União a entregar R$ 3 bilhões por ano, durante cinco anos (R$ 15 bilhões), a estados, Distrito Federal e municípios para fomento à cultura.",
+   "year": 2022
+  },
+  {
+   "id": "mp-1131-2022-trucker-taxi-aid",
+   "title": "Crédito extraordinário para auxílio a caminhoneiros e taxistas e para estados que reduziram tributos do etanol (Medida Provisória nº 1.131)",
+   "short_title": "Auxílio a caminhoneiros e taxistas",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.131",
+    "date": "2022-07-28",
+    "url": "https://legis.senado.leg.br/norma/36159057"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 10901400000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.131/2022, art. 1º (Diário Oficial da União, edição extra de 28/07/2022; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/36159057/publicacao/36159220",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério do Trabalho e Previdência e de Transferências a Estados, Distrito Federal e Municípios, no valor de R$ 10.901.400.000,00 (dez bilhões novecentos e um milhões e quatrocentos mil reais)",
+    "date": "2022-07-28"
+   },
+   "status": "Perdeu a eficácia em 28/11/2022, segundo o Senado Federal. Gastos previstos na Emenda Constitucional nº 123/2022.",
+   "summary": "Abre R$ 10,9 bilhões fora do orçamento aprovado para o auxílio de R$ 1.000 por mês a transportadores autônomos de cargas (R$ 5,1 bilhões pelo anexo), o auxílio a motoristas de táxi (R$ 2 bilhões) e o auxílio financeiro a estados que concederam crédito de ICMS ao etanol (R$ 3,8 bilhões), previstos na Emenda Constitucional nº 123/2022.",
+   "year": 2022
+  },
+  {
+   "id": "precatorios-2022-06",
+   "title": "Pagamento de sentenças judiciais e precatórios em junho de 2022",
+   "short_title": "Precatórios pagos em junho",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 6 (junho de 2022)",
+    "date": "2022-07-28",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/6"
+   },
+   "signed_by": [],
+   "amount_brl": 9576900000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de junho de 2022, Tabela 3.1 (R$ milhões, preços correntes, coluna junho de 2022), soma das cinco linhas de sentenças judiciais e precatórios (benefícios previdenciários urbano e rural, pessoal, BPC e custeio e capital)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/44179_1398982/boletim_jun22.pdf",
+    "quote": "Benefícios Previdenciários, Urbano: Sentenças Judiciais e Precatórios 1.707,2; Rural: Sentenças Judiciais e Precatórios 389,8; Pessoal e Encargos Sociais: d/q Sentenças Judiciais e Precatórios 220,7; BPC da LOAS/RMV: d/q Sentenças Judiciais e Precatórios 185,3; 4.3.14 Sentenças Judiciais e Precatórios (Custeio e Capital) 7.073,9. Nota 14 do mês: essa redução resultou de ajuste no calendário de pagamentos de Sentenças Judiciais e Precatórios em 2022, com efeitos no comparativo entre junho de 2022, em que foram pagos R$7,1 bilhões, e junho de 2021, com pagamentos de R$ 18,3 bilhões.",
+    "date": "2022-07-28"
+   },
+   "status": "Pago em junho de 2022. O valor inclui as requisições de pequeno valor pagas no mês. A outra parte da concentração de 2022 foi paga em agosto (item próprio).",
+   "summary": "A União pagou R$ 9,6 bilhões em sentenças judiciais e precatórios em junho de 2022, primeiro dos dois meses em que o Tesouro Nacional concentrou o pagamento anual dessas dívidas naquele ano.",
+   "year": 2022,
+   "moved_on": "2022-06"
+  },
+  {
+   "id": "cessao-onerosa-bonus-transfer-2022-05",
+   "title": "Repasse a estados e municípios do bônus da segunda rodada da cessão onerosa, em maio de 2022",
+   "short_title": "Bônus da cessão onerosa repassado a estados e municípios",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 5 (maio de 2022)",
+    "date": "2022-06-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/5"
+   },
+   "signed_by": [],
+   "amount_brl": 7700000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2022, Nota 10 do mês (valor arredondado pelo Tesouro); linha 2.6 Demais transferências por repartição de receita de maio de 2022: R$ 7.698,9 milhões",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/43920_2193378/boletim_mai22.pdf",
+    "quote": "2.6 Demais 25,8 7.698,9 (maio de 2021, maio de 2022). Nota 10 do mês: variação explicada pelas transferências em maio de 2022 à estados e municípios no valor de R$ 7,7 bilhões relativos aos recursos de bônus de assinatura decorrentes da segunda rodada da cessão onerosa (Campos de Sépia e Atapu",
+    "date": "2022-06-29"
+   },
+   "status": "Pago em maio de 2022. A linha do Tesouro em que o repasse aparece (2.6 Demais, R$ 7.698,9 milhões em maio de 2022) inclui pequenos valores de outras transferências (R$ 25,8 milhões em maio de 2021). A União recebeu R$ 11,2 bilhões de bônus de assinatura nessa rodada, segundo a mesma nota.",
+   "summary": "A União repassou R$ 7,7 bilhões a estados e municípios, sua parte no bônus de assinatura pago pelas petroleiras na segunda rodada de licitação dos volumes excedentes da cessão onerosa (campos de Sépia e Atapu, na Bacia de Santos).",
+   "year": 2022,
+   "moved_on": "2022-05"
+  },
+  {
+   "id": "mp-1144-2022-rgps-credit",
+   "title": "Crédito extraordinário para benefícios da Previdência Social em 2022 (Medida Provisória nº 1.144)",
+   "short_title": "Benefícios da Previdência (dezembro)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.144",
+    "date": "2022-12-15",
+    "url": "https://legis.senado.leg.br/norma/36597629"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 7564496198,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.144/2022, art. 1º (Diário Oficial da União de 15/12/2022; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/36597629/publicacao/36602607",
+    "quote": "Art. 1º Fica aberto crédito extraordinário em favor do Ministério do Trabalho e Previdência, no valor de R$ 7.564.496.198,00 (sete bilhões quinhentos e sessenta e quatro milhões quatrocentos e noventa e seis mil cento e noventa e oito reais)",
+    "date": "2022-12-15"
+   },
+   "status": "Perdeu a eficácia em 24/05/2023, segundo o Senado Federal.",
+   "summary": "Abre R$ 7,6 bilhões fora do orçamento aprovado para benefícios do Regime Geral de Previdência Social (R$ 5,8 bilhões) e compensação previdenciária (R$ 1,8 bilhão), despesas que, segundo a exposição de motivos, vieram da redução da fila de pedidos de benefício e da mudança de contabilização da compensação.",
+   "year": 2022
+  },
+  {
+   "id": "fefc-2022-08",
+   "title": "Fundo Especial de Financiamento de Campanha das eleições de 2022, pago em agosto de 2022",
+   "short_title": "Fundo eleitoral de 2022",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 8 (agosto de 2022)",
+    "date": "2022-09-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/8"
+   },
+   "signed_by": [],
+   "amount_brl": 4955300000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de agosto de 2022, linha 4.3.19 Financiamento de Campanha Eleitoral (R$ milhões) e Nota 15 do mês",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/44839_1419442/boletim_ago22.pdf",
+    "quote": "Nota 15 - Financiamento de Campanha Eleitoral (+R$ 4.955,3 milhões): explicado pelo pagamento desta rubrica em agosto de 2022, sem contrapartida no mesmo mês do ano anterior.",
+    "date": "2022-09-29"
+   },
+   "status": "Pago em agosto de 2022. O valor foi fixado na lei orçamentária de 2022, que não entra como ato.",
+   "summary": "A União pagou R$ 4,96 bilhões ao Fundo Especial de Financiamento de Campanha para as eleições gerais de 2022.",
+   "year": 2022,
+   "moved_on": "2022-08"
+  },
+  {
+   "id": "lc-195-2022-paulo-gustavo",
+   "title": "Apoio ao setor cultural afetado pela pandemia (Lei Complementar nº 195, Lei Paulo Gustavo)",
+   "short_title": "Lei Paulo Gustavo (cultura)",
+   "kind": "spending",
+   "act": {
+    "type": "Lei Complementar",
+    "number": "195",
+    "date": "2022-07-08",
+    "url": "https://legis.senado.leg.br/norma/36061880"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    }
+   ],
+   "amount_brl": 3862000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei Complementar nº 195/2022, art. 3º (Diário Oficial da União, edição extra de 08/07/2022; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/36061880/publicacao/36063789",
+    "quote": "Art. 3º A União entregará aos Estados, ao Distrito Federal e aos Municípios R$ 3.862.000.000,00 (três bilhões, oitocentos e sessenta e dois milhões de reais) para aplicação em ações emergenciais que visem a combater e mitigar os efeitos da pandemia da covid-19 sobre o setor cultural.",
+    "date": "2022-07-08"
+   },
+   "status": "Lei complementar em vigor; originada de projeto do Congresso Nacional. O Tesouro Nacional registrou o pagamento de R$ 2,9 bilhões em julho de 2023, como restos a pagar.",
+   "summary": "Obriga a União a entregar R$ 3,86 bilhões a estados, Distrito Federal e municípios para ações emergenciais no setor cultural, sendo R$ 2,8 bilhões para o audiovisual.",
+   "year": 2022
+  },
+  {
+   "id": "mp-1134-2022-elderly-transit-aid",
+   "title": "Crédito extraordinário para custear a gratuidade de idosos no transporte público (Medida Provisória nº 1.134)",
+   "short_title": "Gratuidade de idosos no transporte",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.134",
+    "date": "2022-08-26",
+    "url": "https://legis.senado.leg.br/norma/36315739"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Sérgio Nogueira de Oliveira",
+     "office": null
+    }
+   ],
+   "amount_brl": 2500000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.134/2022, art. 1º (Diário Oficial da União de 26/08/2022; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/36315739/publicacao/36315867",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor de Encargos Financeiros da União, no valor de R$ 2.500.000.000,00 (dois bilhões e quinhentos milhões de reais), para atender à programação constante do Anexo.",
+    "date": "2022-08-26"
+   },
+   "status": "Finalidade segundo a EM nº 295/2022 ME, assinada por Paulo Guedes: assistência financeira aos entes com transporte público coletivo para custear a gratuidade de idosos até 31/12/2022, conforme o art. 5º, IV, da Emenda Constitucional nº 123/2022.",
+   "summary": "Abre R$ 2,5 bilhões fora do orçamento aprovado para ajudar a União, estados, Distrito Federal e municípios a custear a gratuidade de idosos no transporte público coletivo até o fim de 2022, prevista na Emenda Constitucional nº 123/2022.",
+   "year": 2022
+  },
+  {
+   "id": "mp-1039-2021-auxilio-emergencial",
+   "title": "Auxílio Emergencial 2021 (Medida Provisória nº 1.039)",
+   "short_title": "Auxílio Emergencial 2021",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.039",
+    "date": "2021-03-18",
+    "url": "https://legis.senado.leg.br/norma/33338529"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "João Inácio Ribeiro Roma Neto",
+     "office": "Ministro de Estado da Cidadania"
+    },
+    {
+     "name": "Wagner de Campos Rosário",
+     "office": null
+    },
+    {
+     "name": "José Levi Mello do Amaral Júnior",
+     "office": null
+    }
+   ],
+   "amount_brl": 43000000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos Interministerial nº 6/2021 MCID AGU CGU da Medida Provisória nº 1.039/2021 (Planalto, cópia do Internet Archive)",
+    "url": "https://web.archive.org/web/20260608235150/http://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/exm/exm-mp-1039-21.pdf",
+    "quote": "Assim, para atender integralmente a proposta da presente Medida Provisória, serão necessários R$ 43 bilhões (quarenta e três bilhões de reais) para o pagamento de benefícios para 45,6 milhões (quarenta e cinco milhões e seiscentas mil) de pessoas elegíveis",
+    "date": "2021-03-15"
+   },
+   "status": "Perdeu a eficácia em 16/07/2021, segundo o Senado Federal. Financiada pelos créditos extraordinários das Medidas Provisórias nº 1.037 (R$ 42,58 bilhões) e nº 1.038 (R$ 394,56 milhões), de 18/03/2021, que não entram de novo. A prorrogação do auxílio teve crédito próprio (Medida Provisória nº 1.056, item próprio). A Emenda Constitucional nº 109/2021 limitou o custo a R$ 44 bilhões.",
+   "summary": "Recria o Auxílio Emergencial por quatro parcelas em 2021, para 45,6 milhões de pessoas. O governo estimou R$ 43 bilhões em benefícios, mais R$ 394,7 milhões de custo operacional.",
+   "year": 2021
+  },
+  {
+   "id": "precatorios-2021-06",
+   "title": "Pagamento concentrado de sentenças judiciais e precatórios em junho de 2021",
+   "short_title": "Precatórios pagos em junho",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 27, N. 6 (junho de 2021)",
+    "date": "2021-07-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2021/6"
+   },
+   "signed_by": [],
+   "amount_brl": 34479700000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de junho de 2021, Tabela 3.1 (R$ milhões, preços correntes, coluna junho de 2021), soma das cinco linhas de sentenças judiciais e precatórios; a concentração em junho é dita no Resultado do Tesouro Nacional de agosto de 2022, Nota 14",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/40424_1257203/boletim_jun21_.pdf",
+    "quote": "Benefícios Previdenciários, Urbano: Sentenças Judiciais e Precatórios 8.602,1; Rural: Sentenças Judiciais e Precatórios 2.229,3; Pessoal e Encargos Sociais: d/q Sentenças Judiciais e Precatórios 6.940,4; BPC da LOAS/RMV: d/q Sentenças Judiciais e Precatórios 353,9; 4.3.14 Sentenças Judiciais e Precatórios (Custeio e Capital) 16.354,0. RTN de agosto de 2022, Nota 14: Enquanto em 2021, a concentração ocorreu no mês de junho (R$ 18,1 bilhões a valores de agosto de 2022",
+    "date": "2021-07-29"
+   },
+   "status": "Pago em junho de 2021. O valor inclui as requisições de pequeno valor pagas no mês. O boletim de junho de 2021 compara o mês com junho de 2020 (\"redução nos pagamentos de precatórios\"); a concentração dos pagamentos de 2021 em junho é registrada pelo Tesouro no boletim de agosto de 2022.",
+   "summary": "A União pagou R$ 34,5 bilhões em sentenças judiciais e precatórios em junho de 2021, mês em que o Tesouro Nacional concentrou o pagamento anual dessas dívidas judiciais.",
+   "year": 2021,
+   "moved_on": "2021-06"
+  },
+  {
+   "id": "mp-1056-2021-auxilio-emergencial-extension",
+   "title": "Crédito extraordinário para prorrogar o Auxílio Emergencial 2021 (Medida Provisória nº 1.056)",
+   "short_title": "Prorrogação do Auxílio Emergencial 2021",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.056",
+    "date": "2021-07-06",
+    "url": "https://legis.senado.leg.br/norma/34259770"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 20272300000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.056/2021, art. 1º (Diário Oficial da União de 06/07/2021; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/34259770/publicacao/34260123",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Cidadania, no valor de R$ 20.272.300.000,00 (vinte bilhões duzentos e setenta e dois milhões e trezentos mil reais)",
+    "date": "2021-07-06"
+   },
+   "status": "Perdeu a eficácia em 15/11/2021, segundo o Senado Federal. Segundo a EM nº 166/2021 ME, o crédito custeia a prorrogação do Auxílio Emergencial 2021 além das quatro parcelas previstas na Medida Provisória nº 1.039; é dinheiro adicional ao do item da Medida Provisória nº 1.039.",
+   "summary": "Abre R$ 20,3 bilhões fora do orçamento aprovado para pagar e operar as parcelas adicionais do Auxílio Emergencial 2021 depois de julho de 2021.",
+   "year": 2021
+  },
+  {
+   "id": "mp-1044-2021-bem-credit",
+   "title": "Crédito extraordinário para o Benefício Emergencial de Manutenção do Emprego e da Renda de 2021 (Medida Provisória nº 1.044)",
+   "short_title": "Benefício de manutenção do emprego (BEm 2021)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.044",
+    "date": "2021-04-28",
+    "url": "https://legis.senado.leg.br/norma/33668073"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 9977701233,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.044/2021, art. 1º (Diário Oficial da União de 28/04/2021; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/33668073/publicacao/33675030",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Economia, no valor de R$ 9.977.701.233,00 (nove bilhões novecentos e setenta e sete milhões setecentos e um mil duzentos e trinta e três reais)",
+    "date": "2021-04-28"
+   },
+   "status": "Perdeu a eficácia em 07/09/2021, segundo o Senado Federal. Financia o novo programa criado pela Medida Provisória nº 1.045, de 27/04/2021, cuja exposição de motivos estima custo de R$ 9.977.537.704,87 (menor, por isso não entra como item próprio).",
+   "summary": "Abre R$ 9,98 bilhões fora do orçamento aprovado para o benefício pago a trabalhadores com redução de jornada ou suspensão de contrato durante a pandemia, em 2021.",
+   "year": 2021
+  },
+  {
+   "id": "mp-1062-2021-health-covid-credit",
+   "title": "Crédito extraordinário para o Ministério da Saúde no combate à covid-19 (Medida Provisória nº 1.062)",
+   "short_title": "Saúde e covid-19 (agosto)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.062",
+    "date": "2021-08-10",
+    "url": "https://legis.senado.leg.br/norma/34664444"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 9102436262,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.062/2021, art. 1º (Diário Oficial da União de 10/08/2021; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/34664444/publicacao/34664521",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Saúde, no valor de R$ 9.102.436.262,00 (nove bilhões cento e dois milhões quatrocentos e trinta e seis mil duzentos e sessenta e dois reais)",
+    "date": "2021-08-10"
+   },
+   "status": "Perdeu a eficácia em 07/12/2021, segundo o Senado Federal.",
+   "summary": "Abre R$ 9,1 bilhões fora do orçamento aprovado para a saúde na pandemia; pelo anexo, R$ 7,6 bilhões para procedimentos de média e alta complexidade e o restante para atenção primária, vacinas e laboratórios.",
+   "year": 2021
+  },
+  {
+   "id": "mp-1083-2021-vaccines-credit",
+   "title": "Crédito extraordinário para compra de vacinas contra a covid-19 (Medida Provisória nº 1.083)",
+   "short_title": "Vacinas contra a covid-19 (dezembro)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.083",
+    "date": "2021-12-24",
+    "url": "https://legis.senado.leg.br/norma/35319984"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Marcelo Pacheco dos Guaranys",
+     "office": null
+    }
+   ],
+   "amount_brl": 6412000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.083/2021, art. 1º (Diário Oficial da União de 24/12/2021; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/35319984/publicacao/35320938",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Saúde, no valor de R$ 6.412.000.000,00 (seis bilhões quatrocentos e doze milhões de reais)",
+    "date": "2021-12-24"
+   },
+   "status": "Convertida na Lei nº 14.347, de 25/05/2022, que repete o valor e não entra de novo.",
+   "summary": "Abre R$ 6,4 bilhões fora do orçamento aprovado para a aquisição e distribuição de vacinas e insumos contra a covid-19.",
+   "year": 2021
+  },
+  {
+   "id": "mp-1048-2021-vaccines-credit",
+   "title": "Crédito extraordinário para compra de vacinas contra a covid-19 (Medida Provisória nº 1.048)",
+   "short_title": "Vacinas contra a covid-19 (maio)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.048",
+    "date": "2021-05-10",
+    "url": "https://legis.senado.leg.br/norma/33824911"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 5500071904,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.048/2021, art. 1º (Diário Oficial da União de 10/05/2021; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/33824911/publicacao/33825299",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Saúde, no valor de R$ 5.500.071.904,00 (cinco bilhões quinhentos milhões setenta e um mil novecentos e quatro reais)",
+    "date": "2021-05-10"
+   },
+   "status": "Perdeu a eficácia em 19/09/2021, segundo o Senado Federal.",
+   "summary": "Abre R$ 5,5 bilhões fora do orçamento aprovado para a aquisição e distribuição de vacinas e insumos contra a covid-19.",
+   "year": 2021
+  },
+  {
+   "id": "mp-1041-2021-health-covid-credit",
+   "title": "Crédito extraordinário para o Ministério da Saúde no combate à covid-19 (Medida Provisória nº 1.041)",
+   "short_title": "Saúde e covid-19 (março)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.041",
+    "date": "2021-03-31",
+    "url": "https://legis.senado.leg.br/norma/33378810"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 5324320142,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.041/2021, art. 1º (Diário Oficial da União de 31/03/2021; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/33378810/publicacao/33379310",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Saúde, no valor de R$ 5.324.320.142,00 (cinco bilhões trezentos e vinte e quatro milhões trezentos e vinte mil cento e quarenta e dois reais)",
+    "date": "2021-03-31"
+   },
+   "status": "Perdeu a eficácia em 10/08/2021, segundo o Senado Federal.",
+   "summary": "Abre R$ 5,3 bilhões fora do orçamento aprovado para a saúde na pandemia (média e alta complexidade, atenção primária, vacinas e laboratórios, pelo anexo).",
+   "year": 2021
+  },
+  {
+   "id": "mp-1053-2021-pronampe-fgo",
+   "title": "Crédito extraordinário para o fundo garantidor do Pronampe (Medida Provisória nº 1.053)",
+   "short_title": "Garantia do Pronampe",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.053",
+    "date": "2021-06-04",
+    "url": "https://legis.senado.leg.br/norma/34132654"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 5000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.053/2021, art. 1º (Diário Oficial da União de 04/06/2021; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/34132654/publicacao/34132927",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor de Encargos Financeiros da União, no valor de R$ 5.000.000.000,00 (cinco bilhões de reais)",
+    "date": "2021-06-04"
+   },
+   "status": "Perdeu a eficácia em 14/10/2021, segundo o Senado Federal. A Lei nº 14.161, de 02/06/2021, tornou o Pronampe permanente sem fixar valor.",
+   "summary": "Abre R$ 5 bilhões fora do orçamento aprovado para a União integralizar cotas no Fundo Garantidor de Operações (FGO), que garante empréstimos do Pronampe a micro e pequenas empresas.",
+   "year": 2021
+  },
+  {
+   "id": "mp-1084-2021-auxilio-2020-mothers",
+   "title": "Crédito extraordinário para o auxílio emergencial de 2020 a pessoas provedoras de família monoparental (Medida Provisória nº 1.084)",
+   "short_title": "Auxílio de 2020 (famílias monoparentais)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.084",
+    "date": "2021-12-24",
+    "url": "https://legis.senado.leg.br/norma/35320056"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Marcelo Pacheco dos Guaranys",
+     "office": null
+    }
+   ],
+   "amount_brl": 4153017000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.084/2021, art. 1º (Diário Oficial da União de 24/12/2021; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/35320056/publicacao/35338729",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Cidadania, no valor de R$ 4.153.017.000,00 (quatro bilhões cento e cinquenta e três milhões e dezessete mil reais)",
+    "date": "2021-12-24"
+   },
+   "status": "Perdeu a eficácia em 01/06/2022, segundo o Senado Federal. Segundo a EM nº 382/2021 ME, decorre da derrubada do veto nº 35/2020 e da Lei nº 14.171/2021, que mudou as regras do auxílio emergencial de 2020 para pessoas provedoras de família monoparental.",
+   "summary": "Abre R$ 4,2 bilhões fora do orçamento aprovado para pagar parcelas do auxílio emergencial de 2020 a pessoas provedoras de família monoparental, depois que o Congresso derrubou o veto a essa regra.",
+   "year": 2021
+  },
+  {
+   "id": "mp-988-2020-auxilio-emergencial-credit",
+   "title": "Crédito extraordinário de R$ 101,6 bilhões para o auxílio emergencial (Medida Provisória nº 988)",
+   "short_title": "Auxílio emergencial (crédito de junho)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "988",
+    "date": "2020-07-01",
+    "url": "https://legis.senado.leg.br/norma/32302303"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 101600000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 988/2020, art. 1º (Diário Oficial da União de 01/07/2020; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/32302303/publicacao/32303414",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Cidadania, no valor de R$ 101.600.000.000,00 (cento e um bilhões e seiscentos milhões de reais)",
+    "date": "2020-07-01"
+   },
+   "status": "Perdeu a eficácia em 04/11/2020, segundo o Senado Federal. Financia o auxílio emergencial criado pela Lei nº 13.982, de 02/04/2020 (lei do Congresso, sem valor no texto), prorrogado depois por decreto; cada crédito é uma parcela própria de dinheiro e entra como item.",
+   "summary": "Abre R$ 101,6 bilhões fora do orçamento aprovado para pagar o auxílio emergencial a pessoas em situação de vulnerabilidade na pandemia de covid-19.",
+   "year": 2020
+  },
+  {
+   "id": "mp-937-2020-auxilio-emergencial-credit",
+   "title": "Crédito extraordinário de R$ 98,2 bilhões para o auxílio emergencial (Medida Provisória nº 937)",
+   "short_title": "Auxílio emergencial (primeiro crédito)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "937",
+    "date": "2020-04-02",
+    "url": "https://legis.senado.leg.br/norma/32046819"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 98200000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 937/2020, art. 1º (Diário Oficial da União de 02/04/2020; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/32046819/publicacao/32048011",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Cidadania, no valor de R$ 98.200.000.000,00 (noventa e oito bilhões e duzentos milhões de reais)",
+    "date": "2020-04-02"
+   },
+   "status": "Perdeu a eficácia em 30/07/2020, segundo o Senado Federal. Financia o auxílio emergencial criado pela Lei nº 13.982, de 02/04/2020 (lei do Congresso, sem valor no texto), prorrogado depois por decreto; cada crédito é uma parcela própria de dinheiro e entra como item.",
+   "summary": "Abre R$ 98,2 bilhões fora do orçamento aprovado para pagar as primeiras parcelas do auxílio emergencial de R$ 600 a pessoas em situação de vulnerabilidade na pandemia de covid-19.",
+   "year": 2020
+  },
+  {
+   "id": "mp-1000-2020-auxilio-residual",
+   "title": "Auxílio emergencial residual de setembro a dezembro de 2020 (Medida Provisória nº 1.000)",
+   "short_title": "Auxílio emergencial residual",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.000",
+    "date": "2020-09-03",
+    "url": "https://legis.senado.leg.br/norma/32615700"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Onyx Lorenzoni",
+     "office": "Ministro de Estado da Cidadania"
+    }
+   ],
+   "amount_brl": 79067284289,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos nº 30/2020 MCID da Medida Provisória nº 1.000/2020, item 16, assinada por Onyx Dornelles Lorenzoni (Planalto, cópia do Internet Archive)",
+    "url": "https://web.archive.org/web/20260711014620/https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/exm/exm-mp-1000-20.pdf",
+    "quote": "Assim, para atender integralmente a proposta da presente Medida Provisória, serão necessários R$ 79.067.284.289,08 para o pagamento de benefícios para 61.488.087 de pessoas elegíveis",
+    "date": "2020-09-02"
+   },
+   "status": "Perdeu a eficácia em 10/02/2021, segundo o Senado Federal. O valor inclui R$ 11,47 bilhões de crédito ordinário do Bolsa Família usados no auxílio, segundo a mesma exposição de motivos. O crédito extraordinário da Medida Provisória nº 999, de 02/09/2020 (R$ 67,6 bilhões), financia o auxílio residual e não entra de novo.",
+   "summary": "Cria o auxílio emergencial residual, de até quatro parcelas de R$ 300 de setembro a dezembro de 2020, para cerca de 61,5 milhões de pessoas. O governo estimou o custo em R$ 79,1 bilhões.",
+   "year": 2020
+  },
+  {
+   "id": "mp-978-2020-states-aid-credit",
+   "title": "Crédito extraordinário de R$ 60,2 bilhões para o auxílio financeiro a estados e municípios (Medida Provisória nº 978)",
+   "short_title": "Auxílio a estados e municípios",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "978",
+    "date": "2020-06-04",
+    "url": "https://legis.senado.leg.br/norma/32240840"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 60189488452,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 978/2020, art. 1º (Diário Oficial da União de 04/06/2020; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/32240840/publicacao/32240956",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor de Transferências a Estados, Distrito Federal e Municípios, no valor de R$ 60.189.488.452,00 (sessenta bilhões cento e oitenta e nove milhões quatrocentos e oitenta e oito mil quatrocentos e cinquenta e dois reais)",
+    "date": "2020-06-04"
+   },
+   "status": "Perdeu a eficácia em 01/10/2020, segundo o Senado Federal. Financia o auxílio de R$ 60 bilhões da Lei Complementar nº 173, de 27/05/2020 (menor que o crédito, por isso não entra como item próprio); a mesma lei complementar suspendeu dívidas de estados e municípios com a União, sem valor no texto.",
+   "summary": "Abre R$ 60,2 bilhões fora do orçamento aprovado para o auxílio financeiro da União a estados, Distrito Federal e municípios no enfrentamento da covid-19, previsto na Lei Complementar nº 173/2020 (R$ 10 bilhões para saúde e assistência social e R$ 50 bilhões divididos entre estados e Distrito Federal, R$ 30 bilhões, e municípios, R$ 20 bilhões).",
+   "year": 2020
+  },
+  {
+   "id": "lc-176-2020-lei-kandir",
+   "title": "Compensação aos estados pelas perdas da Lei Kandir, de 2020 a 2037 (Lei Complementar nº 176)",
+   "short_title": "Compensação da Lei Kandir",
+   "kind": "spending",
+   "act": {
+    "type": "Lei Complementar",
+    "number": "176",
+    "date": "2020-12-29",
+    "url": "https://legis.senado.leg.br/norma/33037478"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Marcelo Pacheco dos Guaranys",
+     "office": null
+    }
+   ],
+   "amount_brl": 58000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei Complementar nº 176/2020, art. 1º (Diário Oficial da União, edição extra de 29/12/2020; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/33037478/publicacao/33039279",
+    "quote": "Art. 1º A União entregará aos Estados, ao Distrito Federal e aos Municípios, no período de 2020 a 2037, o montante de R$ 58.000.000.000,00 (cinquenta e oito bilhões de reais), assim escalonado:",
+    "date": "2020-12-29"
+   },
+   "status": "Lei complementar em vigor. A mesma lei prevê R$ 4 bilhões adicionais, pagos com a receita dos blocos de Atapu e Sépia; o Resultado do Tesouro Nacional registra esses repasses na linha \"Lei Kandir (LC nº 87/96 e 102/00) e LC nº 176 de 2020\".",
+   "summary": "Obriga a União a entregar R$ 58 bilhões a estados, Distrito Federal e municípios de 2020 a 2037 (R$ 4 bilhões por ano até 2030, depois valores decrescentes) e declara atendida a regra do art. 91 do Ato das Disposições Constitucionais Transitórias; o Tesouro Nacional registra esses repasses junto com os da Lei Kandir.",
+   "year": 2020
+  },
+  {
+   "id": "mp-935-2020-bem-credit",
+   "title": "Crédito extraordinário de R$ 51,6 bilhões para o Benefício Emergencial de Manutenção do Emprego e da Renda (Medida Provisória nº 935)",
+   "short_title": "Benefício de manutenção do emprego (BEm 2020)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "935",
+    "date": "2020-04-01",
+    "url": "https://legis.senado.leg.br/norma/32040121"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 51641629500,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 935/2020, art. 1º (Diário Oficial da União de 01/04/2020; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/32040121/publicacao/32041153",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Economia, no valor de R$ 51.641.629.500,00 (cinquenta e um bilhões seiscentos e quarenta e um milhões seiscentos e vinte e nove mil e quinhentos reais)",
+    "date": "2020-04-01"
+   },
+   "status": "Perdeu a eficácia em 30/07/2020, segundo o Senado Federal. Financia o programa criado pela Medida Provisória nº 936, de 01/04/2020, cuja exposição de motivos estima o custo em R$ 51,2 bilhões (menor, por isso não entra como item próprio).",
+   "summary": "Abre R$ 51,6 bilhões fora do orçamento aprovado para o benefício pago a trabalhadores com redução de jornada ou suspensão de contrato durante a pandemia de covid-19.",
+   "year": 2020
+  },
+  {
+   "id": "mp-944-2020-pese",
+   "title": "Programa Emergencial de Suporte a Empregos: R$ 34 bilhões da União para financiar folhas de pagamento (Medida Provisória nº 944)",
+   "short_title": "Crédito para folha de pagamento (PESE)",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "944",
+    "date": "2020-04-03",
+    "url": "https://legis.senado.leg.br/norma/32052949"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    },
+    {
+     "name": "Roberto de Oliveira Campos Neto",
+     "office": "Presidente do Banco Central do Brasil"
+    }
+   ],
+   "amount_brl": 34000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 944/2020, art. 8º (Diário Oficial da União, edição extra de 03/04/2020; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/32052949/publicacao/32056423",
+    "quote": "Art. 8º Ficam transferidos, da União para o BNDES, R$ 34.000.000.000,00 (trinta e quatro bilhões de reais), destinados à execução do Pr ograma Emergencial de Suporte a Empregos.",
+    "date": "2020-04-03"
+   },
+   "status": "Convertida, com mudanças, na Lei nº 14.043, de 19/08/2020, que reduziu a transferência ao BNDES para até R$ 17 bilhões e destinou R$ 12 bilhões ao FGO do Pronampe. O crédito extraordinário da Medida Provisória nº 943, de 03/04/2020 (R$ 34 bilhões), financia a transferência e não entra de novo. Pelo Resultado do Tesouro Nacional, a União aportou R$ 14,4 bilhões no programa em agosto de 2020 (valor a preços de agosto de 2021).",
+   "summary": "Cria uma linha de crédito para pequenas e médias empresas pagarem salários durante a pandemia e transfere R$ 34 bilhões da União ao BNDES para financiá-la (85% dos recursos da linha, com o restante dos bancos).",
+   "year": 2020
+  },
+  {
+   "id": "precatorios-2020-06",
+   "title": "Pagamento concentrado de sentenças judiciais e precatórios em junho de 2020",
+   "short_title": "Precatórios pagos em junho",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 26, N. 6 (junho de 2020)",
+    "date": "2020-07-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2020/6"
+   },
+   "signed_by": [],
+   "amount_brl": 33094900000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de junho de 2020, Tabela 3.1 (R$ milhões, preços correntes, coluna junho de 2020), soma das cinco linhas de sentenças judiciais e precatórios (benefícios previdenciários urbano e rural, pessoal, BPC e custeio e capital)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/33778_1059996/relatorio_jun20.pdf",
+    "quote": "Benefícios Previdenciários, Urbano: d/q Sentenças Judiciais e Precatórios 7.264,2; Rural: d/q Sentenças Judiciais e Precatórios 1.640,9; Pessoal e Encargos Sociais: d/q Sentenças Judiciais e Precatórios 3.735,2; BPC da LOAS/RMV: d/q Sentenças Judiciais e Precatórios 281,0; IV.3.14 Sentenças Judiciais e Precatórios (Custeio e Capital) 20.173,6. Nota 17 do mês: aumento explicado pela alteração do cronograma de pagamentos de precatórios, historicamente efetuados em meses anteriores.",
+    "date": "2020-07-30"
+   },
+   "status": "Pago em junho de 2020. O valor inclui as requisições de pequeno valor pagas no mês. Em 2019 a concentração tinha ocorrido em março; o Tesouro atribui a mudança ao novo cronograma de pagamentos.",
+   "summary": "A União pagou R$ 33,1 bilhões em sentenças judiciais e precatórios em junho de 2020, mês em que o Tesouro Nacional concentrou o pagamento anual dessas dívidas judiciais naquele ano.",
+   "year": 2020,
+   "moved_on": "2020-06"
+  },
+  {
+   "id": "mp-970-2020-auxilio-emergencial-credit",
+   "title": "Crédito extraordinário de R$ 29,1 bilhões para o auxílio emergencial e despesas da pandemia (Medida Provisória nº 970)",
+   "short_title": "Auxílio emergencial (crédito de maio)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "970",
+    "date": "2020-05-26",
+    "url": "https://legis.senado.leg.br/norma/32208233"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 29058260654,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 970/2020, art. 1º (Diário Oficial da União de 26/05/2020; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/32208233/publicacao/32208857",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor dos Ministérios da Saúde e da Cidadania, no valor de R$ 29.058.260.654,00 (vinte e nove bilhões cinquenta e oito milhões duzentos e sessenta mil seiscentos e cinquenta e quatro reais)",
+    "date": "2020-05-26"
+   },
+   "status": "Perdeu a eficácia em 22/09/2020, segundo o Senado Federal. Pelo anexo, R$ 28,72 bilhões vão para o auxílio emergencial. Financia o auxílio emergencial criado pela Lei nº 13.982, de 02/04/2020 (lei do Congresso, sem valor no texto), prorrogado depois por decreto; cada crédito é uma parcela própria de dinheiro e entra como item.",
+   "summary": "Abre R$ 29,1 bilhões fora do orçamento aprovado, quase todo para o auxílio emergencial a pessoas em situação de vulnerabilidade na pandemia (R$ 28,72 bilhões pelo anexo).",
+   "year": 2020
+  },
+  {
+   "id": "mp-956-2020-auxilio-emergencial-credit",
+   "title": "Crédito extraordinário de R$ 25,7 bilhões para o auxílio emergencial (Medida Provisória nº 956)",
+   "short_title": "Auxílio emergencial (crédito de abril)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "956",
+    "date": "2020-04-24",
+    "url": "https://legis.senado.leg.br/norma/32129896"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 25720000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 956/2020, art. 1º (Diário Oficial da União de 24/04/2020; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/32129896/publicacao/32131201",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Cidadania, no valor de R$ 25.720.000.000,00 (vinte e cinco bilhões setecentos e vinte milhões de reais)",
+    "date": "2020-04-24"
+   },
+   "status": "Perdeu a eficácia em 21/09/2020, segundo o Senado Federal. Financia o auxílio emergencial criado pela Lei nº 13.982, de 02/04/2020 (lei do Congresso, sem valor no texto), prorrogado depois por decreto; cada crédito é uma parcela própria de dinheiro e entra como item.",
+   "summary": "Abre R$ 25,7 bilhões fora do orçamento aprovado para o auxílio emergencial a pessoas em situação de vulnerabilidade na pandemia de covid-19.",
+   "year": 2020
+  },
+  {
+   "id": "petrobras-cessao-onerosa-2019-12",
+   "title": "Pagamento à Petrobras pela revisão do contrato da cessão onerosa, em dezembro de 2019",
+   "short_title": "Pagamento à Petrobras (cessão onerosa)",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 12 (dezembro de 2019)",
+    "date": "2020-01-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/12"
+   },
+   "signed_by": [],
+   "amount_brl": 34400000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2019, Nota 13 do mês (valor arredondado pelo Tesouro)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/31547_1016534/relatorio_dez19.pdf",
+    "quote": "explicado principalmente pelo pagamento à Petrobras decorrente da revisão do contrato de cessão onerosa (R$ 34,4 bilhões em dez/19)",
+    "date": "2020-01-29"
+   },
+   "status": "Pago em dezembro de 2019. Na tabela do teto de gastos do mesmo boletim, a linha \"IV.5 Cessão Onerosa\" soma R$ 46.144,43 milhões em dezembro de 2019, juntando este pagamento e o repasse do bônus a estados e municípios (item próprio).",
+   "summary": "A União pagou R$ 34,4 bilhões à Petrobras pela revisão do contrato de cessão onerosa autorizado pela Lei nº 12.276/2010, condição para leiloar os volumes excedentes de petróleo dessas áreas.",
+   "year": 2019,
+   "moved_on": "2019-12"
+  },
+  {
+   "id": "lei-13954-2019-military-career",
+   "title": "Reestruturação da carreira e do sistema de proteção social dos militares (Lei nº 13.954)",
+   "short_title": "Carreira e previdência dos militares",
+   "kind": "spending",
+   "act": {
+    "type": "Lei",
+    "number": "13.954",
+    "date": "2019-12-17",
+    "url": "https://legis.senado.leg.br/norma/31836233"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Azevedo e Silva",
+     "office": null
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 21160000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos Interministerial nº 61/2019 MD ME do Projeto de Lei nº 1.645/2019, itens 18 e 19, assinada por Fernando Azevedo e Silva e Paulo Guedes (Planalto, cópia do Internet Archive); total de despesas de 2020 a 2022 no quadro",
+    "url": "https://web.archive.org/web/20260614201323/https://www.planalto.gov.br/ccivil_03/projetos/ato_2019_2022/2019/pl/exm/exm-00061-md-me.htm",
+    "quote": "A elevação estimada das despesas com pessoal, decorrentes da alteração do Sistema de Proteção Social dos Militares das Forças Armadas e da reestruturação da carreira, alcançarão os seguintes montantes: [...] ANO TOTAL DE DESPESAS TOTAL DE RECEITAS RESULTADO RECEITA X DESPESAS 2020 4,73 5,49 0,76 2021 7,06 7,87 0,81 2022 9,37 10,09 0,72 TOTAL 21,16 23,45 2,29",
+    "date": "2019-03-20"
+   },
+   "status": "Lei em vigor (Diário Oficial da União de 17/12/2019). A estimativa é do projeto enviado pelo Executivo; a estimativa sobre o texto aprovado não foi lida. A mesma exposição de motivos estima R$ 23,45 bilhões de receitas e economias no período, com as novas contribuições dos militares.",
+   "summary": "Reestrutura a carreira dos militares das Forças Armadas e muda o sistema de proteção social (previdência) deles. O governo estimou o aumento de despesas com pessoal em R$ 21,16 bilhões de 2020 a 2022 (R$ 4,73 bi, R$ 7,06 bi e R$ 9,37 bi), contra R$ 23,45 bilhões de receitas e economias.",
+   "year": 2019
+  },
+  {
+   "id": "precatorios-2019-04",
+   "title": "Pagamento concentrado de sentenças judiciais e precatórios em abril de 2019",
+   "short_title": "Precatórios pagos em abril",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 4 (abril de 2019)",
+    "date": "2019-05-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/4"
+   },
+   "signed_by": [],
+   "amount_brl": 13904700000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de abril de 2019, Tabela 3.1 (R$ milhões, preços correntes, coluna abril de 2019), soma das cinco linhas de sentenças judiciais e precatórios (benefícios previdenciários urbano e rural, pessoal, BPC e custeio e capital)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/29904_993167/Nimabr2019.pdf",
+    "quote": "Benefícios Previdenciários, Urbano: d/q Sentenças Judiciais e Precatórios 738,4; Rural: d/q Sentenças Judiciais e Precatórios 196,0; Pessoal e Encargos Sociais: d/q Sentenças Judiciais e Precatórios 468,3; BPC da LOAS/RMV: d/q Sentenças Judiciais e Precatórios 86,2; IV.3.14 Sentenças Judiciais e Precatórios (Custeio e Capital) 12.415,8. Nota 13 do mês: em abril ocorre, conforme calendário estabelecido pelo Conselho de Justiça Federal, concentração de maior parte dos pagamentos de Sentenças Judiciais e Precatórios (Custeio e Capital).",
+    "date": "2019-05-29"
+   },
+   "status": "Pago em abril de 2019. O valor inclui as requisições de pequeno valor pagas no mês. Em 2019 a concentração se dividiu: precatórios de benefícios e de pessoal em março (item próprio), os de custeio e capital em abril.",
+   "summary": "A União pagou R$ 13,9 bilhões em sentenças judiciais e precatórios em abril de 2019, mês em que, pelo calendário do Conselho da Justiça Federal, se concentrou a maior parte dos precatórios de custeio e capital.",
+   "year": 2019,
+   "moved_on": "2019-04"
+  },
+  {
+   "id": "precatorios-2019-03",
+   "title": "Pagamento concentrado de sentenças judiciais e precatórios em março de 2019",
+   "short_title": "Precatórios pagos em março",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 3 (março de 2019)",
+    "date": "2019-04-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/3"
+   },
+   "signed_by": [],
+   "amount_brl": 12290900000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de março de 2019, Tabela 3.1 (R$ milhões, preços correntes, coluna março de 2019), soma das cinco linhas de sentenças judiciais e precatórios; a concentração em março é dita no Resultado do Tesouro Nacional de março de 2020, Nota 7",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/29719_950722/nimmar2019.pdf",
+    "quote": "Benefícios Previdenciários, Urbano: d/q Sentenças Judiciais e Precatórios 5.629,4; Rural: d/q Sentenças Judiciais e Precatórios 1.488,2; Pessoal e Encargos Sociais: d/q Sentenças Judiciais e Precatórios 3.943,3; BPC da LOAS/RMV: d/q Sentenças Judiciais e Precatórios 233,8; IV.3.14 Sentenças Judiciais e Precatórios (Custeio e Capital) 996,2. RTN de março de 2020, Nota 7: Em março 2019, houve concentração de pagamentos de R$ 7,4 bilhões (em valores de mar/20) em sentenças judiciais e precatórios relativos à benefícios previdenciários sem contrapartida em março de 2020.",
+    "date": "2019-04-29"
+   },
+   "status": "Pago em março de 2019. O valor inclui as requisições de pequeno valor pagas no mês. O Tesouro registra no boletim de março de 2020 a concentração de março de 2019: R$ 7,4 bilhões em benefícios previdenciários e R$ 4,1 bilhões em pessoal, a preços de março de 2020.",
+   "summary": "A União pagou R$ 12,3 bilhões em sentenças judiciais e precatórios em março de 2019, mês em que se concentraram os precatórios de benefícios previdenciários e de pessoal.",
+   "year": 2019,
+   "moved_on": "2019-03"
+  },
+  {
+   "id": "cessao-onerosa-bonus-transfer-2019-12",
+   "title": "Repasse a estados e municípios de parte do leilão dos excedentes da cessão onerosa, em dezembro de 2019",
+   "short_title": "Leilão da cessão onerosa repassado a estados e municípios",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 12 (dezembro de 2019)",
+    "date": "2020-01-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/12"
+   },
+   "signed_by": [],
+   "amount_brl": 11700000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2019, Nota 15 do acumulado (valor arredondado pelo Tesouro); linha II.6 Demais transferências de dezembro de 2019: R$ 11.885,9 milhões",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/31547_1016534/relatorio_dez19.pdf",
+    "quote": "aumento explicado principalmente pela transferência de parte dos valores arrecadados com os leilões dos volumes excedentes de petróleo (cessão onerosa), no montante de R$ 11,7 bilhões.",
+    "date": "2020-01-29"
+   },
+   "status": "Pago em dezembro de 2019, pelos critérios da Lei nº 13.885, de 17/10/2019. A linha do Tesouro em que o repasse aparece (II.6 Demais, R$ 11.885,9 milhões em dezembro de 2019) inclui outras transferências pequenas (R$ 130,5 milhões em dezembro de 2018).",
+   "summary": "A União repassou R$ 11,7 bilhões a estados e municípios, a parte deles no dinheiro arrecadado com os leilões dos volumes excedentes de petróleo da cessão onerosa.",
+   "year": 2019,
+   "moved_on": "2019-12"
+  },
+  {
+   "id": "state-companies-capital-2019-12",
+   "title": "Aumento de capital de empresas estatais não dependentes, em dezembro de 2019",
+   "short_title": "Capitalização de estatais (dezembro)",
+   "kind": "spending",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 12 (dezembro de 2019)",
+    "date": "2020-01-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/12"
+   },
+   "signed_by": [],
+   "amount_brl": 9594740000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2019, tabela do teto de gastos, linha IV.4 (R$ milhões, coluna dezembro de 2019); destaque no Resultado do Tesouro Nacional de dezembro de 2020, Nota 12",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/31547_1016534/relatorio_dez19.pdf",
+    "quote": "IV.4 Despesas com aumento de capital de empresas estatais não dependentes (Inciso IV do § 6º) 2.149,13 9.594,74 (dezembro de 2018, dezembro de 2019). RTN de dezembro de 2020, Nota 12: aumento de capital de empresas estatais não dependentes (R$ 9,6 bilhões em dez/19)",
+    "date": "2020-01-29"
+   },
+   "status": "Pago em dezembro de 2019. O boletim não diz quais empresas receberam o aumento de capital; é uma linha que pode juntar mais de uma estatal.",
+   "summary": "A União pagou R$ 9,6 bilhões em aumento de capital de empresas estatais não dependentes em dezembro de 2019, segundo o Tesouro Nacional; o boletim não detalha as empresas.",
+   "year": 2019,
+   "moved_on": "2019-12"
+  },
+  {
+   "id": "lei-13885-2019-atapu-sepia-transfer",
+   "title": "Repasse adicional de R$ 4 bilhões a estados ligado aos blocos de Atapu e Sépia (Lei nº 13.885)",
+   "short_title": "R$ 4 bi a estados (Atapu e Sépia)",
+   "kind": "spending",
+   "act": {
+    "type": "Lei",
+    "number": "13.885",
+    "date": "2019-10-17",
+    "url": "https://legis.senado.leg.br/norma/31591283"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    },
+    {
+     "name": "Bento Albuquerque",
+     "office": "Ministro de Estado de Minas e Energia"
+    }
+   ],
+   "amount_brl": 4000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei nº 13.885/2019, art. 1º, § 4º (Diário Oficial da União, edição extra de 17/10/2019; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/31591283/publicacao/31598014",
+    "quote": "§ 4º Dos valores arrecadados na forma do caput deste artigo referentes aos Blocos de Atapu e Sépia, descontada a despesa decorrente da revisão do contrato de cessão onerosa, a União entregará, adicionalmente em relação ao disposto nos incisos I, II e III do caput deste artigo, R$ 4.000.000.000,00 (quatro bilhões de reais)",
+    "date": "2019-10-17"
+   },
+   "status": "Lei em vigor; o repasse depende da arrecadação dos leilões dos blocos de Atapu e Sépia. A Lei Complementar nº 176/2020 repetiu o mesmo valor (não entra de novo). O texto do Senado grafa um dos signatários como \"Paulo Gudes\".",
+   "summary": "Define como a União divide com estados e municípios o dinheiro dos leilões dos excedentes da cessão onerosa e prevê um repasse adicional de R$ 4 bilhões quando forem arrecadados os valores dos blocos de Atapu e Sépia.",
+   "year": 2019
+  },
+  {
+   "id": "mp-879-2019-cde-fuel-refunds",
+   "title": "Reembolso de combustíveis a distribuidoras de energia pela CDE, até R$ 3,5 bilhões (Medida Provisória nº 879)",
+   "short_title": "Reembolso a distribuidoras de energia",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "879",
+    "date": "2019-04-24",
+    "url": "https://legis.senado.leg.br/norma/30917379"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    },
+    {
+     "name": "Bento Albuquerque",
+     "office": "Ministro de Estado de Minas e Energia"
+    }
+   ],
+   "amount_brl": 3500000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 879/2019, § 1º-B do art. 13 da Lei nº 10.438/2002 na redação dada pela medida (Diário Oficial da União, edição extra de 24/04/2019; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/30917379/publicacao/30917415",
+    "quote": "§ 1º-B. O pagamento de que trata o inciso IX do caput é limitado a R$ 3.500.000.000,00 (três bilhões e quinhentos milhões de reais) até o exercício de 2021, sujeito à disponibilidade orçamentária e financeira.",
+    "date": "2019-04-24"
+   },
+   "status": "Rejeitada pelo Plenário da Câmara dos Deputados em 20/08/2019, segundo o Senado Federal.",
+   "summary": "Autoriza a União a pôr recursos na Conta de Desenvolvimento Energético (CDE) para reembolsar, até R$ 3,5 bilhões até 2021, despesas com combustível de distribuidoras de energia de sistemas isolados, feitas até junho de 2017 e não reembolsadas.",
+   "year": 2019
+  },
+  {
+   "id": "mp-898-2019-bolsa-familia-13th",
+   "title": "Parcela de dezembro de 2019 do Bolsa Família paga em dobro (Medida Provisória nº 898)",
+   "short_title": "13º do Bolsa Família",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "898",
+    "date": "2019-10-16",
+    "url": "https://legis.senado.leg.br/norma/31582218"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    },
+    {
+     "name": "Osmar Terra",
+     "office": "Ministro de Estado da Cidadania"
+    }
+   ],
+   "amount_brl": 2580000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos Interministerial nº 72/2019 MCID ME da Medida Provisória nº 898/2019, item 11 (Planalto, cópia do Internet Archive)",
+    "url": "https://web.archive.org/web/20260119153619/http://planalto.gov.br/CCIVIL_03/_Ato2019-2022/2019/Exm/Exm-MP-898-19.pdf",
+    "quote": "estima-se que deverão ser adicionados R$ 2,58 bilhões reais na ação 8442",
+    "date": "2019-10-15"
+   },
+   "status": "Perdeu a eficácia em 26/03/2020, segundo o Senado Federal.",
+   "summary": "Paga em dobro a parcela de dezembro de 2019 do Bolsa Família. O governo estimou o custo em R$ 2,58 bilhões.",
+   "year": 2019
+  },
+  {
+   "id": "mp-880-2019-venezuela-refugees",
+   "title": "Crédito extraordinário para o acolhimento de refugiados da Venezuela (Medida Provisória nº 880)",
+   "short_title": "Acolhimento de venezuelanos",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "880",
+    "date": "2019-04-30",
+    "url": "https://legis.senado.leg.br/norma/30921791"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 223853000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 880/2019, art. 1º (Diário Oficial da União de 30/04/2019; texto oficial no Senado Federal)",
+    "url": "https://legis.senado.leg.br/norma/30921791/publicacao/30921806",
+    "quote": "Art. 1º Fica aberto crédito extraordinário, em favor do Ministério da Defesa, no valor de R$ 223.853.000,00 (duzentos e vinte e três milhões, oitocentos e cinquenta e três mil reais)",
+    "date": "2019-04-30"
+   },
+   "status": "Perdeu a eficácia em 29/08/2019, segundo o Senado Federal. Finalidade segundo a descrição da matéria no Senado: refugiados da Venezuela.",
+   "summary": "Abre R$ 223,9 milhões fora do orçamento aprovado, em favor do Ministério da Defesa, para o acolhimento de migrantes e refugiados venezuelanos.",
+   "year": 2019
+  }
+ ]
+}

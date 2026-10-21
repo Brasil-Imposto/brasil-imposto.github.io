@@ -1,0 +1,606 @@
+{
+  "slug": "sp-monotrilho-linha-17",
+  "uf": "SP",
+  "collected_on": "2026-10-05",
+  "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_obra-sp-monotrilho-linha-17_2026-10-05.md",
+  "rules": "Somente papéis e atos oficiais, com as palavras do órgão. Nenhuma inferência de irregularidade. Campo desconhecido fica null.",
+  "work": {
+    "name": "Implantação da Linha 17-Ouro do Metrô de São Paulo (monotrilho), trecho prioritário entre o Aeroporto de Congonhas e a Estação Morumbi da Linha 9-Esmeralda",
+    "short_name": "Linha 17-Ouro (monotrilho de Congonhas)",
+    "municipalities": [
+      {
+        "name": "São Paulo",
+        "uf": "SP",
+        "ibge_code": 3550308
+      }
+    ],
+    "level": "estadual",
+    "agency": {
+      "name": "Companhia do Metropolitano de São Paulo (Metrô)",
+      "cnpj": null
+    },
+    "siconfi_function": "Transporte",
+    "siconfi_function_code": 26,
+    "funding_quote": "'O valor do contrato, atualizado para R$ 3.175.000.000,00, possui as seguintes fontes de recurso: R$ 1.082.000.000,00, contrato de financiamento com a Caixa Econômica Federal; R$ 250.000.000,00, proveniente do BNDS, operação que acabou não contratada, em virtude do Estádio do Morumbi haver sido descartado da Copa; R$ 1.500.500.000,00, proveniente de aportes de Capital, subscrição de ações da Companhia do METRÔ; R$ 334.500.000,00, provenientes do Convênio nº 0262880201 [...] entre o METRÔ e a EMURB' (TCE-SP, despacho de 09/08/2016, citando esclarecimento do Metrô de 11/06/2013; separadores da lista trocados por vírgula)",
+    "funding_url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf",
+    "financing": "Caixa Econômica Federal (financiamento, inicialmente no programa de mobilidade da Copa de 2014, depois no PAC), Governo do Estado e Prefeitura de São Paulo",
+    "status": "em operação transitória desde 31/03/2026; operação plena prevista para outubro de 2026",
+    "status_detail": [
+      {
+        "date": "2011-07-30",
+        "text": "Contrato nº 4220921301 assinado com o Consórcio Monotrilho Integração, vigência prevista de 42 meses (TCE-SP)",
+        "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+      },
+      {
+        "date": "2012-12-21",
+        "text": "Resolução nº 22 do Grupo Executivo da Copa do Mundo (GEOCOPA) autoriza a exclusão da obra da Matriz de Responsabilidades da Copa, a pedido do Governador (TCE-SP)",
+        "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+      },
+      {
+        "date": "2016-08-09",
+        "text": "Conselheiro do TCE-SP determina ao Metrô que informe 'qual a real projeção para que a Linha 17 entre em pleno funcionamento'",
+        "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+      },
+      {
+        "date": "2020-01-13",
+        "text": "Metrô assina contrato com a Constran para retomar as obras civis; o contrato com o Consórcio Monotrilho Integração foi 'rescindido unilateralmente pelo Metrô após constantes atrasos'",
+        "url": "https://www.metro.sp.gov.br/pt_BR/2020/01/13/13-01-2020-metro-assina-contrato-para-conclusao-das-obras-da-linha-17-ouro/"
+      },
+      {
+        "date": "2023-08-31",
+        "text": "Metrô assina contrato com a Agis Construção S.A para as obras civis remanescentes, substituindo o Consórcio CMO, que teve o contrato rescindido unilateralmente",
+        "url": "https://web.archive.org/web/20241107192706/https://www.saopaulo.sp.gov.br/sala-de-imprensa/release/governo-de-sao-paulo-retoma-obras-da-linha-17-ouro/"
+      },
+      {
+        "date": "2026-03-31",
+        "text": "Linha entregue: 'Às 16h em ponto, todas as oito estações abriram simultaneamente, marcando o início da operação transitória da nova linha'",
+        "url": "https://www.metro.sp.gov.br/2026/04/01/a-linha-17-ouro-chegou/"
+      }
+    ],
+    "dates": {
+      "public_hearing_notice": "2009-08-26",
+      "tender_authorized": "2010-09",
+      "contract_signed": "2011-07-30",
+      "contract_term_months_original": 42,
+      "completion_forecast_after_2nd_amendment": "2015-07-28",
+      "completion_forecast_note": "TCE-SP: o termo aditivo 'prorrogou a vigência do contrato em seis meses, com previsão do término da obra para 28/07/2015'",
+      "governor_letter_copa_exclusion": "2012-12-13",
+      "copa_matrix_exclusion": "2012-12-21",
+      "cmi_rescission": null,
+      "constran_contract": "2020-01-13",
+      "cmo_rescission": null,
+      "agis_contract": "2023-08-31",
+      "opening_transitional": "2026-03-31",
+      "full_operation_forecast": "2026-10",
+      "promised_copa_date": null,
+      "promised_copa_date_note": "Nenhum documento primário lido nesta pesquisa traz a data de entrega prometida na Matriz de Responsabilidades da Copa; os documentos confirmam só a inclusão na Matriz e a exclusão em 21/12/2012."
+    },
+    "capacity": {
+      "length_operational_km": 6.7,
+      "length_implementation_km": 8.3,
+      "stations": 8,
+      "yards": 1,
+      "trains": 14,
+      "train_capacity_passengers": 616,
+      "demand_forecast_per_day": 100000,
+      "source": "https://www.agenciasp.sp.gov.br/linha-17-ouro-do-metro-balanco-um-mes/",
+      "source_length_implementation": "https://transparencia.metrosp.com.br/sites/default/files/17.09.2026-Relatorio_Portal_Transparencia-GPM-Agosto.pdf",
+      "original_scope_note": "O contrato de 2011 previa 3 trechos e frota de 24 trens (TCE-SP); o TCU descreveu 'um total de aproximadamente 18 quilômetros de extensão para ligação dos bairros Morumbi, Jabaquara e Aeroporto de Congonhas'. Abriu o trecho 1, com 6,7 km.",
+      "original_scope_sources": [
+        "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf",
+        "https://portal.tcu.gov.br/imprensa/noticias/licitacao-para-monotrilho-de-sao-paulo-e-fiscalizada-pelo-tcu"
+      ]
+    },
+    "operation": "Concessão das Linhas 5 e 17 ao Consórcio Via Mobilidade (CCR S.A, líder, e RuasInvest Participações S.A), contrato assinado em 05/04/2018, 20 anos",
+    "operation_source": "https://www.metro.sp.gov.br/obras/linha-17-ouro/",
+    "description_plain": "Monotrilho de 6,7 km e 8 estações elevadas que liga o Aeroporto de Congonhas às Linhas 5-Lilás e 9-Esmeralda. Contratado em 2011 e incluído na Matriz de Responsabilidades da Copa de 2014, saiu dela em 2012 e abriu em operação transitória em 31/03/2026.",
+    "sources": [
+      "https://www.agenciasp.sp.gov.br/linha-17-ouro-do-metro-balanco-um-mes/",
+      "https://www.metro.sp.gov.br/2026/04/01/a-linha-17-ouro-chegou/",
+      "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf",
+      "https://portal.tcu.gov.br/imprensa/noticias/licitacao-para-monotrilho-de-sao-paulo-e-fiscalizada-pelo-tcu",
+      "https://www.metro.sp.gov.br/pt_BR/2020/01/13/13-01-2020-metro-assina-contrato-para-conclusao-das-obras-da-linha-17-ouro/",
+      "https://web.archive.org/web/20241107192706/https://www.saopaulo.sp.gov.br/sala-de-imprensa/release/governo-de-sao-paulo-retoma-obras-da-linha-17-ouro/",
+      "https://www.metro.sp.gov.br/obras/linha-17-ouro/"
+    ]
+  },
+  "original_budget": {
+    "tender_budget_brl": 1392402036.11,
+    "tender_budget_base_date": "2010-12-01",
+    "tender_budget_first_brl": 1376261541.06,
+    "tender_budget_first_base_date": "2010-08-01",
+    "quote": "'O orçamento oficializou-se em R$ 1.392.402.036,11, na data base de 01/12/2010, após a apresentação da proposta vencedora, sendo que originalmente remontava a R$ 1.376.261.541,06, na data base de 01/08/2010.' (TCE-SP)",
+    "project_total_updated_2013_brl": 3175000000.0,
+    "tcu_2015_investment_quote": "'O investimento previsto para esse trecho é de aproximadamente R$ 1,8 bilhão.' (TCU, notícia de 16/10/2015)",
+    "official_investment_2026_brl": 5970000000,
+    "official_investment_2026_quote": "'Com investimento de R$ 5,97 bilhões, a Linha 17-Ouro tem 6,7 quilômetros de extensão' (Agência SP)",
+    "official_investment_2026_url": "https://www.agenciasp.sp.gov.br/linha-17-ouro-do-metro-balanco-um-mes/",
+    "official_investment_2026_note": "A fonte não detalha o que entra nos R$ 5,97 bilhões (obras, trens, sistemas, desapropriações) nem se é valor pago ou contratado, nem a data base."
+  },
+  "contracts": [
+    {
+      "number": "4220921301",
+      "tender": "Concorrência Internacional (RD 298/2010), tipo menor preço",
+      "object": "implantação de um sistema monotrilho, incluindo o projeto, as obras civis, a fabricação, o fornecimento de sistemas e material rodante, contemplando uma frota de 24 trens, para a Linha-17-Ouro do Metro",
+      "object_plain": "Contrato 'turn key' original: projeto, obras civis, sistemas e 24 trens para os 3 trechos da Linha 17.",
+      "company": "Consórcio Monotrilho Integração",
+      "company_cnpj": null,
+      "consortium_members": [
+        "Construtora Andrade Gutierrez S/A",
+        "CR Almeida S/A, Engenharia de Obras",
+        "SCOMI Engineering BHD",
+        "MPE-Montagens e Projetos Especiais"
+      ],
+      "signed_on": "2011-07-30",
+      "duration_months_original": 42,
+      "value_original_brl": 1392401780.0,
+      "value_current_brl": null,
+      "value_current_note": "Valor atualizado do contrato não localizado em documento primário; em 2016 o TCE-SP pediu ao Metrô que informasse 'qual o valor total do contrato'.",
+      "competing_bid": "Consórcio Expresso Monotrilho Ouro, R$ 1.451.467.901,33 (TCE-SP)",
+      "status": "rescindido unilateralmente pelo Metrô (Metrô, 13/01/2020: 'após constantes atrasos e redução no ritmo das obras'; multas de R$ 88 milhões); data da rescisão não confirmada",
+      "amendments": [
+        {
+          "act": "Termo de Aditamento nº 01",
+          "date": "2012-07-23",
+          "text": "adequação da fórmula de reajuste dos itens constantes da planilha de preço",
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        },
+        {
+          "act": "Termo de Aditamento nº 02",
+          "date": "2012-12-28",
+          "value_brl": 6583658.09,
+          "text": "serviços que importaram em R$ 10.606.687,89, sendo que o Metrô aprovou e remunerou apenas aqueles relativos à operacionalização de tráfego e de demolição, no valor de R$ 6.583.658,09; prorrogou a vigência em seis meses, com previsão do término da obra para 28/07/2015",
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        },
+        {
+          "act": "Termo de Aditamento nº 03",
+          "date": "2013-08-30",
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        },
+        {
+          "act": "Termo de Aditamento nº 04",
+          "date": "2014-04-30",
+          "value_brl": 8399874.47,
+          "text": "incluir a construção de ciclovia temporária na planilha de serviços, no valor de R$ 8.399.874,47; pagamento liberado de R$ 22.925.726,44 (Nota Fiscal nº 0034, de 20/05/2014) relativo aos serviços da ciclovia",
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        },
+        {
+          "act": "Termo de Aditamento nº 05",
+          "date": "2014-05-30",
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        },
+        {
+          "act": "Termo de Aditamento nº 06",
+          "date": "2014-07-30",
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        },
+        {
+          "act": "Termo de Aditamento nº 07",
+          "date": "2014-12-29",
+          "value_brl": 922584.09,
+          "text": "manejo arbóreo do trecho 1, operação e manutenção de canteiro de obras, exclusão e inclusão de imóveis a demolir, data base 01/12/2010",
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        },
+        {
+          "act": "Termo de Aditamento nº 08",
+          "date": "2015-05-08",
+          "text": "caução e reforço caucional",
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        },
+        {
+          "act": "Termo de Aditamento nº 09",
+          "date": "2015-10-08",
+          "text": "alterar denominação de uma das empresas do Consórcio",
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        },
+        {
+          "act": "Termo de Aditamento nº 10",
+          "date": "2015-11-06",
+          "text": "prorrogar unilateralmente o prazo de vigência",
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        },
+        {
+          "act": "Termo de Aditamento nº 11",
+          "date": "2015-12-07",
+          "text": "prorrogar o prazo de vigência",
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        }
+      ],
+      "amendments_note": "Datas e objetos conforme o cabeçalho e o relato do despacho do TCE-SP. O aditivo nº 02 está datado de 28/12/2012 no cabeçalho; o relato liga a ele o valor de R$ 6.583.658,09.",
+      "source": {
+        "doc": "TCE-SP, processo TC-027046/026/11, despacho do Conselheiro Antonio Roque Citadini de 09/08/2016",
+        "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf",
+        "collected_on": "2026-10-05"
+      }
+    },
+    {
+      "number": null,
+      "tender": "licitação de 2019 para as obras civis remanescentes",
+      "object": "retomada das obras civis da Linha 17-Ouro: conclusão da via, acabamento do Pátio Água Espraiada e de sete estações",
+      "object_plain": "Obras civis remanescentes depois da rescisão do contrato de 2011.",
+      "company": "Constran",
+      "company_cnpj": null,
+      "signed_on": "2020-01-13",
+      "value_original_brl": 494800000,
+      "value_original_note": "valor arredondado na fonte: 'R$ 494,8 milhões'",
+      "value_current_brl": null,
+      "status": "não confirmado em documento primário lido nesta pesquisa",
+      "source": {
+        "doc": "Metrô, notícia de 13/01/2020",
+        "url": "https://www.metro.sp.gov.br/pt_BR/2020/01/13/13-01-2020-metro-assina-contrato-para-conclusao-das-obras-da-linha-17-ouro/",
+        "collected_on": "2026-10-05"
+      }
+    },
+    {
+      "number": null,
+      "tender": "convocação de licitante remanescente da licitação de 2019 (Lei Federal nº 13.303/16)",
+      "object": "execução das obras civis remanescentes de sete estações, da via e do Pátio Água Espraiada",
+      "object_plain": "Obras civis finais, depois da rescisão do contrato do Consórcio CMO.",
+      "company": "Agis Construção S.A",
+      "company_cnpj": null,
+      "signed_on": "2023-08-31",
+      "duration_months_original": 18,
+      "value_original_brl": 847079624.89,
+      "value_original_note": "'O acordo foi assinado pelo valor de R$ 847.079.624,89. Essa quantia já está corrigida pela inflação, considerando o índice setorial previsto no próprio edital de licitação.'",
+      "value_current_brl": null,
+      "status": "obra entregue em 31/03/2026; situação final do contrato não confirmada",
+      "source": {
+        "doc": "Governo do Estado de São Paulo, release 'Governo de São Paulo retoma obras da Linha 17-Ouro' (cópia do Internet Archive de 07/11/2024)",
+        "url": "https://web.archive.org/web/20241107192706/https://www.saopaulo.sp.gov.br/sala-de-imprensa/release/governo-de-sao-paulo-retoma-obras-da-linha-17-ouro/",
+        "collected_on": "2026-10-05"
+      }
+    }
+  ],
+  "contracts_not_confirmed": [
+    "Contrato com o Consórcio CMO (obras civis), rescindido unilateralmente pelo Metrô em 2023 segundo o Governo de SP: número, valor, data e empresas não lidos em documento primário (a imprensa cita KPE e Coesa e multa de mais de R$ 118 milhões).",
+    "Contrato de fabricação dos trens e sistemas (a imprensa cita o Consórcio BYD Skyrail São Paulo; o Governo de SP só diz que 'o Metrô manteve o contrato de fabricação dos trens'): número, valor e data não confirmados.",
+    "Contrato de 2021 com o Consórcio TSEA, Ferreira Guedes, Adtranz (alimentação elétrica), rescindido em 2022 segundo a imprensa: não confirmado em fonte primária."
+  ],
+  "payments": {
+    "total_gross_brl": null,
+    "total_paid_note": "O total pago não foi localizado em fonte oficial. O Governo de SP publica 'investimento de R$ 5,97 bilhões', sem dizer se é pago ou contratado nem o que cobre.",
+    "official_investment_brl": 5970000000,
+    "official_investment_url": "https://www.agenciasp.sp.gov.br/linha-17-ouro-do-metro-balanco-um-mes/",
+    "known_payments": [
+      {
+        "what": "ciclovia temporária (aditivo nº 04 do contrato 4220921301)",
+        "value_brl": 22925726.44,
+        "date": "2014-05-22",
+        "quote": "'liberação do pagamento (Processo de Pagamento 35190514) no valor de R$ 22.925.726,44 (Nota Fiscal nº 0034, de 20/05/2014), relativo aos serviços da ciclovia'",
+        "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+      }
+    ],
+    "fines": [
+      {
+        "who": "Consórcio Monotrilho Integração",
+        "value_brl": 88000000,
+        "quote": "'aplicação de multas pelo Metrô no valor de R$ 88 milhões'",
+        "url": "https://www.metro.sp.gov.br/pt_BR/2020/01/13/13-01-2020-metro-assina-contrato-para-conclusao-das-obras-da-linha-17-ouro/"
+      }
+    ]
+  },
+  "companies": [],
+  "companies_note": "Nenhum CNPJ das contratadas foi publicado nos documentos primários lidos; os cartões das empresas saem dos contratos (sem CNPJ).",
+  "people": [
+    {
+      "name": "Luiz Carlos Meireles de Assis",
+      "role": "Gerente de empreendimento do Metrô; firmou instrumentos do contrato 4220921301",
+      "side": "contratante",
+      "party_at_time": null,
+      "role_source": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf",
+      "signed": [
+        {
+          "act": "Contrato 4220921301 e termos aditivos (o TCE-SP não diz qual instrumento cada um firmou)",
+          "date": null,
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Eduardo Curiati",
+      "role": "Gerente de empreendimentos do Metrô; firmou instrumentos do contrato 4220921301",
+      "side": "contratante",
+      "party_at_time": null,
+      "role_source": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf",
+      "signed": [
+        {
+          "act": "Contrato 4220921301 e termos aditivos (o TCE-SP não diz qual instrumento cada um firmou)",
+          "date": null,
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Mario Fioratti Filho",
+      "role": "Diretor de operações do Metrô; firmou instrumentos do contrato 4220921301",
+      "side": "contratante",
+      "party_at_time": null,
+      "role_source": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf",
+      "signed": [
+        {
+          "act": "Contrato 4220921301 e termos aditivos (o TCE-SP não diz qual instrumento cada um firmou)",
+          "date": null,
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Walter Ferreira de Castro Filho",
+      "role": "Diretor de engenharia e construções do Metrô; firmou instrumentos do contrato 4220921301",
+      "side": "contratante",
+      "party_at_time": null,
+      "role_source": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf",
+      "signed": [
+        {
+          "act": "Contrato 4220921301 e termos aditivos (o TCE-SP não diz qual instrumento cada um firmou)",
+          "date": null,
+          "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+        }
+      ]
+    },
+    {
+      "name": "José Kalil Neto",
+      "role": "Ordenador de despesa do contrato 4220921301 (Metrô)",
+      "side": "contratante",
+      "party_at_time": null,
+      "role_source": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf",
+      "signed": []
+    },
+    {
+      "name": "Marcos Kassab",
+      "role": "Ordenador de despesa do contrato 4220921301 (Metrô)",
+      "side": "contratante",
+      "party_at_time": null,
+      "role_source": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf",
+      "signed": []
+    }
+  ],
+  "people_note": "Nomes e funções conforme o cabeçalho do despacho do TCE-SP de 09/08/2016 ('Ordenadores de despesa' e 'Firmaram os instrumentos'). Quem assinou os contratos de 2020 (Constran) e de 2023 (Agis) não consta das fontes lidas. Nenhum desses nomes foi citado como responsável por irregularidade em decisão oficial lida.",
+  "head_of_government": [
+    {
+      "name": "Geraldo José Rodrigues Alckmin Filho (Geraldo Alckmin)",
+      "office": "Governador de São Paulo",
+      "terms": [
+        "2011 a 2014 (eleito em 2010)",
+        "2015 a 2018 (eleito em 2014; data de saída em 2018 não confirmada nesta pesquisa)"
+      ],
+      "party_at_time": "PSDB",
+      "tse_records": [
+        {
+          "year": 2010,
+          "office": "GOVERNADOR",
+          "unit": "SP",
+          "party": "PSDB",
+          "result": "ELEITO",
+          "turn": "1"
+        },
+        {
+          "year": 2014,
+          "office": "GOVERNADOR",
+          "unit": "SP",
+          "party": "PSDB",
+          "result": "ELEITO",
+          "turn": "1"
+        }
+      ],
+      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2010.zip (e https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2014.zip)",
+      "relevant_dates": [
+        "2011-07-30 (contrato 4220921301)",
+        "2012-12-13 (ofício do Governador pedindo a exclusão da Matriz da Copa)",
+        "2014-04-30 (aditivo nº 04)"
+      ]
+    },
+    {
+      "name": "Márcio Luiz França Gomes (Márcio França)",
+      "office": "Governador de São Paulo (vice eleito em 2014, assumiu em 2018)",
+      "terms": [
+        "2018 (data de posse não confirmada nesta pesquisa)"
+      ],
+      "party_at_time": "PSB",
+      "tse_records": [
+        {
+          "year": 2014,
+          "office": "VICE-GOVERNADOR",
+          "unit": "SP",
+          "party": "PSB",
+          "result": "ELEITO",
+          "turn": "1"
+        }
+      ],
+      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2014.zip",
+      "relevant_dates": [
+        "2018 (período no cargo durante a obra; nenhum ato da obra lido neste período)"
+      ]
+    },
+    {
+      "name": "João Agripino da Costa Doria Junior (João Doria)",
+      "office": "Governador de São Paulo",
+      "terms": [
+        "2019 a 2022 (eleito em 2018; saída em 2022)"
+      ],
+      "party_at_time": "PSDB",
+      "tse_records": [
+        {
+          "year": 2018,
+          "office": "GOVERNADOR",
+          "unit": "SP",
+          "party": "PSDB"
+        }
+      ],
+      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+      "relevant_dates": [
+        "2020-01-13 (contrato com a Constran)",
+        "2020-12-17 (visita à obra e 'assinatura de autorização para retomada das obras', título de foto do Governo de SP no Wikimedia Commons)"
+      ]
+    },
+    {
+      "name": "Rodrigo Garcia",
+      "office": "Governador de São Paulo (vice eleito em 2018, assumiu em 2022)",
+      "terms": [
+        "2022"
+      ],
+      "party_at_time": "PSDB",
+      "party_note": "DEM no registro de 2018 (vice); PSDB no registro de 2022 (governador)",
+      "tse_records": [
+        {
+          "year": 2018,
+          "office": "VICE-GOVERNADOR",
+          "unit": "SP",
+          "party": "DEM"
+        },
+        {
+          "year": 2022,
+          "office": "GOVERNADOR",
+          "unit": "SP",
+          "party": "PSDB"
+        }
+      ],
+      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip (e https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip)",
+      "relevant_dates": [
+        "2022 (período no cargo durante a obra; nenhum ato da obra lido neste período)"
+      ]
+    },
+    {
+      "name": "Tarcísio Gomes de Freitas (Tarcísio de Freitas)",
+      "office": "Governador de São Paulo",
+      "terms": [
+        "2023 em diante (eleito em 2022)"
+      ],
+      "party_at_time": "REPUBLICANOS",
+      "tse_records": [
+        {
+          "year": 2022,
+          "office": "GOVERNADOR",
+          "unit": "SP",
+          "party": "REPUBLICANOS"
+        }
+      ],
+      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+      "relevant_dates": [
+        "2023-08-31 (contrato com a Agis Construção S.A)",
+        "2026-03-31 (entrega da linha)"
+      ]
+    }
+  ],
+  "head_of_government_note": "O governador não assina os contratos: assina o Metrô. Partidos de 2010 e 2014 lidos nesta pesquisa nos arquivos do TSE; os de 2018 e 2022 vêm de data/politicians/governors.json (mesma base do TSE). Datas exatas de troca de governador em 2018 e 2022 não confirmadas aqui.",
+  "findings": [
+    {
+      "body": "TCE-SP (Gabinete do Conselheiro Antonio Roque Citadini)",
+      "kind": "despacho com pedido de esclarecimentos",
+      "process": "TC-027046/026/11",
+      "date": "2016-08-09",
+      "summary_quote": "DETERMINO AO METRÔ que informe qual a real projeção para que a Linha 17 entre em pleno funcionamento, considerando todos os entraves existentes",
+      "status": "pedido de esclarecimentos com prazo de 30 dias; julgamento do contrato não localizado nesta pesquisa",
+      "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+    },
+    {
+      "body": "TCE-SP (órgão técnico de engenharia, no mesmo processo)",
+      "kind": "proposta técnica (não é julgamento)",
+      "process": "TC-027046/026/11",
+      "date": "2016-08-09",
+      "summary_quote": "Finaliza, o órgão técnico, com proposta de irregularidade do procedimento, em função de inobservância ao artigo 7º, § 2º, II, da Lei 8666/93",
+      "status": "proposta relatada no despacho de 09/08/2016; decisão final não localizada",
+      "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+    },
+    {
+      "body": "TCU (Plenário)",
+      "kind": "acórdão sobre representação",
+      "process": "Acórdão 2418/2015, Plenário, processo 26.110/2013-0, sessão de 30/09/2015",
+      "date": "2015-09-30",
+      "summary_quote": "caracterização insuficiente do objeto da contratação, devido à ausência de projeto básico e à existência de orçamento estimativo, contrariamente ao que dispõe a lei de licitações",
+      "status": "o tribunal considerou a representação improcedente e encaminhou o processo ao Tribunal de Contas do Estado de São Paulo",
+      "url": "https://portal.tcu.gov.br/imprensa/noticias/licitacao-para-monotrilho-de-sao-paulo-e-fiscalizada-pelo-tcu"
+    },
+    {
+      "body": "MPF e MPSP",
+      "kind": "recomendação (relatada pelo TCE-SP)",
+      "process": "Recomendação nº 79",
+      "date": "2010-12-02",
+      "summary_quote": "para que a Companhia do METRÔ suspendesse a Concorrência Internacional a fim de que providenciasse a efetiva realização do projeto básico",
+      "status": "segundo o TCE-SP, 'o projeto básico acabou sendo realizado pelo Consórcio contratado'",
+      "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+    },
+    {
+      "body": "MPF",
+      "kind": "recomendação à Caixa (relatada pelo TCE-SP)",
+      "process": "Recomendação nº 15",
+      "date": "2012-06-12",
+      "summary_quote": "no sentido de que a Caixa Econômica Federal suspendesse a concessão de financiamento",
+      "status": "segundo o TCE-SP, houve 'negativa da CEF em fazê-lo'",
+      "url": "https://www.tce.sp.gov.br/sites/default/files/noticias/despachotcesp-roquecitadini-linhaouro.pdf"
+    }
+  ],
+  "findings_none_note": "Nenhum documento primário lido traz julgamento final do TCE-SP sobre o contrato 4220921301, ação do MPSP com decisão judicial sobre a obra, nem achado de sobrepreço ou superfaturamento.",
+  "media": null,
+  "media_candidates": [
+    {
+      "commons": "https://commons.wikimedia.org/wiki/File:Visita_%C3%A0_Linha_17-Ouro_do_Metr%C3%B4_monotrilho_e_assinatura_de_autoriza%C3%A7%C3%A3o_para_retomada_das_obras_-_50729175983.jpg",
+      "author": "Governo do Estado de São Paulo",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2020-12-17",
+      "description": "Visita à Linha 17-Ouro do Metrô monotrilho e assinatura de autorização para retomada das obras"
+    },
+    {
+      "commons": "https://commons.wikimedia.org/wiki/File:Monotrilho_-_Linha_17-Ouro_-_panoramio.jpg",
+      "author": "CORRETOR-CARVALHO",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "date": null,
+      "description": "Monotrilho, Linha 17-Ouro (panoramio)"
+    },
+    {
+      "commons": "https://commons.wikimedia.org/wiki/File:In%C3%ADcio_de_obras_Esta%C3%A7%C3%A3o_de_Integra%C3%A7%C3%A3o_Morumbi_-_Monotrilho_-_Linha_9_CPTM_(Marginal_Pinheiros)_(39589325624).jpg",
+      "author": "Governo do Estado de São Paulo",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "date": "2018-02-16",
+      "description": "Início de obras da Estação de Integração Morumbi, monotrilho, Linha 9 CPTM (Marginal Pinheiros)"
+    }
+  ],
+  "media_note": "Fotos não baixadas (disco); a sessão principal grava em assets/cases/sp-monotrilho-linha-17/ com credits.json. Nenhuma foto livre da linha em operação (2026) foi localizada na busca feita.",
+  "comparison": null,
+  "card": {
+    "title": "Linha 17-Ouro",
+    "subtitle": "Monotrilho da Copa de 2014 aberto em 2026",
+    "place": "São Paulo",
+    "stats": [
+      {
+        "label": "Investimento (Governo de SP)",
+        "value": 5970000000,
+        "unit": "BRL",
+        "display": "R$ 5,97 bi",
+        "note": "valor do Governo de SP; total pago não publicado"
+      },
+      {
+        "label": "Contrato original (2011)",
+        "value": 1392401780.0,
+        "unit": "BRL",
+        "display": "R$ 1,39 bi",
+        "note": "Consórcio Monotrilho Integração; 3 trechos e 24 trens"
+      },
+      {
+        "label": "Extensão aberta",
+        "value": 6.7,
+        "unit": "km",
+        "display": "6,7 km",
+        "note": "8 estações; o projeto de 2011 tinha 3 trechos"
+      },
+      {
+        "label": "Abertura",
+        "value": "2026-03-31",
+        "unit": "date",
+        "display": "31/03/2026",
+        "note": "operação transitória; contrato assinado em 30/07/2011"
+      }
+    ],
+    "photo": null
+  },
+  "owner_lead_check": {
+    "copa_2014": "Confirmado: a obra entrou na Matriz de Responsabilidades da Copa e saiu dela em 21/12/2012 (TCE-SP; TCU).",
+    "ready_by_2024": "Não confere: a linha abriu em operação transitória em 31/03/2026 (Metrô).",
+    "superfaturamento": "Não confirmado: nenhum documento oficial lido usa 'superfaturamento' ou 'sobrepreço' para esta obra.",
+    "which_line": "É a Linha 17-Ouro (monotrilho de Congonhas): é a obra que o TCE-SP e o TCU ligam à Copa de 2014 nas fontes lidas."
+  },
+  "terms_check": "O despacho do TCE-SP (50 páginas) não contém 'superfaturamento' nem 'sobrepreço'; a notícia do TCU fala em 'supostas irregularidades' e julgou a representação improcedente."
+}

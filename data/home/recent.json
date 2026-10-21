@@ -1,0 +1,575 @@
+{
+ "collected_on": "2026-10-02",
+ "rule": "Atos federais publicados no Diário Oficial da União de 01/07/2026 a 02/10/2026 que fixam no próprio texto, ou na exposição de motivos oficial, um valor em reais de gasto, empréstimo com recursos da União, renúncia ou perda de receita, renegociação de dívidas, garantia, crédito extraordinário ou receita. Ordenados pelo valor oficial, sem filtro de partido ou de autor. Leis de conversão entram quando o valor está no texto publicado no período, com a origem do valor indicada na situação. Créditos extraordinários que apenas financiam um teto já listado não entram de novo (MP 1.387, R$ 7 bi, é parte do teto da MP 1.379). Nos atos, os valores são tetos ou estimativas oficiais, não valores pagos. Também entram gastos fixados antes do período e pagos dentro dele, com a data do pagamento (D85: o Fundo Especial de Financiamento de Campanha, pago em agosto de 2026); e (D75): entradas de dinheiro na União, uma a uma identificáveis, com valor oficial em reais lido em fonte primária (Tesouro Nacional, Diário Oficial da União, Planalto, ANP, PPSA ou comunicado da empresa estatal) e ocorridas de 01/07/2026 a 03/10/2026; a arrecadação mensal ordinária de tributos não entra; ordenadas pelo valor oficial, sem filtro de partido ou de autor.",
+ "items": [
+  {
+   "id": "lei-15503-2026-driver-vehicle-financing",
+   "title": "Financiamento de carros novos para motoristas de aplicativo e taxistas",
+   "kind": "spending",
+   "act": {
+    "type": "Lei",
+    "number": "15.503",
+    "date": "2026-09-14",
+    "url": "https://www.in.gov.br/web/dou/-/lei-n-15.503-de-14-de-setembro-de-2026-731640068"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Dario Carnevalli Durigan",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Márcio Fernando Elias Rosa",
+     "office": "Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços"
+    },
+    {
+     "name": "Frederico de Siqueira Filho",
+     "office": "Ministro de Estado das Comunicações"
+    },
+    {
+     "name": "Paulo Henrique Rodrigues Pereira",
+     "office": "Ministro de Estado do Empreendedorismo, da Microempresa e da Empresa de Pequeno Porte"
+    },
+    {
+     "name": "Luiz Marinho",
+     "office": "Ministro de Estado do Trabalho e Emprego"
+    },
+    {
+     "name": "George André Palermo Santoro",
+     "office": "Ministro de Estado dos Transportes"
+    },
+    {
+     "name": "Guilherme Castro Boulos",
+     "office": "Ministro de Estado da Secretaria-Geral da Presidência da República"
+    }
+   ],
+   "amount_brl": 30000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei nº 15.503/2026, art. 6º (Diário Oficial da União, edição extra A de 14/09/2026)",
+    "url": "https://www.in.gov.br/web/dou/-/lei-n-15.503-de-14-de-setembro-de-2026-731640068",
+    "quote": "Observada a disponibilidade orçamentária e financeira, fica a União autorizada a destinar o valor de até R$ 30.000.000.000,00 (trinta bilhões de reais) para disponibilizar linhas de financiamento reembolsável a profissionais de transporte remunerado privado individual de passageiros, taxistas e cooperativas de taxistas",
+    "date": "2026-09-14"
+   },
+   "status": "Lei de conversão da MP nº 1.366, de 12/06/2026. O art. 6º repete o teto de R$ 30 bi criado pela MP nº 1.359, de 19/05/2026, revogada pelo art. 18. O crédito extraordinário de R$ 30 bi (MP nº 1.362) perdeu a eficácia em setembro de 2026.",
+   "summary": "Autoriza a União a destinar até R$ 30 bilhões, com gestão do Ministério da Fazenda e o BNDES como agente financeiro, a empréstimos para motoristas de aplicativo, taxistas e cooperativas de táxi comprarem carros novos que atendam a critérios de sustentabilidade.",
+   "short_title": "Carros para motoristas de app e taxistas"
+  },
+  {
+   "id": "mp-1393-2026-desenrola-3",
+   "title": "Desenrola Brasil 3.0: renegociação de dívidas de pessoas físicas",
+   "kind": "debt_renegotiation",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.393",
+    "date": "2026-09-25",
+    "url": "https://www.in.gov.br/web/dou/-/medida-provisoria-n-1.393-de-25-de-setembro-de-2026-734808387"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Dario Carnevalli Durigan",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Wellington César Lima e Silva",
+     "office": "Ministro de Estado da Justiça e Segurança Pública"
+    }
+   ],
+   "amount_brl": 15000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.393/2026, novo art. 31-E da Lei nº 14.690/2023 (Diário Oficial da União, edição extra A de 25/09/2026)",
+    "url": "https://www.in.gov.br/web/dou/-/medida-provisoria-n-1.393-de-25-de-setembro-de-2026-734808387",
+    "quote": "As despesas decorrentes da aquisição, pela União, de carteiras de créditos inadimplidos ou de eventual integralização de cotas em fundo correrão à conta de dotações orçamentárias consignadas ao Ministério da Fazenda, observado o limite máximo de R$ 15.000.000.000,00 (quinze bilhões de reais).",
+    "date": "2026-09-25"
+   },
+   "status": "Medida provisória em vigor desde 25/09/2026; aguarda votação no Congresso Nacional.",
+   "summary": "A União poderá comprar, com desconto mínimo de 90% sobre o valor de face, carteiras de dívidas atrasadas de pessoas físicas (até R$ 10 mil, em atraso de 720 a 1.645 dias) e repassar o desconto aos devedores. A despesa da União tem teto de R$ 15 bilhões; o governo estima até R$ 150 bilhões em dívidas elegíveis.",
+   "short_title": "Desenrola Brasil 3.0"
+  },
+  {
+   "id": "lei-15473-2026-export-credit-lines",
+   "title": "Plano Brasil Soberano: linhas de crédito a exportadores",
+   "kind": "spending",
+   "act": {
+    "type": "Lei",
+    "number": "15.473",
+    "date": "2026-07-22",
+    "url": "https://www.in.gov.br/web/dou/-/lei-n-15.473-de-22-de-julho-de-2026-720797394"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Dario Carnevalli Durigan",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Márcio Fernando Elias Rosa",
+     "office": "Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços"
+    },
+    {
+     "name": "André Carlos Alves de Paula Filho",
+     "office": "Ministro de Estado da Agricultura e Pecuária"
+    },
+    {
+     "name": "Rivetla Edipo Araujo Cruz",
+     "office": "Ministro de Estado da Pesca e Aquicultura"
+    }
+   ],
+   "amount_brl": 15000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei nº 15.473/2026, art. 3º, § 1º (Diário Oficial da União, edição extra de 22/07/2026)",
+    "url": "https://www.in.gov.br/web/dou/-/lei-n-15.473-de-22-de-julho-de-2026-720797394",
+    "quote": "As linhas de financiamento de que trata o caput deste artigo serão concedidas com a utilização de até R$ 15.000.000.000,00 (quinze bilhões de reais)",
+    "date": "2026-07-22"
+   },
+   "status": "Lei em vigor desde 22/07/2026. Lei de conversão: o teto de R$ 15 bi foi criado pela MP nº 1.345, de 24/03/2026. No mesmo dia, a MP nº 1.379 autorizou ampliar o teto em até R$ 13,5 bi (item separado).",
+   "summary": "Autoriza linhas de financiamento de até R$ 15 bilhões, com recursos como o superávit do Fundo de Garantia à Exportação, para exportadoras e fornecedores afetados por tarifas comerciais majoradas e instabilidade internacional.",
+   "short_title": "Brasil Soberano: crédito a exportadores"
+  },
+  {
+   "id": "mp-1379-2026-export-credit-expansion",
+   "title": "Plano Brasil Soberano: ampliação do crédito a exportadores",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.379",
+    "date": "2026-07-22",
+    "url": "https://www.in.gov.br/web/dou/-/medida-provisoria-n-1.379-de-22-de-julho-de-2026-720797644"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Dario Carnevalli Durigan",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Márcio Fernando Elias Rosa",
+     "office": "Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços"
+    }
+   ],
+   "amount_brl": 13500000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.379/2026, que inclui o § 1º-A no art. 3º da Lei nº 15.473/2026 (Diário Oficial da União, edição extra B de 22/07/2026)",
+    "url": "https://www.in.gov.br/web/dou/-/medida-provisoria-n-1.379-de-22-de-julho-de-2026-720797644",
+    "quote": "O limite de que trata o § 1º poderá ser ampliado em até R$ 13.500.000.000,00 (treze bilhões e quinhentos milhões de reais) para as linhas de financiamento de que trata o caput deste artigo, em adição ao montante previsto no § 1º",
+    "date": "2026-07-22"
+   },
+   "status": "Medida provisória em vigor; prazo de votação no Congresso prorrogado até 18/11/2026. A MP nº 1.387, de 24/08/2026, abriu crédito extraordinário de R$ 7 bi para essas linhas (parte do mesmo teto, não é valor adicional).",
+   "summary": "Permite somar até R$ 13,5 bilhões ao teto de R$ 15 bilhões das linhas de crédito a exportadores do Plano Brasil Soberano, o que leva o total autorizado a até R$ 28,5 bilhões.",
+   "short_title": "Brasil Soberano: mais crédito a exportadores",
+   "fiscal_nature": "financial",
+   "fiscal_nature_source": {
+    "body": "Exposição de Motivos da MP nº 1.379/2026, item 16 (Planalto)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/exm/exm-mp-1379-26.pdf",
+    "quote": "Trata-se de uma destinação de recursos financeiros que permitirá a abertura de crédito adicional para realização de uma despesa financeira da União sem impacto no resultado primário do setor público, uma vez que o risco das operações será integralmente assumido pelo BNDES e as instituições financeiras por ele habilitadas.",
+    "note": "Segundo a exposição de motivos, a ampliação de até R$ 13,5 bilhões é despesa financeira (empréstimo). Por isso fica fora da linha \"Despesas\" da conta da União, que é a despesa primária."
+   }
+  },
+  {
+   "id": "mp-1377-2026-extraordinary-credit",
+   "title": "Crédito extraordinário para Finep rural, Desenrola Adimplentes e Fies",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.377",
+    "date": "2026-07-16",
+    "url": "https://www.in.gov.br/web/dou/-/medida-provisoria-n-1.377-de-16-de-julho-de-2026-719582266"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Guilherme Santos Mello",
+     "office": "Ministro de Estado do Planejamento e Orçamento substituto"
+    }
+   ],
+   "amount_brl": 13285000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.377/2026 (Diário Oficial da União, edição extra C de 16/07/2026)",
+    "url": "https://www.in.gov.br/web/dou/-/medida-provisoria-n-1.377-de-16-de-julho-de-2026-719582266",
+    "quote": "Abre crédito extraordinário, em favor do Ministério da Agricultura e Pecuária, da Advocacia-Geral da União, e de Operações Oficiais de Crédito, no valor de R$ 13.285.000.000,00",
+    "date": "2026-07-16"
+   },
+   "status": "Medida provisória em vigor; prazo de votação no Congresso prorrogado até 12/11/2026.",
+   "summary": "Abre R$ 13,3 bilhões fora do orçamento aprovado: R$ 9 bi em empréstimos da Finep (FNDCT) a produtores rurais, R$ 3 bi para o Desenrola Adimplentes, R$ 1 bi para o Fies Empreendedor, R$ 270 mi para produtores de cana do Nordeste e R$ 15 mi para a Corte Interamericana de Direitos Humanos.",
+   "short_title": "Finep rural, Desenrola e Fies",
+   "fiscal_nature": "financial",
+   "fiscal_nature_source": {
+    "body": "Exposição de Motivos da MP nº 1.377/2026 (Planalto)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/exm/exm-mp-1377-26.pdf",
+    "quote": "Registra-se que a despesa tem natureza financeira (RP 0)",
+    "note": "R$ 13 bilhões deste crédito têm natureza financeira (RP 0), segundo a exposição de motivos: R$ 9 bilhões em empréstimos da Finep (FNDCT) e R$ 4 bilhões do Desenrola Adimplentes e do Fies Empreendedor; ficam fora da linha \"Despesas\" da conta da União, que é a despesa primária. Os R$ 285 milhões restantes (subvenção a produtores de cana do Nordeste e contribuição à Corte Interamericana de Direitos Humanos) são despesa primária discricionária (RP 2)."
+   }
+  },
+  {
+   "id": "mp-1394-2026-betting-ban-revenue-loss",
+   "title": "Proibição das bets: perda de arrecadação estimada pelo governo",
+   "kind": "revenue_loss",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.394",
+    "date": "2026-09-25",
+    "url": "https://www.in.gov.br/web/dou/-/medida-provisoria-n-1.394-de-25-de-setembro-de-2026-734808521"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Dario Carnevalli Durigan",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Wellington César Lima e Silva",
+     "office": "Ministro de Estado da Justiça e Segurança Pública"
+    }
+   ],
+   "amount_brl": 1541000000,
+   "amount_kind": "estimated_cost",
+   "amount_source": {
+    "body": "Exposição de Motivos da MP nº 1.394/2026, item 12 (Planalto)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/exm/exm-mp-1394-26.pdf",
+    "quote": "a modificação legislativa ora proposta implica redução de receitas tributárias na ordem R$ 1.541 bilhões para o ano de 2026, R$ 5.150 bilhões para o ano de 2027 e R$ 5.330 bilhões para o ano de 2028",
+    "date": "2026-09-25"
+   },
+   "status": "Medida provisória em vigor desde 25/09/2026; aguarda votação no Congresso Nacional.",
+   "summary": "Proíbe a exploração, a oferta e a publicidade de apostas de quota fixa (bets) no país. O governo estima que a União deixará de arrecadar R$ 1,541 bilhão em tributos em 2026 (o valor deste cartão), R$ 5,15 bilhões em 2027 e R$ 5,33 bilhões em 2028, cerca de R$ 12 bilhões nos três anos, mais R$ 268,8 milhões em taxa de fiscalização. Não é benefício fiscal: é a receita que some com o fim da atividade.",
+   "short_title": "Proibição das bets"
+  },
+  {
+   "id": "bndes-dividends-2026-08",
+   "title": "Dividendos e participações pagos pelo BNDES à União em agosto de 2026",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 8 (agosto de 2026)",
+    "date": "2026-09-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8"
+   },
+   "signed_by": [],
+   "amount_brl": 7405000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de agosto de 2026, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55921_1803160/boletim_ago26.pdf",
+    "quote": "1.4.2.3 BNDES 6.783,7 7.405,0 (Agosto 2025, Agosto 2026, em R$ milhões)",
+    "date": "2026-09-29"
+   },
+   "status": "Recebido pela União em 25/08/2026, sob a forma de juros sobre o capital próprio (Portal da Transparência, receita de 2026: R$ 7.404.969.362,58 nessa data); atribuído ao BNDES pelo Tesouro Nacional.",
+   "summary": "O Tesouro Nacional registrou R$ 7.405,0 milhões em dividendos e participações pagos pelo BNDES à União em agosto de 2026, ante R$ 6.783,7 milhões em agosto de 2025.",
+   "moved_on": "2026-08-25"
+  },
+  {
+   "id": "mp-1389-2026-fuel-subsidy-credit",
+   "title": "Subvenção ao diesel e à gasolina (crédito extraordinário)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.389",
+    "date": "2026-09-08",
+    "url": "https://www.in.gov.br/web/dou/-/medida-provisoria-n-1.389-de-8-de-setembro-de-2026-730725609"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Bruno Moretti",
+     "office": "Ministro de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 6605000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.389/2026 (Diário Oficial da União de 09/09/2026)",
+    "url": "https://www.in.gov.br/web/dou/-/medida-provisoria-n-1.389-de-8-de-setembro-de-2026-730725609",
+    "quote": "Abre crédito extraordinário, em favor do Ministério de Minas e Energia, no valor de R$ 6.605.000.000,00, para os fins que especifica.",
+    "date": "2026-09-09"
+   },
+   "status": "Medida provisória em vigor; tramita no Congresso Nacional (prazo de emendas encerrado sem emendas).",
+   "summary": "Abre R$ 6,6 bilhões para a ANP pagar as subvenções a produtores e importadores de diesel (R$ 5,607 bi) e de gasolina (R$ 998 mi) criadas pelas MPs 1.358 e 1.363 após a alta do petróleo. É o maior de quatro créditos com esse fim no período (MPs 1.380, 1.381, 1.388 e 1.389), que somam R$ 16,56 bi.",
+   "short_title": "Subsídio ao diesel e à gasolina"
+  },
+  {
+   "id": "mp-1380-2026-fuel-subsidy-credit",
+   "title": "Subvenções aos combustíveis derivados de petróleo e ao diesel rodoviário (crédito extraordinário, MP nº 1.380)",
+   "short_title": "Subsídio aos combustíveis (MP 1.380)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.380",
+    "date": "2026-07-23",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1380.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Bruno Moretti",
+     "office": "Ministro de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 3330000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.380/2026, art. 1º (Planalto)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1380.htm",
+    "quote": "Fica aberto crédito extraordinário, em favor do Ministério de Minas e Energia, no valor de R$ 3.330.000.000,00 (três bilhões trezentos e trinta milhões de reais), para atender à programação constante do Anexo.",
+    "date": "2026-07-23"
+   },
+   "status": "Medida provisória assinada e publicada em 23/07/2026 (Diário Oficial da União, edição extra).",
+   "summary": "Abre R$ 3,33 bilhões para a ANP pagar duas subvenções, segundo o anexo da medida: à produção e à importação de combustíveis derivados de petróleo (MP nº 1.358/2026), R$ 1,23 bilhão, e à produção e à importação de óleo diesel de uso rodoviário (MP nº 1.363/2026), R$ 2,1 bilhões. É um dos quatro créditos com esse fim no período (MPs 1.380, 1.381, 1.388 e 1.389), que somam R$ 16,56 bi."
+  },
+  {
+   "id": "mp-1381-2026-fuel-subsidy-credit",
+   "title": "Subvenções aos combustíveis derivados de petróleo e ao diesel rodoviário (crédito extraordinário, MP nº 1.381)",
+   "short_title": "Subsídio aos combustíveis (MP 1.381)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.381",
+    "date": "2026-07-31",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1381.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Bruno Moretti",
+     "office": "Ministro de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 3473000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.381/2026, art. 1º (Planalto)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1381.htm",
+    "quote": "Fica aberto crédito extraordinário, em favor do Ministério de Minas e Energia, no valor de R$ 3.473.000.000,00 (três bilhões quatrocentos e setenta e três milhões de reais), para atender às programações constantes do Anexo .",
+    "date": "2026-07-31"
+   },
+   "status": "Medida provisória assinada em 30/07/2026; Diário Oficial da União de 31/07/2026.",
+   "summary": "Abre R$ 3,47 bilhões para a ANP pagar duas subvenções, segundo o anexo da medida: à produção e à importação de combustíveis derivados de petróleo (MP nº 1.358/2026), R$ 1,243 bilhão, e à produção e à importação de óleo diesel de uso rodoviário (MP nº 1.363/2026), R$ 2,23 bilhões. É um dos quatro créditos com esse fim no período (MPs 1.380, 1.381, 1.388 e 1.389), que somam R$ 16,56 bi."
+  },
+  {
+   "id": "mp-1388-2026-fuel-subsidy-credit",
+   "title": "Subvenções aos combustíveis derivados de petróleo e ao diesel rodoviário (crédito extraordinário, MP nº 1.388)",
+   "short_title": "Subsídio aos combustíveis (MP 1.388)",
+   "kind": "extraordinary_credit",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.388",
+    "date": "2026-08-25",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1388.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Bruno Moretti",
+     "office": "Ministro de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 3152000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.388/2026, art. 1º (Planalto)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1388.htm",
+    "quote": "Fica aberto crédito extraordinário, em favor do Ministério de Minas e Energia, no valor de R$ 3.152.000.000,00 (três bilhões cento e cinquenta e dois milhões de reais), para atender à programação constante do Anexo.",
+    "date": "2026-08-25"
+   },
+   "status": "Medida provisória assinada em 24/08/2026; Diário Oficial da União de 25/08/2026.",
+   "summary": "Abre R$ 3,15 bilhões para a ANP pagar duas subvenções, segundo o anexo da medida: à produção e à importação de combustíveis derivados de petróleo (MP nº 1.358/2026), R$ 600 milhões, e à produção e à importação de óleo diesel de uso rodoviário (MP nº 1.363/2026), R$ 2,552 bilhões. É um dos quatro créditos com esse fim no período (MPs 1.380, 1.381, 1.388 e 1.389), que somam R$ 16,56 bi."
+  },
+  {
+   "id": "lc-235-2026-fertilizer-tax-credits",
+   "title": "Subvenção e créditos do etanol em 2026 e créditos fiscais a fertilizantes de 2027 a 2031 (Lei Complementar nº 235)",
+   "kind": "revenue_waiver",
+   "act": {
+    "type": "Lei Complementar",
+    "number": "235",
+    "date": "2026-08-27",
+    "url": "https://www.in.gov.br/web/dou/-/lei-complementar-n-235-de-27-de-agosto-de-2026-728568253"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "André Carlos Alves de Paula Filho",
+     "office": "Ministro de Estado da Agricultura e Pecuária"
+    },
+    {
+     "name": "Dario Carnevalli Durigan",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Bruno Moretti",
+     "office": "Ministro de Estado do Planejamento e Orçamento"
+    },
+    {
+     "name": "Thairyne Jéssica Martins de Oliveira",
+     "office": "Ministra de Estado de Portos e Aeroportos substituta"
+    }
+   ],
+   "amount_brl": 1950000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Lei Complementar nº 235/2026, art. 2º, § 7º, e art. 5º, § 1º (Planalto; Diário Oficial da União de 28/08/2026)",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/Lcp235.htm",
+    "quote": "Em caráter extraordinário, o Poder Executivo federal concederá subvenção aos produtores e às cooperativas de produtores de etanol hidratado, limitada ao valor total de R$ 1.200.000.000,00 (um bilhão e duzentos milhões de reais) (...) O saldo credor compensável na forma deste artigo está limitado ao montante global de R$ 750.000.000,00 (setecentos e cinquenta milhões de reais) no ano de 2026.",
+    "date": "2026-08-28"
+   },
+   "status": "Lei complementar em vigor desde 28/08/2026. O próprio texto permite ampliar cada limite anual em até R$ 1 bi por ato do Poder Executivo (art. 7º, § 11).",
+   "summary": "Para 2026, a lei fixa duas medidas para o etanol: subvenção de até R$ 1,2 bilhão a produtores de etanol hidratado, referente ao período de 25/05 a 11/08/2026 (art. 2º, § 7º), e compensação de até R$ 750 milhões em saldos credores de PIS/Pasep e Cofins de produtores de etanol (art. 5º, § 1º): R$ 1,95 bilhão, o valor deste cartão. De 2027 a 2031, autoriza créditos fiscais de até R$ 1 bilhão por ano (R$ 5 bilhões no total) a projetos que produzam fertilizantes no país, usáveis para abater tributos ou recebidos em dinheiro (art. 7º, § 1º); esses anos ficam fora de 2026. Prevê ainda isenção de AFRMM limitada a R$ 1 bi.",
+   "short_title": "Etanol em 2026 e fertilizantes (LC 235)"
+  },
+  {
+   "id": "lei-15346-2026-campaign-fund",
+   "title": "Fundo Especial de Financiamento de Campanha das eleições de 2026",
+   "short_title": "Fundo de financiamento das campanhas de 2026",
+   "kind": "spending",
+   "act": {
+    "type": "Lei",
+    "number": "15.346",
+    "date": "2026-01-14",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/L15346.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Esther Dweck",
+     "office": null
+    },
+    {
+     "name": "Simone Nassar Tebet",
+     "office": null
+    },
+    {
+     "name": "Isnaldo Bulhões Jr.",
+     "office": "Deputado federal, relator-geral do Orçamento de 2026 (emenda nº 81000059, que elevou o valor)"
+    }
+   ],
+   "amount_brl": 4948300000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de agosto de 2026, Nota 14 do resultado mês contra mês (linha 4.3.19 Financiamento de Campanha Eleitoral)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55921_1803160/boletim_ago26.pdf",
+    "quote": "Financiamento de Campanha Eleitoral (+R$ 4.948,3 milhões): explicado pelo pagamento, em agosto de 2026, de despesas associadas ao financiamento das eleições para cargos dos poderes executivo e legislativo, sem contrapartida no mesmo mês do ano anterior.",
+    "date": "2026-09-29"
+   },
+   "status": "Lei em vigor desde 14/01/2026. A proposta do Poder Executivo previa R$ 1.013.856.806,00; a emenda nº 81000059, do relator-geral, acrescentou R$ 3.947.662.971,00, com recursos deduzidos da reserva das emendas de bancada estadual. O Congresso Nacional aprovou o orçamento em 19/12/2025 em votação simbólica, sem votação nominal; o pedido do Partido Novo para votar o fundo em separado foi inadmitido, e o registro oficial anota votos contrários do Partido Novo, na Câmara e no Senado, e da Rede Sustentabilidade, na Câmara. A União disponibilizou o valor ao TSE até 01/06/2026; o TSE divulgou a divisão entre 30 partidos em 03/06/2026; pelo Resultado do Tesouro Nacional, R$ 4.948,3 milhões foram pagos em agosto de 2026.",
+   "summary": "A Lei Orçamentária de 2026 fixou R$ 4,96 bilhões para o Fundo Especial de Financiamento de Campanha, valor igual ao de 2024 e cerca de 4,9 vezes a proposta enviada pelo Poder Executivo (R$ 1,01 bilhão). O TSE dividiu o valor entre 30 partidos; as maiores parcelas foram do PL (R$ 881,7 milhões), do PT (R$ 615,4 milhões) e do União Brasil (R$ 526,2 milhões). Valores por eleição, pelas leis orçamentárias: 2020, R$ 2,03 bilhões; 2022, 2024 e 2026, R$ 4,96 bilhões cada (em 2018, R$ 1,72 bilhão empenhado). O teto da lei orçamentária é R$ 4.961.519.777 (Lei nº 15.346/2026, Anexo, Volume IV, ação 0EB8); o cartão mostra o valor pago em agosto de 2026.",
+   "moved_on": "2026-08"
+  },
+  {
+   "id": "gecex-938-2026-crude-oil-export-tax",
+   "title": "Imposto de exportação de 12% sobre petróleo bruto",
+   "short_title": "Imposto sobre exportação de petróleo",
+   "kind": "revenue",
+   "act": {
+    "type": "Resolução Gecex",
+    "number": "938",
+    "date": "2026-07-09",
+    "url": "https://www.in.gov.br/web/dou/-/resolucao-gecex-n-938-de-9-de-julho-de-2026-718114520"
+   },
+   "signed_by": [
+    {
+     "name": "Márcio Fernando Elias Rosa",
+     "office": "Presidente do Comitê-Executivo de Gestão da Câmara de Comércio Exterior (Gecex)"
+    }
+   ],
+   "amount_brl": 1900000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de agosto de 2026, Nota 5 do resultado mês contra mês",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55921_1803160/boletim_ago26.pdf",
+    "quote": "resultado refletiu, principalmente, as alterações legislativas no Imposto de Exportação sobre óleo bruto (Resolução Gecex nº 938/2026), item responsável pelo recolhimento de R$ 1,9 bilhão no mês de agosto de 2026.",
+    "date": "2026-09-29"
+   },
+   "status": "Alíquota em vigor desde 10/07/2026 por 60 dias (Diário Oficial da União de 10/07/2026); prorrogada por mais 60 dias a partir de 08/09/2026 pela Resolução Gecex nº 957, de 01/09/2026. O imposto foi criado pela MP nº 1.340, de 12/03/2026; em julho de 2026 o Tesouro registrou R$ 3,2 bilhões desse imposto, atribuídos à MP. O Tesouro ainda não publicou setembro; o Portal da Transparência registra R$ 1.969,1 milhões de Imposto sobre a Exportação (todos os produtos, soma das linhas diárias) em setembro de 2026.",
+   "summary": "O Comitê-Executivo de Gestão da Câmara de Comércio Exterior manteve em 12% o imposto sobre a exportação de petróleo bruto, criado pela MP nº 1.340/2026. Segundo o Tesouro Nacional, o imposto recolheu R$ 1,9 bilhão em agosto de 2026, e R$ 3,2 bilhões em julho de 2026.",
+   "moved_on": "2026-08"
+  },
+  {
+   "id": "petrobras-dividends-2026-08",
+   "title": "Dividendos e participações pagos pela Petrobras à União em agosto de 2026",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 8 (agosto de 2026)",
+    "date": "2026-09-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8"
+   },
+   "signed_by": [],
+   "amount_brl": 1311000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de agosto de 2026, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55921_1803160/boletim_ago26.pdf",
+    "quote": "1.4.2.8 Petrobras 1.700,4 1.311,0 (Agosto 2025, Agosto 2026, em R$ milhões)",
+    "date": "2026-09-29"
+   },
+   "status": "1ª parcela dos juros sobre o capital próprio do 1º trimestre de 2026, paga pela Petrobras em 20/08/2026 (Portal da Transparência: R$ 1.310.983.999,23 nessa data). A 2ª parcela, de mesmo valor por ação, foi paga pela Petrobras em 21/09/2026, e o Portal da Transparência registra entrada de R$ 1.310.983.999,23 nessa data, sem nomear o pagador; o Tesouro ainda não publicou o resultado de setembro.",
+   "summary": "O Tesouro Nacional registrou R$ 1.311,0 milhões em dividendos e participações pagos pela Petrobras à União em agosto de 2026, ante R$ 1.700,4 milhões em agosto de 2025. É a 1ª de duas parcelas de juros sobre o capital próprio do 1º trimestre de 2026, divulgadas pela empresa em 11/05/2026.",
+   "moved_on": "2026-08-20"
+  },
+  {
+   "id": "bnb-dividends-2026-08",
+   "title": "Dividendos e participações pagos pelo Banco do Nordeste à União em agosto de 2026",
+   "short_title": "Dividendos do Banco do Nordeste à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 8 (agosto de 2026)",
+    "date": "2026-09-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8"
+   },
+   "signed_by": [],
+   "amount_brl": 165100000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de agosto de 2026, Tabela 3.1, linha 1.4.2.2 BNB (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55921_1803160/boletim_ago26.pdf",
+    "quote": "1.4.2.2 BNB 167,6 165,1 (Agosto 2025, Agosto 2026, em R$ milhões)",
+    "date": "2026-09-29"
+   },
+   "status": "Recebido pela União em 26/08/2026, sob a forma de juros sobre o capital próprio (Portal da Transparência: R$ 165.104.391,62 nessa data); atribuído ao Banco do Nordeste pelo Tesouro Nacional.",
+   "summary": "O Tesouro Nacional registrou R$ 165,1 milhões em dividendos e participações pagos pelo Banco do Nordeste do Brasil à União em agosto de 2026, ante R$ 167,6 milhões em agosto de 2025.",
+   "moved_on": "2026-08-26"
+  }
+ ],
+ "revenue_collected_on": "2026-10-04"
+}

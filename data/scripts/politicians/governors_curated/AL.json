@@ -1,0 +1,302 @@
+{
+ "uf": "AL",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Renan Filho",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2022-04-02",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "carta de renúncia publicada no Diário Oficial do Estado de Alagoas de 02/04/2022 (edição 1791)",
+     "url": "https://diario.imprensaoficial.al.gov.br/apinova/api/editions/viewPdf/28909",
+     "type": "oficial",
+     "quote": "na data de hoje, 02 de abril de 2022 a partir das 10:00h, eu, José Renan Vasconcelos Calheiros Filho, renuncio ao mandato de Governador do Estado de Alagoas"
+    },
+    {
+     "fact": "vacância do cargo (Assembleia Legislativa de Alagoas)",
+     "url": "https://www.al.al.leg.br/comunicacao/noticias/democratica-e-constitucional-assembleia-realiza-eleicao-indireta-para-o-governo-do-estado",
+     "type": "oficial",
+     "quote": "vagos com as renúncias do ex-governador Renan Filho e do seu vice, Luciano Barbosa, que assumiu a prefeitura de Arapiraca"
+    }
+   ],
+   "verified": true,
+   "note": "Carta de renúncia publicada no Diário Oficial de 02/04/2022: renúncia a partir das 10h de 02/04/2022."
+  },
+  {
+   "role": "governador",
+   "name": "Klever Loureiro",
+   "full_name": null,
+   "kind": "interino",
+   "start": "2022-04-02",
+   "end": "2022-05-15",
+   "start_reason": "vacância dos cargos de governador e vice; assumiu como presidente do Tribunal de Justiça",
+   "end_reason": "posse do governador eleito pela Assembleia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "ata de transmissão do exercício do cargo, Diário Oficial do Estado de Alagoas de 02/04/2022 (edição 1791, suplemento)",
+     "url": "https://diario.imprensaoficial.al.gov.br/apinova/api/editions/viewPdf/28910",
+     "type": "oficial",
+     "quote": "Aos 2 (dois) dias do mês de abril de 2022 [...] às 15:00 [...] assume o exercício do cargo de Governador do Estado de Alagoas o Excelentíssimo Senhor Klever Rêgo Loureiro, Desembargador Presidente do Tribunal de Justiça de Alagoas"
+    },
+    {
+     "fact": "eleição indireta e posse em 2022-05-15 (Assembleia Legislativa de Alagoas)",
+     "url": "https://www.al.al.leg.br/comunicacao/noticias/democratica-e-constitucional-assembleia-realiza-eleicao-indireta-para-o-governo-do-estado",
+     "type": "oficial",
+     "quote": "Em sessão histórica realizada neste domingo, 15 [...] Eles tomaram posse logo após a eleição."
+    }
+   ],
+   "verified": true,
+   "note": "Ata de transmissão no Diário Oficial de 02/04/2022: assumiu às 15h de 02/04/2022; entre a renúncia (10h) e a transmissão, a ata registra o presidente da Assembleia, Marcelo Victor, 'no exercício do cargo de Governador do Estado', que declinou de assumir; essas horas não viram mandato próprio (substituição curta). Saiu na posse do governador eleito pela Assembleia em 15/05/2022. Magistrado: a Constituição veda filiação partidária (CF, art. 95, parágrafo único, III)."
+  },
+  {
+   "role": "governador",
+   "name": "Paulo Dantas",
+   "full_name": null,
+   "kind": "eleito indiretamente",
+   "start": "2022-05-15",
+   "end": "2023-01-01",
+   "start_reason": "eleição indireta pela Assembleia Legislativa",
+   "end_reason": "fim do mandato",
+   "party_at_start": "MDB",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição indireta, partido (MDB) e posse no mesmo dia",
+     "url": "https://www.al.al.leg.br/comunicacao/noticias/democratica-e-constitucional-assembleia-realiza-eleicao-indireta-para-o-governo-do-estado",
+     "type": "oficial"
+    },
+    {
+     "fact": "recondução confirmada pela 1a Turma do STF",
+     "url": "https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=496365&ori=1",
+     "type": "oficial"
+    },
+    {
+     "fact": "afastamento cautelar do governador cumprido em 11/10/2022 (Polícia Federal; página hoje restrita, lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://www.gov.br/pf/pt-br/assuntos/noticias/2022/10/desvio-de-recursos-publicos-pf-e-mpf-realizam-operacao-em-alagoas",
+     "type": "oficial",
+     "quote": "Publicado em 11/10/2022 09h36 [...] cumprem, na manhã desta terça-feira (11/10), medidas cautelares determinadas pelo Superior Tribunal de Justiça [...] Uma das determinações foi o afastamento cautelar do governador."
+    },
+    {
+     "fact": "afastamento revertido pelo STF em 24/10/2022 (lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=496297&ori=1",
+     "type": "oficial",
+     "quote": "Os ministros do Supremo Tribunal Federal (STF) Gilmar Mendes e Luís Roberto Barroso reverteram nesta segunda-feira (24), em decisões distintas, o afastamento do governador de Alagoas, Paulo Dantas."
+    }
+   ],
+   "verified": true,
+   "note": "Texto da Assembleia: 'Em sessão histórica realizada neste domingo, 15, a Assembleia Legislativa de Alagoas elegeu o deputado Paulo Dantas (MDB) e o médico José Wanderley Neto (MDB) [...] Eles tomaram posse logo após a eleição.' Afastamento de 11/10/2022 (Polícia Federal) a 24/10/2022 (STF), conferido no texto das páginas oficiais.",
+   "interruptions": [
+    {
+     "start": "2022-10-11",
+     "end": "2022-10-24",
+     "reason": "afastamento por decisão do STJ, revertido no STF",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "role": "vice-governador",
+   "name": "José Wanderley Neto",
+   "full_name": null,
+   "kind": "eleito indiretamente",
+   "start": "2022-05-15",
+   "end": "2023-01-01",
+   "start_reason": "eleição indireta pela Assembleia Legislativa",
+   "end_reason": "fim do mandato",
+   "party_at_start": "MDB",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição indireta, partido (MDB) e posse",
+     "url": "https://www.al.al.leg.br/comunicacao/noticias/democratica-e-constitucional-assembleia-realiza-eleicao-indireta-para-o-governo-do-estado",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governador",
+   "name": "José Wanderley Neto",
+   "full_name": null,
+   "kind": "interino",
+   "start": "2022-10-11",
+   "end": "2022-10-24",
+   "start_reason": "afastamento do titular por decisão do STJ",
+   "end_reason": "retorno do titular por decisão do STF",
+   "party_at_start": "MDB",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "afastamento cautelar do governador cumprido em 11/10/2022 (Polícia Federal; página hoje restrita, lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://www.gov.br/pf/pt-br/assuntos/noticias/2022/10/desvio-de-recursos-publicos-pf-e-mpf-realizam-operacao-em-alagoas",
+     "type": "oficial",
+     "quote": "Publicado em 11/10/2022 09h36 [...] cumprem, na manhã desta terça-feira (11/10), medidas cautelares determinadas pelo Superior Tribunal de Justiça [...] Uma das determinações foi o afastamento cautelar do governador."
+    },
+    {
+     "fact": "decretos de 13/10/2022 assinados pelo vice no exercício do cargo (Diário Oficial de Alagoas, 13/10/2022, suplemento)",
+     "url": "https://diario.imprensaoficial.al.gov.br/apinova/api/editions/viewPdf/29095",
+     "type": "oficial",
+     "quote": "PALÁCIO REPÚBLICA DOS PALMARES, em Maceió, 13 de outubro de 2022 [...] JOSÉ WANDERLEY NETO Vice-Governador, no exercício do Cargo de Governador do Estado"
+    },
+    {
+     "fact": "afastamento revertido pelo STF em 24/10/2022 (lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=496297&ori=1",
+     "type": "oficial",
+     "quote": "Os ministros do Supremo Tribunal Federal (STF) Gilmar Mendes e Luís Roberto Barroso reverteram nesta segunda-feira (24), em decisões distintas, o afastamento do governador de Alagoas, Paulo Dantas."
+    },
+    {
+     "fact": "despachos do titular de 24/10/2022 (Diário Oficial de Alagoas, 25/10/2022, suplemento)",
+     "url": "https://diario.imprensaoficial.al.gov.br/apinova/api/editions/viewPdf/29106",
+     "type": "oficial",
+     "quote": "O EXCELENTÍSSIMO SENHOR PAULO SURUAGY DO AMARAL DANTAS, GOVERNADOR DO ESTADO, EM DATA DE 24 DE OUTUBRO DE 2022, DESPACHOU"
+    },
+    {
+     "fact": "partido (MDB) na eleição indireta de 2022-05-15",
+     "url": "https://www.al.al.leg.br/comunicacao/noticias/democratica-e-constitucional-assembleia-realiza-eleicao-indireta-para-o-governo-do-estado",
+     "type": "oficial",
+     "quote": "elegeu o deputado Paulo Dantas (MDB) e o médico José Wanderley Neto (MDB)"
+    }
+   ],
+   "verified": true,
+   "note": "Início: afastamento cumprido na manhã de 11/10/2022 (Polícia Federal); o Diário Oficial traz atos do vice no exercício do cargo de 13/10 a 21/10/2022. Fim: decisões do STF de 24/10/2022; o titular volta a despachar em 24/10/2022 (Diário Oficial de 25/10/2022). Partido: MDB, como na eleição indireta de 15/05/2022 (texto da Assembleia)."
+  },
+  {
+   "role": "governador",
+   "name": "Paulo Dantas",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Luciano Barbosa",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2021-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "deixou o cargo para assumir a Prefeitura de Arapiraca",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "saída para assumir a Prefeitura de Arapiraca (Assembleia Legislativa de Alagoas, 12/05/2022)",
+     "url": "https://www.al.al.leg.br/comunicacao/noticias/eleicoes-indiretas-para-o-governo-do-estado-ja-tem-quatro-chapas-inscritas",
+     "type": "oficial",
+     "quote": "cargos vagos com as renúncias do ex-governador Renan Filho e de Luciano Barbosa, que assumiu a prefeitura de Arapiraca em 2021"
+    },
+    {
+     "fact": "posse como prefeito de Arapiraca em 01/01/2021 (Prefeitura de Arapiraca)",
+     "url": "https://web.arapiraca.al.gov.br/2021/01/luciano-toma-posse-e-anuncia-estudos-para-reabertura-do-restaurante-popular/",
+     "type": "oficial",
+     "quote": "O novo prefeito de Arapiraca, Luciano Barbosa (MDB), tomou posse no fim da tarde desta sexta-feira (dia 1°)"
+    }
+   ],
+   "verified": true,
+   "note": "Fim do mandato de vice na posse como prefeito de Arapiraca, em 01/01/2021 (Prefeitura de Arapiraca; a Assembleia registra a renúncia para assumir a prefeitura em 2021). O ato de renúncia não foi achado no Diário Oficial do Estado de 20/12/2020 a 31/01/2021."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2021-01-01",
+   "end": "2022-05-15",
+   "start_reason": "renúncia do vice-governador",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "vacância",
+     "url": "https://www.al.al.leg.br/comunicacao/noticias/democratica-e-constitucional-assembleia-realiza-eleicao-indireta-para-o-governo-do-estado",
+     "type": "oficial"
+    },
+    {
+     "fact": "posse como prefeito de Arapiraca em 01/01/2021 (Prefeitura de Arapiraca)",
+     "url": "https://web.arapiraca.al.gov.br/2021/01/luciano-toma-posse-e-anuncia-estudos-para-reabertura-do-restaurante-popular/",
+     "type": "oficial",
+     "quote": "O novo prefeito de Arapiraca, Luciano Barbosa (MDB), tomou posse no fim da tarde desta sexta-feira (dia 1°)"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Ronaldo Lessa",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  }
+ ],
+ "gaps": []
+}

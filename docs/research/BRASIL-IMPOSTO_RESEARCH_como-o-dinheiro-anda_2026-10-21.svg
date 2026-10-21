@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 690" role="img" aria-label="O caminho do dinheiro do imposto: pessoas e empresas pagam tributos à União, aos estados e aos municípios; a União reparte com estados e municípios, os estados com os municípios; o Fundeb junta e devolve por aluno; cada governo gasta com pessoas e empresas; a União paga juros aos credores." font-family="Manrope, system-ui, sans-serif">
+  <defs>
+    <marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#12803F"/></marker>
+    <marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#B41E25"/></marker>
+    <marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C48C00"/></marker>
+  </defs>
+
+  <!-- people and companies: they pay and they receive -->
+  <rect x="40" y="20" width="960" height="72" rx="12" fill="#F6F8FA" stroke="#C9D1D9"/>
+  <text x="60" y="49" font-size="16" font-weight="800" fill="#14202B">Pessoas e empresas, em cada estado</text>
+  <text x="60" y="73" font-size="12.5" fill="#3C4A57">pagam os tributos e recebem salários, aposentadorias, benefícios e pagamentos por compras e obras</text>
+  <text x="980" y="49" font-size="11.5" fill="#5B6773" text-anchor="end">a exportação vem do exterior para as empresas</text>
+  <text x="980" y="67" font-size="11.5" fill="#5B6773" text-anchor="end">e não passa por nenhum governo</text>
+
+  <!-- tax paid (down, green) and final spending (up, red) for each government -->
+  <g stroke-width="2.5" fill="none">
+    <line x1="120" y1="94" x2="120" y2="197" stroke="#12803F" marker-end="url(#mg)"/>
+    <line x1="200" y1="198" x2="200" y2="95" stroke="#B41E25" marker-end="url(#mr)"/>
+    <line x1="480" y1="94" x2="480" y2="197" stroke="#12803F" marker-end="url(#mg)"/>
+    <line x1="560" y1="198" x2="560" y2="95" stroke="#B41E25" marker-end="url(#mr)"/>
+    <line x1="840" y1="94" x2="840" y2="197" stroke="#12803F" marker-end="url(#mg)"/>
+    <line x1="920" y1="198" x2="920" y2="95" stroke="#B41E25" marker-end="url(#mr)"/>
+  </g>
+  <text x="112" y="150" font-size="12" font-weight="700" fill="#12803F" text-anchor="end">tributos</text>
+  <text x="208" y="146" font-size="12" font-weight="700" fill="#B41E25">gasto final:</text>
+  <text x="208" y="161" font-size="11.5" fill="#B41E25">salários, benefícios, compras</text>
+
+  <!-- the three governments -->
+  <g>
+    <rect x="40" y="200" width="240" height="120" rx="12" fill="#FFFFFF" stroke="#14202B" stroke-width="1.5"/>
+    <text x="58" y="228" font-size="16" font-weight="800" fill="#14202B">União</text>
+    <text x="58" y="252" font-size="12" fill="#3C4A57">IR · IPI · IOF · II · ITR</text>
+    <text x="58" y="270" font-size="12" fill="#3C4A57">contribuições: INSS, Cofins,</text>
+    <text x="58" y="287" font-size="12" fill="#3C4A57">PIS, CSLL</text>
+    <text x="58" y="307" font-size="11" fill="#5B6773">paga direto: INSS, BPC, Bolsa Família</text>
+
+    <rect x="400" y="200" width="240" height="120" rx="12" fill="#FFFFFF" stroke="#14202B" stroke-width="1.5"/>
+    <text x="418" y="228" font-size="16" font-weight="800" fill="#14202B">Estados e DF</text>
+    <text x="418" y="252" font-size="12" fill="#3C4A57">ICMS · IPVA · ITCMD</text>
+    <text x="418" y="270" font-size="12" fill="#3C4A57">e o IR retido dos salários</text>
+    <text x="418" y="287" font-size="12" fill="#3C4A57">que eles mesmos pagam</text>
+
+    <rect x="760" y="200" width="240" height="120" rx="12" fill="#FFFFFF" stroke="#14202B" stroke-width="1.5"/>
+    <text x="778" y="228" font-size="16" font-weight="800" fill="#14202B">Municípios e DF</text>
+    <text x="778" y="252" font-size="12" fill="#3C4A57">ISS · IPTU · ITBI</text>
+    <text x="778" y="270" font-size="12" fill="#3C4A57">e o IR retido dos salários</text>
+    <text x="778" y="287" font-size="12" fill="#3C4A57">que eles mesmos pagam</text>
+  </g>
+
+  <!-- fixed shares between governments (yellow) -->
+  <g stroke="#C48C00" stroke-width="2.5" fill="none">
+    <line x1="282" y1="232" x2="397" y2="232" marker-end="url(#my)"/>
+    <line x1="642" y1="232" x2="757" y2="232" marker-end="url(#my)"/>
+    <path d="M120,322 V530 H940 V323" marker-end="url(#my)"/>
+    <path d="M240,322 V416 H397" marker-end="url(#my)"/>
+    <line x1="520" y1="323" x2="520" y2="377" stroke-dasharray="6 4" marker-start="url(#my)" marker-end="url(#my)"/>
+    <line x1="800" y1="323" x2="800" y2="377" stroke-dasharray="6 4" marker-start="url(#my)" marker-end="url(#my)"/>
+  </g>
+  <g font-size="11.5" fill="#6B5310" text-anchor="middle" font-weight="700">
+    <text x="340" y="256">FPE 21,5%</text>
+    <text x="340" y="272">IPI-exp. 10%</text>
+    <text x="340" y="288">CIDE 29%</text>
+    <text x="700" y="256">25% do ICMS</text>
+    <text x="700" y="272">50% do IPVA</text>
+    <text x="700" y="288">25% IPI-exp./CIDE</text>
+    <text x="530" y="520">FPM 25,5% e ITR 50%: da União direto às prefeituras</text>
+  </g>
+  <text x="250" y="362" font-size="11.5" fill="#6B5310" font-weight="700">complemento da União</text>
+  <text x="250" y="377" font-size="11.5" fill="#6B5310">23% do fundo em 2026</text>
+
+  <!-- Fundeb -->
+  <rect x="400" y="380" width="420" height="76" rx="12" fill="#FFF8E6" stroke="#E0A100" stroke-width="1.5"/>
+  <text x="418" y="404" font-size="14" font-weight="800" fill="#6B5310">Fundeb: um fundo em cada estado</text>
+  <text x="418" y="424" font-size="11.5" fill="#6B5310">entram 20% de ICMS, IPVA, ITCMD, FPE, FPM e das cotas</text>
+  <text x="418" y="441" font-size="11.5" fill="#6B5310">e o fundo devolve às redes pelo número de alunos</text>
+
+  <!-- debt -->
+  <line x1="70" y1="322" x2="70" y2="577" stroke="#B41E25" stroke-width="2.5" marker-end="url(#mr)"/>
+  <text x="80" y="566" font-size="12" font-weight="700" fill="#B41E25">juros</text>
+  <rect x="40" y="580" width="260" height="62" rx="12" fill="#FFFFFF" stroke="#B41E25" stroke-width="1.5"/>
+  <text x="58" y="606" font-size="14" font-weight="800" fill="#14202B">Credores da dívida</text>
+  <text x="58" y="626" font-size="11.5" fill="#3C4A57">bancos, fundos, previdências, estrangeiros</text>
+
+  <!-- legend -->
+  <g font-size="12" fill="#3C4A57">
+    <line x1="400" y1="590" x2="436" y2="590" stroke="#12803F" stroke-width="3"/><text x="444" y="594">tributo pago a um governo</text>
+    <line x1="400" y1="614" x2="436" y2="614" stroke="#B41E25" stroke-width="3"/><text x="444" y="618">dinheiro que sai do governo: gasto final e juros</text>
+    <line x1="400" y1="638" x2="436" y2="638" stroke="#C48C00" stroke-width="3"/><text x="444" y="642">repartição por regra da Constituição e Fundeb</text>
+    <text x="400" y="668" fill="#5B6773">O DF cobra os tributos de estado e os de município. Percentuais: CF arts. 153, 157 a 159 e 212-A.</text>
+  </g>
+</svg>

@@ -1,0 +1,195 @@
+{
+ "uf": "MT",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Mauro Mendes",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Otaviano Pivetta",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governador",
+   "name": "Mauro Mendes",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-04-01",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "renúncia (desincompatibilização para a eleição de 2026)",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "ato de renúncia do governador, de 31/03/2026, com efeitos a partir de 01/04/2026 (Diário Oficial de Mato Grosso nº 29.204, edição extra, 31/03/2026)",
+     "url": "https://www.iomat.mt.gov.br/portal/edicoes/download/19016",
+     "type": "oficial",
+     "quote": "ATO Nº 647/2026. O GOVERNADOR DO ESTADO DE MATO GROSSO, no exercício do mandato para o qual foi eleito e empossado em 1º de janeiro de 2023, com fundamento no art. 14, § 6º, da Constituição da República e no art. 1º, § 1º, da Lei Complementar federal nº 64, de 18 de maio de 1990, DECLARA, para fins de desincompatibilização eleitoral, RENÚNCIA AO MANDATO DE GOVERNADOR DO ESTADO DE MATO GROSSO, com efeitos a partir de 01/04/2026. Em razão da vacância do cargo, sucederá no mandato, o Vice-Governador do Estado, Senhor OTAVIANO OLAVO PIVETTA, nos termos do art. 61 da Constituição do Estado de Mato Grosso. Palácio Paiaguás, em Cuiabá, 31 de março de 2026. MAURO MENDES Governador do Estado"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia declarada em 31/03/2026 (Ato nº 647/2026) 'com efeitos a partir de 01/04/2026'; o mesmo ato diz que o vice sucede no mandato (art. 61 da Constituição do Estado), e o expediente do Diário Oficial de 01/04/2026 já o traz como governador."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Otaviano Pivetta",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-04-01",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "assumiu o cargo de governador",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "ato de renúncia do governador, de 31/03/2026, com efeitos a partir de 01/04/2026 (Diário Oficial de Mato Grosso nº 29.204, edição extra, 31/03/2026)",
+     "url": "https://www.iomat.mt.gov.br/portal/edicoes/download/19016",
+     "type": "oficial",
+     "quote": "ATO Nº 647/2026. O GOVERNADOR DO ESTADO DE MATO GROSSO, no exercício do mandato para o qual foi eleito e empossado em 1º de janeiro de 2023, com fundamento no art. 14, § 6º, da Constituição da República e no art. 1º, § 1º, da Lei Complementar federal nº 64, de 18 de maio de 1990, DECLARA, para fins de desincompatibilização eleitoral, RENÚNCIA AO MANDATO DE GOVERNADOR DO ESTADO DE MATO GROSSO, com efeitos a partir de 01/04/2026. Em razão da vacância do cargo, sucederá no mandato, o Vice-Governador do Estado, Senhor OTAVIANO OLAVO PIVETTA, nos termos do art. 61 da Constituição do Estado de Mato Grosso. Palácio Paiaguás, em Cuiabá, 31 de março de 2026. MAURO MENDES Governador do Estado"
+    },
+    {
+     "fact": "expediente do Diário Oficial de Mato Grosso de 01/04/2026: o vice como governador",
+     "url": "https://www.iomat.mt.gov.br/portal/edicoes/download/19018",
+     "type": "oficial",
+     "quote": "GOVERNO DO ESTADO DE MATO GROSSO Otaviano Olavo Pivetta [...] Governador do Estado"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia declarada em 31/03/2026 (Ato nº 647/2026) 'com efeitos a partir de 01/04/2026'; o mesmo ato diz que o vice sucede no mandato (art. 61 da Constituição do Estado), e o expediente do Diário Oficial de 01/04/2026 já o traz como governador."
+  },
+  {
+   "role": "governador",
+   "name": "Otaviano Pivetta",
+   "full_name": null,
+   "kind": "vice no cargo de titular",
+   "start": "2026-04-01",
+   "end": null,
+   "start_reason": "renúncia do titular",
+   "end_reason": null,
+   "party_at_start": "REPUBLICANOS",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "ato de renúncia do governador, de 31/03/2026, com efeitos a partir de 01/04/2026 (Diário Oficial de Mato Grosso nº 29.204, edição extra, 31/03/2026)",
+     "url": "https://www.iomat.mt.gov.br/portal/edicoes/download/19016",
+     "type": "oficial",
+     "quote": "ATO Nº 647/2026. O GOVERNADOR DO ESTADO DE MATO GROSSO, no exercício do mandato para o qual foi eleito e empossado em 1º de janeiro de 2023, com fundamento no art. 14, § 6º, da Constituição da República e no art. 1º, § 1º, da Lei Complementar federal nº 64, de 18 de maio de 1990, DECLARA, para fins de desincompatibilização eleitoral, RENÚNCIA AO MANDATO DE GOVERNADOR DO ESTADO DE MATO GROSSO, com efeitos a partir de 01/04/2026. Em razão da vacância do cargo, sucederá no mandato, o Vice-Governador do Estado, Senhor OTAVIANO OLAVO PIVETTA, nos termos do art. 61 da Constituição do Estado de Mato Grosso. Palácio Paiaguás, em Cuiabá, 31 de março de 2026. MAURO MENDES Governador do Estado"
+    },
+    {
+     "fact": "expediente do Diário Oficial de Mato Grosso de 01/04/2026: o vice como governador",
+     "url": "https://www.iomat.mt.gov.br/portal/edicoes/download/19018",
+     "type": "oficial",
+     "quote": "GOVERNO DO ESTADO DE MATO GROSSO Otaviano Olavo Pivetta [...] Governador do Estado"
+    },
+    {
+     "fact": "ato de 02/10/2026 assinado por ele (Diário Oficial de Mato Grosso, edição extra de 02/10/2026)",
+     "url": "https://www.iomat.mt.gov.br/portal/edicoes/download/19361",
+     "type": "oficial",
+     "quote": "2 de outubro de 2026 [...] OTAVIANO PIVETTA Governador do Estado"
+    },
+    {
+     "fact": "partido no registro de candidatura de 2022 (Republicanos)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia declarada em 31/03/2026 (Ato nº 647/2026) 'com efeitos a partir de 01/04/2026'; o mesmo ato diz que o vice sucede no mandato (art. 61 da Constituição do Estado), e o expediente do Diário Oficial de 01/04/2026 já o traz como governador. Segue no cargo: ato de 02/10/2026. Partido: o do registro do TSE de 2022 (Republicanos), última fonte oficial datada lida; o ato de renúncia não cita partido."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2026-04-01",
+   "end": null,
+   "start_reason": "o vice-governador assumiu o cargo de governador",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "ato de renúncia do governador, de 31/03/2026, com efeitos a partir de 01/04/2026 (Diário Oficial de Mato Grosso nº 29.204, edição extra, 31/03/2026)",
+     "url": "https://www.iomat.mt.gov.br/portal/edicoes/download/19016",
+     "type": "oficial",
+     "quote": "ATO Nº 647/2026. O GOVERNADOR DO ESTADO DE MATO GROSSO, no exercício do mandato para o qual foi eleito e empossado em 1º de janeiro de 2023, com fundamento no art. 14, § 6º, da Constituição da República e no art. 1º, § 1º, da Lei Complementar federal nº 64, de 18 de maio de 1990, DECLARA, para fins de desincompatibilização eleitoral, RENÚNCIA AO MANDATO DE GOVERNADOR DO ESTADO DE MATO GROSSO, com efeitos a partir de 01/04/2026. Em razão da vacância do cargo, sucederá no mandato, o Vice-Governador do Estado, Senhor OTAVIANO OLAVO PIVETTA, nos termos do art. 61 da Constituição do Estado de Mato Grosso. Palácio Paiaguás, em Cuiabá, 31 de março de 2026. MAURO MENDES Governador do Estado"
+    },
+    {
+     "fact": "expediente do Diário Oficial de Mato Grosso de 01/04/2026: o vice como governador",
+     "url": "https://www.iomat.mt.gov.br/portal/edicoes/download/19018",
+     "type": "oficial",
+     "quote": "GOVERNO DO ESTADO DE MATO GROSSO Otaviano Olavo Pivetta [...] Governador do Estado"
+    }
+   ],
+   "verified": true,
+   "note": "Sem vice desde a sucessão de 01/04/2026."
+  }
+ ],
+ "gaps": []
+}

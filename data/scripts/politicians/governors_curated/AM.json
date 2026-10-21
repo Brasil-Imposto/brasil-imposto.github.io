@@ -1,0 +1,304 @@
+{
+ "uf": "AM",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Wilson Lima",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "expediente do Diário Oficial do Amazonas de 29/12/2022 (nº 34.894): governador e vice no fim do mandato",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/17062",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas WILSON MIRANDA LIMA Vice-Governador do Estado do Amazonas CARLOS ALBERTO SOUZA DE ALMEIDA FILHO"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Defensor Carlos Almeida",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "expediente do Diário Oficial do Amazonas de 29/12/2022 (nº 34.894): governador e vice no fim do mandato",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/17062",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas WILSON MIRANDA LIMA Vice-Governador do Estado do Amazonas CARLOS ALBERTO SOUZA DE ALMEIDA FILHO"
+    }
+   ],
+   "verified": true,
+   "note": "O expediente do Diário Oficial de 29/12/2022 ainda o traz como vice-governador."
+  },
+  {
+   "role": "governador",
+   "name": "Wilson Lima",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-04-04",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "expediente e últimos atos do titular: Diário Oficial do Amazonas de 01/04/2026 (nº 35.675)",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18075",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas WILSON MIRANDA LIMA Vice-Governador do Estado do Amazonas TADEU DE SOUZA SILVA"
+    },
+    {
+     "fact": "expediente do Diário Oficial do Amazonas de 06/04/2026 (nº 35.676): o presidente da Assembleia como governador, sem vice; atos assinados por ele em 06/04/2026",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18076",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas ROBERTO MAIA CIDADE FILHO Secretaria de Estado da Casa Civil [...] GABINETE DO GOVERNADOR DO ESTADO DO AMAZONAS, em Manaus, 06 de abril de 2026. ROBERTO MAIA CIDADE FILHO Governador do Estado do Amazonas"
+    }
+   ],
+   "verified": false,
+   "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial; essa edição aparece como 'não disponível' no portal da Imprensa Oficial, e o site da Assembleia não respondeu a esta máquina. Fica 04/04/2026, a conferir."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Tadeu de Souza",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-04-04",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "expediente e últimos atos do titular: Diário Oficial do Amazonas de 01/04/2026 (nº 35.675)",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18075",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas WILSON MIRANDA LIMA Vice-Governador do Estado do Amazonas TADEU DE SOUZA SILVA"
+    },
+    {
+     "fact": "expediente do Diário Oficial do Amazonas de 06/04/2026 (nº 35.676): o presidente da Assembleia como governador, sem vice; atos assinados por ele em 06/04/2026",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18076",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas ROBERTO MAIA CIDADE FILHO Secretaria de Estado da Casa Civil [...] GABINETE DO GOVERNADOR DO ESTADO DO AMAZONAS, em Manaus, 06 de abril de 2026. ROBERTO MAIA CIDADE FILHO Governador do Estado do Amazonas"
+    }
+   ],
+   "verified": false,
+   "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial; essa edição aparece como 'não disponível' no portal da Imprensa Oficial, e o site da Assembleia não respondeu a esta máquina. Fica 04/04/2026, a conferir."
+  },
+  {
+   "role": "governador",
+   "name": "Roberto Cidade",
+   "full_name": "ROBERTO MAIA CIDADE FILHO",
+   "kind": "interino",
+   "start": "2026-04-04",
+   "end": "2026-05-04",
+   "start_reason": "dupla vacância (renúncias do governador e do vice-governador); assumiu como presidente da Assembleia Legislativa",
+   "end_reason": "posse do governador eleito pela Assembleia Legislativa",
+   "party_at_start": "UNIÃO",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "expediente do Diário Oficial do Amazonas de 06/04/2026 (nº 35.676): o presidente da Assembleia como governador, sem vice; atos assinados por ele em 06/04/2026",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18076",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas ROBERTO MAIA CIDADE FILHO Secretaria de Estado da Casa Civil [...] GABINETE DO GOVERNADOR DO ESTADO DO AMAZONAS, em Manaus, 06 de abril de 2026. ROBERTO MAIA CIDADE FILHO Governador do Estado do Amazonas"
+    },
+    {
+     "fact": "governador interino (Casa Civil do Amazonas, 08/04/2026; site com conteúdo restrito no período eleitoral, lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20260413073820/https://www.casacivil.am.gov.br/governador-interino-roberto-cidade-forma-60-oficiais-da-pmam-no-curso-superior-de-policia-e-reforca-investimentos-na-seguranca-publica/",
+     "type": "oficial",
+     "quote": "08 de abr de 2026 [...] O governador interino do Amazonas, Roberto Cidade, conduziu, nesta terça-feira (07/04), a formatura de 60 oficiais superiores"
+    },
+    {
+     "fact": "Lei nº 8.162, de 09/04/2026, sobre a eleição indireta na vacância dos dois cargos (Diário Oficial do Amazonas de 09/04/2026)",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18081",
+     "type": "oficial",
+     "quote": "DISPÕE sobre a eleição indireta, pela Assembleia Legislativa, do Governador e Vice-Governador do Estado do Amazonas, na hipótese prevista no § 1.º do art. 52 da Constituição Estadual [...] Art. 1.º Vagando os cargos de Governador e Vice-Governador do Estado do Amazonas nos dois últimos anos do mandato, por causa não eleitoral, a eleição para preenchimento dos cargos será feita pela Assembleia Legislativa"
+    },
+    {
+     "fact": "posse como governador, com o vice Serafim Corrêa, em 04/05/2026 (Casa Civil do Amazonas, 05/05/2026; lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20260509174012/https://www.casacivil.am.gov.br/durante-posse-governador-roberto-cidade-destaca-compromisso-com-resultados-e-elenca-prioridades-para-o-amazonas/",
+     "type": "oficial",
+     "quote": "05 de maio de 2026 [...] Ao tomar posse como governador do Amazonas, nesta segunda-feira (04/05), Roberto Cidade destacou [...] Ao lado do vice-governador Serafim Corrêa [...] para o mandato até 2027"
+    },
+    {
+     "fact": "partido no registro de candidatura de 2022 (deputado estadual, União)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    }
+   ],
+   "verified": false,
+   "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial; essa edição aparece como 'não disponível' no portal da Imprensa Oficial, e o site da Assembleia não respondeu a esta máquina. Fica 04/04/2026, a conferir. Fim conferido: posse como governador eleito pela Assembleia em 04/05/2026. Partido: o do registro do TSE de 2022 (União), como deputado estadual; as páginas lidas não citam partido."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2026-04-04",
+   "end": "2026-05-04",
+   "start_reason": "renúncia do vice-governador",
+   "end_reason": "posse do vice-governador eleito pela Assembleia Legislativa",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "expediente e últimos atos do titular: Diário Oficial do Amazonas de 01/04/2026 (nº 35.675)",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18075",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas WILSON MIRANDA LIMA Vice-Governador do Estado do Amazonas TADEU DE SOUZA SILVA"
+    },
+    {
+     "fact": "expediente do Diário Oficial do Amazonas de 06/04/2026 (nº 35.676): o presidente da Assembleia como governador, sem vice; atos assinados por ele em 06/04/2026",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18076",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas ROBERTO MAIA CIDADE FILHO Secretaria de Estado da Casa Civil [...] GABINETE DO GOVERNADOR DO ESTADO DO AMAZONAS, em Manaus, 06 de abril de 2026. ROBERTO MAIA CIDADE FILHO Governador do Estado do Amazonas"
+    },
+    {
+     "fact": "posse como governador, com o vice Serafim Corrêa, em 04/05/2026 (Casa Civil do Amazonas, 05/05/2026; lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20260509174012/https://www.casacivil.am.gov.br/durante-posse-governador-roberto-cidade-destaca-compromisso-com-resultados-e-elenca-prioridades-para-o-amazonas/",
+     "type": "oficial",
+     "quote": "05 de maio de 2026 [...] Ao tomar posse como governador do Amazonas, nesta segunda-feira (04/05), Roberto Cidade destacou [...] Ao lado do vice-governador Serafim Corrêa [...] para o mandato até 2027"
+    }
+   ],
+   "verified": false,
+   "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial; essa edição aparece como 'não disponível' no portal da Imprensa Oficial, e o site da Assembleia não respondeu a esta máquina. Fica 04/04/2026, a conferir."
+  },
+  {
+   "role": "governador",
+   "name": "Roberto Cidade",
+   "full_name": "ROBERTO MAIA CIDADE FILHO",
+   "kind": "eleito indiretamente",
+   "start": "2026-05-04",
+   "end": null,
+   "start_reason": "eleição indireta pela Assembleia Legislativa (mandato até o fim do período)",
+   "end_reason": null,
+   "party_at_start": "UNIÃO",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "Lei nº 8.162, de 09/04/2026, sobre a eleição indireta na vacância dos dois cargos (Diário Oficial do Amazonas de 09/04/2026)",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18081",
+     "type": "oficial",
+     "quote": "DISPÕE sobre a eleição indireta, pela Assembleia Legislativa, do Governador e Vice-Governador do Estado do Amazonas, na hipótese prevista no § 1.º do art. 52 da Constituição Estadual [...] Art. 1.º Vagando os cargos de Governador e Vice-Governador do Estado do Amazonas nos dois últimos anos do mandato, por causa não eleitoral, a eleição para preenchimento dos cargos será feita pela Assembleia Legislativa"
+    },
+    {
+     "fact": "posse como governador, com o vice Serafim Corrêa, em 04/05/2026 (Casa Civil do Amazonas, 05/05/2026; lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20260509174012/https://www.casacivil.am.gov.br/durante-posse-governador-roberto-cidade-destaca-compromisso-com-resultados-e-elenca-prioridades-para-o-amazonas/",
+     "type": "oficial",
+     "quote": "05 de maio de 2026 [...] Ao tomar posse como governador do Amazonas, nesta segunda-feira (04/05), Roberto Cidade destacou [...] Ao lado do vice-governador Serafim Corrêa [...] para o mandato até 2027"
+    },
+    {
+     "fact": "expediente do Diário Oficial do Amazonas de 04/05/2026 (nº 35.693)",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18096",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas ROBERTO MAIA CIDADE FILHO Vice-Governador do Estado do Amazonas SERAFIM FERNANDES CORRÊA"
+    },
+    {
+     "fact": "expediente e decretos de 01/10/2026 (Diário Oficial do Amazonas nº 35.796, 01/10/2026)",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18236",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas ROBERTO MAIA CIDADE FILHO Vice-Governador do Estado do Amazonas SERAFIM FERNANDES CORRÊA [...] em Manaus, 1.º de outubro de 2026. ROBERTO MAIA CIDADE FILHO Governador do Estado do Amazonas"
+    }
+   ],
+   "verified": true,
+   "note": "Posse em 04/05/2026 (Casa Civil do Amazonas), depois da eleição indireta prevista na Lei nº 8.162/2026. Segue no cargo: Diário Oficial de 01/10/2026. Partido: o do registro do TSE de 2022 (União). Nada sobre a eleição de outubro de 2026 (D54)."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Serafim Corrêa",
+   "full_name": "SERAFIM FERNANDES CORRÊA",
+   "kind": "eleito indiretamente",
+   "start": "2026-05-04",
+   "end": null,
+   "start_reason": "eleição indireta pela Assembleia Legislativa (mandato até o fim do período)",
+   "end_reason": null,
+   "party_at_start": "PSB",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "posse como governador, com o vice Serafim Corrêa, em 04/05/2026 (Casa Civil do Amazonas, 05/05/2026; lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20260509174012/https://www.casacivil.am.gov.br/durante-posse-governador-roberto-cidade-destaca-compromisso-com-resultados-e-elenca-prioridades-para-o-amazonas/",
+     "type": "oficial",
+     "quote": "05 de maio de 2026 [...] Ao tomar posse como governador do Amazonas, nesta segunda-feira (04/05), Roberto Cidade destacou [...] Ao lado do vice-governador Serafim Corrêa [...] para o mandato até 2027"
+    },
+    {
+     "fact": "expediente do Diário Oficial do Amazonas de 04/05/2026 (nº 35.693)",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18096",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas ROBERTO MAIA CIDADE FILHO Vice-Governador do Estado do Amazonas SERAFIM FERNANDES CORRÊA"
+    },
+    {
+     "fact": "expediente e decretos de 01/10/2026 (Diário Oficial do Amazonas nº 35.796, 01/10/2026)",
+     "url": "https://diario.imprensaoficial.am.gov.br/portal/edicoes/download/18236",
+     "type": "oficial",
+     "quote": "Governador do Estado do Amazonas ROBERTO MAIA CIDADE FILHO Vice-Governador do Estado do Amazonas SERAFIM FERNANDES CORRÊA [...] em Manaus, 1.º de outubro de 2026. ROBERTO MAIA CIDADE FILHO Governador do Estado do Amazonas"
+    },
+    {
+     "fact": "partido no registro de candidatura de 2022 (deputado estadual, PSB)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Posse em 04/05/2026 ao lado do governador (Casa Civil do Amazonas). Segue no cargo: expediente do Diário Oficial de 01/10/2026. Partido: o do registro do TSE de 2022 (PSB); as páginas lidas não citam partido."
+  }
+ ],
+ "gaps": []
+}

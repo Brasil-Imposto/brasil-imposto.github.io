@@ -1,0 +1,50 @@
+{
+ "road-indaial-2011.jpg": {
+  "file": "road-indaial-2011.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:BR_470_Indaial_-_panoramio.jpg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "author": "Elias C",
+  "date": "Taken on 26 July 2011",
+  "description": "BR 470 Indaial",
+  "width_px": 1000,
+  "height_px": 750,
+  "gps": [
+   "-26.916411",
+   "-49.280956"
+  ],
+  "bytes": 294251
+ },
+ "urban-indaial-2011.jpg": {
+  "file": "urban-indaial-2011.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Uniasselvi_Indaial_ao_lado_direito_-_BR_470_-_panoramio.jpg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "author": "Elias C",
+  "date": "Taken on 26 July 2011",
+  "description": "Uniasselvi Indaial ao lado direito - BR 470",
+  "width_px": 1000,
+  "height_px": 750,
+  "gps": [
+   "-26.884105",
+   "-49.247949"
+  ],
+  "bytes": 189986
+ },
+ "trucks-indaial-2011.jpg": {
+  "file": "trucks-indaial-2011.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Caminhoes_parados_em_Indaial_-_Br_470_-_panoramio.jpg",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "author": "Elias C",
+  "date": "Taken on 26 July 2011",
+  "description": "Caminhoes parados em Indaial - Br 470",
+  "width_px": 1000,
+  "height_px": 450,
+  "gps": [
+   "-26.897176",
+   "-49.264584"
+  ],
+  "bytes": 106465
+ }
+}

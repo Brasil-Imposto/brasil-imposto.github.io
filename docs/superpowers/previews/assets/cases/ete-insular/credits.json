@@ -1,0 +1,32 @@
+{
+ "baia-sul.jpg": {
+  "file": "baia-sul.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Ba%C3%ADa_Sul_de_Florian%C3%B3polis.jpg",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "author": "Danny Botelho from Florianópolis, SC",
+  "date": "2008-01-07 12:26",
+  "description": "Baía sul de Florianópolis.",
+  "bytes": 250664
+ },
+ "gov-daniela-reinehr.jpg": {
+  "file": "gov-daniela-reinehr.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Daniela_Reinehr_em_novembro_de_2020.jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "author": "Marcos Corrêa/PR",
+  "date": "2020-11-06 10:19:08",
+  "description": "(Florianópolis - SC, 06/11/2020) Solenidade de Formatura do Curso de Formação Policial 2020 (CFP).Foto: Marcos Corrêa/PR",
+  "bytes": 683460
+ },
+ "gov-jorginho-mello.jpg": {
+  "file": "gov-jorginho-mello.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Senador_Jorginho_Mello_(cropped).jpg",
+  "license": "Attribution",
+  "license_url": null,
+  "author": "Agência Senado",
+  "date": "2017-08-16 09:50:39",
+  "description": "Senador Jorginho Mello",
+  "bytes": 483035
+ }
+}

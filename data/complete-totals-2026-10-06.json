@@ -1,0 +1,235 @@
+{
+ "collected_on": "2026-10-06",
+ "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_complete-totals_2026-10-06.md",
+ "rules": "Official primary sources only, read on the source page; sums checked to the cent with a planted-error control (data/scripts/complete_totals/).",
+ "gaps": {
+  "ponte_supervision_2006_2010": {
+   "value_brl": 8982441.11,
+   "what_it_measures": "Amount paid (gross, payment date in 2006 to 2010) on supervision contract PJ-170/2006, Consórcio Prosul-Concremat: Prosul R$ 5.389.722,50 and Concremat R$ 3.592.718,61",
+   "by_year_brl": {
+    "2006": 42182.51,
+    "2007": 1952383.45,
+    "2008": 1418010.4,
+    "2009": 1663723.71,
+    "2010": 3906141.04
+   },
+   "by_company_brl": {
+    "Prosul": 5389722.5,
+    "Concremat": 3592718.61
+   },
+   "period": "2006-12-20 (first payment) to 2010-12-31",
+   "source_url": "https://portalelegis.alesc.sc.gov.br/proposicoes/legado/RQC-0016.6-2019/anexo/10766/visualizar",
+   "source_doc": "Alesc, CPI da Ponte Hercílio Luz (RQC/0016.6/2019), relatório final do relator, Apêndice A 'Atualização dos valores contratuais', tables 'Contrato PJ 170/2006 - Prosul' (pp. 1754 to 1763) and 'Contrato PJ 170/2006 - Concremat' (pp. 1763 to 1773); document of 19/12/2019; the winning vote (anexo 10772) adopts the rapporteur's report changing only pp. 1718 and 1719",
+   "source_quote": "Columns 'DATA DO PAGAMENTO' and 'VALOR DO PAGAMENTO'; 'TOTAL 9.160.234,16' (Prosul) and 'TOTAL 6.106.108,71' (Concremat)",
+   "collected_on": "2026-10-06",
+   "how_checked": "ponte_supervision_cpi.py: parsed payments == printed TOTAL and == sum of 'PGTOS NO MÊS' column, to the cent, per contract; 2011-2013 equal to the SC Portal SICOP vlpago of both lines to the cent (2011 split differs by R$ 110.869,79 between the two lines, explained: the extract books a Prosul payment under the Concremat line); 2014 Concremat equal to the Portal creditor view (R$ 479.649,53); --control (+R$ 0,01) fails",
+   "script": "data/scripts/complete_totals/ponte_supervision_cpi.py",
+   "tce_sc_19_4_note": "TCE-SC news of 19/10/2015 says R$ 19,4 milhões were paid to the supervision consortium; that equals the contract value with the 2010 and 2012 amendments (R$ 19.436.343,14), not the payments (R$ 15.266.342,87 in total). Not used."
+  },
+  "ponte_total_13_contracts": {
+   "value_brl": 507319980.2,
+   "what_it_measures": "Total paid (nominal, gross of withheld taxes) on the restoration of the Ponte Hercílio Luz, 2006 to 2020, read contract by contract: the 12 contracts of the SIGEF register (13 records; PJ-170/2006 has one line per consortium member) and the first stage, PJ 015/2006 (Consórcio Roca-TEC), from the ALESC CPI final report",
+   "previous_value_brl": 483404916.67,
+   "added_brl": 23915063.53,
+   "added_detail": "First stage PJ 015/2006 (Consórcio Roca-TEC, payments 2006-06-27 to 2009-09-18), CPI Apêndice A payment tables: TEC R$ 11.957.532,70 and Roca R$ 11.957.530,83 (audit of 2026-10-06, cases, A1)",
+   "parts_brl": {
+    "ten_contracts_portal": 405129701.71,
+    "PJ-170/2006_cpi": 15266342.87,
+    "PJ-264/2008_cpi": 63008872.09,
+    "PJ-015/2006_cpi": 23915063.53
+   },
+   "pj264_pre_2011_brl": 29121516.4,
+   "pj264_pre_2011_note": "Now printed payment by payment in the CPI table (p. 1773), equal to the cent to the difference TCE-SC minus Portal used on 2026-10-05",
+   "period": "2006-06-27 to 2020-11-23",
+   "source_url": "https://portalelegis.alesc.sc.gov.br/proposicoes/legado/RQC-0016.6-2019/anexo/10766/visualizar",
+   "source_quote": "CPI Apêndice A totals: PJ 170/2006 Prosul 9.160.234,16; Concremat 6.106.108,71; PJ 264/2008 63008872,09; the other ten contracts from data/hercilio-luz-paid-by-contract.json (Portal SICOP extracts); PJ 015/2006 TEC 11.957.532,70 (VALOR TOTAL) and Roca 11.957.530,83 (TOTAL), Apêndice A",
+   "collected_on": "2026-10-07",
+   "how_checked": "build_paid_by_contract.py: pass 1 Decimal contract by contract (Portal payment lines, CPI payment lines, PJ 015/2006 VALOR MEDIDO column), pass 2 integer cents (Portal vlpago grand total with the three pre-2011 contracts swapped for the CPI PGTOS NO MÊS columns, plus the same column of PJ 015/2006); equal to the cent; every CPI table equals its own TOTAL line; --control fails.",
+   "script": "data/scripts/ponte/build_paid_by_contract.py (total_paid_2006_2020_brl in data/hercilio-luz-paid-by-contract.json)",
+   "not_included": [
+    "DL-00001/2618-2019 (RMG, R$ 1.451.313,01 pagos em 2019, supervisão fora do escopo do PJ-00093/2016): registro à parte (related_records), fora desta soma até decisão do autor.",
+    "Pagamentos que não estão ligados ao contrato no extrato (PJ-00060/2019, R$ 16.002,61) e obras da ponte antes de 2006 ou depois de 2019: fora do escopo."
+   ],
+   "earlier_value": {
+    "value_brl": 483404916.67,
+    "previous_value_brl": 473654492.0,
+    "added_brl": 9750424.67,
+    "added_detail": "R$ 8.982.441,11 paid on PJ-170/2006 in 2006 to 2010, plus R$ 767.983,56 paid on PJ-170/2006 in July and September 2014 (Prosul R$ 288.334,03, Concremat R$ 479.649,53) that the contract extract on the SC Portal lacks",
+    "period": "2006-12-20 to 2020-11-23",
+    "how_checked": "bridge_complete_total.py: pass 1 Decimal contract by contract, pass 2 integer cents from the Portal grand total swapping the three pre-2011 contracts; equal to the cent; --control fails. CPI totals for PJ 204/2014, PJ 012/2015, PJ 143/2015 and PJ 093/2016 equal the Portal to the cent.",
+    "script": "data/scripts/complete_totals/bridge_complete_total.py",
+    "collected_on": "2026-10-06"
+   }
+  },
+  "ete_insular": {
+   "value_brl": 229000000,
+   "value_precision": "R$ milhões (the source publishes no cents)",
+   "what_it_measures": "Investimento total realizado (resources applied, Casan's recorded cost of the work, may include capitalized borrowing costs) in 'Ampliação do Sistema de Esgotamento Sanitário Insular', from the start to 31/12/2025; R$ 27 milhões of it in 2025",
+   "period": "start to 2025-12-31",
+   "source_url": "https://ri.casan.com.br/bfd_download/relatorio-da-administracao-dfp-2025/",
+   "source_doc": "Casan, Relatório da Administração 2025, Tabela 9, p. 25 of the PDF (same table in the DFP 2025, https://ri.casan.com.br/bfd_download/dfp-2025/)",
+   "source_quote": "Florianópolis | Esgoto | Ampliação do Sistema de Esgotamento Sanitário Insular | 27 | 229 (Investimento em 2025; Investimento total realizado, R$ milhões); 'Principais investimentos no ano (em termos de recursos aplicados)'",
+   "collected_on": "2026-10-06",
+   "how_checked": "Read in the PDF text layer of both the management report and the DFP 2025. No official paid-to-date figure for 2026 exists.",
+   "consumed_definition": {
+    "finding": "Casan does not define 'Consumido' anywhere in its portal; the contract extract shows Original, Consumido and Saldo = valorContrato - valorConsumido, source SAP, data manager Gerência de Licitações (GLI). It is not published as 'pago'. It does not track billing: +R$ 26.059.813,80 from 2026-09-05 to 2026-10-06 while principal billed rose R$ 1.359.127,94.",
+    "source_url": "https://transparencia.casan.com.br/app/views/extrato-contrato.html"
+   },
+   "details": {
+    "sap_consumed_brl": 203441074.09,
+    "sap_contract_brl": 261908002.3,
+    "sap_balance_brl": 58466928.21,
+    "sap_loaded_at": "2026-10-06T14:40:50",
+    "sap_url": "https://transparencia.casan.com.br/data/contratos?empresafiltro%5B%5D=2000009269&dtinivigenciainifiltro=2000-01-01&dtinivigenciafimfiltro=2026-12-31&page=1",
+    "principal_billed_brl": 160434774.72,
+    "principal_brl": 228958907.4,
+    "principal_note": "Now EOC 1246/2020 principal (197.768.490,12) + EOC 1534/2026 (31.190.417,28), equal to the cent; billed is without readjustments",
+    "principal_as_of": "2026-09-30",
+    "principal_url": "https://transparencia.casan.com.br/data/download/4981/2"
+   },
+   "script": "data/scripts/complete_totals/casan_insular_check.py"
+  },
+  "sc401_paid": {
+   "value_brl": 41694715.23,
+   "what_it_measures": "Gross amount paid on the works contract CT-00014/2025 (vlpago): net transfer to the contractor (R$ 39.600.403,49) plus taxes withheld and paid on its behalf, INSS, IRRF and ISS (R$ 2.094.311,74); equal to the cent to the accumulated measured value of 18 measurements up to 2026-08-31 (R$ 40.224.998,39 at initial prices + R$ 1.469.716,84 readjustment)",
+   "previous_value_brl": 40728766.0,
+   "previous_value_note": "Same definition, Portal load of 2026-09-30; R$ 965.949,23 liquidated in 2026 was paid on 2026-09-30",
+   "by_year_brl": {
+    "2025": 26786756.45,
+    "2026": 14907958.78
+   },
+   "period": "2025-04-25 to 2026-09-30 (payment dates)",
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=104411",
+   "source_quote": "contratoResumoFinanceiro: 2025 vlpago 26786756.45; 2026 vlpago 14907958.78. Glossary 'Valor Pago': 'Após a conferência do recebimento de bens, materiais e serviços (liquidação), a despesa foi devidamente paga.' 'Retenção': 'É o valor retido pelo Estado do montante a ser pago ao credor. Esse valor é repassado para a pessoa de direito.'",
+   "glossary_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/glossario",
+   "collected_on": "2026-10-06",
+   "how_checked": "sicop_paid.py 104411: per year, sum of payment lines == vlpago to the cent; net + withheld == paid; paid == last accumulated measurement; --control (+R$ 0,01 on one line) fails",
+   "related_not_summed": {
+    "CT-00018/2021_project_paid_brl": 441107.18,
+    "CT-00315/2022_supervision_paid_brl": 1832974.12,
+    "note": "Supervision object covers restoration of SC-401 and SC-404 in three stretches, so it is not added (D95). Works + project = R$ 42.135.822,41."
+   },
+   "script": "data/scripts/complete_totals/sicop_paid.py"
+  },
+  "release_receita_2024": {
+   "date": "2025-01-28",
+   "what_it_measures": "Original posting date of the December 2024 Análise da Arrecadação (annex with tables 10h49, analysis 11h00, series JAN-1995 A DEZ-2024 10h58)",
+   "period": "2024",
+   "source_url": "https://web.archive.org/web/20250130132517/https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/arrecadacao-federal/2024",
+   "source_quote": "Análise Arrecadação Dez 2024 Arquivo 28/01/2025 11h00; Análise Mensal - Dez 2024 - Anexo Arquivo 28/01/2025 10h49",
+   "collected_on": "2026-10-06",
+   "how_checked": "Internet Archive copies of the gov.br folder (30/01/2025, 21/03/2025) and item pages (29/01/2025, 03/04/2025: 'Atualizado em 28/01/2025 11h00'). Today every analysis from dez/2023 to jan/2026 shows 'Publicado em 03/07/2026 15h38/15h39' (bulk republication), so the live date is not the release date."
+  },
+  "release_beps_2024": {
+   "date": "2025-03-31",
+   "date_basis": "file_last_saved",
+   "what_it_measures": "Last-saved timestamp (2025-03-31 20:46 UTC, 17:46 Brasília) of the official file beps122024_final.xls; the publication date itself is no longer on the page",
+   "period": "2024 (December 2024 bulletin)",
+   "source_url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/Dados-estatisticos-previdencia-social-e-inss/boletins-da-previdencia-social/2024-1/beps122024_final.xls",
+   "source_quote": "Page today: 'Publicado em 03/07/2026 19h23', 'Atualizado em 07/07/2026 13h02' (same on every bulletin from 2024 to jan/2026 and on AEPS 2024)",
+   "collected_on": "2026-10-06",
+   "how_checked": "ole_saved_date.py reads the OLE2 SummaryInformation. Calibration: bulletins of mai/2026 and jun/2026 republished with page date 'Publicado em 31/08/2026 17h09' were saved 31/08/2026 19:51 and 19:52 UTC (17 minutes earlier). No Internet Archive copy of the Dec 2024 file or page exists; the 13/03/2025 archive of 'BEPS anteriores' listed bulletins only up to out/2024.",
+   "script": "data/scripts/complete_totals/ole_saved_date.py"
+  },
+  "metro_line17_invested": {
+   "value_brl": 5543066000,
+   "value_unit_note": "Sum of yearly values published in R$ mil (2010 to 2013 and 2014 to 2025 printed in R$ milhões with one or two decimals)",
+   "what_it_measures": "Investment realized by the Metrô on Linha 17-Ouro (budget action 2282), cash basis as published by the Metrô ('Investimentos realizados (caixa)', '(caixa e aportes)', 'Recursos Financeiros, 1. Investimentos'), nominal, 2010 to August 2026",
+   "value_to_2025_brl": 4840350000,
+   "by_year_brl_mil": {
+    "2010": 200,
+    "2011": 46700,
+    "2012": 221100,
+    "2013": 326300,
+    "2014": 491990,
+    "2015": 272060,
+    "2016": 137560,
+    "2017": 196790,
+    "2018": 243300,
+    "2019": 168200,
+    "2020": 164900,
+    "2021": 286000,
+    "2022": 206020,
+    "2023": 208680,
+    "2024": 722250,
+    "2025": 1148300,
+    "2026_jan_aug": 702716
+   },
+   "period": "2010-01-01 to 2026-08-31",
+   "government_figure_brl": 5970000000,
+   "government_figure_note": "Agência SP 'investimento de R$ 5,97 bilhões'; R$ 0,43 bi above the Metrô series; no document read explains the difference",
+   "source_url": "https://transparencia.metrosp.com.br/sites/default/files/Relat%C3%B3rio%20Integrado%202025.pdf",
+   "sources_by_period": {
+    "2010-2011": "https://web.archive.org/web/20121101150948/http://www.metro.sp.gov.br/metro/institucional/pdf/rel-administracao.pdf",
+    "2012-2013": "https://transparencia.metrosp.com.br/node/1689/download",
+    "2013_confirm": "https://transparencia.metrosp.com.br/node/1688/download",
+    "2014-2021": "https://transparencia.metrosp.com.br/sites/default/files/RELAT%C3%93RIO%20INTEGRADO%202021_0.pdf",
+    "2021-2025": "https://transparencia.metrosp.com.br/sites/default/files/Relat%C3%B3rio%20Integrado%202025.pdf",
+    "2026": "https://transparencia.metrosp.com.br/sites/default/files/Investimentos%20para%202026%20fechamento%20%20agosto.pdf"
+   },
+   "source_quote": "Relatório Integrado 2025: 'Investimentos realizados (caixa e aportes) - Expansão da Rede (milhões)', 'Linha 17 286,00 206,02 208,68 722,25 1.148,30'; Acompanhamento ago/2026: '2282 LINHA 17-OURO ... 996.573 74.786 702.716 71%'",
+   "collected_on": "2026-10-06",
+   "how_checked": "metro_line17_total.py: each year's transcribed lines add up to the printed total within one printed unit; a second Metrô document agrees for 2013 to 2025 (2020 differs by R$ 22 mil; 2022 Acompanhamento dez/2022 shows 173.416, superseded by two later reports with 206,02); two-pass sum; --control (+R$ 11 mil in 2018) fails",
+   "script": "data/scripts/complete_totals/metro_line17_total.py"
+  },
+  "banco_master_public_money": {
+   "value_brl": 15000000000,
+   "label_suggested": "ativos do BRB vindos do Master (valor de referência)",
+   "what_it_measures": "Exposure of BRB (bank controlled by the Distrito Federal): assets held by BRB originating from operations received from Banco Master, at the reference value of the (later abandoned) sale to a fund. Not a quantified loss: BRB says the definitive loss depends on its delayed financial statements.",
+   "period": "assets received 2024-2025; figure dated 2026-04-20",
+   "source_url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1506735&numSequencia=1031441&numVersao=1",
+   "source_doc": "BRB, Fato Relevante of 20/04/2026 (MoU with Quadra), CVM system",
+   "source_quote": "transferência de ativos detidos pela Companhia, oriundos de operações recebidas pelo BRB do Banco Master; A Operação possui valor de referência de R$ 15 bilhões",
+   "collected_on": "2026-10-06",
+   "how_checked": "Read in the PDF filed at the CVM; MoU ended without the sale (Fato Relevante 17/07/2026), so the assets remain with BRB. No sum involved.",
+   "other_official_figures": [
+    {
+     "value_brl": 10000000000,
+     "approximate": true,
+     "what": "carteiras bought from Master replaced by other Master assets",
+     "quote": "foram substituídos aproximadamente R$ 10 bilhões em ativos",
+     "date": "2025-11-24",
+     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1449007&numSequencia=973719&numVersao=1"
+    },
+    {
+     "value_brl": 6600000000,
+     "what": "ceiling of credit operations the DF is authorized to take to recapitalize BRB (Lei distrital 7.845/2026, art. 2, III); authorized, not spent",
+     "quote": "operações de crédito com o Fundo Garantidor de Crédito - FGC ou instituições financeiras, até o limite de R$ 6.600.000.000,00",
+     "date": "2026-03-10",
+     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1488603&numSequencia=1013309&numVersao=1"
+    },
+    {
+     "value_brl": 8860750000.0,
+     "min_brl": 529000000.0,
+     "what": "BRB capital increase proposed (max and min); DF subscription not published in the documents read",
+     "quote": "O montante total da emissão poderá alcançar até R$ 8.860.750.000,00",
+     "date": "2026-03-09",
+     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1487722&numSequencia=1012428&numVersao=1",
+     "check": "master_public_money.py"
+    },
+    {
+     "value_brl": null,
+     "what": "DF credit operation with the FGC, up to 16% of the DF's Receita Corrente Líquida, for capital injection in BRB (STF ACO 3.755/DF agreement)",
+     "quote": "de até 16% (dezesseis por cento) da Receita Corrente Líquida, para o fim exclusivo de aporte de capital pelo acionista controlador no BRB",
+     "date": "2026-05-28",
+     "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1528228&numSequencia=1052934&numVersao=1"
+    }
+   ],
+   "loss_status": {
+    "quote": "a quantificação definitiva dos prejuízos depende da conclusão dos trabalhos em curso e da divulgação das demonstrações financeiras correspondentes",
+    "date": "2026-08-24",
+    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1564187&numSequencia=1088893&numVersao=1"
+   },
+   "private_money_separate": {
+    "value_brl": 37700000000,
+    "what": "FGC payments (private fund)",
+    "source": "https://www.bcb.gov.br/content/publicacoes/ref/202605/RELESTAB202605-refPub.pdf"
+   },
+   "rpps_not_confirmed": {
+    "value_brl_press": 1867000000,
+    "why": "Ministry page now answers 'Conteúdo Restrito'; no Internet Archive copy; Rioprevidência note answers 'Acesso negado'"
+   },
+   "script": "data/scripts/complete_totals/master_public_money.py"
+  }
+ }
+}

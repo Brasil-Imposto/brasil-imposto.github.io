@@ -1,0 +1,1168 @@
+{
+ "slug": "alcantara",
+ "collected_on": "2026-10-07",
+ "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_case-alcantara_2026-10-06.md",
+ "rules": "Somente papéis e achados oficiais, com as palavras do órgão. Nenhuma inferência de irregularidade. Um boato só entra se um órgão oficial o registrou, com a situação oficial (D107). Valores nominais. Somas marcadas como computed são desta pesquisa.",
+ "uf": "MA",
+ "stage": {
+  "label": "Abandonado",
+  "as_of": "2019-04-17",
+  "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/L13814.htm",
+  "quote": "Fica declarada a extinção da empresa binacional Alcântara Cyclone Space, em razão da denúncia do Tratado entre a República Federativa do Brasil e a Ucrânia",
+  "applies_to": "Alcântara Cyclone Space (projeto do foguete Cyclone-4). O Centro de Lançamento de Alcântara continua em funcionamento.",
+  "note": "Nenhum foguete Cyclone-4 foi lançado. O prazo do maior contrato de obras (Contrato 20/ACS/2010) terminou em 31/07/2015 (TCU, Acórdão 393/2023). As contas da extinção seguem em apuração: monitoramento do TCU TC 008.559/2023-6 \"Aberto\" em 2026-10-07.",
+  "cla_stage": {
+   "label": "Em andamento",
+   "as_of": "2026-07-22",
+   "source_url": "https://www.gov.br/aeb/pt-br/assuntos/noticias/innospace-atualiza-cronograma-de-missoes-previstas-no-centro-espacial-de-alcantara",
+   "quote": "Os componentes do veículo lançador e os equipamentos de apoio em solo já foram enviados ao Brasil, e as atividades preparatórias no CLA estão em andamento."
+  }
+ },
+ "work": {
+  "name": "Alcântara Cyclone Space e Centro de Lançamento de Alcântara (CLA)",
+  "short_name": "Alcântara: base de foguetes e a empresa Brasil e Ucrânia",
+  "municipalities_ibge": [
+   {
+    "code": "2100204",
+    "name": "Alcântara"
+   }
+  ],
+  "municipalities": [
+   {
+    "ibge_code": "2100204",
+    "name": "Alcântara"
+   }
+  ],
+  "level": "federal",
+  "agency": {
+   "name": "Comando da Aeronáutica (CLA) e Agência Espacial Brasileira (AEB); a Alcântara Cyclone Space era empresa binacional Brasil e Ucrânia",
+   "ug_codes": {
+    "120013": "CENTRO DE LANCAMENTO DE ALCANTARA",
+    "120627": "GRUPAMENTO DE APOIO DE ALCANTARA"
+   }
+  },
+  "status": "ACS extinta por lei em 17/04/2019, sem nenhum lançamento; CLA em funcionamento, com o primeiro lançamento comercial em 22/12/2025.",
+  "status_detail": [
+   {
+    "date": "2003-10-21",
+    "text": "Brasil e Ucrânia assinam o Tratado que cria a Alcântara Cyclone Space.",
+    "url": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2005/Decreto/D5436.htm"
+   },
+   {
+    "date": "2010-10-28",
+    "text": "A ACS assina o Contrato 20/ACS/2010 com o Consórcio Cyclone-4 para as obras do sítio de lançamento.",
+    "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/393/2023/Plen%C3%A1rio"
+   },
+   {
+    "date": "2015-07-24",
+    "text": "O Brasil anuncia a saída do Tratado (vale a partir de 16/07/2016).",
+    "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Decreto/D8494.htm"
+   },
+   {
+    "date": "2019-04-17",
+    "text": "Lei 13.814 extingue a ACS; a União fica com os bens, direitos e dívidas no Brasil.",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/L13814.htm"
+   },
+   {
+    "date": "2023-03-08",
+    "text": "TCU manda o MCTI conferir o que foi pago e o que foi feito no maior contrato da ACS.",
+    "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/393/2023/Plen%C3%A1rio"
+   },
+   {
+    "date": "2025-12-22",
+    "text": "Primeiro lançamento comercial do CLA (HANBIT-Nano); o foguete se perdeu cerca de 30 segundos depois da decolagem.",
+    "url": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/2025/12/nota-oficial-mcti-reafirma-compromisso-com-programa-espacial-apos-lancamento-comercial-em-alcantara"
+   }
+  ],
+  "dates": {
+   "cla_created": "1983-03-01",
+   "cla_created_note": "Decreto 88.136, segundo a Corte IDH (resumo oficial da sentença de 21/11/2024)",
+   "treaty_signed": "2003-10-21",
+   "treaty_in_force": "2004-09-22",
+   "treaty_promulgated": "2005-04-28",
+   "main_contract_signed": "2010-10-28",
+   "main_contract_deadline": "2015-07-31",
+   "main_contract_deadline_note": "prazo inicial de 600 dias (até 19/06/2012) prorrogado até 31/07/2015 (TCU, Acórdão 393/2023)",
+   "treaty_denounced": "2015-07-24",
+   "treaty_end_for_brazil": "2016-07-16",
+   "acs_extinct": "2019-04-17"
+  },
+  "description": "Em Alcântara (MA) fica o Centro de Lançamento de Alcântara, da FAB. Em 2003 o Brasil e a Ucrânia criaram a empresa Alcântara Cyclone Space para lançar dali o foguete ucraniano Cyclone-4. O Brasil pôs R$ 483,9 milhões entre 2007 e 2016; nenhum foguete foi lançado, o Brasil saiu do acordo em 2015 e a empresa foi extinta por lei em 2019.",
+  "description_plain": "Base de foguetes da FAB no Maranhão e a empresa que o Brasil criou com a Ucrânia para lançar um foguete de lá. O foguete nunca subiu e a empresa foi fechada em 2019.",
+  "siconfi_function": "Ciência e Tecnologia",
+  "financing": "Orçamento da União: ação 0B18 (capital da ACS, MCTI), ação 7F40 (Centro Espacial de Alcântara, AEB) e as unidades do Comando da Aeronáutica",
+  "sources": [
+   "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2727/2017/Plen%C3%A1rio",
+   "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/393/2023/Plen%C3%A1rio",
+   "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/L13814.htm",
+   "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Decreto/D8494.htm"
+  ]
+ },
+ "contracts": [
+  {
+   "group": "ACS",
+   "number": "Contrato 20/ACS/2010",
+   "company": "Consórcio Cyclone-4 (Camargo Corrêa, Odebrecht, Elkor, Concord e Concord-Promproekt)",
+   "object": "execução das obras e serviços de engenharia destinados à implantação do sítio de lançamentos",
+   "object_plain": "Obras do lugar de onde o Cyclone-4 seria lançado.",
+   "signed_on": "2010-10-28",
+   "value_original_brl": 369276513.31,
+   "value_current_brl": 488337540.71,
+   "value_current_note": "valor final depois de 14 termos aditivos, mais US$ 20.555.798,00",
+   "value_current_usd_extra": 20555798.0,
+   "paid_brl": 262526360.49,
+   "paid_note": "pago até a auditoria (Demonstrativo de Despesas da inventariança, citado pelo TCU)",
+   "open_invoices_brl": 63175981.24,
+   "open_interest_fines_brl": 33831650.61,
+   "open_note": "em aberto em 31/12/2015 segundo o relatório de atividades da ACS de 2015",
+   "status": "Prazo encerrado em 31/07/2015; pagamentos sem encontro de contas (TCU, Acórdão 393/2023)",
+   "status_in_record": "prazo prorrogado até 31/07/2015",
+   "source": {
+    "doc": "TCU, Acórdão 393/2023-Plenário",
+    "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/393/2023/Plen%C3%A1rio"
+   }
+  },
+  {
+   "group": "CLA (Comando da Aeronáutica)",
+   "number": "Contrato 68/GAP-RJ/2006",
+   "company": "Prescon Projetos Estruturais e Construções Ltda.",
+   "company_cnpj": "30257513000143",
+   "object": "recuperação da pista de pouso e decolagem do Centro de Lançamento de Alcântara/MA",
+   "object_plain": "Reforma da pista de pouso de aviões da base.",
+   "signed_on": null,
+   "value_original_brl": null,
+   "value_current_brl": 9019181.59,
+   "value_current_note": "valor total em 18/06/2010 (Termo Aditivo nº 06, citado pelo TCU)",
+   "status": "Encerrado pela Aeronáutica em 29/06/2010; serviços julgados imprestáveis; TCU condenou a empresa (débito e multa)",
+   "source": {
+    "doc": "TCU, Acórdão 4033/2020-Plenário",
+    "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/4033/2020/Plen%C3%A1rio"
+   }
+  },
+  {
+   "group": "AEB",
+   "number": "Contrato 16/2012",
+   "company": "Constran S/A Construções e Comércio",
+   "object": "obras complementares do Aeródromo do Centro de Lançamento de Alcântara (CLA) e da via de acesso entre o aeródromo e a sede do CLA",
+   "object_plain": "Obras no aeroporto da base e na estrada até a sede.",
+   "signed_on": null,
+   "value_original_brl": 80697050.97,
+   "value_current_brl": null,
+   "status": "Anulado pela AEB em 25/11/2013; indenização final de R$ 942.621,11 depois de glosa de R$ 1.213.633,63",
+   "source": {
+    "doc": "TCU, Acórdão 8917/2021-Segunda Câmara",
+    "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/8917/2021/Segunda%20C%C3%A2mara"
+   }
+  },
+  {
+   "group": "CLA (Comando da Aeronáutica)",
+   "number": "00015/2024",
+   "company": "Omnisys Engenharia Ltda",
+   "company_cnpj": "01773463000159",
+   "object": "serviço de engenharia para a modernização do radar",
+   "object_plain": "Modernização de radar do CLA.",
+   "signed_on": "2025-02-18",
+   "value_original_brl": 41018141.02,
+   "value_current_brl": null,
+   "value_note": "valor global do registro; o maior contrato do CLA de 2015 a 2026; inexigibilidade",
+   "status": "vigente até 18/11/2027 (registro)",
+   "source": {
+    "doc": "Compras.gov.br, dados abertos (órgão 52111, UG 120013)",
+    "url": "https://dadosabertos.compras.gov.br/modulo-contratos/1_consultarContratos?pagina=1&tamanhoPagina=500&codigoOrgao=52111&codigoUnidadeGestora=120013&dataVigenciaInicialMin=2025-01-01&dataVigenciaInicialMax=2025-12-31"
+   }
+  }
+ ],
+ "cla_contracts_2015_2026": {
+  "count": 282,
+  "value_global_sum_brl_computed": 175993290.0,
+  "note": "Contratos da UG 120013 (e 120627) com início de vigência de 2015 a 2026, valor global assinado, não o pago. O campo valorAcumulado da API traz números maiores que o valor global e não foi usado.",
+  "source": "https://dadosabertos.compras.gov.br/modulo-contratos/1_consultarContratos",
+  "top5": [
+   {
+    "number": "00015/2024",
+    "start": "2025-02-18",
+    "cnpj": "01773463000159",
+    "company": "OMNISYS ENGENHARIA LTDA",
+    "object": "modernização de radar",
+    "value_global_brl": 41018141.02,
+    "modality": "Inexigibilidade"
+   },
+   {
+    "number": "00005/2025",
+    "start": "2025-09-24",
+    "cnpj": "05564043000113",
+    "company": "MASTER FACILITIES LTDA",
+    "object": "limpeza e conservação do CLA",
+    "value_global_brl": 9107475.84,
+    "modality": "Pregão"
+   },
+   {
+    "number": "00018/2024",
+    "start": "2025-01-27",
+    "cnpj": "22260501000140",
+    "company": "IMPERIO SERVICOS ESPECIALIZADOS LTDA",
+    "object": "manutenção de climatização",
+    "value_global_brl": 8080701.35,
+    "modality": "Pregão"
+   },
+   {
+    "number": "00009/2022",
+    "start": "2022-12-20",
+    "cnpj": "56035876000128",
+    "company": "IACIT SOLUCOES TECNOLOGICAS S.A.",
+    "object": "radar meteorológico Doppler banda X",
+    "value_global_brl": 6488747.3,
+    "modality": "Pregão"
+   },
+   {
+    "number": "00001/2017",
+    "start": "2017-06-19",
+    "cnpj": "06272793000184",
+    "company": "EQUATORIAL MARANHAO DISTRIBUIDORA DE ENERGIA",
+    "object": "energia elétrica",
+    "value_global_brl": 4896000.0,
+    "modality": "Dispensa"
+   }
+  ]
+ },
+ "payments": {
+  "acs_capital_brazil": {
+   "total_brl": 483882139.92,
+   "display": "R$ 483,9 mi",
+   "years": "2007 a 2016",
+   "measures": "capital integralizado pelo Brasil na ACS, ação 0B18, soma das 47 ordens bancárias",
+   "quote": "entende-se que o Brasil integralizou a quantia de R$ 483.882.139,92 ao capital da ACS",
+   "by_year": [
+    {
+     "year": 2007,
+     "value_brl": 6869000.0
+    },
+    {
+     "year": 2008,
+     "value_brl": 30150650.0
+    },
+    {
+     "year": 2009,
+     "value_brl": 119599610.0
+    },
+    {
+     "year": 2010,
+     "value_brl": 50000000.0
+    },
+    {
+     "year": 2011,
+     "value_brl": 50000000.0
+    },
+    {
+     "year": 2012,
+     "value_brl": 135000000.0
+    },
+    {
+     "year": 2013,
+     "value_brl": 50000000.0
+    },
+    {
+     "year": 2014,
+     "value_brl": 10000000.0
+    },
+    {
+     "year": 2015,
+     "value_brl": 20464040.29
+    },
+    {
+     "year": 2016,
+     "value_brl": 11798839.63
+    }
+   ],
+   "source": {
+    "doc": "TCU, Acórdão 2727/2017-Plenário, Tabela 13",
+    "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2727/2017/Plen%C3%A1rio",
+    "collected_on": "2026-10-06"
+   },
+   "not_1_billion_quote": "foi de aproximadamente 483 milhões de reais, a título de integralização de capital, e não um bilhão",
+   "after_denunciation_quote": "a parte brasileira continuou fazendo significativos aportes anuais que totalizaram o montante de 40 milhões de reais, a despeito da total interrupção de aportes ucranianos (TCU, Acórdão 393/2023)"
+  },
+  "acs_spending_split": {
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2727/2017/Plen%C3%A1rio",
+   "note": "Tabela 12, dados da ACS antes dos últimos repasses",
+   "brazil_cash_brl": 475264083.0,
+   "ukraine_cash_usd": 220664022.0,
+   "ukraine_in_kind_usd": 15542800.0,
+   "brazil_end_activity_brl": 376431004.0,
+   "brazil_support_activity_brl": 138867448.0,
+   "support_quote": "gastos com pessoal, veículos, compra de material, viagens, serviços de terceiros, aluguel etc."
+  },
+  "acs_all_contracts_paid_brl": 799737148.74,
+  "acs_all_contracts_paid_note": "soma do valor pago em todos os contratos da ACS segundo a comissão de inventariança (TCU, Acórdão 393/2023); inclui dinheiro dos dois países",
+  "acs_liquidation": {
+   "planned_brl": 17000000.0,
+   "executed_brl": 6500000.0,
+   "period": "2019 a 07/03/2022",
+   "note": "valores aproximados como o TCU os escreve (\"cerca de\", \"aproximadamente\")",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/393/2023/Plen%C3%A1rio"
+  },
+  "cla_units_paid": {
+   "source": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao",
+   "cache": "data/ug/cache/despug_*.json.gz",
+   "measures": "pago no ano + restos a pagar pagos, UGs 120627 e 120013, nominal",
+   "years": [
+    {
+     "year": 2019,
+     "ug": "120627",
+     "paid_in_year_brl": 129851438.5,
+     "arrears_paid_brl": 23164978.38,
+     "total_brl": 153016416.88
+    },
+    {
+     "year": 2020,
+     "ug": "120627",
+     "paid_in_year_brl": 12930095.88,
+     "arrears_paid_brl": 14319253.1,
+     "total_brl": 27249348.98
+    },
+    {
+     "year": 2021,
+     "ug": "120013+120627",
+     "paid_in_year_brl": 10609748.8,
+     "arrears_paid_brl": 21009164.02,
+     "total_brl": 31618912.82
+    },
+    {
+     "year": 2022,
+     "ug": "120013",
+     "paid_in_year_brl": 25582310.3,
+     "arrears_paid_brl": 15760949.19,
+     "total_brl": 41343259.49
+    },
+    {
+     "year": 2023,
+     "ug": "120013",
+     "paid_in_year_brl": 28201432.49,
+     "arrears_paid_brl": 13760134.42,
+     "total_brl": 41961566.91
+    },
+    {
+     "year": 2024,
+     "ug": "120013",
+     "paid_in_year_brl": 27886867.92,
+     "arrears_paid_brl": 10784400.7,
+     "total_brl": 38671268.62
+    },
+    {
+     "year": 2025,
+     "ug": "120013",
+     "paid_in_year_brl": 37919473.98,
+     "arrears_paid_brl": 18883053.79,
+     "total_brl": 56802527.77
+    },
+    {
+     "year": 2026,
+     "ug": "120013",
+     "paid_in_year_brl": 14108085.6,
+     "arrears_paid_brl": 11216640.59,
+     "total_brl": 25324726.19
+    }
+   ],
+   "caveat": "Em 2019 a UG 120627 pagou R$ 118.043.646 de pessoal; de 2020 em diante a folha dos militares não aparece nessas UGs. 2026 vai até julho. 2015 a 2018 não coletados (arquivos mensais acima do teto de download)."
+  },
+  "siop_actions": {
+   "source": "https://www1.siop.planejamento.gov.br/sparql/",
+   "measures": "pago no próprio exercício, sem restos a pagar",
+   "7F40_aeb_brl": {
+    "2009": 6027256,
+    "2010": 2112854,
+    "2011": 27648569,
+    "2012": 24287444,
+    "2013": 25255620,
+    "2014": 896949,
+    "2015": 1031500,
+    "2016": 898862,
+    "2017": 2097760,
+    "2018": 158302,
+    "2019": 0,
+    "2020": 1525432,
+    "2021": 0,
+    "2022": 2191013,
+    "2023": 5868110,
+    "2024": 3391528,
+    "2025": 2627187,
+    "2026_partial": 406188
+   },
+   "vls_victims_education_grant_brl": {
+    "2006": 175629,
+    "2007": 145863,
+    "2008": 107667,
+    "2009": 81038,
+    "2010": 65127,
+    "2011": 63590,
+    "2012": 52084,
+    "2013": 45840,
+    "2014": 9934
+   }
+  },
+  "commercial_revenue_to_union": null,
+  "commercial_revenue_note": "Não confirmada: a FAB chama o acordo com a Innospace de \"contrato de receita\" (29/09/2022), sem valor publicado nas fontes lidas.",
+  "who_pays": "Orçamento da União (impostos)."
+ },
+ "money_timeline": [
+  {
+   "date": "2007-08-23",
+   "value_brl": 6869000.0,
+   "what": "primeiro repasse do Brasil ao capital da ACS",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2727/2017/Plen%C3%A1rio"
+  },
+  {
+   "date": "2009",
+   "value_brl": 119599610.0,
+   "what": "maior ano de repasses à ACS",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2727/2017/Plen%C3%A1rio"
+  },
+  {
+   "date": "2010-10-28",
+   "value_brl": 369276513.31,
+   "what": "Contrato 20/ACS/2010, valor inicial",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/393/2023/Plen%C3%A1rio"
+  },
+  {
+   "date": "2016-12-21",
+   "value_brl": 560647.73,
+   "what": "último repasse do Brasil à ACS listado pelo TCU",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2727/2017/Plen%C3%A1rio"
+  }
+ ],
+ "companies": [
+  {
+   "cnpj": "30257513000143",
+   "legal_name": "PRESCON PROJETOS ESTRUTURAIS E CONSTRUCOES LTDA",
+   "role": "contratada da pista de pouso (Contrato 68/GAP-RJ/2006)",
+   "trade_name": null,
+   "city": "Rio de Janeiro/RJ",
+   "registration_status": "Ativa",
+   "head_or_branch": "Matriz",
+   "activity_start": "1978-10-17",
+   "contracts": [
+    "Contrato 68/GAP-RJ/2006"
+   ],
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/30257513000143"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal via espelho público CNPJ.ws",
+    "url": "https://publica.cnpj.ws/cnpj/30257513000143",
+    "collected_on": "2026-10-07"
+   }
+  },
+  {
+   "cnpj": null,
+   "legal_name": "Consórcio Cyclone-4",
+   "role": "contratada das obras do sítio da ACS",
+   "members": [
+    "Camargo Corrêa",
+    "Odebrecht",
+    "Elkor",
+    "Concord",
+    "Concord-Promproekt"
+   ],
+   "contracts": [
+    "Contrato 20/ACS/2010"
+   ],
+   "cnpj_note": "CNPJ não publicado no texto do TCU; não deduzido",
+   "source": {
+    "doc": "TCU, Acórdão 393/2023",
+    "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/393/2023/Plen%C3%A1rio"
+   }
+  },
+  {
+   "cnpj": "01773463000159",
+   "legal_name": "OMNISYS ENGENHARIA LTDA",
+   "role": "maior contrato do CLA de 2015 a 2026 (radar)",
+   "contracts": [
+    "00015/2024"
+   ],
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/01773463000159"
+   ],
+   "source": {
+    "doc": "Compras.gov.br, dados abertos",
+    "url": "https://dadosabertos.compras.gov.br/modulo-contratos/1_consultarContratos"
+   }
+  }
+ ],
+ "people": [
+  {
+   "name": "Roberto Amaral",
+   "role": "Ministro da Ciência e Tecnologia",
+   "side": "governo",
+   "signed": [
+    {
+     "act": "Tratado Brasil e Ucrânia (Cyclone-4)",
+     "date": "2003-10-21",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2005/Decreto/D5436.htm"
+    }
+   ]
+  },
+  {
+   "name": "Luiz Inácio Lula da Silva",
+   "role": "Presidente da República",
+   "side": "governo",
+   "party_at_time": "PT",
+   "signed": [
+    {
+     "act": "Lei 10.821 (indenização às famílias do VLS-1)",
+     "date": "2003-12-18",
+     "url": "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.821.htm"
+    },
+    {
+     "act": "Decreto 5.436 (promulga o Tratado)",
+     "date": "2005-04-28",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2004-2006/2005/Decreto/D5436.htm"
+    }
+   ]
+  },
+  {
+   "name": "Dilma Rousseff",
+   "role": "Presidenta da República",
+   "side": "governo",
+   "party_at_time": "PT",
+   "signed": [
+    {
+     "act": "Decreto 8.494 (saída do Tratado)",
+     "date": "2015-07-24",
+     "url": "https://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2015/Decreto/D8494.htm"
+    }
+   ]
+  },
+  {
+   "name": "Davi Alcolumbre",
+   "role": "Presidente da Mesa do Congresso Nacional",
+   "side": "Congresso",
+   "signed": [
+    {
+     "act": "Lei 13.814 (extinção da ACS), promulgação da MP 858/2018",
+     "date": "2019-04-17",
+     "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/L13814.htm"
+    }
+   ]
+  },
+  {
+   "name": "Jair Bolsonaro",
+   "role": "Presidente da República",
+   "side": "governo",
+   "party_at_time": "PSL",
+   "signed": [
+    {
+     "act": "Decreto 10.220 (Acordo de Salvaguardas com os EUA)",
+     "date": "2020-02-05",
+     "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/decreto/D10220.htm"
+    }
+   ]
+  }
+ ],
+ "people_note": "Pessoas que assinaram atos oficiais do caso. Nenhuma delas aparece em registro oficial de irregularidade ligado a Alcântara. Os agentes públicos multados pelo TCU no caso da pista estão nos achados, com a situação de cada um.",
+ "head_of_government": [
+  {
+   "name": "Luiz Inácio Lula da Silva",
+   "office": "Presidente da República",
+   "relevant_dates": [
+    "2003-08-22",
+    "2003-10-21",
+    "2010-10-28",
+    "2024-09-19",
+    "2025-12-22"
+   ],
+   "party_at_time": "PT",
+   "party_note": "registro de candidatura no TSE (2002, 2006 e 2022)",
+   "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2002.zip"
+  },
+  {
+   "name": "Dilma Rousseff",
+   "office": "Presidenta da República",
+   "relevant_dates": [
+    "2015-07-24"
+   ],
+   "party_at_time": "PT",
+   "party_note": "registro de candidatura no TSE (2014)",
+   "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2014.zip"
+  },
+  {
+   "name": "Jair Bolsonaro",
+   "office": "Presidente da República",
+   "relevant_dates": [
+    "2019-03-18",
+    "2019-04-17",
+    "2020-12-08"
+   ],
+   "party_at_time": "PSL",
+   "party_note": "registro de candidatura no TSE (2018)",
+   "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip"
+  }
+ ],
+ "governors": [
+  {
+   "name": "José Reinaldo Tavares",
+   "office": "Governador do Maranhão",
+   "relevant_dates": [
+    "2003-08-22",
+    "2003-10-21"
+   ],
+   "party_at_time": "PFL",
+   "party_note": "registro de candidatura no TSE (2002)",
+   "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2002.zip"
+  },
+  {
+   "name": "Roseana Sarney",
+   "office": "Governadora do Maranhão",
+   "relevant_dates": [
+    "2010-10-28"
+   ],
+   "party_at_time": "PMDB",
+   "party_note": "registro de candidatura no TSE (2010); no cargo desde 17/04/2009, depois da cassação de Jackson Lago pelo TSE (Senado Notícias, 17/04/2009)",
+   "source": "https://www12.senado.leg.br/noticias/materias/2009/04/17/roseana-toma-posse-como-governadora-do-maranhao"
+  },
+  {
+   "name": "Flávio Dino",
+   "office": "Governador do Maranhão",
+   "relevant_dates": [
+    "2015-07-24",
+    "2019-04-17",
+    "2020-12-08"
+   ],
+   "party_at_time": "PC do B",
+   "party_note": "registro de candidatura no TSE (2014 e 2018)",
+   "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2014.zip"
+  },
+  {
+   "name": "Carlos Brandão",
+   "office": "Governador do Maranhão",
+   "relevant_dates": [
+    "2024-09-19",
+    "2025-12-22"
+   ],
+   "party_at_time": "PSB",
+   "party_note": "registro de candidatura no TSE (2022)",
+   "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
+  }
+ ],
+ "people_gaps": [
+  "Partido de João Figueiredo (1983) e de José Sarney (1986) e os governadores do Maranhão nessas datas: sem fonte oficial lida.",
+  "Quem assinou o Contrato 20/ACS/2010 pela ACS: não aparece nos textos do TCU lidos."
+ ],
+ "findings": [
+  {
+   "body": "TCU",
+   "process": "TC 035.229/2015-2",
+   "decision": "Acórdão 2727/2017-Plenário (relator Marcos Bemquerer)",
+   "date": "2017-12-06",
+   "summary_quote": "o ponto mais sensível e passível de crítica de todo o processo foi a empresa binacional ACS ter sido criada, com consequente necessidade de a União aportar recursos públicos periodicamente, sem que houvesse razoável garantia técnica, comercial, ambiental e até mesmo política de que a empreitada seria viável",
+   "status": "falhas de planejamento (tipificação \"Falhas/impropriedades\"); sem débito; \"não se vislumbra culpabilidade administrativa\" na interrupção",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2727/2017/Plen%C3%A1rio"
+  },
+  {
+   "body": "TCU",
+   "process": "TC 044.653/2021-2",
+   "decision": "Acórdão 393/2023-Plenário (relator Weder de Oliveira)",
+   "date": "2023-03-08",
+   "summary_quote": "não há comprovação de que seus valores totais foram realmente executados, o que levou a incertezas dos quantitativos executados no contrato, impactando na possibilidade de pagamentos indevidos",
+   "status": "indício de falhas de medição e em aditivos, sem dano apurado; na amostra \"não foi constatado sobrepreço\"; prazo prorrogado por 730 dias (Acórdão 696/2024); monitoramento TC 008.559/2023-6 aberto em 2026-10-07",
+   "about_this_contract": "Contrato 20/ACS/2010",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/393/2023/Plen%C3%A1rio"
+  },
+  {
+   "body": "TCU",
+   "process": "TC 010.419/2014-4 (tomada de contas especial)",
+   "decision": "Acórdão 4033/2020-Plenário, alterado pelo Acórdão 676/2023",
+   "date": "2020-12-08",
+   "summary_quote": "IMPRESTABILIDADE DOS SERVIÇOS EXECUTADOS, EM DECORRÊNCIA DE DEFEITOS CONSTRUTIVOS ATESTADOS POR PERÍCIA INDEPENDENTE",
+   "status": "condenação no TCU: débito de R$ 6.641.941,26 nominais (20 parcelas de 2007 a 2009, mais correção e juros) e multa de R$ 1.300.000,00 à Prescon; multas a seis agentes públicos, pagas por cinco deles e quitadas (Acórdão 380/2025) e por Carlos Henrique Santoro (Acórdão 676/2023); recursos da empresa rejeitados (Acórdãos 1490/2023, 2116/2023, 13/2024); cobrança executiva TC 010.264/2024-8",
+   "about_this_contract": "Contrato 68/GAP-RJ/2006 (pista de pouso do CLA)",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/676/2023/Plen%C3%A1rio",
+   "people_named": [
+    {
+     "name": "Filipe Augusto Cinque de Proença Franco",
+     "role_in_record": "ex-presidente da Comissão de Fiscalização",
+     "fine_brl": 16000.0,
+     "status": "multa paga, quitação (Acórdão 380/2025)"
+    },
+    {
+     "name": "João Paulo Boia",
+     "role_in_record": "ex-presidente da Comissão de Fiscalização",
+     "fine_brl": 8000.0,
+     "status": "multa paga, quitação (Acórdão 380/2025)"
+    },
+    {
+     "name": "Amilton de Albuquerque Santos",
+     "role_in_record": "ex-presidente da Comissão de Fiscalização",
+     "fine_brl": 16000.0,
+     "status": "multa paga, quitação (Acórdão 380/2025)"
+    },
+    {
+     "name": "Herman Rubens Walenkamp",
+     "role_in_record": "ex-diretor de Engenharia da Aeronáutica",
+     "fine_brl": 24000.0,
+     "status": "multa paga, quitação (Acórdão 380/2025)"
+    },
+    {
+     "name": "Israel Batista Ferreira",
+     "role_in_record": "agente público responsável no processo",
+     "fine_brl": 24000.0,
+     "status": "multa paga, quitação (Acórdão 380/2025)"
+    },
+    {
+     "name": "Carlos Henrique Santoro",
+     "role_in_record": "diretor do Grupamento de Apoio do Rio de Janeiro",
+     "fine_brl": 5000.0,
+     "status": "multa paga, quitação (Acórdão 676/2023)"
+    }
+   ],
+   "people_note": "Débito só da empresa depois do recurso (Acórdão 676/2023). Cargos como o TCU os escreve no Acórdão 3037/2009; o de Israel Batista Ferreira não aparece nos trechos lidos."
+  },
+  {
+   "body": "CGU e TCU",
+   "process": "TC 028.138/2014-7",
+   "decision": "Acórdão 8917/2021-Segunda Câmara (relator André de Carvalho)",
+   "date": "2021-07-06",
+   "summary_quote": "a existência de sobrepreço sob o montante de R$ 38.549.273,22 (data-base: novembro de 2012), equivalendo a 47,8% do valor contratual",
+   "status": "indício da CGU; contrato anulado pela AEB em 25/11/2013 e valores pagos a maior glosados; representação \"prejudicada por perda de objeto\"",
+   "about_this_contract": "Contrato 16/2012 (aeródromo do CLA)",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/8917/2021/Segunda%20C%C3%A2mara"
+  },
+  {
+   "body": "TCU",
+   "process": "TC 021.737/2009-4",
+   "decision": "Acórdão 2630/2019-Plenário (relator Raimundo Carreiro)",
+   "date": "2019-10-30",
+   "summary_quote": "os autos não revelam indícios de irregularidades associados a esses dois objetos",
+   "status": "representação sobre a licitação da ACS encerrada por perda de objeto",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2630/2019/Plen%C3%A1rio"
+  },
+  {
+   "body": "Corte Interamericana de Direitos Humanos",
+   "process": "Caso Comunidades Quilombolas de Alcântara vs. Brasil (Série C nº 548)",
+   "decision": "Sentença",
+   "date": "2024-11-21",
+   "summary_quote": "declarou internacionalmente responsável a República Federativa do Brasil [...] por violações de direitos humanos de 171 comunidades quilombolas localizadas no município de Alcântara",
+   "status": "condenação internacional; indenização de US$ 4.000.000,00 às comunidades e US$ 40.000,00 de custas; pagamento não confirmado",
+   "url": "https://www.corteidh.or.cr/docs/casos/articulos/resumen_548_por.pdf"
+  }
+ ],
+ "rumor_check": {
+  "claim": "o lugar ainda seria usado para desviar e lavar dinheiro (pista do autor, de conversa; D108)",
+  "official_record_of_laundering": false,
+  "official_record_of_current_diversion": false,
+  "conclusion": "Nenhum registro oficial de lavagem de dinheiro ligado a Alcântara, nem de desvio em curso na base. Existem três registros oficiais, cada um com a sua situação: condenação do TCU por obra defeituosa na pista (2006 a 2009); indício do TCU de falhas de medição no maior contrato da ACS (2010 a 2015), em apuração; indício da CGU de sobrepreço no aeródromo (2012), corrigido com o contrato anulado. Pela regra D107, o boato não entra no site.",
+  "searched": [
+   "TCU: acórdãos e processos com \"Alcântara Cyclone Space\" e \"Centro de Lançamento de Alcântara\", 1999 a 2026 (41 acórdãos baixados)",
+   "CGU: e-Aud, \"Alcântara\", \"Cyclone\", \"Centro de Lançamento\", \"Agência Espacial\" (8 relatórios baixados); Operações Especiais 2009 e 2010",
+   "Polícia Federal: notícias em gov.br/pf e busca restrita a gov.br",
+   "MPF: busca do site e na web",
+   "STF, STJ, TRF1: busca na web",
+   "Câmara (API, \"Cyclone\" desde 2003) e Senado"
+  ],
+  "outside_scope_note": "A Operação Orthoptera (CGU e PF, 2009) foi sobre a conta do FUNDEB da prefeitura de Alcântara, não sobre a base."
+ },
+ "terms_check": {
+  "terms": [
+   "lavagem de dinheiro",
+   "lavagem de capitais",
+   "desvio de recursos",
+   "desvio de verbas",
+   "peculato",
+   "fraude",
+   "superfaturamento",
+   "sobrepreco",
+   "propina",
+   "corrupcao",
+   "dano ao erario"
+  ],
+  "control": "Texto de controle: houve lavagem de dinheiro e desvio de recursos com sobrepreço.",
+  "found": {
+   "ACÓRDÃO 3037/2009 ATA 53/2009 - PLENÁRIO": {
+    "superfaturamento": 26,
+    "sobrepreco": 12,
+    "dano ao erario": 6
+   },
+   "ACÓRDÃO 486/2011 ATA 6/2011 - PLENÁRIO": {},
+   "ACÓRDÃO 681/2011 ATA 9/2011 - PLENÁRIO": {},
+   "ACÓRDÃO 46/2012 ATA 1/2012 - PLENÁRIO": {
+    "superfaturamento": 7
+   },
+   "ACÓRDÃO 121/2012 ATA 2/2012 - PLENÁRIO": {
+    "superfaturamento": 7,
+    "sobrepreco": 14,
+    "dano ao erario": 7
+   },
+   "ACÓRDÃO 1814/2012 ATA 8/2012 - SEGUNDA CÂMARA": {
+    "fraude": 1,
+    "dano ao erario": 1
+   },
+   "ACÓRDÃO DE RELAÇÃO 1852/2012 ATA 11/2012 - PRIMEIRA CÂMARA": {},
+   "ACÓRDÃO DE RELAÇÃO 3466/2007 ATA 44/2007 - SEGUNDA CÂMARA": {},
+   "ACÓRDÃO 2334/2012 ATA 34/2012 - PLENÁRIO": {
+    "fraude": 1,
+    "sobrepreco": 1
+   },
+   "ACÓRDÃO DE RELAÇÃO 2047/2012 ATA 30/2012 - PLENÁRIO": {},
+   "ACÓRDÃO DE RELAÇÃO 3314/2012 ATA 50/2012 - PLENÁRIO": {},
+   "ACÓRDÃO DE RELAÇÃO 2656/2013 ATA 38/2013 - PLENÁRIO": {},
+   "ACÓRDÃO 2932/2013 ATA 42/2013 - PLENÁRIO": {},
+   "ACÓRDÃO 3417/2013 ATA 48/2013 - PLENÁRIO": {},
+   "ACÓRDÃO DE RELAÇÃO 811/2014 ATA 6/2014 - SEGUNDA CÂMARA": {},
+   "ACÓRDÃO 867/2010 ATA 13/2010 - PLENÁRIO": {
+    "superfaturamento": 1,
+    "sobrepreco": 21,
+    "dano ao erario": 1
+   },
+   "ACÓRDÃO 3188/2016 ATA 50/2016 - PLENÁRIO": {},
+   "ACÓRDÃO 2941/2017 ATA 9/2017 - SEGUNDA CÂMARA": {},
+   "ACÓRDÃO 2727/2017 ATA 50/2017 - PLENÁRIO": {},
+   "ACÓRDÃO 2630/2019 ATA 42/2019 - PLENÁRIO": {},
+   "ACÓRDÃO 4033/2020 ATA 47/2020 - PLENÁRIO": {
+    "superfaturamento": 7,
+    "dano ao erario": 16
+   },
+   "ACÓRDÃO DE RELAÇÃO 8917/2021 ATA 23/2021 - SEGUNDA CÂMARA": {
+    "sobrepreco": 3
+   },
+   "ACÓRDÃO 18369/2021 ATA 38/2021 - SEGUNDA CÂMARA": {
+    "superfaturamento": 35,
+    "sobrepreco": 100
+   },
+   "ACÓRDÃO 1705/2023 ATA 34/2023 - PLENÁRIO": {
+    "fraude": 2,
+    "superfaturamento": 3,
+    "sobrepreco": 6,
+    "corrupcao": 10,
+    "dano ao erario": 8
+   },
+   "ACÓRDÃO 676/2023 ATA 13/2023 - PLENÁRIO": {
+    "dano ao erario": 32
+   },
+   "ACÓRDÃO 1914/2022 ATA 32/2022 - PLENÁRIO": {
+    "superfaturamento": 1
+   },
+   "ACÓRDÃO 393/2023 ATA 8/2023 - PLENÁRIO": {
+    "sobrepreco": 1,
+    "dano ao erario": 3
+   },
+   "ACÓRDÃO 1490/2023 ATA 29/2023 - PLENÁRIO": {
+    "dano ao erario": 3
+   },
+   "ACÓRDÃO DE RELAÇÃO 2116/2023 ATA 44/2023 - PLENÁRIO": {},
+   "ACÓRDÃO DE RELAÇÃO 13/2024 ATA 1/2024 - PLENÁRIO": {},
+   "ACÓRDÃO DE RELAÇÃO 282/2024 ATA 6/2024 - PLENÁRIO": {},
+   "ACÓRDÃO DE RELAÇÃO 696/2024 ATA 15/2024 - PLENÁRIO": {},
+   "ACÓRDÃO 1702/2025 ATA 29/2025 - PLENÁRIO": {
+    "superfaturamento": 3,
+    "sobrepreco": 45,
+    "dano ao erario": 5
+   },
+   "ACÓRDÃO DE RELAÇÃO 380/2025 ATA 5/2025 - PLENÁRIO": {
+    "dano ao erario": 1
+   },
+   "ACÓRDÃO 2740/2025 ATA 47/2025 - PLENÁRIO": {
+    "superfaturamento": 2,
+    "sobrepreco": 4
+   },
+   "ACÓRDÃO 2076/2007 ATA 41/2007 - PLENÁRIO": {},
+   "ACÓRDÃO 825/2007 ATA 18/2007 - PLENÁRIO": {
+    "sobrepreco": 10,
+    "dano ao erario": 7
+   },
+   "ACÓRDÃO 2650/2007 ATA 51/2007 - PLENÁRIO": {
+    "sobrepreco": 8,
+    "dano ao erario": 5
+   },
+   "ACÓRDÃO 397/2008 ATA 07/2008 - PLENÁRIO": {
+    "superfaturamento": 3,
+    "sobrepreco": 94,
+    "dano ao erario": 6
+   },
+   "ACÓRDÃO 1081/2008 ATA 22/2008 - PLENÁRIO": {
+    "desvio de recursos": 1,
+    "dano ao erario": 2
+   },
+   "ACÓRDÃO 1952/2008 ATA 36/2008 - PLENÁRIO": {},
+   "CGU e-Aud 1280249": {
+    "corrupcao": 1
+   },
+   "CGU e-Aud 1393049": {
+    "corrupcao": 1
+   },
+   "CGU e-Aud 1701804": {
+    "corrupcao": 1
+   },
+   "CGU e-Aud 856035": {
+    "corrupcao": 1
+   },
+   "CGU e-Aud 858469": {},
+   "CGU e-Aud 861668": {
+    "fraude": 4,
+    "dano ao erario": 12
+   },
+   "CGU e-Aud 861705": {
+    "superfaturamento": 1,
+    "sobrepreco": 4,
+    "dano ao erario": 9
+   },
+   "CGU e-Aud 862706": {
+    "dano ao erario": 1
+   }
+  },
+  "note": "\"lavagem de dinheiro\" e \"lavagem de capitais\": 0 em todos os documentos. \"desvio de recursos\": 1, no Acórdão 1081/2008, na fala dos recorrentes (\"não houve desvio de recursos\"). Os acórdãos com muitos \"sobrepreço\" ou \"superfaturamento\" são os da pista, do edital de 2006 (corrigido) e outros processos que só citam o CLA de passagem (Rodoanel, BR-466, Hospital de Natal, Calha Norte)."
+ },
+ "accident": {
+  "date": "2003-08-22",
+  "deaths": 21,
+  "deaths_quote": "resultou na morte de 21 técnicos do Instituto de Aeronáutica e Espaço (IAE/CTA)",
+  "deaths_source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2076/2007/Plen%C3%A1rio",
+  "report": {
+   "title": "Relatório da Investigação do Acidente ocorrido com o VLS-1 V03, em 22 de agosto de 2003, em Alcântara, Maranhão",
+   "issuer": "Ministério da Defesa, Comando da Aeronáutica, Departamento de Pesquisas e Desenvolvimento",
+   "date": "2004-02-10",
+   "copy_url": "http://www.aereo.jor.br/downloads/VLS-1_V03_Relatorio_Final.pdf",
+   "copy_note": "cópia fora do governo, a mesma citada pelo IPEA (TD 2423, 2018); sem cópia oficial achada",
+   "conclusions_quotes": [
+    "o acidente teve início com o funcionamento intempestivo, porém nominal, do propulsor A do primeiro estágio",
+    "Não foi possível, entretanto, identificar com precisão se uma dessas duas hipóteses foi a causa do acionamento do detonador",
+    "não foi identificada falha ativa (erro ou violação com resultados imediatos) que tenha, diretamente, dado início ao acidente",
+    "foram identificadas falhas latentes",
+    "a longa convivência do projeto com a escassez de recursos humanos e materiais pode ter conduzido a uma dificuldade crescente em perceber a degradação das condições de trabalho e da segurança"
+   ]
+  },
+  "compensation": {
+   "law": "Lei 10.821, de 18/12/2003",
+   "url": "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.821.htm",
+   "minimum_per_victim_brl": 100000.0,
+   "education_grant_brl_month": 400.0,
+   "quote": "Em nenhuma hipótese o valor da indenização será inferior a R$ 100.000,00 (cem mil reais)",
+   "total_paid": null,
+   "total_paid_note": "não achado em fonte oficial aberta"
+  }
+ },
+ "quilombolas": {
+  "families_moved": {
+   "1986": "200 famílias (829 pessoas)",
+   "by_2001": "312 famílias de 31 comunidades, em sete agrovilas",
+   "source": "https://www.corteidh.or.cr/docs/casos/articulos/resumen_548_por.pdf"
+  },
+  "territory_rtid_ha": 78105.3466,
+  "rtid_date": "2008-11-04",
+  "cla_area_ha": {
+   "rtid_2008": 8713.183,
+   "agreement_2024": 9256,
+   "registry_2025": 8903
+  },
+  "agreement": {
+   "date": "2024-09-19",
+   "url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/mediacao-liderada-pela-agu-assegura-acordo-entre-comunidades-quilombolas-de-alcantara-e-programa-espacial-brasileiro"
+  },
+  "title_issued": {
+   "date": "2026-03-24",
+   "area_ha": 45900,
+   "quote": "O título de domínio entregue nessa terça-feira beneficiará 45,9 mil hectares",
+   "url": "https://www.gov.br/mdh/pt-br/assuntos/noticias/2026/marco/governo-do-brasil-concede-titulo-de-dominio-do-territorio-quilombola-a-comunidade-de-alcantara-ma"
+  },
+  "titled_share_computed": 0.5877,
+  "iachr_court": {
+   "judgment_date": "2024-11-21",
+   "communities": 171,
+   "indemnity_usd": 4000000.0,
+   "costs_usd": 40000.0,
+   "paid": null
+  }
+ },
+ "safeguards_agreement_usa": {
+  "signed": "2019-03-18",
+  "congress_approval": "Decreto Legislativo nº 64, de 19/11/2019",
+  "in_force": "2019-12-16",
+  "promulgation": "Decreto 10.220, de 05/02/2020",
+  "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/decreto/D10220.htm",
+  "revenue_clause_quote": "poderá utilizar os recursos financeiros obtidos por intermédio das Atividades de Lançamento para o desenvolvimento e aperfeiçoamento do Programa Espacial Brasileiro"
+ },
+ "commercial_launches": [
+  {
+   "date": "2023-03",
+   "vehicle": "HANBIT-TLV (Innospace)",
+   "kind": "ensaio suborbital",
+   "source": "https://www.gov.br/aeb/pt-br/assuntos/noticias/operacao-astrolabio-saiba-mais-sobre-o-lancamento-experimental-do-foguete-hanbit-tvl"
+  },
+  {
+   "date": "2025-12-22",
+   "vehicle": "HANBIT-Nano (Innospace)",
+   "kind": "primeiro lançamento comercial orbital; veículo perdido após a decolagem",
+   "source": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/2025/12/nota-oficial-mcti-reafirma-compromisso-com-programa-espacial-apos-lancamento-comercial-em-alcantara"
+  },
+  {
+   "date": "2026-08-19",
+   "vehicle": "SEBIT (Innospace)",
+   "kind": "voo de teste suborbital",
+   "source": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/noticias-julho-outubro-2026/primeiro-voo-teste-do-foguete-sebit-permitiu-coleta-de-dados-em-condicoes-reais-de-voo"
+  }
+ ],
+ "media": [
+  {
+   "file": "docs/superpowers/previews/assets/cases/alcantara/launch-towers-cla-2021.jpg",
+   "caption": "2021: torres do setor de lançamento do Centro de Lançamento de Alcântara",
+   "author": "Neila Rocha (ASCOM/SEAPC/MCTI)",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Centro_de_Lan%C3%A7amento_de_Alc%C3%A2ntara_(51187445531).jpg",
+   "date": "2021-05-13",
+   "modification": "reduzida para 960 x 639 px, sem recorte",
+   "shows_the_work": true
+  },
+  {
+   "file": "docs/superpowers/previews/assets/cases/alcantara/vls-pad-wreck-2003.jpg",
+   "caption": "2003: a plataforma do VLS destruída no acidente de 22 de agosto",
+   "author": "Rose Brasil/ABr (Agência Brasil)",
+   "license": "Attribution (Agência Brasil)",
+   "license_url": "https://commons.wikimedia.org/wiki/Template:Attribution",
+   "page": "https://commons.wikimedia.org/wiki/File:2003_Alc%C3%A2ntara_VLS_accident.jpg",
+   "date": "2003-08-25",
+   "modification": "reduzida para 960 x 629 px, sem recorte",
+   "shows_the_work": true
+  }
+ ],
+ "explain_simply": [
+  {
+   "text": "Em Alcântara, no Maranhão, o Brasil tem um lugar de onde sobem foguetes, porque fica pertinho da linha do Equador.",
+   "source": "https://www.gov.br/aeb/pt-br/assuntos/noticias/fab-mobiliza-400-profissionais-para-primeiro-lancamento-comercial-do-brasil"
+  },
+  {
+   "text": "Em 2003 o Brasil e a Ucrânia criaram juntos uma empresa para lançar de lá um foguete ucraniano. O Brasil pôs R$ 483,9 milhões, o foguete nunca subiu e a empresa foi fechada por lei em 2019.",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2727/2017/Plen%C3%A1rio"
+  },
+  {
+   "text": "O tribunal que confere as contas do governo disse que o projeto foi mal planejado, e ainda manda o governo conferir se tudo o que foi pago numa obra grande foi mesmo feito.",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/393/2023/Plen%C3%A1rio"
+  },
+  {
+   "text": "Em 2003 um foguete brasileiro pegou fogo na plataforma antes de subir e 21 técnicos morreram. A investigação achou falhas de segurança antigas, e uma lei pagou indenização às famílias.",
+   "source": "https://www.planalto.gov.br/ccivil_03/leis/2003/l10.821.htm"
+  },
+  {
+   "text": "Para fazer a base, famílias quilombolas foram tiradas das suas terras nos anos 1980. Em 2024 um tribunal internacional disse que o Brasil errou com elas, e em 2026 o governo entregou o título de uma parte das terras.",
+   "source": "https://www.corteidh.or.cr/docs/casos/articulos/resumen_548_por.pdf"
+  }
+ ],
+ "card": {
+  "title": "Alcântara: a base de foguetes e a empresa com a Ucrânia",
+  "subtitle": "O Brasil pôs R$ 483,9 mi numa empresa com a Ucrânia; nenhum foguete subiu",
+  "image": "docs/superpowers/previews/assets/cases/alcantara/launch-towers-cla-2021.jpg",
+  "photo": "docs/superpowers/previews/assets/cases/alcantara/launch-towers-cla-2021.jpg",
+  "stats": [
+   {
+    "label": "Investimento total (capital pago pelo Brasil à ACS)",
+    "display": "R$ 483,9 mi",
+    "note": "ação 0B18, 2007 a 2016, soma das ordens bancárias (TCU, Acórdão 2727/2017)"
+   },
+   {
+    "label": "Contrato inicial (obras do sítio, 2010)",
+    "display": "R$ 369,3 mi",
+    "note": "Contrato 20/ACS/2010; valor final R$ 488,3 mi mais US$ 20,6 mi (TCU, Acórdão 393/2023)"
+   },
+   {
+    "label": "Lançamentos do Cyclone-4",
+    "display": "0",
+    "note": "empresa extinta pela Lei 13.814/2019"
+   },
+   {
+    "label": "Achado do TCU",
+    "display": "falhas de planejamento",
+    "note": "Acórdão 2727/2017; pagamentos do maior contrato sem encontro de contas (Acórdão 393/2023)"
+   }
+  ],
+  "head": {
+   "investment_total": {
+    "label": "Investimento total (capital pago pelo Brasil à ACS)",
+    "value_brl": 483882139.92,
+    "display": "R$ 483,9 mi",
+    "note": "capital integralizado pelo Brasil na Alcântara Cyclone Space, ação 0B18, 2007 a 2016, nominal (TCU, Acórdão 2727/2017)"
+   },
+   "initial_contract": {
+    "label": "Contrato inicial (obras do sítio, 2010)",
+    "value_brl": 369276513.31,
+    "display": "R$ 369,3 mi",
+    "note": "Contrato 20/ACS/2010 com o Consórcio Cyclone-4, valor inicial; pago até a auditoria R$ 262,5 mi (TCU, Acórdão 393/2023)"
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "ACS: soma das ordens bancárias por ano = total do TCU (Acórdão 2727/2017, Tabela 13)",
+   "computed": "483882139.92",
+   "official": "483882139.92",
+   "ok": true
+  },
+  {
+   "check": "ACS: Tabela 12, moeda + rendimentos + ressarcimento AEB = gasto fim + gasto meio + saldo",
+   "computed": "516190654.00",
+   "official": "516190654.00",
+   "ok": true
+  },
+  {
+   "check": "Pista do CLA: soma das 20 parcelas do débito (Acórdão 676/2023)",
+   "computed": "6641941.26",
+   "official": "6641941.26",
+   "ok": true
+  },
+  {
+   "check": "UG 120627, 2019: pago no ano + restos pagos = total",
+   "computed": "153016416.88",
+   "official": "153016416.88",
+   "ok": true
+  },
+  {
+   "check": "UG 120627, 2020: pago no ano + restos pagos = total",
+   "computed": "27249348.98",
+   "official": "27249348.98",
+   "ok": true
+  },
+  {
+   "check": "UG 120013+120627, 2021: pago no ano + restos pagos = total",
+   "computed": "31618912.82",
+   "official": "31618912.82",
+   "ok": true
+  },
+  {
+   "check": "UG 120013, 2022: pago no ano + restos pagos = total",
+   "computed": "41343259.49",
+   "official": "41343259.49",
+   "ok": true
+  },
+  {
+   "check": "UG 120013, 2023: pago no ano + restos pagos = total",
+   "computed": "41961566.91",
+   "official": "41961566.91",
+   "ok": true
+  },
+  {
+   "check": "UG 120013, 2024: pago no ano + restos pagos = total",
+   "computed": "38671268.62",
+   "official": "38671268.62",
+   "ok": true
+  },
+  {
+   "check": "UG 120013, 2025: pago no ano + restos pagos = total",
+   "computed": "56802527.77",
+   "official": "56802527.77",
+   "ok": true
+  },
+  {
+   "check": "UG 120013, 2026: pago no ano + restos pagos = total",
+   "computed": "25324726.19",
+   "official": "25324726.19",
+   "ok": true
+  }
+ ],
+ "not_confirmed": [
+  "Gastos das UGs do CLA de 2015 a 2018.",
+  "Receita da União com os contratos comerciais (Innospace, C6).",
+  "Desfecho da ação da União contra a Prescon (16ª Vara Federal do RJ, 2010.51.01.019863-8) e pagamento do débito do TCU.",
+  "Conclusão do encontro de contas da ACS pelo MCTI.",
+  "Pagamento da indenização da Corte IDH.",
+  "Total pago às famílias das vítimas do VLS-1."
+ ],
+ "companies_note": "Camargo Corrêa e Odebrecht aparecem só como membros do Consórcio Cyclone-4, sem CNPJ no texto do TCU; nenhum achado oficial sobre Alcântara as nomeia como responsáveis.",
+ "media_note": "Fotos do Wikimedia Commons com autor e licença; a da torre não mostra pessoas."
+}

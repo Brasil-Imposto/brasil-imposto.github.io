@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hero Mapa 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/proposals.css">
+<link rel="stylesheet" href="assets/federal-section.css">
+<link rel="stylesheet" href="assets/home-feed.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<style>
+  :root {
+    --ink: #14202B; --muted: #5B6773; --faint: #8A95A1; --line: #E3E7EC;
+    --paper: #FFFFFF; --soft: #F6F8FA; --green: #12803F; --red: #B41E25; --alert: #C2410C;
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: light; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  /* ---------- the site: one full-viewport hero ---------- */
+  .hero { position: relative; height: 100vh; min-height: 860px; overflow: hidden;
+          background: radial-gradient(110% 90% at 50% 50%, #FFFFFF 0%, #F8FAFB 55%, #EEF2F5 100%); }
+  .hero-map { position: absolute; inset: 0; }
+  .hero-map canvas { display: block; }
+  /* z-index 1 makes the label layer its own stacking context, so no state acronym can paint over a modal */
+  .hero-labels { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+  .hero-nav { position: absolute; inset: 0 0 auto 0; display: flex; align-items: center; justify-content: space-between; padding: 22px 32px; z-index: 5; }
+  .wordmark { font-weight: 800; letter-spacing: -.01em; font-size: 16px; }
+  .wordmark i { font-style: normal; color: var(--green); }
+  .wordmark { display: inline-flex; align-items: center; gap: 9px; }
+  .wm-flag { width: 28px; height: 20px; object-fit: cover; border-radius: 4px; box-shadow: 0 0 0 1px rgba(20,32,43,.14); }
+  .hero-nav nav { display: flex; gap: 26px; font-size: 13.5px; font-weight: 600; color: var(--muted); }
+  .hero-copy { position: absolute; left: 24px; top: 76px; width: min(380px, 27vw); z-index: 4; pointer-events: none;
+               padding: 16px 18px 18px; border-radius: 18px; background: rgba(255,255,255,.78); backdrop-filter: blur(10px);
+               box-shadow: 0 8px 30px rgba(20,32,43,.08); border: 1px solid rgba(227,231,236,.8); }
+  .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .hero-copy h1 { font-size: clamp(22px, 2.3vw, 34px); line-height: 1.08; letter-spacing: -.025em; margin: 10px 0 12px; font-weight: 800; }
+  .hero-copy h1 em { font-style: normal; color: var(--green); text-transform: uppercase; letter-spacing: .01em; -webkit-text-stroke: .045em currentColor; paint-order: stroke fill; }
+  .hero-copy p b.caps { color: var(--ink); text-transform: uppercase; letter-spacing: .03em; }
+  .hero-copy p { font-size: 14px; line-height: 1.55; color: var(--muted); margin: 0; }
+  .hero-legend { position: absolute; right: 24px; bottom: 24px; width: min(380px, 28vw); z-index: 4;
+                 padding: 14px 16px 14px; border-radius: 18px; background: rgba(255,255,255,.78); backdrop-filter: blur(10px);
+                 box-shadow: 0 8px 30px rgba(20,32,43,.08); border: 1px solid rgba(227,231,236,.8); }
+  .legend-title { font-size: 11.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .metric-switch { display: inline-flex; gap: 2px; padding: 3px; background: #EDF0F3; border-radius: 99px; margin-bottom: 12px; }
+  .metric-switch button { font: inherit; font-size: 12px; font-weight: 700; color: var(--muted); background: none; border: 0; border-radius: 99px; padding: 6px 13px; cursor: pointer; }
+  .metric-switch button[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(20,32,43,.14); }
+  .legend-bar { height: 10px; border-radius: 99px; }
+  .legend-ends { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; font-weight: 700; margin-top: 7px; }
+  .legend-ends .g { color: var(--green); } .legend-ends .r { color: var(--red); text-align: right; }
+  .data-chip { margin-top: 10px; font-size: 11.5px; color: var(--muted); display: flex; gap: 6px; align-items: center; }
+  .data-chip.warn { color: #6B5310; } .data-chip.warn i { background: #E0A100; }
+  .data-chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; flex: none; }
+  /* D45, GD18: the scale is built from the 26 states; the DF sits at the deepest red, marked "fora da escala" */
+  .df-out { margin-top: 5px; font-size: 11.5px; line-height: 1.35; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+  .df-out i { flex: none; width: 26px; height: 9px; border-radius: 99px; background: repeating-linear-gradient(135deg, #7A0710 0 4px, #9A1A20 4px 7px); }
+  .df-out b { color: #7A0710; }
+  .df-out.top-send i { background: #06592B; }
+  .df-out.top-send b { color: #06592B; }
+  .df-out.green i { background: #06592B; } .df-out.green b { color: #06592B; }
+  .df-out.review i { background: #C4CCD6; } .df-out.review b { color: #5B6573; }
+  /* The hidden attribute loses to "display: flex" above; without this an empty line stayed in the legend. */
+  .df-out[hidden], .union-box[hidden] { display: none; }
+  /* D115: what has no state is the União's, drawn apart from the state colours (the project ink, never green or red) */
+  .union-box { margin-top: 9px; padding: 7px 10px 7px; border-radius: 12px; background: #F2F4F6; border: 1px solid var(--line); border-left: 4px solid var(--ink); }
+  .ub-head { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 7px; margin-bottom: 3px; }
+  .ub-tag { font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: var(--ink); border-radius: 99px; padding: 1px 8px; }
+  .ub-what { font-size: 11px; color: var(--muted); }
+  .ub-grid { display: grid; grid-template-columns: auto 1fr auto auto auto 1fr; column-gap: 5px; row-gap: 1px; align-items: baseline;
+             font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .ub-grid > span { white-space: nowrap; } .ub-grid .ub-n { text-align: right; color: var(--ink); font-weight: 700; }
+  .ub-grid .ub-h { text-align: right; font-size: 9.5px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; color: var(--faint); }
+  .ub-grid .ub-u { color: #fff; background: var(--ink); border-radius: 5px; padding: 0 5px; text-align: right; }
+  .ub-grid .ub-h.ub-hu { color: var(--ink); }
+  .ub-grid .ub-op { color: var(--faint); text-align: center; } .ub-grid .ub-k { padding-right: 4px; color: var(--ink); font-weight: 700; }
+  .ub-pp { margin-top: 3px; font-size: 11px; color: var(--muted); } .ub-pp b { color: var(--ink); }
+  .ub-src { margin-top: 1px; font-size: 10.5px; color: var(--faint); } .ub-src a { color: var(--muted); white-space: nowrap; }
+  .dates-line { margin-top: 6px; font-size: 11px; color: var(--faint); line-height: 1.45; }
+  .dates-line a { color: var(--muted); }
+  .map-notes { background: #fff; border-top: 1px solid var(--line); padding: 26px 24px 30px; }
+  .map-notes .in { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; }
+  .map-notes h3 { margin: 0 0 8px; font-size: 15px; }
+  .map-notes ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+  .map-notes li + li { margin-top: 4px; }
+  .map-notes table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .map-notes td { padding: 5px 6px; border-bottom: 1px solid var(--line); color: var(--muted); vertical-align: top; }
+  .map-notes td:first-child { color: var(--ink); font-weight: 700; white-space: nowrap; }
+  .map-notes td.d { text-align: right; white-space: nowrap; color: var(--ink); font-weight: 700; }
+  @media (max-width: 760px) { .map-notes { padding: 22px 16px; } .map-notes .in { grid-template-columns: 1fr; gap: 18px; } }
+  .dates-line b { color: var(--muted); font-weight: 700; }
+  .hero-contas { position: absolute; left: 24px; bottom: 24px; z-index: 4; width: min(360px, 28vw); }
+  .ctm { display: flex; flex-direction: column; gap: 3px; padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,.86); backdrop-filter: blur(10px);
+         box-shadow: 0 8px 30px rgba(20,32,43,.08); border: 1px solid rgba(227,231,236,.8); border-left: 5px solid #B41E25; }
+  .ctm.pos { border-left-color: #12803F; }
+  .ctm-t { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+  .ctm-v { font-size: 14px; color: var(--muted); } .ctm-v b { font-size: 19px; color: #B41E25; display: block; } .ctm.pos .ctm-v b { color: #12803F; }
+  .ctm-d { font-size: 13px; font-weight: 700; color: var(--ink); margin-top: 4px; } .ctm-d b.g { color: var(--green); } .ctm-d b.r { color: var(--red); } .ctm-d small { display: block; font-size: 11.5px; font-weight: 500; color: var(--faint); }
+  .ctm-go { align-self: flex-start; margin-top: 6px; font: inherit; font-size: 12.5px; font-weight: 800; color: #fff; background: var(--ink); border: 0; border-radius: 99px; padding: 6px 12px; cursor: pointer; }
+  .hint { position: absolute; left: 32px; bottom: 30px; z-index: 4; font-size: 12.5px; color: var(--muted); display: flex; gap: 8px; align-items: center; }
+  .hint kbd { font: inherit; font-weight: 700; background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; }
+
+  .uf-label { font-weight: 800; color: #24303B; letter-spacing: .02em; line-height: 1; pointer-events: none;
+              text-shadow: 0 0 3px rgba(255,255,255,.95), 0 0 1px rgba(255,255,255,.95); }
+  .uf-label.on-dark { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.45); }
+
+  .hero-tooltip { position: absolute; left: 0; top: 0; z-index: 6; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px;
+                  box-shadow: 0 10px 28px rgba(20,32,43,.14); font-size: 12.5px; line-height: 1.45; pointer-events: none; min-width: 190px; max-width: 280px; }
+  .hero-tooltip strong { display: block; font-size: 14px; margin-bottom: 4px; }
+  .hero-tooltip .muted { color: var(--muted); }
+  .hero-tooltip .row { display: flex; justify-content: space-between; gap: 14px; color: var(--muted); }
+  .hero-tooltip .row b { color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .hero-tooltip .verdict { margin-top: 4px; font-weight: 700; }
+  .load-error { position: relative; z-index: 5; max-width: 30rem; margin: 140px auto 0; padding: 14px 18px; border-radius: 8px; background: #fff; color: #10151B; text-align: center; font-weight: 600; }
+  .hero-tooltip .verdict.g { color: var(--green); } .hero-tooltip .verdict.r { color: var(--red); } .hero-tooltip .verdict.rv { color: #5B6573; }
+  .hero-tooltip .click { margin-top: 6px; font-size: 11.5px; color: var(--faint); }
+
+  /* ---------- modal stack ---------- */
+  .modal-layer { position: absolute; inset: 0; z-index: 30; display: none; }
+  .modal-open .modal-layer { display: block; }
+  .modal-backdrop { position: absolute; inset: 0; background: rgba(238,242,245,.62); backdrop-filter: blur(3px); }
+  .modal-panel { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(1080px, calc(100% - 48px)); max-height: calc(100% - 56px);
+                 overflow: auto; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 30px 80px rgba(20,32,43,.22);
+                 animation: rise .22s ease-out; }
+  @keyframes rise { from { opacity: 0; transform: translate(-50%, -47%); } to { opacity: 1; transform: translate(-50%, -50%); } }
+  .modal-head { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 22px; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); }
+  .crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; color: var(--faint); }
+  .crumbs button { font: inherit; color: var(--muted); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .crumbs .here { color: var(--ink); font-weight: 700; }
+  .modal-actions { display: flex; gap: 8px; }
+  .modal-actions button { white-space: nowrap; font: inherit; font-size: 13px; font-weight: 700; color: var(--ink); background: var(--soft); border: 1px solid var(--line); border-radius: 99px; padding: 6px 12px; cursor: pointer; }
+  .modal-body { padding: 20px 26px 22px; }
+  .modal-title { display: flex; gap: 14px; align-items: center; margin-bottom: 16px; }
+  .modal-title h2 { margin: 0; font-size: 26px; letter-spacing: -.02em; }
+  .modal-title .meta { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+  .uf-chip { flex: none; width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-weight: 800; color: #fff; font-size: 17px; text-shadow: 0 1px 2px rgba(0,0,0,.3); box-shadow: inset 0 -4px 0 rgba(0,0,0,.18); }
+  .federal-strip { display: grid; grid-template-columns: 1fr 1.4fr 1.3fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-bottom: 18px; }
+  .federal-strip > div { background: var(--soft); padding: 12px 14px; display: flex; flex-direction: column; gap: 3px; }
+  .federal-strip span { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+  .federal-strip b { font-size: 18px; font-variant-numeric: tabular-nums; }
+  .federal-strip small { color: var(--muted); font-size: 12px; }
+  .federal-strip .verdict.g b { color: var(--green); } .federal-strip .verdict.r b { color: var(--red); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .cols.one { grid-template-columns: 1fr; }
+  .cols section, .modal-body > section { border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+  .modal-body > section { margin-top: 16px; }
+  .modal-body h3 { margin: 0 0 2px; font-size: 15.5px; }
+  .modal-body .sub { margin: 0 0 10px; font-size: 12.5px; color: var(--faint); }
+  .modal-body .note { margin: 12px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+  .bars { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .bars li { display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto 8px; column-gap: 10px; row-gap: 4px; padding: 6px 8px; border-radius: 10px; position: relative; }
+  .bars li.clickable { cursor: pointer; padding-right: 26px; }
+  .bars li.clickable:hover, .bars li.clickable:focus-visible { background: var(--soft); outline: none; }
+  .bar-label { font-size: 13.5px; font-weight: 600; }
+  .bar-label small { display: block; font-weight: 500; color: var(--faint); font-size: 11.5px; }
+  .bar-value { font-size: 13.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .bar-track { grid-column: 1 / -1; background: #EEF1F4; border-radius: 99px; overflow: hidden; }
+  .bar-fill { display: block; height: 100%; background: #3C4A57; border-radius: 99px; }
+  .cols section:last-child .bar-fill { background: #5B6773; }
+  .chev { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 20px; color: var(--faint); }
+  .bars.compare li.self .bar-fill { background: var(--alert); }
+  .bars.compare li.self .bar-label, .bars.compare li.self .bar-value { color: var(--alert); }
+  .cases h3 { margin-bottom: 10px !important; }
+  .case-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+  .case-card { font: inherit; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: #fff; }
+  .case-card:hover { border-color: var(--ink); }
+  .case-card strong { font-size: 14.5px; }
+  .case-card span:last-child { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+  .case-kind { font-size: 10.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--alert); }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+  .facts > div { background: var(--soft); border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; }
+  .facts span { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+  .facts b { font-size: 16px; }
+  .facts small { font-size: 11.5px; color: var(--muted); }
+  table.mini { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.mini th, table.mini td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.mini th { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+  table.mini td small { display: block; color: var(--faint); font-size: 11px; }
+  .people, .findings { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; line-height: 1.5; }
+  .people li { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: baseline; }
+  .people span { color: var(--muted); } .people small { color: var(--faint); }
+  .findings .status { display: inline-block; font-size: 11px; font-weight: 700; background: var(--soft); border: 1px solid var(--line); border-radius: 99px; padding: 1px 8px; color: var(--muted); }
+  .cta-row { margin-top: 18px; display: flex; justify-content: flex-end; }
+  .cta { font: inherit; font-weight: 800; font-size: 14px; color: #fff; background: var(--ink); border: 0; border-radius: 99px; padding: 11px 20px; cursor: pointer; }
+  .cta:hover { background: var(--alert); }
+  .gap { margin-top: 18px; border-radius: 14px; padding: 14px 16px; }
+  .gap.alert { background: #FFF4ED; border: 1px solid #F6C9AE; }
+  .gap.ok { background: #EFF7F1; border: 1px solid #CFE6D6; }
+  .gap p { margin: 6px 0 0; font-size: 14px; line-height: 1.55; }
+  .badge { display: inline-block; font-weight: 800; font-size: 13px; letter-spacing: .08em; color: #fff; background: var(--alert); border-radius: 8px; padding: 5px 10px; }
+  .verdict-box { margin: 0 0 16px; padding: 12px 14px; border-radius: 12px; background: #F2F4F7; border: 1px solid var(--line); }
+  .verdict-box b { font-size: 14px; } .verdict-box p { margin: 4px 0 0; font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+  .note.caveat { margin: -6px 0 16px; padding: 10px 12px; background: #FFF8E6; border: 1px solid #F1DFA8; border-radius: 10px; color: #6B5310; }
+  /* composite state modal (round 4): flag, measure switch, headline, revenue list, spending mosaic */
+  .st-head { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; margin-bottom: 16px; }
+  .st-flag { width: 78px; height: 54px; object-fit: cover; border-radius: 10px; border: 1px solid rgba(20,32,43,.14); box-shadow: 0 4px 12px rgba(20,32,43,.14); background: #fff; }
+  .st-flag.sm { width: 56px; height: 39px; border-radius: 8px; }
+  .st-id h2 { margin: 0; font-size: 27px; letter-spacing: -.02em; } .st-id p { margin: 3px 0 0; color: var(--muted); font-size: 14px; }
+  .federal-strip b small, .rev-list b small, .tile .tv small { font-size: .72em; font-weight: 600; color: inherit; opacity: .75; }
+  .modal-sources { margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .modal-sources a { color: var(--ink); }
+
+  /* ---------- the design notes below the site ---------- */
+  .doc { max-width: 1180px; margin: 0 auto; padding: 44px 24px 96px; }
+  .panel { margin-top: 22px; background: var(--soft); border: 1px solid var(--line); border-radius: 20px; padding: 22px 24px; }
+  .kicker { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+  .doc h2 { margin: 8px 0 10px; font-size: 26px; letter-spacing: -.02em; }
+  .doc p, .doc li { color: var(--muted); line-height: 1.65; font-size: 14.5px; }
+  .checks { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .checks li { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; }
+  .checks b { color: var(--ink); }
+  footer.doc-foot { margin-top: 28px; font-size: 12.5px; color: var(--faint); line-height: 1.6; }
+
+  /* Narrow desktops and tablets: the cards leave the map (they covered the coast and the AC at 1024 px). */
+  /* D96: at 100% the desktop page must look as it does with the browser at 90%. CSS zoom also shrinks
+     vh and vw, so every viewport unit above is divided by the same factor (and the hero's minimum height, 860 px at 90%).
+     Media queries see the real window, so the side layout starts at 1063 px: at 90% that window is 1181 px, where the
+     side layout begins (a 1158 px window got the stacked tablet layout at 100% and the side layout at 90%). */
+  @media (min-width: 1063px) {
+    html { zoom: .9; }
+    .hero { height: calc(100vh / .9); min-height: 860px; }
+    .hero-copy { width: min(380px, calc(27vw / .9)); }
+    .hero-copy h1 { font-size: clamp(22px, calc(2.3vw / .9), 34px); }
+    .hero-legend { width: min(380px, calc(28vw / .9)); }
+    .hero-contas { width: min(360px, calc(28vw / .9)); }
+    .fed-top h2 { font-size: clamp(26px, calc(3vw / .9), 36px); }
+  }
+  @media (min-width: 761px) and (max-width: 1062px) {
+    .hero { height: auto; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "copy copy" "map map" "contas legend"; column-gap: 16px; padding: 70px 24px 24px; }
+    .hero-copy { position: static; grid-area: copy; width: auto; max-width: 720px; }
+    .hero-map { position: relative; inset: auto; grid-area: map; height: 74vh; min-height: 520px; }
+    .hero-contas { position: static; grid-area: contas; width: auto; align-self: start; }
+    .hero-legend { position: static; grid-area: legend; width: auto; }
+    .hint { display: none; }
+  }
+  @media (max-width: 760px) {
+    .hero { height: auto; min-height: 0; display: flex; flex-direction: column; padding-top: 58px; }
+    .hero-nav { padding: 16px; } .hero-nav nav { display: none; }
+    .hero-copy { position: static; width: auto; padding: 6px 16px 0; background: none; box-shadow: none; border: 0; backdrop-filter: none; }
+    .hero-copy h1 { font-size: 25px; }
+    .hero-map { position: relative; inset: auto; aspect-ratio: 20 / 23; }
+    .hero-legend { position: static; width: auto; padding: 0 16px 18px; background: none; box-shadow: none; border: 0; backdrop-filter: none; }
+    .hint { display: none; } .hero-contas { position: static; width: auto; padding: 0 16px 12px; }
+    .modal-layer { position: fixed; }
+    .modal-panel { width: 100%; max-height: 100%; height: 100%; border-radius: 0; }
+    .federal-strip, .cols { grid-template-columns: 1fr; }
+    .modal-body { padding: 16px; }
+    .people li { grid-template-columns: 1fr; gap: 0; }
+    .st-head { grid-template-columns: auto 1fr; } .st-head .mini-switch { grid-column: 1 / -1; justify-self: start; }
+    .checks { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<section class="hero">
+  <header class="hero-nav">
+    <div class="wordmark"><img class="wm-flag" src="assets/flags/br.svg" alt="Bandeira do Brasil"><span>Brasil<i>·</i>Imposto</span></div>
+    <nav><span>Como funciona</span><span>Fontes</span><span>Código aberto</span></nav>
+  </header>
+  <div class="hero-copy">
+    <div class="eyebrow">Dados oficiais, com fonte em cada número</div>
+    <h1>Entenda a <em>economia</em> do Brasil</h1>
+    <p>Valores pagos à União em <b class="caps">impostos</b> e quanto retorna.<br>Selecione um estado para mais detalhes:</p>
+  </div>
+  <div class="hero-map"></div>
+  <aside class="hf-panel-side hf-left" data-scandals hidden aria-label="Maiores escândalos"></aside>
+  <aside class="hf-panel-side hf-right" data-recent hidden aria-label="Maiores gastos e receitas do período"></aside>
+  <div class="hero-contas" data-contas></div>
+  <div class="hero-legend">
+    <div data-period></div>
+    <div class="legend-title">Saldo com a União, por estado</div>
+    <div class="metric-switch" role="group" aria-label="Medida">
+      <button type="button" data-metric="perCapita" aria-pressed="true">Por habitante</button>
+      <button type="button" data-metric="total" aria-pressed="false">Total</button>
+      <button type="button" data-metric="ratio" aria-pressed="false">Proporção</button>
+    </div>
+    <div class="legend-bar"></div>
+    <div class="legend-ends"><span class="g">Envia mais do que recebe</span><span class="r">Recebe mais do que envia</span></div>
+    <div class="df-out" hidden><i></i><span></span></div>
+    <div class="df-out top-send" hidden><i></i><span></span></div>
+    <div class="union-box" data-union hidden></div>
+    <div class="data-chip"><i></i><span>Dados oficiais de 2024: Receita Federal, CGU, Tesouro, Previdência, MDS e IBGE</span></div>
+    <div class="dates-line"></div>
+  </div>
+  <div class="hero-tooltip" hidden></div>
+</section>
+
+<section class="hf-strip" id="recentes-e-escandalos" aria-label="Maiores escândalos, gastos e receitas do período"></section>
+<section class="hf-cake" id="para-onde-vai" data-cake aria-label="Para onde vai o dinheiro da União"></section>
+
+<section class="map-notes" id="como-ler-o-mapa"><div class="in">
+  <div><h3>Como ler o mapa</h3><ul data-map-notes></ul></div>
+  <div><h3>Última divulgação de cada fonte</h3><table data-map-dates></table></div>
+</div></section>
+
+<section class="fed" id="governo-federal">
+  <div class="fed-in">
+    <div class="fed-top">
+      <div>
+        <div class="eyebrow">Abaixo do mapa</div>
+        <h2>O governo federal</h2>
+        <p>2026, de janeiro a julho. As contas da União, quanto ela paga aos servidores, quanto custam os eleitos e para onde vão as emendas.</p>
+      </div>
+    </div>
+    <div class="fed-root" data-fed-main></div>
+  </div>
+</section>
+
+<main class="doc">
+  <div class="kicker">Brasil-Imposto · prévia de design · round 2 · 2026-09-29</div>
+  <h2>O que mudou desde o round 1</h2>
+  <div class="panel">
+    <ul class="checks">
+      <li><b>Opção A, Maquete</b>, como você escolheu. As opções B e C saíram.</li>
+      <li><b>Brasil no centro exato</b> da tela. A câmera mira o centro do Brasil e se afasta até caber a América do Sul inteira.</li>
+      <li><b>Projeção Equal Earth</b>, a que a União Africana adotou. A área do Brasil é 3,07 vezes a da Argentina, como na realidade (3,06).</li>
+      <li><b>Argentina do tamanho certo.</b> Ela parecia grande pela perspectiva da câmera, que aumentava o que estava mais perto. A câmera agora é quase ortogonal.</li>
+      <li><b>Bandeira como fundo do território</b> de cada vizinho, desbotada, com o nome dentro do país. O encaixe do nome é calculado e testado para nunca sair da fronteira.</li>
+      <li><b>Siglas não passam mais por cima</b> do tooltip nem dos modais.</li>
+      <li><b>DF fácil de clicar:</b> virou um botão e tem uma área de captura em volta.</li>
+      <li><b>Modais em sequência:</b> estado, área de despesa, caso e comparação, com trilha de navegação, voltar e Esc.</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2>Limites desta prévia</h2>
+    <ul>
+      <li>O primeiro nível (receitas e despesas de cada governo estadual) usa dados oficiais de 2024 para os 27 estados.</li>
+      <li>Dois casos em SC, os dois com dados oficiais conferidos: a Ponte Hercílio Luz (obra pública) e a frota de Criciúma (preço pago). Nenhum dos dois acende o selo "PARA ONDE FOI O DINHEIRO?", porque os números não sustentam: a obra mais parecida com a ponte custou mais por m², e o teto de Criciúma está abaixo da mediana de outros municípios.</li>
+      <li>A alegação de Criciúma (R$ 500 mil para 6 carros) não foi confirmada nas fontes acessadas. O portal da prefeitura e o site da Câmara bloquearam a consulta automatizada, então ainda falta uma checagem manual.</li>
+      <li>Nomes de empresas e de agentes públicos aparecem só com papel e fonte oficial, sem julgamento. Antes de publicar, revisão jurídica.</li>
+    </ul>
+  </div>
+
+  <footer class="doc-foot">Geometrias: IBGE (estados) e Natural Earth via world-atlas (vizinhos), projeção Equal Earth. Bandeiras: flag-icons (MIT). Renderização: three.js (MIT). Fonte: Manrope.</footer>
+</main>
+
+<script src="assets/bi-data.js"></script>
+<script src="assets/bi-geo.js"></script>
+<script src="assets/proposals.js"></script>
+<script src="assets/cases.js"></script>
+<script src="assets/bi-geo-sc.js"></script>
+<script src="assets/bi-geo-rs.js"></script>
+<script src="assets/bi-geo-df.js"></script>
+<script src="assets/statemap.js"></script>
+<script src="assets/statehero.js"></script>
+<script src="assets/periods.js"></script>
+<script src="assets/contas.js"></script>
+<script src="assets/serieslayer.js"></script>
+<script src="assets/politicians.js"></script>
+<script src="assets/federal-section.js"></script>
+<script src="assets/home-feed.js"></script>
+<script type="module">
+  // Versioned imports: round 1 used the same file names, so a cached copy would silently break this page.
+  import { createHero, legendGradient, T3 } from './assets/hero3d.js?v=r9-1';
+  window.T3 = T3;
+  import { createModals } from './assets/modals.js?v=r5-1';
+
+  // Data comes from the classic scripts above, so the page also opens straight from the file path. Without them the
+  // page says so instead of showing an empty map.
+  if (!window.BI || !window.BI_GEO || !window.BI.series) {
+    document.querySelector('.hero').insertAdjacentHTML('afterbegin', '<p class="load-error" role="alert">Os dados não carregaram. Recarregue a página.</p>');
+    throw new Error('bi-data.js or bi-geo.js did not load');
+  }
+  const geo = window.BI_GEO, states = window.BI.states, budgets = window.BI.budgets, cases = window.BI.cases;
+  document.querySelectorAll('.legend-bar').forEach((b) => { b.style.background = legendGradient(); });
+
+  const params = new URLSearchParams(location.search);
+  const heroEl = document.querySelector('.hero');
+  let modals = null, mapMetric = 'perCapita';
+  const hero = await createHero(heroEl, { geo, onSelect: (uf) => modals && modals.openState(uf, mapMetric) });
+  modals = createModals(heroEl, { states, budgets, cases, geo, colorOf: (uf) => hero.colorOf(uf), onClose: () => hero.clearHover() });
+
+  const bi = (v) => `R$ ${(v / 1e9).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} bi`;
+  const reais = (v) => `R$ ${Math.round(v).toLocaleString('pt-BR')}`;
+  const cents = (v) => `R$ ${v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  // D94, D115: values in tenths of a billion that add up by hand. Largest remainder: each part is rounded down, and the
+  // tenths still missing for the rounded total go to the parts that lost the most, so the parts always sum to the total.
+  const tenths = (vals, total) => {
+    const raw = vals.map((x) => x / 1e8), out = raw.map(Math.floor); let left = Math.round(total / 1e8) - out.reduce((a, x) => a + x, 0);
+    const order = raw.map((x, i) => [x - out[i], i]).sort((a, b) => b[0] - a[0]);
+    for (let k = 0; left > 0 && k < order.length; k++, left--) out[order[k][1]]++;
+    for (let k = order.length - 1; left < 0 && k >= 0; k--, left++) out[order[k][1]]--;
+    return out;
+  };
+  const num1 = (n) => `${n < 0 ? '−' : ''}${(Math.abs(n) / 10).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}`;
+  const biT = (n) => `${n < 0 ? '−' : ''}R$ ${num1(Math.abs(n))} bi`;
+  const tri = (v) => `R$ ${(v / 1e12).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} tri`;
+  // D115: the União block for the map's months. Sent: the Receita national total minus the 27 states. Paid: RTN line 2
+  // plus line 4 minus what returned to the 27 states, with its parts (data/series/federal-spending-two-step-by-uf.json,
+  // built by data/scripts/ug/build_two_step_balance.py, which checks 27 states + União = total to the cent).
+  const unionAt = (rows) => {
+    const S = window.BI.series || {}, TS = S.federal_spending_two_step_by_uf;
+    if (!currentR || !TS || !TS.union || !rows.length || !rows.every((s) => s.ok && s.months === rows[0].months)) return null;
+    const broken = TS.broken_months || {}, ms = currentR.months.filter((m) => !broken[m]).slice(0, rows[0].months);
+    const ti = new Map(TS.months.map((m, i) => [m, i]));
+    if (!ms.every((m) => ti.has(m) && TS.union.official_returned_rtn[ti.get(m)] != null)) return null;
+    const sum = (a) => ms.reduce((x, m) => x + (a[ti.get(m)] || 0), 0), st = (k) => rows.reduce((x, s) => x + (s[k] || 0), 0);
+    let central = sum(TS.no_state.central_benefits);
+    for (const y of new Set(ms.map((m) => m.slice(0, 4)))) {
+      const M = TS.mte_annual[y], my = ms.filter((m) => m.startsWith(y));
+      if (M && my.length === 12) central += M.no_state;
+      else if (M) central += my.reduce((x, m) => x + (TS.union.unemployment_and_wage_bonus_portal_mte_year[ti.get(m)] || 0), 0);
+    }
+    const sent = { official: sum(TS.union.official_revenue), states: st('sent') }; sent.union = sent.official - sent.states;
+    const ret = { official: sum(TS.union.official_returned_rtn), states: st('received') }; ret.union = ret.official - ret.states;
+    const parts = [
+      ['programas nacionais que o arquivo do gasto não põe em nenhum estado (como as folhas das Forças Armadas e as compras do Ministério da Saúde)', sum(TS.no_state.executive)],
+      ['aposentadorias e pensões do INSS pagas além do que o boletim põe por estado', sum(TS.union.inss_rtn) - st('inss')],
+      ['seguro-desemprego, abono e auxílios pagos sem estado', central],
+      ['sentenças judiciais, precatórios e outros pagamentos que só a base do Tesouro traz', sum(TS.union.tesouro_base_executive_not_in_portal)],
+      ['inversões financeiras, como os fundos constitucionais emprestados pelos bancos regionais', sum(TS.union.financial_investments_group_5)],
+      ['pagamentos a entidades privadas, organismos internacionais e ao exterior', sum(TS.union.private_international_abroad)],
+      ['repasses a governos estaduais e municipais que o Portal não põe em nenhum estado', sum(TS.union.public_transfers_tesouro) - st('transfers')],
+      ['Legislativo, Judiciário, MPU e DPU sem estado (Justiça Federal, MPF, DPU)', sum(TS.no_state.other_branches)],
+      ['BPC pago além da série do MDS por estado', sum(TS.union.bpc_rtn) - st('bpc')],
+    ].map(([label, value]) => ({ label, value }));
+    parts.push({ label: 'diferença entre as bases (Tesouro, Portal, MDS e Previdência)', value: ret.union - parts.reduce((a, x) => a + x.value, 0) });
+    ret.parts = parts;
+    return { sent, ret, months: ms.length, population: rows.reduce((a, s) => a + s.population, 0), label: rows[0].label };
+  };
+  // Round 10: the map reads the chosen period. rowsAt() builds one row per state from the time series; a state whose
+  // federal revenue split is not trustworthy for the period (the Receita's 2025 break) gets no colour.
+  let currentR = null;
+  // D138: the DF's position is in review until the flow ledger separates its two sides (D118): no colour, no verdict,
+  // out of the leaders; its numbers still add up in the União table.
+  const DF_REVIEW = false;  // D146: the DF shows the estimate (BIL.federalAt), marked as such
+  const rowsAt = () => states.map((s) => { const f = window.BIL.federalAt(s.uf, currentR); return { uf: s.uf, name: s.name, ...f, returned_per_real: f.ok ? f.received / f.sent : null, label: f.label || currentR.label, inReview: DF_REVIEW && s.uf === 'DF' }; });
+  // GD18: the colour scale is built from the 26 states; the DF is clamped to the deepest colour and marked when it falls
+  // outside (in 2024 and 2026 it receives several times what the 26th state does).
+  const scale26 = (value) => (rows) => {
+    const vs = rows.filter((s) => s.ok && s.uf !== 'DF').map(value); const df = rows.find((s) => s.uf === 'DF');
+    const hi = Math.max(...vs, 1e-9), lo = Math.min(...vs, -1e-9), d = df && df.ok && !df.inReview ? value(df) : null;
+    return { maxPositive: Math.max(hi, 1e-9), maxNegative: Math.max(-lo, 1e-9), dfOut: d != null && (d > hi || d < lo) };
+  };
+  const METRICS = {
+    perCapita: {
+      value: (s) => (s.ok && !s.inReview ? s.perPersonMonth : null),
+      scale: scale26((s) => s.perPersonMonth),
+      line: (s) => (s.perPersonMonth >= 0
+        ? `<div class="verdict g">Enviou ${reais(s.perPersonMonth)} a mais por pessoa, por mês</div>`
+        : `<div class="verdict r">Recebeu ${reais(-s.perPersonMonth)} a mais por pessoa, por mês</div>`),
+    },
+    total: {
+      value: (s) => (s.ok && !s.inReview ? s.balance : null), scale: scale26((s) => s.balance),
+      line: (s) => (s.balance >= 0
+        ? `<div class="verdict g">Enviou ${bi(s.balance)} a mais do que recebeu</div>`
+        : `<div class="verdict r">Recebeu ${bi(-s.balance)} a mais do que enviou</div>`),
+    },
+    ratio: {
+      value: (s) => (s.ok && !s.inReview ? Math.log(s.sent / s.received) : null), scale: scale26((s) => Math.log(s.sent / s.received)),
+      line: (s) => `<div class="verdict ${s.returned_per_real <= 1 ? 'g' : 'r'}">Para cada R$ 1 arrecadado, voltaram ${cents(s.returned_per_real)}</div>`,
+    },
+  };
+  // leaders (D84): the state that sends the most and the one that receives the most, by the period's own number.
+  let rowsNow = [], scaleNow = {}, leaders = {};
+  const HOW = { perCapita: [', por pessoa', ', por pessoa'], total: ['', ''], ratio: [', em proporção ao que recebe', ', em proporção ao que envia'] };
+  // GD33: every number shows the last date the government published it (data/release-dates.json, read at the source).
+  const relDate = (id) => { const r = window.BI.releases[id]; if (!r.date) return r.unchecked ? 'data a conferir' : 'sem data publicada'; const d = r.date; return d.length === 7 ? `${d.slice(5, 7)}/${d.slice(0, 4)}` : `${d.slice(8, 10)}/${d.slice(5, 7)}/${d.slice(0, 4)}`; };
+  const relOf = (id, label) => `${label} · ${relDate(id)}`;
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  const describeFor = (metric) => (uf) => {
+    const s = rowsNow.find((x) => x.uf === uf);
+    if (!s.ok) return `<strong>${s.name}</strong><span class="muted">${s.badMonths && s.badMonths.length ? 'Arrecadação por estado indisponível neste período (problema na divisão por estado da Receita Federal).' : s.twoStepComplete === false ? 'O gasto federal pela regra em duas etapas ainda não foi calculado para este período.' : 'Dados incompletos neste período.'}</span><div class="click">Clique para abrir</div>`;
+    if (s.inReview) return `<strong>${s.name}</strong><span class="muted">${s.label}</span><div class="verdict rv">Posição do DF em revisão</div><span class="muted">A Receita registra no DF o imposto retido por órgãos e empresas com sede em Brasília, inclusive o dos salários que a própria União paga. A conta que separa os dois lados ainda está em construção.</span><div class="click">Clique para abrir</div>`;
+    return `<strong>${s.name}</strong><span class="muted">${s.label}${s.estimatedMonths && s.estimatedMonths.length ? ` · arrecadação estimada em ${s.estimatedMonths.length} ${s.estimatedMonths.length > 1 ? 'meses' : 'mês'}` : ''}</span>
+      <div class="row"><span>Arrecadação federal no estado${s.dfEstimate ? ' (estimativa)' : ''}</span><b>${bi(s.sent)}</b></div>${s.dfEstimate ? `<span class="muted">Estimativa: em cada imposto o DF conta no máximo a sua parte no PIB do Brasil (${(s.dfEstimate.share * 100).toLocaleString('pt-BR', { maximumFractionDigits: 1 })}%, IBGE ${s.dfEstimate.year}); ${bi(s.dfEstimate.excess)} recolhidos em Brasília por sedes e órgãos federais foram para a União.</span>` : ''}
+      <div class="click">${relOf('receita', 'Receita')}</div>
+      <div class="row"><span>Voltou ao estado</span><b>${bi(s.received)}</b></div>
+      <div class="click">${relOf('portal_exec', 'Portal')}, ${relOf('tesouro_base', 'Tesouro')}, ${relOf('beps', 'Previdência')}, ${relOf('mds', 'MDS')}</div>
+      ${METRICS[metric].line(s)}
+      ${leaders.recv && leaders.recv.uf === uf ? `<div class="verdict r" style="font-size:11.5px">O estado que mais recebe da União neste período${HOW[metric][1]}.</div>` : leaders.send && leaders.send.uf === uf ? `<div class="verdict g" style="font-size:11.5px">O estado que mais envia à União neste período${HOW[metric][0]}.</div>` : ''}
+      <div class="click">Clique para abrir</div>`;
+  };
+  const apply = (metric) => {
+    mapMetric = metric;
+    const m = METRICS[metric];
+    rowsNow = rowsAt();
+    scaleNow = m.scale(rowsNow);
+    const okRows = rowsNow.filter((s) => s.ok && m.value(s) != null);
+    leaders = okRows.length ? { send: okRows.reduce((a, s) => (m.value(s) > m.value(a) ? s : a)), recv: okRows.reduce((a, s) => (m.value(s) < m.value(a) ? s : a)) } : {};
+    const sendBox = heroEl.querySelector('.df-out.top-send'), L = leaders.send;
+    sendBox.hidden = !L;
+    if (L) sendBox.querySelector('span').innerHTML = `<b>${L.uf}:</b> ${metric === 'perCapita' ? `enviou ${reais(L.perPersonMonth)} a mais por pessoa, por mês` : metric === 'total' ? `enviou ${bi(L.balance)} a mais` : `voltaram ${cents(L.returned_per_real)} para cada R$ 1`}: o que mais envia.`;
+    hero.setData({ values: Object.fromEntries(rowsNow.map((s) => [s.uf, m.value(s)])), describe: describeFor(metric), scale: scaleNow });
+    const dfRow = rowsNow.find((s) => s.uf === 'DF'), dfBox = heroEl.querySelector('.df-out:not(.top-send)');
+    let dfFacts = [];
+    dfBox.hidden = !scaleNow.dfOut;
+    dfBox.classList.toggle('green', !!(dfRow && dfRow.ok && m.value(dfRow) > 0));
+    dfBox.classList.toggle('review', !!(dfRow && dfRow.inReview));
+    if (dfRow && dfRow.inReview) {
+      dfBox.hidden = false;
+      dfBox.querySelector('span').innerHTML = `<b>DF:</b> em revisão, sem cor. Parte do imposto registrado no DF é retido por sedes em Brasília (<a href="#como-ler-o-mapa">notas ↓</a>).`;
+    }
+    // When the DF is the one that sends the most and sits outside the scale, its own line says so: no second line.
+    if (scaleNow.dfOut && L && L.uf === 'DF') sendBox.hidden = true;
+    if (scaleNow.dfOut) {
+      // The DF sits far beyond every other state; the scale is built from the other 26, so it gets the darkest colour.
+      const v = m.value, others = rowsNow.filter((s) => s.ok && s.uf !== 'DF'), dv = v(dfRow);
+      const next = others.reduce((a, s) => (Math.sign(v(s)) === Math.sign(dv) && Math.abs(v(s)) > Math.abs(v(a)) ? s : a), others[0]);
+      const times = Math.abs(dv / v(next));
+      const amt = metric === 'perCapita' ? `${dfRow.perPersonMonth < 0 ? 'recebeu' : 'enviou'} ${reais(Math.abs(dfRow.perPersonMonth))} a mais por pessoa, por mês` : metric === 'total' ? `${dfRow.balance < 0 ? 'recebeu' : 'enviou'} ${bi(Math.abs(dfRow.balance))} a mais` : `voltaram ${cents(dfRow.returned_per_real)} para cada R$ 1`;
+      // Facts about the DF from the period's own numbers (D114: what the União pays with no state is no longer in the DF).
+      const okRows = rowsNow.filter((s) => s.ok), backPP = (s) => s.received / s.population / s.months;
+      const topBack = okRows.reduce((a, s) => (backPP(s) > backPP(a) ? s : a), okRows[0]);
+      const tax = (s, k) => ((s.byTax || {})[k] || 0), pss = okRows.reduce((a, s) => a + tax(s, 'civil_servant_social_security_pss'), 0);
+      const pssShare = pss > 0 ? Math.round((tax(dfRow, 'civil_servant_social_security_pss') / pss) * 100) : null;
+      dfFacts = [
+        topBack && topBack.uf === 'DF' ? `o DF é também o estado para onde mais volta dinheiro da União por pessoa: ${reais(backPP(dfRow))} por mês${dfRow.fcdf ? `, dos quais ${reais(dfRow.fcdf / dfRow.population / dfRow.months)} do Fundo Constitucional do DF` : ''}` : '',
+        pssShare != null ? `${pssShare}% da contribuição previdenciária dos servidores federais do país foi registrada no DF, porque a Receita conta o imposto retido onde fica a sede de quem paga` : '',
+      ].filter(Boolean);
+      dfBox.querySelector('span').innerHTML = `<b>DF:</b> ${amt}: ${dv < 0 ? 'o que mais recebe' : 'o que mais envia'}.${dv > 0 && pssShare != null ? ` Parte é imposto retido por sedes em Brasília (<a href="#como-ler-o-mapa">notas ↓</a>).` : ''}`;
+    }
+    // D115: the União block. Same months as the map; 27 states + União = the official total of each side.
+    const U = unionAt(rowsNow);
+    const ubox = heroEl.querySelector('[data-union]');
+    ubox.hidden = !U;
+    // One rounding for every place that shows these numbers (legend and notes), so they never disagree by R$ 0,1 bi.
+    const [sS, sU] = U ? tenths([U.sent.states, U.sent.union], U.sent.official) : [], [rS, rU] = U ? tenths([U.ret.states, U.ret.union], U.ret.official) : [];
+    if (U) {
+      // One table that adds up by hand: 27 states + União = official total (R$ bi), and the União per person.
+      const pp = (x) => { const v = Math.round(x / U.population / U.months); return `<b>${v < 0 ? '−' : ''}R$ ${Math.abs(v).toLocaleString('pt-BR')}</b>`; };
+      ubox.innerHTML = `<div class="ub-head"><span class="ub-tag">União</span><span class="ub-what">o que não tem estado · ${esc(U.label)}</span></div>
+        <div class="ub-grid"><span></span><span class="ub-h">27 estados</span><span></span><span class="ub-h ub-hu">União</span><span></span><span class="ub-h">total oficial</span>
+          <span class="ub-k">Entrou</span><span class="ub-n">R$ ${num1(sS)}</span><span class="ub-op">+</span><span class="ub-n ub-u">${num1(sU)}</span><span class="ub-op">=</span><span class="ub-n">R$ ${num1(sS + sU)} bi</span>
+          <span class="ub-k">Pago</span><span class="ub-n">R$ ${num1(rS)}</span><span class="ub-op">+</span><span class="ub-n ub-u">${num1(rU)}</span><span class="ub-op">=</span><span class="ub-n">R$ ${num1(rS + rU)} bi</span></div>
+        <div class="ub-pp">União por pessoa, por mês: entrou ${pp(U.sent.union)}, pago ${pp(U.ret.union)}.</div>
+        <div class="ub-src">Totais: Receita (${tri(U.sent.official)}) e Tesouro, RTN (${tri(U.ret.official)}). <a href="#como-ler-o-mapa">O que é ↓</a></div>`;
+    }
+    const SRC = [['receita', 'Receita'], ['portal_exec', 'Portal, gastos'], ['portal_transf', 'Portal, repasses'], ['tesouro_base', 'Tesouro'], ['beps', 'Previdência'], ['ibge', 'IBGE'], ['mds', 'MDS']];
+    const dated = SRC.map(([id]) => window.BI.releases[id].date).filter(Boolean).sort();
+    heroEl.querySelector('.dates-line').innerHTML = `Divulgado pelo governo de <b>${relDate(SRC.find(([id]) => window.BI.releases[id].date === dated[0])[0])}</b> a <b>${relDate(SRC.find(([id]) => window.BI.releases[id].date === dated[dated.length - 1])[0])}</b> · <a href="#como-ler-o-mapa">datas de cada fonte ↓</a>`;
+    document.querySelector('[data-map-dates]').innerHTML = SRC.map(([id, l]) => { const r = window.BI.releases[id]; return `<tr><td>${l}</td><td>${esc(r.what)}</td><td class="d">${relDate(id)}</td></tr>`; }).join('');
+    heroEl.querySelectorAll('.metric-switch button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.metric === metric)));
+    const chip = heroEl.querySelector('.data-chip span');
+    const broken = rowsNow.some((s) => s.badMonths && s.badMonths.length), gap = rowsNow.some((s) => s.ok === false && !(s.badMonths && s.badMonths.length));
+    const est = rowsNow.some((s) => s.estimatedMonths && s.estimatedMonths.length);
+    const note = window.BIL && window.BIL.estimateNote ? window.BIL.estimateNote() : null;
+    const sda = rowsNow.find((s) => s.ok && s.centralWithoutState);
+    const pending = rowsNow.some((s) => s.twoStepComplete === false);
+    // The card stays short so it never covers the map; the long notes live in the band under the map (#como-ler-o-mapa).
+    chip.innerHTML = broken ? 'A Receita atribuiu ao DF até 25% da arrecadação do país neste período: o mapa fica sem cor.'
+      : pending ? 'O gasto federal pela regra em duas etapas ainda não foi calculado para este período: o mapa fica sem cor.'
+      : gap ? 'Os repasses da União deste período ainda não foram publicados por completo: o mapa fica sem cor.'
+      : est || sda ? `${[est ? 'arrecadação estimada em parte do período' : '', sda ? 'o que não tem estado fica com a União' : ''].filter(Boolean).join('; ').replace(/^./, (c) => c.toUpperCase())}. <a href="#como-ler-o-mapa">Notas ↓</a>`
+      : `Dados oficiais · ${rowsNow[0].label}. <a href="#como-ler-o-mapa">Notas ↓</a>`;
+    heroEl.querySelector('.data-chip').classList.toggle('warn', broken || gap || pending || est || !!sda);
+    const notes = [];
+    if (est && note) notes.push(note.text);
+    if (sda) notes.push(`Benefícios pagos a pessoas do país inteiro por uma unidade central (seguro-desemprego, abono e, em 2020 e 2021, auxílio emergencial e BEm) contam no estado quando o arquivo diz qual é; seguro-desemprego e abono, também no ano inteiro em que o Ministério do Trabalho publica por estado (hoje, 2024). Neste período, ${bi(sda.centralWithoutState)} ficam com a União (GD16, D115).`);
+    if (U) {
+      const P = U.ret.parts.slice().sort((a, b) => b.value - a.value); const pt = tenths(P.map((x) => x.value), rU * 1e8);
+      notes.push(`União, ${U.label}: o que não tem estado é da União (D115). Entrou sem estado ${biT(sU)}: arrecadação federal que o arquivo da Receita não põe em nenhum estado. Pago sem estado ${biT(rU)} = ${P.map((x, i) => `${x.label} ${biT(pt[i])}`).join(' + ')}. Somados aos 27 estados, os dois lados dão o total oficial: a arrecadação da Receita Federal e a despesa mais os repasses do Tesouro (RTN, o mesmo de "As contas do Brasil").`);
+    }
+    if (scaleNow.dfOut) notes.push('A escala de cor é feita com os outros 26 estados. O DF fica muito além de todos eles e aparece na cor mais escura, com o próprio número na legenda.');
+    if (dfFacts.length) notes.push(`DF, ${dfRow.label}: ${dfFacts.join('; ')}.`);
+    if (dfRow && dfRow.dfEstimate) notes.push(`DF, estimativa: a Receita registra no DF o imposto que órgãos e empresas com sede em Brasília retêm ou pagam pelo país inteiro (Lei 9.779/1999, art. 15), inclusive o dos salários que a própria União paga. Em cada imposto, o DF conta no máximo a sua parte no PIB do Brasil (${(dfRow.dfEstimate.share * 100).toLocaleString('pt-BR', { maximumFractionDigits: 1 })}%, IBGE, PIB dos Municípios ${dfRow.dfEstimate.year}); o que passa disso (${bi(dfRow.dfEstimate.excess)} em ${dfRow.label}) vai para a União na tabela abaixo. É uma estimativa: nenhum arquivo aberto separa esse imposto por estado.`);
+    if (dfRow && dfRow.inReview) notes.push('DF em revisão: o DF fica sem cor e fora da comparação entre os estados. A Receita registra no DF o imposto retido por órgãos e empresas com sede em Brasília, inclusive o dos salários que a própria União paga; para saber quanto o DF de fato gera e quanto recebe, os dois lados precisam ser separados, e essa conta (o livro de fluxos) ainda está em construção. Os números do DF continuam somados aos 27 estados na tabela da União.');
+    const dropped = (rowsNow.find((s) => s.droppedMonths && s.droppedMonths.length) || {}).droppedMonths;
+    if (dropped) notes.push(`O arquivo do Portal da Transparência de ${dropped.map((m) => window.BIT.fmtMonth(m)).join(', ')} veio com todos os valores zerados (gerado pela CGU em 01/10/2026). O período é calculado sem esse mês, na arrecadação e no que voltou.`);
+    notes.push('"Voltou" soma os repasses da União, INSS, BPC, Bolsa Família, o Fundo Constitucional do DF e o gasto federal no estado pela regra em duas etapas: vale o estado onde o dinheiro foi aplicado; quando o arquivo não diz, o gasto é da União, e não do estado da unidade que pagou (só a folha dos ex-territórios do Amapá, de Rondônia e de Roraima conta no estado, pela divisão de pessoal de cada um).');
+    notes.push('Por essa regra (D114), a folha militar paga pelas pagadorias centrais (Exército no DF, Marinha e Aeronáutica no RJ), as compras do Ministério da Saúde e os outros programas nacionais que o arquivo não põe em nenhum estado são da União; até 06/10/2026 contavam no DF e no RJ.');
+    notes.push('A Receita registra o imposto onde fica a sede de quem paga: a arrecadação do DF, de SP e do RJ inclui impostos de empresas e órgãos com sede ali.');
+    document.querySelector('[data-map-notes]').innerHTML = notes.map((x) => `<li>${esc(x)}</li>`).join('');
+  };
+  heroEl.querySelectorAll('.metric-switch button').forEach((b) => b.addEventListener('click', () => apply(b.dataset.metric)));
+  window.__openState = (uf) => modals.openState(uf, mapMetric);
+
+  // Period (round 10): one choice drives the hero card, the map legend and every modal.
+  const U = window.BI && window.BI.series && window.BI.series.union;
+  if (U) {
+    const latest = U.latest.nominal_result;
+    // Default: the last full year whose state split is sound and whose transfers are published.
+    const lc = window.BIL && window.BIL.latestComplete ? window.BIL.latestComplete() : null;
+    // Default (D37): the current year, up to the last month every source has; the goal is the current state of the economy.
+    const currentYear = lc ? +lc.slice(0, 4) : +latest.slice(0, 4);
+    let period = { mode: 'year', year: currentYear, month: lc || latest, mandate: '2023-2026' };
+    const drawPeriod = () => {
+      const r = window.BIT.resolve(period, latest);
+      currentR = r; apply(mapMetric);
+      if (window.__onFeedPeriod) window.__onFeedPeriod(r);
+      const pb = heroEl.querySelector('[data-period]'); pb.innerHTML = window.BIT.selector(period, latest, U.months[0], 'hero-period');
+      window.BIT.bind(pb, period, latest, (np) => { period = np; drawPeriod(); });
+      const ct = heroEl.querySelector('[data-contas]'); ct.innerHTML = window.BIK.uniaoMini(U, r);
+      ct.querySelector('[data-open-brasil]').onclick = () => modals.openCountry(r);
+      modals.setPeriod(period, latest);
+    };
+    window.__onPeriod = (np) => { period = np; drawPeriod(); };
+    drawPeriod();
+  }
+  // Money and scandal panels (D92): always in the section under the map, never over it (D59). First the two period
+  // columns (largest spending, largest income) side by side with their sum, then "Maiores escândalos" in rows of cards.
+  if (window.BIHF) {
+    const L = heroEl.querySelector('[data-scandals]'), Rt = heroEl.querySelector('[data-recent]');
+    const strip = document.getElementById('recentes-e-escandalos');
+    strip.append(Rt, L);
+    window.BIHF.render(document, currentR);
+    strip.hidden = L.hidden && Rt.hidden;
+    // D88: the money columns follow the period selector.
+    window.__onFeedPeriod = (r) => { window.BIHF.render(document, r); strip.hidden = L.hidden && Rt.hidden; };
+  }
+  // Federal section below the map (D44), in form A, cards (D74).
+  if (window.BIFED) window.BIFED.render(document.querySelector('[data-fed-main]'), 'A');
+  if (params.get('metric')) apply(params.get('metric'));
+  if (params.get('open')) modals.openState(params.get('open'), mapMetric);
+  if (params.get('modal')) modals.setMetric(params.get('modal'));
+  if (params.get('area')) modals.openFunction(params.get('open'), params.get('area'));
+  document.body.dataset.ready = '1';
+</script>
+</body>
+</html>

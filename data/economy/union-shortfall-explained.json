@@ -1,0 +1,1742 @@
+{
+ "title": "Why the Union runs short: interest, exports, subsidies and the tax burden",
+ "collected_on": "2026-10-06",
+ "scope": "Governo Central (Tesouro Nacional, Previdência Social e Banco Central), salvo quando o fato diz outro escopo",
+ "research_doc": "docs/research/BRASIL-IMPOSTO_RESEARCH_why-the-union-runs-short_2026-10-06.md",
+ "units": {
+  "BRL_million": "R$ milhões correntes",
+  "USD_million_FOB": "US$ milhões FOB",
+  "percent": "%",
+  "percent_of_gdp": "% do PIB",
+  "percent_per_year": "% ao ano"
+ },
+ "sign": "valores de déficit e de juros são positivos (o rótulo diz se é déficit ou superávit)",
+ "facts": [
+  {
+   "id": "central_nominal_deficit_2025",
+   "label": "Resultado nominal do Governo Central (déficit)",
+   "value": 950566.99,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2, linha 'Governo Central' de 'Nominal', sinal (+) déficit"
+   },
+   "computed": false
+  },
+  {
+   "id": "central_nominal_deficit_2026ytd",
+   "label": "Resultado nominal do Governo Central (déficit)",
+   "value": 811489.3,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2, linha 'Governo Central' de 'Nominal'"
+   },
+   "computed": false
+  },
+  {
+   "id": "central_interest_2025",
+   "label": "Juros nominais do Governo Central",
+   "value": 891879.89,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2, linha 'Governo Central' de 'Juros nominais'"
+   },
+   "computed": false
+  },
+  {
+   "id": "central_interest_2026ytd",
+   "label": "Juros nominais do Governo Central",
+   "value": 714402.56,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2, linha 'Governo Central' de 'Juros nominais'"
+   },
+   "computed": false
+  },
+  {
+   "id": "central_interest_pct_gdp_2026ytd",
+   "label": "Juros nominais do Governo Central, % do PIB",
+   "value": 7.95,
+   "unit": "percent_of_gdp",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2"
+   },
+   "computed": false
+  },
+  {
+   "id": "central_interest_bcb_part_2026ytd",
+   "label": "Juros nominais do Banco Central (inclui swap cambial)",
+   "value": 43396.12,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2, linha 'Bacen' de 'Juros nominais'"
+   },
+   "computed": false
+  },
+  {
+   "id": "interest_share_of_nominal_deficit_2026ytd",
+   "label": "Parte dos juros no déficit nominal do Governo Central",
+   "value": 88.0,
+   "unit": "percent",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2: 714.402,56 / 811.489,30"
+   },
+   "computed": true
+  },
+  {
+   "id": "interest_share_of_nominal_deficit_2025",
+   "label": "Parte dos juros no déficit nominal do Governo Central",
+   "value": 93.8,
+   "unit": "percent",
+   "period": "2025",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2: 891.879,89 / 950.566,99"
+   },
+   "computed": true
+  },
+  {
+   "id": "central_primary_deficit_below_line_2025",
+   "label": "Resultado primário do Governo Central, abaixo da linha (déficit)",
+   "value": 58687.1,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2, linha 'Governo Central' de 'Primário'"
+   },
+   "computed": false
+  },
+  {
+   "id": "central_primary_deficit_below_line_2026ytd",
+   "label": "Resultado primário do Governo Central, abaixo da linha (déficit)",
+   "value": 97086.74,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2, linha 'Governo Central' de 'Primário'"
+   },
+   "computed": false
+  },
+  {
+   "id": "treasury_without_inss_primary_surplus_2025",
+   "label": "Resultado primário do Governo Federal sem INSS (superávit)",
+   "value": 259340.77,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2, linha 'Governo Federal' de 'Primário' (valor -259.340,77, sinal (-) superávit)"
+   },
+   "computed": false
+  },
+  {
+   "id": "treasury_without_inss_primary_surplus_2026ytd",
+   "label": "Resultado primário do Governo Federal sem INSS (superávit)",
+   "value": 180616.96,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2, linha 'Governo Federal' de 'Primário' (valor -180.616,96)"
+   },
+   "computed": false
+  },
+  {
+   "id": "inss_primary_deficit_2025",
+   "label": "Resultado primário do INSS (déficit)",
+   "value": 317158.25,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2, linha 'INSS' de 'Primário'"
+   },
+   "computed": false
+  },
+  {
+   "id": "inss_primary_deficit_2026ytd",
+   "label": "Resultado primário do INSS (déficit)",
+   "value": 277020.08,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 2, linha 'INSS' de 'Primário'"
+   },
+   "computed": false
+  },
+  {
+   "id": "public_sector_interest_12m_aug2026",
+   "label": "Juros nominais do setor público consolidado em 12 meses",
+   "value": 1182200.0,
+   "unit": "BRL_million",
+   "period": "2025-09/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, texto",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Texto_de_estatisticas_fiscais.pdf",
+    "published": "2026-09-30",
+    "location": "texto, p. 1",
+    "quote": "No acumulado em doze meses até agosto, os juros nominais alcançaram R$1.182,2 bilhões (8,86% do PIB)"
+   },
+   "computed": false
+  },
+  {
+   "id": "real_interest_split",
+   "label": "Divisão dos juros entre correção pela inflação e juro real",
+   "value": null,
+   "unit": "BRL_million",
+   "period": "2025 e 2026",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "não publicada nas 27 tabelas da nota nem achada no catálogo de séries do BCB"
+   },
+   "computed": false,
+   "note": "não confirmado: não estimado por ser suposição"
+  },
+  {
+   "id": "interest_selic_indexed_2025",
+   "label": "Juros indexados à Selic, setor público consolidado",
+   "value": 781344.56,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 16, coluna Selic"
+   },
+   "computed": false
+  },
+  {
+   "id": "interest_selic_indexed_2026ytd",
+   "label": "Juros indexados à Selic, setor público consolidado",
+   "value": 583946.25,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 16, coluna Selic"
+   },
+   "computed": false
+  },
+  {
+   "id": "interest_ipca_indexed_2025",
+   "label": "Juros indexados ao IPCA (NTN-B), setor público consolidado",
+   "value": 209688.77,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 16, coluna IPCA"
+   },
+   "computed": false
+  },
+  {
+   "id": "interest_ipca_indexed_2026ytd",
+   "label": "Juros indexados ao IPCA (NTN-B), setor público consolidado",
+   "value": 167799.51,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 16, coluna IPCA"
+   },
+   "computed": false
+  },
+  {
+   "id": "interest_prefixed_2025",
+   "label": "Juros de títulos prefixados, setor público consolidado",
+   "value": 184396.54,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 16, coluna Pré-fixado"
+   },
+   "computed": false
+  },
+  {
+   "id": "interest_prefixed_2026ytd",
+   "label": "Juros de títulos prefixados, setor público consolidado",
+   "value": 140886.55,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 16, coluna Pré-fixado"
+   },
+   "computed": false
+  },
+  {
+   "id": "interest_total_public_sector_2025",
+   "label": "Juros nominais, setor público consolidado",
+   "value": 1007553.1,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 16, coluna Total"
+   },
+   "computed": false
+  },
+  {
+   "id": "interest_total_public_sector_2026ytd",
+   "label": "Juros nominais, setor público consolidado",
+   "value": 774550.3,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 16, coluna Total"
+   },
+   "computed": false
+  },
+  {
+   "id": "gross_debt_dbgg_dec2025",
+   "label": "Dívida Bruta do Governo Geral",
+   "value": 10017919.14,
+   "unit": "BRL_million",
+   "period": "2025-12",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 17, linha 'Conceito Bacen'"
+   },
+   "computed": false
+  },
+  {
+   "id": "gross_debt_dbgg_aug2026",
+   "label": "Dívida Bruta do Governo Geral",
+   "value": 11054954.37,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 17, linha 'Conceito Bacen'"
+   },
+   "computed": false
+  },
+  {
+   "id": "gross_debt_dbgg_pct_gdp_aug2026",
+   "label": "Dívida Bruta do Governo Geral, % do PIB",
+   "value": 82.86,
+   "unit": "percent_of_gdp",
+   "period": "2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 17"
+   },
+   "computed": false
+  },
+  {
+   "id": "gross_debt_selic_share_aug2026",
+   "label": "Parte da dívida bruta indexada à Selic",
+   "value": 57.99,
+   "unit": "percent",
+   "period": "2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 21"
+   },
+   "computed": false
+  },
+  {
+   "id": "gross_debt_ipca_share_aug2026",
+   "label": "Parte da dívida bruta indexada ao IPCA",
+   "value": 18.76,
+   "unit": "percent",
+   "period": "2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 21"
+   },
+   "computed": false
+  },
+  {
+   "id": "gross_debt_prefixed_share_aug2026",
+   "label": "Parte da dívida bruta prefixada",
+   "value": 17.09,
+   "unit": "percent",
+   "period": "2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 21"
+   },
+   "computed": false
+  },
+  {
+   "id": "gross_debt_fx_share_aug2026",
+   "label": "Parte da dívida bruta em câmbio",
+   "value": 4.6,
+   "unit": "percent",
+   "period": "2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 21"
+   },
+   "computed": false
+  },
+  {
+   "id": "gross_debt_implicit_rate_12m_aug2026",
+   "label": "Taxa de juros implícita na dívida bruta, 12 meses",
+   "value": 13.05,
+   "unit": "percent_per_year",
+   "period": "2025-09/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 24"
+   },
+   "computed": false
+  },
+  {
+   "id": "bcb_repo_operations_aug2026",
+   "label": "Operações compromissadas do Banco Central",
+   "value": 1372120.81,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "Estatísticas fiscais, nota para a imprensa de 30/09/2026, planilha de tabelas",
+    "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Tabelas_de_estatisticas_fiscais.xlsx",
+    "published": "2026-09-30",
+    "location": "Tabela 17, linha 'Operações compromissadas do Bacen'"
+   },
+   "computed": false
+  },
+  {
+   "id": "selic_annualized_aug2026",
+   "label": "Selic acumulada no mês, anualizada",
+   "value": 13.94,
+   "unit": "percent_per_year",
+   "period": "2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "SGS 4189, Taxa de juros - Selic acumulada no mês anualizada base 252",
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.4189/dados?formato=json&dataInicial=01/01/2025&dataFinal=30/09/2026",
+    "location": "valor de 08/2026"
+   },
+   "computed": false
+  },
+  {
+   "id": "selic_annualized_avg_2025",
+   "label": "Selic, média simples das taxas mensais anualizadas",
+   "value": 14.32,
+   "unit": "percent_per_year",
+   "period": "2025",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "SGS 4189, Taxa de juros - Selic acumulada no mês anualizada base 252",
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.4189/dados?formato=json&dataInicial=01/01/2025&dataFinal=30/09/2026",
+    "location": "média dos 12 meses"
+   },
+   "computed": true
+  },
+  {
+   "id": "selic_annualized_avg_2026ytd",
+   "label": "Selic, média simples das taxas mensais anualizadas",
+   "value": 14.5,
+   "unit": "percent_per_year",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Banco Central do Brasil",
+    "document": "SGS 4189, Taxa de juros - Selic acumulada no mês anualizada base 252",
+    "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.4189/dados?formato=json&dataInicial=01/01/2025&dataFinal=30/09/2026",
+    "location": "média dos 8 meses"
+   },
+   "computed": true
+  },
+  {
+   "id": "ipca_12m_dec2025",
+   "label": "IPCA em 12 meses",
+   "value": 4.26,
+   "unit": "percent",
+   "period": "2025-12",
+   "source": {
+    "body": "IBGE",
+    "document": "SIDRA tabela 1737, IPCA, variação acumulada em 12 meses",
+    "url": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2265/p/202512,202608",
+    "location": "dezembro de 2025"
+   },
+   "computed": false
+  },
+  {
+   "id": "ipca_12m_aug2026",
+   "label": "IPCA em 12 meses",
+   "value": 4.22,
+   "unit": "percent",
+   "period": "2026-08",
+   "source": {
+    "body": "IBGE",
+    "document": "SIDRA tabela 1737, IPCA, variação acumulada em 12 meses",
+    "url": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2265/p/202512,202608",
+    "location": "agosto de 2026"
+   },
+   "computed": false
+  },
+  {
+   "id": "dpf_stock_dec2025",
+   "label": "Estoque da Dívida Pública Federal",
+   "value": 8635090.0,
+   "unit": "BRL_million",
+   "period": "2025-12",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.4 / texto Tabela 2.1 (R$ 8.635,09 bi)"
+   },
+   "computed": false
+  },
+  {
+   "id": "dpf_stock_aug2026",
+   "label": "Estoque da Dívida Pública Federal",
+   "value": 9292730.0,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "texto, seção 2.1",
+    "quote": "passando de R$ 9.288,78 bilhões, em julho, para R$ 9.292,73 bilhões, em agosto"
+   },
+   "computed": false
+  },
+  {
+   "id": "dpf_floating_share_aug2026",
+   "label": "DPF em taxa flutuante (Selic)",
+   "value": 52.74,
+   "unit": "percent",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.4"
+   },
+   "computed": false
+  },
+  {
+   "id": "dpf_price_index_share_aug2026",
+   "label": "DPF em índice de preços",
+   "value": 23.22,
+   "unit": "percent",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.4"
+   },
+   "computed": false
+  },
+  {
+   "id": "dpf_prefixed_share_aug2026",
+   "label": "DPF prefixada",
+   "value": 20.31,
+   "unit": "percent",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.4"
+   },
+   "computed": false
+  },
+  {
+   "id": "dpf_fx_share_aug2026",
+   "label": "DPF em câmbio",
+   "value": 3.74,
+   "unit": "percent",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.4"
+   },
+   "computed": false
+  },
+  {
+   "id": "dpf_avg_cost_12m_aug2026",
+   "label": "Custo médio da DPF acumulado em 12 meses",
+   "value": 12.59,
+   "unit": "percent_per_year",
+   "period": "2025-09/2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "texto, seção 4.1; Anexo 4.2",
+    "quote": "passando de 12,45% a.a., em julho, para 12,59% a.a., em agosto"
+   },
+   "computed": false
+  },
+  {
+   "id": "dpmfi_avg_cost_12m_aug2026",
+   "label": "Custo médio da dívida interna em títulos (DPMFi), 12 meses",
+   "value": 13.06,
+   "unit": "percent_per_year",
+   "period": "2025-09/2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "texto, seção 4.1"
+   },
+   "computed": false
+  },
+  {
+   "id": "dpmfi_holder_financial_institutions_aug2026",
+   "label": "Detentor da DPMFi: Instituições financeiras (inclui bancos estatais e BNDES)",
+   "value": 2792095.9,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.7"
+   },
+   "computed": false,
+   "note": "participação de 31.22% em ago/2026; R$ 2732356.4 mi em dez/2025"
+  },
+  {
+   "id": "dpmfi_holder_pension_aug2026",
+   "label": "Detentor da DPMFi: Previdência (aberta, fechada e RPPS)",
+   "value": 2024368.2,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.7"
+   },
+   "computed": false,
+   "note": "participação de 22.63% em ago/2026; R$ 1891190.5 mi em dez/2025"
+  },
+  {
+   "id": "dpmfi_holder_investment_funds_aug2026",
+   "label": "Detentor da DPMFi: Fundos de investimento",
+   "value": 2014624.7,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.7"
+   },
+   "computed": false,
+   "note": "participação de 22.52% em ago/2026; R$ 1727684.8 mi em dez/2025"
+  },
+  {
+   "id": "dpmfi_holder_non_residents_aug2026",
+   "label": "Detentor da DPMFi: Não residentes",
+   "value": 886295.3,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.7"
+   },
+   "computed": false,
+   "note": "participação de 9.91% em ago/2026; R$ 859640.7 mi em dez/2025"
+  },
+  {
+   "id": "dpmfi_holder_others_aug2026",
+   "label": "Detentor da DPMFi: Outros (pessoas físicas residentes, capitalização e outros)",
+   "value": 425646.6,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.7"
+   },
+   "computed": false,
+   "note": "participação de 4.76% em ago/2026; R$ 357880.4 mi em dez/2025"
+  },
+  {
+   "id": "dpmfi_holder_insurers_aug2026",
+   "label": "Detentor da DPMFi: Seguradoras",
+   "value": 298623.7,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.7"
+   },
+   "computed": false,
+   "note": "participação de 3.34% em ago/2026; R$ 288697.8 mi em dez/2025"
+  },
+  {
+   "id": "dpmfi_holder_tesouro_direto_aug2026",
+   "label": "Detentor da DPMFi: Tesouro Direto",
+   "value": 271991.9,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.7"
+   },
+   "computed": false,
+   "note": "participação de 3.04% em ago/2026; R$ 213240.2 mi em dez/2025"
+  },
+  {
+   "id": "dpmfi_holder_government_aug2026",
+   "label": "Detentor da DPMFi: Governo (FAT, FGTS, fundos da União)",
+   "value": 230831.8,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.7"
+   },
+   "computed": false,
+   "note": "participação de 2.58% em ago/2026; R$ 238337.3 mi em dez/2025"
+  },
+  {
+   "id": "dpmfi_total_aug2026",
+   "label": "DPMFi total (soma dos detentores)",
+   "value": 8944478.2,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Relatório Mensal da Dívida Pública Federal, agosto de 2026, anexo (Anexo RMD_Agosto_26.xlsx)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/anexos/29322_995516/Anexo%20RMD_Agosto_26.zip",
+    "text_url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55919_1762808/Texto_RMD_Ago_26.pdf",
+    "published": "2026-09-28",
+    "location": "Anexo 2.7, coluna Total"
+   },
+   "computed": false
+  },
+  {
+   "id": "export_tax_2025",
+   "label": "Imposto de Exportação arrecadado",
+   "value": 1.92,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Arrecadação por Estado (dados abertos), coluna IMPOSTO SOBRE EXPORTAÇÃO, soma das UFs",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "collected": "2026-10-06",
+    "location": "soma de jan a dez de 2025, todas as UFs"
+   },
+   "computed": true
+  },
+  {
+   "id": "export_tax_2024",
+   "label": "Imposto de Exportação arrecadado",
+   "value": 3084.0,
+   "unit": "BRL_million",
+   "period": "2024",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Arrecadação por Estado (dados abertos), coluna IMPOSTO SOBRE EXPORTAÇÃO, soma das UFs",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "collected": "2026-10-06",
+    "location": "soma de 2024 (R$ 3.074,6 mi em setembro)"
+   },
+   "computed": true
+  },
+  {
+   "id": "export_tax_2026_jan_jul",
+   "label": "Imposto de Exportação arrecadado",
+   "value": 8002.5,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-07",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Arrecadação por Estado (dados abertos), coluna IMPOSTO SOBRE EXPORTAÇÃO, soma das UFs",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "collected": "2026-10-06",
+    "location": "soma de jan a jul de 2026 (último mês no arquivo)"
+   },
+   "computed": true,
+   "note": "vem do imposto de 12% sobre petróleo bruto da MP 1.340/2026, art. 10; RJ R$ 7.426,8 mi"
+  },
+  {
+   "id": "export_tax_2026_aug",
+   "label": "Imposto de Exportação sobre óleo bruto em agosto",
+   "value": 1900.0,
+   "unit": "BRL_million",
+   "period": "2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional de agosto de 2026",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55921_1803160/boletim_ago26.pdf",
+    "location": "texto do mês (registrado em BRASIL-IMPOSTO_RESEARCH_recent-revenue_2026-10-04.md)",
+    "quote": "item responsável pelo recolhimento de R$ 1,9 bilhão no mês de agosto de 2026"
+   },
+   "computed": false
+  },
+  {
+   "id": "natural_resources_revenue_2025",
+   "label": "Receitas de Exploração de Recursos Naturais (royalties, PE, CFEM e outras)",
+   "value": 139345.8,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 1.4.4"
+   },
+   "computed": true
+  },
+  {
+   "id": "natural_resources_revenue_2026ytd",
+   "label": "Receitas de Exploração de Recursos Naturais",
+   "value": 112087.1,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 1.4.4"
+   },
+   "computed": true
+  },
+  {
+   "id": "natural_resources_transfers_2025",
+   "label": "Transferências de Exploração de Recursos Naturais a estados e municípios",
+   "value": 70207.8,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 2.4"
+   },
+   "computed": true
+  },
+  {
+   "id": "natural_resources_transfers_2026ytd",
+   "label": "Transferências de Exploração de Recursos Naturais a estados e municípios",
+   "value": 56279.3,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 2.4"
+   },
+   "computed": true
+  },
+  {
+   "id": "dividends_total_2025",
+   "label": "Dividendos e participações recebidos pela União",
+   "value": 49796.6,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 1.4.2"
+   },
+   "computed": true
+  },
+  {
+   "id": "dividends_total_2026ytd",
+   "label": "Dividendos e participações recebidos pela União",
+   "value": 19255.9,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 1.4.2"
+   },
+   "computed": true
+  },
+  {
+   "id": "dividends_petrobras_2025",
+   "label": "Dividendos da Petrobras à União",
+   "value": 13825.7,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 1.4.2.8"
+   },
+   "computed": true
+  },
+  {
+   "id": "dividends_petrobras_2026ytd",
+   "label": "Dividendos da Petrobras à União",
+   "value": 7407.3,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 1.4.2.8"
+   },
+   "computed": true
+  },
+  {
+   "id": "lei_kandir_compensation_2025",
+   "label": "Compensação aos estados pela Lei Kandir e LC 176/2020 (despesa)",
+   "value": 3984.7,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 4.3.13"
+   },
+   "computed": true
+  },
+  {
+   "id": "lei_kandir_compensation_2026ytd",
+   "label": "Compensação aos estados pela Lei Kandir e LC 176/2020 (despesa)",
+   "value": 2656.2,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 4.3.13"
+   },
+   "computed": true
+  },
+  {
+   "id": "special_participation_union_share_rule",
+   "label": "Parte da União na participação especial do petróleo",
+   "value": 50.0,
+   "unit": "percent",
+   "period": "regra vigente",
+   "source": {
+    "body": "ANP",
+    "document": "Relatório Trimestral de Participação Especial, 4º trimestre de 2025",
+    "url": "https://www.gov.br/anp/pt-br/assuntos/royalties-e-outras-participacoes/arq-royalties/pe/rel/2026/RelatrioTrimestraldeParticipaoEspecial4T2025_v01.pdf",
+    "location": "seção 'Distribuição da PE'",
+    "quote": "i) 50% à União; ii) 40% aos estados; iii) 10% aos municípios"
+   },
+   "computed": false
+  },
+  {
+   "id": "cfem_federal_share_rule",
+   "label": "Parte de órgãos federais na CFEM (ANM 7%, FNDCT 1%, Cetem 1,8%, Ibama 0,2%)",
+   "value": 10.0,
+   "unit": "percent",
+   "period": "regra vigente",
+   "source": {
+    "body": "Planalto",
+    "document": "Lei 8.001/1990, art. 2º, § 2º (redação da Lei 13.540/2017)",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/l8001.htm",
+    "location": "art. 2º, § 2º, I a VII"
+   },
+   "computed": true,
+   "note": "estados 15%, municípios produtores 60%, municípios afetados 15%"
+  },
+  {
+   "id": "export_rural_tax_expenditure_2026",
+   "label": "Gasto tributário 'Exportação da Produção Rural' (contribuição previdenciária)",
+   "value": 23987.8,
+   "unit": "BRL_million",
+   "period": "2026 (previsão)",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Demonstrativo dos Gastos Tributários PLOA 2026 (setembro de 2025, versão 1.01), Quadro X",
+    "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-quadros.xlsx",
+    "text_url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-base-conceitual.pdf",
+    "published": "2025-09",
+    "location": "Quadros VII e XXV",
+    "quote": "Não incidência da contribuição social sobre receitas de exportações do setor rural (agroindústria e produtor rural pessoa jurídica)."
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_expenditure_total_2026",
+   "label": "Gastos tributários previstos",
+   "value": 612842.9,
+   "unit": "BRL_million",
+   "period": "2026 (previsão)",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Demonstrativo dos Gastos Tributários PLOA 2026 (setembro de 2025, versão 1.01), Quadro X",
+    "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-quadros.xlsx",
+    "text_url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-base-conceitual.pdf",
+    "published": "2025-09",
+    "location": "Quadro X, TOTAL; texto p. 9 e 10",
+    "quote": "O gasto tributário para o ano de 2026 foi estimado em R$ 612,84 bilhões ... representando 4,43% do Produto Interno Bruto e 20,20% das receitas administradas pela RFB."
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_expenditure_simples_2026",
+   "label": "Gasto tributário: Simples Nacional",
+   "value": 134293.7,
+   "unit": "BRL_million",
+   "period": "2026 (previsão)",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Demonstrativo dos Gastos Tributários PLOA 2026 (setembro de 2025, versão 1.01), Quadro X",
+    "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-quadros.xlsx",
+    "text_url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-base-conceitual.pdf",
+    "published": "2025-09",
+    "location": "Quadro X"
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_expenditure_agro_2026",
+   "label": "Gasto tributário: Agricultura e Agroindústria",
+   "value": 79250.7,
+   "unit": "BRL_million",
+   "period": "2026 (previsão)",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Demonstrativo dos Gastos Tributários PLOA 2026 (setembro de 2025, versão 1.01), Quadro X",
+    "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-quadros.xlsx",
+    "text_url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-base-conceitual.pdf",
+    "published": "2025-09",
+    "location": "Quadro X"
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_expenditure_irpf_exempt_income_2026",
+   "label": "Gasto tributário: rendimentos isentos e não tributáveis do IRPF",
+   "value": 63174.2,
+   "unit": "BRL_million",
+   "period": "2026 (previsão)",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Demonstrativo dos Gastos Tributários PLOA 2026 (setembro de 2025, versão 1.01), Quadro X",
+    "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-quadros.xlsx",
+    "text_url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-base-conceitual.pdf",
+    "published": "2025-09",
+    "location": "Quadro X"
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_expenditure_nonprofits_2026",
+   "label": "Gasto tributário: entidades sem fins lucrativos",
+   "value": 55923.7,
+   "unit": "BRL_million",
+   "period": "2026 (previsão)",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Demonstrativo dos Gastos Tributários PLOA 2026 (setembro de 2025, versão 1.01), Quadro X",
+    "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-quadros.xlsx",
+    "text_url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-base-conceitual.pdf",
+    "published": "2025-09",
+    "location": "Quadro X"
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_expenditure_irpf_deductions_2026",
+   "label": "Gasto tributário: deduções do rendimento tributável do IRPF",
+   "value": 41685.4,
+   "unit": "BRL_million",
+   "period": "2026 (previsão)",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Demonstrativo dos Gastos Tributários PLOA 2026 (setembro de 2025, versão 1.01), Quadro X",
+    "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-quadros.xlsx",
+    "text_url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-base-conceitual.pdf",
+    "published": "2025-09",
+    "location": "Quadro X"
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_expenditure_zfm_2026",
+   "label": "Gasto tributário: Zona Franca de Manaus e Áreas de Livre Comércio",
+   "value": 35987.6,
+   "unit": "BRL_million",
+   "period": "2026 (previsão)",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Demonstrativo dos Gastos Tributários PLOA 2026 (setembro de 2025, versão 1.01), Quadro X",
+    "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-quadros.xlsx",
+    "text_url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-base-conceitual.pdf",
+    "published": "2025-09",
+    "location": "Quadro X"
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_expenditure_basic_basket_2026",
+   "label": "Gasto tributário: desoneração da cesta básica (PIS e Cofins)",
+   "value": 40193.4,
+   "unit": "BRL_million",
+   "period": "2026 (previsão)",
+   "source": {
+    "body": "Receita Federal",
+    "document": "Demonstrativo dos Gastos Tributários PLOA 2026 (setembro de 2025, versão 1.01), Quadro X",
+    "url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-quadros.xlsx",
+    "text_url": "https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-base-conceitual.pdf",
+    "published": "2025-09",
+    "location": "Quadros XIX (PIS 7.169,6) e XXI (Cofins 33.023,8)"
+   },
+   "computed": true
+  },
+  {
+   "id": "subsidies_total_2024",
+   "label": "Subsídios da União (tributários, financeiros e creditícios)",
+   "value": 678000.0,
+   "unit": "BRL_million",
+   "period": "2024",
+   "source": {
+    "body": "Ministério do Planejamento e Orçamento (SMA/MPO)",
+    "document": "Orçamento de Subsídios da União 2024, 9ª edição, Tabelas 1, 3 e 4",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/avaliacao-de-politicas-publicas/arquivos/orcamento-de-subsidios-da-uniao/orcamento-de-subsidios-da-uniao-9a-edicao.pdf",
+    "published": "2025-08-19",
+    "location": "texto p. 5; Tabela 1",
+    "quote": "Em 2024, esse valor total atingiu R$ 678 bilhões ou o equivalente a 5,78% do PIB"
+   },
+   "computed": false
+  },
+  {
+   "id": "subsidies_tax_2024",
+   "label": "Subsídios tributários",
+   "value": 563500.0,
+   "unit": "BRL_million",
+   "period": "2024",
+   "source": {
+    "body": "Ministério do Planejamento e Orçamento (SMA/MPO)",
+    "document": "Orçamento de Subsídios da União 2024, 9ª edição, Tabelas 1, 3 e 4",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/avaliacao-de-politicas-publicas/arquivos/orcamento-de-subsidios-da-uniao/orcamento-de-subsidios-da-uniao-9a-edicao.pdf",
+    "published": "2025-08-19",
+    "location": "Tabela 3"
+   },
+   "computed": false
+  },
+  {
+   "id": "subsidies_financial_2024",
+   "label": "Subsídios financeiros",
+   "value": 65000.0,
+   "unit": "BRL_million",
+   "period": "2024",
+   "source": {
+    "body": "Ministério do Planejamento e Orçamento (SMA/MPO)",
+    "document": "Orçamento de Subsídios da União 2024, 9ª edição, Tabelas 1, 3 e 4",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/avaliacao-de-politicas-publicas/arquivos/orcamento-de-subsidios-da-uniao/orcamento-de-subsidios-da-uniao-9a-edicao.pdf",
+    "published": "2025-08-19",
+    "location": "Tabela 4"
+   },
+   "computed": false
+  },
+  {
+   "id": "subsidies_credit_2024",
+   "label": "Subsídios creditícios",
+   "value": 49800.0,
+   "unit": "BRL_million",
+   "period": "2024",
+   "source": {
+    "body": "Ministério do Planejamento e Orçamento (SMA/MPO)",
+    "document": "Orçamento de Subsídios da União 2024, 9ª edição, Tabelas 1, 3 e 4",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/avaliacao-de-politicas-publicas/arquivos/orcamento-de-subsidios-da-uniao/orcamento-de-subsidios-da-uniao-9a-edicao.pdf",
+    "published": "2025-08-19",
+    "location": "Tabela 4"
+   },
+   "computed": false
+  },
+  {
+   "id": "subsidies_pct_gdp_2024",
+   "label": "Subsídios da União, % do PIB",
+   "value": 5.78,
+   "unit": "percent_of_gdp",
+   "period": "2024",
+   "source": {
+    "body": "Ministério do Planejamento e Orçamento (SMA/MPO)",
+    "document": "Orçamento de Subsídios da União 2024, 9ª edição, Tabelas 1, 3 e 4",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/avaliacao-de-politicas-publicas/arquivos/orcamento-de-subsidios-da-uniao/orcamento-de-subsidios-da-uniao-9a-edicao.pdf",
+    "published": "2025-08-19",
+    "location": "texto p. 5"
+   },
+   "computed": false
+  },
+  {
+   "id": "cash_subsidies_rtn_2025",
+   "label": "Subsídios, Subvenções e Proagro pagos (despesa primária)",
+   "value": 25488.9,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 4.3.15"
+   },
+   "computed": true
+  },
+  {
+   "id": "cash_subsidies_rtn_2026ytd",
+   "label": "Subsídios, Subvenções e Proagro pagos (despesa primária)",
+   "value": 14257.8,
+   "unit": "BRL_million",
+   "period": "2026-01/2026-08",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 4.3.15"
+   },
+   "computed": true
+  },
+  {
+   "id": "cmap_basic_basket_cost",
+   "label": "Desoneração da cesta básica: recursos envolvidos na avaliação do CMAP",
+   "value": 34700.0,
+   "unit": "BRL_million",
+   "period": "avaliação de 2021",
+   "source": {
+    "body": "Ministério do Planejamento e Orçamento (CMAP)",
+    "document": "Avaliação de Políticas Públicas #1, maio de 2023",
+    "url": "https://www.gov.br/planejamento/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/cmap/politicas/2021/subsidios/boletim_desoneracao-cesta-basica-e-direto-a-alimentacao.pdf/@@display-file/file",
+    "location": "capa do boletim",
+    "quote": "a maior parte dos gastos tributários associados à desoneração da Cesta Básica acabam direcionados aos grupos de maior renda"
+   },
+   "computed": false
+  },
+  {
+   "id": "lc224_benefit_cap_pct_gdp",
+   "label": "Teto de benefícios tributários da LC 224/2025",
+   "value": 2.0,
+   "unit": "percent_of_gdp",
+   "period": "desde 26/12/2025",
+   "source": {
+    "body": "Planalto",
+    "document": "Lei Complementar nº 224, de 26/12/2025, art. 5º",
+    "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp224.htm",
+    "location": "art. 5º",
+    "quote": "Caso o valor total dos incentivos e benefícios tributários ultrapasse montante equivalente a 2% (dois por cento) do Produto Interno Bruto (PIB), fica vedada a concessão, ampliação ou prorrogação de incentivos e benefícios tributários."
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_burden_total_2025",
+   "label": "Carga tributária bruta do governo geral",
+   "value": 4127232.0,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Estimativa da Carga Tributária Bruta do Governo Geral 2025, Tabela 1 (cópia anexada pela CGU à Prestação de Contas do Presidente da República 2025)",
+    "url": "https://www.gov.br/cgu/pt-br/assuntos/auditoria-e-fiscalizacao/avaliacao-da-gestao-dos-administradores/prestacao-de-contas-do-presidente-da-republica/2025/AnexoEstimativadaCargaTributriaBoletim_CTB_20251.pdf",
+    "news_url": "https://www.gov.br/tesouronacional/pt-br/noticias/carga-tributaria-bruta-do-governo-geral-atinge-32-40-do-pib-em-2025",
+    "published": "2026-04-10",
+    "location": "Tabela 1",
+    "quote": "Em 2025, a estimativa da carga tributária bruta (CTB) do governo geral (governos central, estaduais e municipais) foi de 32,40% do PIB"
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_burden_pct_gdp_2025",
+   "label": "Carga tributária bruta do governo geral, % do PIB",
+   "value": 32.4,
+   "unit": "percent_of_gdp",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Estimativa da Carga Tributária Bruta do Governo Geral 2025, Tabela 1 (cópia anexada pela CGU à Prestação de Contas do Presidente da República 2025)",
+    "url": "https://www.gov.br/cgu/pt-br/assuntos/auditoria-e-fiscalizacao/avaliacao-da-gestao-dos-administradores/prestacao-de-contas-do-presidente-da-republica/2025/AnexoEstimativadaCargaTributriaBoletim_CTB_20251.pdf",
+    "news_url": "https://www.gov.br/tesouronacional/pt-br/noticias/carga-tributaria-bruta-do-governo-geral-atinge-32-40-do-pib-em-2025",
+    "published": "2026-04-10",
+    "location": "Tabela 1"
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_burden_central_2025",
+   "label": "Tributos arrecadados pelo Governo Central",
+   "value": 2750941.0,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Estimativa da Carga Tributária Bruta do Governo Geral 2025, Tabela 1 (cópia anexada pela CGU à Prestação de Contas do Presidente da República 2025)",
+    "url": "https://www.gov.br/cgu/pt-br/assuntos/auditoria-e-fiscalizacao/avaliacao-da-gestao-dos-administradores/prestacao-de-contas-do-presidente-da-republica/2025/AnexoEstimativadaCargaTributriaBoletim_CTB_20251.pdf",
+    "news_url": "https://www.gov.br/tesouronacional/pt-br/noticias/carga-tributaria-bruta-do-governo-geral-atinge-32-40-do-pib-em-2025",
+    "published": "2026-04-10",
+    "location": "Tabela 1 (21,60% do PIB)"
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_burden_states_2025",
+   "label": "Tributos arrecadados pelos estados",
+   "value": 1067626.0,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Estimativa da Carga Tributária Bruta do Governo Geral 2025, Tabela 1 (cópia anexada pela CGU à Prestação de Contas do Presidente da República 2025)",
+    "url": "https://www.gov.br/cgu/pt-br/assuntos/auditoria-e-fiscalizacao/avaliacao-da-gestao-dos-administradores/prestacao-de-contas-do-presidente-da-republica/2025/AnexoEstimativadaCargaTributriaBoletim_CTB_20251.pdf",
+    "news_url": "https://www.gov.br/tesouronacional/pt-br/noticias/carga-tributaria-bruta-do-governo-geral-atinge-32-40-do-pib-em-2025",
+    "published": "2026-04-10",
+    "location": "Tabela 1 (8,38% do PIB)"
+   },
+   "computed": false
+  },
+  {
+   "id": "tax_burden_municipalities_2025",
+   "label": "Tributos arrecadados pelos municípios",
+   "value": 308665.0,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Estimativa da Carga Tributária Bruta do Governo Geral 2025, Tabela 1 (cópia anexada pela CGU à Prestação de Contas do Presidente da República 2025)",
+    "url": "https://www.gov.br/cgu/pt-br/assuntos/auditoria-e-fiscalizacao/avaliacao-da-gestao-dos-administradores/prestacao-de-contas-do-presidente-da-republica/2025/AnexoEstimativadaCargaTributriaBoletim_CTB_20251.pdf",
+    "news_url": "https://www.gov.br/tesouronacional/pt-br/noticias/carga-tributaria-bruta-do-governo-geral-atinge-32-40-do-pib-em-2025",
+    "published": "2026-04-10",
+    "location": "Tabela 1 (2,42% do PIB)"
+   },
+   "computed": false
+  },
+  {
+   "id": "central_share_of_tax_burden_2025",
+   "label": "Parte do Governo Central na carga tributária",
+   "value": 66.7,
+   "unit": "percent",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Estimativa da Carga Tributária Bruta do Governo Geral 2025, Tabela 1 (cópia anexada pela CGU à Prestação de Contas do Presidente da República 2025)",
+    "url": "https://www.gov.br/cgu/pt-br/assuntos/auditoria-e-fiscalizacao/avaliacao-da-gestao-dos-administradores/prestacao-de-contas-do-presidente-da-republica/2025/AnexoEstimativadaCargaTributriaBoletim_CTB_20251.pdf",
+    "news_url": "https://www.gov.br/tesouronacional/pt-br/noticias/carga-tributaria-bruta-do-governo-geral-atinge-32-40-do-pib-em-2025",
+    "published": "2026-04-10",
+    "location": "Tabela 1: 2.750.941 / 4.127.232"
+   },
+   "computed": true
+  },
+  {
+   "id": "revenue_sharing_transfers_2025",
+   "label": "Transferências por repartição de receita a estados e municípios",
+   "value": 569719.3,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 2"
+   },
+   "computed": true
+  },
+  {
+   "id": "rgps_benefits_2025",
+   "label": "Benefícios previdenciários (RGPS)",
+   "value": 1026872.5,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 4.1"
+   },
+   "computed": true
+  },
+  {
+   "id": "rgps_net_revenue_2025",
+   "label": "Arrecadação líquida para o RGPS",
+   "value": 709714.3,
+   "unit": "BRL_million",
+   "period": "2025",
+   "source": {
+    "body": "Tesouro Nacional",
+    "document": "Resultado do Tesouro Nacional, série histórica de agosto de 2026 (serie_historica_ago26.xlsx), Tabela 1.2, soma dos meses",
+    "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8",
+    "published": "2026-09-29",
+    "location": "linha 1.3"
+   },
+   "computed": true
+  },
+  {
+   "id": "exports_usd_2025",
+   "label": "Exportações de bens",
+   "value": 348278.4625,
+   "unit": "USD_million_FOB",
+   "period": "2025",
+   "source": {
+    "body": "MDIC/Secex",
+    "document": "Comex Stat",
+    "url": "https://api-comexstat.mdic.gov.br/general",
+    "totals_url": "https://balanca.mdic.gov.br/balanca/bd/comexstat-bd/ncm/EXP_TOTAIS_CONFERENCIA.csv",
+    "location": "EXP_TOTAIS_CONFERENCIA.csv, VL_FOB de 2025"
+   },
+   "computed": false
+  },
+  {
+   "id": "exports_usd_2026_jan_sep",
+   "label": "Exportações de bens",
+   "value": 284654.368793,
+   "unit": "USD_million_FOB",
+   "period": "2026-01/2026-09",
+   "source": {
+    "body": "MDIC/Secex",
+    "document": "Comex Stat",
+    "url": "https://api-comexstat.mdic.gov.br/general",
+    "totals_url": "https://balanca.mdic.gov.br/balanca/bd/comexstat-bd/ncm/EXP_TOTAIS_CONFERENCIA.csv",
+    "location": "EXP_TOTAIS_CONFERENCIA.csv, VL_FOB de 2026"
+   },
+   "computed": false
+  },
+  {
+   "id": "exports_isic_manufacturing_share_2025",
+   "label": "Exportações da indústria de transformação (ISIC C)",
+   "value": 54.1,
+   "unit": "percent",
+   "period": "2025",
+   "source": {
+    "body": "MDIC/Secex",
+    "document": "Comex Stat",
+    "url": "https://api-comexstat.mdic.gov.br/general",
+    "totals_url": "https://balanca.mdic.gov.br/balanca/bd/comexstat-bd/ncm/EXP_TOTAIS_CONFERENCIA.csv",
+    "location": "details ISICSection: US$ 188.411.306.266"
+   },
+   "computed": true
+  },
+  {
+   "id": "exports_isic_extractive_share_2025",
+   "label": "Exportações da indústria extrativa (ISIC B)",
+   "value": 23.1,
+   "unit": "percent",
+   "period": "2025",
+   "source": {
+    "body": "MDIC/Secex",
+    "document": "Comex Stat",
+    "url": "https://api-comexstat.mdic.gov.br/general",
+    "totals_url": "https://balanca.mdic.gov.br/balanca/bd/comexstat-bd/ncm/EXP_TOTAIS_CONFERENCIA.csv",
+    "location": "details ISICSection: US$ 80.323.610.408"
+   },
+   "computed": true
+  },
+  {
+   "id": "exports_isic_agriculture_share_2025",
+   "label": "Exportações da agropecuária (ISIC A)",
+   "value": 22.3,
+   "unit": "percent",
+   "period": "2025",
+   "source": {
+    "body": "MDIC/Secex",
+    "document": "Comex Stat",
+    "url": "https://api-comexstat.mdic.gov.br/general",
+    "totals_url": "https://balanca.mdic.gov.br/balanca/bd/comexstat-bd/ncm/EXP_TOTAIS_CONFERENCIA.csv",
+    "location": "details ISICSection: US$ 77.608.724.933"
+   },
+   "computed": true
+  },
+  {
+   "id": "exports_goods_services_pct_gdp_2025",
+   "label": "Exportação de bens e serviços, % do PIB",
+   "value": 17.8,
+   "unit": "percent_of_gdp",
+   "period": "2025",
+   "source": {
+    "body": "IBGE",
+    "document": "Contas Nacionais Trimestrais, SIDRA tabela 1846, valores correntes, soma dos 4 trimestres",
+    "url": "https://apisidra.ibge.gov.br/values/t/1846/n1/all/v/all/p/202501,202502,202503,202504/c11255/all",
+    "location": "2.270.104 / 12.738.566"
+   },
+   "computed": true
+  },
+  {
+   "id": "imports_goods_services_pct_gdp_2025",
+   "label": "Importação de bens e serviços, % do PIB",
+   "value": 17.5,
+   "unit": "percent_of_gdp",
+   "period": "2025",
+   "source": {
+    "body": "IBGE",
+    "document": "Contas Nacionais Trimestrais, SIDRA tabela 1846, valores correntes, soma dos 4 trimestres",
+    "url": "https://apisidra.ibge.gov.br/values/t/1846/n1/all/v/all/p/202501,202502,202503,202504/c11255/all",
+    "location": "2.225.524 / 12.738.566"
+   },
+   "computed": true
+  },
+  {
+   "id": "terms_of_trade",
+   "label": "Termos de troca",
+   "value": null,
+   "unit": "index",
+   "period": "2025",
+   "source": {
+    "body": "não confirmado",
+    "document": "a série usual é da Funcex (privada), reproduzida no Ipeadata",
+    "url": null,
+    "location": "não buscada em fonte do governo"
+   },
+   "computed": false,
+   "note": "não confirmado"
+  }
+ ],
+ "cards": [
+  {
+   "id": "card_interest_share",
+   "title": "O que forma o déficit",
+   "fact": "Dos R$ 811,5 bi de déficit da União de janeiro a agosto de 2026, R$ 714,4 bi são juros da dívida.",
+   "value": "88% são juros",
+   "fact_ids": [
+    "central_nominal_deficit_2026ytd",
+    "central_interest_2026ytd",
+    "interest_share_of_nominal_deficit_2026ytd"
+   ]
+  },
+  {
+   "id": "card_primary_split",
+   "title": "Antes dos juros: Tesouro e Previdência",
+   "fact": "De janeiro a agosto de 2026, o Tesouro sem a Previdência teve superávit primário de R$ 180,6 bi e a Previdência (INSS) teve déficit de R$ 277,0 bi.",
+   "value": "+R$ 180,6 bi e -R$ 277,0 bi",
+   "fact_ids": [
+    "treasury_without_inss_primary_surplus_2026ytd",
+    "inss_primary_deficit_2026ytd"
+   ]
+  },
+  {
+   "id": "card_debt_and_rate",
+   "title": "Por que os juros são altos",
+   "fact": "A dívida bruta é de R$ 11,05 tri (82,9% do PIB), 58% dela atrelada à Selic, que estava em 13,94% ao ano em agosto de 2026, com inflação de 4,22% em 12 meses.",
+   "value": "R$ 11,05 tri; Selic 13,94%",
+   "fact_ids": [
+    "gross_debt_dbgg_aug2026",
+    "gross_debt_dbgg_pct_gdp_aug2026",
+    "gross_debt_selic_share_aug2026",
+    "selic_annualized_aug2026",
+    "ipca_12m_aug2026"
+   ]
+  },
+  {
+   "id": "card_debt_holders",
+   "title": "Quem tem os títulos da dívida",
+   "fact": "Em agosto de 2026: instituições financeiras 31,2%, previdência 22,6%, fundos de investimento 22,5%, não residentes 9,9%, demais 13,7%.",
+   "value": "R$ 8,94 tri em títulos",
+   "fact_ids": [
+    "dpmfi_holder_financial_institutions_aug2026",
+    "dpmfi_holder_pension_aug2026",
+    "dpmfi_holder_investment_funds_aug2026",
+    "dpmfi_holder_non_residents_aug2026",
+    "dpmfi_total_aug2026"
+   ]
+  },
+  {
+   "id": "card_exports_taxes",
+   "title": "Exportação e impostos",
+   "fact": "A Constituição proíbe cobrar IPI, ICMS e PIS/Cofins sobre a exportação. O Imposto de Exportação arrecadou R$ 1,9 milhão em 2025; royalties e participações renderam R$ 139,3 bi, metade repassada a estados e municípios.",
+   "value": "R$ 1,9 mi e R$ 139,3 bi",
+   "fact_ids": [
+    "export_tax_2025",
+    "natural_resources_revenue_2025",
+    "natural_resources_transfers_2025"
+   ]
+  },
+  {
+   "id": "card_tax_expenditures",
+   "title": "Subsídios: receita que deixa de entrar",
+   "fact": "A Receita prevê R$ 612,8 bi em benefícios tributários em 2026 (4,43% do PIB). O maior é o Simples Nacional, R$ 134,3 bi. São estimativas, não despesa paga.",
+   "value": "R$ 612,8 bi",
+   "fact_ids": [
+    "tax_expenditure_total_2026",
+    "tax_expenditure_simples_2026"
+   ]
+  }
+ ],
+ "not_confirmed": [
+  "Divisão dos juros entre correção pela inflação e juro real: o BCB não publica nas tabelas atuais.",
+  "Edição do Orçamento de Subsídios da União com dados de 2025: não encontrada em 06/10/2026.",
+  "Arrecadação anual da CFEM (ANM): dados abertos não abriram.",
+  "Citação literal 'não exportar tributos' em documento do governo federal: não achada em fonte aberta ao robô.",
+  "Estimativa oficial de arrecadação da LC 224/2025: não achada no RTN de agosto de 2026.",
+  "Termos de troca em série de órgão do governo.",
+  "Número oficial da carga tributária de 2025 pela Receita Federal (usado o do Tesouro)."
+ ]
+}

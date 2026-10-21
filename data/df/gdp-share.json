@@ -1,0 +1,9 @@
+{
+ "year": 2023,
+ "gdp_brasil_thousand_reais": 10943345439,
+ "gdp_df_thousand_reais": 365669108,
+ "share": 0.03341474597857662,
+ "source": "https://apisidra.ibge.gov.br/values/t/5938/n1/all/n3/53/v/37/p/last%201",
+ "source_name": "IBGE, PIB dos Municípios (SIDRA, tabela 5938, variável 37, PIB a preços correntes)",
+ "read_on": "2026-10-21"
+}

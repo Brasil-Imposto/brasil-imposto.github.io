@@ -1,0 +1,5444 @@
+{
+ "collected_on": "2026-10-03",
+ "sources": [
+  {
+   "name": "Portal da Transparência do DF, Detalhamento da Despesa (por UG e por subtítulo), dados do SIGGo",
+   "url": "https://www.transparencia.df.gov.br/#/despesas/detalhamento",
+   "api": "https://www.transparencia.df.gov.br/api/despesa/detalhamento?anoExercicio=YYYY ; https://www.transparencia.df.gov.br/api/despesa/detalhamento/YYYY/<UG>",
+   "updated_on": "2026-10-02"
+  },
+  {
+   "name": "Portal da Transparência do DF, painel Despesas Regionais (valor pago por Administração Regional)",
+   "url": "https://www.transparencia.df.gov.br",
+   "api": "https://www.transparencia.df.gov.br/api/v2/despesas-ras?exercicio=YYYY",
+   "updated_on": "2026-10-02"
+  },
+  {
+   "name": "Portal da Transparência do DF, Servidores (função ADMINISTRADOR REGIONAL)",
+   "url": "https://www.transparencia.df.gov.br/#/servidores/orgao",
+   "api": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+   "updated_on": "2026-09-28"
+  }
+ ],
+ "notes": {
+  "values": "R$ nominais. administration_budget: initial = valorLei (LOA), authorized = valorDespesaAutorizada, committed = empenhado, liquidated = liquidado (Detalhamento por UG); paid = valorPago do painel Despesas Regionais (null onde o painel não traz a UG). localized_gdf_spending = liquidado (o pago não é publicado por subtítulo).",
+  "rule": "Subtítulo conta para uma RA quando o último trecho (o localizador que o GDF escreve depois do último hífen) cita exatamente uma RA; trecho 'DISTRITO FEDERAL'/'DF' = df_wide; se o último trecho não cita lugar, vale o texto inteiro; duas RAs = multiple_regions. Linhas da própria Administração Regional sem lugar no texto contam para a RA dela.",
+  "year_2026": "parcial, até a data de atualização do portal",
+  "administrator": "nome da folha de pagamento do GDF (função ADMINISTRADOR REGIONAL, mês de referência indicado); since e act ficam null porque o DODF não abriu; payroll_admission_date é a data de admissão registrada na folha, não o ato de nomeação."
+ },
+ "regions": {
+  "RA-I": {
+   "name": "Plano Piloto",
+   "administration_ug": {
+    "code": 190103,
+    "name": "ADMINISTRAÇÃO REGIONAL DO PLANO PILOTO"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 13797675.0,
+     "authorized": 14301150.87,
+     "committed": 12554410.88,
+     "liquidated": 11321120.37,
+     "paid": 12183847.6
+    },
+    "2020": {
+     "initial": 18204038.0,
+     "authorized": 14076299.0,
+     "committed": 10627155.79,
+     "liquidated": 7819383.01,
+     "paid": 10404295.39
+    },
+    "2021": {
+     "initial": 13998405.0,
+     "authorized": 18738002.05,
+     "committed": 11978360.69,
+     "liquidated": 10251059.14,
+     "paid": 11519113.06
+    },
+    "2022": {
+     "initial": 24063555.0,
+     "authorized": 13606652.31,
+     "committed": 12586429.74,
+     "liquidated": 8659498.19,
+     "paid": 12137483.38
+    },
+    "2023": {
+     "initial": 22457564.0,
+     "authorized": 17741001.5,
+     "committed": 17125122.41,
+     "liquidated": 11305796.07,
+     "paid": 16275080.95
+    },
+    "2024": {
+     "initial": 20420188.0,
+     "authorized": 13789766.0,
+     "committed": 13227374.89,
+     "liquidated": 13057563.39,
+     "paid": 13151333.75
+    },
+    "2025": {
+     "initial": 15606999.0,
+     "authorized": 15113871.91,
+     "committed": 14857615.0,
+     "liquidated": 14682786.54,
+     "paid": 14765133.75
+    },
+    "2026": {
+     "initial": 18668670.0,
+     "authorized": 11550057.63,
+     "committed": 10903527.95,
+     "liquidated": 10224805.1,
+     "paid": 9328674.75
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 1590557121.67,
+    "2020": 1410422095.02,
+    "2021": 628091321.52,
+    "2022": 704489405.28,
+    "2023": 819490774.98,
+    "2024": 982091196.67,
+    "2025": 1098943060.1,
+    "2026": 750235350.67
+   },
+   "localized_of_which_administration": {
+    "2019": 11321120.37,
+    "2020": 7819383.01,
+    "2021": 10251059.14,
+    "2022": 8659498.19,
+    "2023": 11305796.07,
+    "2024": 13057563.39,
+    "2025": 14682786.54,
+    "2026": 10224805.1
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "TRIBUNAL DE CONTAS DO DISTRITO FEDERAL",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-TRIBUNAL DE CONTAS DO DISTRITO FEDERAL- PLANO PILOTO .",
+     "liquidated": 345251764.15,
+     "rule": "localizer"
+    },
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-DER-DF- PLANO PILOTO .",
+     "liquidated": 198694822.64,
+     "rule": "localizer"
+    },
+    {
+     "ug": "FUNDAÇÃO HEMOCENTRO DE BRASÍLIA - FHB",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-AÇÃO EXECUTADA PELA FUNDAÇÃO HEMOCENTRO DE BRASÍLIA/FHB- PLANO PILOTO .",
+     "liquidated": 87266791.61,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "BRUNO JOSE BANDIM OLIMPIO",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "16/05/2023"
+   },
+   "works": [
+    {
+     "ug": "FUNDO DA PROCURADORIA DO DISTRITO FEDERAL",
+     "action_code": 1984,
+     "action": "CONSTRUÇÃO DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "CONSTRUÇÃO DE PRÉDIOS E PRÓPRIOS-FUNDO DA PROCURADORIA GERAL DO DF- PLANO PILOTO .",
+     "liquidated": 21718020.63,
+     "years": [
+      2021,
+      2024,
+      2025
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1891,
+     "action": "REFORMA DA RODOVIÁRIA DO PLANO PILOTO",
+     "subtitle": "REFORMA DA RODOVIÁRIA DO PLANO PILOTO-- PLANO PILOTO .",
+     "liquidated": 10453648.85,
+     "years": [
+      2019,
+      2020,
+      2021
+     ],
+     "company": null
+    },
+    {
+     "ug": "TRIBUNAL DE CONTAS DO DISTRITO FEDERAL",
+     "action_code": 3903,
+     "action": "REFORMA DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "REFORMA DE PRÉDIOS E PRÓPRIOS-TRIBUNAL DE CONTAS DO DISTRITO FEDERAL- PLANO PILOTO .",
+     "liquidated": 3885277.12,
+     "years": [
+      2019,
+      2020,
+      2021,
+      2024,
+      2025,
+      2026
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-II": {
+   "name": "Gama",
+   "administration_ug": {
+    "code": 190104,
+    "name": "ADMINISTRAÇÃO REGIONAL DO GAMA"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 15262805.0,
+     "authorized": 11636385.26,
+     "committed": 11198851.36,
+     "liquidated": 11059385.9,
+     "paid": 11167840.86
+    },
+    "2020": {
+     "initial": 15614269.0,
+     "authorized": 12703237.0,
+     "committed": 11603416.18,
+     "liquidated": 11355510.99,
+     "paid": 11565856.82
+    },
+    "2021": {
+     "initial": 14578752.0,
+     "authorized": 13727477.0,
+     "committed": 12177145.81,
+     "liquidated": 11783700.98,
+     "paid": 12133491.62
+    },
+    "2022": {
+     "initial": 17559629.0,
+     "authorized": 13990072.47,
+     "committed": 13407619.68,
+     "liquidated": 12951377.7,
+     "paid": 13179833.76
+    },
+    "2023": {
+     "initial": 15788146.0,
+     "authorized": 15521836.0,
+     "committed": 15275791.04,
+     "liquidated": 14745776.08,
+     "paid": 15202762.6
+    },
+    "2024": {
+     "initial": 17863958.0,
+     "authorized": 15050732.0,
+     "committed": 14259570.62,
+     "liquidated": 14121400.34,
+     "paid": 14209383.83
+    },
+    "2025": {
+     "initial": 17340273.0,
+     "authorized": 16099811.0,
+     "committed": 14337908.77,
+     "liquidated": 14136401.64,
+     "paid": 14261420.71
+    },
+    "2026": {
+     "initial": 16293885.0,
+     "authorized": 10252942.8,
+     "committed": 9983236.8,
+     "liquidated": 9802524.56,
+     "paid": 8901539.52
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 13256227.53,
+    "2020": 12436159.83,
+    "2021": 12320389.87,
+    "2022": 16860414.54,
+    "2023": 16545776.08,
+    "2024": 14371400.34,
+    "2025": 14236401.64,
+    "2026": 10122151.44
+   },
+   "localized_of_which_administration": {
+    "2019": 11059385.9,
+    "2020": 11355510.99,
+    "2021": 11783700.98,
+    "2022": 12951377.7,
+    "2023": 14745776.08,
+    "2024": 14121400.34,
+    "2025": 14136401.64,
+    "2026": 9802524.56
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO GAMA",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- GAMA",
+     "liquidated": 11478475.56,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO GAMA",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- GAMA",
+     "liquidated": 684122.75,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO GAMA",
+     "action": "CONVERSÃO DE LICENÇA PRÊMIO EM PECÚNIA - SERVIDOR INATIVO",
+     "subtitle": "CONVERSÃO DE LICENÇA PRÊMIO EM PECÚNIA-ADMINISTRAÇÃO REGIONAL- GAMA",
+     "liquidated": 537840.54,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "THABATA NORRANA LESSA DE SOUZA SANTOS ALMEIDA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "26/11/2025"
+   },
+   "works": [
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action_code": 3090,
+     "action": "IMPLANTAÇÃO DE INFRAESTRUTURA DE CICLOVIAS",
+     "subtitle": "(EPI)CONSTRUÇÃO DE CICLOVIA NA REGIÃO ADMINISTRATIVA DO GAMA-RA II",
+     "liquidated": 1000000.0,
+     "years": [
+      2022
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 3222,
+     "action": "REFORMA DE ESTABELECIMENTOS E ATENÇÃO PRIMÁRIA À SAÚDE",
+     "subtitle": "(EPI)REFORMA DE ESTABELECIMENTOS E ATENÇÃO PRIMÁRIA À SAÚDE-REFORMA DA UNIDADE BÁSICA DE SAÚDE 07 DO GAMA- GAMA",
+     "liquidated": 1000000.0,
+     "years": [
+      2023
+     ],
+     "company": null
+    },
+    {
+     "ug": "SECRETARIA DE EST.DE TRANSPORTE E MOBILIDADE DO DF",
+     "action_code": 3182,
+     "action": "REFORMA DE TERMINAIS RODOVIÁRIOS",
+     "subtitle": "(EPI)REFORMA DO TERMINAL RODOVIÁRIO DO GAMA",
+     "liquidated": 702404.44,
+     "years": [
+      2021,
+      2022
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-III": {
+   "name": "Taguatinga",
+   "administration_ug": {
+    "code": 190105,
+    "name": "ADMINISTRAÇÃO REGIONAL DE TAGUATINGA"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 17018698.0,
+     "authorized": 16733131.66,
+     "committed": 15850324.97,
+     "liquidated": 15763683.3,
+     "paid": 15813369.23
+    },
+    "2020": {
+     "initial": 20106985.0,
+     "authorized": 17162455.0,
+     "committed": 15425738.13,
+     "liquidated": 15220306.83,
+     "paid": 15349602.96
+    },
+    "2021": {
+     "initial": 17016581.0,
+     "authorized": 18368351.0,
+     "committed": 16766452.31,
+     "liquidated": 16557054.51,
+     "paid": 16695511.36
+    },
+    "2022": {
+     "initial": 18221088.0,
+     "authorized": 18262276.52,
+     "committed": 18113274.28,
+     "liquidated": 18022031.65,
+     "paid": 18055104.02
+    },
+    "2023": {
+     "initial": 22207000.0,
+     "authorized": 19968330.0,
+     "committed": 18914293.29,
+     "liquidated": 18688983.54,
+     "paid": 18852327.28
+    },
+    "2024": {
+     "initial": 21272904.0,
+     "authorized": 20786340.0,
+     "committed": 19340552.48,
+     "liquidated": 19127886.87,
+     "paid": 19293730.57
+    },
+    "2025": {
+     "initial": 21672565.0,
+     "authorized": 21235317.24,
+     "committed": 19803574.87,
+     "liquidated": 19480746.36,
+     "paid": 19647678.89
+    },
+    "2026": {
+     "initial": 22701185.0,
+     "authorized": 15198793.26,
+     "committed": 14254284.2,
+     "liquidated": 13975961.27,
+     "paid": 12637489.21
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 18089342.9,
+    "2020": 54365228.63,
+    "2021": 121543190.52,
+    "2022": 142910316.21,
+    "2023": 81667138.24,
+    "2024": 33787923.47,
+    "2025": 35105800.46,
+    "2026": 17852839.2
+   },
+   "localized_of_which_administration": {
+    "2019": 15763683.3,
+    "2020": 15220306.83,
+    "2021": 16557054.51,
+    "2022": 18022031.65,
+    "2023": 18688983.54,
+    "2024": 19127886.87,
+    "2025": 19480746.36,
+    "2026": 13975961.27
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE TAGUATINGA",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- TAGUATINGA",
+     "liquidated": 15569400.62,
+     "rule": "localizer"
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action": "CONSTRUÇÃO DE TÚNEL",
+     "subtitle": "CONSTRUÇÃO DE TÚNEL-RODOVIÁRIO NA AVENIDA CENTRAL- TAGUATINGA",
+     "liquidated": 10717794.73,
+     "rule": "localizer"
+    },
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action": "OPERAÇÃO DE TÚNEL RODOVIÁRIO",
+     "subtitle": "OPERAÇÃO DE TÚNEL RODOVIÁRIO - TAGUATINGA",
+     "liquidated": 4890889.37,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "EZEQUIAS PEREIRA DA SILVA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "15/01/2019"
+   },
+   "works": [
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action_code": 3054,
+     "action": "CONSTRUÇÃO DE TÚNEL",
+     "subtitle": "CONSTRUÇÃO DE TÚNEL-RODOVIÁRIO NA AVENIDA CENTRAL- TAGUATINGA",
+     "liquidated": 346956639.27,
+     "years": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+     ],
+     "company": null
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action_code": 1948,
+     "action": "IMPLANTAÇÃO DO PROGRAMA DRENAR/DF",
+     "subtitle": "IMPLANTAÇÃO DO PROGRAMA DRENAR/DF-REESTRUTURAÇÃO DO SISTEMA DE DRENAGEM PLUVIAL E OBRAS COMPLEMENTARES- TAGUATINGA",
+     "liquidated": 2152967.01,
+     "years": [
+      2022,
+      2023
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)EXECUÇÃO DE OBRAS DE URBANIZAÇÃO E PAVIMENTAÇÃO EM TAGUATINGA",
+     "liquidated": 1091941.0,
+     "years": [
+      2019
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-IV": {
+   "name": "Brazlândia",
+   "administration_ug": {
+    "code": 190106,
+    "name": "ADMINISTRAÇÃO REGIONAL DE  BRAZLANDIA"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 13644150.0,
+     "authorized": 11891899.89,
+     "committed": 8607696.81,
+     "liquidated": 8344808.91,
+     "paid": 8438710.7
+    },
+    "2020": {
+     "initial": 12998194.0,
+     "authorized": 11532602.0,
+     "committed": 9321694.08,
+     "liquidated": 8598931.74,
+     "paid": 9252607.74
+    },
+    "2021": {
+     "initial": 13682022.0,
+     "authorized": 15591221.41,
+     "committed": 12758805.58,
+     "liquidated": 11809019.88,
+     "paid": 12672290.27
+    },
+    "2022": {
+     "initial": 14286278.0,
+     "authorized": 16690889.8,
+     "committed": 16217526.72,
+     "liquidated": 14604351.99,
+     "paid": 16138722.25
+    },
+    "2023": {
+     "initial": 19472852.0,
+     "authorized": 15651650.0,
+     "committed": 15145277.93,
+     "liquidated": 13937866.46,
+     "paid": 14706613.15
+    },
+    "2024": {
+     "initial": 20188529.0,
+     "authorized": 16528335.0,
+     "committed": 15842134.76,
+     "liquidated": 15624923.91,
+     "paid": 15742082.46
+    },
+    "2025": {
+     "initial": 19808846.0,
+     "authorized": 19551428.63,
+     "committed": 19359199.75,
+     "liquidated": 18615090.79,
+     "paid": 19138792.33
+    },
+    "2026": {
+     "initial": 22882302.0,
+     "authorized": 13073111.82,
+     "committed": 12880693.35,
+     "liquidated": 10889530.73,
+     "paid": 8976287.16
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 11188711.53,
+    "2020": 12600513.47,
+    "2021": 12313720.1,
+    "2022": 14604351.99,
+    "2023": 13937866.46,
+    "2024": 15624923.91,
+    "2025": 19065090.79,
+    "2026": 10889530.73
+   },
+   "localized_of_which_administration": {
+    "2019": 8344808.91,
+    "2020": 8598931.74,
+    "2021": 11809019.88,
+    "2022": 14604351.99,
+    "2023": 13937866.46,
+    "2024": 15624923.91,
+    "2025": 18615090.79,
+    "2026": 10889530.73
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE  BRAZLANDIA",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- BRAZLÂNDIA",
+     "liquidated": 8880514.62,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE  BRAZLANDIA",
+     "action": "REALIZAÇÃO DE EVENTOS",
+     "subtitle": "REALIZAÇÃO DE EVENTOS-REALIZAÇÃO DE EVENTOS CULTURAIS- BRAZLÂNDIA",
+     "liquidated": 3118139.36,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE  BRAZLANDIA",
+     "action": "REFORMA DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "REFORMA DE PRÉDIOS E PRÓPRIOS-ADMINISTRAÇÃO REGIONAL- BRAZLÂNDIA",
+     "liquidated": 1592835.34,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "LUCIANA LIMA CARDOSO FERREIRA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "30/04/2021"
+   },
+   "works": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE  BRAZLANDIA",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-ADMINISTRAÇÃO REGIONAL- BRAZLÂNDIA",
+     "liquidated": 3165412.13,
+     "years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)INFRAESTRUTURA E URBANIZAÇÃO EM BRAZLANDIA",
+     "liquidated": 2299894.16,
+     "years": [
+      2020
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE  BRAZLANDIA",
+     "action_code": 3903,
+     "action": "REFORMA DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "REFORMA DE PRÉDIOS E PRÓPRIOS-ADMINISTRAÇÃO REGIONAL- BRAZLÂNDIA",
+     "liquidated": 2143439.88,
+     "years": [
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-V": {
+   "name": "Sobradinho",
+   "administration_ug": {
+    "code": 190107,
+    "name": "ADMINISTRAÇÃO REGIONAL DE SOBRADINHO"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 9075745.0,
+     "authorized": 8786076.91,
+     "committed": 8259177.44,
+     "liquidated": 8139147.32,
+     "paid": 8225046.95
+    },
+    "2020": {
+     "initial": 10846509.0,
+     "authorized": 9591254.0,
+     "committed": 8377778.33,
+     "liquidated": 8248152.83,
+     "paid": 8281581.06
+    },
+    "2021": {
+     "initial": 9317532.0,
+     "authorized": 10522532.0,
+     "committed": 9581490.32,
+     "liquidated": 8955056.05,
+     "paid": 9053016.73
+    },
+    "2022": {
+     "initial": 10729153.0,
+     "authorized": 10216796.16,
+     "committed": 9891538.13,
+     "liquidated": 9891538.13,
+     "paid": 9891538.13
+    },
+    "2023": {
+     "initial": 11892461.0,
+     "authorized": 14841001.0,
+     "committed": 12945056.97,
+     "liquidated": 11033880.28,
+     "paid": 12098122.8
+    },
+    "2024": {
+     "initial": 14027089.0,
+     "authorized": 14033041.0,
+     "committed": 12753070.63,
+     "liquidated": 12564615.58,
+     "paid": 12739113.01
+    },
+    "2025": {
+     "initial": 14673078.0,
+     "authorized": 13314385.49,
+     "committed": 12867533.92,
+     "liquidated": 11900500.98,
+     "paid": 12627315.14
+    },
+    "2026": {
+     "initial": 19379414.0,
+     "authorized": 10292616.29,
+     "committed": 9535643.34,
+     "liquidated": 8658764.51,
+     "paid": 7421497.76
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 10265392.85,
+    "2020": 10251568.97,
+    "2021": 9462978.34,
+    "2022": 11907538.99,
+    "2023": 11882923.01,
+    "2024": 13366392.69,
+    "2025": 13825972.93,
+    "2026": 12227102.16
+   },
+   "localized_of_which_administration": {
+    "2019": 8139147.32,
+    "2020": 8248152.83,
+    "2021": 8955056.05,
+    "2022": 9891538.13,
+    "2023": 11033880.28,
+    "2024": 12564615.58,
+    "2025": 11900500.98,
+    "2026": 8658764.51
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SOBRADINHO",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- SOBRADINHO",
+     "liquidated": 9596700.08,
+     "rule": "localizer"
+    },
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action": "MANUTENÇÃO DA ESCOLA VIVENCIAL DE TRÂNSITO",
+     "subtitle": "MANUTENÇÃO DA ESCOLA VIVENCIAL DE TRÂNSITO-DER-DF- SOBRADINHO",
+     "liquidated": 1925471.95,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SOBRADINHO",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS- SOBRADINHO - 2024",
+     "liquidated": 901781.63,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "PAULO IZIDORO DA SILVA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "15/04/2026"
+   },
+   "works": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SOBRADINHO",
+     "action_code": 3903,
+     "action": "REFORMA DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "REFORMA DE PRÉDIOS E PRÓPRIOS-SOBRADINHO- SOBRADINHO",
+     "liquidated": 666388.12,
+     "years": [
+      2022,
+      2024,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "SECRETARIA DE EST.DE TRANSPORTE E MOBILIDADE DO DF",
+     "action_code": 3182,
+     "action": "REFORMA DE TERMINAIS RODOVIÁRIOS",
+     "subtitle": "(EPI)REFORMA DO TERMINAL DE ÔNIBUS DE SOBRADINHO",
+     "liquidated": 554650.58,
+     "years": [
+      2020
+     ],
+     "company": null
+    },
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action_code": 1347,
+     "action": "CONSTRUÇÃO DE PASSARELA",
+     "subtitle": "(EPI)CONSTRUÇÃO DE PASSARELA SOBRE BR 020 KM 8 SETOR NOVA COLINA EM SOBRADINHO",
+     "liquidated": 500000.0,
+     "years": [
+      2019
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-VI": {
+   "name": "Planaltina",
+   "administration_ug": {
+    "code": 190108,
+    "name": "ADMINISTRAÇÃO REGIONAL DE PLANALTINA"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 10655316.0,
+     "authorized": 9727195.19,
+     "committed": 8219750.33,
+     "liquidated": 8108859.89,
+     "paid": 8189672.59
+    },
+    "2020": {
+     "initial": 11107255.0,
+     "authorized": 11929472.0,
+     "committed": 9870421.49,
+     "liquidated": 8342625.24,
+     "paid": 9830609.81
+    },
+    "2021": {
+     "initial": 12531957.0,
+     "authorized": 12640521.0,
+     "committed": 11738676.65,
+     "liquidated": 9330633.6,
+     "paid": 11088731.72
+    },
+    "2022": {
+     "initial": 13784099.0,
+     "authorized": 11869149.21,
+     "committed": 11577348.9,
+     "liquidated": 11440142.95,
+     "paid": 11539750.83
+    },
+    "2023": {
+     "initial": 15370141.0,
+     "authorized": 12871634.0,
+     "committed": 11544180.7,
+     "liquidated": 10769368.87,
+     "paid": 11487930.7
+    },
+    "2024": {
+     "initial": 13761712.0,
+     "authorized": 14441074.0,
+     "committed": 13529620.02,
+     "liquidated": 13279983.38,
+     "paid": 13300185.22
+    },
+    "2025": {
+     "initial": 10962531.0,
+     "authorized": 15285891.9,
+     "committed": 14611024.02,
+     "liquidated": 14387052.27,
+     "paid": 14559131.86
+    },
+    "2026": {
+     "initial": 16005984.0,
+     "authorized": 9457461.56,
+     "committed": 8678174.86,
+     "liquidated": 8558153.31,
+     "paid": 7822012.5
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 8715204.55,
+    "2020": 9052514.49,
+    "2021": 12786744.87,
+    "2022": 13112980.68,
+    "2023": 10820301.53,
+    "2024": 13337350.4,
+    "2025": 14569388.98,
+    "2026": 14700495.36
+   },
+   "localized_of_which_administration": {
+    "2019": 8108859.89,
+    "2020": 8342625.24,
+    "2021": 9330633.6,
+    "2022": 11440142.95,
+    "2023": 10769368.87,
+    "2024": 13279983.38,
+    "2025": 14387052.27,
+    "2026": 8558153.31
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE PLANALTINA",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- PLANALTINA",
+     "liquidated": 10746391.98,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE PLANALTINA",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS-- PLANALTINA",
+     "liquidated": 1665170.54,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE PLANALTINA",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-- PLANALTINA",
+     "liquidated": 847446.06,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "WESLEY FONSECA FRAGA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "02/01/2023"
+   },
+   "works": [
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action_code": 3058,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - PRÓ-MORADIA",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - PRÓ-MORADIA-MESTRE D'ARMAS- PLANALTINA",
+     "liquidated": 6800423.41,
+     "years": [
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE PLANALTINA",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)EXECUÇÃO DE OBRAS DE URBANIZAÇÃO EM PLANALTINA",
+     "liquidated": 1869102.87,
+     "years": [
+      2021,
+      2022
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE PLANALTINA",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-- PLANALTINA",
+     "liquidated": 426573.3,
+     "years": [
+      2022,
+      2025,
+      2026
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-VII": {
+   "name": "Paranoá",
+   "administration_ug": {
+    "code": 190109,
+    "name": "ADMINISTRAÇÃO REGIONAL DO PARANOÁ"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 4965325.0,
+     "authorized": 4046185.97,
+     "committed": 3570884.09,
+     "liquidated": 3486487.12,
+     "paid": 3556000.54
+    },
+    "2020": {
+     "initial": 4928035.0,
+     "authorized": 5245835.0,
+     "committed": 4538890.61,
+     "liquidated": 4244615.23,
+     "paid": 4206070.82
+    },
+    "2021": {
+     "initial": 5080959.0,
+     "authorized": 7050585.0,
+     "committed": 5790709.03,
+     "liquidated": 5400561.09,
+     "paid": 5380722.5
+    },
+    "2022": {
+     "initial": 5319101.0,
+     "authorized": 5158200.79,
+     "committed": 4561425.52,
+     "liquidated": 4531013.77,
+     "paid": 4549843.75
+    },
+    "2023": {
+     "initial": 5516705.0,
+     "authorized": 6666876.0,
+     "committed": 6338934.43,
+     "liquidated": 5192058.23,
+     "paid": 5639201.23
+    },
+    "2024": {
+     "initial": 6645607.0,
+     "authorized": 6073650.0,
+     "committed": 5493127.01,
+     "liquidated": 5352574.33,
+     "paid": 5391114.27
+    },
+    "2025": {
+     "initial": 6713083.0,
+     "authorized": 6437271.75,
+     "committed": 6233599.46,
+     "liquidated": 6147822.48,
+     "paid": 6214526.28
+    },
+    "2026": {
+     "initial": 6338227.0,
+     "authorized": 4505898.78,
+     "committed": 3968043.6,
+     "liquidated": 3863298.97,
+     "paid": 3537677.62
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 3822001.17,
+    "2020": 4456720.49,
+    "2021": 5446978.6,
+    "2022": 4531013.77,
+    "2023": 5192058.23,
+    "2024": 5352574.33,
+    "2025": 6247822.48,
+    "2026": 3863298.97
+   },
+   "localized_of_which_administration": {
+    "2019": 3486487.12,
+    "2020": 4244615.23,
+    "2021": 5400561.09,
+    "2022": 4531013.77,
+    "2023": 5192058.23,
+    "2024": 5352574.33,
+    "2025": 6147822.48,
+    "2026": 3863298.97
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO PARANOÁ",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-RA VII- PARANOÁ",
+     "liquidated": 3802083.64,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO PARANOÁ",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA-RA VII- PARANOÁ",
+     "liquidated": 707194.38,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO PARANOÁ",
+     "action": "RESSARCIMENTOS, INDENIZAÇÕES E RESTITUIÇÕES DE PESSOAL",
+     "subtitle": "RESSARCIMENTOS, INDENIZAÇÕES E RESTITUIÇÕES DE PES- RA VII- PARANOÁ",
+     "liquidated": 614012.14,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "WAGNER TEIXEIRA LIMA DE SOUZA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "06/04/2026"
+   },
+   "works": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO PARANOÁ",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)EXECUÇÃO DE OBRAS DE URBANIZAÇÃO--DISTRITO FEDERAL",
+     "liquidated": 171309.84,
+     "years": [
+      2021
+     ],
+     "company": null
+    },
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action_code": 5745,
+     "action": "EXECUÇÃO DE PAVIMENTAÇÃO ASFÁLTICA",
+     "subtitle": "(EPI)PROJETO EXECUTIVO PARA IMPLANTAÇÃO DE ESTRADA NA SERRINHA DO PARANOÁ",
+     "liquidated": 100000.0,
+     "years": [
+      2025
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO PARANOÁ",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-OBRAS DE URBANIZAÇÃO - SOS/DF- PARANOÁ",
+     "liquidated": 66016.74,
+     "years": [
+      2019
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-VIII": {
+   "name": "Núcleo Bandeirante",
+   "administration_ug": {
+    "code": 190110,
+    "name": "ADMINISTRAÇÃO REGIONAL DO  NÚCLEO BANDEIRANTE"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 7338880.0,
+     "authorized": 9026462.48,
+     "committed": 8575752.54,
+     "liquidated": 7448795.9,
+     "paid": 8001978.25
+    },
+    "2020": {
+     "initial": 9755595.0,
+     "authorized": 8705595.0,
+     "committed": 7830274.14,
+     "liquidated": 7769951.33,
+     "paid": 7787502.3
+    },
+    "2021": {
+     "initial": 13744710.0,
+     "authorized": 11884710.0,
+     "committed": 9026199.0,
+     "liquidated": 8963862.94,
+     "paid": 8955205.8
+    },
+    "2022": {
+     "initial": 11038065.0,
+     "authorized": 9233140.42,
+     "committed": 8802257.07,
+     "liquidated": 7112239.23,
+     "paid": 8581281.45
+    },
+    "2023": {
+     "initial": 16362679.0,
+     "authorized": 8626354.25,
+     "committed": 7675007.95,
+     "liquidated": 7586996.99,
+     "paid": 7623746.6
+    },
+    "2024": {
+     "initial": 13523322.0,
+     "authorized": 9786798.0,
+     "committed": 8858331.89,
+     "liquidated": 8276605.61,
+     "paid": 8310932.09
+    },
+    "2025": {
+     "initial": 13260705.0,
+     "authorized": 8780814.3,
+     "committed": 8319409.5,
+     "liquidated": 8099458.23,
+     "paid": 8134594.54
+    },
+    "2026": {
+     "initial": 11641783.0,
+     "authorized": 6392830.84,
+     "committed": 6002893.42,
+     "liquidated": 5689862.79,
+     "paid": 5126325.77
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 7690819.99,
+    "2020": 8419547.15,
+    "2021": 8995273.49,
+    "2022": 7166626.79,
+    "2023": 8027762.75,
+    "2024": 8276605.61,
+    "2025": 8099458.23,
+    "2026": 5689862.79
+   },
+   "localized_of_which_administration": {
+    "2019": 7448795.9,
+    "2020": 7769951.33,
+    "2021": 8963862.94,
+    "2022": 7112239.23,
+    "2023": 7586996.99,
+    "2024": 8276605.61,
+    "2025": 8099458.23,
+    "2026": 5689862.79
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO  NÚCLEO BANDEIRANTE",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- NÚCLEO BANDEIRANTE",
+     "liquidated": 6441854.93,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO  NÚCLEO BANDEIRANTE",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS-ADMINISTRAÇÃO REGIONAL- NÚCLEO BANDEIRANTE",
+     "liquidated": 505619.15,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO  NÚCLEO BANDEIRANTE",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- NÚCLEO BANDEIRANTE",
+     "liquidated": 472706.85,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "IROITO SANTOS NAKAO",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "05/01/2026"
+   },
+   "works": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO  NÚCLEO BANDEIRANTE",
+     "action_code": 1836,
+     "action": "AMPLIAÇÃO DOS PONTOS DE ILUMINAÇÃO PÚBLICA",
+     "subtitle": "(EPI)AMPLICAÇÃO DOS PONTOS DE ILUMINAÇÃO H PÚBLICA",
+     "liquidated": 1732150.66,
+     "years": [
+      2021
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO  NÚCLEO BANDEIRANTE",
+     "action_code": 1836,
+     "action": "AMPLIAÇÃO DOS PONTOS DE ILUMINAÇÃO PÚBLICA",
+     "subtitle": "(EPI)AMPLICAÇÃO DOS PONTOS DE ILUMINAÇÃO PÚBLICA NA REGIÃO DO NÚCLEO BANDEIRANTE",
+     "liquidated": 261344.06,
+     "years": [
+      2020
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO  NÚCLEO BANDEIRANTE",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-- NÚCLEO BANDEIRANTE",
+     "liquidated": 239102.24,
+     "years": [
+      2019,
+      2022
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-IX": {
+   "name": "Ceilândia",
+   "administration_ug": {
+    "code": 190111,
+    "name": "ADMINISTRAÇÃO REGIONAL DE CEILÂNDIA"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 17690385.0,
+     "authorized": 17478659.19,
+     "committed": 12831242.68,
+     "liquidated": 12119204.15,
+     "paid": 12214397.18
+    },
+    "2020": {
+     "initial": 19951144.0,
+     "authorized": 16263622.05,
+     "committed": 12954926.3,
+     "liquidated": 12616108.48,
+     "paid": 12790521.0
+    },
+    "2021": {
+     "initial": 10717059.0,
+     "authorized": 15102113.11,
+     "committed": 13610931.16,
+     "liquidated": 13469726.63,
+     "paid": 13575164.84
+    },
+    "2022": {
+     "initial": 17738013.0,
+     "authorized": 15070189.34,
+     "committed": 14719863.87,
+     "liquidated": 14489954.64,
+     "paid": 14638531.87
+    },
+    "2023": {
+     "initial": 17997783.0,
+     "authorized": 18873285.84,
+     "committed": 17193101.58,
+     "liquidated": 15510431.12,
+     "paid": 17087773.8
+    },
+    "2024": {
+     "initial": 15008193.0,
+     "authorized": 18437456.66,
+     "committed": 17736662.69,
+     "liquidated": 17383510.53,
+     "paid": 17638928.54
+    },
+    "2025": {
+     "initial": 15827119.0,
+     "authorized": 19343073.01,
+     "committed": 18742413.34,
+     "liquidated": 18403976.74,
+     "paid": 18639624.29
+    },
+    "2026": {
+     "initial": 21723224.0,
+     "authorized": 12176519.39,
+     "committed": 11910826.41,
+     "liquidated": 11744187.81,
+     "paid": 10670061.24
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 47759431.2,
+    "2020": 20192145.77,
+    "2021": 14803292.8,
+    "2022": 17686867.74,
+    "2023": 55641947.03,
+    "2024": 46119740.41,
+    "2025": 43183283.64,
+    "2026": 16203412.66
+   },
+   "localized_of_which_administration": {
+    "2019": 12119204.15,
+    "2020": 12616108.48,
+    "2021": 11972688.27,
+    "2022": 14486554.64,
+    "2023": 15510431.12,
+    "2024": 17383510.53,
+    "2025": 18403976.74,
+    "2026": 11744187.81
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "COMPANHIA DE DESENV. DA HABITAÇÃO  DO DF - CODHAB",
+     "action": "CONSTRUÇÃO DE UNIDADES HABITACIONAIS",
+     "subtitle": "CONSTRUÇÃO DE UNIDADES HABITACIONAIS-CONSTRUÇÃO DE UNIDADES HABITACIONAIS - CODHAB - SOL NASCENTE- CEILÂNDIA",
+     "liquidated": 22939036.54,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE CEILÂNDIA",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- CEILÂNDIA",
+     "liquidated": 14122765.89,
+     "rule": "localizer"
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DA MULHER DO DISTRITO FEDERAL",
+     "action": "MANUTENÇÃO DA CASA DA MULHER BRASILEIRA",
+     "subtitle": "MANUTENÇÃO DA CASA DA MULHER BRASILEIRA-- CEILÂNDIA",
+     "liquidated": 1840270.36,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "RENATO SANTANA DA SILVA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "01/06/2026"
+   },
+   "works": [
+    {
+     "ug": "COMPANHIA DE DESENV. DA HABITAÇÃO  DO DF - CODHAB",
+     "action_code": 1213,
+     "action": "CONSTRUÇÃO DE UNIDADES HABITACIONAIS",
+     "subtitle": "CONSTRUÇÃO DE UNIDADES HABITACIONAIS-CONSTRUÇÃO DE UNIDADES HABITACIONAIS - CODHAB - SOL NASCENTE- CEILÂNDIA",
+     "liquidated": 118024803.79,
+     "years": [
+      2019,
+      2020,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action_code": 3058,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - PRÓ-MORADIA",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - PRÓ-MORADIA-CONDOMÍNIO SOL NASCENTE- CEILÂNDIA",
+     "liquidated": 11880708.99,
+     "years": [
+      2019
+     ],
+     "company": null
+    },
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action_code": 5745,
+     "action": "EXECUÇÃO DE PAVIMENTAÇÃO ASFÁLTICA",
+     "subtitle": "(EPI)EXECUÇÃO DE PAVIMENTAÇÃO ASFÁLTICA-AQUISIÇÃO DE MATERIAL DE CONSUMO PARA EXECUÇÃO DE OBRA DE PAVIMENTAÇÃO ASFÁLTICA- CEILÂNDIA",
+     "liquidated": 583130.8,
+     "years": [
+      2021
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-X": {
+   "name": "Guará",
+   "administration_ug": {
+    "code": 190112,
+    "name": "ADMINISTRAÇÃO REGIONAL DO GUARÁ"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 9174417.0,
+     "authorized": 8720735.2,
+     "committed": 8417904.23,
+     "liquidated": 8277502.18,
+     "paid": 8363160.34
+    },
+    "2020": {
+     "initial": 10887654.0,
+     "authorized": 13806654.0,
+     "committed": 8698712.07,
+     "liquidated": 8652500.6,
+     "paid": 8681479.05
+    },
+    "2021": {
+     "initial": 12076226.0,
+     "authorized": 9436226.0,
+     "committed": 8859041.63,
+     "liquidated": 8786379.31,
+     "paid": 8846984.97
+    },
+    "2022": {
+     "initial": 16581726.0,
+     "authorized": 10193640.81,
+     "committed": 9944052.33,
+     "liquidated": 9742884.79,
+     "paid": 9876338.82
+    },
+    "2023": {
+     "initial": 15637335.0,
+     "authorized": 11593873.0,
+     "committed": 11381291.57,
+     "liquidated": 11028650.5,
+     "paid": 11313649.06
+    },
+    "2024": {
+     "initial": 16799268.0,
+     "authorized": 16254903.0,
+     "committed": 15912287.6,
+     "liquidated": 15705248.79,
+     "paid": 15631947.71
+    },
+    "2025": {
+     "initial": 16047905.0,
+     "authorized": 17141285.34,
+     "committed": 17052137.57,
+     "liquidated": 16846644.29,
+     "paid": 16931463.43
+    },
+    "2026": {
+     "initial": 20865551.0,
+     "authorized": 11941205.92,
+     "committed": 11614277.94,
+     "liquidated": 10690044.46,
+     "paid": 9665948.49
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 30635583.13,
+    "2020": 11141325.93,
+    "2021": 9558543.66,
+    "2022": 11780167.01,
+    "2023": 12728567.35,
+    "2024": 17231964.12,
+    "2025": 16861404.29,
+    "2026": 11528280.83
+   },
+   "localized_of_which_administration": {
+    "2019": 8277502.18,
+    "2020": 8652500.6,
+    "2021": 8786379.31,
+    "2022": 9742884.79,
+    "2023": 11028650.5,
+    "2024": 15705248.79,
+    "2025": 16846644.29,
+    "2026": 10690044.46
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO GUARÁ",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- GUARÁ",
+     "liquidated": 10645504.94,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO GUARÁ",
+     "action": "REFORMA DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "REFORMA DE PRÉDIOS E PRÓPRIOS-ADMINISTRAÇÃO REGIONAL- GUARÁ",
+     "liquidated": 1451175.88,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO GUARÁ",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- GUARÁ",
+     "liquidated": 830634.35,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "ARTUR DA CUNHA NOGUEIRA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "02/01/2023"
+   },
+   "works": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO GUARÁ",
+     "action_code": 3903,
+     "action": "REFORMA DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "REFORMA DE PRÉDIOS E PRÓPRIOS-ADMINISTRAÇÃO REGIONAL- GUARÁ",
+     "liquidated": 1974990.56,
+     "years": [
+      2019,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO GUARÁ",
+     "action_code": 3048,
+     "action": "REFORMA DE ESPAÇOS ESPORTIVOS",
+     "subtitle": "REFORMA DE ESPAÇOS ESPORTIVOS-- GUARÁ",
+     "liquidated": 1820415.93,
+     "years": [
+      2024,
+      2025
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 3048,
+     "action": "REFORMA DE ESPAÇOS ESPORTIVOS",
+     "subtitle": "REFORMA DE ESPAÇOS ESPORTIVOS-- GUARÁ",
+     "liquidated": 1361264.21,
+     "years": [
+      2022,
+      2026
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XI": {
+   "name": "Cruzeiro",
+   "administration_ug": {
+    "code": 190113,
+    "name": "ADMINISTRAÇÃO REGIONAL DO CRUZEIRO"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 7118179.0,
+     "authorized": 4815434.84,
+     "committed": 4519342.74,
+     "liquidated": 4471714.98,
+     "paid": 4510751.03
+    },
+    "2020": {
+     "initial": 4655081.0,
+     "authorized": 5425081.0,
+     "committed": 4846240.49,
+     "liquidated": 4666628.51,
+     "paid": 4707238.94
+    },
+    "2021": {
+     "initial": 4855523.0,
+     "authorized": 7686091.0,
+     "committed": 6326312.3,
+     "liquidated": 6262168.92,
+     "paid": 6306671.39
+    },
+    "2022": {
+     "initial": 5132962.0,
+     "authorized": 5821720.0,
+     "committed": 5335162.4,
+     "liquidated": 5300863.89,
+     "paid": 5319951.39
+    },
+    "2023": {
+     "initial": 5957961.0,
+     "authorized": 6971466.0,
+     "committed": 6558431.32,
+     "liquidated": 6402797.75,
+     "paid": 6475946.68
+    },
+    "2024": {
+     "initial": 6552015.0,
+     "authorized": 8311425.0,
+     "committed": 7721221.98,
+     "liquidated": 7593553.52,
+     "paid": 7692538.76
+    },
+    "2025": {
+     "initial": 8083745.0,
+     "authorized": 8477685.96,
+     "committed": 8054651.05,
+     "liquidated": 7909689.18,
+     "paid": 8018360.42
+    },
+    "2026": {
+     "initial": 8858665.0,
+     "authorized": 6018348.03,
+     "committed": 5694114.62,
+     "liquidated": 5373105.36,
+     "paid": 4914853.41
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 4710319.53,
+    "2020": 5275513.74,
+    "2021": 6419930.86,
+    "2022": 5300863.89,
+    "2023": 6402797.75,
+    "2024": 7593553.52,
+    "2025": 7929529.18,
+    "2026": 5373105.36
+   },
+   "localized_of_which_administration": {
+    "2019": 4471714.98,
+    "2020": 4666628.51,
+    "2021": 6262168.92,
+    "2022": 5300863.89,
+    "2023": 6402797.75,
+    "2024": 7593553.52,
+    "2025": 7909689.18,
+    "2026": 5373105.36
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO CRUZEIRO",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- CRUZEIRO",
+     "liquidated": 5586357.22,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO CRUZEIRO",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA-ADMINISTRAÇÃO REGIONAL- CRUZEIRO",
+     "liquidated": 623158.78,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO CRUZEIRO",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- CRUZEIRO",
+     "liquidated": 537823.25,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "CLAUDECI FERREIRA MARTINS",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "17/01/2023"
+   },
+   "works": [
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1079,
+     "action": "CONSTRUÇÃO DE ESPAÇOS ESPORTIVOS",
+     "subtitle": "(EPI)CONSTRUÇÃO DE ESPAÇOS ESPORTIVOS-CONSTRUÇÃO DE QUADRA POLIESPORTIVA COBERTA NO CRUZEIRO (EM 2020)- CRUZEIRO",
+     "liquidated": 450000.0,
+     "years": [
+      2020
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO CRUZEIRO",
+     "action_code": 1836,
+     "action": "AMPLIAÇÃO DOS PONTOS DE ILUMINAÇÃO PÚBLICA",
+     "subtitle": "AMPLIAÇÃO DOS PONTOS DE ILUMINAÇÃO PÚBLICA - CRUZEIRO",
+     "liquidated": 21482.91,
+     "years": [
+      2024
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO CRUZEIRO",
+     "action_code": 3902,
+     "action": "REFORMA DE PRAÇAS PÚBLICAS E PARQUES",
+     "subtitle": "(EPI)REFORMA DE PRAÇAS PÚBLICAS E PARQUES-(EM 2020) NA REGIÃO ADMINISTRATIVA DO- CRUZEIRO",
+     "liquidated": 19729.49,
+     "years": [
+      2020
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XII": {
+   "name": "Samambaia",
+   "administration_ug": {
+    "code": 190114,
+    "name": "ADMINISTRAÇÃO REGIONAL DE SAMAMBAIA"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 12519137.0,
+     "authorized": 7982532.54,
+     "committed": 7643342.9,
+     "liquidated": 7552602.09,
+     "paid": 7633806.99
+    },
+    "2020": {
+     "initial": 11340952.0,
+     "authorized": 8908647.0,
+     "committed": 8494646.51,
+     "liquidated": 8404511.35,
+     "paid": 8477282.61
+    },
+    "2021": {
+     "initial": 8359027.0,
+     "authorized": 16523708.0,
+     "committed": 14719227.34,
+     "liquidated": 9019613.26,
+     "paid": 14394878.69
+    },
+    "2022": {
+     "initial": 9980529.0,
+     "authorized": 10452902.85,
+     "committed": 10142960.66,
+     "liquidated": 9669026.33,
+     "paid": 10072261.91
+    },
+    "2023": {
+     "initial": 13738357.0,
+     "authorized": 13691634.0,
+     "committed": 12616226.48,
+     "liquidated": 10867849.07,
+     "paid": 12524887.82
+    },
+    "2024": {
+     "initial": 15756972.0,
+     "authorized": 13899112.0,
+     "committed": 12635189.99,
+     "liquidated": 12557732.46,
+     "paid": 12595329.96
+    },
+    "2025": {
+     "initial": 14331992.0,
+     "authorized": 14348389.45,
+     "committed": 13415996.94,
+     "liquidated": 13171310.49,
+     "paid": 13250319.61
+    },
+    "2026": {
+     "initial": 17393433.0,
+     "authorized": 10314003.77,
+     "committed": 10038250.36,
+     "liquidated": 9497925.01,
+     "paid": 8642454.94
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 9312019.12,
+    "2020": 8771807.89,
+    "2021": 10757242.65,
+    "2022": 9769026.33,
+    "2023": 10917849.07,
+    "2024": 12557732.46,
+    "2025": 13171310.49,
+    "2026": 9497925.01
+   },
+   "localized_of_which_administration": {
+    "2019": 7552602.09,
+    "2020": 8404511.35,
+    "2021": 9019613.26,
+    "2022": 9669026.33,
+    "2023": 10867849.07,
+    "2024": 12557732.46,
+    "2025": 13171310.49,
+    "2026": 9497925.01
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SAMAMBAIA",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- SAMAMBAIA",
+     "liquidated": 10556080.96,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SAMAMBAIA",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- SAMAMBAIA",
+     "liquidated": 906712.81,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SAMAMBAIA",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA-ADMINISTRAÇÃO REGIONAL- SAMAMBAIA",
+     "liquidated": 810974.11,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "MARCOS LEITE DE ARAUJO",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "01/01/2023"
+   },
+   "works": [
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)EXECUÇÃO DE OBRAS DE INFRAESTRUTURA E URBANISMO EM SAMAMBAIA - 2021",
+     "liquidated": 1000000.0,
+     "years": [
+      2021
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA DE DESENV. DA HABITAÇÃO  DO DF - CODHAB",
+     "action_code": 1213,
+     "action": "CONSTRUÇÃO DE UNIDADES HABITACIONAIS",
+     "subtitle": "(EPI)CONSTRUÇÃO DE UNIDADES HABITACIONAIS-- SAMAMBAIA- SAMAMBAIA",
+     "liquidated": 389523.4,
+     "years": [
+      2019
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-OBRAS DE URBANIZAÇÃO - SOS/DF- SAMAMBAIA",
+     "liquidated": 300000.0,
+     "years": [
+      2021
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XIII": {
+   "name": "Santa Maria",
+   "administration_ug": {
+    "code": 190115,
+    "name": "ADMINISTRAÇÃO REGIONAL DE SANTA MARIA"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 10368566.0,
+     "authorized": 8934294.36,
+     "committed": 7595577.16,
+     "liquidated": 7381548.08,
+     "paid": 7461199.9
+    },
+    "2020": {
+     "initial": 9273755.0,
+     "authorized": 9603755.0,
+     "committed": 7709183.16,
+     "liquidated": 7206672.77,
+     "paid": 7519136.23
+    },
+    "2021": {
+     "initial": 10174284.0,
+     "authorized": 14432926.0,
+     "committed": 12647212.17,
+     "liquidated": 6944274.86,
+     "paid": 8108422.62
+    },
+    "2022": {
+     "initial": 9568580.0,
+     "authorized": 11496553.66,
+     "committed": 11361367.3,
+     "liquidated": 11210437.47,
+     "paid": 11234110.22
+    },
+    "2023": {
+     "initial": 17218724.0,
+     "authorized": 13337863.0,
+     "committed": 13203379.96,
+     "liquidated": 11132970.58,
+     "paid": 12855053.71
+    },
+    "2024": {
+     "initial": 17673985.0,
+     "authorized": 15677778.15,
+     "committed": 14230523.86,
+     "liquidated": 12862364.02,
+     "paid": 13963342.57
+    },
+    "2025": {
+     "initial": 22437674.0,
+     "authorized": 13386953.75,
+     "committed": 13205462.44,
+     "liquidated": 11383507.77,
+     "paid": 12927217.21
+    },
+    "2026": {
+     "initial": 19613561.0,
+     "authorized": 7172492.56,
+     "committed": 7030872.75,
+     "liquidated": 6947358.45,
+     "paid": 6315536.8
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 10648905.84,
+    "2020": 18602478.15,
+    "2021": 8858009.32,
+    "2022": 12710213.47,
+    "2023": 12232970.58,
+    "2024": 14550670.59,
+    "2025": 13318622.61,
+    "2026": 8640787.83
+   },
+   "localized_of_which_administration": {
+    "2019": 7381548.08,
+    "2020": 7206672.77,
+    "2021": 6944274.86,
+    "2022": 11210437.47,
+    "2023": 11132970.58,
+    "2024": 12862364.02,
+    "2025": 11383507.77,
+    "2026": 6947358.45
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SANTA MARIA",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- SANTA MARIA",
+     "liquidated": 7721398.32,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SANTA MARIA",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS-ADMINISTRAÇÃO REGIONAL- SANTA MARIA",
+     "liquidated": 1670925.21,
+     "rule": "localizer"
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action": "REFORMA DE ESPAÇOS ESPORTIVOS",
+     "subtitle": "REFORMA DE ESPAÇOS ESPORTIVOS-- SANTA MARIA",
+     "liquidated": 1214000.0,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "JOSIEL FRANCA PENHA NETO",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "29/07/2020"
+   },
+   "works": [
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action_code": 3023,
+     "action": "PROGRAMA DE ACELERAÇÃO DO CRESCIMENTO - PAC",
+     "subtitle": "PROGRAMA DE ACELERAÇÃO DO CRESCIMENTO - PAC-PAVIMENTAÇÃO E QUALIFICAÇÃO DE VIAS URBANAS NO SETOR HABITACIONAL PORTO RICO- SANTA MARIA",
+     "liquidated": 6586975.49,
+     "years": [
+      2019,
+      2020,
+      2021
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SANTA MARIA",
+     "action_code": 1950,
+     "action": "CONSTRUÇÃO DE PRAÇAS PÚBLICAS E PARQUES",
+     "subtitle": "CONSTRUÇÃO DE PRAÇAS PÚBLICAS E PARQUES - SANTA MARIA - SANTA MARIA",
+     "liquidated": 3183495.28,
+     "years": [
+      2022,
+      2024
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SANTA MARIA",
+     "action_code": 3048,
+     "action": "REFORMA DE ESPAÇOS ESPORTIVOS",
+     "subtitle": "REFORMA DE ESPAÇOS ESPORTIVOS-- SANTA MARIA",
+     "liquidated": 2142671.98,
+     "years": [
+      2022,
+      2024
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XIV": {
+   "name": "São Sebastião",
+   "administration_ug": {
+    "code": 190116,
+    "name": "ADMINISTRAÇÃO REGIONAL DE SÃO SEBASTIÃO"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 8632045.0,
+     "authorized": 6561670.18,
+     "committed": 6076115.29,
+     "liquidated": 5500677.94,
+     "paid": 6050627.21
+    },
+    "2020": {
+     "initial": 7744406.0,
+     "authorized": 7549913.0,
+     "committed": 6219679.89,
+     "liquidated": 5795009.76,
+     "paid": 6200639.56
+    },
+    "2021": {
+     "initial": 8256128.0,
+     "authorized": 8512104.0,
+     "committed": 7601436.86,
+     "liquidated": 6102278.14,
+     "paid": 7505228.74
+    },
+    "2022": {
+     "initial": 6228347.0,
+     "authorized": 6395190.07,
+     "committed": 6024378.19,
+     "liquidated": 5919682.43,
+     "paid": 6004299.51
+    },
+    "2023": {
+     "initial": 6668620.0,
+     "authorized": 13105701.0,
+     "committed": 12653172.8,
+     "liquidated": 6611115.54,
+     "paid": 12314356.5
+    },
+    "2024": {
+     "initial": 8325533.0,
+     "authorized": 8346999.0,
+     "committed": 7266308.8,
+     "liquidated": 7160992.73,
+     "paid": 7236236.49
+    },
+    "2025": {
+     "initial": 6950728.0,
+     "authorized": 7761318.71,
+     "committed": 7498333.63,
+     "liquidated": 7366591.76,
+     "paid": 7448412.85
+    },
+    "2026": {
+     "initial": 8348483.0,
+     "authorized": 5337521.75,
+     "committed": 5260817.83,
+     "liquidated": 5228314.77,
+     "paid": 4755356.27
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 48089506.24,
+    "2020": 8833437.65,
+    "2021": 13320713.46,
+    "2022": 11962441.1,
+    "2023": 9286632.68,
+    "2024": 13617118.73,
+    "2025": 9188600.56,
+    "2026": 8390247.69
+   },
+   "localized_of_which_administration": {
+    "2019": 5500677.94,
+    "2020": 5795009.76,
+    "2021": 6102278.14,
+    "2022": 5919682.43,
+    "2023": 6611115.54,
+    "2024": 7160992.73,
+    "2025": 7366591.76,
+    "2026": 5228314.77
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SÃO SEBASTIÃO",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- SÃO SEBASTIÃO",
+     "liquidated": 5841733.22,
+     "rule": "localizer"
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action": "ELABORAÇÃO DE PROJETOS",
+     "subtitle": "(EPI)ELABORAÇÃO DE PROJETOS - DESENVOLVIMENTO DE PROJETOS DE INFRAESTRUTURA PARA A ARIS MORRO DA CRUZ - REGIÃO ADMINISTRATIVA DE SÃO SEBASTIÃO (RA-XIV)",
+     "liquidated": 1102019.34,
+     "rule": "full_text"
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DA MULHER DO DISTRITO FEDERAL",
+     "action": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER",
+     "subtitle": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER-CASA DA MULHER BRASILEIRA- SÃO SEBASTIÃO",
+     "liquidated": 719989.46,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "VALMIR JOSE DA CONCEICAO",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "07/04/2026"
+   },
+   "works": [
+    {
+     "ug": "SECRETARIA DE EST. DE  SEGURANÇA PÚBLICA DO DF",
+     "action_code": 3077,
+     "action": "CONSTRUÇÃO DE CENTROS DE DETENÇÃO PROVISÓRIA - CDP",
+     "subtitle": "CONSTRUÇÃO DE CENTROS DE DETENÇÃO PROVISÓRIA - CDP-SSP- SÃO SEBASTIÃO",
+     "liquidated": 38340674.63,
+     "years": [
+      2019
+     ],
+     "company": null
+    },
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action_code": 3005,
+     "action": "AMPLIAÇÃO DE RODOVIAS",
+     "subtitle": "AMPLIAÇÃO DE RODOVIAS-DF 140- SÃO SEBASTIÃO",
+     "liquidated": 20578010.79,
+     "years": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA DE DESENV. DA HABITAÇÃO  DO DF - CODHAB",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - CODHAB - CRIXÁ- SÃO SEBASTIÃO",
+     "liquidated": 5808641.68,
+     "years": [
+      2019,
+      2020
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XV": {
+   "name": "Recanto das Emas",
+   "administration_ug": {
+    "code": 190117,
+    "name": "ADMINISTRAÇÃO REGIONAL DO RECANTO DAS EMAS"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 9807168.0,
+     "authorized": 4943839.04,
+     "committed": 4445839.61,
+     "liquidated": 4398088.28,
+     "paid": 4435712.89
+    },
+    "2020": {
+     "initial": 5324120.0,
+     "authorized": 6360889.0,
+     "committed": 5777855.49,
+     "liquidated": 5421638.45,
+     "paid": 5674362.03
+    },
+    "2021": {
+     "initial": 5570331.0,
+     "authorized": 7889426.0,
+     "committed": 7526764.04,
+     "liquidated": 5685368.12,
+     "paid": 7391543.14
+    },
+    "2022": {
+     "initial": 7339622.0,
+     "authorized": 6154603.47,
+     "committed": 5586478.15,
+     "liquidated": 5560947.31,
+     "paid": 5576293.73
+    },
+    "2023": {
+     "initial": 8557409.0,
+     "authorized": 10038931.0,
+     "committed": 8225474.89,
+     "liquidated": 6611069.5,
+     "paid": 8187870.44
+    },
+    "2024": {
+     "initial": 9117770.0,
+     "authorized": 10816941.09,
+     "committed": 9155414.18,
+     "liquidated": 9048002.8,
+     "paid": 9016822.42
+    },
+    "2025": {
+     "initial": 7733530.0,
+     "authorized": 11031264.77,
+     "committed": 10252992.26,
+     "liquidated": 10157098.96,
+     "paid": 10185248.03
+    },
+    "2026": {
+     "initial": 12377946.0,
+     "authorized": 6223463.59,
+     "committed": 5675676.67,
+     "liquidated": 5605326.92,
+     "paid": 5065602.66
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 4929929.52,
+    "2020": 5707617.31,
+    "2021": 6075439.22,
+    "2022": 6414735.26,
+    "2023": 7386320.67,
+    "2024": 10123250.04,
+    "2025": 9901795.94,
+    "2026": 5605326.92
+   },
+   "localized_of_which_administration": {
+    "2019": 4398088.28,
+    "2020": 5421638.45,
+    "2021": 5685368.12,
+    "2022": 5560947.31,
+    "2023": 6611069.5,
+    "2024": 9048002.8,
+    "2025": 9228989.17,
+    "2026": 5605326.92
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RECANTO DAS EMAS",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-RECANTO DAS EMAS/ÁGUA QUENTE- RECANTO DAS EMAS",
+     "liquidated": 7544069.35,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RECANTO DAS EMAS",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-RECANTO DAS EMAS/ÁGUA QUENTE RAXXXV- RECANTO DAS EMAS",
+     "liquidated": 725717.0,
+     "rule": "localizer"
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DA MULHER DO DISTRITO FEDERAL",
+     "action": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER",
+     "subtitle": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER-CASA DA MULHER BRASILEIRA- RECANTO DAS EMAS",
+     "liquidated": 672806.77,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "WANDERLEY ERES DE DEUS",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "31/01/2023"
+   },
+   "works": [
+    {
+     "ug": "SECRETARIA DE ESTADO DA MULHER DO DISTRITO FEDERAL",
+     "action_code": 3051,
+     "action": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER",
+     "subtitle": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER-CASA DA MULHER BRASILEIRA- RECANTO DAS EMAS",
+     "liquidated": 2088850.52,
+     "years": [
+      2023,
+      2024,
+      2025
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RECANTO DAS EMAS",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)(EPE)EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-- RECANTO DAS EMAS",
+     "liquidated": 503858.72,
+     "years": [
+      2020
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-RECANTO DAS EMAS/ÁGUA QUENTE RAXXXV- RECANTO DAS EMAS",
+     "liquidated": 374452.66,
+     "years": [
+      2024
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XVI": {
+   "name": "Lago Sul",
+   "administration_ug": {
+    "code": 190118,
+    "name": "ADMINISTRAÇÃO REGIONAL DO LAGO SUL"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 4732177.0,
+     "authorized": 4751177.0,
+     "committed": 4168706.17,
+     "liquidated": 4146217.64,
+     "paid": 4160630.1
+    },
+    "2020": {
+     "initial": 4938429.0,
+     "authorized": 5538429.0,
+     "committed": 4379878.45,
+     "liquidated": 4352376.35,
+     "paid": 4372088.14
+    },
+    "2021": {
+     "initial": 4740124.0,
+     "authorized": 5158124.0,
+     "committed": 4647445.32,
+     "liquidated": 4588299.14,
+     "paid": 4602652.93
+    },
+    "2022": {
+     "initial": 6033650.0,
+     "authorized": 5252273.36,
+     "committed": 4961953.37,
+     "liquidated": 4919240.55,
+     "paid": 4950275.72
+    },
+    "2023": {
+     "initial": 6486832.0,
+     "authorized": 6148249.0,
+     "committed": 5559648.26,
+     "liquidated": 5506649.17,
+     "paid": 5542246.81
+    },
+    "2024": {
+     "initial": 6899675.0,
+     "authorized": 7216433.0,
+     "committed": 5928622.95,
+     "liquidated": 5856853.87,
+     "paid": 5894600.07
+    },
+    "2025": {
+     "initial": 7240429.0,
+     "authorized": 7314441.0,
+     "committed": 6322488.11,
+     "liquidated": 6250266.87,
+     "paid": 6290978.45
+    },
+    "2026": {
+     "initial": 6742675.0,
+     "authorized": 4975427.58,
+     "committed": 4831529.59,
+     "liquidated": 4605962.27,
+     "paid": 4197489.11
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 9666945.39,
+    "2020": 4710186.17,
+    "2021": 5009183.61,
+    "2022": 5022230.09,
+    "2023": 5949898.12,
+    "2024": 5859943.87,
+    "2025": 6308362.99,
+    "2026": 5463350.24
+   },
+   "localized_of_which_administration": {
+    "2019": 4146217.64,
+    "2020": 4352376.35,
+    "2021": 4588299.14,
+    "2022": 4919240.55,
+    "2023": 5506649.17,
+    "2024": 5856853.87,
+    "2025": 6250266.87,
+    "2026": 4605962.27
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO LAGO SUL",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- LAGO SUL",
+     "liquidated": 5112170.99,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO LAGO SUL",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- LAGO SUL",
+     "liquidated": 333078.82,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO LAGO SUL",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA-- LAGO SUL",
+     "liquidated": 271796.35,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "RUBENS SANTORO NETO",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "08/01/2019"
+   },
+   "works": [
+    {
+     "ug": "JARDIM BOTÂNICO DE BRASÍLIA",
+     "action_code": 3903,
+     "action": "REFORMA DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "REFORMA DE PRÉDIOS E PRÓPRIOS-JARDIM BOTÂNICO DE BRASÍLIA- LAGO SUL",
+     "liquidated": 1170325.35,
+     "years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "JARDIM BOTÂNICO DE BRASÍLIA",
+     "action_code": 3000,
+     "action": "IMPLANTAÇÃO DA BIBLIOTECA DIGITAL DO CERRADO",
+     "subtitle": "IMPLANTAÇÃO DA BIBLIOTECA DIGITAL DO CERRADO-- LAGO SUL",
+     "liquidated": 130038.66,
+     "years": [
+      2019,
+      2024
+     ],
+     "company": null
+    },
+    {
+     "ug": "JARDIM BOTÂNICO DE BRASÍLIA",
+     "action_code": 1984,
+     "action": "CONSTRUÇÃO DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "(EPI)CONSTRUÇÃO DE PRÉDIOS E PRÓPRIOS-CONSTRUÇÃO DE PRÉDIOS E PRÓPRIOS - CONSTRUÇÃO DE UM NOVO RESTAURANTE - LAGO SUL",
+     "liquidated": 124870.01,
+     "years": [
+      2019
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XVII": {
+   "name": "Riacho Fundo",
+   "administration_ug": {
+    "code": 190119,
+    "name": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 5597882.0,
+     "authorized": 5687016.62,
+     "committed": 5407481.22,
+     "liquidated": 5378584.74,
+     "paid": 5391106.09
+    },
+    "2020": {
+     "initial": 6082382.0,
+     "authorized": 8684345.0,
+     "committed": 5969230.8,
+     "liquidated": 5941863.84,
+     "paid": 5961312.07
+    },
+    "2021": {
+     "initial": 7444687.0,
+     "authorized": 8433687.0,
+     "committed": 8068793.17,
+     "liquidated": 5777815.94,
+     "paid": 7594553.48
+    },
+    "2022": {
+     "initial": 11195922.0,
+     "authorized": 7765160.52,
+     "committed": 7343685.27,
+     "liquidated": 7295449.82,
+     "paid": 7318995.17
+    },
+    "2023": {
+     "initial": 9925698.0,
+     "authorized": 8219567.0,
+     "committed": 7641842.45,
+     "liquidated": 7583470.53,
+     "paid": 7584176.47
+    },
+    "2024": {
+     "initial": 13831737.0,
+     "authorized": 9944375.0,
+     "committed": 9114423.71,
+     "liquidated": 8923782.91,
+     "paid": 9083320.54
+    },
+    "2025": {
+     "initial": 14848308.0,
+     "authorized": 9457002.58,
+     "committed": 9151608.53,
+     "liquidated": 9044360.33,
+     "paid": 9128675.53
+    },
+    "2026": {
+     "initial": 12757375.0,
+     "authorized": 7367809.37,
+     "committed": 7300956.88,
+     "liquidated": 6940148.78,
+     "paid": 6380282.79
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 5572073.17,
+    "2020": 6082108.08,
+    "2021": 5794790.02,
+    "2022": 7365129.82,
+    "2023": 8143230.03,
+    "2024": 8923782.91,
+    "2025": 9044360.33,
+    "2026": 6940148.78
+   },
+   "localized_of_which_administration": {
+    "2019": 5378584.74,
+    "2020": 5941863.84,
+    "2021": 5777815.94,
+    "2022": 7295449.82,
+    "2023": 7583470.53,
+    "2024": 8923782.91,
+    "2025": 9044360.33,
+    "2026": 6940148.78
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- RIACHO FUNDO",
+     "liquidated": 6942579.45,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- RIACHO FUNDO",
+     "liquidated": 590299.45,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA-ADMINISTRAÇÃO REGIONAL- RIACHO FUNDO",
+     "liquidated": 426582.42,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "ROGERIO SALES SILVEIRA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "25/02/2025"
+   },
+   "works": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO",
+     "action_code": 3048,
+     "action": "REFORMA DE ESPAÇOS ESPORTIVOS",
+     "subtitle": "(EPI)REFORMA DE ESPAÇOS ESPORTIVOS-REFORMA DE QUADRA DE ESPORTE- RIACHO FUNDO",
+     "liquidated": 587678.58,
+     "years": [
+      2020
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO",
+     "action_code": 1836,
+     "action": "AMPLIAÇÃO DOS PONTOS DE ILUMINAÇÃO PÚBLICA",
+     "subtitle": "AMPLIAÇÃO DOS PONTOS DE ILUMINAÇÃO PÚBLICA-AMPLIAÇÃO DO SISTEMA DE ILUMINAÇÃO PÚBLICA NA REGIÃO DO RIACHO FUNDO I - NÚCLEO RURAL KANEGAE.- RIACHO FUNDO",
+     "liquidated": 424451.55,
+     "years": [
+      2022
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO",
+     "action_code": 3903,
+     "action": "REFORMA DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "REFORMA DE PRÉDIOS E PRÓPRIOS-RA XVII- RIACHO FUNDO",
+     "liquidated": 293652.75,
+     "years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XVIII": {
+   "name": "Lago Norte",
+   "administration_ug": {
+    "code": 190120,
+    "name": "ADMINISTRAÇÃO REGIONAL DO LAGO NORTE"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 5720994.0,
+     "authorized": 5440620.5,
+     "committed": 5129272.28,
+     "liquidated": 5108525.9,
+     "paid": 5116717.94
+    },
+    "2020": {
+     "initial": 5259164.0,
+     "authorized": 5789864.0,
+     "committed": 5491248.95,
+     "liquidated": 5452463.46,
+     "paid": 5485894.55
+    },
+    "2021": {
+     "initial": 5428296.0,
+     "authorized": 6317212.0,
+     "committed": 6055348.96,
+     "liquidated": 5983063.57,
+     "paid": 6045289.62
+    },
+    "2022": {
+     "initial": 5654058.0,
+     "authorized": 6062715.13,
+     "committed": 5958275.42,
+     "liquidated": 5879811.63,
+     "paid": 5938929.88
+    },
+    "2023": {
+     "initial": 6708637.0,
+     "authorized": 6566675.0,
+     "committed": 6458142.62,
+     "liquidated": 6247124.5,
+     "paid": 6340740.61
+    },
+    "2024": {
+     "initial": 7008046.0,
+     "authorized": 6934380.0,
+     "committed": 6792650.13,
+     "liquidated": 6644562.24,
+     "paid": 6719608.63
+    },
+    "2025": {
+     "initial": 7142271.0,
+     "authorized": 7692201.27,
+     "committed": 7647658.98,
+     "liquidated": 7481259.32,
+     "paid": 7550197.57
+    },
+    "2026": {
+     "initial": 8040505.0,
+     "authorized": 6251486.51,
+     "committed": 5486786.91,
+     "liquidated": 5369716.28,
+     "paid": 4849615.19
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 5178228.72,
+    "2020": 5628948.33,
+    "2021": 6006946.11,
+    "2022": 5879811.63,
+    "2023": 6247124.5,
+    "2024": 6644562.24,
+    "2025": 7481259.32,
+    "2026": 5369716.28
+   },
+   "localized_of_which_administration": {
+    "2019": 5108525.9,
+    "2020": 5452463.46,
+    "2021": 5983063.57,
+    "2022": 5879811.63,
+    "2023": 6247124.5,
+    "2024": 6644562.24,
+    "2025": 7481259.32,
+    "2026": 5369716.28
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO LAGO NORTE",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- LAGO NORTE",
+     "liquidated": 6394318.97,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO LAGO NORTE",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS-ADMINISTRAÇÃO REGIONAL- LAGO NORTE",
+     "liquidated": 508625.29,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO LAGO NORTE",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- LAGO NORTE",
+     "liquidated": 411044.86,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": null,
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": null
+   },
+   "works": [
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action_code": 1836,
+     "action": "AMPLIAÇÃO DOS PONTOS DE ILUMINAÇÃO PÚBLICA",
+     "subtitle": "(EPI)AMPLIAÇÃO DOS PONTOS DE ILUMINAÇÃO PÚBLICA-AMPLIAÇÃO DE PONTOS DE ILUMINAÇÃO PÚBLICA NO LAGO NORTE (EM 2020) - LAGO NORTE",
+     "liquidated": 4810.08,
+     "years": [
+      2020
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XIX": {
+   "name": "Candangolândia",
+   "administration_ug": {
+    "code": 190121,
+    "name": "ADMINISTRAÇÃO REGIONAL DA CANDANGOLÂNDIA"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 3349612.0,
+     "authorized": 5086052.78,
+     "committed": 4703677.03,
+     "liquidated": 3674303.33,
+     "paid": 4645766.36
+    },
+    "2020": {
+     "initial": 6655557.0,
+     "authorized": 4802460.0,
+     "committed": 4441781.28,
+     "liquidated": 3906346.17,
+     "paid": 4298780.29
+    },
+    "2021": {
+     "initial": 8353895.0,
+     "authorized": 9107895.0,
+     "committed": 8315833.11,
+     "liquidated": 5748664.18,
+     "paid": 7251709.28
+    },
+    "2022": {
+     "initial": 8408056.0,
+     "authorized": 7130403.17,
+     "committed": 6207179.47,
+     "liquidated": 6196783.7,
+     "paid": 6205253.71
+    },
+    "2023": {
+     "initial": 13576809.0,
+     "authorized": 6877467.55,
+     "committed": 6185084.55,
+     "liquidated": 5391507.64,
+     "paid": 5694395.64
+    },
+    "2024": {
+     "initial": 12036529.0,
+     "authorized": 7903387.48,
+     "committed": 7346489.56,
+     "liquidated": 6131592.57,
+     "paid": 6152355.27
+    },
+    "2025": {
+     "initial": 10241789.0,
+     "authorized": 7963472.72,
+     "committed": 7316297.94,
+     "liquidated": 6827467.63,
+     "paid": 7179671.93
+    },
+    "2026": {
+     "initial": 10653952.0,
+     "authorized": 7067266.96,
+     "committed": 4995487.79,
+     "liquidated": 4682438.83,
+     "paid": 4267540.67
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 20457168.88,
+    "2020": 8861945.02,
+    "2021": 11095860.26,
+    "2022": 12137128.99,
+    "2023": 14044176.53,
+    "2024": 16078933.84,
+    "2025": 16350416.89,
+    "2026": 12328697.83
+   },
+   "localized_of_which_administration": {
+    "2019": 3674303.33,
+    "2020": 3906346.17,
+    "2021": 5748664.18,
+    "2022": 6196783.7,
+    "2023": 5391507.64,
+    "2024": 6131592.57,
+    "2025": 6827467.63,
+    "2026": 4682438.83
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "FUNDAÇÃO JARDIM ZOOLÓGICO DE BRASÍLIA",
+     "action": "ASSISTÊNCIA A ANIMAIS",
+     "subtitle": "ASSISTÊNCIA A ANIMAIS-FUNDAÇÃO JARDIM ZOOLÓGICO DE BRASÍLIA- CANDANGOLÂNDIA",
+     "liquidated": 9147185.1,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DA CANDANGOLÂNDIA",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- CANDANGOLÂNDIA",
+     "liquidated": 5180051.51,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DA CANDANGOLÂNDIA",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA-ADMINISTRAÇÃO REGIONAL- CANDANGOLÂNDIA",
+     "liquidated": 591134.55,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "MARCOS PAULO ALVES DA SILVA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "05/01/2009"
+   },
+   "works": [
+    {
+     "ug": "FUNDAÇÃO JARDIM ZOOLÓGICO DE BRASÍLIA",
+     "action_code": 3129,
+     "action": "REFORMA DE RECINTOS PARA ANIMAIS",
+     "subtitle": "REFORMA DE RECINTOS PARA ANIMAIS-FUNDAÇÃO JARDIM ZOOLÓGICO DE BRASÍLIA- CANDANGOLÂNDIA",
+     "liquidated": 7230184.53,
+     "years": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "FUNDAÇÃO JARDIM ZOOLÓGICO DE BRASÍLIA",
+     "action_code": 3129,
+     "action": "REFORMA DE RECINTOS PARA ANIMAIS",
+     "subtitle": "(EPI)REFORMA DE RECINTOS PARA ANIMAIS-FUNDAÇÃO JARDIM ZOOLÓGICO DE BRASÍLIA- CANDANGOLÂNDIA",
+     "liquidated": 749011.28,
+     "years": [
+      2023
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO- CANDANGOLÂNDIA",
+     "liquidated": 317864.58,
+     "years": [
+      2023,
+      2026
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XX": {
+   "name": "Águas Claras",
+   "administration_ug": {
+    "code": 190122,
+    "name": "ADMINISTRAÇÃO REGIONAL DE ÁGUAS CLARAS"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 13861998.0,
+     "authorized": 9101348.53,
+     "committed": 8567832.53,
+     "liquidated": 8533349.62,
+     "paid": 8552151.16
+    },
+    "2020": {
+     "initial": 8928950.0,
+     "authorized": 11250686.0,
+     "committed": 10687613.07,
+     "liquidated": 10656144.21,
+     "paid": 10681823.36
+    },
+    "2021": {
+     "initial": 6721227.0,
+     "authorized": 10665212.0,
+     "committed": 9558896.39,
+     "liquidated": 8967502.37,
+     "paid": 9526820.45
+    },
+    "2022": {
+     "initial": 10655918.0,
+     "authorized": 10198282.38,
+     "committed": 9937697.66,
+     "liquidated": 9852434.59,
+     "paid": 9863274.51
+    },
+    "2023": {
+     "initial": 10390076.0,
+     "authorized": 12394358.0,
+     "committed": 12206914.06,
+     "liquidated": 11367791.59,
+     "paid": 12170182.97
+    },
+    "2024": {
+     "initial": 13530758.0,
+     "authorized": 13890957.0,
+     "committed": 13676335.47,
+     "liquidated": 13597182.83,
+     "paid": 13625416.56
+    },
+    "2025": {
+     "initial": 13914028.0,
+     "authorized": 14619417.16,
+     "committed": 14272011.48,
+     "liquidated": 14090104.75,
+     "paid": 14229463.88
+    },
+    "2026": {
+     "initial": 15256868.0,
+     "authorized": 11151612.51,
+     "committed": 10875258.88,
+     "liquidated": 10211894.98,
+     "paid": 9312317.83
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 37349401.97,
+    "2020": 50150447.3,
+    "2021": 46770124.3,
+    "2022": 53089554.73,
+    "2023": 56415144.78,
+    "2024": 55329630.52,
+    "2025": 80023434.33,
+    "2026": 57338052.21
+   },
+   "localized_of_which_administration": {
+    "2019": 8533349.62,
+    "2020": 10656144.21,
+    "2021": 8967502.37,
+    "2022": 9852434.59,
+    "2023": 11367791.59,
+    "2024": 13597182.83,
+    "2025": 14090104.75,
+    "2026": 10211894.98
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "COMPANHIA DO METROPOLITANO DO DF - METRÔ-DF",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-METRÔ- ÁGUAS CLARAS",
+     "liquidated": 37389619.12,
+     "rule": "localizer"
+    },
+    {
+     "ug": "COMPANHIA DO METROPOLITANO DO DF - METRÔ-DF",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS-METRÔ- ÁGUAS CLARAS",
+     "liquidated": 24565132.61,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE ÁGUAS CLARAS",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- ÁGUAS CLARAS",
+     "liquidated": 11387906.3,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "GILVANDO GALDINO FERNANDES",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "07/04/2025"
+   },
+   "works": [
+    {
+     "ug": "COMPANHIA DO METROPOLITANO DO DF - METRÔ-DF",
+     "action_code": 3903,
+     "action": "REFORMA DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "REFORMA DE PRÉDIOS E PRÓPRIOS-- ÁGUAS CLARAS",
+     "liquidated": 944898.94,
+     "years": [
+      2022,
+      2023,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-- ÁGUAS CLARAS",
+     "liquidated": 864530.86,
+     "years": [
+      2020
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-ADMINISTRAÇÃO REGIONAL- ÁGUAS CLARAS - REGIÃO XX - ÁGUAS CLARAS- ÁGUAS CLARAS",
+     "liquidated": 797554.01,
+     "years": [
+      2019
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXI": {
+   "name": "Riacho Fundo II",
+   "administration_ug": {
+    "code": 190123,
+    "name": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO II"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 4705891.0,
+     "authorized": 3197633.94,
+     "committed": 3112866.59,
+     "liquidated": 3081385.1,
+     "paid": 3086006.55
+    },
+    "2020": {
+     "initial": 4375101.0,
+     "authorized": 3947232.0,
+     "committed": 3422156.91,
+     "liquidated": 3378594.36,
+     "paid": 3399810.27
+    },
+    "2021": {
+     "initial": 3326854.0,
+     "authorized": 4097101.0,
+     "committed": 3539423.07,
+     "liquidated": 3480897.03,
+     "paid": 3491106.62
+    },
+    "2022": {
+     "initial": 4243817.0,
+     "authorized": 3793665.11,
+     "committed": 3738300.0,
+     "liquidated": 3682372.46,
+     "paid": 3693930.73
+    },
+    "2023": {
+     "initial": 4114549.0,
+     "authorized": 5732662.3,
+     "committed": 5458652.96,
+     "liquidated": 4680089.85,
+     "paid": 5310263.69
+    },
+    "2024": {
+     "initial": 5121047.0,
+     "authorized": 6317538.0,
+     "committed": 5922733.2,
+     "liquidated": 5798301.26,
+     "paid": 5844933.09
+    },
+    "2025": {
+     "initial": 6791540.0,
+     "authorized": 6144318.63,
+     "committed": 5876443.23,
+     "liquidated": 5786613.46,
+     "paid": 5852827.1
+    },
+    "2026": {
+     "initial": 7352447.0,
+     "authorized": 4370730.71,
+     "committed": 4298935.01,
+     "liquidated": 4156011.31,
+     "paid": 3779825.13
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 3330305.1,
+    "2020": 5933662.21,
+    "2021": 3519932.18,
+    "2022": 3682372.46,
+    "2023": 4680089.85,
+    "2024": 5798301.26,
+    "2025": 5834613.46,
+    "2026": 4156011.31
+   },
+   "localized_of_which_administration": {
+    "2019": 3081385.1,
+    "2020": 3378594.36,
+    "2021": 3480897.03,
+    "2022": 3682372.46,
+    "2023": 4680089.85,
+    "2024": 5798301.26,
+    "2025": 5786613.46,
+    "2026": 4156011.31
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO II",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- RIACHO FUNDO II",
+     "liquidated": 4707040.41,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO II",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- RIACHO FUNDO II",
+     "liquidated": 369164.8,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO II",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA-ADMINISTRAÇÃO REGIONAL- RIACHO FUNDO II",
+     "liquidated": 350809.22,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": null,
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": null
+   },
+   "works": [
+    {
+     "ug": "COMPANHIA DE DESENV. DA HABITAÇÃO  DO DF - CODHAB",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - CODHAB - RIACHO FUNDO II 3ª ETAPA- RIACHO FUNDO II",
+     "liquidated": 2462202.51,
+     "years": [
+      2020
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RIACHO FUNDO II",
+     "action_code": 1950,
+     "action": "CONSTRUÇÃO DE PRAÇAS PÚBLICAS E PARQUES",
+     "subtitle": "(EPI)CONSTRUÇÃO DE PRAÇAS PÚBLICAS E PARQUES NO RIACHO FUNDO 2 - RA XXI",
+     "liquidated": 641461.38,
+     "years": [
+      2024
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXII": {
+   "name": "Sudoeste/Octogonal",
+   "administration_ug": {
+    "code": 190124,
+    "name": "ADMINISTRAÇÃO REGIONAL DO SUDOESTE/OCTOGONAL"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 4639951.0,
+     "authorized": 4020812.18,
+     "committed": 3820844.34,
+     "liquidated": 3734934.0,
+     "paid": 3814842.03
+    },
+    "2020": {
+     "initial": 4760860.0,
+     "authorized": 5906654.51,
+     "committed": 4933180.84,
+     "liquidated": 4390809.23,
+     "paid": 4840870.86
+    },
+    "2021": {
+     "initial": 4054176.0,
+     "authorized": 5045776.0,
+     "committed": 4838157.22,
+     "liquidated": 4686993.39,
+     "paid": 4768988.65
+    },
+    "2022": {
+     "initial": 6685044.0,
+     "authorized": 5591387.87,
+     "committed": 5470243.81,
+     "liquidated": 4807226.46,
+     "paid": 5431566.25
+    },
+    "2023": {
+     "initial": 5679387.0,
+     "authorized": 5933509.0,
+     "committed": 5886519.74,
+     "liquidated": 5685340.63,
+     "paid": 5865682.73
+    },
+    "2024": {
+     "initial": 5881624.0,
+     "authorized": 7955625.0,
+     "committed": 6457243.12,
+     "liquidated": 6318249.12,
+     "paid": 6441789.62
+    },
+    "2025": {
+     "initial": 6689233.0,
+     "authorized": 8291022.74,
+     "committed": 7824559.59,
+     "liquidated": 7624604.64,
+     "paid": 7804644.36
+    },
+    "2026": {
+     "initial": 8486285.0,
+     "authorized": 6822831.13,
+     "committed": 6480150.79,
+     "liquidated": 5780960.15,
+     "paid": 4912047.32
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 4001971.34,
+    "2020": 4506045.14,
+    "2021": 4728411.88,
+    "2022": 4996968.43,
+    "2023": 5685340.63,
+    "2024": 6318249.12,
+    "2025": 7624604.64,
+    "2026": 5780960.15
+   },
+   "localized_of_which_administration": {
+    "2019": 3734934.0,
+    "2020": 4390809.23,
+    "2021": 4686993.39,
+    "2022": 4807226.46,
+    "2023": 5685340.63,
+    "2024": 6318249.12,
+    "2025": 7624604.64,
+    "2026": 5780960.15
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO SUDOESTE/OCTOGONAL",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- SUDOESTE/OCTOGONAL",
+     "liquidated": 4899865.35,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO SUDOESTE/OCTOGONAL",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS-ADMINISTRAÇÃO REGIONAL- SUDOESTE/OCTOGONAL",
+     "liquidated": 1318349.76,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO SUDOESTE/OCTOGONAL",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- SUDOESTE/OCTOGONAL",
+     "liquidated": 384797.64,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": null,
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": null
+   },
+   "works": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO SUDOESTE/OCTOGONAL",
+     "action_code": 1836,
+     "action": "AMPLIAÇÃO DOS PONTOS DE ILUMINAÇÃO PÚBLICA",
+     "subtitle": "(EPI)(EPE)AMPLIAÇÃO DOS PONTOS DE ILUMINAÇÃO PÚBLICA-- SUDOESTE/OCTOGONAL",
+     "liquidated": 195414.76,
+     "years": [
+      2020
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1079,
+     "action": "CONSTRUÇÃO DE ESPAÇOS ESPORTIVOS",
+     "subtitle": "(EPI)CONSTRUÇÃO DE PISTA DE SKATE - NA RA SUDOESTE/OCTOGONAL",
+     "liquidated": 189741.97,
+     "years": [
+      2022
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO SUDOESTE/OCTOGONAL",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - SUDOESTE/OCTOGONAL",
+     "liquidated": 180930.0,
+     "years": [
+      2025
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXIII": {
+   "name": "Varjão",
+   "administration_ug": {
+    "code": 190125,
+    "name": "ADMINISTRAÇÃO REGIONAL DO VARJÃO"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 3329853.0,
+     "authorized": 3177289.67,
+     "committed": 2525371.43,
+     "liquidated": 2515595.87,
+     "paid": 2516935.41
+    },
+    "2020": {
+     "initial": 2435348.0,
+     "authorized": 3074348.0,
+     "committed": 2462559.1,
+     "liquidated": 2421332.95,
+     "paid": 2444896.09
+    },
+    "2021": {
+     "initial": 2686992.0,
+     "authorized": 2748992.0,
+     "committed": 2261326.3,
+     "liquidated": 2246201.93,
+     "paid": 2250513.16
+    },
+    "2022": {
+     "initial": 2665743.0,
+     "authorized": 2582574.27,
+     "committed": 2329019.68,
+     "liquidated": 2327448.08,
+     "paid": 2326875.68
+    },
+    "2023": {
+     "initial": 2745951.0,
+     "authorized": 2914289.0,
+     "committed": 2730929.87,
+     "liquidated": 2649028.12,
+     "paid": 2665298.31
+    },
+    "2024": {
+     "initial": 3017336.0,
+     "authorized": 3260832.0,
+     "committed": 3031747.75,
+     "liquidated": 2995369.71,
+     "paid": 3002275.44
+    },
+    "2025": {
+     "initial": 3267916.0,
+     "authorized": 3263678.68,
+     "committed": 3210972.48,
+     "liquidated": 3189832.48,
+     "paid": 3202378.67
+    },
+    "2026": {
+     "initial": 3688375.0,
+     "authorized": 2563005.59,
+     "committed": 2433247.94,
+     "liquidated": 2362125.3,
+     "paid": 2143901.14
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 2542585.21,
+    "2020": 2437226.2,
+    "2021": 2255620.7,
+    "2022": 2327448.08,
+    "2023": 2649028.12,
+    "2024": 2995369.71,
+    "2025": 3189832.48,
+    "2026": 2362125.3
+   },
+   "localized_of_which_administration": {
+    "2019": 2515595.87,
+    "2020": 2421332.95,
+    "2021": 2246201.93,
+    "2022": 2327448.08,
+    "2023": 2649028.12,
+    "2024": 2995369.71,
+    "2025": 3189832.48,
+    "2026": 2362125.3
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO VARJÃO",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- VARJÃO",
+     "liquidated": 2532821.37,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO VARJÃO",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- VARJÃO",
+     "liquidated": 237628.19,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO VARJÃO",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "(EPI)FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA - FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMILIA - VARJÃO - DISTRITO FEDERAL",
+     "liquidated": 151756.83,
+     "rule": "administration_ug"
+    }
+   ],
+   "administrator": {
+    "name": "DANIEL DAMASCENO CREPALDI",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "06/12/2021"
+   },
+   "works": [],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXIV": {
+   "name": "Park Way",
+   "administration_ug": {
+    "code": 190126,
+    "name": "ADMINISTRAÇÃO REGIONAL DO PARK WAY"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 3191280.0,
+     "authorized": 3839155.01,
+     "committed": 3492219.72,
+     "liquidated": 3486975.29,
+     "paid": 3491075.52
+    },
+    "2020": {
+     "initial": 3896365.0,
+     "authorized": 4153493.0,
+     "committed": 3674155.71,
+     "liquidated": 3666302.82,
+     "paid": 3670916.81
+    },
+    "2021": {
+     "initial": 5898014.0,
+     "authorized": 4704460.0,
+     "committed": 4032112.66,
+     "liquidated": 4002582.28,
+     "paid": 4012579.88
+    },
+    "2022": {
+     "initial": 7029883.0,
+     "authorized": 6043336.71,
+     "committed": 5800374.24,
+     "liquidated": 5732263.83,
+     "paid": 5663010.58
+    },
+    "2023": {
+     "initial": 3191779.0,
+     "authorized": 5906012.0,
+     "committed": 4984243.19,
+     "liquidated": 4825680.58,
+     "paid": 4836704.84
+    },
+    "2024": {
+     "initial": 6464181.0,
+     "authorized": 6722891.0,
+     "committed": 6476421.03,
+     "liquidated": 6320263.49,
+     "paid": 6374987.11
+    },
+    "2025": {
+     "initial": 10763745.0,
+     "authorized": 7388639.48,
+     "committed": 7281833.98,
+     "liquidated": 7053705.17,
+     "paid": 7113986.76
+    },
+    "2026": {
+     "initial": 9841812.0,
+     "authorized": 5066206.04,
+     "committed": 4917622.9,
+     "liquidated": 4472961.38,
+     "paid": 4050283.79
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 3672883.5,
+    "2020": 4625034.45,
+    "2021": 4023169.15,
+    "2022": 5732263.83,
+    "2023": 4770301.38,
+    "2024": 6320263.49,
+    "2025": 7053705.17,
+    "2026": 4472961.38
+   },
+   "localized_of_which_administration": {
+    "2019": 3486975.29,
+    "2020": 3666302.82,
+    "2021": 4002582.28,
+    "2022": 5732263.83,
+    "2023": 4770301.38,
+    "2024": 6320263.49,
+    "2025": 7053705.17,
+    "2026": 4472961.38
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO PARK WAY",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- PARK WAY",
+     "liquidated": 4856290.8,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO PARK WAY",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS-ADMINISTRAÇÃO REGIONAL- PARK WAY",
+     "liquidated": 704835.16,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO PARK WAY",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA-ADMINISTRAÇÃO REGIONAL- PARK WAY",
+     "liquidated": 513070.4,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "ABDON LUIZ DE SOUSA DE BARROS",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "03/01/2023"
+   },
+   "works": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO PARK WAY",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-BLOQUETES H COQUEIRO- PARK WAY-DISTRITO FEDERAL",
+     "liquidated": 1468892.88,
+     "years": [
+      2022
+     ],
+     "company": null
+    },
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action_code": 5745,
+     "action": "EXECUÇÃO DE PAVIMENTAÇÃO ASFÁLTICA",
+     "subtitle": "(EPI)EXECUÇÃO DE PAVIMENTAÇÃO ASFÁLTICA-EXECUÇÃO DE PAVIMENTAÇÃO ASFÁLTICA NA REGIÃO ADMINISTRATIVA DO PARK WAY- PARK WAY",
+     "liquidated": 780000.0,
+     "years": [
+      2020
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO PARK WAY",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-- PARK WAY",
+     "liquidated": 120128.18,
+     "years": [
+      2022,
+      2024,
+      2025
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXV": {
+   "name": "SCIA/Estrutural",
+   "administration_ug": {
+    "code": 190127,
+    "name": "ADMINISTRAÇÃO REGIONAL  SETOR COMPL. IND. E ABAST."
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 4063882.0,
+     "authorized": 5067505.21,
+     "committed": 3317823.44,
+     "liquidated": 3254429.48,
+     "paid": 3298808.44
+    },
+    "2020": {
+     "initial": 4002801.0,
+     "authorized": 4060934.0,
+     "committed": 3499584.88,
+     "liquidated": 3422056.23,
+     "paid": 3448240.1
+    },
+    "2021": {
+     "initial": 3320603.0,
+     "authorized": 4176617.0,
+     "committed": 3782623.88,
+     "liquidated": 3560201.64,
+     "paid": 3600455.19
+    },
+    "2022": {
+     "initial": 3639688.0,
+     "authorized": 3818589.27,
+     "committed": 3761359.47,
+     "liquidated": 3622175.72,
+     "paid": 3663410.55
+    },
+    "2023": {
+     "initial": 3603228.0,
+     "authorized": 4145362.0,
+     "committed": 4088939.84,
+     "liquidated": 4005775.83,
+     "paid": 4041675.36
+    },
+    "2024": {
+     "initial": 4683671.0,
+     "authorized": 4792919.6,
+     "committed": 4590495.89,
+     "liquidated": 4383652.52,
+     "paid": 4405271.73
+    },
+    "2025": {
+     "initial": 4481624.0,
+     "authorized": 5608515.34,
+     "committed": 5343294.14,
+     "liquidated": 5135991.23,
+     "paid": 5188833.04
+    },
+    "2026": {
+     "initial": 5747265.0,
+     "authorized": 3679586.76,
+     "committed": 3646856.28,
+     "liquidated": 3496980.39,
+     "paid": 3157041.87
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 14744049.22,
+    "2020": 61584554.94,
+    "2021": 120884845.27,
+    "2022": 9864840.35,
+    "2023": 10481941.65,
+    "2024": 6610488.85,
+    "2025": 281163372.89,
+    "2026": 3496980.39
+   },
+   "localized_of_which_administration": {
+    "2019": 3254429.48,
+    "2020": 3422056.23,
+    "2021": 3560201.64,
+    "2022": 3622175.72,
+    "2023": 4005775.83,
+    "2024": 4383652.52,
+    "2025": 5135991.23,
+    "2026": 3496980.39
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "SECRETARIA DE DESENVOLVIMENTO SOCIAL DO DF",
+     "action": "FORNECIMENTO EMERGENCIAL DE ALIMENTOS",
+     "subtitle": "FORNECIMENTO EMERGENCIAL DE ALIMENTOS-- SETOR COMPL. DE IND. E ABASTECIMENTO",
+     "liquidated": 276027381.66,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL  SETOR COMPL. IND. E ABAST.",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- SETOR COMPL. DE IND. E ABASTECIMENTO",
+     "liquidated": 4006775.32,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL  SETOR COMPL. IND. E ABAST.",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS-ADMINISTRAÇÃO REGIONAL- SETOR COMPL. DE IND. E ABASTECIMENTO",
+     "liquidated": 541242.75,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "WAGNER RODRIGUES DE SOUSA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "15/04/2026"
+   },
+   "works": [
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - SETOR COMPL. DE IND. E ABASTECIMENTO",
+     "liquidated": 270122.7,
+     "years": [
+      2024
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL  SETOR COMPL. IND. E ABAST.",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - SETOR COMPL. DE IND. E ABASTECIMENTO",
+     "liquidated": 22211.06,
+     "years": [
+      2025,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action_code": 1302,
+     "action": "CONSTRUÇÃO DE FEIRAS",
+     "subtitle": "CONSTRUÇÃO DE FEIRAS-FEIRA PERMANENTE DA ESTRUTURAL- SETOR COMPL. DE IND. E ABASTECIMENTO",
+     "liquidated": 3069.89,
+     "years": [
+      2019
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXVI": {
+   "name": "Sobradinho II",
+   "administration_ug": {
+    "code": 190128,
+    "name": "ADMINISTRAÇÃO REGIONAL DE SOBRADINHO II"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 4287802.0,
+     "authorized": 3527826.82,
+     "committed": 3006969.7,
+     "liquidated": 2997462.42,
+     "paid": 2979965.45
+    },
+    "2020": {
+     "initial": 3259228.0,
+     "authorized": 4304228.0,
+     "committed": 3542363.33,
+     "liquidated": 3507893.9,
+     "paid": 3494840.49
+    },
+    "2021": {
+     "initial": 3450056.0,
+     "authorized": 6555056.0,
+     "committed": 4102832.36,
+     "liquidated": 3914840.34,
+     "paid": 4081206.73
+    },
+    "2022": {
+     "initial": 5213379.0,
+     "authorized": 5307825.94,
+     "committed": 4477914.07,
+     "liquidated": 4454302.41,
+     "paid": 4470989.17
+    },
+    "2023": {
+     "initial": 5520822.0,
+     "authorized": 7457196.0,
+     "committed": 7049694.22,
+     "liquidated": 4557192.27,
+     "paid": 6869882.02
+    },
+    "2024": {
+     "initial": 7449252.0,
+     "authorized": 6108677.0,
+     "committed": 5563715.66,
+     "liquidated": 5473695.15,
+     "paid": 5487639.51
+    },
+    "2025": {
+     "initial": 7563837.0,
+     "authorized": 6212305.59,
+     "committed": 5754921.53,
+     "liquidated": 5720083.79,
+     "paid": 5740796.45
+    },
+    "2026": {
+     "initial": 8259781.0,
+     "authorized": 4404419.28,
+     "committed": 4176679.55,
+     "liquidated": 3930015.88,
+     "paid": 3583640.4
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 3118853.56,
+    "2020": 3879793.57,
+    "2021": 4023261.71,
+    "2022": 4454302.41,
+    "2023": 5622664.88,
+    "2024": 6088602.2,
+    "2025": 6538912.75,
+    "2026": 3930839.98
+   },
+   "localized_of_which_administration": {
+    "2019": 2997462.42,
+    "2020": 3507893.9,
+    "2021": 3914840.34,
+    "2022": 4454302.41,
+    "2023": 4557192.27,
+    "2024": 5473695.15,
+    "2025": 5720083.79,
+    "2026": 3930015.88
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SOBRADINHO II",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- SOBRADINHO II",
+     "liquidated": 4308512.87,
+     "rule": "localizer"
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DA MULHER DO DISTRITO FEDERAL",
+     "action": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER",
+     "subtitle": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER-CASA DA MULHER BRASILEIRA- SOBRADINHO II",
+     "liquidated": 818828.96,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SOBRADINHO II",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA-ADMINISTRAÇÃO REGIONAL- SOBRADINHO II",
+     "liquidated": 542684.93,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "DIEGO RODRIGUES RAFAEL MATOS",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "14/04/2026"
+   },
+   "works": [
+    {
+     "ug": "SECRETARIA DE ESTADO DA MULHER DO DISTRITO FEDERAL",
+     "action_code": 3051,
+     "action": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER",
+     "subtitle": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER-CASA DA MULHER BRASILEIRA- SOBRADINHO II",
+     "liquidated": 2075894.28,
+     "years": [
+      2023,
+      2024,
+      2025
+     ],
+     "company": null
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action_code": 3023,
+     "action": "PROGRAMA DE ACELERAÇÃO DO CRESCIMENTO - PAC",
+     "subtitle": "PROGRAMA DE ACELERAÇÃO DO CRESCIMENTO - PAC-PAVIMENTAÇÃO E QUALIFICAÇÃO DE VIAS URBANAS NO SETOR HABITACIONAL BURITIS- SOBRADINHO II",
+     "liquidated": 612998.11,
+     "years": [
+      2020,
+      2023
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE SOBRADINHO II",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)EXECUÇÃO DE OBRAS DE URBANIZAÇÃO E INFRAESTRUTURA EM SOBRADINHO II",
+     "liquidated": 490344.0,
+     "years": [
+      2022
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXVII": {
+   "name": "Jardim Botânico",
+   "administration_ug": {
+    "code": 190129,
+    "name": "ADMINISTRAÇÃO REGIONAL DO JARDIM BOTÂNICO"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 3622737.0,
+     "authorized": 6005714.8,
+     "committed": 5881162.23,
+     "liquidated": 5840247.54,
+     "paid": 5876489.79
+    },
+    "2020": {
+     "initial": 5899730.0,
+     "authorized": 7254217.0,
+     "committed": 6301641.72,
+     "liquidated": 6263582.75,
+     "paid": 6272953.91
+    },
+    "2021": {
+     "initial": 7565489.0,
+     "authorized": 7284689.0,
+     "committed": 6657803.93,
+     "liquidated": 6464467.4,
+     "paid": 6475122.28
+    },
+    "2022": {
+     "initial": 7970980.0,
+     "authorized": 6940626.85,
+     "committed": 6776993.92,
+     "liquidated": 6758561.12,
+     "paid": 6767420.37
+    },
+    "2023": {
+     "initial": 8274767.0,
+     "authorized": 9214954.0,
+     "committed": 8454077.31,
+     "liquidated": 8207407.09,
+     "paid": 8405367.05
+    },
+    "2024": {
+     "initial": 8608173.0,
+     "authorized": 9205416.0,
+     "committed": 8576210.23,
+     "liquidated": 8450388.38,
+     "paid": 8502269.43
+    },
+    "2025": {
+     "initial": 9430510.0,
+     "authorized": 9170169.24,
+     "committed": 8893751.0,
+     "liquidated": 8735756.34,
+     "paid": 8811292.19
+    },
+    "2026": {
+     "initial": 9580915.0,
+     "authorized": 6350500.7,
+     "committed": 6295179.69,
+     "liquidated": 6085786.21,
+     "paid": 5575235.74
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 5882400.44,
+    "2020": 6530527.37,
+    "2021": 6540844.14,
+    "2022": 6758561.12,
+    "2023": 8207407.09,
+    "2024": 8450388.38,
+    "2025": 8735756.34,
+    "2026": 6085786.21
+   },
+   "localized_of_which_administration": {
+    "2019": 5840247.54,
+    "2020": 6263582.75,
+    "2021": 6464467.4,
+    "2022": 6758561.12,
+    "2023": 8207407.09,
+    "2024": 8450388.38,
+    "2025": 8735756.34,
+    "2026": 6085786.21
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO JARDIM BOTÂNICO",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- JARDIM BOTÂNICO",
+     "liquidated": 7168695.86,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO JARDIM BOTÂNICO",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS-ADMINISTRAÇÃO REGIONAL- JARDIM BOTÂNICO",
+     "liquidated": 542018.01,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO JARDIM BOTÂNICO",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- JARDIM BOTÂNICO",
+     "liquidated": 453703.03,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "JOAO CARLOS COUTO LOSSIO FILHO",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "09/03/2026"
+   },
+   "works": [
+    {
+     "ug": "JARDIM BOTÂNICO DE BRASÍLIA",
+     "action_code": 1984,
+     "action": "CONSTRUÇÃO DE PRÉDIOS E PRÓPRIOS",
+     "subtitle": "CONSTRUÇÃO DE PRÉDIOS E PRÓPRIOS-CONSTRUÇÃO DE UM NOVO RESTAURANTE NO JBB- JARDIM BOTÂNICO",
+     "liquidated": 152198.5,
+     "years": [
+      2020
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO JARDIM BOTÂNICO",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-NO JARDIM BOTÂNICO- JARDIM BOTÂNICO",
+     "liquidated": 205.54,
+     "years": [
+      2026
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXVIII": {
+   "name": "Itapoã",
+   "administration_ug": {
+    "code": 190130,
+    "name": "ADMINISTRAÇÃO REGIONAL DO ITAPOÃ"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 3491245.0,
+     "authorized": 3443500.86,
+     "committed": 2962855.21,
+     "liquidated": 2925147.34,
+     "paid": 2881928.18
+    },
+    "2020": {
+     "initial": 4407231.0,
+     "authorized": 3441231.0,
+     "committed": 3113903.43,
+     "liquidated": 3033983.08,
+     "paid": 3052346.91
+    },
+    "2021": {
+     "initial": 3449642.0,
+     "authorized": 3609642.0,
+     "committed": 3291865.94,
+     "liquidated": 3281689.18,
+     "paid": 3275530.02
+    },
+    "2022": {
+     "initial": 4302913.0,
+     "authorized": 3833198.45,
+     "committed": 3810057.71,
+     "liquidated": 3742811.08,
+     "paid": 3773770.13
+    },
+    "2023": {
+     "initial": 4491390.0,
+     "authorized": 4553761.0,
+     "committed": 4290828.1,
+     "liquidated": 4191369.71,
+     "paid": 4248945.72
+    },
+    "2024": {
+     "initial": 5779766.0,
+     "authorized": 5158766.0,
+     "committed": 4871752.31,
+     "liquidated": 4784342.42,
+     "paid": 4839683.21
+    },
+    "2025": {
+     "initial": 5417364.0,
+     "authorized": 5522591.26,
+     "committed": 5355738.94,
+     "liquidated": 5247703.92,
+     "paid": 5330299.46
+    },
+    "2026": {
+     "initial": 5546901.0,
+     "authorized": 3850955.26,
+     "committed": 3843835.99,
+     "liquidated": 3385591.83,
+     "paid": 3108319.82
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 3041057.83,
+    "2020": 3090959.72,
+    "2021": 3282342.84,
+    "2022": 4742811.08,
+    "2023": 19185588.1,
+    "2024": 4784342.42,
+    "2025": 5247703.92,
+    "2026": 3385591.83
+   },
+   "localized_of_which_administration": {
+    "2019": 2925147.34,
+    "2020": 3033983.08,
+    "2021": 3281689.18,
+    "2022": 3742811.08,
+    "2023": 4191369.71,
+    "2024": 4784342.42,
+    "2025": 5247703.92,
+    "2026": 3385591.83
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO ITAPOÃ",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- ITAPOÃ",
+     "liquidated": 3588343.26,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO ITAPOÃ",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA-ADMINISTRAÇÃO REGIONAL- ITAPOÃ",
+     "liquidated": 640637.2,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO ITAPOÃ",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL- ITAPOÃ",
+     "liquidated": 305891.33,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "DILSON BULHOES DO NASCIMENTO",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "07/06/2023"
+   },
+   "works": [
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-- ITAPOÃ",
+     "liquidated": 14994218.39,
+     "years": [
+      2023
+     ],
+     "company": null
+    },
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)EXECUÇÃO DE OBRAS DE URBANIZAÇÃO E INFRAESTRUTURA NO ITAPOÃ",
+     "liquidated": 1000000.0,
+     "years": [
+      2022
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO ITAPOÃ",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-OBRAS DE URBANIZAÇÃO - SOS/DF- ITAPOÃ",
+     "liquidated": 101586.17,
+     "years": [
+      2019
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXIX": {
+   "name": "SIA",
+   "administration_ug": {
+    "code": 190131,
+    "name": "ADMINISTRAÇÃO REGIONAL SETOR IND. E ABASTECIMENTO"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 3179507.0,
+     "authorized": 3674873.8,
+     "committed": 2694968.24,
+     "liquidated": 2680257.41,
+     "paid": 2689638.66
+    },
+    "2020": {
+     "initial": 4138690.0,
+     "authorized": 6890690.0,
+     "committed": 3155254.37,
+     "liquidated": 3108814.68,
+     "paid": 3120423.37
+    },
+    "2021": {
+     "initial": 5366033.0,
+     "authorized": 4620189.0,
+     "committed": 3999022.12,
+     "liquidated": 3240103.41,
+     "paid": 3435063.18
+    },
+    "2022": {
+     "initial": 4550687.0,
+     "authorized": 3788594.28,
+     "committed": 3273008.59,
+     "liquidated": 3226613.76,
+     "paid": 3246456.57
+    },
+    "2023": {
+     "initial": 5080424.0,
+     "authorized": 5435532.0,
+     "committed": 4877663.52,
+     "liquidated": 3966705.76,
+     "paid": 4725346.42
+    },
+    "2024": {
+     "initial": 4730505.0,
+     "authorized": 5291405.0,
+     "committed": 4476877.82,
+     "liquidated": 4362819.56,
+     "paid": 4401272.83
+    },
+    "2025": {
+     "initial": 5836634.0,
+     "authorized": 5979330.0,
+     "committed": 5134316.76,
+     "liquidated": 5048918.06,
+     "paid": 5111747.74
+    },
+    "2026": {
+     "initial": 10079968.0,
+     "authorized": 5661061.21,
+     "committed": 4160945.54,
+     "liquidated": 3774406.33,
+     "paid": 3436531.33
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 3450970.7,
+    "2020": 9657078.58,
+    "2021": 3465478.15,
+    "2022": 3461341.6,
+    "2023": 4164621.83,
+    "2024": 4613036.29,
+    "2025": 5226474.0,
+    "2026": 5542811.5
+   },
+   "localized_of_which_administration": {
+    "2019": 2680257.41,
+    "2020": 3108814.68,
+    "2021": 3240103.41,
+    "2022": 3226613.76,
+    "2023": 3966705.76,
+    "2024": 4362819.56,
+    "2025": 5048918.06,
+    "2026": 3774406.33
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL SETOR IND. E ABASTECIMENTO",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL DO SETOR DE IND. E ABAST.- SIA",
+     "liquidated": 3542989.62,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL SETOR IND. E ABASTECIMENTO",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS-ADMINISTRAÇÃO REGIONAL DO SETOR DE IND. E ABAST.- SIA",
+     "liquidated": 643466.36,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL SETOR IND. E ABASTECIMENTO",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-ADMINISTRAÇÃO REGIONAL DO SETOR DE IND. E ABAST.- SIA",
+     "liquidated": 280046.66,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "VANESSA DA SILVA DIAS",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "12/05/2026"
+   },
+   "works": [
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 3004,
+     "action": "CONSTRUÇÃO DE CENTROS DE TRIAGEM DE MATERIAIS RECICLÁVEIS",
+     "subtitle": "CONSTRUÇÃO DE CENTROS DE TRIAGEM DE MATERIAIS RECICLÁVEIS-DISTRITO FEDERAL- SIA",
+     "liquidated": 6256600.0,
+     "years": [
+      2020,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "COMPANHIA URB. DA NOVA CAPITAL DO BRASIL-NOVACAP",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - SIA",
+     "liquidated": 1154520.19,
+     "years": [
+      2026
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXX": {
+   "name": "Vicente Pires",
+   "administration_ug": {
+    "code": 190132,
+    "name": "ADMINISTRAÇÃO REGIONAL DE VICENTE PIRES"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 8241628.0,
+     "authorized": 5129323.67,
+     "committed": 4795031.35,
+     "liquidated": 4754797.31,
+     "paid": 4782700.16
+    },
+    "2020": {
+     "initial": 4866815.0,
+     "authorized": 5513215.0,
+     "committed": 4941747.85,
+     "liquidated": 4896979.85,
+     "paid": 4927569.54
+    },
+    "2021": {
+     "initial": 4922624.0,
+     "authorized": 6055624.0,
+     "committed": 5579653.32,
+     "liquidated": 5568398.21,
+     "paid": 5574333.45
+    },
+    "2022": {
+     "initial": 5507434.0,
+     "authorized": 5851120.54,
+     "committed": 5656316.98,
+     "liquidated": 5645680.02,
+     "paid": 5651116.96
+    },
+    "2023": {
+     "initial": 6698067.0,
+     "authorized": 7666372.0,
+     "committed": 7095660.68,
+     "liquidated": 6568391.26,
+     "paid": 7071293.15
+    },
+    "2024": {
+     "initial": 8451871.0,
+     "authorized": 8396871.0,
+     "committed": 7698729.55,
+     "liquidated": 7641299.66,
+     "paid": 7689189.53
+    },
+    "2025": {
+     "initial": 8444171.0,
+     "authorized": 8633980.71,
+     "committed": 8350517.15,
+     "liquidated": 8299875.36,
+     "paid": 8343217.6
+    },
+    "2026": {
+     "initial": 8882768.0,
+     "authorized": 6259255.79,
+     "committed": 6206834.38,
+     "liquidated": 5991694.17,
+     "paid": 5365858.67
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 115959956.15,
+    "2020": 63759895.03,
+    "2021": 28731003.57,
+    "2022": 40080638.36,
+    "2023": 25021494.47,
+    "2024": 45141901.4,
+    "2025": 104683470.68,
+    "2026": 43182566.06
+   },
+   "localized_of_which_administration": {
+    "2019": 4754797.31,
+    "2020": 4896979.85,
+    "2021": 5568398.21,
+    "2022": 5645680.02,
+    "2023": 6568391.26,
+    "2024": 7641299.66,
+    "2025": 8299875.36,
+    "2026": 5991694.17
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action": "PROGRAMA DE ACELERAÇÃO DO CRESCIMENTO - PAC",
+     "subtitle": "PROGRAMA DE ACELERAÇÃO DO CRESCIMENTO - PAC-PAVIMENTAÇÃO E QUALIFICAÇÃO DE VIAS URBANAS NO SETOR HABITACIONAL- VICENTE PIRES",
+     "liquidated": 96383595.32,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE VICENTE PIRES",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- VICENTE PIRES",
+     "liquidated": 6750988.53,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE VICENTE PIRES",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA-ADMINISTRAÇÃO REGIONAL- VICENTE PIRES",
+     "liquidated": 554074.87,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": null,
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": null,
+    "payroll_holders": [
+     {
+      "name": "ANCHIETA DE SOUSA COIMBRA",
+      "payroll_admission_date": "07/04/2025"
+     },
+     {
+      "name": "EDSON PEREIRA BUSCACIO JUNIOR",
+      "payroll_admission_date": "27/08/2026"
+     }
+    ]
+   },
+   "works": [
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action_code": 3023,
+     "action": "PROGRAMA DE ACELERAÇÃO DO CRESCIMENTO - PAC",
+     "subtitle": "PROGRAMA DE ACELERAÇÃO DO CRESCIMENTO - PAC-PAVIMENTAÇÃO E QUALIFICAÇÃO DE VIAS URBANAS NO SETOR HABITACIONAL- VICENTE PIRES",
+     "liquidated": 416806696.87,
+     "years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE VICENTE PIRES",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-OBRAS DE URBANIZAÇÃO - SOS/DF- VICENTE PIRES",
+     "liquidated": 7925.9,
+     "years": [
+      2019
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXXI": {
+   "name": "Fercal",
+   "administration_ug": {
+    "code": 190133,
+    "name": "ADMINISTRAÇÃO REGIONAL DA FERCAL - RA XXXI"
+   },
+   "administration_budget": {
+    "2019": {
+     "initial": 3620483.0,
+     "authorized": 3885241.4,
+     "committed": 3499284.98,
+     "liquidated": 3288749.38,
+     "paid": 3475941.26
+    },
+    "2020": {
+     "initial": 3953300.0,
+     "authorized": 3396300.0,
+     "committed": 3175241.94,
+     "liquidated": 2971398.31,
+     "paid": 3138689.06
+    },
+    "2021": {
+     "initial": 4013509.0,
+     "authorized": 4391509.0,
+     "committed": 3927951.59,
+     "liquidated": 3523128.84,
+     "paid": 3907088.64
+    },
+    "2022": {
+     "initial": 7011473.0,
+     "authorized": 5072860.67,
+     "committed": 4875923.27,
+     "liquidated": 4871511.03,
+     "paid": 4875380.27
+    },
+    "2023": {
+     "initial": 6232384.0,
+     "authorized": 5812731.87,
+     "committed": 5230444.8,
+     "liquidated": 4424458.79,
+     "paid": 5084135.81
+    },
+    "2024": {
+     "initial": 5882807.0,
+     "authorized": 5047700.0,
+     "committed": 4409825.43,
+     "liquidated": 4399740.0,
+     "paid": 4408942.32
+    },
+    "2025": {
+     "initial": 6616885.0,
+     "authorized": 11162025.12,
+     "committed": 10631257.7,
+     "liquidated": 10036551.37,
+     "paid": 10609476.9
+    },
+    "2026": {
+     "initial": 7341915.0,
+     "authorized": 4843344.61,
+     "committed": 4618442.1,
+     "liquidated": 3878518.96,
+     "paid": 3663162.83
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 3290618.47,
+    "2020": 2974254.44,
+    "2021": 3525354.15,
+    "2022": 4871511.03,
+    "2023": 4482882.72,
+    "2024": 4437803.29,
+    "2025": 10036551.37,
+    "2026": 3878518.96
+   },
+   "localized_of_which_administration": {
+    "2019": 3288749.38,
+    "2020": 2971398.31,
+    "2021": 3523128.84,
+    "2022": 4871511.03,
+    "2023": 4424458.79,
+    "2024": 4399740.0,
+    "2025": 10036551.37,
+    "2026": 3878518.96
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DA FERCAL - RA XXXI",
+     "action": "AQUISIÇÃO DE IMÓVEL",
+     "subtitle": "AQUISIÇÃO DE IMÓVEL - FERCAL",
+     "liquidated": 5291100.0,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DA FERCAL - RA XXXI",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-ADMINISTRAÇÃO REGIONAL- FERCAL",
+     "liquidated": 2932145.17,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DA FERCAL - RA XXXI",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA-ADMINISTRAÇÃO REGIONAL- FERCAL",
+     "liquidated": 430684.33,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "FERNANDO GUSTAVO LIMA DA SILVA MADEIRA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "22/06/2022"
+   },
+   "works": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DA FERCAL - RA XXXI",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)OBRAS DE URBANIZAÇÃO NA RA XXXI - 2022",
+     "liquidated": 595427.09,
+     "years": [
+      2022
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DA FERCAL - RA XXXI",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "OBRAS DE URBANIZAÇÃO NA RA XXXI - 2024",
+     "liquidated": 494602.38,
+     "years": [
+      2025,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DA FERCAL - RA XXXI",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "(EPI)OBRAS DE URBANIZAÇÃO NA RA XXXI - 2025",
+     "liquidated": 391617.1,
+     "years": [
+      2025
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXXII": {
+   "name": "Sol Nascente/Pôr do Sol",
+   "administration_ug": {
+    "code": 190135,
+    "name": "REGIÃO ADMINISTRATIVA DO SOL NASCENTE - RA XXXII"
+   },
+   "administration_budget": {
+    "2021": {
+     "initial": 2487236.0,
+     "authorized": 1149900.83,
+     "committed": 0.0,
+     "liquidated": 0.0,
+     "paid": null
+    },
+    "2022": {
+     "initial": 3633547.0,
+     "authorized": 240737.9,
+     "committed": 0.0,
+     "liquidated": 0.0,
+     "paid": null
+    },
+    "2023": {
+     "initial": 2219344.0,
+     "authorized": 104490.0,
+     "committed": 0.0,
+     "liquidated": 0.0,
+     "paid": null
+    },
+    "2024": {
+     "initial": 3013173.0,
+     "authorized": 125386.0,
+     "committed": 0.0,
+     "liquidated": 0.0,
+     "paid": null
+    },
+    "2025": {
+     "initial": 3016831.0,
+     "authorized": 2859645.05,
+     "committed": 2440183.77,
+     "liquidated": 2378240.67,
+     "paid": null
+    },
+    "2026": {
+     "initial": 0.0,
+     "authorized": 5079497.66,
+     "committed": 4788680.32,
+     "liquidated": 4767639.69,
+     "paid": null
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 9647748.13,
+    "2022": 11289604.39,
+    "2023": 48171090.82,
+    "2024": 92656438.84,
+    "2025": 105337452.94,
+    "2026": 30909625.17
+   },
+   "localized_of_which_administration": {
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 0.0,
+    "2022": 0.0,
+    "2023": 0.0,
+    "2024": 0.0,
+    "2025": 2378240.67,
+    "2026": 4767639.69
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - PRÓ-MORADIA",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - PRÓ-MORADIA-CONDOMÍNIO SOL NASCENTE- SOL NASCENTE/PÔR DO SOL",
+     "liquidated": 102396208.95,
+     "rule": "localizer"
+    },
+    {
+     "ug": "REGIÃO ADMINISTRATIVA DO SOL NASCENTE - RA XXXII",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-- SOL NASCENTE/PÔR DO SOL",
+     "liquidated": 2012469.61,
+     "rule": "localizer"
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DA MULHER DO DISTRITO FEDERAL",
+     "action": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER",
+     "subtitle": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER-CASA DA MULHER BRASILEIRA- SOL NASCENTE/PÔR DO SOL",
+     "liquidated": 563003.32,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "OSEIAS RIBEIRO DE SOUZA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "26/05/2026"
+   },
+   "works": [
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action_code": 3058,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - PRÓ-MORADIA",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - PRÓ-MORADIA-CONDOMÍNIO SOL NASCENTE- SOL NASCENTE/PÔR DO SOL",
+     "liquidated": 283153476.49,
+     "years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DE OBRAS E INFRAEST. DO DF",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO-PÔR DO SOL- SOL NASCENTE/PÔR DO SOL",
+     "liquidated": 3080491.61,
+     "years": [
+      2026
+     ],
+     "company": null
+    },
+    {
+     "ug": "SECRETARIA DE ESTADO DA MULHER DO DISTRITO FEDERAL",
+     "action_code": 3051,
+     "action": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER",
+     "subtitle": "CONSTRUÇÃO DE EQUIPAMENTOS PÚBLICOS ESPECIALIZADOS DE ATENDIMENTO À MULHER-CASA DA MULHER BRASILEIRA- SOL NASCENTE/PÔR DO SOL",
+     "liquidated": 2084037.61,
+     "years": [
+      2024,
+      2025
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXXIII": {
+   "name": "Arniqueira",
+   "administration_ug": {
+    "code": 190134,
+    "name": "REGIÃO ADMINISTRATIVA DE ARNIQUEIRA - RA XXXIII"
+   },
+   "administration_budget": {
+    "2021": {
+     "initial": 2930736.0,
+     "authorized": 3063678.0,
+     "committed": 2790003.97,
+     "liquidated": 2770581.06,
+     "paid": null
+    },
+    "2022": {
+     "initial": 3043990.0,
+     "authorized": 3439480.93,
+     "committed": 3421243.6,
+     "liquidated": 3395591.2,
+     "paid": null
+    },
+    "2023": {
+     "initial": 4047925.0,
+     "authorized": 4262124.0,
+     "committed": 4132574.34,
+     "liquidated": 4114648.49,
+     "paid": null
+    },
+    "2024": {
+     "initial": 3945624.0,
+     "authorized": 6229674.0,
+     "committed": 6002668.73,
+     "liquidated": 5839187.59,
+     "paid": null
+    },
+    "2025": {
+     "initial": 5834365.0,
+     "authorized": 6749961.21,
+     "committed": 6595708.18,
+     "liquidated": 6577532.21,
+     "paid": null
+    },
+    "2026": {
+     "initial": 6884747.0,
+     "authorized": 5168053.85,
+     "committed": 4845349.68,
+     "liquidated": 4812701.37,
+     "paid": null
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 0.0,
+    "2020": 60975.1,
+    "2021": 2812605.64,
+    "2022": 3395591.2,
+    "2023": 4104646.49,
+    "2024": 5839187.59,
+    "2025": 6577532.21,
+    "2026": 4812701.37
+   },
+   "localized_of_which_administration": {
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 2770581.06,
+    "2022": 3395591.2,
+    "2023": 4104646.49,
+    "2024": 5839187.59,
+    "2025": 6577532.21,
+    "2026": 4812701.37
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "REGIÃO ADMINISTRATIVA DE ARNIQUEIRA - RA XXXIII",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL-- ARNIQUEIRA",
+     "liquidated": 4646373.12,
+     "rule": "localizer"
+    },
+    {
+     "ug": "REGIÃO ADMINISTRATIVA DE ARNIQUEIRA - RA XXXIII",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS-- ARNIQUEIRA",
+     "liquidated": 1068679.29,
+     "rule": "localizer"
+    },
+    {
+     "ug": "REGIÃO ADMINISTRATIVA DE ARNIQUEIRA - RA XXXIII",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES-- ARNIQUEIRA",
+     "liquidated": 410802.99,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": null,
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": null
+   },
+   "works": [],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXXIV": {
+   "name": "Arapoanga",
+   "administration_ug": {
+    "code": 190137,
+    "name": "ADMINISTRAÇÃO REGIONAL DE ARAPOANGA - RA XXXIV"
+   },
+   "administration_budget": {
+    "2024": {
+     "initial": 0.0,
+     "authorized": 160000.0,
+     "committed": 0.0,
+     "liquidated": 0.0,
+     "paid": null
+    },
+    "2025": {
+     "initial": 4907189.0,
+     "authorized": 2226304.44,
+     "committed": 1963506.39,
+     "liquidated": 1963506.39,
+     "paid": null
+    },
+    "2026": {
+     "initial": 0.0,
+     "authorized": 3891070.4,
+     "committed": 3737783.44,
+     "liquidated": 3555262.13,
+     "paid": null
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 0.0,
+    "2022": 0.0,
+    "2023": 0.0,
+    "2024": 0.0,
+    "2025": 1963506.39,
+    "2026": 3555262.13
+   },
+   "localized_of_which_administration": {
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 0.0,
+    "2022": 0.0,
+    "2023": 0.0,
+    "2024": 0.0,
+    "2025": 1963506.39,
+    "2026": 3555262.13
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE ARAPOANGA - RA XXXIV",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL - ARAPOANGA",
+     "liquidated": 1430809.77,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE ARAPOANGA - RA XXXIV",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS - ARAPOANGA",
+     "liquidated": 180983.2,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE ARAPOANGA - RA XXXIV",
+     "action": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES",
+     "subtitle": "CONCESSÃO DE BENEFÍCIOS A SERVIDORES - ARAPOANGA",
+     "liquidated": 101791.04,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "SERGIO DE ARAUJO",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "14/06/2023"
+   },
+   "works": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE ARAPOANGA - RA XXXIV",
+     "action_code": 1110,
+     "action": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO",
+     "subtitle": "EXECUÇÃO DE OBRAS DE URBANIZAÇÃO - ARAPOANGA",
+     "liquidated": 6920.0,
+     "years": [
+      2025,
+      2026
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXXV": {
+   "name": "Água Quente",
+   "administration_ug": {
+    "code": 190136,
+    "name": "ADMINISTRAÇÃO REGIONAL DE ÁGUA QUENTE - RA XXXV"
+   },
+   "administration_budget": {
+    "2025": {
+     "initial": 2671690.0,
+     "authorized": 1794102.3,
+     "committed": 498405.92,
+     "liquidated": 474319.37,
+     "paid": null
+    },
+    "2026": {
+     "initial": 0.0,
+     "authorized": 3754870.25,
+     "committed": 2871312.94,
+     "liquidated": 2815555.27,
+     "paid": null
+    }
+   },
+   "localized_gdf_spending": {
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 0.0,
+    "2022": 0.0,
+    "2023": 0.0,
+    "2024": 0.0,
+    "2025": 1402429.16,
+    "2026": 2815555.27
+   },
+   "localized_of_which_administration": {
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 0.0,
+    "2022": 0.0,
+    "2023": 0.0,
+    "2024": 0.0,
+    "2025": 474319.37,
+    "2026": 2815555.27
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DO RECANTO DAS EMAS",
+     "action": "ADMINISTRAÇÃO DE PESSOAL",
+     "subtitle": "ADMINISTRAÇÃO DE PESSOAL - ÁGUA QUENTE",
+     "liquidated": 863870.0,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE ÁGUA QUENTE - RA XXXV",
+     "action": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS",
+     "subtitle": "MANUTENÇÃO DE SERVIÇOS ADMINISTRATIVOS GERAIS - ÁGUA QUENTE",
+     "liquidated": 215448.08,
+     "rule": "localizer"
+    },
+    {
+     "ug": "ADMINISTRAÇÃO REGIONAL DE ÁGUA QUENTE - RA XXXV",
+     "action": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA",
+     "subtitle": "FORTALECIMENTO DAS AÇÕES DE APOIO AO INTERNO E SUA FAMÍLIA - ÁGUA QUENTE",
+     "liquidated": 153611.39,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": "LUCIA GOMES DA SILVA",
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": "15/06/2023"
+   },
+   "works": [],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXXVI": {
+   "name": "26 de Setembro",
+   "administration_ug": null,
+   "administration_budget": {},
+   "localized_gdf_spending": {
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 0.0,
+    "2022": 0.0,
+    "2023": 0.0,
+    "2024": 0.0,
+    "2025": 0.0,
+    "2026": 0.0
+   },
+   "localized_of_which_administration": {
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 0.0,
+    "2022": 0.0,
+    "2023": 0.0,
+    "2024": 0.0,
+    "2025": 0.0,
+    "2026": 0.0
+   },
+   "top_localized_items_2025": [],
+   "administrator": {
+    "name": null,
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": null
+   },
+   "works": [],
+   "published_on": "2026-10-02"
+  },
+  "RA-XXXVII": {
+   "name": "Ponte Alta",
+   "administration_ug": null,
+   "administration_budget": {},
+   "localized_gdf_spending": {
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 0.0,
+    "2022": 0.0,
+    "2023": 0.0,
+    "2024": 0.0,
+    "2025": 500000.0,
+    "2026": 0.0
+   },
+   "localized_of_which_administration": {
+    "2019": 0.0,
+    "2020": 0.0,
+    "2021": 0.0,
+    "2022": 0.0,
+    "2023": 0.0,
+    "2024": 0.0,
+    "2025": 0.0,
+    "2026": 0.0
+   },
+   "top_localized_items_2025": [
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action": "EXECUÇÃO DE PAVIMENTAÇÃO ASFÁLTICA",
+     "subtitle": "(EPI)EXECUÇÃO DE PAVIMENTAÇÃO ASFÁLTICA NA VIA DE LIGAÇÃO DO MONJOLO À PONTE ALTA",
+     "liquidated": 500000.0,
+     "rule": "localizer"
+    }
+   ],
+   "administrator": {
+    "name": null,
+    "since": null,
+    "act": null,
+    "url": "https://www.transparencia.df.gov.br/api/servidor?page=0&size=200&nomeFuncao=ADMINISTRADOR%20REGIONAL&exercicio=2026&mesReferencia=8",
+    "photo": null,
+    "payroll_reference": "2026-08",
+    "payroll_admission_date": null
+   },
+   "works": [
+    {
+     "ug": "DEPTO DE ESTRADAS E RODAGEM DO DF - DER/DF",
+     "action_code": 5745,
+     "action": "EXECUÇÃO DE PAVIMENTAÇÃO ASFÁLTICA",
+     "subtitle": "(EPI)EXECUÇÃO DE PAVIMENTAÇÃO ASFÁLTICA NA VIA DE LIGAÇÃO DO MONJOLO À PONTE ALTA",
+     "liquidated": 500000.0,
+     "years": [
+      2025
+     ],
+     "company": null
+    }
+   ],
+   "published_on": "2026-10-02"
+  }
+ },
+ "not_by_region": {
+  "2019": {
+   "df_wide": 21425654369.56,
+   "not_located": 67646344.99,
+   "multiple_regions": 0.0
+  },
+  "2020": {
+   "df_wide": 22241955535.8,
+   "not_located": 141490160.96,
+   "multiple_regions": 1358287.13
+  },
+  "2021": {
+   "df_wide": 26347091001.45,
+   "not_located": 237262863.89,
+   "multiple_regions": 0.0
+  },
+  "2022": {
+   "df_wide": 30953206964.83,
+   "not_located": 384946059.39,
+   "multiple_regions": 0.0
+  },
+  "2023": {
+   "df_wide": 30399235805.03,
+   "not_located": 384279259.85,
+   "multiple_regions": 0.0
+  },
+  "2024": {
+   "df_wide": 36424676948.1,
+   "not_located": 698242816.8,
+   "multiple_regions": 0.0
+  },
+  "2025": {
+   "df_wide": 39634779888.53,
+   "not_located": 731508878.32,
+   "multiple_regions": 0.0
+  },
+  "2026": {
+   "df_wide": 29970009246.9,
+   "not_located": 516035488.04,
+   "multiple_regions": 0.0
+  }
+ },
+ "classification_by_rule": {
+  "2019": {
+   "localizer": 23485498681.74,
+   "administration_ug": 803789.31,
+   "full_text": 281884.93,
+   "none": 67646344.99
+  },
+  "2020": {
+   "localizer": 24083585813.66,
+   "administration_ug": 1031779.77,
+   "full_text": 3698545.64,
+   "none": 141490160.96
+  },
+  "2021": {
+   "localizer": 27491086376.6,
+   "administration_ug": 6597868.79,
+   "full_text": 2278047.15,
+   "none": 237262863.89
+  },
+  "2022": {
+   "localizer": 32122671558.29,
+   "administration_ug": 7375806.2,
+   "full_text": 3518672.99,
+   "none": 384946059.39
+  },
+  "2023": {
+   "localizer": 31692778820.0,
+   "administration_ug": 1733923.79,
+   "full_text": 24911419.64,
+   "none": 384279259.85
+  },
+  "2024": {
+   "localizer": 37885825922.27,
+   "administration_ug": 1870019.85,
+   "full_text": 37874629.49,
+   "none": 698242816.8
+  },
+  "2025": {
+   "localizer": 41624001122.73,
+   "administration_ug": 2198105.4,
+   "full_text": 12551954.98,
+   "none": 731508878.32
+  },
+  "2026": {
+   "localizer": 31074171103.16,
+   "administration_ug": 1956749.15,
+   "full_text": 509374.56,
+   "none": 516035488.04
+  }
+ },
+ "check": {
+  "rule": "soma das RAs + df_wide + not_located + multiple_regions = total liquidado do portal (totalizador)",
+  "years": {
+   "2019": {
+    "sum_of_buckets": 23554230700.97,
+    "portal_total_liquidated": 23554230700.97,
+    "ok": true
+   },
+   "2020": {
+    "sum_of_buckets": 24229806300.03,
+    "portal_total_liquidated": 24229806300.03,
+    "ok": true
+   },
+   "2021": {
+    "sum_of_buckets": 27737225156.43,
+    "portal_total_liquidated": 27737225156.43,
+    "ok": true
+   },
+   "2022": {
+    "sum_of_buckets": 32518512096.87,
+    "portal_total_liquidated": 32518512096.87,
+    "ok": true
+   },
+   "2023": {
+    "sum_of_buckets": 32103703423.28,
+    "portal_total_liquidated": 32103703423.28,
+    "ok": true
+   },
+   "2024": {
+    "sum_of_buckets": 38623813388.41,
+    "portal_total_liquidated": 38623813388.41,
+    "ok": true
+   },
+   "2025": {
+    "sum_of_buckets": 42370260061.43,
+    "portal_total_liquidated": 42370260061.43,
+    "ok": true
+   },
+   "2026": {
+    "sum_of_buckets": 31592672714.91,
+    "portal_total_liquidated": 31592672714.91,
+    "ok": true
+   }
+  },
+  "control_drop_one_row_fails": {
+   "2019": true,
+   "2020": true,
+   "2021": true,
+   "2022": true,
+   "2023": true,
+   "2024": true,
+   "2025": true,
+   "2026": true
+  }
+ }
+}

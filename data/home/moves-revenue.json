@@ -1,0 +1,2230 @@
+{
+ "collected_on": "2026-10-04",
+ "rule": "Entradas de dinheiro na União, uma a uma identificáveis, com valor oficial em reais lido em fonte primária, de 2019 a 2026, com o mesmo critério para todos os anos e governos e sem filtro de partido ou de autor. Entram: (1) recebimentos que o Tesouro Nacional destaca no Resultado do Tesouro Nacional (RTN) do mês, seja na tabela por empresa de dividendos e participações (um item por empresa e mês, incluídos os juros sobre o capital próprio), seja no texto que explica receitas atípicas (bônus de assinatura de leilões de petróleo, outorgas de concessão, privatizações, devolução de recursos à União e tributo extraordinário ligado a um ato com data), com o dia do recebimento conferido no arquivo diário de receitas do Portal da Transparência quando o valor bate; (2) atos federais (lei, lei complementar, medida provisória ou decreto) que fixam no texto ou na exposição de motivos oficial uma receita nova esperada em reais, com a data do ato; quando a exposição de motivos traz um total para o período, vale o total; quando traz valores por ano, vale o do primeiro ano em que todas as medidas do ato estão em vigor, somadas as linhas desse ano quando a exposição não traz total, e os demais valores ficam no resumo. Não entram: a arrecadação mensal ordinária de tributos, os recolhimentos atípicos de tributos sem ato ou evento identificado, as receitas financeiras (emissão de títulos, retorno de empréstimos, remuneração de disponibilidades), as receitas recorrentes de exploração de petróleo (royalties e participação especial) e a renúncia de receita, que fica na coluna de gastos. Em cada ano entram as 10 maiores pelo valor oficial; valores recebidos (paid) e receitas esperadas (expected_revenue) aparecem lado a lado, com a natureza marcada. Julho a outubro de 2026 estão em recent.json. Em 2026 entram também os dividendos do Banco do Nordeste de março (R$ 383,4 milhões) e do BNDES de maio (R$ 202,2 milhões), fora das 10 maiores do semestre, porque são maiores do que o do Banco do Nordeste de agosto, listado em recent.json (auditoria de 06/10/2026): assim o ano inteiro segue um critério só.",
+ "coverage": {
+  "2026": "jan a jun",
+  "2025": "ano completo",
+  "2024": "ano completo",
+  "2023": "ano completo",
+  "2022": "ano completo",
+  "2021": "ano completo",
+  "2020": "ano completo",
+  "2019": "ano completo"
+ },
+ "items": [
+  {
+   "id": "mp-1340-2026-crude-oil-export-tax-expected",
+   "title": "Imposto de exportação de 12% sobre petróleo bruto criado pela MP nº 1.340/2026",
+   "short_title": "Imposto sobre exportação de petróleo (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.340",
+    "date": "2026-03-12",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1340.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Alexandre Silveira de Oliveira",
+     "office": "Ministro de Estado de Minas e Energia"
+    }
+   ],
+   "amount_brl": 15600000000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos EMI nº 484/2026, de 11/03/2026, assinada pelos Ministros da Fazenda e de Minas e Energia, item 5",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/exm/exm-mp-1340-26.pdf",
+    "quote": "As estimativas de arrecadação do imposto de exportação para o período de quatro meses produz arrecadação da ordem R$ 15,6 bilhões no cenário de referência central com Brent a US$ 90/barril, variando entre R$ 13,9 bilhões (Brent a US$ 80,0/barril) e R$ 17,4 bilhões (Brent a US$ 100,0/barril) dependendo do cenário.",
+    "date": "2026-03-11"
+   },
+   "status": "Medida provisória publicada em edição extra do Diário Oficial da União de 12/03/2026; o Planalto marca a vigência como encerrada. A partir de 10/07/2026 a alíquota de 12% passou a ser fixada pela Resolução Gecex nº 938/2026. O Tesouro Nacional registrou R$ 1,0 bilhão desse imposto em maio e R$ 3,8 bilhões em junho de 2026.",
+   "summary": "A Medida Provisória nº 1.340/2026 fixou em 12% o imposto sobre a exportação de petróleo bruto (art. 10), junto com uma subvenção ao óleo diesel. A exposição de motivos estima arrecadação da ordem de R$ 15,6 bilhões em quatro meses no cenário central (Brent a US$ 90 por barril), entre R$ 13,9 bilhões e R$ 17,4 bilhões conforme o preço.",
+   "year": 2026
+  },
+  {
+   "id": "mp-1340-2026-crude-oil-export-tax-2026-06",
+   "title": "Imposto de exportação sobre petróleo bruto recolhido em junho de 2026",
+   "short_title": "Imposto sobre exportação de petróleo (junho)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.340",
+    "date": "2026-03-12",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1340.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Alexandre Silveira de Oliveira",
+     "office": "Ministro de Estado de Minas e Energia"
+    }
+   ],
+   "amount_brl": 3800000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de junho de 2026, Nota 6 do resultado mês contra mês",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55186_1771509/boletim_jun26.pdf",
+    "quote": "resultado refletiu, principalmente, as alterações legislativas no Imposto de Exportação sobre óleo bruto (MP nº 1.340/2026), item responsável pelo recolhimento de R$ 3,8 bilhões no mês de junho de 2026.",
+    "date": "2026-07-30"
+   },
+   "status": "Recolhido em junho de 2026. No Portal da Transparência (receitas de 2026), o Imposto sobre a Exportação somou R$ 3.773,0 milhões no mês, em três lançamentos: 10/06 R$ 1.376.780.141,17; 20/06 R$ 1.293.164.047,79; 30/06 R$ 1.103.079.804,26.",
+   "summary": "Segundo o Tesouro Nacional, o imposto de exportação sobre petróleo bruto criado pela MP nº 1.340/2026 recolheu R$ 3,8 bilhões em junho de 2026.",
+   "year": 2026,
+   "moved_on": "2026-06"
+  },
+  {
+   "id": "petrobras-dividends-2026-03",
+   "title": "Dividendos e participações pagos pela Petrobras à União em março de 2026",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 3 (março de 2026)",
+    "date": "2026-04-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/3"
+   },
+   "signed_by": [],
+   "amount_brl": 1817300000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de março de 2026, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/54551_1765837/boletim_mar26.pdf",
+    "quote": "1.4.2.8 Petrobras 2.548,9 1.817,3 (Março 2025, Março 2026, em R$ milhões)",
+    "date": "2026-04-29"
+   },
+   "status": "Recebido pela União em 20/03/2026 (Portal da Transparência, receitas de 2026: dividendos de R$ 1.108.755.744,07 e juros sobre o capital próprio de R$ 708.555.253,64 nessa data); atribuído à Petrobras pelo Tesouro Nacional. A Petrobras informa pagamento em 20/03/2026 da 2ª parcela dos proventos do 3º trimestre de 2025 (https://www.investidorpetrobras.com.br/acoes-dividendos-e-dividas/dividendos-e-jcp/).",
+   "summary": "O Tesouro Nacional registrou R$ 1.817,3 milhões em dividendos e participações pagos pela Petrobras à União em março de 2026, ante R$ 2.548,9 milhões em março de 2025. É a 2ª parcela dos dividendos e juros sobre o capital próprio do 3º trimestre de 2025.",
+   "year": 2026,
+   "moved_on": "2026-03-20"
+  },
+  {
+   "id": "petrobras-dividends-2026-02",
+   "title": "Dividendos e participações pagos pela Petrobras à União em fevereiro de 2026",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 2 (fevereiro de 2026)",
+    "date": "2026-03-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/2"
+   },
+   "signed_by": [],
+   "amount_brl": 1797400000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de fevereiro de 2026, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/54224_1685003/boletim_fev26.pdf",
+    "quote": "1.4.2.8 Petrobras 2.526,5 1.797,4 (Fevereiro 2025, Fevereiro 2026, em R$ milhões)",
+    "date": "2026-03-30"
+   },
+   "status": "Recebido pela União em 20/02/2026 (Portal da Transparência, receitas de 2026: juros sobre o capital próprio de R$ 1.797.388.502,09 nessa data); atribuído à Petrobras pelo Tesouro Nacional. A Petrobras informa pagamento em 20/02/2026 da 1ª parcela de juros sobre o capital próprio do 3º trimestre de 2025 (https://www.investidorpetrobras.com.br/acoes-dividendos-e-dividas/dividendos-e-jcp/).",
+   "summary": "O Tesouro Nacional registrou R$ 1.797,4 milhões em dividendos e participações pagos pela Petrobras à União em fevereiro de 2026, ante R$ 2.526,5 milhões em fevereiro de 2025. É a 1ª parcela dos juros sobre o capital próprio do 3º trimestre de 2025.",
+   "year": 2026,
+   "moved_on": "2026-02-20"
+  },
+  {
+   "id": "petrobras-dividends-2026-06",
+   "title": "Dividendos e participações pagos pela Petrobras à União em junho de 2026",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 6 (junho de 2026)",
+    "date": "2026-07-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/6"
+   },
+   "signed_by": [],
+   "amount_brl": 1247400000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de junho de 2026, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55186_1771509/boletim_jun26.pdf",
+    "quote": "1.4.2.8 Petrobras 1.407,5 1.247,4 (Junho 2025, Junho 2026, em R$ milhões)",
+    "date": "2026-07-30"
+   },
+   "status": "Recebido pela União em 22/06/2026 (Portal da Transparência, receitas de 2026: juros sobre o capital próprio de R$ 1.247.441.479,56 nessa data); atribuído à Petrobras pelo Tesouro Nacional. A Petrobras informa pagamento em 22/06/2026 da 2ª parcela de juros sobre o capital próprio do 4º trimestre de 2025 (https://www.investidorpetrobras.com.br/acoes-dividendos-e-dividas/dividendos-e-jcp/).",
+   "summary": "O Tesouro Nacional registrou R$ 1.247,4 milhões em dividendos e participações pagos pela Petrobras à União em junho de 2026, ante R$ 1.407,5 milhões em junho de 2025. É a 2ª parcela dos juros sobre o capital próprio do 4º trimestre de 2025.",
+   "year": 2026,
+   "moved_on": "2026-06-22"
+  },
+  {
+   "id": "petrobras-dividends-2026-05",
+   "title": "Dividendos e participações pagos pela Petrobras à União em maio de 2026",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 5 (maio de 2026)",
+    "date": "2026-06-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/5"
+   },
+   "signed_by": [],
+   "amount_brl": 1232900000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2026, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/54963_1792828/boletim_mai26.pdf",
+    "quote": "1.4.2.8 Petrobras 1.390,8 1.232,9 (Maio 2025, Maio 2026, em R$ milhões)",
+    "date": "2026-06-29"
+   },
+   "status": "Recebido pela União em 20/05/2026 (Portal da Transparência, receitas de 2026: juros sobre o capital próprio de R$ 1.232.876.273,24 nessa data); atribuído à Petrobras pelo Tesouro Nacional. A Petrobras informa pagamento em 20/05/2026 da 1ª parcela de juros sobre o capital próprio do 4º trimestre de 2025 (https://www.investidorpetrobras.com.br/acoes-dividendos-e-dividas/dividendos-e-jcp/).",
+   "summary": "O Tesouro Nacional registrou R$ 1.232,9 milhões em dividendos e participações pagos pela Petrobras à União em maio de 2026, ante R$ 1.390,8 milhões em maio de 2025. É a 1ª parcela dos juros sobre o capital próprio do 4º trimestre de 2025.",
+   "year": 2026,
+   "moved_on": "2026-05-20"
+  },
+  {
+   "id": "mp-1340-2026-crude-oil-export-tax-2026-05",
+   "title": "Imposto de exportação sobre petróleo bruto recolhido em maio de 2026",
+   "short_title": "Imposto sobre exportação de petróleo (maio)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.340",
+    "date": "2026-03-12",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1340.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Alexandre Silveira de Oliveira",
+     "office": "Ministro de Estado de Minas e Energia"
+    }
+   ],
+   "amount_brl": 1000000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2026, Nota 6 do resultado mês contra mês",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/54963_1792828/boletim_mai26.pdf",
+    "quote": "Adicionalmente, registrou-se arrecadação de R$ 1,0 bilhão referente ao Imposto de Exportação incidente sobre óleo bruto, em razão da MP nº 1.340/2026.",
+    "date": "2026-06-29"
+   },
+   "status": "Recolhido em maio de 2026, primeiro mês com arrecadação relevante do imposto. No Portal da Transparência (receitas de 2026), o Imposto sobre a Exportação somou R$ 1.048,5 milhões no mês: 20/05 R$ 238.894.329,26 e 31/05 R$ 809.580.671,41.",
+   "summary": "Segundo o Tesouro Nacional, o imposto de exportação sobre petróleo bruto criado pela MP nº 1.340/2026 recolheu R$ 1,0 bilhão em maio de 2026.",
+   "year": 2026,
+   "moved_on": "2026-05"
+  },
+  {
+   "id": "banco-do-brasil-dividends-2026-03",
+   "title": "Dividendos e participações pagos pelo Banco do Brasil à União em março de 2026",
+   "short_title": "Dividendos do Banco do Brasil à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 3 (março de 2026)",
+    "date": "2026-04-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/3"
+   },
+   "signed_by": [],
+   "amount_brl": 835700000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de março de 2026, Tabela 3.1, linha 1.4.2.1 Banco do Brasil (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/54551_1765837/boletim_mar26.pdf",
+    "quote": "1.4.2.1 Banco do Brasil 1.835,1 835,7 (Março 2025, Março 2026, em R$ milhões)",
+    "date": "2026-04-29"
+   },
+   "status": "Recebido pela União em março de 2026; no Portal da Transparência (receitas de 2026), duas entradas de juros sobre o capital próprio somam o valor do Tesouro: 05/03 R$ 634.666.644,17 e 11/03 R$ 200.985.801,56. Atribuído ao Banco do Brasil pelo Tesouro Nacional; o Portal não nomeia o pagador.",
+   "summary": "O Tesouro Nacional registrou R$ 835,7 milhões em dividendos e participações pagos pelo Banco do Brasil à União em março de 2026, ante R$ 1.835,1 milhões em março de 2025.",
+   "year": 2026,
+   "moved_on": "2026-03"
+  },
+  {
+   "id": "caixa-dividends-2026-05",
+   "title": "Dividendos e participações pagos pela Caixa Econômica Federal à União em maio de 2026",
+   "short_title": "Dividendos da Caixa à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 5 (maio de 2026)",
+    "date": "2026-06-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/5"
+   },
+   "signed_by": [],
+   "amount_brl": 582000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2026, Tabela 3.1, linha 1.4.2.4 Caixa (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/54963_1792828/boletim_mai26.pdf",
+    "quote": "1.4.2.4 Caixa 0,0 582,0 (Maio 2025, Maio 2026, em R$ milhões)",
+    "date": "2026-06-29"
+   },
+   "status": "Recebido pela União em maio de 2026; atribuído à Caixa Econômica Federal pelo Tesouro Nacional. O Portal da Transparência não nomeia o pagador e nenhuma linha diária de maio bate sozinha com o valor; a maior entrada de juros sobre o capital próprio do mês sem outro pagador identificado é de R$ 554.011.249,23, em 14/05/2026.",
+   "summary": "O Tesouro Nacional registrou R$ 582,0 milhões em dividendos e participações pagos pela Caixa Econômica Federal à União em maio de 2026; em maio de 2025 não houve pagamento dessa empresa.",
+   "year": 2026,
+   "moved_on": "2026-05"
+  },
+  {
+   "id": "banco-do-brasil-dividends-2026-06",
+   "title": "Dividendos e participações pagos pelo Banco do Brasil à União em junho de 2026",
+   "short_title": "Dividendos do Banco do Brasil à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 6 (junho de 2026)",
+    "date": "2026-07-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/6"
+   },
+   "signed_by": [],
+   "amount_brl": 404800000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de junho de 2026, Tabela 3.1, linha 1.4.2.1 Banco do Brasil (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55186_1771509/boletim_jun26.pdf",
+    "quote": "1.4.2.1 Banco do Brasil 1.217,0 404,8 (Junho 2025, Junho 2026, em R$ milhões)",
+    "date": "2026-07-30"
+   },
+   "status": "Recebido pela União em 11/06/2026 (Portal da Transparência, receitas de 2026: juros sobre o capital próprio de R$ 404.774.157,49 nessa data); atribuído ao Banco do Brasil pelo Tesouro Nacional.",
+   "summary": "O Tesouro Nacional registrou R$ 404,8 milhões em dividendos e participações pagos pelo Banco do Brasil à União em junho de 2026, ante R$ 1.217,0 milhões em junho de 2025.",
+   "year": 2026,
+   "moved_on": "2026-06-11"
+  },
+  {
+   "id": "bnb-dividends-2026-03",
+   "title": "Dividendos e participações pagos pelo Banco do Nordeste à União em março de 2026",
+   "short_title": "Dividendos do Banco do Nordeste à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 3 (março de 2026)",
+    "date": "2026-04-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/3"
+   },
+   "signed_by": [],
+   "amount_brl": 383400000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de março de 2026, Tabela 3.1, linha 1.4.2.2 BNB (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/54551_1765837/boletim_mar26.pdf",
+    "quote": "1.4.2.2 BNB 0,0 383,4 (Março 2025, Março 2026, em R$ milhões)",
+    "date": "2026-04-29"
+   },
+   "status": "Recebido pela União em março de 2026; atribuído ao Banco do Nordeste pelo Tesouro Nacional (o mesmo valor está na série histórica do RTN de agosto de 2026, Tabela 1.2). O dia do recebimento não foi conferido no Portal da Transparência.",
+   "summary": "O Tesouro Nacional registrou R$ 383,4 milhões em dividendos e participações pagos pelo Banco do Nordeste do Brasil à União em março de 2026; em março de 2025 não houve pagamento dessa empresa.",
+   "year": 2026,
+   "moved_on": "2026-03"
+  },
+  {
+   "id": "bndes-dividends-2026-05",
+   "title": "Dividendos e participações pagos pelo BNDES à União em maio de 2026",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 32, N. 5 (maio de 2026)",
+    "date": "2026-06-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/5"
+   },
+   "signed_by": [],
+   "amount_brl": 202200000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2026, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/54963_1792828/boletim_mai26.pdf",
+    "quote": "1.4.2.3 BNDES 6.560,7 202,2 (Maio 2025, Maio 2026, em R$ milhões)",
+    "date": "2026-06-29"
+   },
+   "status": "Recebido pela União em maio de 2026; atribuído ao BNDES pelo Tesouro Nacional (o mesmo valor está na série histórica do RTN de agosto de 2026, Tabela 1.2). O dia do recebimento não foi conferido no Portal da Transparência.",
+   "summary": "O Tesouro Nacional registrou R$ 202,2 milhões em dividendos e participações pagos pelo BNDES à União em maio de 2026, ante R$ 6.560,7 milhões em maio de 2025.",
+   "year": 2026,
+   "moved_on": "2026-05"
+  },
+  {
+   "id": "lei-15270-2025-minimum-income-tax-expected",
+   "title": "Imposto mínimo sobre altas rendas e tributação de dividendos remetidos ao exterior (Lei nº 15.270/2025)",
+   "short_title": "Imposto mínimo sobre altas rendas (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Lei",
+    "number": "15.270",
+    "date": "2025-11-26",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15270.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Manoel Carlos de Almeida Neto",
+     "office": "Assina a lei pelo Ministério da Justiça e Segurança Pública (cargo na data não conferido em fonte primária)"
+    },
+    {
+     "name": "Simone Nassar Tebet",
+     "office": "Ministra de Estado do Planejamento e Orçamento"
+    }
+   ],
+   "amount_brl": 34120000000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos EM nº 00019/2025 MF, de 15/03/2025, do Projeto de Lei nº 1.087/2025 (convertido na Lei nº 15.270/2025), item 26, tabela em bilhões de reais, linha Total, coluna 2026",
+    "url": "https://www.planalto.gov.br/ccivil_03/Projetos/Ato_2023_2026/2025/PL/Exm/Exm-0019-25-MF.doc",
+    "quote": "A Secretaria Especial da Receita Federal do Brasil estima que estas medidas resultem na arrecadação dos seguintes valores, em bilhões de reais: Imposto mínimo da Pessoa Física 25,22 (2026) 29,49 (2027) 29,83 (2028); Dividendos para o Exterior 8,9 (2026) 9,69 (2027) 9,81 (2028); Total 34,12 (2026) 39,18 (2027) 39,64 (2028)",
+    "date": "2025-03-15"
+   },
+   "status": "Lei em vigor, publicada no Diário Oficial da União de 27/11/2025, com efeitos a partir de 2026. Os valores são os da exposição de motivos do projeto enviado pelo Executivo (PL nº 1.087/2025); o texto foi alterado no Congresso e a estimativa não foi refeita no ato. A mesma exposição estima a renúncia da redução do imposto de renda em R$ 25,84 bilhões em 2026 (lado da saída).",
+   "summary": "A Lei nº 15.270/2025 zera o imposto de renda mensal sobre rendimentos tributáveis de até R$ 5.000,00, com redução decrescente até R$ 7.350,00, e cria uma tributação mínima do imposto de renda, a partir do ano-calendário de 2026, para quem recebe mais de R$ 600 mil por ano. Para compensar a redução, a exposição de motivos do projeto estima arrecadação de R$ 34,12 bilhões em 2026 (R$ 25,22 bilhões do imposto mínimo e R$ 8,9 bilhões da tributação de dividendos remetidos ao exterior), R$ 39,18 bilhões em 2027 e R$ 39,64 bilhões em 2028.",
+   "year": 2025
+  },
+  {
+   "id": "mp-1303-2025-financial-investments-tax-expected",
+   "title": "Tributação de aplicações financeiras, apostas, CSLL e juros sobre capital próprio (MP nº 1.303/2025)",
+   "short_title": "MP da tributação de aplicações financeiras (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.303",
+    "date": "2025-06-11",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1303.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Esther Dweck",
+     "office": "Ministra de Estado da Gestão e da Inovação em Serviços Públicos"
+    }
+   ],
+   "amount_brl": 20870000000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos EMI nº 00041/2025 MF MGI, de 10/06/2025, item 44, tabela dos ganhos estimados; valor = soma, feita nesta pesquisa, das cinco linhas da coluna 2026, o primeiro ano completo de vigência (a exposição não traz total)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/exm/exm-1303-25.pdf",
+    "quote": "os art. 61 a art. 64 da Medida Provisória introduzem outras alterações na legislação tributária que acarretam aumento de receita tributária. A tabela abaixo apresenta os ganhos estimados em razão desses dispositivos: [coluna 2026] Revogação Isenção TVM R$ 2.600 milhões; Apostas de Quota Fixa R$ 1.700 milhões; Alíquota da CSLL R$ 1.580 milhões; Juros sobre Capital Próprio R$ 4.990 milhões; Compensação de Tributos Administrados pela RFB R$ 10.000 milhões",
+    "date": "2025-06-10"
+   },
+   "status": "Perdeu a validade sem ser votada: o Ato Declaratório nº 67/2025 do Presidente da Mesa do Congresso Nacional (Diário Oficial da União de 15/10/2025) informa que a MP 'teve seu prazo de vigência encerrado no dia 8 de outubro de 2025'. A receita prevista para 2026 não se realizou por esta MP.",
+   "summary": "A MP nº 1.303/2025 mudou a tributação de aplicações financeiras e ativos virtuais e, nos arts. 61 a 64, acabou com a isenção de títulos incentivados, elevou tributos sobre apostas de quota fixa, a CSLL de parte do setor financeiro e os juros sobre capital próprio, e limitou compensações de tributos. A exposição de motivos estima, para 2026, R$ 2,6 bilhões, R$ 1,7 bilhão, R$ 1,58 bilhão, R$ 4,99 bilhões e R$ 10 bilhões nessas cinco linhas (R$ 20,87 bilhões somadas). Para 2025, a tabela traz R$ 284,94 milhões (apostas), R$ 263,07 milhões (CSLL) e R$ 10 bilhões (compensação).",
+   "year": 2025
+  },
+  {
+   "id": "aip-rights-auction-2025-12",
+   "title": "Leilões dos direitos da União em acordos de individualização da produção de petróleo (AIP)",
+   "short_title": "Leilão de direitos da União no petróleo (AIP)",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 31, N. 12 (dezembro de 2025)",
+    "date": "2026-01-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2025/12"
+   },
+   "signed_by": [],
+   "amount_brl": 8800000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2025, Nota 7 do resultado mês contra mês (Exploração de Recursos Naturais)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/53718_1740106/boletim_dez25.pdf",
+    "quote": "o crescimento observado é decorrente, primordialmente, da realização de leilões sobre direitos futuros de Acordos de Individualização da Produção (AIPs) em dezembro de 2025 (+R$ 8,8 bilhões), evento que não teve contrapartida em dezembro de 2024.",
+    "date": "2026-01-29"
+   },
+   "status": "Recebido em dezembro de 2025. No Portal da Transparência (receitas de 2025), a natureza 'ALIEN.DIR.OBRIG.DECORRENTES DE AIP' registra R$ 1.558.368.862,00 em 17/12/2025 e R$ 7.234.932.100,00 em 18/12/2025, total de R$ 8.793.300.962,00.",
+   "summary": "O Tesouro Nacional registrou R$ 8,8 bilhões em dezembro de 2025 com leilões de direitos futuros da União em Acordos de Individualização da Produção de petróleo, venda feita uma única vez, sem equivalente em dezembro de 2024.",
+   "year": 2025,
+   "moved_on": "2025-12"
+  },
+  {
+   "id": "bndes-dividends-2025-08",
+   "title": "Dividendos e participações pagos pelo BNDES à União em agosto de 2025",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 31, N. 8 (agosto de 2025)",
+    "date": "2025-09-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2025/8"
+   },
+   "signed_by": [],
+   "amount_brl": 6783700000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de agosto de 2025, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/52973_1663793/Boletim_ago25.pdf",
+    "quote": "1.4.2.3 BNDES 0,0 6.783,7 (Agosto 2024, Agosto 2025, em R$ milhões)",
+    "date": "2025-09-29"
+   },
+   "status": "Recebido pela União em 12/08/2025 (Portal da Transparência, receitas de 2025: juros sobre o capital próprio de R$ 6.783.656.005,09 nessa data); atribuído ao BNDES pelo Tesouro Nacional (Nota 5 do RTN de agosto de 2025: 'pagamentos de dividendos do BNDES (R$ 6,8 bilhões)').",
+   "summary": "O Tesouro Nacional registrou R$ 6.783,7 milhões em dividendos e participações pagos pelo BNDES à União em agosto de 2025; em agosto de 2024 não houve pagamento dessa empresa.",
+   "year": 2025,
+   "moved_on": "2025-08-12"
+  },
+  {
+   "id": "bndes-dividends-2025-05",
+   "title": "Dividendos e participações pagos pelo BNDES à União em maio de 2025",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 31, N. 5 (maio de 2025)",
+    "date": "2025-06-26",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2025/5"
+   },
+   "signed_by": [],
+   "amount_brl": 6560700000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2025, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/52393_1645927/Boletim_mai25.pdf",
+    "quote": "1.4.2.3 BNDES 10.083,2 6.560,7 (Maio 2024, Maio 2025, em R$ milhões)",
+    "date": "2025-06-26"
+   },
+   "status": "Recebido pela União em 16/05/2025 (Portal da Transparência, receitas de 2025: dividendos de R$ 5.742.562.860,75 e juros sobre o capital próprio de R$ 818.174.726,80 nessa data, soma de R$ 6.560.737.587,55); atribuído ao BNDES pelo Tesouro Nacional.",
+   "summary": "O Tesouro Nacional registrou R$ 6.560,7 milhões em dividendos e participações pagos pelo BNDES à União em maio de 2025, ante R$ 10.083,2 milhões em maio de 2024.",
+   "year": 2025,
+   "moved_on": "2025-05-16"
+  },
+  {
+   "id": "bndes-dividends-2025-12",
+   "title": "Dividendos e participações pagos pelo BNDES à União em dezembro de 2025",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 31, N. 12 (dezembro de 2025)",
+    "date": "2026-01-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2025/12"
+   },
+   "signed_by": [],
+   "amount_brl": 6180000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2025, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/53718_1740106/boletim_dez25.pdf",
+    "quote": "1.4.2.3 BNDES 13.623,4 6.180,0 (Dezembro 2024, Dezembro 2025, em R$ milhões)",
+    "date": "2026-01-29"
+   },
+   "status": "Recebido pela União em 29/12/2025 (Portal da Transparência, receitas de 2025: dividendos de R$ 3.613.195.243,94 e juros sobre o capital próprio de R$ 2.566.804.756,06 nessa data, soma de R$ 6.180.000.000,00); atribuído ao BNDES pelo Tesouro Nacional. Um lançamento de dividendos de R$ 3.474.869.756,57 em 26/12/2025 foi estornado no mesmo dia.",
+   "summary": "O Tesouro Nacional registrou R$ 6.180,0 milhões em dividendos e participações pagos pelo BNDES à União em dezembro de 2025, ante R$ 13.623,4 milhões em dezembro de 2024.",
+   "year": 2025,
+   "moved_on": "2025-12-29"
+  },
+  {
+   "id": "fgo-fgi-redemption-2025-05",
+   "title": "Resgate de recursos da União nos fundos garantidores FGO e FGI",
+   "short_title": "Resgate da União nos fundos FGO e FGI",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 31, N. 5 (maio de 2025)",
+    "date": "2025-06-26",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2025/5"
+   },
+   "signed_by": [],
+   "amount_brl": 5000000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2025, Nota 4 do resultado mês contra mês (Demais Receitas Não Administradas)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/52393_1645927/Boletim_mai25.pdf",
+    "quote": "explicado, principalmente, pelos resgates de recursos do Fundo de Garantia de Operações - FGO e do Fundo Garantidor para Investimentos - FGI em maio de 2025, cujo montantante foi da ordem de R$ 5,0 bilhões, sem contrapartida em maio de 2024.",
+    "date": "2025-06-26"
+   },
+   "status": "Recebido em maio de 2025. O RTN de maio de 2026 (Nota 10) descreve o resgate como 'devolução de recursos aportados pela União para viabilizar medidas de apoio durante a calamidade pública ocorrida no Rio Grande do Sul'. No Portal da Transparência (receitas de 2025), a natureza 'ALIENACAO DE BENS INTANGIVEIS' registra R$ 111.594.418,29 em 22/05/2025 e R$ 4.928.631.916,36 em 28/05/2025; o Portal não nomeia os fundos.",
+   "summary": "O Tesouro Nacional registrou em maio de 2025 o resgate de cerca de R$ 5,0 bilhões que a União tinha nos fundos garantidores FGO e FGI, recursos aportados para medidas de apoio durante a calamidade no Rio Grande do Sul.",
+   "year": 2025,
+   "moved_on": "2025-05"
+  },
+  {
+   "id": "bndes-dividends-2025-10",
+   "title": "Dividendos e participações pagos pelo BNDES à União em outubro de 2025",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 31, N. 10 (outubro de 2025)",
+    "date": "2025-11-26",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2025/10"
+   },
+   "signed_by": [],
+   "amount_brl": 2801600000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de outubro de 2025, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/53290_2433011/boletim_out25.pdf",
+    "quote": "1.4.2.3 BNDES 0,0 2.801,6 (Outubro 2024, Outubro 2025, em R$ milhões)",
+    "date": "2025-11-26"
+   },
+   "status": "Recebido pela União em 31/10/2025 (Portal da Transparência, receitas de 2025: juros sobre o capital próprio de R$ 2.801.605.448,78 nessa data); atribuído ao BNDES pelo Tesouro Nacional.",
+   "summary": "O Tesouro Nacional registrou R$ 2.801,6 milhões em dividendos e participações pagos pelo BNDES à União em outubro de 2025; em outubro de 2024 não houve pagamento dessa empresa.",
+   "year": 2025,
+   "moved_on": "2025-10-31"
+  },
+  {
+   "id": "caixa-dividends-2025-04",
+   "title": "Dividendos e participações pagos pela Caixa Econômica Federal à União em abril de 2025",
+   "short_title": "Dividendos da Caixa à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 31, N. 4 (abril de 2025)",
+    "date": "2025-05-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2025/4-2"
+   },
+   "signed_by": [],
+   "amount_brl": 2771000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de abril de 2025, Tabela 3.1, linha 1.4.2.4 Caixa (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/52218_1693606/Boletim_abr25.pdf",
+    "quote": "1.4.2.4 Caixa 0,0 2.771,0 (Abril 2024, Abril 2025, em R$ milhões)",
+    "date": "2025-05-29"
+   },
+   "status": "Recebido pela União em 04/04/2025 (Portal da Transparência, receitas de 2025: juros sobre o capital próprio de R$ 2.685.003.573,21, mais R$ 85.953.435,07 de multas e juros, nessa data); atribuído à Caixa pelo Tesouro Nacional.",
+   "summary": "O Tesouro Nacional registrou R$ 2.771,0 milhões em dividendos e participações pagos pela Caixa Econômica Federal à União em abril de 2025; em abril de 2024 não houve pagamento dessa empresa.",
+   "year": 2025,
+   "moved_on": "2025-04-04"
+  },
+  {
+   "id": "petrobras-dividends-2025-03",
+   "title": "Dividendos e participações pagos pela Petrobras à União em março de 2025",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 31, N. 3 (março de 2025)",
+    "date": "2025-04-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2025/3"
+   },
+   "signed_by": [],
+   "amount_brl": 2548900000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de março de 2025, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/51990_2454681/Boletim_mar25.pdf",
+    "quote": "1.4.2.8 Petrobras 2.575,9 2.548,9 (Março 2024, Março 2025, em R$ milhões)",
+    "date": "2025-04-29"
+   },
+   "status": "Pago pela Petrobras em 20/03/2025, 2ª parcela dos proventos do 3º trimestre de 2024 (https://www.investidorpetrobras.com.br/acoes-dividendos-e-dividas/dividendos-e-jcp/); atribuído à Petrobras pelo Tesouro Nacional. No Portal da Transparência, as entradas de 20/03/2025 (dividendos de R$ 2.909.345.833,52 e juros sobre o capital próprio de R$ 1.046.678.250,43) reúnem os pagamentos da Petrobras e do Banco do Brasil e não separam as duas empresas.",
+   "summary": "O Tesouro Nacional registrou R$ 2.548,9 milhões em dividendos e participações pagos pela Petrobras à União em março de 2025, ante R$ 2.575,9 milhões em março de 2024.",
+   "year": 2025,
+   "moved_on": "2025-03-20"
+  },
+  {
+   "id": "mp-1227-2024-tax-offset-limits-expected",
+   "title": "Limite à compensação de créditos de PIS/Pasep e Cofins (MP nº 1.227/2024)",
+   "short_title": "MP da compensação de créditos (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.227",
+    "date": "2024-06-04",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/mpv/mpv1227.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Dario Carnevalli Durigan",
+     "office": "Secretário-Executivo do Ministério da Fazenda, assinando pelo Ministério da Fazenda"
+    }
+   ],
+   "amount_brl": 17500000000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos EM nº 00060/2024 MF, de 29/05/2024, assinada por Fernando Haddad, seção VI (Impacto Orçamentário-Financeiro)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/exm/exm-1227-24.pdf",
+    "quote": "Registra-se que a limitação da compensação tributária, a partir de 1º de junho de 2024, permitirá que R$ 17,5 bilhões (dezessete bilhões e quinhentos milhões de reais) em débitos relativos a tributos administrados pela Secretaria Especial da Receita Federal do Brasil deixem de ser compensados com créditos do regime de incidência não cumulativa da Contribuição para o PIS/Pasep e da Cofins no exercício de 2024.",
+    "date": "2024-05-29"
+   },
+   "status": "Sem efeito na parte de receita: o Presidente do Congresso Nacional rejeitou sumariamente os incisos III e IV do art. 1º e os arts. 5º e 6º (limite à compensação e revogação do ressarcimento de créditos presumidos), com encerramento da vigência desde a edição (Ato Declaratório nº 36/2024, Diário Oficial da União de 12/06/2024); o restante da MP perdeu a vigência em 01/10/2024 (Ato Declaratório nº 95/2024).",
+   "summary": "A MP nº 1.227/2024 limitou a compensação de créditos de PIS/Pasep e Cofins com outros tributos e revogou o ressarcimento de créditos presumidos dessas contribuições. A exposição de motivos estima que R$ 17,5 bilhões em débitos deixariam de ser compensados em 2024 e que cerca de R$ 11,7 bilhões de créditos presumidos deixariam de ser pedidos (base de 2023), o que chama de recomposição da receita da União. O Congresso devolveu essa parte da MP uma semana depois.",
+   "year": 2024
+  },
+  {
+   "id": "bndes-dividends-2024-12",
+   "title": "Dividendos e participações pagos pelo BNDES à União em dezembro de 2024",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 30, N. 12 (dezembro de 2024)",
+    "date": "2025-01-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2024/12"
+   },
+   "signed_by": [],
+   "amount_brl": 13623400000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2024, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/51291_1726861/boletim_dez24.pdf",
+    "quote": "1.4.2.3 BNDES 0,0 13.623,4 (Dezembro 2023, Dezembro 2024, em R$ milhões)",
+    "date": "2025-01-30"
+   },
+   "status": "Recebido pela União em dezembro de 2024; atribuído ao BNDES pelo Tesouro Nacional (Nota 2 do RTN de dezembro de 2024: 'maiores recebimentos de dividendos e juros sobre o capital próprio do BNDES (+R$ 13,6 bilhões)'). No Portal da Transparência, a maior entrada do mês é de 27/12/2024 (dividendos de R$ 10.033.151.061,89 e juros sobre o capital próprio de R$ 4.095.926.675,82), soma que inclui outro pagador; o Portal não nomeia quem pagou.",
+   "summary": "O Tesouro Nacional registrou R$ 13.623,4 milhões em dividendos e participações pagos pelo BNDES à União em dezembro de 2024; em dezembro de 2023 não houve pagamento dessa empresa.",
+   "year": 2024,
+   "moved_on": "2024-12"
+  },
+  {
+   "id": "bndes-dividends-2024-05",
+   "title": "Dividendos e participações pagos pelo BNDES à União em maio de 2024",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 30, N. 5 (maio de 2024)",
+    "date": "2024-06-26",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2024/5"
+   },
+   "signed_by": [],
+   "amount_brl": 10083200000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2024, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/49889_1570617/boletim_mai24.pdf",
+    "quote": "1.4.2.3 BNDES 10.425,1 10.083,2 (Maio 2023, Maio 2024, em R$ milhões)",
+    "date": "2024-06-26"
+   },
+   "status": "Recebido pela União em maio de 2024; atribuído ao BNDES pelo Tesouro Nacional. No Portal da Transparência, as entradas de 08/05/2024 (dividendos de R$ 5.426.371.012,00 e juros sobre o capital próprio de R$ 4.929.073.284,28) comportam o pagamento, mas somam mais que ele e não nomeiam o pagador.",
+   "summary": "O Tesouro Nacional registrou R$ 10.083,2 milhões em dividendos e participações pagos pelo BNDES à União em maio de 2024, ante R$ 10.425,1 milhões em maio de 2023.",
+   "year": 2024,
+   "moved_on": "2024-05"
+  },
+  {
+   "id": "petrobras-dividends-2024-12",
+   "title": "Dividendos e participações pagos pela Petrobras à União em dezembro de 2024",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 30, N. 12 (dezembro de 2024)",
+    "date": "2025-01-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2024/12"
+   },
+   "signed_by": [],
+   "amount_brl": 7774000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2024, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/51291_1726861/boletim_dez24.pdf",
+    "quote": "1.4.2.8 Petrobras 4.253,6 7.774,0 (Dezembro 2023, Dezembro 2024, em R$ milhões)",
+    "date": "2025-01-30"
+   },
+   "status": "Recebido pela União em dezembro de 2024, em duas datas: 20/12/2024 (R$ 1.969.732.228,31, 2ª parcela dos dividendos do 2º trimestre de 2024) e 23/12/2024 (R$ 5.804.249.135,84, dividendos extraordinários em parcela única), segundo o Portal da Transparência (soma igual ao valor do Tesouro) e as datas de pagamento da Petrobras (https://www.investidorpetrobras.com.br/acoes-dividendos-e-dividas/dividendos-e-jcp/).",
+   "summary": "O Tesouro Nacional registrou R$ 7.774,0 milhões em dividendos e participações pagos pela Petrobras à União em dezembro de 2024, ante R$ 4.253,6 milhões em dezembro de 2023. Inclui dividendos extraordinários pagos em parcela única.",
+   "year": 2024,
+   "moved_on": "2024-12"
+  },
+  {
+   "id": "lei-14973-2024-judicial-deposits-transfer-2024-10",
+   "title": "Depósitos judiciais transferidos pela Caixa à Conta Única do Tesouro (art. 41 da Lei nº 14.973/2024)",
+   "short_title": "Depósitos judiciais transferidos à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Lei",
+    "number": "14.973",
+    "date": "2024-09-16",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/L14973.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Jorge Rodrigo Araújo Messias",
+     "office": "Advogado-Geral da União"
+    }
+   ],
+   "amount_brl": 6200000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de outubro de 2024, Nota 9 do resultado mês contra mês (Demais Receitas Não Administradas)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/50869_1601111/boletim_out24.pdf",
+    "quote": "justificado, especialmente, pelo recebimento de depósitos judiciais transferidos pela CAIXA em outubro de 2024 (cerca de R$ 6,2 bilhões).",
+    "date": "2024-12-03"
+   },
+   "status": "Recebido em outubro de 2024. O art. 41 da Lei nº 14.973/2024 mandou transferir para a Conta Única, em até 30 dias, os depósitos judiciais e extrajudiciais que ainda não estavam nela; o RTN de outubro de 2025 (Nota 7) liga a entrada de outubro de 2024 a esse artigo. No Portal da Transparência, a maior entrada não tributária de outubro de 2024 é de R$ 6.307.623.766,21 em 20/10/2024 (natureza 'OUTRAS REC.N.ARREC.N.PROJ.RFB-PRIM.'); o Portal não diz a origem.",
+   "summary": "Em outubro de 2024 a Caixa transferiu à União cerca de R$ 6,2 bilhões em depósitos judiciais, cumprindo o art. 41 da Lei nº 14.973/2024, que mandou levar à Conta Única do Tesouro os depósitos que ainda estavam fora dela. O Tesouro registrou a entrada como receita extraordinária, sem repetição em 2025.",
+   "year": 2024,
+   "moved_on": "2024-10"
+  },
+  {
+   "id": "bndes-dividends-2024-11",
+   "title": "Dividendos e participações pagos pelo BNDES à União em novembro de 2024",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 30, N. 11 (novembro de 2024)",
+    "date": "2025-01-15",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2024/11"
+   },
+   "signed_by": [],
+   "amount_brl": 5793500000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de novembro de 2024, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/51179_1615868/boletim_nov24.pdf",
+    "quote": "1.4.2.3 BNDES 0,0 5.793,5 (Novembro 2023, Novembro 2024, em R$ milhões)",
+    "date": "2025-01-15"
+   },
+   "status": "Recebido pela União em 29/11/2024 (Portal da Transparência, receitas de 2024: juros sobre o capital próprio de R$ 5.793.534.103,81 nessa data); atribuído ao BNDES pelo Tesouro Nacional.",
+   "summary": "O Tesouro Nacional registrou R$ 5.793,5 milhões em dividendos e participações pagos pelo BNDES à União em novembro de 2024; em novembro de 2023 não houve pagamento dessa empresa.",
+   "year": 2024,
+   "moved_on": "2024-11-29"
+  },
+  {
+   "id": "petrobras-dividends-2024-06",
+   "title": "Dividendos e participações pagos pela Petrobras à União em junho de 2024",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 30, N. 6 (junho de 2024)",
+    "date": "2024-07-26",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2024/6"
+   },
+   "signed_by": [],
+   "amount_brl": 5496000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de junho de 2024, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/50117_1586943/boletim_jun24.pdf",
+    "quote": "1.4.2.8 Petrobras 3.467,2 5.496,0 (Junho 2023, Junho 2024, em R$ milhões)",
+    "date": "2024-07-26"
+   },
+   "status": "Pago pela Petrobras em 20/06/2024: 2ª parcela dos dividendos extraordinários e dos dividendos do 4º trimestre de 2023 (https://www.investidorpetrobras.com.br/acoes-dividendos-e-dividas/dividendos-e-jcp/); atribuído à Petrobras pelo Tesouro Nacional. No Portal da Transparência, as entradas de 20/06/2024 somam mais que o valor do Tesouro e incluem outro pagador.",
+   "summary": "O Tesouro Nacional registrou R$ 5.496,0 milhões em dividendos e participações pagos pela Petrobras à União em junho de 2024, ante R$ 3.467,2 milhões em junho de 2023.",
+   "year": 2024,
+   "moved_on": "2024-06-20"
+  },
+  {
+   "id": "petrobras-dividends-2024-05",
+   "title": "Dividendos e participações pagos pela Petrobras à União em maio de 2024",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 30, N. 5 (maio de 2024)",
+    "date": "2024-06-26",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2024/5"
+   },
+   "signed_by": [],
+   "amount_brl": 5448800000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2024, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/49889_1570617/boletim_mai24.pdf",
+    "quote": "1.4.2.8 Petrobras 5.388,9 5.448,8 (Maio 2023, Maio 2024, em R$ milhões)",
+    "date": "2024-06-26"
+   },
+   "status": "Recebido pela União em 20/05/2024 (Portal da Transparência, receitas de 2024: dividendos de R$ 5.448.760.613,85 nessa data); 1ª parcela dos dividendos extraordinários e dos dividendos do 4º trimestre de 2023 (https://www.investidorpetrobras.com.br/acoes-dividendos-e-dividas/dividendos-e-jcp/).",
+   "summary": "O Tesouro Nacional registrou R$ 5.448,8 milhões em dividendos e participações pagos pela Petrobras à União em maio de 2024, ante R$ 5.388,9 milhões em maio de 2023.",
+   "year": 2024,
+   "moved_on": "2024-05-20"
+  },
+  {
+   "id": "copel-hydro-plants-concession-2024-11",
+   "title": "Outorgas das usinas hidrelétricas da Copel (desestatização da Copel)",
+   "short_title": "Outorgas das usinas da Copel",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 30, N. 11 (novembro de 2024)",
+    "date": "2025-01-15",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2024/11"
+   },
+   "signed_by": [],
+   "amount_brl": 4100000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de novembro de 2024, Nota 5 do resultado mês contra mês (Concessões e Permissões)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/51179_1615868/boletim_nov24.pdf",
+    "quote": "majoritariamente explicado pela arrecadação de 4,1 bilhões em novembro de 2024, referente às outorgas das Usinas Hidrelétricas Governador Bento Munhoz da Rocha Netto, Governador Ney Aminthas de Barros Braga e Governador José Richa, decorrentes do processo de desestatização da COPEL, ocorrido em 2023.",
+    "date": "2025-01-15"
+   },
+   "status": "Recebido pela União em 21/11/2024 (Portal da Transparência, receitas de 2024: R$ 4.073.915.184,17 na natureza 'CONC.SERV.GER.TRANSM.DISTR.ENER.ELET', unidade ANEEL, nessa data).",
+   "summary": "A União recebeu R$ 4,1 bilhões em novembro de 2024 pelas outorgas de três usinas hidrelétricas (Governador Bento Munhoz da Rocha Netto, Governador Ney Aminthas de Barros Braga e Governador José Richa), ligadas à desestatização da Copel em 2023.",
+   "year": 2024,
+   "moved_on": "2024-11-21"
+  },
+  {
+   "id": "lei-14754-2024-exclusive-funds-tax-2024-01",
+   "title": "Imposto sobre rendimentos acumulados em fundos de investimento (art. 28 da Lei nº 14.754/2023)",
+   "short_title": "Imposto sobre fundos exclusivos",
+   "kind": "revenue",
+   "act": {
+    "type": "Lei",
+    "number": "14.754",
+    "date": "2023-12-12",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14754.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    }
+   ],
+   "amount_brl": 4100000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de janeiro de 2024, Nota 1 do resultado mês contra mês (Imposto sobre a Renda)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/49021_1589260/boletim_jan24.pdf",
+    "quote": "Rendimentos do Capital (+R$ 2,3 bilhões), incluindo os recolhimentos de R$ 4,1 bilhões decorrentes da tributação dos fundos de investimento assinalados no art.28, inciso I, da Lei nº 14.754/2023",
+    "date": "2024-02-28"
+   },
+   "status": "Recolhido em janeiro de 2024. O art. 28 da Lei nº 14.754/2023 deu ao cotista a opção de pagar o imposto de renda sobre os rendimentos acumulados até 30/11/2023 à alíquota de 8%. O Portal da Transparência não separa esse recolhimento das demais linhas de IRRF sobre rendimentos de capital.",
+   "summary": "Em janeiro de 2024, cotistas de fundos de investimento pagaram R$ 4,1 bilhões de imposto de renda sobre rendimentos acumulados até novembro de 2023, na opção de alíquota de 8% criada pelo art. 28 da Lei nº 14.754/2023 (tributação de fundos exclusivos e aplicações no exterior).",
+   "year": 2024,
+   "moved_on": "2024-01"
+  },
+  {
+   "id": "mp-1185-2023-icms-subsidies-expected",
+   "title": "Novo tratamento tributário das subvenções do ICMS (MP nº 1.185/2023)",
+   "short_title": "MP das subvenções do ICMS (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.185",
+    "date": "2023-08-30",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/mpv/mpv1185.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    }
+   ],
+   "amount_brl": 35300000000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos da MP nº 1.185/2023, de 29/08/2023, item 21",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/exm/exm-1185-23.pdf",
+    "quote": "cabe informar que a medida tem potencial de arrecadação da ordem de R$ 35,3 bilhões (trinta e cinco bilhões e trezentos milhões de reais) em 2024, R$ 32,4 bilhões (trinta e dois bilhões e quatrocentos milhões de reais) em 2025, R$ 34,1 bilhões (trinta e quatro bilhões e cem milhões de reais) em 2026 e R$ 36,1 bilhões (trinta e seis bilhões e cem milhões de reais) em 2027.",
+    "date": "2023-08-29"
+   },
+   "status": "Convertida na Lei nº 14.789, de 29/12/2023 (Planalto). Os valores são os da exposição de motivos da MP; a lei de conversão não refez a estimativa.",
+   "summary": "A MP nº 1.185/2023 trocou a regra que tirava da base do IRPJ e da CSLL as subvenções para investimento (benefícios de ICMS dados pelos estados) por um crédito fiscal ligado à implantação ou expansão de empreendimentos. A exposição de motivos estima arrecadação de R$ 35,3 bilhões em 2024, R$ 32,4 bilhões em 2025, R$ 34,1 bilhões em 2026 e R$ 36,1 bilhões em 2027.",
+   "year": 2023
+  },
+  {
+   "id": "pis-pasep-unclaimed-balances-2023-09",
+   "title": "Recursos não sacados do PIS/Pasep incorporados pela União",
+   "short_title": "Saldos esquecidos do PIS/Pasep",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 29, N. 9 (setembro de 2023)",
+    "date": "2023-10-27",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2023/9"
+   },
+   "signed_by": [],
+   "amount_brl": 26000000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de setembro de 2023, Nota 6 do resultado mês contra mês (Demais Receitas)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/48173_1514993/boletim_set23.pdf",
+    "quote": "explicado pela entrada de recursos não sacados do PIS/PASEP (conforme previsto na Emenda Constitucional nº 126/2022), no montante de R$ 26,0 bilhões, em setembro de 2023, sem contrapartida em setembro de 2022.",
+    "date": "2023-10-27"
+   },
+   "status": "Recebido pela União em 04/09/2023 (Portal da Transparência, receitas de 2023: R$ 25.987.585.222,01 na natureza 'REC.PIS/PASEP NAO RECL.SUP.20 ANOS' nessa data). A entrada foi prevista na Emenda Constitucional nº 126/2022.",
+   "summary": "Em setembro de 2023 a União incorporou R$ 26,0 bilhões de saldos do PIS/Pasep que os trabalhadores não sacaram, como previsto na Emenda Constitucional nº 126/2022.",
+   "year": 2023,
+   "moved_on": "2023-09-04"
+  },
+  {
+   "id": "mp-1184-2023-closed-funds-tax-expected",
+   "title": "Tributação periódica dos fundos de investimento fechados (MP nº 1.184/2023)",
+   "short_title": "MP dos fundos exclusivos (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.184",
+    "date": "2023-08-28",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/mpv/mpv1184.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    }
+   ],
+   "amount_brl": 13280000000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos EM nº 00104/2023 MF, de 24/08/2023, item 40",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/exm/exm-1184-23.pdf",
+    "quote": "a medida proporcionará impacto orçamentário-financeiro positivo estimado da ordem de R$ 3,21 bilhões para o ano de 2023, de R$ 13,28 bilhões para o ano de 2024, de R$ 3,51 bilhões para o ano de 2025 e de aproximadamente R$ 3,86 bilhões para o ano de 2026.",
+    "date": "2023-08-24"
+   },
+   "status": "A MP perdeu a vigência em 04/02/2024 (Ato Declaratório nº 6/2024 do Presidente da Mesa do Congresso Nacional). A tributação dos fundos fechados foi aprovada na Lei nº 14.754/2023, que também tem item próprio nesta lista; em janeiro de 2024 o Tesouro registrou R$ 4,1 bilhões da opção de pagamento antecipado prevista no art. 28 dessa lei.",
+   "summary": "A MP nº 1.184/2023 aplicou aos fundos de investimento fechados (os chamados fundos exclusivos) a cobrança periódica de imposto de renda que já valia para os fundos abertos. A exposição de motivos estima R$ 3,21 bilhões em 2023, R$ 13,28 bilhões em 2024, R$ 3,51 bilhões em 2025 e cerca de R$ 3,86 bilhões em 2026.",
+   "year": 2023
+  },
+  {
+   "id": "bndes-dividends-2023-05",
+   "title": "Dividendos e participações pagos pelo BNDES à União em maio de 2023",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 29, N. 5 (maio de 2023)",
+    "date": "2023-06-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2023/5"
+   },
+   "signed_by": [],
+   "amount_brl": 10425100000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2023, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/47344_1471837/boletim_mai23.pdf",
+    "quote": "1.4.2.3 BNDES 0,0 10.425,1 (Maio 2022, Maio 2023, em R$ milhões)",
+    "date": "2023-06-29"
+   },
+   "status": "Recebido pela União em 26/05/2023 (Portal da Transparência, receitas de 2023: dividendos de R$ 7.058.261.957,24 e juros sobre o capital próprio de R$ 3.366.799.207,29 nessa data, soma igual ao valor do Tesouro); atribuído ao BNDES pelo Tesouro Nacional (RTN de maio de 2023, Nota 4: 'dividendos e juros sobre o capital próprio do BNDES, no valor de R$ 10,4 bilhões').",
+   "summary": "O Tesouro Nacional registrou R$ 10.425,1 milhões em dividendos e participações pagos pelo BNDES à União em maio de 2023; em maio de 2022 não houve pagamento dessa empresa.",
+   "year": 2023,
+   "moved_on": "2023-05-26"
+  },
+  {
+   "id": "lei-14754-2023-offshore-income-tax-expected",
+   "title": "Tributação de aplicações financeiras, empresas e trusts no exterior (Lei nº 14.754/2023)",
+   "short_title": "Lei das offshores (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Lei",
+    "number": "14.754",
+    "date": "2023-12-12",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14754.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    }
+   ],
+   "amount_brl": 7050000000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos EM nº 00105/2023 MF, de 24/08/2023, do Projeto de Lei nº 4.173/2023 (convertido na Lei nº 14.754/2023), item 42",
+    "url": "https://www.planalto.gov.br/ccivil_03/Projetos/Ato_2023_2026/2023/PL/Exm/105-2023-MF.htm",
+    "quote": "a medida proporcionará impacto orçamentário-financeiro positivo potencial para a União, cuja estimativa é da ordem de R$ 7,05 bilhões para o ano de 2024, próximo à R$ 6,75 bilhões para o ano de 2025 e de R$ 7,13 bilhões para o ano de 2026.",
+    "date": "2023-08-24"
+   },
+   "status": "Lei em vigor, publicada no Diário Oficial da União de 13/12/2023. O valor é o da exposição de motivos do projeto enviado pelo Executivo (aplicações e entidades no exterior); a lei também incorporou a tributação dos fundos fechados da MP nº 1.184/2023, que tem item próprio.",
+   "summary": "A Lei nº 14.754/2023 passou a tributar a renda de pessoas físicas residentes no País obtida em aplicações financeiras, empresas controladas e trusts no exterior, e incluiu a cobrança periódica nos fundos fechados. A exposição de motivos do projeto estima, para a parte do exterior, R$ 7,05 bilhões em 2024, R$ 6,75 bilhões em 2025 e R$ 7,13 bilhões em 2026.",
+   "year": 2023
+  },
+  {
+   "id": "mp-1163-2023-crude-oil-export-tax-expected",
+   "title": "Imposto de exportação sobre petróleo bruto (MP nº 1.163/2023)",
+   "short_title": "Imposto sobre exportação de petróleo de 2023 (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.163",
+    "date": "2023-02-28",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/mpv/mpv1163.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    }
+   ],
+   "amount_brl": 6650000000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos EM nº 00026/2023 MF, de 28/02/2023, item 8",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/exm/exm-1163-23.pdf",
+    "quote": "Ademais, a medida ora proposta eleva a alíquota do imposto de exportação incidente sobre as exportações de óleos brutos de petróleo ou de minerais betuminosos, classificado no código 2709 da Nomenclatura Comum do Mercosul (...), cujo impacto financeiro positivo, nos termos da Nota Cetad/Coest nº 025, de 28 de fevereiro de 2023, é da ordem de R$ 6,65 bilhões (seis bilhões, seiscentos e cinquenta milhões de reais).",
+    "date": "2023-02-28"
+   },
+   "status": "A MP perdeu a vigência em 28/06/2023 (Ato Declaratório nº 47/2023 do Presidente da Mesa do Congresso Nacional). O RTN de setembro de 2023 registra o 'fim da vigência da Medida Provisória nº 1.163/2023, que havia estabelecido até 30 de junho de 2023 a cobrança do imposto de exportação'. A mesma MP manteve reduzidos tributos sobre combustíveis, com renúncia estimada em R$ 6,61 bilhões (lado da saída).",
+   "summary": "A MP nº 1.163/2023 criou, até 30 de junho de 2023, imposto de exportação sobre petróleo bruto e prorrogou a redução de tributos sobre combustíveis. A exposição de motivos estima impacto positivo da ordem de R$ 6,65 bilhões com o imposto de exportação.",
+   "year": 2023
+  },
+  {
+   "id": "petrobras-dividends-2023-01",
+   "title": "Dividendos e participações pagos pela Petrobras à União em janeiro de 2023",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 29, N. 1 (janeiro de 2023)",
+    "date": "2023-02-27",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2023/1"
+   },
+   "signed_by": [],
+   "amount_brl": 6307900000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de janeiro de 2023, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/46286_1495495/boletim_jan23.pdf",
+    "quote": "1.4.2.8 Petrobras 0,0 6.307,9 (Janeiro 2022, Janeiro 2023, em R$ milhões)",
+    "date": "2023-02-27"
+   },
+   "status": "Recebido pela União em 19/01/2023 (Portal da Transparência, receitas de 2023: dividendos de R$ 6.030.147.651,34 e juros sobre o capital próprio de R$ 277.759.881,48 nessa data, soma igual ao valor do Tesouro); atribuído à Petrobras pelo Tesouro Nacional (RTN de janeiro de 2023, Nota 5).",
+   "summary": "O Tesouro Nacional registrou R$ 6.307,9 milhões em dividendos e participações pagos pela Petrobras à União em janeiro de 2023; em janeiro de 2022 não houve pagamento dessa empresa.",
+   "year": 2023,
+   "moved_on": "2023-01-19"
+  },
+  {
+   "id": "mp-1202-2023-perse-revocation-expected",
+   "title": "Revogação do benefício fiscal do setor de eventos, o Perse (MP nº 1.202/2023)",
+   "short_title": "Fim do Perse (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.202",
+    "date": "2023-12-28",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/mpv/mpv1202.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    }
+   ],
+   "amount_brl": 6010000000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos EM nº 00175/2023 MF, de 27/12/2023, item 52.1",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/exm/exm-1202-23.pdf",
+    "quote": "impacto positivo da ordem de R$ 6,01 bilhões (seis bilhões e 10 milhões de reais) em 2024 em relação à revogação do art. 4º da Lei nº 14.148, de 2021, que reduz a 0% (zero por cento) as alíquotas do IRPJ, da CSLL, da Contribuição para o PIS/Pasep e da Cofins, incidentes sobre o resultado auferido pelas pessoas jurídicas pertencentes ao setor de eventos (PERSE)",
+    "date": "2023-12-27"
+   },
+   "status": "Convertida na Lei nº 14.873/2024 (Planalto), que tratou do limite à compensação de créditos judiciais. O Perse voltou a ter alíquotas reduzidas pela Lei nº 14.859/2024, que revogou dispositivo da MP. A mesma exposição estima impacto negativo de R$ 5,62 bilhões em 2024 com a desoneração parcial da folha (lado da saída).",
+   "summary": "A MP nº 1.202/2023 revogou a alíquota zero de IRPJ, CSLL, PIS/Pasep e Cofins do setor de eventos (Perse), entre outras medidas. A exposição de motivos estima impacto positivo da ordem de R$ 6,01 bilhões em 2024 com essa revogação.",
+   "year": 2023
+  },
+  {
+   "id": "petrobras-dividends-2023-05",
+   "title": "Dividendos e participações pagos pela Petrobras à União em maio de 2023",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 29, N. 5 (maio de 2023)",
+    "date": "2023-06-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2023/5"
+   },
+   "signed_by": [],
+   "amount_brl": 5388900000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2023, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/47344_1471837/boletim_mai23.pdf",
+    "quote": "1.4.2.8 Petrobras 11.110,1 5.388,9 (Maio 2022, Maio 2023, em R$ milhões)",
+    "date": "2023-06-29"
+   },
+   "status": "Pago pela Petrobras em 19/05/2023, 1ª parcela dos dividendos do 4º trimestre de 2022 (https://www.investidorpetrobras.com.br/acoes-dividendos-e-dividas/dividendos-e-jcp/); atribuído à Petrobras pelo Tesouro Nacional. No Portal da Transparência, a entrada de dividendos de 19/05/2023 é de R$ 5.460.068.801,03, um pouco acima do valor do Tesouro.",
+   "summary": "O Tesouro Nacional registrou R$ 5.388,9 milhões em dividendos e participações pagos pela Petrobras à União em maio de 2023, ante R$ 11.110,1 milhões em maio de 2022.",
+   "year": 2023,
+   "moved_on": "2023-05-19"
+  },
+  {
+   "id": "petrobras-dividends-2023-12",
+   "title": "Dividendos e participações pagos pela Petrobras à União em dezembro de 2023",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 29, N. 12 (dezembro de 2023)",
+    "date": "2024-01-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2023/12"
+   },
+   "signed_by": [],
+   "amount_brl": 4253600000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2023, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/48787_1551088/boletim_dez23.pdf",
+    "quote": "1.4.2.8 Petrobras 6.230,2 4.253,6 (Dezembro 2022, Dezembro 2023, em R$ milhões)",
+    "date": "2024-01-29"
+   },
+   "status": "Recebido pela União em dezembro de 2023; a Petrobras informa pagamentos em 15/12/2023 (2ª parcela dos dividendos do 2º trimestre de 2023) e em 27/12/2023 (4ª parcela dos dividendos do 4º trimestre de 2022) (https://www.investidorpetrobras.com.br/acoes-dividendos-e-dividas/dividendos-e-jcp/). No Portal da Transparência, as entradas de dividendos dessas datas (R$ 2.149.469.032,48 e R$ 2.125.231.524,68) somam um pouco mais que o valor do Tesouro.",
+   "summary": "O Tesouro Nacional registrou R$ 4.253,6 milhões em dividendos e participações pagos pela Petrobras à União em dezembro de 2023, ante R$ 6.230,2 milhões em dezembro de 2022.",
+   "year": 2023,
+   "moved_on": "2023-12"
+  },
+  {
+   "id": "eletrobras-privatization-concession-bonus-2022-06",
+   "title": "Bônus de outorga dos novos contratos de geração da Eletrobras (desestatização)",
+   "short_title": "Bônus da privatização da Eletrobras",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 06 (junho de 2022)",
+    "date": "2022-07-28",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/6"
+   },
+   "signed_by": [],
+   "amount_brl": 26600000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de junho de 2022, Nota 5 do resultado mês contra mês (Concessões e Permissões)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/44179_1398982/boletim_jun22.pdf",
+    "quote": "desempenho explicado pelo recebimento de R$ R$ 26,6 bilhões, repassados à União em junho de 2022, referentes ao bônus de outorga dos novos contratos de concessão de geração de energia elétrica advindos da desestatização da Centrais Elétricas Brasileiras S/A (Eletrobras).",
+    "date": "2022-07-28"
+   },
+   "status": "Recebido pela União em 20/06/2022 (Portal da Transparência, receitas de 2022: R$ 26.635.960.067,14 na natureza 'CONC.SERV.GER.TRANSM.DISTR.ENER.ELET', unidade ANEEL, nessa data).",
+   "summary": "Em junho de 2022 a União recebeu R$ 26,6 bilhões de bônus de outorga dos novos contratos de concessão de geração de energia elétrica, parte da desestatização da Eletrobras.",
+   "year": 2022,
+   "moved_on": "2022-06-20"
+  },
+  {
+   "id": "bndes-dividends-2022-06",
+   "title": "Dividendos e participações pagos pelo BNDES à União em junho de 2022",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 06 (junho de 2022)",
+    "date": "2022-07-28",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/6"
+   },
+   "signed_by": [],
+   "amount_brl": 18878600000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de junho de 2022, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/44179_1398982/boletim_jun22.pdf",
+    "quote": "1.4.2.3 BNDES 0,0 18.878,6 (Junho 2021, Junho 2022, em R$ milhões)",
+    "date": "2022-07-28"
+   },
+   "status": "Recebido pela União em 30/06/2022: no Portal da Transparência (receitas de 2022), as entradas dessa data (dividendos de R$ 15.499.767.875,29 e juros sobre o capital próprio de R$ 3.737.422.191,43) somam o valor do BNDES mais os R$ 358,6 milhões do Banco do Brasil da mesma tabela do Tesouro; atribuído ao BNDES pelo Tesouro Nacional (RTN de junho de 2022, Nota 6).",
+   "summary": "O Tesouro Nacional registrou R$ 18.878,6 milhões em dividendos e participações pagos pelo BNDES à União em junho de 2022; em junho de 2021 não houve pagamento dessa empresa.",
+   "year": 2022,
+   "moved_on": "2022-06-30"
+  },
+  {
+   "id": "petrobras-dividends-2022-09",
+   "title": "Dividendos e participações pagos pela Petrobras à União em setembro de 2022",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 09 (setembro de 2022)",
+    "date": "2022-10-27",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/9"
+   },
+   "signed_by": [],
+   "amount_brl": 12590400000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de setembro de 2022, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/45087_1498358/boletim_set22.pdf",
+    "quote": "1.4.2.8 Petrobras 0,0 12.590,4 (Setembro 2021, Setembro 2022, em R$ milhões)",
+    "date": "2022-10-27"
+   },
+   "status": "Recebido pela União em 20/09/2022 (Portal da Transparência, receitas de 2022: dividendos de R$ 12.590.428.490,29 nessa data, igual ao valor do Tesouro).",
+   "summary": "O Tesouro Nacional registrou R$ 12.590,4 milhões em dividendos e participações pagos pela Petrobras à União em setembro de 2022; em setembro de 2021 não houve pagamento dessa empresa.",
+   "year": 2022,
+   "moved_on": "2022-09-20"
+  },
+  {
+   "id": "petrobras-dividends-2022-08",
+   "title": "Dividendos e participações pagos pela Petrobras à União em agosto de 2022",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 08 (agosto de 2022)",
+    "date": "2022-09-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/8"
+   },
+   "signed_by": [],
+   "amount_brl": 12550400000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de agosto de 2022, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/44839_1419442/boletim_ago22.pdf",
+    "quote": "1.4.2.8 Petrobras 6.020,6 12.550,4 (Agosto 2021, Agosto 2022, em R$ milhões)",
+    "date": "2022-09-29"
+   },
+   "status": "Recebido pela União em 31/08/2022: no Portal da Transparência (receitas de 2022), as entradas dessa data (dividendos de R$ 11.245.887.783,82 e juros sobre o capital próprio de R$ 2.433.430.591,00) somam o valor da Petrobras mais os R$ 1.128,9 milhões do Banco do Brasil da mesma tabela do Tesouro.",
+   "summary": "O Tesouro Nacional registrou R$ 12.550,4 milhões em dividendos e participações pagos pela Petrobras à União em agosto de 2022, ante R$ 6.020,6 milhões em agosto de 2021.",
+   "year": 2022,
+   "moved_on": "2022-08-31"
+  },
+  {
+   "id": "sepia-atapu-signature-bonus-2022-02",
+   "title": "Bônus de assinatura da segunda rodada da cessão onerosa (campos de Sépia e Atapu)",
+   "short_title": "Bônus de Sépia e Atapu (pré-sal)",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 02 (fevereiro de 2022)",
+    "date": "2022-03-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/2"
+   },
+   "signed_by": [],
+   "amount_brl": 11200000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de fevereiro de 2022, Nota 5 do resultado mês contra mês (Concessões e Permissões)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/43146_1460239/RTN_Boletim_2022_02.pdf",
+    "quote": "desempenho explicado pelo recebimento de recursos de bônus de assinatura relativos a segunda rodada da cessão onerosa (Campos de Sépia e Atapu (...) no montante de R$ 11,2 bilhões).",
+    "date": "2022-03-30"
+   },
+   "status": "Recebido em fevereiro de 2022 (Concessões e Permissões somou R$ 11.356,0 milhões no mês, Tabela do RTN). No Portal da Transparência, os bônus de assinatura de partilha de fevereiro de 2022 aparecem em lançamentos de 02, 16, 17 e 18/02/2022, divididos entre naturezas da União e de estados e municípios de um modo que não permite somar a parte da União; o valor do item é o do Tesouro.",
+   "summary": "Em fevereiro de 2022 a União recebeu R$ 11,2 bilhões de bônus de assinatura dos contratos dos campos de Sépia e Atapu, na Bacia de Santos, leiloados na segunda rodada dos volumes excedentes da cessão onerosa.",
+   "year": 2022,
+   "moved_on": "2022-02"
+  },
+  {
+   "id": "petrobras-dividends-2022-05",
+   "title": "Dividendos e participações pagos pela Petrobras à União em maio de 2022",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 05 (maio de 2022)",
+    "date": "2022-06-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/5"
+   },
+   "signed_by": [],
+   "amount_brl": 11110100000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2022, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/43920_2193378/boletim_mai22.pdf",
+    "quote": "1.4.2.8 Petrobras 0,0 11.110,1 (Maio 2021, Maio 2022, em R$ milhões)",
+    "date": "2022-06-29"
+   },
+   "status": "Recebido pela União em maio de 2022; atribuído à Petrobras pelo Tesouro Nacional (RTN de maio de 2022, Nota 5: 'recebimento de R$ 11,1 bilhões (Petrobrás) em maio de 2022'). No Portal da Transparência, a entrada de dividendos de 16/05/2022 é de R$ 11.360.833.147,05, acima do valor do Tesouro, e não nomeia o pagador.",
+   "summary": "O Tesouro Nacional registrou R$ 11.110,1 milhões em dividendos e participações pagos pela Petrobras à União em maio de 2022; em maio de 2021 não houve pagamento dessa empresa.",
+   "year": 2022,
+   "moved_on": "2022-05"
+  },
+  {
+   "id": "petrobras-dividends-2022-06",
+   "title": "Dividendos e participações pagos pela Petrobras à União em junho de 2022",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 06 (junho de 2022)",
+    "date": "2022-07-28",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/6"
+   },
+   "signed_by": [],
+   "amount_brl": 6948800000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de junho de 2022, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/44179_1398982/boletim_jun22.pdf",
+    "quote": "1.4.2.8 Petrobras 0,0 6.948,8 (Junho 2021, Junho 2022, em R$ milhões)",
+    "date": "2022-07-28"
+   },
+   "status": "Recebido pela União em 20/06/2022 (Portal da Transparência, receitas de 2022: dividendos de R$ 5.339.776.434,71 e juros sobre o capital próprio de R$ 1.609.089.415,02 nessa data, soma igual ao valor do Tesouro).",
+   "summary": "O Tesouro Nacional registrou R$ 6.948,8 milhões em dividendos e participações pagos pela Petrobras à União em junho de 2022; em junho de 2021 não houve pagamento dessa empresa.",
+   "year": 2022,
+   "moved_on": "2022-06-20"
+  },
+  {
+   "id": "petrobras-dividends-2022-07",
+   "title": "Dividendos e participações pagos pela Petrobras à União em julho de 2022",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 07 (julho de 2022)",
+    "date": "2022-08-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/7"
+   },
+   "signed_by": [],
+   "amount_brl": 6943800000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de julho de 2022, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/44555_2176239/boletim_jul22.pdf",
+    "quote": "1.4.2.8 Petrobras 0,0 6.943,8 (Julho 2021, Julho 2022, em R$ milhões)",
+    "date": "2022-08-30"
+   },
+   "status": "Recebido pela União em 20/07/2022 (Portal da Transparência, receitas de 2022: dividendos de R$ 6.943.840.946,78 nessa data, igual ao valor do Tesouro).",
+   "summary": "O Tesouro Nacional registrou R$ 6.943,8 milhões em dividendos e participações pagos pela Petrobras à União em julho de 2022; em julho de 2021 não houve pagamento dessa empresa.",
+   "year": 2022,
+   "moved_on": "2022-07-20"
+  },
+  {
+   "id": "petrobras-dividends-2022-12",
+   "title": "Dividendos e participações pagos pela Petrobras à União em dezembro de 2022",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 12 (dezembro de 2022)",
+    "date": "2023-01-27",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/12"
+   },
+   "signed_by": [],
+   "amount_brl": 6230200000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2022, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/46073_1449893/boletim_dez22.pdf",
+    "quote": "1.4.2.8 Petrobras 12.158,2 6.230,2 (Dezembro 2021, Dezembro 2022, em R$ milhões)",
+    "date": "2023-01-27"
+   },
+   "status": "Recebido pela União em 20/12/2022 (Portal da Transparência, receitas de 2022: dividendos de R$ 4.290.373.892,02 e juros sobre o capital próprio de R$ 1.939.909.155,29 nessa data, soma igual ao valor do Tesouro).",
+   "summary": "O Tesouro Nacional registrou R$ 6.230,2 milhões em dividendos e participações pagos pela Petrobras à União em dezembro de 2022, ante R$ 12.158,2 milhões em dezembro de 2021.",
+   "year": 2022,
+   "moved_on": "2022-12-20"
+  },
+  {
+   "id": "caixa-dividends-2022-02",
+   "title": "Dividendos e participações pagos pela Caixa Econômica Federal à União em fevereiro de 2022",
+   "short_title": "Dividendos da Caixa à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 28, N. 02 (fevereiro de 2022)",
+    "date": "2022-03-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2022/2"
+   },
+   "signed_by": [],
+   "amount_brl": 3591400000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de fevereiro de 2022, Tabela 3.1, linha 1.4.2.4 Caixa (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/43146_1460239/RTN_Boletim_2022_02.pdf",
+    "quote": "1.4.2.4 Caixa 0,0 3.591,4 (Fevereiro 2021, Fevereiro 2022, em R$ milhões)",
+    "date": "2022-03-30"
+   },
+   "status": "Recebido pela União em fevereiro de 2022; atribuído à Caixa pelo Tesouro Nacional (RTN de fevereiro de 2022, Nota 6: 'recebimento de R$ 3,6 bilhões de dividendos da Caixa Econômica Federal'). No Portal da Transparência, a maior entrada do mês é de juros sobre o capital próprio de R$ 3.528.318.855,72 em 24/02/2022; o Portal não nomeia o pagador.",
+   "summary": "O Tesouro Nacional registrou R$ 3.591,4 milhões em dividendos e participações pagos pela Caixa Econômica Federal à União em fevereiro de 2022; em fevereiro de 2021 não houve pagamento dessa empresa.",
+   "year": 2022,
+   "moved_on": "2022-02"
+  },
+  {
+   "id": "petrobras-dividends-2021-12",
+   "title": "Dividendos e participações pagos pela Petrobras à União em dezembro de 2021",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 27, N. 12 (dezembro de 2021)",
+    "date": "2022-01-28",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2021/12"
+   },
+   "signed_by": [],
+   "amount_brl": 12158200000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2021, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/42576_1431436/RTN_Boletim_2021_12.pdf",
+    "quote": "1.4.2.8 Petrobras 897,3 12.158,2 (Dezembro 2020, Dezembro 2021, em R$ milhões)",
+    "date": "2022-01-28"
+   },
+   "status": "Recebido pela União em 15/12/2021 (Portal da Transparência, receitas de 2021: dividendos de R$ 8.210.676.485,61 e juros sobre o capital próprio de R$ 3.947.547.015,56 nessa data, soma igual ao valor do Tesouro); atribuído à Petrobras pelo Tesouro Nacional (RTN de dezembro de 2021, Nota 5).",
+   "summary": "O Tesouro Nacional registrou R$ 12.158,2 milhões em dividendos e participações pagos pela Petrobras à União em dezembro de 2021, ante R$ 897,3 milhões em dezembro de 2020.",
+   "year": 2021,
+   "moved_on": "2021-12-15"
+  },
+  {
+   "id": "bndes-dividends-2021-11",
+   "title": "Dividendos e participações pagos pelo BNDES à União em novembro de 2021",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 27, N. 11 (novembro de 2021)",
+    "date": "2021-12-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2021/11"
+   },
+   "signed_by": [],
+   "amount_brl": 8616200000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de novembro de 2021, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/42331_1387131/RTN_Boletim_2021_11.pdf",
+    "quote": "1.4.2.3 BNDES 0,0 8.616,2 (Novembro 2020, Novembro 2021, em R$ milhões)",
+    "date": "2021-12-29"
+   },
+   "status": "Recebido pela União em 17/11/2021 (Portal da Transparência, receitas de 2021: dividendos de R$ 4.718.282.694,07 e juros sobre o capital próprio de R$ 3.897.882.930,58 nessa data, soma igual ao valor do Tesouro); atribuído ao BNDES pelo Tesouro Nacional (RTN de novembro de 2021, Nota 7: 'pagamento de R$ 8.616,2 milhões pelo BNDES').",
+   "summary": "O Tesouro Nacional registrou R$ 8.616,2 milhões em dividendos e participações pagos pelo BNDES à União em novembro de 2021; em novembro de 2020 não houve pagamento dessa empresa.",
+   "year": 2021,
+   "moved_on": "2021-11-17"
+  },
+  {
+   "id": "pronampe-return-2021-06",
+   "title": "Devolução à União de recursos do Pronampe",
+   "short_title": "Devolução de recursos do Pronampe",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 27, N. 06 (junho de 2021)",
+    "date": "2021-07-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2021/6"
+   },
+   "signed_by": [],
+   "amount_brl": 6300000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de junho de 2021, Nota 9 do resultado mês contra mês (Demais Receitas Não Administradas pela RFB)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/40424_1257203/boletim_jun21_.pdf",
+    "quote": "influenciada pela devolução de R$ 6,3 bilhões relativa ao Pronampe (Programa Nacional de Apoio às Microempresas e Empresas de Pequeno Porte",
+    "date": "2021-07-29"
+   },
+   "status": "Recebido em junho de 2021, segundo o Tesouro Nacional. O RTN de junho de 2022 (Nota 8) cita a mesma devolução como 'R$ 6,9 bilhões de recursos do Programa Nacional de Apoio às Microempresas e Empresas de Pequeno Porte (PRONAMPE)', em valores atualizados. O Portal da Transparência não traz linha identificada como Pronampe.",
+   "summary": "Em junho de 2021 voltaram à União R$ 6,3 bilhões que tinham sido destinados ao Pronampe, programa de crédito a micro e pequenas empresas criado na pandemia.",
+   "year": 2021,
+   "moved_on": "2021-06"
+  },
+  {
+   "id": "petrobras-dividends-2021-08",
+   "title": "Dividendos e participações pagos pela Petrobras à União em agosto de 2021",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 27, N. 08 (agosto de 2021)",
+    "date": "2021-09-28",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2021/8"
+   },
+   "signed_by": [],
+   "amount_brl": 6020600000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de agosto de 2021, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/41583_1378048/Boletim_ago21.pdf",
+    "quote": "1.4.2.8 Petrobras 0,0 6.020,6 (Agosto 2020, Agosto 2021, em R$ milhões)",
+    "date": "2021-09-28"
+   },
+   "status": "Recebido pela União em agosto de 2021; atribuído à Petrobras pelo Tesouro Nacional. O Portal da Transparência não mostra entrada de dividendos ou juros sobre o capital próprio desse valor no mês (as duas naturezas somam R$ 1.185,1 milhões em agosto de 2021); o dia não foi confirmado.",
+   "summary": "O Tesouro Nacional registrou R$ 6.020,6 milhões em dividendos e participações pagos pela Petrobras à União em agosto de 2021; em agosto de 2020 não houve pagamento dessa empresa.",
+   "year": 2021,
+   "moved_on": "2021-08"
+  },
+  {
+   "id": "bndes-dividends-2021-05",
+   "title": "Dividendos e participações pagos pelo BNDES à União em maio de 2021",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 27, N. 05 (maio de 2021)",
+    "date": "2021-06-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2021/5"
+   },
+   "signed_by": [],
+   "amount_brl": 4949200000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2021, Tabela 3.1, linha 1.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/39791_1308277/RTN_Boletim_2021_05.pdf",
+    "quote": "1.4.2.3 BNDES 0,0 4.949,2 (Maio 2020, Maio 2021, em R$ milhões)",
+    "date": "2021-06-29"
+   },
+   "status": "Recebido pela União em 10/05/2021 (Portal da Transparência, receitas de 2021: juros sobre o capital próprio de R$ 3.210.973.571,01 e dividendos de R$ 1.738.225.291,46 nessa data, soma igual ao valor do Tesouro); atribuído ao BNDES pelo Tesouro Nacional (RTN de maio de 2021, Nota 7).",
+   "summary": "O Tesouro Nacional registrou R$ 4.949,2 milhões em dividendos e participações pagos pelo BNDES à União em maio de 2021; em maio de 2020 não houve pagamento dessa empresa.",
+   "year": 2021,
+   "moved_on": "2021-05-10"
+  },
+  {
+   "id": "mp-1034-2021-bank-csll-reiq-expected",
+   "title": "Aumento da CSLL dos bancos, limite à isenção de IPI e mudanças no REIQ (MP nº 1.034/2021)",
+   "short_title": "MP da CSLL dos bancos (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.034",
+    "date": "2021-03-01",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/mpv/mpv1034.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 3689170000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos EM nº 00041/2021 ME, de 26/02/2021, item 8; valor = soma, feita nesta pesquisa, das três estimativas para 2021, único ano em que as três medidas valem juntas (a exposição não traz total)",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/exm/exm-mp-1034-21.pdf",
+    "quote": "proporcionarão aumento de arrecadação nos seguintes montantes: (...) a) R$ 2.271,55 milhões (dois bilhões e duzentos e setenta e um milhões e quinhentos e cinquenta mil reais) para o ano de 2021, no caso da majoração da alíquota de CSLL; (...) b) R$ 750,00 milhões (setecentos e cinquenta milhões de reais) para o ano de 2021, no caso de isenção de IPI para automóvel adquirido por pessoa acometida por deficiência física; (...) c) R$ 667,62 milhões (seiscentos e sessenta e sete milhões e seiscentos e vinte mil reais) para o ano de 2021, R$ 1.432,73 milhões (um bilhão e quatrocentos e trinta e dois milhões e setecentos e trinta mil reais) para 2022 e R$ 1.529,73 milhões (um bilhão e quinhentos e vinte e nove milhões e setecentos e trinta mil reais) para 2023, no caso do REIQ.",
+    "date": "2021-02-26"
+   },
+   "status": "Convertida na Lei nº 14.183, de 14/07/2021 (Planalto). A exposição de motivos apresenta as três medidas como compensação de renúncias de receita de um decreto editado na mesma ocasião (lado da saída).",
+   "summary": "A MP nº 1.034/2021 elevou até 31/12/2021 a CSLL de bancos e de outras instituições financeiras, limitou a isenção de IPI na compra de carros por pessoas com deficiência e mudou o Regime Especial da Indústria Química (REIQ). A exposição de motivos estima, para 2021, R$ 2.271,55 milhões, R$ 750,00 milhões e R$ 667,62 milhões nessas medidas (R$ 3.689,17 milhões somadas) e, com o REIQ, R$ 1.432,73 milhões em 2022 e R$ 1.529,73 milhões em 2023.",
+   "year": 2021
+  },
+  {
+   "id": "petrobras-dividends-2021-04",
+   "title": "Dividendos e participações pagos pela Petrobras à União em abril de 2021",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 27, N. 04 (abril de 2021)",
+    "date": "2021-05-27",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2021/4"
+   },
+   "signed_by": [],
+   "amount_brl": 2965000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de abril de 2021, Tabela 3.1, linha 1.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/39278_1230382/RTN_Boletim_2021_04.pdf",
+    "quote": "1.4.2.8 Petrobras 0,0 2.965,0 (Abril 2020, Abril 2021, em R$ milhões)",
+    "date": "2021-05-27"
+   },
+   "status": "Recebido pela União em 29/04/2021 (Portal da Transparência, receitas de 2021: dividendos de R$ 2.965.046.960,53 nessa data, igual ao valor do Tesouro); atribuído à Petrobras pelo Tesouro Nacional (RTN de abril de 2021, Nota 8).",
+   "summary": "O Tesouro Nacional registrou R$ 2.965,0 milhões em dividendos e participações pagos pela Petrobras à União em abril de 2021; em abril de 2020 não houve pagamento dessa empresa.",
+   "year": 2021,
+   "moved_on": "2021-04-29"
+  },
+  {
+   "id": "caixa-dividends-2021-05",
+   "title": "Dividendos e participações pagos pela Caixa Econômica Federal à União em maio de 2021",
+   "short_title": "Dividendos da Caixa à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 27, N. 05 (maio de 2021)",
+    "date": "2021-06-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2021/5"
+   },
+   "signed_by": [],
+   "amount_brl": 2816200000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2021, Tabela 3.1, linha 1.4.2.4 Caixa (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/39791_1308277/RTN_Boletim_2021_05.pdf",
+    "quote": "1.4.2.4 Caixa 1.008,0 2.816,2 (Maio 2020, Maio 2021, em R$ milhões)",
+    "date": "2021-06-29"
+   },
+   "status": "Recebido pela União em 14/05/2021 (Portal da Transparência, receitas de 2021: juros sobre o capital próprio de R$ 2.816.147.598,81 nessa data, igual ao valor do Tesouro); atribuído à Caixa pelo Tesouro Nacional.",
+   "summary": "O Tesouro Nacional registrou R$ 2.816,2 milhões em dividendos e participações pagos pela Caixa Econômica Federal à União em maio de 2021, ante R$ 1.008,0 milhões em maio de 2020.",
+   "year": 2021,
+   "moved_on": "2021-05-14"
+  },
+  {
+   "id": "airports-6th-round-south-block-2021-10",
+   "title": "Outorga do Bloco Sul da 6ª rodada de concessões de aeroportos",
+   "short_title": "Outorga do Bloco Sul de aeroportos",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 27, N. 10 (outubro de 2021)",
+    "date": "2021-11-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2021/10"
+   },
+   "signed_by": [],
+   "amount_brl": 2190000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de outubro de 2021, Nota 6 do resultado mês contra mês (Concessões e Permissões)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/42128_1307599/RTN_Boletim_2021_10.pdf",
+    "quote": "em outubro de 2021 houve pagamento de outorga da 6ª Rodada de Concessões Aeroportuárias, relativos aos Blocos Central e Sul, no valor de R$ 778,3 milhões e R$ 2,19 bilhões, respectivamente.",
+    "date": "2021-11-29"
+   },
+   "status": "Recebido em 27/10/2021 (Portal da Transparência, receitas de 2021: R$ 2.196.688.936,48 na natureza 'DELEG.P/EXPLOR.INFRAEST.AEROPORTUARIA', Fundo Nacional de Aviação Civil, nessa data). O Bloco Central pagou R$ 778,3 milhões no mesmo mês.",
+   "summary": "Em outubro de 2021 a União recebeu R$ 2,19 bilhões de outorga pelo Bloco Sul de aeroportos, leiloado na 6ª rodada de concessões aeroportuárias.",
+   "year": 2021,
+   "moved_on": "2021-10-27"
+  },
+  {
+   "id": "eletrobras-dividends-2021-02",
+   "title": "Dividendos e participações pagos pela Eletrobras à União em fevereiro de 2021",
+   "short_title": "Dividendos da Eletrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 27, N. 02 (fevereiro de 2021)",
+    "date": "2021-03-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2021/2"
+   },
+   "signed_by": [],
+   "amount_brl": 958500000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de fevereiro de 2021, Tabela 3.1, linha 1.4.2.6 Eletrobrás (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/38234_1200446/RTN_Boletim_2021_02.pdf",
+    "quote": "1.4.2.6 Eletrobrás 0,0 958,5 (Fevereiro 2020, Fevereiro 2021, em R$ milhões)",
+    "date": "2021-03-30"
+   },
+   "status": "Recebido pela União em 19/02/2021 (Portal da Transparência, receitas de 2021: dividendos de R$ 958.507.907,49 nessa data, igual ao valor do Tesouro). A desestatização da Eletrobras só ocorreu em 2022 (RTN de junho de 2022, Nota 5).",
+   "summary": "O Tesouro Nacional registrou R$ 958,5 milhões em dividendos e participações pagos pela Eletrobras à União em fevereiro de 2021; em fevereiro de 2020 não houve pagamento dessa empresa.",
+   "year": 2021,
+   "moved_on": "2021-02-19"
+  },
+  {
+   "id": "pese-return-2020-07",
+   "title": "Devolução à União de recursos do Programa Emergencial de Suporte a Empregos (PESE)",
+   "short_title": "Devolução de recursos do PESE",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 26, N. 07 (julho de 2020)",
+    "date": "2020-08-28",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2020/7"
+   },
+   "signed_by": [],
+   "amount_brl": 13100000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de julho de 2020, Nota 12 do resultado mês contra mês (Subsídios, Subvenções e Proagro)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/34082_1080992/relatorio_jul20.pdf",
+    "quote": "redução explicada, principalmente, pela devolução à União de R$ 13,1 bilhões que haviam sido destinados ao Programa Emergencial de Suporte a Empregos - PESE, instituído pela MP 944/2020, para enfrentamento das consequências econômicas e sociais decorrentes do estado de emergência causado pela pandemia do Coronavírus (Covid-19).",
+    "date": "2020-08-28"
+   },
+   "status": "Recebido em julho de 2020. O Tesouro registrou a devolução como redução da despesa com subsídios do mês, e não como receita; por isso ela não aparece no arquivo de receitas do Portal da Transparência. O RTN de julho de 2021 (Nota 14) cita o mesmo evento como 'devolução à União de R$ 14,3 bilhões (em valores reais)'.",
+   "summary": "Em julho de 2020 voltaram à União R$ 13,1 bilhões não usados do Programa Emergencial de Suporte a Empregos (PESE), linha de crédito para pagar salários criada pela MP nº 944/2020 na pandemia.",
+   "year": 2020,
+   "moved_on": "2020-07"
+  },
+  {
+   "id": "railway-concessions-early-payment-2020-09",
+   "title": "Pagamento antecipado de outorgas da Malha Paulista e da Ferrovia Norte-Sul",
+   "short_title": "Outorgas antecipadas de ferrovias",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 27, N. 09 (setembro de 2021)",
+    "date": "2021-10-28",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2021/9"
+   },
+   "signed_by": [],
+   "amount_brl": 5100000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de setembro de 2021, Nota 6 do resultado mês contra mês (Concessões e Permissões)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/41791_1370391/boletim_set21.pdf",
+    "quote": "em setembro de 2020 houve pagamento antecipado de R$ 5,1 bilhões em outorgas referentes aos contratos de concessão da Malha Paulista e da Ferrovia Norte-Sul.",
+    "date": "2021-10-28"
+   },
+   "status": "Recebido em 15/09/2020 (Portal da Transparência, receitas de 2020: R$ 5.101.422.676,46 na natureza 'DELEG.P/PREST.SERV.TRANSP.FERROVIARIO', unidade ANTT, nessa data). O valor vem do RTN de setembro de 2021, que compara com setembro de 2020; o RTN de setembro de 2020 (Nota 6) descreve o mesmo pagamento, mas o data como 'setembro de 2019', o que não bate com o Portal nem com a tabela do próprio boletim (Concessões e Permissões: R$ 2.573,9 milhões em setembro de 2019 e R$ 5.321,1 milhões em setembro de 2020).",
+   "summary": "Em setembro de 2020 a concessionária antecipou à União R$ 5,1 bilhões de outorgas dos contratos de concessão da Malha Paulista e da Ferrovia Norte-Sul.",
+   "year": 2020,
+   "moved_on": "2020-09-15"
+  },
+  {
+   "id": "eletrobras-dividends-2020-09",
+   "title": "Dividendos e participações pagos pela Eletrobras à União em setembro de 2020",
+   "short_title": "Dividendos da Eletrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Resultado do Tesouro Nacional, série histórica mensal",
+    "number": "Tabela 1.2 (versão de julho de 2026)",
+    "date": "2026-08-27",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/resultado-do-tesouro-nacional"
+   },
+   "signed_by": [],
+   "amount_brl": 1085600000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional, série histórica mensal (arquivo seriehistoricajul26.xlsx), Tabela 1.2, R$ milhões, valores correntes",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/ab56485b-9c40-4efb-8563-9ce3e1973c4b/resource/527ccdb1-3059-42f3-bf23-b5e3ab4c6dc6/download/seriehistoricajul26.xlsx",
+    "quote": "Tabela 1.2, linha 1.4.2.6 Eletrobrás, coluna 2020-09: 1.085,6",
+    "date": "2026-08-27"
+   },
+   "status": "Recebido pela União em 09/09/2020 (Portal da Transparência, receitas de 2020: dividendos de R$ 1.085.577.390,95 nessa data, igual ao valor da série). No boletim de setembro de 2020, o valor está na linha 'Demais' (R$ 1.094,2 milhões); a série histórica atual do Tesouro o atribui à Eletrobras.",
+   "summary": "A série histórica do Tesouro Nacional registra R$ 1.085,6 milhões em dividendos pagos pela Eletrobras à União em setembro de 2020; o boletim do mês havia lançado o valor em 'demais dividendos'.",
+   "year": 2020,
+   "moved_on": "2020-09-09"
+  },
+  {
+   "id": "caixa-dividends-2020-05",
+   "title": "Dividendos e participações pagos pela Caixa Econômica Federal à União em maio de 2020",
+   "short_title": "Dividendos da Caixa à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 26, N. 05 (maio de 2020)",
+    "date": "2020-06-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2020/5"
+   },
+   "signed_by": [],
+   "amount_brl": 1008000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de maio de 2020, Tabela 3.1, linha I.4.2.4 Caixa (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/33440_1806414/relatorio_mai20.pdf",
+    "quote": "I.4.2.4 Caixa 0,0 1.008,0 (Maio 2019, Maio 2020, em R$ milhões)",
+    "date": "2020-06-29"
+   },
+   "status": "Recebido pela União em maio de 2020; atribuído à Caixa pelo Tesouro Nacional. No Portal da Transparência, as entradas de 18/05/2020 (dividendos de R$ 709.959.236,01 e juros sobre o capital próprio de R$ 283.803.843,89) somam R$ 993,8 milhões; o restante não foi localizado nas linhas acima de R$ 50 milhões.",
+   "summary": "O Tesouro Nacional registrou R$ 1.008,0 milhões em dividendos e participações pagos pela Caixa Econômica Federal à União em maio de 2020; em maio de 2019 não houve pagamento dessa empresa.",
+   "year": 2020,
+   "moved_on": "2020-05"
+  },
+  {
+   "id": "petrobras-dividends-2020-12",
+   "title": "Dividendos e participações pagos pela Petrobras à União em dezembro de 2020",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 26, N. 12 (dezembro de 2020)",
+    "date": "2021-01-28",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2020/12"
+   },
+   "signed_by": [],
+   "amount_brl": 897300000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2020, Tabela 3.1, linha I.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/37105_1940142/RTN_Boletim_2020_12.pdf",
+    "quote": "I.4.2.8 Petrobras 0,0 897,3 (Dezembro 2019, Dezembro 2020, em R$ milhões)",
+    "date": "2021-01-28"
+   },
+   "status": "Recebido pela União em 15/12/2020 (Portal da Transparência, receitas de 2020: dividendos de R$ 897.328.940,48 nessa data, igual ao valor do Tesouro).",
+   "summary": "O Tesouro Nacional registrou R$ 897,3 milhões em dividendos e participações pagos pela Petrobras à União em dezembro de 2020; em dezembro de 2019 não houve pagamento dessa empresa.",
+   "year": 2020,
+   "moved_on": "2020-12-15"
+  },
+  {
+   "id": "banco-do-brasil-dividends-2020-03",
+   "title": "Dividendos e participações pagos pelo Banco do Brasil à União em março de 2020",
+   "short_title": "Dividendos do Banco do Brasil à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 26, N. 03 (março de 2020)",
+    "date": "2020-04-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2020/3"
+   },
+   "signed_by": [],
+   "amount_brl": 888700000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de março de 2020, Tabela 3.1, linha I.4.2.1 Banco do Brasil (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/32496_1118956/relatorio_mar20.pdf",
+    "quote": "I.4.2.1 Banco do Brasil 1.087,2 888,7 (Março 2019, Março 2020, em R$ milhões)",
+    "date": "2020-04-29"
+   },
+   "status": "Recebido pela União em março de 2020, em duas entradas de juros sobre o capital próprio no Portal da Transparência que somam o valor do Tesouro: 05/03/2020 R$ 628.790.600,77 e 31/03/2020 R$ 259.922.739,34.",
+   "summary": "O Tesouro Nacional registrou R$ 888,7 milhões em dividendos e participações pagos pelo Banco do Brasil à União em março de 2020, ante R$ 1.087,2 milhões em março de 2019.",
+   "year": 2020,
+   "moved_on": "2020-03"
+  },
+  {
+   "id": "petrobras-dividends-2020-02",
+   "title": "Dividendos e participações pagos pela Petrobras à União em fevereiro de 2020",
+   "short_title": "Dividendos da Petrobras à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 26, N. 02 (fevereiro de 2020)",
+    "date": "2020-03-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2020/2"
+   },
+   "signed_by": [],
+   "amount_brl": 751600000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de fevereiro de 2020, Tabela 3.1, linha I.4.2.8 Petrobras (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/32077_1027817/relatorio_fev20.pdf",
+    "quote": "I.4.2.8 Petrobras 0,0 751,6 (Fevereiro 2019, Fevereiro 2020, em R$ milhões)",
+    "date": "2020-03-30"
+   },
+   "status": "Recebido pela União em 07/02/2020 (Portal da Transparência, receitas de 2020: juros sobre o capital próprio de R$ 751.554.097,70 nessa data, igual ao valor do Tesouro).",
+   "summary": "O Tesouro Nacional registrou R$ 751,6 milhões em dividendos e participações pagos pela Petrobras à União em fevereiro de 2020; em fevereiro de 2019 não houve pagamento dessa empresa.",
+   "year": 2020,
+   "moved_on": "2020-02-07"
+  },
+  {
+   "id": "banco-do-brasil-dividends-2020-08",
+   "title": "Dividendos e participações pagos pelo Banco do Brasil à União em agosto de 2020",
+   "short_title": "Dividendos do Banco do Brasil à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "agosto de 2020",
+    "date": "2020-09-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2020/8"
+   },
+   "signed_by": [],
+   "amount_brl": 633500000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de agosto de 2020, Tabela 3.1, linha I.4.2.1 Banco do Brasil (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/34388_1067659/RTN_Boletim_2020_08.pdf",
+    "quote": "I.4.2.1 Banco do Brasil 648,5 633,5 (Agosto 2019, Agosto 2020, em R$ milhões)",
+    "date": "2020-09-29"
+   },
+   "status": "Recebido pela União em 31/08/2020 (Portal da Transparência, receitas de 2020: juros sobre o capital próprio de R$ 633.524.125,80 nessa data, igual ao valor do Tesouro).",
+   "summary": "O Tesouro Nacional registrou R$ 633,5 milhões em dividendos e participações pagos pelo Banco do Brasil à União em agosto de 2020, ante R$ 648,5 milhões em agosto de 2019.",
+   "year": 2020,
+   "moved_on": "2020-08-31"
+  },
+  {
+   "id": "banco-do-brasil-dividends-2020-11",
+   "title": "Dividendos e participações pagos pelo Banco do Brasil à União em novembro de 2020",
+   "short_title": "Dividendos do Banco do Brasil à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 26, N. 11 (novembro de 2020)",
+    "date": "2020-12-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2020/11"
+   },
+   "signed_by": [],
+   "amount_brl": 279100000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de novembro de 2020, Tabela 3.1, linha I.4.2.1 Banco do Brasil (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/36289_1149131/RTN_Boletim_2020_11.pdf",
+    "quote": "I.4.2.1 Banco do Brasil 530,6 279,1 (Novembro 2019, Novembro 2020, em R$ milhões)",
+    "date": "2020-12-29"
+   },
+   "status": "Recebido pela União em 27/11/2020 (Portal da Transparência, receitas de 2020: juros sobre o capital próprio de R$ 279.054.001,43 nessa data, igual ao valor do Tesouro).",
+   "summary": "O Tesouro Nacional registrou R$ 279,1 milhões em dividendos e participações pagos pelo Banco do Brasil à União em novembro de 2020, ante R$ 530,6 milhões em novembro de 2019.",
+   "year": 2020,
+   "moved_on": "2020-11-27"
+  },
+  {
+   "id": "banco-do-brasil-dividends-2020-12",
+   "title": "Dividendos e participações pagos pelo Banco do Brasil à União em dezembro de 2020",
+   "short_title": "Dividendos do Banco do Brasil à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 26, N. 12 (dezembro de 2020)",
+    "date": "2021-01-28",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2020/12"
+   },
+   "signed_by": [],
+   "amount_brl": 167600000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2020, Tabela 3.1, linha I.4.2.1 Banco do Brasil (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/37105_1940142/RTN_Boletim_2020_12.pdf",
+    "quote": "I.4.2.1 Banco do Brasil 252,4 167,6 (Dezembro 2019, Dezembro 2020, em R$ milhões)",
+    "date": "2021-01-28"
+   },
+   "status": "Recebido pela União em 30/12/2020 (Portal da Transparência, receitas de 2020: juros sobre o capital próprio de R$ 167.605.036,45 nessa data, igual ao valor do Tesouro).",
+   "summary": "O Tesouro Nacional registrou R$ 167,6 milhões em dividendos e participações pagos pelo Banco do Brasil à União em dezembro de 2020, ante R$ 252,4 milhões em dezembro de 2019.",
+   "year": 2020,
+   "moved_on": "2020-12-30"
+  },
+  {
+   "id": "transfer-of-rights-surplus-auction-2019-12",
+   "title": "Bônus do leilão dos volumes excedentes da cessão onerosa (pré-sal)",
+   "short_title": "Leilão do excedente da cessão onerosa",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 12 (dezembro de 2019)",
+    "date": "2020-01-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/12"
+   },
+   "signed_by": [],
+   "amount_brl": 70000000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2019, Nota 6 do resultado mês contra mês (Concessões e Permissões)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/31547_1016534/relatorio_dez19.pdf",
+    "quote": "acréscimo decorrente principalmente do recebimento de recursos relativos ao leilão da cessão onerosa ocorrido em nov/19, com impacto financeiro na Conta Única da União em dez/19, no montante de R$ 70,0 bilhões.",
+    "date": "2020-01-29"
+   },
+   "status": "Recebido em dezembro de 2019. No Portal da Transparência, os bônus de assinatura de partilha de dezembro de 2019 somam R$ 63.250,7 milhões na natureza da União e R$ 11.730,1 milhões na de estados e municípios (inclui também a 6ª rodada de partilha), em lançamentos de 10, 26, 27 e 30/12/2019. No mesmo mês, a União pagou R$ 34,4 bilhões à Petrobras pela revisão do contrato da cessão onerosa (Nota 13) e o RTN registra no ano a transferência de R$ 11,7 bilhões a estados e municípios (Nota 15 do acumulado no ano).",
+   "summary": "Em dezembro de 2019 entraram na Conta Única da União R$ 70,0 bilhões do leilão dos volumes excedentes da cessão onerosa no pré-sal, realizado em novembro de 2019.",
+   "year": 2019,
+   "moved_on": "2019-12"
+  },
+  {
+   "id": "anp-16th-concession-round-2019-12",
+   "title": "Bônus de assinatura da 16ª rodada de concessões de petróleo e gás",
+   "short_title": "Bônus da 16ª rodada de petróleo",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 12 (dezembro de 2019)",
+    "date": "2020-01-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/12"
+   },
+   "signed_by": [],
+   "amount_brl": 8900000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2019, Nota 6 do resultado mês contra mês (Concessões e Permissões)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/31547_1016534/relatorio_dez19.pdf",
+    "quote": "Ainda, houve ingressos de R$ 8,9 bilhões associados à 16ª rodada de concessões de campos de petróleo e de R$ 5,0 bilhões relativos à 6ª rodada de partilha do petróleo do pré-sal.",
+    "date": "2020-01-29"
+   },
+   "status": "Recebido em dezembro de 2019 (Portal da Transparência, receitas de 2019: a natureza 'BONUS ASSINAT.DE CONTRATO DE CONCESSAO' soma R$ 8.922,1 milhões no mês, com as maiores entradas em 19, 20, 23 e 27/12/2019).",
+   "summary": "Em dezembro de 2019 a União recebeu R$ 8,9 bilhões de bônus de assinatura dos blocos de petróleo e gás arrematados na 16ª rodada de concessões da ANP.",
+   "year": 2019,
+   "moved_on": "2019-12"
+  },
+  {
+   "id": "mp-899-2019-tax-settlements-expected",
+   "title": "Transação tributária para encerrar litígios e cobranças da União (MP nº 899/2019)",
+   "short_title": "MP da transação tributária (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "899",
+    "date": "2019-10-16",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/mpv/mpv899.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    },
+    {
+     "name": "André Luiz de Almeida Mendonça",
+     "office": "Advogado-Geral da União"
+    }
+   ],
+   "amount_brl": 6384000000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos Interministerial EMI nº 00268/2019 ME AGU, de 06/09/2019, item 10",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/exm/exm-mp-899-19.pdf",
+    "quote": "Estimativas conservadoras apontam como resultado da medida a arrecadação de R$ 1,425 bilhão em 2019, R$ 6,384 bilhões em 2020 e R$ 5,914 bilhões em 2021, sem prejuízo da economia de recursos decorrentes da solução dos litígios encerrados pela transação.",
+    "date": "2019-09-06"
+   },
+   "status": "Convertida na Lei nº 13.988, de 14/04/2020 (Planalto). O valor é o de 2020, primeiro ano inteiro de vigência; a exposição não foi refeita na lei de conversão.",
+   "summary": "A MP nº 899/2019 criou a transação, acordo em que a União e o devedor encerram litígios e cobranças de dívidas com descontos e prazos. A exposição de motivos estima arrecadação de R$ 1,425 bilhão em 2019, R$ 6,384 bilhões em 2020 e R$ 5,914 bilhões em 2021.",
+   "year": 2019
+  },
+  {
+   "id": "anp-6th-production-sharing-round-2019-12",
+   "title": "Bônus de assinatura da 6ª rodada de partilha do pré-sal",
+   "short_title": "Bônus da 6ª rodada do pré-sal",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 12 (dezembro de 2019)",
+    "date": "2020-01-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/12"
+   },
+   "signed_by": [],
+   "amount_brl": 5000000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de dezembro de 2019, Nota 6 do resultado mês contra mês (Concessões e Permissões)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/31547_1016534/relatorio_dez19.pdf",
+    "quote": "Ainda, houve ingressos de R$ 8,9 bilhões associados à 16ª rodada de concessões de campos de petróleo e de R$ 5,0 bilhões relativos à 6ª rodada de partilha do petróleo do pré-sal.",
+    "date": "2020-01-29"
+   },
+   "status": "Recebido em dezembro de 2019. No Portal da Transparência, o bônus aparece junto com o do leilão da cessão onerosa nas naturezas de bônus de partilha (ver o item do leilão da cessão onerosa).",
+   "summary": "Em dezembro de 2019 a União recebeu R$ 5,0 bilhões de bônus de assinatura da 6ª rodada de partilha de produção do pré-sal.",
+   "year": 2019,
+   "moved_on": "2019-12"
+  },
+  {
+   "id": "bndes-dividends-2019-11",
+   "title": "Dividendos e participações pagos pelo BNDES à União em novembro de 2019",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 11 (novembro de 2019)",
+    "date": "2019-12-27",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/11"
+   },
+   "signed_by": [],
+   "amount_brl": 4591000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de novembro de 2019, Tabela 3.1, linha I.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/31401_1105010/relatorio_nov19.pdf",
+    "quote": "I.4.2.3 BNDES 0,0 4.591,0 (Novembro 2018, Novembro 2019, em R$ milhões)",
+    "date": "2019-12-27"
+   },
+   "status": "Recebido pela União em 18/11/2019 (Portal da Transparência, receitas de 2019: dividendos de R$ 4.591.021.788,02 nessa data, igual ao valor do Tesouro); atribuído ao BNDES pelo Tesouro Nacional (RTN de novembro de 2019, Nota 9).",
+   "summary": "O Tesouro Nacional registrou R$ 4.591,0 milhões em dividendos e participações pagos pelo BNDES à União em novembro de 2019; em novembro de 2018 não houve pagamento dessa empresa.",
+   "year": 2019,
+   "moved_on": "2019-11-18"
+  },
+  {
+   "id": "caixa-dividends-2019-09",
+   "title": "Dividendos e participações pagos pela Caixa Econômica Federal à União em setembro de 2019",
+   "short_title": "Dividendos da Caixa à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 9 (setembro de 2019)",
+    "date": "2019-10-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/9"
+   },
+   "signed_by": [],
+   "amount_brl": 3000000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de setembro de 2019, Tabela 3.1, linha I.4.2.4 Caixa (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/31079_992768/relatorio_set19.pdf",
+    "quote": "I.4.2.4 Caixa 0,0 3.000,0 (Setembro 2018, Setembro 2019, em R$ milhões)",
+    "date": "2019-10-30"
+   },
+   "status": "Recebido pela União em 30/09/2019: no Portal da Transparência (receitas de 2019), a entrada de juros sobre o capital próprio dessa data (R$ 3.338.599.760,80) soma o valor da Caixa mais os R$ 338,6 milhões do Banco do Brasil da mesma tabela do Tesouro.",
+   "summary": "O Tesouro Nacional registrou R$ 3.000,0 milhões em dividendos e participações pagos pela Caixa Econômica Federal à União em setembro de 2019; em setembro de 2018 não houve pagamento dessa empresa.",
+   "year": 2019,
+   "moved_on": "2019-09-30"
+  },
+  {
+   "id": "petrobras-us-agreement-funds-2019-09",
+   "title": "Recursos do acordo entre a Petrobras e autoridades norte-americanas incorporados pela União",
+   "short_title": "Recursos do acordo da Petrobras nos EUA",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 9 (setembro de 2019)",
+    "date": "2019-10-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/9"
+   },
+   "signed_by": [],
+   "amount_brl": 2669100000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de setembro de 2019, Nota 7 do resultado mês contra mês (Demais Receitas)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/31079_992768/relatorio_set19.pdf",
+    "quote": "incorporação de recursos resultante de acordo celebrado entre a empresa Petróleo Brasileiro S/A - Petrobras e autoridades norte-americanas no montante de R$ 2.669,1 milhões.",
+    "date": "2019-10-30"
+   },
+   "status": "Recebido em 18/09/2019 (Portal da Transparência, receitas de 2019: R$ 2.669.114.238,21 na natureza 'MULT.LEG.ANTICORRUP.ACORDOS LENIÊNCIA' nessa data).",
+   "summary": "Em setembro de 2019 a União incorporou R$ 2.669,1 milhões resultantes do acordo da Petrobras com autoridades dos Estados Unidos, registrados no Portal da Transparência como multa de acordo de leniência.",
+   "year": 2019,
+   "moved_on": "2019-09-18"
+  },
+  {
+   "id": "mp-905-2019-unemployment-insurance-contribution-expected",
+   "title": "Contribuição previdenciária sobre o seguro-desemprego (MP nº 905/2019, Programa Verde e Amarelo)",
+   "short_title": "Contribuição sobre o seguro-desemprego (previsão)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "905",
+    "date": "2019-11-11",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/mpv/mpv905.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Jair Messias Bolsonaro",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Paulo Guedes",
+     "office": "Ministro de Estado da Economia"
+    }
+   ],
+   "amount_brl": 1920000000,
+   "amount_kind": "expected_revenue",
+   "amount_source": {
+    "body": "Exposição de Motivos EM nº 352/2019 ME, item 11",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/exm/exm-mp%20905-19.pdf",
+    "quote": "A desoneração proposta será compensada por meio de aumento de receita obtido com contribuição previdenciária sobre os valores pagos aos beneficiários do seguro-desemprego, que poderão considerar o período de recebimento de seguro desemprego para fins de concessão de benefícios previdenciários. Prevê-se uma arrecadação de R$ 1,92 bilhão em 2020; R$ 2,39 bilhões em 2021 e 2,48 bilhões em 2022.",
+    "date": "2019-11-11"
+   },
+   "status": "Revogada pela Medida Provisória nº 955/2020 (Planalto). A contribuição compensaria a desoneração da folha do contrato Verde e Amarelo (lado da saída).",
+   "summary": "A MP nº 905/2019 criou o contrato de trabalho Verde e Amarelo, com desoneração da folha, e, para compensar, cobrou contribuição previdenciária sobre o seguro-desemprego. A exposição de motivos estima arrecadação de R$ 1,92 bilhão em 2020, R$ 2,39 bilhões em 2021 e R$ 2,48 bilhões em 2022 com essa contribuição.",
+   "year": 2019
+  },
+  {
+   "id": "bndes-dividends-2019-09",
+   "title": "Dividendos e participações pagos pelo BNDES à União em setembro de 2019",
+   "short_title": "Dividendos do BNDES à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 9 (setembro de 2019)",
+    "date": "2019-10-30",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/9"
+   },
+   "signed_by": [],
+   "amount_brl": 1819600000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de setembro de 2019, Tabela 3.1, linha I.4.2.3 BNDES (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/31079_992768/relatorio_set19.pdf",
+    "quote": "I.4.2.3 BNDES 0,0 1.819,6 (Setembro 2018, Setembro 2019, em R$ milhões)",
+    "date": "2019-10-30"
+   },
+   "status": "Recebido pela União em 19/09/2019 (Portal da Transparência, receitas de 2019: juros sobre o capital próprio de R$ 1.819.643.483,05 nessa data, igual ao valor do Tesouro).",
+   "summary": "O Tesouro Nacional registrou R$ 1.819,6 milhões em dividendos e participações pagos pelo BNDES à União em setembro de 2019; em setembro de 2018 não houve pagamento dessa empresa.",
+   "year": 2019,
+   "moved_on": "2019-09-19"
+  },
+  {
+   "id": "caixa-dividends-2019-03",
+   "title": "Dividendos e participações pagos pela Caixa Econômica Federal à União em março de 2019",
+   "short_title": "Dividendos da Caixa à União",
+   "kind": "revenue",
+   "act": {
+    "type": "Boletim Resultado do Tesouro Nacional",
+    "number": "Vol. 25, N. 3 (março de 2019)",
+    "date": "2019-04-29",
+    "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2019/3"
+   },
+   "signed_by": [],
+   "amount_brl": 1766800000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de março de 2019, Tabela 3.1, linha I.4.2.4 Caixa (R$ milhões, preços correntes)",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/29719_950722/nimmar2019.pdf",
+    "quote": "I.4.2.4 Caixa 0,0 1.766,8 (Março 2018, Março 2019, em R$ milhões)",
+    "date": "2019-04-29"
+   },
+   "status": "Recebido pela União em março de 2019; atribuído à Caixa pelo Tesouro Nacional (RTN de março de 2019, Nota 6: 'R$ 1,8 bilhão da Caixa'). No Portal da Transparência, a maior entrada de juros sobre o capital próprio do mês é de R$ 1.740.942.071,12 em 28/03/2019; o Portal não nomeia o pagador.",
+   "summary": "O Tesouro Nacional registrou R$ 1.766,8 milhões em dividendos e participações pagos pela Caixa Econômica Federal à União em março de 2019; em março de 2018 não houve pagamento dessa empresa.",
+   "year": 2019,
+   "moved_on": "2019-03"
+  }
+ ]
+}

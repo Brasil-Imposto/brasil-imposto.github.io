@@ -1,0 +1,195 @@
+{
+ "uf": "CE",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Camilo Santana",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2022-04-02",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "transmissão do cargo e leitura da carta de renúncia em 02/04/2022 (Governo do Ceará, 03/04/2022; lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://www.ceara.gov.br/2022/04/03/izolda-cela-se-torna-a-primeira-mulher-a-assumir-o-governo-do-ceara/",
+     "type": "oficial",
+     "quote": "o governador Camilo Santana transferiu, neste sábado (2), a gestão do Governo do Ceará para a primeira governadora a assumir o cargo em definitivo [...] No Parlamento, foi lida a carta de renúncia, oficializando a saída do governador."
+    },
+    {
+     "fact": "posse na Assembleia Legislativa em 02/04/2022 (Alece, 02/04/2022)",
+     "url": "https://www.al.ce.gov.br/noticias/autoridades-ressaltam-protagonismo-feminino-na-politica-com-posse-de-izolda-cela",
+     "type": "oficial",
+     "quote": "Ao tomar posse no cargo de governadora, na tarde deste sábado (02/04), na Assembleia Legislativa, Izolda Cela torna-se a primeira mulher na história do Estado a ocupar o comando do Poder Executivo cearense."
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida na Assembleia e posse da vice como governadora no sábado, 02/04/2022 (Governo do Ceará e Alece)."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Izolda Cela",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2022-04-02",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "assumiu o cargo de governadora",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "transmissão do cargo e leitura da carta de renúncia em 02/04/2022 (Governo do Ceará, 03/04/2022; lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://www.ceara.gov.br/2022/04/03/izolda-cela-se-torna-a-primeira-mulher-a-assumir-o-governo-do-ceara/",
+     "type": "oficial",
+     "quote": "o governador Camilo Santana transferiu, neste sábado (2), a gestão do Governo do Ceará para a primeira governadora a assumir o cargo em definitivo [...] No Parlamento, foi lida a carta de renúncia, oficializando a saída do governador."
+    },
+    {
+     "fact": "posse na Assembleia Legislativa em 02/04/2022 (Alece, 02/04/2022)",
+     "url": "https://www.al.ce.gov.br/noticias/autoridades-ressaltam-protagonismo-feminino-na-politica-com-posse-de-izolda-cela",
+     "type": "oficial",
+     "quote": "Ao tomar posse no cargo de governadora, na tarde deste sábado (02/04), na Assembleia Legislativa, Izolda Cela torna-se a primeira mulher na história do Estado a ocupar o comando do Poder Executivo cearense."
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida na Assembleia e posse da vice como governadora no sábado, 02/04/2022 (Governo do Ceará e Alece)."
+  },
+  {
+   "role": "governador",
+   "name": "Izolda Cela",
+   "full_name": null,
+   "kind": "vice no cargo de titular",
+   "start": "2022-04-02",
+   "end": "2023-01-01",
+   "start_reason": "renúncia do titular",
+   "end_reason": "fim do mandato",
+   "party_at_start": "PDT",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "transmissão do cargo e leitura da carta de renúncia em 02/04/2022 (Governo do Ceará, 03/04/2022; lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://www.ceara.gov.br/2022/04/03/izolda-cela-se-torna-a-primeira-mulher-a-assumir-o-governo-do-ceara/",
+     "type": "oficial",
+     "quote": "o governador Camilo Santana transferiu, neste sábado (2), a gestão do Governo do Ceará para a primeira governadora a assumir o cargo em definitivo [...] No Parlamento, foi lida a carta de renúncia, oficializando a saída do governador."
+    },
+    {
+     "fact": "posse na Assembleia Legislativa em 02/04/2022 (Alece, 02/04/2022)",
+     "url": "https://www.al.ce.gov.br/noticias/autoridades-ressaltam-protagonismo-feminino-na-politica-com-posse-de-izolda-cela",
+     "type": "oficial",
+     "quote": "Ao tomar posse no cargo de governadora, na tarde deste sábado (02/04), na Assembleia Legislativa, Izolda Cela torna-se a primeira mulher na história do Estado a ocupar o comando do Poder Executivo cearense."
+    },
+    {
+     "fact": "partido no registro de candidatura de 2018 (PDT)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida na Assembleia e posse da vice como governadora no sábado, 02/04/2022 (Governo do Ceará e Alece). Partido na posse: o do registro do TSE de 2018 (PDT); as páginas oficiais da posse não citam o partido dela. A imprensa registra o pedido de desfiliação do PDT em julho de 2022; sem ato oficial datado, a mudança não entra em party_changes."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2022-04-02",
+   "end": "2023-01-01",
+   "start_reason": "a vice-governadora assumiu o cargo de governadora",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "transmissão do cargo e leitura da carta de renúncia em 02/04/2022 (Governo do Ceará, 03/04/2022; lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://www.ceara.gov.br/2022/04/03/izolda-cela-se-torna-a-primeira-mulher-a-assumir-o-governo-do-ceara/",
+     "type": "oficial",
+     "quote": "o governador Camilo Santana transferiu, neste sábado (2), a gestão do Governo do Ceará para a primeira governadora a assumir o cargo em definitivo [...] No Parlamento, foi lida a carta de renúncia, oficializando a saída do governador."
+    },
+    {
+     "fact": "posse na Assembleia Legislativa em 02/04/2022 (Alece, 02/04/2022)",
+     "url": "https://www.al.ce.gov.br/noticias/autoridades-ressaltam-protagonismo-feminino-na-politica-com-posse-de-izolda-cela",
+     "type": "oficial",
+     "quote": "Ao tomar posse no cargo de governadora, na tarde deste sábado (02/04), na Assembleia Legislativa, Izolda Cela torna-se a primeira mulher na história do Estado a ocupar o comando do Poder Executivo cearense."
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida na Assembleia e posse da vice como governadora no sábado, 02/04/2022 (Governo do Ceará e Alece). Sem vice desde a posse da vice como governadora até o fim do mandato."
+  },
+  {
+   "role": "governador",
+   "name": "Elmano de Freitas",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Jade Romero",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  }
+ ],
+ "gaps": []
+}

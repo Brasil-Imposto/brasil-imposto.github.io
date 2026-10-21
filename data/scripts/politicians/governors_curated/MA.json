@@ -1,0 +1,193 @@
+{
+ "uf": "MA",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Flávio Dino",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2022-04-02",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "sucessão por renúncia do titular (Secretaria de Governo do Maranhão, 07/04/2022)",
+     "url": "https://www.segov.ma.gov.br/noticias/brandao-da-posse-aos-novos-secretarios-de-governo",
+     "type": "oficial",
+     "quote": "Ele monta sua equipe após assumir o mandato de Flávio Dino, que renunciou ao cargo seguindo a legislação eleitoral"
+    },
+    {
+     "fact": "posse como governador em 02/04/2022 (Governo do Maranhão, página dos integrantes do governo)",
+     "url": "https://homol.ma.gov.br/integrantes-do-governo",
+     "type": "oficial",
+     "quote": "Brandão tomou posse do Governo do Maranhão no dia 2 de abril de 2022."
+    }
+   ],
+   "verified": true,
+   "note": "Posse do vice como governador em 02/04/2022, após a renúncia do titular (páginas do Governo do Maranhão). A página da Assembleia (al.ma.leg.br) não respondeu a esta máquina nem tem cópia no Internet Archive."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Carlos Brandão",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2022-04-02",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "assumiu o cargo de governador",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "posse como governador em 02/04/2022 (Governo do Maranhão, página dos integrantes do governo)",
+     "url": "https://homol.ma.gov.br/integrantes-do-governo",
+     "type": "oficial",
+     "quote": "Brandão tomou posse do Governo do Maranhão no dia 2 de abril de 2022."
+    }
+   ],
+   "verified": true,
+   "note": "Posse do vice como governador em 02/04/2022, após a renúncia do titular (páginas do Governo do Maranhão). A página da Assembleia (al.ma.leg.br) não respondeu a esta máquina nem tem cópia no Internet Archive."
+  },
+  {
+   "role": "governador",
+   "name": "Carlos Brandão",
+   "full_name": null,
+   "kind": "vice no cargo de titular",
+   "start": "2022-04-02",
+   "end": "2023-01-01",
+   "start_reason": "renúncia do titular",
+   "end_reason": "fim do mandato",
+   "party_at_start": "PSB",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "posse como governador em 02/04/2022 (Governo do Maranhão, página dos integrantes do governo)",
+     "url": "https://homol.ma.gov.br/integrantes-do-governo",
+     "type": "oficial",
+     "quote": "Brandão tomou posse do Governo do Maranhão no dia 2 de abril de 2022."
+    },
+    {
+     "fact": "sucessão por renúncia do titular (Secretaria de Governo do Maranhão, 07/04/2022)",
+     "url": "https://www.segov.ma.gov.br/noticias/brandao-da-posse-aos-novos-secretarios-de-governo",
+     "type": "oficial",
+     "quote": "Ele monta sua equipe após assumir o mandato de Flávio Dino, que renunciou ao cargo seguindo a legislação eleitoral"
+    },
+    {
+     "fact": "partido (PSB) no registro de candidatura de 2022",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Posse do vice como governador em 02/04/2022, após a renúncia do titular (páginas do Governo do Maranhão). A página da Assembleia (al.ma.leg.br) não respondeu a esta máquina nem tem cópia no Internet Archive. Partido na posse: PSB, o do registro do TSE de 2022; a lei exige filiação deferida até seis meses antes da eleição (Lei 9.504/1997, art. 9º), isto é, até 02/04/2022, o dia da posse. Na eleição de 2018 ele era do PRB."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2022-04-02",
+   "end": "2023-01-01",
+   "start_reason": "o vice-governador assumiu o cargo de governador",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "posse como governador em 02/04/2022 (Governo do Maranhão, página dos integrantes do governo)",
+     "url": "https://homol.ma.gov.br/integrantes-do-governo",
+     "type": "oficial",
+     "quote": "Brandão tomou posse do Governo do Maranhão no dia 2 de abril de 2022."
+    }
+   ],
+   "verified": true,
+   "note": "Posse do vice como governador em 02/04/2022, após a renúncia do titular (páginas do Governo do Maranhão). A página da Assembleia (al.ma.leg.br) não respondeu a esta máquina nem tem cópia no Internet Archive. Sem vice desde a posse do vice como governador até o fim do mandato."
+  },
+  {
+   "role": "governador",
+   "name": "Carlos Brandão",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "posse em 2023",
+     "url": "https://www.al.ma.leg.br/noticias/45929",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Felipe Camarão",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "posse em 2023",
+     "url": "https://www.al.ma.leg.br/noticias/45929",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  }
+ ],
+ "gaps": []
+}

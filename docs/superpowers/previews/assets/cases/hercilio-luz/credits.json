@@ -1,0 +1,62 @@
+{
+ "bridge-1940.jpg": {
+  "file": "bridge-1940.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Florianopolis_ponte_hercilio_luz_1940.jpg",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "author": "Halleypo",
+  "date": "1940",
+  "description": "Florianópolis. Ponte Hercílio Luz vista do mar em 1940.",
+  "bytes": 259985
+ },
+ "bridge-restoration.jpg": {
+  "file": "bridge-restoration.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Estruturas_de_reforma.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Fotografo terapeuta",
+  "date": "2018-04-12 18:26:01",
+  "description": "Registro feito durante a época da reforma da ponte Hercílio Luz",
+  "bytes": 278831
+ },
+ "bridge-today.jpg": {
+  "file": "bridge-today.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Ponte_Herc%C3%ADlio_Luz_-_Florian%C3%B3polis_-_20250524113739.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Thaismay",
+  "date": "2025-05-24",
+  "description": "ponte mais antiga entre a ilha de Florianópolis e o continente brasileiro",
+  "bytes": 286775
+ },
+ "gov-luiz-henrique.jpg": {
+  "file": "gov-luiz-henrique.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Luiz_henrique_senador_2011.jpg",
+  "license": "Attribution",
+  "license_url": null,
+  "author": "José Cruz/Agência Senado",
+  "date": "2011-03-18",
+  "description": "Senador do Brasil, Luiz Henrique da Silveira, do Estado de Santa Catarina",
+  "bytes": 76395
+ },
+ "gov-raimundo-colombo.jpg": {
+  "file": "gov-raimundo-colombo.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Raimundo_Colombo,_Gov_SC_2016_(cropped).jpg",
+  "license": "CC BY 2.0",
+  "license_url": "https://creativecommons.org/licenses/by/2.0",
+  "author": "Dênio Simões/Agência Brasília",
+  "date": "2016-06-20 10:51:11",
+  "description": "Governador do Estado de Santa Catarina, Raimundo Colombo em 2016.",
+  "bytes": 60866
+ },
+ "gov-carlos-moises.jpg": {
+  "file": "gov-carlos-moises.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Carlos_Moises.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Vz6 felipe",
+  "date": "2022-05-04",
+  "description": "Carlos Moisés tirando foto",
+  "bytes": 62857
+ }
+}

@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como o dinheiro anda · rodada 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Brasil-Imposto's tokens; green and red stay for the colour law, so the destinations use the site's other inks */
+  :root { --ink:#14202B; --ink2:#3C4A57; --muted:#5B6773; --faint:#8A95A1; --line:#E3E7EC; --paper:#FFFFFF; --soft:#F6F8FA;
+          --green:#12803F; --red:#B41E25; --blue:#1E5FAF;
+          --d-uniao:#14202B; --d-estados:#1E5FAF; --d-prefeituras:#1C958B; --d-fundeb:#6B3A8C; --d-regional:#B7791F; --d-divida:#8A95A1; }
+  * { box-sizing:border-box; }
+  html { color-scheme:light; font-variant-ligatures:no-common-ligatures; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:'Manrope', system-ui, sans-serif; -webkit-font-smoothing:antialiased; font-size:15px; line-height:1.5; }
+  button, select { font:inherit; color:inherit; }
+  a { color:var(--blue); }
+  .in { max-width:1180px; margin:0 auto; padding:0 24px; }
+  .nav { border-bottom:1px solid var(--line); background:rgba(255,255,255,.92); backdrop-filter:blur(8px); position:sticky; top:0; z-index:20; }
+  .nav .in { display:flex; align-items:center; justify-content:space-between; gap:16px; height:62px; }
+  .wordmark { display:flex; align-items:center; gap:10px; font-weight:800; font-size:16px; white-space:nowrap; }
+  .wordmark i { font-style:normal; color:var(--faint); }
+  .wm-flag { width:28px; height:20px; border-radius:4px; box-shadow:0 0 0 1px rgba(20,32,43,.14); object-fit:cover; }
+  .nav nav { display:flex; gap:20px; align-items:center; font-size:13.5px; font-weight:700; color:var(--muted); }
+  .nav nav span.on { color:var(--ink); box-shadow:0 2px 0 var(--ink); padding-bottom:3px; } .nav nav a { color:inherit; text-decoration:none; } .nav nav a.cta { color:#fff; }
+  .nav .cta { color:#fff; background:var(--green); border-radius:99px; padding:6px 14px; }
+  .eyebrow { font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+  .head { padding:34px 0 22px; background:radial-gradient(110% 120% at 50% 0%, #FFFFFF 0%, #F8FAFB 60%, #EEF2F5 100%); border-bottom:1px solid var(--line); }
+  .head h1 { font-size:clamp(28px, 3.4vw, 44px); line-height:1.06; letter-spacing:-.03em; margin:10px 0 12px; font-weight:800; max-width:24ch; }
+  .head h1 em { font-style:normal; color:var(--green); }
+  .head p { margin:0; color:var(--ink2); font-size:16px; max-width:72ch; }
+  .opts { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+  .opts button { border:1px solid var(--line); background:#fff; border-radius:14px; padding:10px 14px; cursor:pointer; text-align:left; display:grid; gap:1px; min-width:220px; }
+  .opts button b { font-size:14px; } .opts button span { font-size:12px; color:var(--muted); }
+  .opts button[aria-pressed="true"] { border-color:var(--ink); box-shadow:0 0 0 1px var(--ink) inset; }
+  .sec { padding:34px 0 44px; border-bottom:1px solid var(--line); }
+  .sec.alt { background:var(--soft); }
+  .opt[hidden] { display:none; }
+  .opt-h { display:flex; justify-content:space-between; gap:18px; align-items:flex-end; flex-wrap:wrap; margin-bottom:18px; }
+  .opt-h h2 { margin:6px 0 4px; font-size:clamp(24px, 2.6vw, 32px); letter-spacing:-.025em; }
+  .opt-h p { margin:0; color:var(--muted); font-size:14.5px; max-width:70ch; }
+  .wr { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:22px; }
+  .wr div { border-radius:14px; padding:11px 14px; font-size:13px; line-height:1.5; }
+  .wr .win { background:#EEF7F1; color:#0E5A2D; } .wr .risk { background:#FFF4F4; color:#7D1A1F; }
+  .wr b { display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:3px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:16px 18px; }
+  .src { font-size:11.5px; color:var(--faint); margin-top:8px; line-height:1.45; } .src a { color:inherit; }
+  .chip { display:inline-block; font-size:10.5px; font-weight:800; border-radius:6px; padding:0 6px; background:#EEF1F4; color:var(--ink2); }
+  .num { font-variant-numeric:tabular-nums; white-space:nowrap; }
+
+  /* ---------- C: follow R$ 100 */
+  .taxes { display:flex; flex-wrap:wrap; gap:6px; }
+  .taxes button { border:1px solid var(--line); background:#fff; border-radius:99px; padding:7px 13px; font-size:13px; font-weight:800; cursor:pointer; color:var(--ink2); }
+  .taxes button[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:#fff; }
+  .follow { display:grid; grid-template-columns:minmax(0, 1.25fr) minmax(0, 1fr); gap:18px; margin-top:16px; align-items:start; }
+  .bill { font-size:clamp(26px, 3vw, 38px); font-weight:800; letter-spacing:-.02em; margin:0 0 2px; }
+  .bill small { display:block; font-size:14px; font-weight:700; color:var(--muted); letter-spacing:0; margin-top:2px; }
+  .stack { display:flex; height:46px; border-radius:14px; overflow:hidden; margin:12px 0 6px; box-shadow:inset 0 0 0 1px rgba(20,32,43,.06); }
+  .stack i { display:block; height:100%; transition:width .6s cubic-bezier(.2,.8,.2,1); position:relative; }
+  .stack i span { position:absolute; inset:0; display:grid; place-items:center; color:#fff; font-size:12.5px; font-weight:800; font-style:normal; white-space:nowrap; overflow:hidden; }
+  .dests { display:grid; gap:8px; margin-top:12px; }
+  .dest { display:grid; grid-template-columns:12px minmax(0, 1fr) auto; gap:4px 10px; align-items:baseline; padding:10px 12px; border:1px solid var(--line); border-radius:12px; background:#fff; }
+  .dest i { width:12px; height:12px; border-radius:4px; align-self:center; }
+  .dest b { font-size:14.5px; } .dest .v { font-size:16px; font-weight:800; text-align:right; }
+  .dest p { grid-column:2 / -1; margin:0; font-size:12.5px; color:var(--muted); line-height:1.45; }
+  .then h3 { margin:0 0 6px; font-size:16px; }
+  .then .lead2 { margin:0 0 10px; font-size:13px; color:var(--ink2); }
+  .bars2 { display:grid; gap:7px; }
+  .bars2 .row { display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:3px 10px; font-size:13px; }
+  .bars2 .row .bar { grid-column:1 / -1; height:7px; border-radius:99px; background:#EEF1F4; overflow:hidden; }
+  .bars2 .row .bar i { display:block; height:100%; border-radius:99px; background:var(--ink2); }
+  .note { margin-top:12px; font-size:13px; line-height:1.5; color:#6B5310; background:#FFF8E1; border:1px solid #F0D48A; border-radius:12px; padding:10px 12px; }
+
+  /* ---------- A: six steps */
+  .steps { counter-reset:s; display:grid; gap:14px; }
+  .step { display:grid; grid-template-columns:56px minmax(0, 1fr); gap:16px; background:#fff; border:1px solid var(--line); border-radius:20px; padding:18px; }
+  .step .n { width:44px; height:44px; border-radius:14px; background:var(--ink); color:#fff; display:grid; place-items:center; font-weight:800; font-size:18px; }
+  .step h3 { margin:2px 0 4px; font-size:19px; letter-spacing:-.01em; } .step > div > p { margin:0 0 10px; color:var(--ink2); font-size:14px; }
+  .trio { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px; }
+  .trio .card { padding:12px 14px; border-top:3px solid var(--c); }
+  .trio h4 { margin:0; font-size:14px; } .trio .big { font-size:22px; font-weight:800; letter-spacing:-.01em; margin:4px 0 2px; }
+  .trio p { margin:0; font-size:12.5px; color:var(--muted); line-height:1.45; }
+  .rules { display:grid; grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); gap:8px; }
+  .rule { border:1px solid var(--line); border-radius:12px; padding:10px 12px; background:var(--soft); font-size:12.5px; line-height:1.45; }
+  .rule b { display:block; font-size:13.5px; color:var(--ink); } .rule .pct { font-weight:800; color:var(--ink); } .rule small { display:block; color:var(--faint); margin-top:3px; }
+  .lines { display:grid; gap:6px; }
+  .lines .row { display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:3px 12px; font-size:13.5px; padding:6px 0; border-bottom:1px solid #EEF1F4; }
+  .lines .row .bar { grid-column:1 / -1; height:7px; border-radius:99px; background:#EEF1F4; overflow:hidden; } .lines .row .bar i { display:block; height:100%; border-radius:99px; }
+  .lines .row b { font-variant-numeric:tabular-nums; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+  /* ---------- B: the flow */
+  .flow-wrap { background:#fff; border:1px solid var(--line); border-radius:20px; padding:14px; overflow-x:auto; }
+  .flow-wrap svg { display:block; min-width:980px; }
+  .flow-wrap .lk { fill:none; stroke-opacity:.28; transition:stroke-opacity .15s; } .flow-wrap .lk:hover, .flow-wrap .lk.on { stroke-opacity:.6; }
+  .flow-wrap text { font-family:Manrope, system-ui; }
+  .tip { position:fixed; z-index:30; pointer-events:none; background:var(--ink); color:#fff; border-radius:10px; padding:8px 10px; font-size:12.5px; line-height:1.45; max-width:320px; box-shadow:0 12px 28px -12px rgba(20,32,43,.6); }
+  .tip[hidden] { display:none; } .tip b { font-size:13.5px; }
+
+  .qs { display:grid; gap:10px; margin-top:8px; }
+  .q { background:#fff; border:1px solid var(--line); border-radius:16px; padding:13px 16px; }
+  .q h4 { margin:0; font-size:15px; } .q h4 span { display:inline-grid; place-items:center; width:24px; height:24px; border-radius:50%; background:var(--ink); color:#fff; font-size:12px; margin-right:8px; }
+  .q p { margin:6px 0 0; font-size:13.5px; color:var(--ink2); }
+  .q .rec { margin-top:8px; font-size:13px; font-weight:700; color:#6B5310; background:#FFF8E1; border-radius:10px; padding:6px 10px; }
+  .foot { padding:22px 0 60px; color:var(--muted); font-size:12.5px; }
+  @media (max-width: 900px) { .follow, .two, .wr { grid-template-columns:1fr; } .trio { grid-template-columns:1fr; } }
+  @media (max-width: 640px) {
+    .in { padding:0 16px; } .nav nav > :not(.on) { display:none; }
+    .step { grid-template-columns:1fr; } .opts button { min-width:0; flex:1 1 100%; }
+  }
+</style>
+</head>
+<body>
+<header class="nav"><div class="in">
+  <a class="wordmark" href="BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html" style="color:inherit;text-decoration:none"><img class="wm-flag" src="assets/flags/br.svg" alt="Bandeira do Brasil"><span>Brasil<i>·</i>Imposto</span></a>
+  <nav><a href="BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html">Início</a><a href="BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html">Os 3 Poderes</a><span class="on">Como o dinheiro anda</span><a class="cta" href="BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html#apoie">Apoie</a></nav>
+</div></header>
+
+<section class="head"><div class="in">
+  <div class="eyebrow">Prévia de desenho · rodada 1 · três formas</div>
+  <h1>Como o dinheiro do imposto <em>anda</em> no Brasil</h1>
+  <p>Quem cobra cada imposto, quanto a Constituição manda passar para os outros governos, quem gasta o quê e o que vira dívida. As três formas abaixo contam o mesmo caminho com os números oficiais de 2025; escolha a que deve abrir a página.</p>
+  <div class="opts" role="group" aria-label="Forma da página">
+    <button type="button" data-opt="c" aria-pressed="true"><b>C · Siga R$ 100</b><span>escolha um imposto e veja para onde vai cada real</span></button>
+    <button type="button" data-opt="a" aria-pressed="false"><b>A · O caminho em seis passos</b><span>a história do dinheiro, de quem paga até a dívida</span></button>
+    <button type="button" data-opt="b" aria-pressed="false"><b>B · O grande fluxo</b><span>todo o dinheiro de 2025 num só desenho</span></button>
+  </div>
+</div></section>
+
+<!-- ============ C ============ -->
+<section class="sec opt" data-view="c"><div class="in">
+  <div class="opt-h"><div><div class="eyebrow">Forma C</div><h2>Siga R$ 100 do seu imposto</h2>
+    <p>Escolha um imposto. A barra divide R$ 100 pelas regras da Constituição, e embaixo cada governo mostra o que faz com a parte dele, pelos números de 2025.</p></div></div>
+  <div class="taxes" data-taxes></div>
+  <div class="follow">
+    <div class="card"><div class="bill" data-bill></div><div class="stack" data-stack></div><div class="dests" data-dests></div><p class="src" data-taxsrc></p></div>
+    <div class="card then" data-then></div>
+  </div>
+  <div class="wr"><div class="win"><b>Ganha</b>Fala com quem paga: começa pelo imposto da própria pessoa, cabe numa tela de celular e se compartilha como "de cada R$ 100 do seu IR, R$ 50 ficam com a União". Cada número sai de uma regra com artigo.</div>
+    <div class="risk"><b>Arrisca</b>Mostra a regra, não o ano real: o valor de cada repartição em reais fica para a forma A ou B. Quem quiser o todo precisa descer a página.</div></div>
+</div></section>
+
+<!-- ============ A ============ -->
+<section class="sec opt" data-view="a" hidden><div class="in">
+  <div class="opt-h"><div><div class="eyebrow">Forma A</div><h2>O caminho em seis passos</h2>
+    <p>O mesmo caminho contado em ordem, cada passo com a regra, o artigo da Constituição e o tamanho em 2025.</p></div></div>
+  <div class="steps" data-steps></div>
+  <div class="wr"><div class="win"><b>Ganha</b>Explica tudo, na ordem em que o dinheiro anda, com cada regra à vista. É a forma mais fácil de manter: cada passo é uma soma no livro de fluxos.</div>
+    <div class="risk"><b>Arrisca</b>É longa: quem chega pelo Instagram pode não passar do segundo passo. Precisa de um começo forte (a forma C no topo resolveria).</div></div>
+</div></section>
+
+<!-- ============ B ============ -->
+<section class="sec opt" data-view="b" hidden><div class="in">
+  <div class="opt-h"><div><div class="eyebrow">Forma B</div><h2>O grande fluxo de 2025</h2>
+    <p>Todo o dinheiro do ano num desenho só: da esquerda (quem paga) para a direita (onde o dinheiro termina). A grossura de cada faixa é o valor; passe o mouse ou toque numa faixa para ver a regra e a fonte.</p></div></div>
+  <div class="flow-wrap"><svg data-flow role="img" aria-label="Fluxo do dinheiro público em 2025"></svg></div>
+  <p class="src" data-flownote></p>
+  <div class="wr"><div class="win"><b>Ganha</b>Mostra a escala de uma vez: a previdência e os juros ao lado da saúde e da educação, e quanto passa de um governo para o outro.</div>
+    <div class="risk"><b>Arrisca</b>No celular vira um desenho largo que se arrasta para o lado. As faixas juntam fontes de calendários diferentes (União por mês, estados por bimestre), e duas faixas são diferenças, marcadas como tal.</div></div>
+</div></section>
+
+<section class="sec alt"><div class="in">
+  <div class="eyebrow">Decisões desta rodada</div>
+  <div class="qs">
+    <div class="q"><h4><span>1</span>Qual forma abre a página</h4><p>A página pode abrir com uma forma e ter as outras abaixo.</p><div class="rec">Recomendação: C no topo (siga R$ 100) e A embaixo (os seis passos); B entra depois como "ver o fluxo inteiro", quando os dados das prefeituras estiverem no livro.</div></div>
+    <div class="q"><h4><span>2</span>Ano mostrado</h4><p>2025 é o último ano completo para a União e os 27 estados. 2026 tem só até agosto (União) e até o 4º bimestre (estados).</p><div class="rec">Recomendação: 2025 fechado, com um botão de ano igual ao do mapa quando o livro tiver os anos anteriores.</div></div>
+    <div class="q"><h4><span>3</span>Prefeituras</h4><p>O projeto tem as contas das prefeituras de SC, RS e do DF, não das 5.570. Sem elas, o ISS e o IPTU aparecem só como regra, e o gasto das prefeituras fica de fora.</p><div class="rec">Recomendação: coletar as contas anuais de 2025 das 5.570 prefeituras (SICONFI) antes de publicar esta página.</div></div>
+  </div>
+</div></section>
+<div class="in foot">Prévia de desenho, rodada 1. Regras lidas na Constituição Federal (Planalto) e na Lei 14.113/2020 em 21/10/2026; números do RTN do Tesouro e dos RREOs dos 27 estados de 2025, já conferidos no livro de fluxos. Nada aqui é publicado.</div>
+<div class="tip" data-tip hidden></div>
+
+<script src="assets/dinheiro-r1-data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+<script>
+(function () {
+  const D = window.BIM, U = D.union, S = D.states;
+  const nf = (v, d = 2) => v.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const bi = (v) => `R$ ${nf(v, 1)} bi`, brl = (v) => `R$ ${nf(v)}`;
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const DEST = { uniao: ['União', 'var(--d-uniao)', 'fica com a União'], estados: ['Governo do estado', 'var(--d-estados)', 'vai ao governo do estado'],
+    prefeituras: ['Prefeituras', 'var(--d-prefeituras)', 'vai às prefeituras'], fundeb: ['Fundo da educação (Fundeb)', 'var(--d-fundeb)', 'vai ao fundo da educação do estado'],
+    regional: ['Bancos do Norte, Nordeste e Centro-Oeste', 'var(--d-regional)', 'vai aos fundos regionais'] };
+  const WHY = { uniao: 'Paga a previdência, a folha federal, a saúde, o Bolsa Família, os ministérios e os juros da dívida.',
+    estados: 'Paga educação, previdência dos servidores do estado, saúde, segurança e os outros Poderes do estado.',
+    prefeituras: 'Paga escola, posto de saúde, coleta de lixo, transporte e obras da cidade; pelo menos 25% em educação e 15% em saúde.',
+    fundeb: 'Volta às escolas do estado e das prefeituras pelo número de alunos matriculados; a União completa o fundo.',
+    regional: 'Vira empréstimo a empresas do Norte, do Nordeste e do Centro-Oeste (FNO, FNE e FCO).' };
+
+  // ---------- C: follow R$ 100
+  const outlays = [['4.1', 'Aposentadorias e pensões do INSS'], ['9', 'Juros da dívida'], ['4.4', 'Saúde, Bolsa Família e os ministérios'], ['4.2', 'Pessoal (folha federal)'], ['4.3', 'Outras obrigatórias (BPC, abono, seguro-desemprego, Fundeb, precatórios)']]
+    .map(([k, l]) => [l, Math.abs(U[k].bi), k]);
+  // the official totals (RTN 4 and 9) for the headline; the parts only split it
+  const outTotal = outlays.reduce((a, [, v]) => a + v, 0), net = U['3'].bi, perHundred = ((U['4'].bi + Math.abs(U['9'].bi)) / net) * 100;
+  const stOut = D.states_spending.slice(0, 6), stTotal = D.states_spending_total;
+  let tax = 'ir';
+  function drawC() {
+    const t = D.taxes.find((x) => x.id === tax);
+    document.querySelector('[data-taxes]').innerHTML = D.taxes.map((x) => `<button type="button" data-tax="${x.id}" aria-pressed="${x.id === tax}">${esc(x.label)}</button>`).join('');
+    document.querySelector('[data-bill]').innerHTML = `R$ 100 de ${esc(t.phrase)} <small>cobrado ${t.collector === 'uniao' ? 'pela União' : t.collector === 'estados' ? 'pelo governo do estado' : 'pela prefeitura'}</small>`;
+    document.querySelector('[data-stack]').innerHTML = t.split.map(([d, p]) => `<i style="width:${p}%;background:${DEST[d][1]}" title="${esc(DEST[d][0])}: ${brl(p)}"><span>${p >= 9 ? brl(p).replace(',00', '') : ''}</span></i>`).join('');
+    document.querySelector('[data-dests]').innerHTML = t.split.map(([d, p]) => `<div class="dest"><i style="background:${DEST[d][1]}"></i><b>${esc(DEST[d][0])}</b><span class="v num">${brl(p)}</span><p>${esc(WHY[d])}</p></div>`).join('')
+      + (t.note ? `<div class="note">${esc(t.note)}</div>` : '');
+    document.querySelector('[data-taxsrc]').innerHTML = `Regra: ${esc(t.art)}; fundo da educação: CF art. 212-A e Lei 14.113/2020, art. 3. <a href="${esc(D.sources[0].url)}">Constituição</a>`;
+    const u = (t.split.find(([d]) => d === 'uniao') || [0, 0])[1], e = (t.split.find(([d]) => d === 'estados') || [0, 0])[1];
+    let h = '';
+    if (u) h += `<h3>A parte da União: ${brl(u)}</h3><p class="lead2">Em 2025, a União gastou ${brl(perHundred)} para cada R$ 100 que ficaram com ela, contando os juros da dívida; os ${brl(perHundred - 100)} a mais vieram de dívida nova. Os seus ${brl(u)} se dividem como o gasto dela:</p>`
+      + `<div class="bars2">${outlays.map(([l, v]) => `<div class="row"><span>${esc(l)}</span><b class="num">${brl((u * v) / outTotal)}</b><div class="bar"><i style="width:${(v / outlays[0][1]) * 100}%"></i></div></div>`).join('')}</div>`;
+    if (e) h += `<h3 style="margin-top:16px">A parte do governo do estado: ${brl(e)}</h3><p class="lead2">Pela soma do gasto dos 27 estados em 2025 (${bi(stTotal)}):</p>`
+      + `<div class="bars2">${stOut.map(([l, v]) => `<div class="row"><span>${esc(l)}</span><b class="num">${brl((e * v) / stTotal)}</b><div class="bar"><i style="width:${(v / stOut[0][1]) * 100}%;background:var(--d-estados)"></i></div></div>`).join('')}</div>`;
+    if (!u && !e) h += `<h3>A parte das prefeituras</h3><p class="lead2">Cada prefeitura gasta a sua parte; pela Constituição, pelo menos 25% da receita de impostos vai para a educação e 15% para a saúde.</p>`;
+    h += `<p class="src">Gasto da União: RTN do Tesouro, 2025 (linhas 4.1 a 4.4 e 9). Gasto dos estados: RREO dos 27 estados, 2025, por função, sem as transferências às prefeituras.</p>`;
+    document.querySelector('[data-then]').innerHTML = h;
+  }
+  document.querySelector('[data-taxes]').addEventListener('click', (e) => { const b = e.target.closest('[data-tax]'); if (b) { tax = b.dataset.tax; drawC(); } });
+
+  // ---------- A: six steps
+  function drawA() {
+    const L = (rows, max, color) => `<div class="lines">${rows.map(([l, v]) => `<div class="row"><span>${esc(l)}</span><b>${bi(v)}</b><div class="bar"><i style="width:${(v / max) * 100}%;background:${color}"></i></div></div>`).join('')}</div>`;
+    const own = S.icms + S.ipva + S.itcmd;
+    const steps = [
+      ['Quem paga, e a quem', 'Pessoas e empresas pagam tributos a três governos; cada um só cobra o que a Constituição lhe dá (arts. 153, 155, 156 e 195).',
+        `<div class="trio"><div class="card" style="--c:var(--d-uniao)"><h4>União</h4><div class="big">${bi(U['1'].bi)}</div><p>imposto de renda, IPI, IOF e as contribuições da seguridade (INSS, Cofins, PIS, CSLL), mais royalties e dividendos</p></div>`
+        + `<div class="card" style="--c:var(--d-estados)"><h4>Estados</h4><div class="big">${bi(own)}</div><p>ICMS ${bi(S.icms)}, IPVA ${bi(S.ipva)}, ITCMD ${bi(S.itcmd)}</p></div>`
+        + `<div class="card" style="--c:var(--d-prefeituras)"><h4>Prefeituras</h4><div class="big">ISS, IPTU, ITBI</div><p>o total das 5.570 prefeituras ainda não está no projeto (decisão 3)</p></div></div>`],
+      ['Quem passa para quem, por regra', 'Partes fixas da arrecadação mudam de dono antes de alguém gastar. Nenhuma depende do governo do momento.',
+        `<div class="two"><div>${L([['FPM, FPE e IPI-exportação', U['2.1'].bi], ['Royalties de petróleo, gás e minérios', U['2.4'].bi], ['Salário-educação', U['2.3'].bi], ['Fundos regionais (FNO, FNE, FCO)', U['2.2'].bi], ['CIDE e demais', U['2.5'].bi + U['2.6'].bi]], U['2.1'].bi, 'var(--d-uniao)')}`
+        + `<p class="src">Da União a estados e prefeituras em 2025: ${bi(U['2'].bi)} (RTN, linha 2). Dos estados às prefeituras: ${bi(S.to_municipalities)} (25% do ICMS e 50% do IPVA, RREO).</p></div>`
+        + `<div class="rules">${D.rules.slice(0, 8).map((r) => `<div class="rule"><b>${esc(r.what)}</b><span class="pct">${esc(r.pct)}</span>, ${esc(r.route)}<small>${esc(r.art)}</small></div>`).join('')}</div></div>`],
+      ['O fundo da educação', 'Em cada estado, 20% de vários impostos vão para um fundo que volta às escolas pelo número de alunos (Fundeb).',
+        `<div class="trio"><div class="card" style="--c:var(--d-fundeb)"><h4>Os estados puseram</h4><div class="big">${bi(S.fundeb_out)}</div><p>dedução para o Fundeb, RREO 2025</p></div>`
+        + `<div class="card" style="--c:var(--d-fundeb)"><h4>E receberam de volta</h4><div class="big">${bi(S.fundeb_in)}</div><p>a diferença foi para as escolas das prefeituras, que têm mais alunos</p></div>`
+        + `<div class="card" style="--c:var(--d-uniao)"><h4>A União completou com</h4><div class="big">${bi(U['4.3.10'].bi)}</div><p>no mínimo 23% do fundo em 2026 (ADCT art. 60); RTN 4.3.10</p></div></div>`],
+      ['O mínimo de saúde e educação', 'O governo também não escolhe quanto gastar em educação e saúde: a Constituição fixa o mínimo.',
+        `<div class="rules">${D.minimums.map((m) => `<div class="rule"><b>${esc(m.what)}</b>${esc(m.rule)}<small>${esc(m.art)}</small></div>`).join('')}</div>`],
+      ['Quem gasta o quê', 'Cada governo gasta o que ficou com ele: salário, aposentadoria, benefício, compra, obra.',
+        `<div class="two"><div><b>União, ${bi(U['4'].bi)}</b>${L([['Aposentadorias e pensões do INSS', U['4.1'].bi], ['Saúde, Bolsa Família e ministérios', U['4.4'].bi], ['Pessoal', U['4.2'].bi], ['Outras obrigatórias (BPC, abono, seguro-desemprego, Fundeb)', U['4.3'].bi]], U['4.1'].bi, 'var(--d-uniao)')}</div>`
+        + `<div><b>27 estados, ${bi(stTotal)}</b>${L(D.states_spending.slice(0, 6), D.states_spending[0][1], 'var(--d-estados)')}</div></div>`],
+      ['O que falta vira dívida', 'Quando o gasto passa da receita, o governo pega emprestado, e a dívida cobra juros.',
+        `<div class="trio"><div class="card" style="--c:var(--d-uniao)"><h4>Ficou com a União</h4><div class="big">${bi(U['3'].bi)}</div><p>receita líquida, depois das repartições (RTN 3)</p></div>`
+        + `<div class="card" style="--c:var(--d-divida)"><h4>Juros da dívida</h4><div class="big">${bi(Math.abs(U['9'].bi))}</div><p>juros nominais do ano (RTN 9)</p></div>`
+        + `<div class="card" style="--c:var(--red)"><h4>Resultado</h4><div class="big">${bi(U['10'].bi)}</div><p>resultado nominal: o que faltou e virou dívida (RTN 10)</p></div></div>`],
+    ];
+    document.querySelector('[data-steps]').innerHTML = steps.map(([h, p, body], i) => `<div class="step"><div class="n">${i + 1}</div><div><h3>${esc(h)}</h3><p>${esc(p)}</p>${body}</div></div>`).join('');
+  }
+
+  // ---------- B: the flow (d3-sankey); two bands are differences between sources and say so
+  let drawnB = false;
+  function drawB() {
+    if (drawnB || !window.d3 || !d3.sankey) return; drawnB = true;
+    const debt = outTotal - net, stIn = S.fpe + S.ipi_exp, stOwn = S.icms + S.ipva + S.itcmd;
+    const stOther = Math.max(0, S.to_municipalities + stTotal - stOwn - stIn), restShare = U['2'].bi - stIn;
+    const big = D.states_spending.slice(0, 5), small = stTotal - big.reduce((a, [, v]) => a + v, 0);
+    const N = ['Pessoas e empresas', 'Royalties, dividendos e concessões', 'Dívida nova', 'União', 'Repartição por regra', 'Governos dos estados', 'Outras receitas dos estados',
+      'Prefeituras, fundos regionais e outros', 'Aposentadorias do INSS', 'Pessoal federal', 'Outras obrigatórias', 'Saúde, Bolsa Família e ministérios', 'Juros da dívida',
+      ...big.map(([l]) => `${l} (estados)`), 'Demais funções (estados)'];
+    const ix = (n) => N.indexOf(n);
+    const L = [
+      ['Pessoas e empresas', 'União', U['1.1'].bi + U['1.3'].bi, 'Tributos e contribuições federais (RTN 1.1 e 1.3)'],
+      ['Royalties, dividendos e concessões', 'União', U['1.4'].bi, 'Receitas não administradas pela Receita (RTN 1.4)'],
+      ['Pessoas e empresas', 'Governos dos estados', stOwn, 'ICMS, IPVA e ITCMD dos 27 estados (RREO)'],
+      ['União', 'Repartição por regra', U['2'].bi, 'Transferências por repartição de receita (RTN 2): FPE, FPM, IPI-exportação, royalties, salário-educação, fundos regionais, CIDE'],
+      ['Repartição por regra', 'Governos dos estados', stIn, 'FPE e IPI-exportação que os estados registram (RREO)'],
+      ['Repartição por regra', 'Prefeituras, fundos regionais e outros', restShare, 'Diferença: o resto da linha 2 do RTN (FPM, royalties, salário-educação, fundos regionais)'],
+      ['Governos dos estados', 'Prefeituras, fundos regionais e outros', S.to_municipalities, '25% do ICMS e 50% do IPVA passados às prefeituras (RREO)'],
+      ['Outras receitas dos estados', 'Governos dos estados', stOther, 'Diferença entre o que os estados gastaram e as receitas mostradas: contribuições, SUS, outras transferências e empréstimos'],
+      ['Dívida nova', 'União', debt, 'Diferença entre o gasto com juros e a receita líquida; o RTN mostra resultado nominal de ' + bi(U['10'].bi) + ', com ajustes de metodologia'],
+      ['União', 'Aposentadorias do INSS', U['4.1'].bi, 'RTN 4.1'], ['União', 'Pessoal federal', U['4.2'].bi, 'RTN 4.2'], ['União', 'Outras obrigatórias', U['4.3'].bi, 'RTN 4.3: BPC, abono e seguro-desemprego, complemento do Fundeb, precatórios'],
+      ['União', 'Saúde, Bolsa Família e ministérios', U['4.4'].bi, 'RTN 4.4'], ['União', 'Juros da dívida', Math.abs(U['9'].bi), 'Juros nominais (RTN 9)'],
+      ...big.map(([l, v]) => ['Governos dos estados', `${l} (estados)`, v, 'Gasto liquidado dos 27 estados, RREO 2025']),
+      ['Governos dos estados', 'Demais funções (estados)', small, 'Gasto liquidado dos 27 estados nas outras funções'],
+    ];
+    const COL = { 'União': '#14202B', 'Governos dos estados': '#1E5FAF', 'Repartição por regra': '#14202B', 'Pessoas e empresas': '#5B6773', 'Dívida nova': '#8A95A1',
+      'Royalties, dividendos e concessões': '#5B6773', 'Outras receitas dos estados': '#8A95A1', 'Prefeituras, fundos regionais e outros': '#1C958B' };
+    const W = 1140, H = 780, svg = d3.select('[data-flow]').attr('viewBox', `0 0 ${W} ${H}`).attr('width', '100%');
+    const sk = d3.sankey().nodeWidth(14).nodePadding(22).extent([[230, 10], [W - 290, H - 10]]).nodeSort(null);
+    const g = sk({ nodes: N.map((name) => ({ name })), links: L.map(([s, t, v, why]) => ({ source: ix(s), target: ix(t), value: v, why })) });
+    const color = (n) => COL[n.name] || (n.name.includes('(estados)') ? '#1E5FAF' : '#3C4A57');
+    const tip = document.querySelector('[data-tip]');
+    svg.append('g').selectAll('path').data(g.links).join('path').attr('class', 'lk').attr('d', d3.sankeyLinkHorizontal())
+      .attr('stroke', (l) => color(l.source)).attr('stroke-width', (l) => Math.max(1, l.width))
+      .on('mousemove', (ev, l) => { tip.hidden = false; tip.innerHTML = `<b>${esc(l.source.name)} → ${esc(l.target.name)}</b><br>${bi(l.value)}<br>${esc(l.why)}`; tip.style.left = Math.min(ev.clientX + 14, innerWidth - 330) + 'px'; tip.style.top = ev.clientY + 14 + 'px'; })
+      .on('mouseleave', () => { tip.hidden = true; });
+    const nd = svg.append('g').selectAll('g').data(g.nodes).join('g');
+    nd.append('rect').attr('x', (n) => n.x0).attr('y', (n) => n.y0).attr('width', (n) => n.x1 - n.x0).attr('height', (n) => Math.max(1, n.y1 - n.y0)).attr('rx', 3).attr('fill', color);
+    nd.append('text').attr('x', (n) => (n.x0 < W / 2 ? n.x0 - 8 : n.x1 + 8)).attr('y', (n) => (n.y0 + n.y1) / 2).attr('text-anchor', (n) => (n.x0 < W / 2 ? 'end' : 'start'))
+      .attr('dominant-baseline', 'middle').attr('font-size', 12).attr('font-weight', 700).attr('fill', '#14202B')
+      .attr('paint-order', 'stroke').attr('stroke', '#fff').attr('stroke-width', 4).attr('stroke-linejoin', 'round')
+      .text((n) => n.name).append('tspan').attr('x', (n) => (n.x0 < W / 2 ? n.x0 - 8 : n.x1 + 8)).attr('dy', 15).attr('font-weight', 600).attr('fill', '#5B6773').text((n) => bi(Math.max(n.value, 0)));
+    document.querySelector('[data-flownote]').innerHTML = `União: RTN do Tesouro, 2025. Estados: RREO dos 27 estados, 2025 (receita por mês do Anexo 3; gasto liquidado por função do Anexo 2, sem as transferências às prefeituras). Duas faixas são diferenças entre fontes e dizem isso no texto: "Prefeituras, fundos regionais e outros" a partir da repartição e "Outras receitas dos estados". As prefeituras de todo o país ainda não estão no projeto.`;
+  }
+
+  // ---------- options
+  document.querySelectorAll('[data-opt]').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('[data-opt]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    document.querySelectorAll('[data-view]').forEach((v) => { v.hidden = v.dataset.view !== b.dataset.opt; });
+    if (b.dataset.opt === 'b') drawB();
+  }));
+  drawC(); drawA();
+  document.body.dataset.ready = '1';
+})();
+</script>
+</body>
+</html>

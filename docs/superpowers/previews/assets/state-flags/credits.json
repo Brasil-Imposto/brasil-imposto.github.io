@@ -1,0 +1,277 @@
+{
+ "collected_on": "2026-10-06",
+ "source": "Wikimedia Commons, the file named by the flag image property (P41) of each state or country item on Wikidata",
+ "check": "sha1 of every file equals the Commons file sha1 (checked 2026-10-06)",
+ "flags": [
+  {
+   "file": "AC.svg",
+   "commons_file": "Bandeira do Acre.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Acre.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Bandeira_do_Acre.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Public domainPublic domainfalsefalse\n\n\n\n\n\nThis work has been released into the public domain by its author, E2m. This ap",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "93a834dfb4a5719694d0347dede9eb4dc8cbdbef"
+  },
+  {
+   "file": "AL.svg",
+   "commons_file": "Bandeira de Alagoas.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Alagoas.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Bandeira_de_Alagoas.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Giro720",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "dcdc3aa25d05d63f0db1b25a531f9d6dac54ce47"
+  },
+  {
+   "file": "AM.svg",
+   "commons_file": "Bandeira do Amazonas.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Amazonas.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Bandeira_do_Amazonas.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "This work is in the public domain in Brazil for one of the following reasons:\nIt is a work published or commissioned by ",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "1c56cd6835424e5c7fdfdd4e552062033e999f52"
+  },
+  {
+   "file": "AP.svg",
+   "commons_file": "Bandeira do Amapá.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Amap%C3%A1.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bandeira_do_Amap%C3%A1.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "E2m",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "f1ae0e37700f4346b59e63b0e9c2233b01b3c6b0"
+  },
+  {
+   "file": "BA.svg",
+   "commons_file": "Bandeira da Bahia.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_da_Bahia.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Bandeira_da_Bahia.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Diocleciano Ramos",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "61b5c0d68cac22a08ac51b017ac5fe0b5f38848d"
+  },
+  {
+   "file": "CE.svg",
+   "commons_file": "Bandeira do Ceará.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Cear%C3%A1.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Bandeira_do_Cear%C3%A1.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Srfortes",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "c3f0eaf4acdcbeea6aeb2321e9cdb94d6d9b7bd1"
+  },
+  {
+   "file": "DF.svg",
+   "commons_file": "Bandeira do Distrito Federal (Brasil).svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Distrito_Federal_(Brasil).svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Bandeira_do_Distrito_Federal_%28Brasil%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Governo do Distrito Federal; [\nDecreto 1090 de 25/08/1969 Sem Revogação Expressa\n\n https://www.sinj.df.gov.br/sinj/Diari",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "dd66f1bad4dfb5426308f0982d7cd71637a55efe"
+  },
+  {
+   "file": "ES.svg",
+   "commons_file": "Bandeira do Espírito Santo.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Esp%C3%ADrito_Santo.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Bandeira_do_Esp%C3%ADrito_Santo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "SVG implementation by E2m",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "73cf8a674d9953136859bf6b654bbde0633b35aa"
+  },
+  {
+   "file": "GO.svg",
+   "commons_file": "Flag of Goiás.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Goi%C3%A1s.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Flag_of_Goi%C3%A1s.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": null,
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "35a6a461b0f5a5b06e8af2c960f57624fc077da1"
+  },
+  {
+   "file": "MA.svg",
+   "commons_file": "Bandeira do Maranhão.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Maranh%C3%A3o.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Bandeira_do_Maranh%C3%A3o.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "No machine-readable author provided. E2m assumed (based on copyright claims).",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "868fdd593bd64e5dde3524a64a8e31159fd98e57"
+  },
+  {
+   "file": "MG.svg",
+   "commons_file": "Bandeira de Minas Gerais.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Minas_Gerais.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Bandeira_de_Minas_Gerais.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Plovisanta",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "800a2472eae056e455bd2462744abe85d54bbb24"
+  },
+  {
+   "file": "MS.svg",
+   "commons_file": "Bandeira de Mato Grosso do Sul.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Mato_Grosso_do_Sul.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Bandeira_de_Mato_Grosso_do_Sul.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "E2m",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "46b127c756d8963e4d981da07eebb8cba164d498"
+  },
+  {
+   "file": "MT.svg",
+   "commons_file": "Bandeira de Mato Grosso.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Mato_Grosso.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Bandeira_de_Mato_Grosso.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "SVG implementation by E2m",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "682d12fe7591f15a5430bcc813c4a7f6db603e13"
+  },
+  {
+   "file": "PA.svg",
+   "commons_file": "Bandeira do Pará.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Par%C3%A1.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Bandeira_do_Par%C3%A1.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": null,
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "18e457c9aa636a7d6fb9029421b51f4d8eefee60"
+  },
+  {
+   "file": "PB.svg",
+   "commons_file": "Bandeira da Paraíba.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_da_Para%C3%ADba.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Bandeira_da_Para%C3%ADba.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "SVG implementation by E2m",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "b8d7ee80174096d2988065efad5d1aa8ac0b04bd"
+  },
+  {
+   "file": "PE.svg",
+   "commons_file": "Bandeira de Pernambuco.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Pernambuco.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Bandeira_de_Pernambuco.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Original: Revolução Pernambucana Vector:  SpinnerLaserzthe2nd, E2m, Pedro Alb Xavier",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "104454844f03cc26b5440d261fdc19db3008f27c"
+  },
+  {
+   "file": "PI.svg",
+   "commons_file": "Bandeira do Piauí.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Piau%C3%AD.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Bandeira_do_Piau%C3%AD.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "E2m, Giro720",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "87dfe5a6e94117b023f91b9d1c791ba4cbfd3888"
+  },
+  {
+   "file": "PR.svg",
+   "commons_file": "Bandeira do Paraná.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Paran%C3%A1.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Bandeira_do_Paran%C3%A1.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "FXXX",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "934b69e29bfdf74fb62a908d26454fdaf34c8b1d"
+  },
+  {
+   "file": "RJ.svg",
+   "commons_file": "Bandeira do estado do Rio de Janeiro.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_estado_do_Rio_de_Janeiro.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Bandeira_do_estado_do_Rio_de_Janeiro.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "FORTES",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "9cfa7425c481c6ed9ba5d032885b6d1737d4fadb"
+  },
+  {
+   "file": "RN.svg",
+   "commons_file": "Bandeira do Rio Grande do Norte.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Rio_Grande_do_Norte.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Bandeira_do_Rio_Grande_do_Norte.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Giro720",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "8c2ff29482851a3e6313063602fc1dde67563762"
+  },
+  {
+   "file": "RO.svg",
+   "commons_file": "Bandeira de Rondônia.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Rond%C3%B4nia.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Bandeira_de_Rond%C3%B4nia.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "E2m",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "b7614b134820a57e57e3a37a9500ce621f949f3f"
+  },
+  {
+   "file": "RR.svg",
+   "commons_file": "Bandeira de Roraima.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Roraima.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Bandeira_de_Roraima.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "E2m",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "28ae2643fa9265aebfebc9f1df631d9e35dc3622"
+  },
+  {
+   "file": "RS.svg",
+   "commons_file": "Bandeira do Rio Grande do Sul.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Rio_Grande_do_Sul.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Bandeira_do_Rio_Grande_do_Sul.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Srfortes",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "c4232638eb228a9ed2de21c35ba78f3bef8fd5ec"
+  },
+  {
+   "file": "SC.svg",
+   "commons_file": "Bandeira de Santa Catarina.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Santa_Catarina.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Bandeira_de_Santa_Catarina.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "OAlexander (talk) (colours from  Manual de Identidade Visual do Governo do Estado do Santa Catarina)",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "7c4c1a41634e0c713556dd861914762d9ff1c518"
+  },
+  {
+   "file": "SE.svg",
+   "commons_file": "Bandeira de Sergipe.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_de_Sergipe.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Bandeira_de_Sergipe.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "E2m",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "7561c532bab36c1f72beada7e04abeda79879591"
+  },
+  {
+   "file": "SP.svg",
+   "commons_file": "Bandeira do estado de São Paulo.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_estado_de_S%C3%A3o_Paulo.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Bandeira_do_estado_de_S%C3%A3o_Paulo.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Felipe Micaroni Lalli, Giro720",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "276370642a351fbb88e3c47bbf82348ecaf851e5"
+  },
+  {
+   "file": "TO.svg",
+   "commons_file": "Bandeira do Tocantins.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Bandeira_do_Tocantins.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Bandeira_do_Tocantins.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Own work",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "5c0b5472055fa0ba6e4e91c9fca44d49e2d25877"
+  }
+ ]
+}

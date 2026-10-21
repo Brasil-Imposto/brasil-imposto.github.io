@@ -1,0 +1,292 @@
+{
+ "collected_on": "2026-10-02",
+ "rule": "Ordem pelo valor de dinheiro público envolvido segundo achado ou ato oficial (STF, TCU, CGU, PF, MPF, AGU, Receita Federal, CPI ou CPMI com relatório aprovado, ou o ato oficial que gastou o dinheiro), o mesmo critério para qualquer governo e partido. Dinheiro privado fica separado e não conta para a ordem. Valor não confirmado em página oficial aberta vira null e o caso vai para o fim. Pessoas: só quem tem papel num documento oficial, com o ato; quem só foi citado ou é alvo de medida cautelar fica de fora, sem nome.",
+ "items": [
+  {
+   "id": "rapporteur-amendments-rp9",
+   "title": "Emendas de relator (RP 9), o \"orçamento secreto\"",
+   "period": {
+    "start": "2020-01-01",
+    "end": "2022-12-31"
+   },
+   "summary": "O STF declarou incompatíveis com a Constituição \"as práticas orçamentárias viabilizadoras do chamado 'esquema do orçamento secreto', consistentes no uso indevido das emendas do Relator-Geral do orçamento\" (ADPF 854, 19/12/2022). Segundo a ementa, \"o destino final dos recursos alocados sob a rubrica RP 9 (emendas do relator) acha-se recoberto por um manto de névoas\", com \"elevadas quantias (mais de R$ 53 bilhões entre 2020 e 2022) vinculadas a finalidades genéricas, vagas e ambíguas\". O valor é o dinheiro alocado pelo mecanismo julgado inconstitucional, não um prejuízo apurado.",
+   "public_money_brl": 53000000000,
+   "public_money_source": {
+    "body": "STF (Plenário)",
+    "document": "ADPF 854 (julgada com as ADPFs 850, 851 e 1.014), ementa do acórdão; texto lido no registro de legislação do Senado Federal",
+    "url": "https://legis.senado.leg.br/norma/36822451/publicacao/37033963",
+    "quote": "elevadas quantias (mais de R$ 53 bilhões entre 2020 e 2022) vinculadas a finalidades genéricas, vagas e ambíguas",
+    "date": "2022-12-19"
+   },
+   "private_money_brl": null,
+   "status": {
+    "text": "Julgado procedente em 19/12/2022 (6 a 5). A ADPF 854 segue em fase de execução sob a relatoria do ministro Flávio Dino, com decisões \"ad referendum do Plenário\" sobre transparência das emendas (nota do Senado com posição em 26/02/2025; não atualizada nesta pesquisa).",
+    "date": "2025-02-26",
+    "url": "https://www12.senado.leg.br/noticias/arquivos/2025/02/28/nota-informativa-decisoes-stf-versao-final.pdf"
+   },
+   "official_acts": [
+    {
+     "body": "STF",
+     "act": "Julgamento das ADPFs 850, 851, 854 e 1.014: práticas do \"orçamento secreto\" declaradas incompatíveis com a Constituição; ordem de publicar, em 90 dias, os dados das despesas RP 9 de 2020 a 2022 com \"solicitadores e beneficiários\"",
+     "date": "2022-12-19",
+     "url": "https://legis.senado.leg.br/norma/36822451/publicacao/37033963"
+    },
+    {
+     "body": "Senado Federal (Consultoria de Orçamentos)",
+     "act": "Nota Informativa \"Decisões do STF sobre emendas parlamentares (ADPF 854, ADI 7688, 7695, 7697)\", posição em 26/02/2025",
+     "date": "2025-02-27",
+     "url": "https://www12.senado.leg.br/noticias/arquivos/2025/02/28/nota-informativa-decisoes-stf-versao-final.pdf"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rosa Weber",
+     "role": "Ministra do STF, presidente e relatora",
+     "act": "Voto condutor no julgamento das ADPFs 850, 851, 854 e 1.014",
+     "url": "https://legis.senado.leg.br/norma/36822451/publicacao/37033963"
+    },
+    {
+     "name": "Flávio Dino",
+     "role": "Ministro do STF, relator da ADPF 854 depois de 2022",
+     "act": "Decisões de execução da ADPF 854, \"ad referendum do Plenário\"",
+     "url": "https://www12.senado.leg.br/noticias/arquivos/2025/02/28/nota-informativa-decisoes-stf-versao-final.pdf"
+    }
+   ],
+   "case_file": null,
+   "public_money_label": "distribuídos por emendas de relator, prática que o STF declarou inconstitucional",
+   "short_title": "Orçamento secreto (emendas RP 9)"
+  },
+  {
+   "id": "emergency-aid-improper-payments",
+   "title": "Pagamentos indevidos no Auxílio Emergencial",
+   "period": {
+    "start": "2020-04-01",
+    "end": "2021-10-31"
+   },
+   "summary": "O TCU acompanhou o Auxílio Emergencial e concluiu que ele \"foi tempestivo e alcançou trabalhadores sem renda formal, porém, os altos índices de pagamentos indevidos resultaram em desperdício de recursos públicos\". Comparando o público estimado pela PNAD Contínua com os beneficiários pagos, o Tribunal estimou que \"o montante em pagamentos indevidos de Auxílio Emergencial poderia chegar a R$ 45,7 bilhões, já considerando os cancelamentos realizados\". É uma estimativa estatística de erro de focalização (pessoas fora dos requisitos e cotas de mães chefes de família a mais), não um valor de fraude comprovada caso a caso.",
+   "public_money_brl": 45775508721.66,
+   "public_money_source": {
+    "body": "TCU (relator: ministro Bruno Dantas)",
+    "document": "Balanço da Fiscalização do Auxílio Emergencial (atualizado em set/2022), tabela \"Estimativa de pagamentos indevidos\"; a mesma estimativa consta do Acórdão 3.142/2021-Plenário, item 81",
+    "url": "https://portal.tcu.gov.br/data/files/4B/12/02/82/6CD33810B4FE0FF7E18818A8/00_cartilha_auxilio-emergencial_TCU_2022.pdf",
+    "quote": "A soma desses dois erros de focalização gerou um custo estimado de pagamentos indevidos de aproximadamente R$ 45,7 bilhões, já considerando os pagamentos interrompidos por ações de controle. [tabela] Total 45.775.508.721,66",
+    "date": "2022-09-01"
+   },
+   "private_money_brl": null,
+   "status": {
+    "text": "Acompanhamento do TCU concluído e arquivado pelo Acórdão 3.142/2021-Plenário (sessão de 15/12/2021), com determinações e recomendações. Valores já devolvidos à União: não levantados nesta pesquisa.",
+    "date": "2021-12-15",
+    "url": "https://portal.tcu.gov.br/data/files/05/E0/04/FC/B9D038102DFE0FF7F18818A8/062_acordao_tcu_3142_2021.pdf"
+   },
+   "official_acts": [
+    {
+     "body": "TCU",
+     "act": "Acórdão 2.282/2020-Plenário (TC 016.827/2020-1): determina ao Ministério da Cidadania verificação mensal de elegibilidade, \"cessando os pagamentos quando detectado descumprimento dos requisitos legais\"",
+     "date": "2020-08-26",
+     "url": "https://portal.tcu.gov.br/imprensa/noticias/tcu-determina-interrupcao-de-pagamentos-indevidos-do-auxilio-emergencial"
+    },
+    {
+     "body": "TCU",
+     "act": "Acórdão 3.142/2021-Plenário (sexta etapa do acompanhamento): registra a estimativa de R$ 45,7 bi e arquiva o processo",
+     "date": "2021-12-15",
+     "url": "https://portal.tcu.gov.br/data/files/05/E0/04/FC/B9D038102DFE0FF7F18818A8/062_acordao_tcu_3142_2021.pdf"
+    },
+    {
+     "body": "TCU",
+     "act": "Balanço da Fiscalização do Auxílio Emergencial: R$ 45,7 bi estimados e R$ 12,3 bi \"prevenidos\" com 4,9 milhões de benefícios cancelados por TCU, CGU, TCEs e CGEs",
+     "date": "2022-09-01",
+     "url": "https://portal.tcu.gov.br/data/files/4B/12/02/82/6CD33810B4FE0FF7E18818A8/00_cartilha_auxilio-emergencial_TCU_2022.pdf"
+    }
+   ],
+   "people": [
+    {
+     "name": "Bruno Dantas",
+     "role": "Ministro do TCU, relator do TC 016.827/2020-1",
+     "act": "Relator dos Acórdãos 2.282/2020 e 3.142/2021-Plenário",
+     "url": "https://portal.tcu.gov.br/data/files/05/E0/04/FC/B9D038102DFE0FF7F18818A8/062_acordao_tcu_3142_2021.pdf"
+    }
+   ],
+   "case_file": null,
+   "public_money_label": "pagos indevidamente, estimativa do TCU",
+   "short_title": "Auxílio Emergencial: pagamentos indevidos"
+  },
+  {
+   "id": "banco-master",
+   "title": "Banco Master e as operações com o BRB",
+   "period": {
+    "start": "2024-01-01",
+    "end": "2025-11-18"
+   },
+   "summary": "A PF deflagrou em 18/11/2025 a Operação Compliance Zero \"para investigar a possível fabricação de carteiras de crédito insubsistentes por uma instituição financeira\"; segundo a PF, \"tais títulos teriam sido vendidos a outro banco e, após fiscalização do Banco Central, substituídos por outros ativos sem avaliação técnica adequada\". O BRB, banco controlado pelo Distrito Federal, é alvo de Tomada de Contas Especial no TCDF, que decretou a indisponibilidade de bens de ex-dirigentes \"para resguardar eventual ressarcimento aos cofres públicos\" (23/09/2026). O BRB informou à CVM que tem ativos vindos de operações com o Master, com valor de referência de R$ 15 bi; segundo o banco, \"a quantificação definitiva dos prejuízos depende da conclusão dos trabalhos em curso e da divulgação das demonstrações financeiras correspondentes\" (24/08/2026). Os R$ 37,7 bi pagos pelo FGC são dinheiro privado e ficam fora.",
+   "public_money_brl": 15000000000,
+   "public_money_source": {
+    "body": "BRB",
+    "document": "Fato Relevante de 20/04/2026, no sistema da CVM",
+    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1506735&numSequencia=1031441&numVersao=1",
+    "quote": "A Operação possui valor de referência de R$ 15 bilhões",
+    "date": "2026-04-20"
+   },
+   "private_money_brl": null,
+   "status": {
+    "text": "Conglomerado em liquidação extrajudicial decretada pelo Banco Central em 18/11/2025 (ato do BC não aberto nesta pesquisa). Inquérito no STF (2ª fase da operação em 14/01/2026, com mandados expedidos pelo STF). No TCDF, processo convertido em Tomada de Contas Especial em 23/09/2026, com indisponibilidade cautelar de bens por um ano.",
+    "date": "2026-09-23",
+    "url": "https://www2.tc.df.gov.br/tcdf-determina-bloqueio-de-bens-de-ex-dirigentes-do-brb/"
+   },
+   "official_acts": [
+    {
+     "body": "Polícia Federal",
+     "act": "Operação Compliance Zero: 5 prisões preventivas, 2 temporárias e 25 buscas no DF, RJ, SP, BA e MG; investigação iniciada em 2024 \"após requisição do Ministério Público Federal\"",
+     "date": "2025-11-18",
+     "url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2025/11/policia-federal-combate-crimes-praticados-contra-o-sistema-financeiro-nacional"
+    },
+    {
+     "body": "Polícia Federal (mandados do STF)",
+     "act": "2ª fase da Operação Compliance Zero: 42 buscas e \"medidas de sequestro e bloqueio de bens e valores que superam R$ 5,7 bilhões\"",
+     "date": "2026-01-14",
+     "url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2026/01/policia-federal-deflagra-segunda-fase-da-operacao-compliance-zero"
+    },
+    {
+     "body": "TCDF",
+     "act": "Indisponibilidade cautelar de bens de ex-integrantes da alta administração do BRB por um ano e conversão do processo 00600-00003617/2025-75-e em Tomada de Contas Especial",
+     "date": "2026-09-23",
+     "url": "https://www2.tc.df.gov.br/tcdf-determina-bloqueio-de-bens-de-ex-dirigentes-do-brb/"
+    }
+   ],
+   "people": [],
+   "case_file": null,
+   "public_money_label": "ativos do BRB vindos do Master (valor de referência; é exposição, a perda ainda não foi calculada)",
+   "short_title": "Banco Master e BRB"
+  },
+  {
+   "id": "fuel-sector-tax-evasion-carbono-oculto",
+   "title": "Sonegação e lavagem no setor de combustíveis (Operação Carbono Oculto)",
+   "period": {
+    "start": "2020-01-01",
+    "end": "2025-08-28"
+   },
+   "summary": "Em 28/08/2025 a Receita Federal e órgãos parceiros deflagraram a Operação Carbono Oculto contra uma \"organização responsável por sonegação e lavagem de dinheiro no setor de combustíveis\". Segundo a Receita, cerca de 1.000 postos ligados ao grupo \"movimentaram R$ 52 bilhões entre 2020 e 2024\" e uma fintech \"atuava como 'banco paralelo' da organização criminosa, tendo movimentado mais de R$ 46 bilhões de 2020 a 2024\". O dinheiro público é o tributo lançado: a Receita \"já constituiu créditos tributários federais de um total de mais de R$ 8,67 bilhões\"; os valores movimentados não são dinheiro público.",
+   "public_money_brl": 8670000000,
+   "public_money_source": {
+    "body": "Receita Federal",
+    "document": "Notícia \"Operação Carbono Oculto: RFB e órgãos parceiros combatem organização responsável por sonegação e lavagem de dinheiro no setor de combustíveis\" (lida na cópia do Internet Archive de 28/08/2025)",
+    "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/agosto/operacao-carbono-oculto-rrb-e-orgaos-parceiros-combatem-organizacao-responsavel-por-sonegacao-e-lavagem-de-dinheiro-no-setor-de-combustiveis",
+    "quote": "A Receita Federal já constituiu créditos tributários federais de um total de mais de R$ 8,67 bilhões em pessoas e empresas integrantes do esquema.",
+    "date": "2025-08-28"
+   },
+   "private_money_brl": null,
+   "status": {
+    "text": "Operação deflagrada em 28/08/2025 com buscas em cerca de 350 alvos em oito estados; a PGFN pediu à Justiça o bloqueio de \"mais de R$ 1 bilhão em bens\". Situação posterior (denúncias, decisões) não levantada nesta pesquisa.",
+    "date": "2025-08-28",
+    "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/agosto/operacao-carbono-oculto-rrb-e-orgaos-parceiros-combatem-organizacao-responsavel-por-sonegacao-e-lavagem-de-dinheiro-no-setor-de-combustiveis"
+   },
+   "official_acts": [
+    {
+     "body": "Receita Federal e órgãos parceiros",
+     "act": "Deflagração da Operação Carbono Oculto; créditos tributários federais de mais de R$ 8,67 bi já constituídos",
+     "date": "2025-08-28",
+     "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/agosto/operacao-carbono-oculto-rrb-e-orgaos-parceiros-combatem-organizacao-responsavel-por-sonegacao-e-lavagem-de-dinheiro-no-setor-de-combustiveis"
+    },
+    {
+     "body": "PGFN",
+     "act": "Ações cíveis de bloqueio de \"mais de R$ 1 bilhão em bens dos envolvidos [...] para a garantia do crédito tributário\"",
+     "date": "2025-08-28",
+     "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/agosto/operacao-carbono-oculto-rrb-e-orgaos-parceiros-combatem-organizacao-responsavel-por-sonegacao-e-lavagem-de-dinheiro-no-setor-de-combustiveis"
+    }
+   ],
+   "people": [],
+   "case_file": null,
+   "public_money_label": "em impostos federais cobrados pela Receita",
+   "short_title": "Combustíveis: Operação Carbono Oculto"
+  },
+  {
+   "id": "inss-deductions",
+   "title": "Descontos associativos não autorizados em benefícios do INSS",
+   "period": {
+    "start": "2019-01-01",
+    "end": "2025-04-23"
+   },
+   "summary": "Segundo a CGU, acordos com o INSS \"permitiam que as entidades realizassem descontos de mensalidades associativas diretamente na folha de pagamento de aposentados e pensionistas do INSS, sem a autorização dos beneficiários\"; na amostra auditada, \"1.242 beneficiários entrevistados (97,6%) informaram não ter autorizado o desconto\". Os descontos (dinheiro dos aposentados, estimado em R$ 6,3 bi de 2019 a 2024) são privados; o dinheiro público é o que a União abriu para devolvê-los: R$ 3.859.824.545,00 em créditos extraordinários, dos quais R$ 3.654.802.192,32 pagos até setembro de 2026 (Portal da Transparência).",
+   "public_money_brl": 3859824545.0,
+   "public_money_source": {
+    "body": "Presidência da República",
+    "document": "Medidas Provisórias nº 1.306, de 16/07/2025 (R$ 3.312.824.545,00), e nº 1.378, de 20/07/2026 (R$ 547.000.000,00), ação 00XK \"Ressarcimento aos Beneficiários do Regime Geral de Previdência Social por Descontos Indevidos\"; soma dos dois atos",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1306.htm",
+    "quote": "Fica aberto crédito extraordinário, em favor do Ministério da Previdência Social, no valor de R$ 3.312.824.545,00 [...] (MP 1.306/2025); Fica aberto crédito extraordinário [...] no valor de R$ 547.000.000,00 (MP 1.378/2026)",
+    "date": "2026-07-20"
+   },
+   "private_money_brl": 6300000000,
+   "status": {
+    "text": "Devolução em curso pelo acordo homologado no STF (ADPF 1.236). CPMI encerrada em 28/03/2026 sem relatório final (parecer rejeitado). Nenhuma denúncia recebida nem condenação ligada ao caso encontrada em fonte oficial até 02/10/2026.",
+    "date": "2026-10-02",
+    "url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=7287062"
+   },
+   "official_acts": [
+    {
+     "body": "CGU e PF",
+     "act": "Relatório de Auditoria nº 1675291 e Operação Sem Desconto",
+     "date": "2025-04-23",
+     "url": "https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/fraude-no-inss-aposentados-e-pensionistas-tiveram-quase-r-6-3-bi-em-descontos-sem-autorizacao"
+    },
+    {
+     "body": "STF",
+     "act": "Homologação do Acordo Interinstitucional de ressarcimento (ADPF 1.236)",
+     "date": "2025-07-02",
+     "url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    },
+    {
+     "body": "Presidência da República",
+     "act": "MP nº 1.306/2025: crédito extraordinário de R$ 3.312.824.545,00",
+     "date": "2025-07-16",
+     "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1306.htm"
+    },
+    {
+     "body": "Presidência da República",
+     "act": "MP nº 1.378/2026: crédito extraordinário de R$ 547.000.000,00",
+     "date": "2026-07-20",
+     "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1378.htm"
+    },
+    {
+     "body": "TCU",
+     "act": "Acórdão 2.252/2026-Plenário: sobrestá contas de 2023 do Ministério da Previdência até o julgamento do TC 007.871/2025-2",
+     "date": "2026-08-25",
+     "url": "https://www.in.gov.br/web/dou/-/ata-n-32-de-25-de-agosto-de-2026-729951781"
+    }
+   ],
+   "people": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "role": "Presidente da República",
+     "act": "Assina as MPs nº 1.306/2025 e nº 1.378/2026 (créditos de ressarcimento)",
+     "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1306.htm"
+    },
+    {
+     "name": "Alessandro Antonio Stefanutto",
+     "role": "Presidente do INSS",
+     "act": "Exonerado pela Portaria Casa Civil nº 489, de 23/04/2025 (o ato não traz motivo)",
+     "url": "https://www.in.gov.br/web/dou/-/portaria-n-489-de-23-de-abril-de-2025-625461333"
+    },
+    {
+     "name": "Carlos Roberto Lupi",
+     "role": "Ministro da Previdência Social",
+     "act": "Exonerado a pedido, Decreto de 02/05/2025",
+     "url": "https://www.in.gov.br/web/dou/-/decretos-de-2-de-maio-de-2025-626969164"
+    },
+    {
+     "name": "Jorge Rodrigo Araújo Messias",
+     "role": "Advogado-Geral da União",
+     "act": "Assina o Acordo Interinstitucional pela União (ADPF 1.236)",
+     "url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    },
+    {
+     "name": "Dias Toffoli",
+     "role": "Ministro do STF, relator da ADPF 1.236",
+     "act": "Homologa o acordo de ressarcimento (02/07/2025)",
+     "url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    }
+   ],
+   "case_file": "data/cases/inss-deductions.json",
+   "public_money_label": "abertos pela União para devolver aos aposentados",
+   "short_title": "INSS: descontos não autorizados"
+  }
+ ]
+}

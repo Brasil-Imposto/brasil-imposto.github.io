@@ -1,0 +1,49 @@
+{
+ "title": "Situação de cada caso (D102)",
+ "rule": "Uma situação por caso, de uma fonte oficial datada; lida pela auditoria de 2026-10-06 (docs/research/audit/BRASIL-IMPOSTO_AUDIT_cases-scandals_2026-10-06.md).",
+ "cases": {
+  "ponte-hercilio-luz": {
+   "label": "Concluído",
+   "as_of": "2019-12-30",
+   "source_url": "https://www.sef.sc.gov.br/noticias/governo-lanca-projeto-viva-a-ponte-para-reabertura-historica-da-hercilio-luz",
+   "quote": "O dia 30 de dezembro será um marco para Santa Catarina",
+   "also": "https://alesc.sc.gov.br/agencia/noticia/reabertura-superou-anos-de-incerteza-sobre-a-recuperacao-da-ponte/ (28/04/2026): O fechamento se estendeu por 28 anos, até a reabertura em 2019."
+  },
+  "ete-insular": {
+   "label": "Em andamento",
+   "as_of": "2026-09-30",
+   "source_url": "https://transparencia.casan.com.br/data/download/4981/2",
+   "quote": "SES Insular - Ampliação ETE e Bacias D/F: Andamento; set/26; mar/28"
+  },
+  "cei-comasa-joinville": {
+   "label": "Concluído",
+   "as_of": "2025-03-07",
+   "source_url": "https://www.joinville.sc.gov.br/noticias/prefeitura-de-joinville-inaugura-primeiro-mega-centro-de-educacao-infantil-com-capacidade-para-ate-600-criancas/",
+   "quote": "inaugurou nesta sexta-feira (7) o novo Centro de Educação Infantil (CEI) Manoel Antônio da Rosa, no bairro Comasa"
+  },
+  "sc-401-terceira-faixa": {
+   "label": "Em andamento",
+   "as_of": "2026-10-06",
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=104411",
+   "quote": "CT-00014/2025: desituacao Andamento; dataterminoatual 2027-02-19"
+  },
+  "br-470-duplicacao": {
+   "label": "Em andamento",
+   "as_of": "2026-09-28",
+   "source_url": "https://contratos.comprasnet.gov.br/api/contrato/80873/historico",
+   "quote": "Termo aditivo de 28/09/2026, lote 4 (00603/2013): vigencia_fim 2027-11-04"
+  },
+  "florianopolis-bypass": {
+   "label": "Concluído",
+   "as_of": "2024-08-09",
+   "source_url": "https://www.gov.br/antt/pt-br/assuntos/ultimas-noticias/maior-obra-de-infraestrutura-terrestre-da-america-latina-sera-inaugurada-em-santa-catarina-nesta-sexta-feira-9-8",
+   "quote": "inauguração do Contorno Viário da Grande Florianópolis na sexta-feira 9/8"
+  },
+  "sp-monotrilho-linha-17": {
+   "label": "Em andamento",
+   "as_of": "2026-09-29",
+   "source_url": "https://www.metro.sp.gov.br/2026/09/29/metro-amplia-horario-da-linha-17-ouro-a-partir-desta-quarta-feira-30/",
+   "quote": "A linha continuará em operação transitória, sem cobrança de tarifa."
+  }
+ }
+}

@@ -1,0 +1,167 @@
+{
+ "uf": "PB",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "João Azevêdo",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Lígia Feliciano",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governador",
+   "name": "João Azevêdo",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-04-02",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "renúncia e posse do sucessor",
+     "url": "https://web.archive.org/web/2026/https://auniao.pb.gov.br/noticias/caderno_politicas/lucas-ribeiro-assume-governo-da-pb",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Jornal A União (governo da Paraíba), publicado em 03/04/2026: 'Desde a tarde de ontem, a Paraíba conta com um novo governador [...] após a renúncia do ex-governador João Azevêdo'. Página original suspensa no período eleitoral; lida na cópia do Internet Archive."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Lucas Ribeiro",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-04-02",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "assumiu o cargo de governador",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "posse como governador",
+     "url": "https://web.archive.org/web/2026/https://auniao.pb.gov.br/noticias/caderno_politicas/lucas-ribeiro-assume-governo-da-pb",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governador",
+   "name": "Lucas Ribeiro",
+   "full_name": null,
+   "kind": "vice no cargo de titular",
+   "start": "2026-04-02",
+   "end": null,
+   "start_reason": "renúncia do titular",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "posse como governador",
+     "url": "https://web.archive.org/web/2026/https://auniao.pb.gov.br/noticias/caderno_politicas/lucas-ribeiro-assume-governo-da-pb",
+     "type": "oficial"
+    },
+    {
+     "fact": "partido na eleição de 2022",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Jornal A União (governo da Paraíba), publicado em 03/04/2026: 'Desde a tarde de ontem, a Paraíba conta com um novo governador [...] após a renúncia do ex-governador João Azevêdo'. Página original suspensa no período eleitoral; lida na cópia do Internet Archive."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2026-04-02",
+   "end": null,
+   "start_reason": "o vice-governador assumiu o cargo de governador",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "posse como governador",
+     "url": "https://web.archive.org/web/2026/https://auniao.pb.gov.br/noticias/caderno_politicas/lucas-ribeiro-assume-governo-da-pb",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  }
+ ],
+ "gaps": []
+}

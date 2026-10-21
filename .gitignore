@@ -1,0 +1,34 @@
+# caches and raw downloads: rebuilt by the pipelines (data/scripts/, docs/superpowers/tools/)
+**/cache/
+data/federal/raw/
+data/federal/raw-pay/
+data/ug/*.csv
+data/ug/*.pdf
+data/df/*.csv
+data/df/*.xlsx
+data/ledger/ledger.duckdb
+data/ledger/ledger.duckdb.wal
+# preview packages rebuilt by docs/superpowers/tools/ (build-cases.py, build-standalone-data.py)
+docs/superpowers/previews/assets/bi-data.js
+docs/superpowers/previews/assets/bi-geo*.js
+docs/superpowers/previews/assets/cases.json
+# material that is not published (D54, D97)
+private/
+# environment
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+.DS_Store
+# the author's working notes, kept local: agent notes, the grill, the session tracker, internal audits
+CLAUDE.md
+docs/BRASIL-IMPOSTO_GRILL_*
+docs/BRASIL-IMPOSTO_STATUS_*
+docs/research/audit/
+# only the latest preview of each page is published (D97); the builders' own sources stay
+docs/superpowers/previews/*.html
+!docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_hero-mapa-3d-round-2_2026-09-29.html
+!docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_home-simulacao_2026-09-29.html
+!docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html
+!docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html
+!docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html

@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;padding:16px;font:700 14px system-ui;background:#fff;display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
+div{display:flex;flex-direction:column;align-items:center;gap:4px} img{width:150px;height:100px;object-fit:contain;border:1px solid #ccc;background:#f6f6f6}
+</style></head><body><script>
+const dir = new URLSearchParams(location.search).get('dir') || '../previews/assets/state-flags/';
+const list = (new URLSearchParams(location.search).get('list') || 'AC,AL,AP,AM,BA,CE,DF,ES,GO,MA,MT,MS,MG,PA,PB,PR,PE,PI,RJ,RN,RS,RO,RR,SC,SP,SE,TO').split(',');
+for (const k of list) document.write(`<div><img src="${dir}${k}.svg"><span>${k}</span></div>`);
+</script></body></html>

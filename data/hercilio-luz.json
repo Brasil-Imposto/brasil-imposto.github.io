@@ -1,0 +1,2100 @@
+{
+ "work": "Restauração da Ponte Hercílio Luz (Florianópolis, SC)",
+ "collected_on": "2026-09-29",
+ "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_ponte-hercilio-luz-responsaveis_2026-09-29.md",
+ "rules": "Somente papéis e achados oficiais, com as palavras do órgão. Nenhuma inferência de irregularidade. Valores nominais, com fonte e data de coleta. Somas marcadas como computed/calculated são desta pesquisa.",
+ "contracts_totals_computed": {
+  "restoration_2006_2019_count": 13,
+  "value_original_brl": 465106951.83,
+  "value_current_brl": 484645236.82
+ },
+ "contracts": [
+  {
+   "number": "PJ-00170/2006",
+   "group": "restoration_2006_2019",
+   "object": "Execução de serviços de gerenciamento, coordenação, supervisão, controle de qualidade e apoio a fiscalização das obras de reabilitação da Ponte Hercílio Luz em Florianópolis,",
+   "contractor_name_in_record": "CONCREMAT ENG. E TECNOLOGIA S.A.",
+   "contractor_cnpj": "33146648000391",
+   "managing_unit": {
+    "code": "530025",
+    "name": "Departamento Estadual de Infraestrutura"
+   },
+   "signed_on": "2006-08-25",
+   "start": "2006-08-29",
+   "end_original": "2010-04-29",
+   "end_current": "2015-02-28",
+   "value_original_brl": 3924487.59,
+   "value_current_brl": 6106108.74,
+   "value_amended_sicop_brl": 3850032.21,
+   "status_in_record": "Rescindido",
+   "process_sgpe": null,
+   "sicop_inspector_field_raw": "ANTÔNIO CARLOS XAVIER; CASSIO PEREIRA DE MAGALHÃES; CELSO DE MAGALHÃES CARVALHO; LAÉRCIO OSVALDO MARTINS; SEBASTIÃO FLORENTINO DE ALMEIDA REZENDE; WENCESLAU JERONIMO DIOTALLEVY; YVAN MOREIRA DE LIMA",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   },
+   "note": "Uma linha por empresa do Consórcio Prosul-Concremat (TCE-SC, Relatório DLC 462/2012, item 2.7). Valor inicial do contrato segundo o TCE-SC: R$ 9.811.282,66 (soma das duas linhas)."
+  },
+  {
+   "number": "PJ-00170/2006/PROSUL",
+   "group": "restoration_2006_2019",
+   "object": "Execução de serviços de gerenciamento, coordenação, supervisão, controle de qualidade e apoio a fiscalização das obras de reabilitação da Ponte Hercílio Luz em Florianópolis,",
+   "contractor_name_in_record": "PROSUL - Proj., Superv. e Planejamento Ltda",
+   "contractor_cnpj": "80996861000100",
+   "managing_unit": {
+    "code": "530025",
+    "name": "Departamento Estadual de Infraestrutura"
+   },
+   "signed_on": "2006-08-25",
+   "start": "2006-08-29",
+   "end_original": "2010-04-29",
+   "end_current": "2015-02-28",
+   "value_original_brl": 5886795.07,
+   "value_current_brl": 9160234.18,
+   "value_amended_sicop_brl": 5775012.23,
+   "status_in_record": "Rescindido",
+   "process_sgpe": null,
+   "sicop_inspector_field_raw": "ANTÔNIO CARLOS XAVIER; CASSIO PEREIRA DE MAGALHÃES; CELSO DE MAGALHÃES CARVALHO; LAÉRCIO OSVALDO MARTINS; SEBASTIÃO FLORENTINO DE ALMEIDA REZENDE; WENCESLAU JERONIMO DIOTALLEVY; YVAN MOREIRA DE LIMA",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   },
+   "note": "Uma linha por empresa do Consórcio Prosul-Concremat (TCE-SC, Relatório DLC 462/2012, item 2.7). Valor inicial do contrato segundo o TCE-SC: R$ 9.811.282,66 (soma das duas linhas)."
+  },
+  {
+   "number": "PJ-00264/2008",
+   "group": "restoration_2006_2019",
+   "object": "Execução dos Serviços de Restauração e Reabilitação da Ponte Hercílio Luz.",
+   "contractor_name_in_record": "Consórcio Florianópolis Monumento",
+   "contractor_cnpj": "10769406000197",
+   "managing_unit": {
+    "code": "530025",
+    "name": "Departamento Estadual de Infraestrutura"
+   },
+   "signed_on": "2008-11-27",
+   "start": "2008-12-01",
+   "end_original": "2012-05-14",
+   "end_current": "2014-12-31",
+   "value_original_brl": 154879651.29,
+   "value_current_brl": 63008872.09,
+   "value_amended_sicop_brl": 8538712.29,
+   "status_in_record": "Rescindido",
+   "process_sgpe": null,
+   "sicop_inspector_field_raw": "ANTÔNIO CARLOS XAVIER; CASSIO PEREIRA DE MAGALHÃES; CELSO DE MAGALHÃES CARVALHO; GLEISON LEMOS; LAÉRCIO OSVALDO MARTINS; PAULO NEY ALMEIDA; PAULO ROBERTO BORIO SCHUBERT; SEBASTIÃO FLORENTINO DE ALMEIDA REZENDE; WENCESLAU JERONIMO DIOTALLEVY; YVAN MOREIRA DE LIMA",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   },
+   "signing": {
+    "state_signatory": "Romualdo Theophanes de França Júnior",
+    "state_signatory_text": "Sr. Romualdo Theophanes de França Júnior pelo DEINFRA",
+    "contractor_signatories": [
+     "Paulo Ney Almeida"
+    ],
+    "contractor_signatory_text": "o Sr. Paulo Ney Almeida, pelo consórcio",
+    "act": "Extrato de Termo de Contrato PJ.264/2008 (Florianópolis, 27.11.2008)",
+    "source": {
+     "doc": "DOE-SC nº 18.501, 2008-12-02, página 462 (cópia do Arquivo Público do Estado)",
+     "url": "https://acervo.arquivopublico.sc.gov.br/uploads/r/arquivo-publico-do-estado-de-santa-catarina-apesc/2/0/a/20aeb6bb94c901d551291669cdafd8ffcc4666ee096d1c9a171a01ac460b213f/f834b399-2a11-48ee-a8d5-ae5064bc61a3-14634-DOE_18501_02_12_2008_484F.pdf"
+    }
+   }
+  },
+  {
+   "number": "PJ-00204/2014",
+   "group": "restoration_2006_2019",
+   "object": "Elaboração de Projetos Complementares para a Execução da Restauração e Reabilitação da Ponte Hercílio Luz.",
+   "contractor_name_in_record": "RMG ENGENHARIA S/C LTDA.",
+   "contractor_cnpj": "38738381000183",
+   "managing_unit": {
+    "code": "530025",
+    "name": "Departamento Estadual de Infraestrutura"
+   },
+   "signed_on": "2014-11-14",
+   "start": "2015-02-09",
+   "end_original": "2015-08-08",
+   "end_current": "2015-08-08",
+   "value_original_brl": 1951820.02,
+   "value_current_brl": 1951820.02,
+   "value_amended_sicop_brl": 0.0,
+   "status_in_record": "Concluído",
+   "process_sgpe": "20370/2014",
+   "sicop_inspector_field_raw": "JURN JEWE HERMANN MAERTENS; WENCESLAU JERONIMO DIOTALLEVY",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "number": "PJ-00012/2015",
+   "group": "restoration_2006_2019",
+   "object": "Execução dos Serviços de Conclusão das Estruturas de Sustentação Inferior da Ponte Hercílio Luz.",
+   "contractor_name_in_record": "EMPA SA SERVIÇOS DE ENGENHARIA",
+   "contractor_cnpj": "17159856000107",
+   "managing_unit": {
+    "code": "530025",
+    "name": "Departamento Estadual de Infraestrutura"
+   },
+   "signed_on": "2015-02-25",
+   "start": "2015-04-07",
+   "end_original": "2015-10-04",
+   "end_current": "2015-10-04",
+   "value_original_brl": 10357290.64,
+   "value_current_brl": 12941168.93,
+   "value_amended_sicop_brl": 2583878.29,
+   "status_in_record": "Concluído",
+   "process_sgpe": "20369/2014",
+   "sicop_inspector_field_raw": "EDUARDO JOSÉ DOS SANTOS; WENCESLAU JERONIMO DIOTALLEVY",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   },
+   "signing": {
+    "state_signatory": "Wanderley Teodoro Agostini",
+    "state_signatory_text": "Wanderley Teodoro Agostini, pelo DEINFRA",
+    "contractor_signatories": [
+     "João Pedro Carrilho Calado",
+     "José Luís Batista Silva"
+    ],
+    "contractor_signatory_text": "os Srs. João Pedro Carrilho Calado e José Luís Batista Silva, pela contratada",
+    "act": "Dispensa de Licitação nº 002/2015, PJ. 012/2015 (Florianópolis, 25.02.2015)",
+    "source": {
+     "doc": "DOE-SC nº 20.010, 2015-02-27, página 321",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2015/20150227/Jornal/1129.pdf"
+    }
+   }
+  },
+  {
+   "number": "PJ-00143/2015",
+   "group": "restoration_2006_2019",
+   "object": "Execução dos Serviços de Montagem da Complementação da Treliça Espacial de Sustentação Provisória da Ponte Hercílio Luz.",
+   "contractor_name_in_record": "EMPA SA SERVIÇOS DE ENGENHARIA",
+   "contractor_cnpj": "17159856000107",
+   "managing_unit": {
+    "code": "530025",
+    "name": "Departamento Estadual de Infraestrutura"
+   },
+   "signed_on": "2015-10-02",
+   "start": "2015-10-06",
+   "end_original": "2016-04-03",
+   "end_current": "2016-04-03",
+   "value_original_brl": 11400601.42,
+   "value_current_brl": 11400601.42,
+   "value_amended_sicop_brl": 0.0,
+   "status_in_record": "Concluído",
+   "process_sgpe": "19225/2015",
+   "sicop_inspector_field_raw": "EDUARDO JOSÉ DOS SANTOS; WENCESLAU JERONIMO DIOTALLEVY",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "number": "PJ-00001/2016/FARES",
+   "group": "restoration_2006_2019",
+   "object": "Assessoramentoao DEINFRA na Atualização do Orçamento Referencial das Obras de Restauração e Recuperação da Ponte Hercílio Luz em Florianópolis,",
+   "contractor_name_in_record": "Fares & Associados Engenharia Ltda.",
+   "contractor_cnpj": "52573623000157",
+   "managing_unit": {
+    "code": "530025",
+    "name": "Departamento Estadual de Infraestrutura"
+   },
+   "signed_on": "2016-01-04",
+   "start": "2016-01-12",
+   "end_original": "2016-02-11",
+   "end_current": "2016-02-11",
+   "value_original_brl": 137482.95,
+   "value_current_brl": 137482.95,
+   "value_amended_sicop_brl": 0.0,
+   "status_in_record": "Concluído",
+   "process_sgpe": "25291/2015",
+   "sicop_inspector_field_raw": "MARCIO DE MELLO FREIRE; WENCESLAU JERONIMO DIOTALLEVY",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "number": "PJ-00056/2016",
+   "group": "restoration_2006_2019",
+   "object": "Serviços de execução das obras de restauração e reabilitação da Ponte Hercílio Luz.",
+   "contractor_name_in_record": "TEIXEIRA DUARTE - Engenharia e Construções S.A.",
+   "contractor_cnpj": "24447770000145",
+   "managing_unit": {
+    "code": "530001",
+    "name": "Departamento Estadual de Infraestrutura"
+   },
+   "signed_on": "2016-03-10",
+   "start": "2016-04-18",
+   "end_original": "2018-10-18",
+   "end_current": "2021-01-18",
+   "value_original_brl": 262925435.21,
+   "value_current_brl": 363824397.74,
+   "value_amended_sicop_brl": 76636502.88,
+   "status_in_record": "Concluído",
+   "process_sgpe": "23131/2015",
+   "sicop_inspector_field_raw": "JOSÉ ABEL DA SILVA; JOÃO NOGUEIRA MOTTA; JOÃO PEDRO CARRILHO CALADO ANTUNES LOPES; PAULO CESAR SA DE CARVALHO; WENCESLAU JERONIMO DIOTALLEVY",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   },
+   "signing": {
+    "state_signatory": "Wanderley Teodoro Agostini",
+    "state_signatory_text": "Wanderley Teodoro Agostini, pelo DEINFRA",
+    "contractor_signatories": [
+     "José Luís Batista Silva",
+     "João Pedro Carrilho Calado Antunes Lopes"
+    ],
+    "contractor_signatory_text": "o Sr. José Luís Batista Silva e João Pedro Carrilho Calado Antunes Lopes, pela contratada",
+    "act": "Dispensa de Licitação nº 001/2016, PJ. 056/2016 (Florianópolis, 10.03.2016); fundamentação impressa: Artigo 24, inciso XV da Lei nº 8.663 [sic]",
+    "source": {
+     "doc": "DOE-SC nº 20.283, 2016-04-25, página 21",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2016/20160425/Jornal/1406.pdf"
+    }
+   },
+   "note": "Unidade gestora 530001 no registro, unidade fiscalizadora 530025 (DEINFRA). Aprovação da dispensa: Resolução CA nº 0049/2016 do DEINFRA (DOE-SC nº 20.260). Fiscais designados pela Portaria DEINFRA nº 103/2016 (DOE-SC nº 20.278)."
+  },
+  {
+   "number": "PJ-00093/2016",
+   "group": "restoration_2006_2019",
+   "object": "Assessoramento ao DEINFRA no Monitoramento e Supervisão Técnica das Obras de Restauração e Recuperação da Ponte Hercílio Luz em Florianópolis,",
+   "contractor_name_in_record": "RMG ENGENHARIA S/C LTDA.",
+   "contractor_cnpj": "38738381000183",
+   "managing_unit": {
+    "code": "530025",
+    "name": "Departamento Estadual de Infraestrutura"
+   },
+   "signed_on": "2016-05-18",
+   "start": "2016-05-24",
+   "end_original": "2019-05-24",
+   "end_current": "2019-06-28",
+   "value_original_brl": 8582938.87,
+   "value_current_brl": 11110051.81,
+   "value_amended_sicop_brl": 2143681.19,
+   "status_in_record": "Concluído",
+   "process_sgpe": "10782/2015",
+   "sicop_inspector_field_raw": "JOSÉ ABEL DA SILVA; JOÃO NOGUEIRA MOTTA; WENCESLAU JERONIMO DIOTALLEVY",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "number": "PJ-00009/2019",
+   "group": "restoration_2006_2019",
+   "object": "Execução dos Serviços Emergenciais de Substituição/Reforço das Estruturas de Sustentação Provisória (ESP) Inferior da Ponte Hercílio Luz.",
+   "contractor_name_in_record": "TEIXEIRA DUARTE - Engenharia e Construções S.A.",
+   "contractor_cnpj": "24447770000145",
+   "managing_unit": {
+    "code": "530025",
+    "name": "Departamento Estadual de Infraestrutura"
+   },
+   "signed_on": "2019-02-20",
+   "start": "2019-02-27",
+   "end_original": "2019-05-28",
+   "end_current": "2019-05-28",
+   "value_original_brl": 3156151.79,
+   "value_current_brl": 3156151.79,
+   "value_amended_sicop_brl": 0.0,
+   "status_in_record": "Concluído",
+   "process_sgpe": "26336/2018",
+   "sicop_inspector_field_raw": "JOSÉ ABEL DA SILVA; JOÃO NOGUEIRA MOTTA; JOÃO PEDRO CARRILHO CALADO ANTUNES LOPES",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "number": "CT-00006/2019",
+   "group": "restoration_2006_2019",
+   "object": "Assessoramento ao DEINFRA no Monitoramento e Supervisão Técnica das Obras de Restauração e Recuperação da Ponte Hercílio Luz em Florianópolis,",
+   "contractor_name_in_record": "RMG ENGENHARIA S/C LTDA.",
+   "contractor_cnpj": "38738381000183",
+   "managing_unit": {
+    "code": "530001",
+    "name": "Departamento Estadual de Infraestrutura"
+   },
+   "signed_on": "2019-07-04",
+   "start": "2019-07-19",
+   "end_original": "2020-05-25",
+   "end_current": "2021-01-19",
+   "value_original_brl": 1773434.13,
+   "value_current_brl": 1717146.84,
+   "value_amended_sicop_brl": 0.0,
+   "status_in_record": "Concluído",
+   "process_sgpe": "1051/2019",
+   "sicop_inspector_field_raw": "JOSÉ ABEL DA SILVA; JOÃO NOGUEIRA MOTTA",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "number": "PJ-00060/2019",
+   "group": "restoration_2006_2019",
+   "object": "Serviços de Monitoramento Arqueológico e Educacional nas Obras de Restauração e Reabilitação da Ponte Hercílio Luz.",
+   "contractor_name_in_record": "GEOARQUEOLOGIA Pesquisa Científica Ltda - ME",
+   "contractor_cnpj": "01956161000116",
+   "managing_unit": {
+    "code": "530001",
+    "name": "Secretaria de Estado da Infraestrutura e Mobilidade"
+   },
+   "signed_on": "2019-07-08",
+   "start": "2019-07-19",
+   "end_original": "2020-07-19",
+   "end_current": "2020-07-19",
+   "value_original_brl": 95862.85,
+   "value_current_brl": 96200.31,
+   "value_amended_sicop_brl": 0.0,
+   "status_in_record": "Andamento",
+   "process_sgpe": "12859/2018",
+   "sicop_inspector_field_raw": "JOSÉ ABEL DA SILVA; OSVALDO PAULINO DA SILVA",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "number": "CT-00026/2019",
+   "group": "restoration_2006_2019",
+   "object": "Execução dos projetos executivos das instalações elétricas, subestação, de iluminação pública viária, iluminação decorativa e de proteção contra descargas atmosféricas da Ponte Hercílio Luz.",
+   "contractor_name_in_record": "SDF Engenharia EIRELI",
+   "contractor_cnpj": "24055348000144",
+   "managing_unit": {
+    "code": "530001",
+    "name": "Secretaria de Estado da Infraestrutura e Mobilidade"
+   },
+   "signed_on": "2019-09-25",
+   "start": "2019-09-25",
+   "end_original": "2019-10-25",
+   "end_current": "2019-10-25",
+   "value_original_brl": 35000.0,
+   "value_current_brl": 35000.0,
+   "value_amended_sicop_brl": 0.0,
+   "status_in_record": "Concluído",
+   "process_sgpe": "8415/2019",
+   "sicop_inspector_field_raw": "DARCIONI GOMES; JOSÉ ABEL DA SILVA",
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "number": "DL-00001/2618-2019",
+   "group": "related_record_outside_original_filter",
+   "object": "Para pagamento realizado na supervisão da PHL e que não estava no escopo do Contrato PJ 093/2016",
+   "contractor_name_in_record": "RMG ENGENHARIA S/C LTDA.",
+   "contractor_cnpj": "38738381000183",
+   "managing_unit": {
+    "code": "530001",
+    "name": "Secretaria de Estado da Infraestrutura e Mobilidade"
+   },
+   "signed_on": "2019-10-01",
+   "start": "2019-10-01",
+   "end_original": "2019-11-30",
+   "end_current": "2019-11-30",
+   "value_original_brl": 1451313.01,
+   "value_current_brl": 1451313.01,
+   "value_amended_sicop_brl": 0.0,
+   "status_in_record": "Concluído",
+   "process_sgpe": "2618/2019",
+   "sicop_inspector_field_raw": null,
+   "sicop_inspector_field_warning": "Campo NMFISCAL ('Nome do Fiscal do Contrato'). Mistura nomes do Estado e da contratada; não usar como lista de servidores.",
+   "source": {
+    "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, dados.sc.gov.br",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+    "collected_on": "2026-09-29"
+   },
+   "note": "Não entrou no filtro original porque o texto diz 'PHL'. Citado pelo TCE-SC na Decisão 928/2025."
+  }
+ ],
+ "companies": [
+  {
+   "cnpj": "01956161000116",
+   "legal_name": "GEOARQUEOLOGIA PESQUISA CIENTIFICA LTDA",
+   "trade_name": "GEOARQUEOLOGIA",
+   "legal_nature": "Sociedade Empresária Limitada",
+   "city": "FLORIANOPOLIS/SC",
+   "registration_status": "ATIVA",
+   "registration_status_date": "2001-02-25",
+   "head_or_branch": "MATRIZ",
+   "contracts": [
+    "PJ-00060/2019"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, release 2026-09, lida via espelho minhareceita.org (servidor oficial inacessível do exterior)",
+    "url": "https://minhareceita.org/01956161000116",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "cnpj": "10769406000197",
+   "legal_name": "CONSORCIO FLORIANOPOLIS MONUMENTO",
+   "trade_name": "CONSORCIO FLORIANOPOLIS MONUMENTO",
+   "legal_nature": "Consórcio de Sociedades",
+   "city": "FLORIANOPOLIS/SC",
+   "registration_status": "ATIVA",
+   "registration_status_date": "2009-04-16",
+   "head_or_branch": "MATRIZ",
+   "contracts": [
+    "PJ-00264/2008"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, release 2026-09, lida via espelho minhareceita.org (servidor oficial inacessível do exterior)",
+    "url": "https://minhareceita.org/10769406000197",
+    "collected_on": "2026-09-29"
+   },
+   "consortium_members_receita": [
+    {
+     "name": "CASTOR CONSTRUTORA E INCORPORADORA LTDA",
+     "qualification": "Sociedade Consorciada",
+     "since": "2009-04-16"
+    },
+    {
+     "name": "CSA GERENCIAMENTO LTDA.",
+     "qualification": "Sociedade Consorciada",
+     "since": "2009-04-16"
+    }
+   ],
+   "consortium_members_tce_2012": {
+    "text": "O primeiro, denominado Florianópolis Monumento, formado pelas empresas CSA Group Inc. e Construtora Espaço Aberto Ltda.",
+    "context": "Composição na licitação de 2008; o mesmo relatório diz que o Segundo Termo Aditivo, de 19/06/2009, 'alterou o CNPJ do Consórcio'.",
+    "source": {
+     "doc": "TCE-SC, Relatório DLC 462/2012, itens 2.5 e 2.6",
+     "url": "http://consulta.tce.sc.gov.br/relatoriosdecisao/relatoriotecnico/3728501.PDF"
+    }
+   },
+   "member_cnpjs": {
+    "CASTOR CONSTRUTORA E INCORPORADORA LTDA": "76601343000173",
+    "CSA GERENCIAMENTO LTDA.": "10680332000118"
+   }
+  },
+  {
+   "cnpj": "17159856000107",
+   "legal_name": "EMPA S/A SERVICOS DE ENGENHARIA",
+   "trade_name": "TEIXEIRA DUARTE - ENGENHARIA E CONSTRUCOES",
+   "legal_nature": "Sociedade Anônima Fechada",
+   "city": "SAO PAULO/SP",
+   "registration_status": "ATIVA",
+   "registration_status_date": "2005-11-03",
+   "head_or_branch": "MATRIZ",
+   "contracts": [
+    "PJ-00012/2015",
+    "PJ-00143/2015"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, release 2026-09, lida via espelho minhareceita.org (servidor oficial inacessível do exterior)",
+    "url": "https://minhareceita.org/17159856000107",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "cnpj": "24055348000144",
+   "legal_name": "SDF ENGENHARIA LTDA",
+   "trade_name": "SDF ENGENHARIA",
+   "legal_nature": "Sociedade Empresária Limitada",
+   "city": "SIDEROPOLIS/SC",
+   "registration_status": "ATIVA",
+   "registration_status_date": "2016-01-26",
+   "head_or_branch": "MATRIZ",
+   "contracts": [
+    "CT-00026/2019"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, release 2026-09, lida via espelho minhareceita.org (servidor oficial inacessível do exterior)",
+    "url": "https://minhareceita.org/24055348000144",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "cnpj": "24447770000145",
+   "legal_name": "TEIXEIRA DUARTE - ENGENHARIA E CONSTRUCOES, S.A.",
+   "trade_name": null,
+   "legal_nature": "Estabelecimento, no Brasil, de Sociedade Estrangeira",
+   "city": "SAO PAULO/SP",
+   "registration_status": "ATIVA",
+   "registration_status_date": "2016-03-23",
+   "head_or_branch": "MATRIZ",
+   "contracts": [
+    "PJ-00056/2016",
+    "PJ-00009/2019"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, release 2026-09, lida via espelho minhareceita.org (servidor oficial inacessível do exterior)",
+    "url": "https://minhareceita.org/24447770000145",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "cnpj": "33146648000391",
+   "legal_name": "CONCREMAT ENGENHARIA E TECNOLOGIA S/A",
+   "trade_name": null,
+   "legal_nature": "Sociedade Anônima Fechada",
+   "city": "SAO PAULO/SP",
+   "registration_status": "ATIVA",
+   "registration_status_date": "2005-11-03",
+   "head_or_branch": "FILIAL",
+   "contracts": [
+    "PJ-00170/2006"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, release 2026-09, lida via espelho minhareceita.org (servidor oficial inacessível do exterior)",
+    "url": "https://minhareceita.org/33146648000391",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "cnpj": "38738381000183",
+   "legal_name": "RMG - ENGENHARIA S/C LTDA",
+   "trade_name": "RMG ENGENHARIA",
+   "legal_nature": "Sociedade Simples Limitada",
+   "city": "BELO HORIZONTE/MG",
+   "registration_status": "ATIVA",
+   "registration_status_date": "2005-11-03",
+   "head_or_branch": "MATRIZ",
+   "contracts": [
+    "PJ-00204/2014",
+    "PJ-00093/2016",
+    "CT-00006/2019",
+    "DL-00001/2618-2019"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, release 2026-09, lida via espelho minhareceita.org (servidor oficial inacessível do exterior)",
+    "url": "https://minhareceita.org/38738381000183",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "cnpj": "52573623000157",
+   "legal_name": "FARES & ASSOCIADOS ENGENHARIA LTDA",
+   "trade_name": null,
+   "legal_nature": "Sociedade Empresária Limitada",
+   "city": "SAO PAULO/SP",
+   "registration_status": "ATIVA",
+   "registration_status_date": "2002-11-16",
+   "head_or_branch": "MATRIZ",
+   "contracts": [
+    "PJ-00001/2016/FARES"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, release 2026-09, lida via espelho minhareceita.org (servidor oficial inacessível do exterior)",
+    "url": "https://minhareceita.org/52573623000157",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "cnpj": "80996861000100",
+   "legal_name": "PROSUL PROJETOS SUPERVISAO E PLANEJAMENTO LTDA",
+   "trade_name": null,
+   "legal_nature": "Sociedade Empresária Limitada",
+   "city": "FLORIANOPOLIS/SC",
+   "registration_status": "ATIVA",
+   "registration_status_date": "2005-11-03",
+   "head_or_branch": "MATRIZ",
+   "contracts": [
+    "PJ-00170/2006/PROSUL"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, release 2026-09, lida via espelho minhareceita.org (servidor oficial inacessível do exterior)",
+    "url": "https://minhareceita.org/80996861000100",
+    "collected_on": "2026-09-29"
+   }
+  },
+  {
+   "cnpj": null,
+   "legal_name": "Consórcio Prosul-Concremat (sem CNPJ próprio no registro)",
+   "contracts": [
+    "PJ-00170/2006",
+    "PJ-00170/2006/PROSUL"
+   ],
+   "consortium_members_tce_2012": {
+    "text": "Consórcio Prosul - Projetos, Supervisão e Planejamento Ltda. / Concremar [sic] Engenharia e Tecnologia S.A.",
+    "source": {
+     "doc": "TCE-SC, Relatório DLC 462/2012, item 2.7",
+     "url": "http://consulta.tce.sc.gov.br/relatoriosdecisao/relatoriotecnico/3728501.PDF"
+    }
+   }
+  }
+ ],
+ "officials": [
+  {
+   "name": "Romualdo Theophanes de França Júnior",
+   "role": "Presidente do DEINFRA",
+   "body": "Departamento Estadual de Infraestrutura (DEINFRA)",
+   "period": "no cargo em 2007-12-12 (Decisão TCE-SC 4067/2007) e em 2008-11-27 (assinatura do PJ-264/2008); datas de nomeação não encontradas",
+   "source": [
+    {
+     "doc": "DOE-SC nº 18.501, p. 462",
+     "url": "https://acervo.arquivopublico.sc.gov.br/uploads/r/arquivo-publico-do-estado-de-santa-catarina-apesc/2/0/a/20aeb6bb94c901d551291669cdafd8ffcc4666ee096d1c9a171a01ac460b213f/f834b399-2a11-48ee-a8d5-ae5064bc61a3-14634-DOE_18501_02_12_2008_484F.pdf"
+    },
+    {
+     "doc": "TCE-SC, Relatório DLC 462/2012, item 2.5",
+     "url": "http://consulta.tce.sc.gov.br/relatoriosdecisao/relatoriotecnico/3728501.PDF"
+    }
+   ],
+   "signed": [
+    "PJ-00264/2008"
+   ]
+  },
+  {
+   "name": "Paulo Roberto Meller",
+   "role": "Diretor Presidente do DEINFRA",
+   "body": "DEINFRA",
+   "period": "no cargo em 2012-08-02 (Relatório DLC 462/2012); datas de nomeação não encontradas",
+   "source": [
+    {
+     "doc": "TCE-SC, Relatório DLC 462/2012, cabeçalho e item 3.2",
+     "url": "http://consulta.tce.sc.gov.br/relatoriosdecisao/relatoriotecnico/3728501.PDF"
+    }
+   ],
+   "signed": []
+  },
+  {
+   "name": "Wanderley Teodoro Agostini",
+   "role": "Presidente do DEINFRA (signatário pelo DEINFRA)",
+   "body": "DEINFRA",
+   "period": "aparece no cargo em atos datados de 2015-02-25 a 2016-04-05; datas de nomeação não encontradas",
+   "source": [
+    {
+     "doc": "DOE-SC nº 20.010, p. 321",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2015/20150227/Jornal/1129.pdf"
+    },
+    {
+     "doc": "DOE-SC nº 20.260, p. 19 (Resolução CA 0049/2016)",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2016/20160316/Jornal/1383.pdf"
+    },
+    {
+     "doc": "DOE-SC nº 20.278, p. 11 (Portaria 103/2016)",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2016/20160414/Jornal/1401.pdf"
+    },
+    {
+     "doc": "DOE-SC nº 20.283, p. 21",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2016/20160425/Jornal/1406.pdf"
+    }
+   ],
+   "signed": [
+    "PJ-00012/2015",
+    "PJ-00056/2016"
+   ]
+  },
+  {
+   "name": "Nelson Luiz Giorno Picanço",
+   "role": "Consultor Executivo do DEINFRA",
+   "body": "DEINFRA",
+   "period": "papel registrado no Acórdão TCE-SC 0788/2015",
+   "source": [
+    {
+     "doc": "DOTC-e nº 1845, 2015-12-04, p. 3",
+     "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2015-12-04.pdf"
+    }
+   ],
+   "signed": [],
+   "note": "Falecido em 2015-11-19 segundo o parecer MPC/47.675/2017; multas canceladas pelo Acórdão 0635/2017."
+  },
+  {
+   "name": "Wenceslau Jerônimo Diotallévy",
+   "role": "Fiscal das Obras de restauração da Ponte Hercílio Luz (engenheiro do DEINFRA); coordenador da equipe de fiscalização do PJ-56/2016",
+   "body": "DEINFRA",
+   "period": "papel registrado no Acórdão 0788/2015 (fatos de 2008 a 2014) e na Portaria DEINFRA 103/2016 (2016-04-05)",
+   "source": [
+    {
+     "doc": "DOTC-e nº 1845, p. 3",
+     "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2015-12-04.pdf"
+    },
+    {
+     "doc": "DOE-SC nº 20.278, p. 11",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2016/20160414/Jornal/1401.pdf"
+    }
+   ],
+   "signed": []
+  },
+  {
+   "name": "Lyana Carrilho Cardoso",
+   "role": "Assistente Jurídica do DEINFRA",
+   "body": "DEINFRA",
+   "period": "papel registrado no Acórdão 0788/2015",
+   "source": [
+    {
+     "doc": "DOTC-e nº 1845, p. 3",
+     "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2015-12-04.pdf"
+    }
+   ],
+   "signed": []
+  },
+  {
+   "name": "Alvaro Alecio Ferreira",
+   "role": "Servidor designado para fiscalizar o PJ-56/2016 (Portaria DEINFRA nº 103, de 05/04/2016)",
+   "body": "DEINFRA",
+   "period": "a partir de 2016-04-05",
+   "source": [
+    {
+     "doc": "DOE-SC nº 20.278, p. 11",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2016/20160414/Jornal/1401.pdf"
+    }
+   ],
+   "signed": [],
+   "display_recommendation": "baixa prioridade: papel técnico, sem achado associado"
+  },
+  {
+   "name": "Celio Aleatar da Silva",
+   "role": "Servidor designado para fiscalizar o PJ-56/2016 (Portaria DEINFRA nº 103, de 05/04/2016)",
+   "body": "DEINFRA",
+   "period": "a partir de 2016-04-05",
+   "source": [
+    {
+     "doc": "DOE-SC nº 20.278, p. 11",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2016/20160414/Jornal/1401.pdf"
+    }
+   ],
+   "signed": [],
+   "display_recommendation": "baixa prioridade: papel técnico, sem achado associado"
+  },
+  {
+   "name": "Adolar Ferreira Filho",
+   "role": "Servidor designado para fiscalizar o PJ-56/2016 (Portaria DEINFRA nº 103, de 05/04/2016)",
+   "body": "DEINFRA",
+   "period": "a partir de 2016-04-05",
+   "source": [
+    {
+     "doc": "DOE-SC nº 20.278, p. 11",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2016/20160414/Jornal/1401.pdf"
+    }
+   ],
+   "signed": [],
+   "display_recommendation": "baixa prioridade: papel técnico, sem achado associado"
+  },
+  {
+   "name": "Marcos Rogerio de Souza",
+   "role": "Servidor designado para fiscalizar o PJ-56/2016 (Portaria DEINFRA nº 103, de 05/04/2016)",
+   "body": "DEINFRA",
+   "period": "a partir de 2016-04-05",
+   "source": [
+    {
+     "doc": "DOE-SC nº 20.278, p. 11",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2016/20160414/Jornal/1401.pdf"
+    }
+   ],
+   "signed": [],
+   "display_recommendation": "baixa prioridade: papel técnico, sem achado associado"
+  },
+  {
+   "name": "Samuel Tito Inacio",
+   "role": "Servidor designado para fiscalizar o PJ-56/2016 (Portaria DEINFRA nº 103, de 05/04/2016)",
+   "body": "DEINFRA",
+   "period": "a partir de 2016-04-05",
+   "source": [
+    {
+     "doc": "DOE-SC nº 20.278, p. 11",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2016/20160414/Jornal/1401.pdf"
+    }
+   ],
+   "signed": [],
+   "display_recommendation": "baixa prioridade: papel técnico, sem achado associado"
+  },
+  {
+   "name": "Acacio Garibaldi S. Thiago Filho",
+   "role": "Servidor designado para fiscalizar o PJ-56/2016 (Portaria DEINFRA nº 103, de 05/04/2016)",
+   "body": "DEINFRA",
+   "period": "a partir de 2016-04-05",
+   "source": [
+    {
+     "doc": "DOE-SC nº 20.278, p. 11",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2016/20160414/Jornal/1401.pdf"
+    }
+   ],
+   "signed": [],
+   "display_recommendation": "baixa prioridade: papel técnico, sem achado associado"
+  }
+ ],
+ "governors": [
+  {
+   "name": "Luiz Henrique da Silveira",
+   "start": "2003-01-01",
+   "end": "2006-04-09",
+   "condition": "titular, 1º mandato",
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/638-Luiz_Henrique_da_Silveira"
+  },
+  {
+   "name": "Eduardo Pinho Moreira",
+   "start": "2006-04-09",
+   "end": "2006-07-06",
+   "condition": "interino (vice-governador)",
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/1158-Eduardo_Pinho_Moreira"
+  },
+  {
+   "name": "Pedro Manoel Abreu",
+   "start": "2006-07-07",
+   "end": "2006-07-14",
+   "condition": "temporário (presidente do Tribunal de Justiça), segundo a biografia de Eduardo Pinho Moreira",
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/1158-Eduardo_Pinho_Moreira"
+  },
+  {
+   "name": "Eduardo Pinho Moreira",
+   "start": "2006-07 (depois de 14/07)",
+   "end": "2006-12-31",
+   "condition": "efetivado",
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/1158-Eduardo_Pinho_Moreira"
+  },
+  {
+   "name": "Luiz Henrique da Silveira",
+   "start": "2007-01-01",
+   "end": "2010-03-25",
+   "condition": "titular, 2º mandato; deixou o cargo para disputar o Senado",
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/638-Luiz_Henrique_da_Silveira"
+  },
+  {
+   "name": "Leonel Pavan",
+   "start": "2010-03-25",
+   "end": "2010-12-31",
+   "condition": "vice-governador que assumiu",
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/960-Leonel_Pavan"
+  },
+  {
+   "name": "Raimundo Colombo",
+   "start": "2011-01-01",
+   "end": "2018-04-05",
+   "condition": "titular, dois mandatos; renunciou em 2018-04-05",
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/480-Raimundo_Colombo",
+   "note": "A biografia registra só os anos 2011-2014 e 2015-2018; 2011-01-01 é a data de posse fixada pela Constituição Federal, art. 28 (redação da época)."
+  },
+  {
+   "name": "Eduardo Pinho Moreira",
+   "start": "2018-04-06",
+   "end": "2018-12-31",
+   "condition": "titular (posse na Alesc); já estava 'em exercício' antes dessa data, início não confirmado",
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/1158-Eduardo_Pinho_Moreira",
+   "source_2": "https://agenciaal.alesc.sc.gov.br/index.php/noticia_single/eduardo-pinho-moreira-toma-posse-como-governador-titular-em-solenidade-na-a"
+  },
+  {
+   "name": "Carlos Moisés da Silva",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "condition": "titular",
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/1308-Carlos_Moises"
+  }
+ ],
+ "governors_note": "Partido omitido (regra do projeto). Substituições curtas por viagem ou licença não listadas. O governador não assina os contratos: nos extratos lidos, assina o dirigente do DEINFRA.",
+ "payments": {
+  "source": {
+   "doc": "Portal da Transparência do Poder Executivo de SC, consulta Fornecedores (SIGEF, Secretaria de Estado da Fazenda)",
+   "url": "https://www.transparencia.sc.gov.br/fornecedores",
+   "api": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api",
+   "collected_on": "2026-09-29",
+   "script": "data/scripts/ponte/payments.py"
+  },
+  "coverage": "2011 em diante (2008 a 2010 vazios no Portal)",
+  "fields": {
+   "vlbruto": "Valor bruto recebido pelo credor",
+   "vlretido": "Valor retido",
+   "vlliquido": "valor líquido (campo do Portal)",
+   "vlestorno": "Valor estornado (valor devolvido)"
+  },
+  "caveats": [
+   "Pagamento ao credor, não ao contrato: inclui outros contratos da mesma empresa com o Poder Executivo.",
+   "Não se sabe pelo dicionário se vlbruto já desconta vlestorno; os dois são mostrados separados.",
+   "Valores nominais.",
+   "Prosul: 114 contratos no registro; o total não se refere à ponte."
+  ],
+  "companies": [
+   {
+    "cnpj": "24447770000145",
+    "portal_credor_ids": [
+     "466549"
+    ],
+    "portal_credor_names": [
+     "TEIXEIRA DUARTE - ENGENHARIA E CONSTRUCOES  S A"
+    ],
+    "by_year": [
+     {
+      "year": 2016,
+      "all_units": {
+       "vlbruto": 61363201.35999999,
+       "vlretido": 4878374.41,
+       "vlliquido": 56484826.95,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 61363201.35999999,
+       "vlretido": 4878374.41,
+       "vlliquido": 56484826.95,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201601&anomesfimfiltro=201612&credorfiltro%5B%5D=466549&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2017,
+      "all_units": {
+       "vlbruto": 93659794.67000002,
+       "vlretido": 11832873.989999998,
+       "vlliquido": 86213841.00000001,
+       "vlestorno": -4386920.32
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 93659794.67000002,
+       "vlretido": 11832873.989999998,
+       "vlliquido": 86213841.00000001,
+       "vlestorno": -4386920.32
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201701&anomesfimfiltro=201712&credorfiltro%5B%5D=466549&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2018,
+      "all_units": {
+       "vlbruto": 86470181.25999999,
+       "vlretido": 8072590.379999999,
+       "vlliquido": 79595801.88,
+       "vlestorno": -1198211
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 86470181.25999999,
+       "vlretido": 8072590.379999999,
+       "vlliquido": 79595801.88,
+       "vlestorno": -1198211
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201801&anomesfimfiltro=201812&credorfiltro%5B%5D=466549&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2019,
+      "all_units": {
+       "vlbruto": 89019342.39,
+       "vlretido": 8074617.74,
+       "vlliquido": 84021429.17999999,
+       "vlestorno": -3076704.53
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 71870775.94,
+       "vlretido": 6711306.73,
+       "vlliquido": 68236173.74,
+       "vlestorno": -3076704.53
+      },
+      "unit_530001_SIE": {
+       "vlbruto": 17148566.45,
+       "vlretido": 1363311.01,
+       "vlliquido": 15785255.440000001,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201901&anomesfimfiltro=201912&credorfiltro%5B%5D=466549&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2020,
+      "all_units": {
+       "vlbruto": 43182475.30999999,
+       "vlretido": 3509354.46,
+       "vlliquido": 39749468.489999995,
+       "vlestorno": -76347.64
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 43182475.30999999,
+       "vlretido": 3509354.46,
+       "vlliquido": 39749468.489999995,
+       "vlestorno": -76347.64
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202001&anomesfimfiltro=202012&credorfiltro%5B%5D=466549&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     }
+    ],
+    "total_vlbruto_all_units_computed": 373694994.99,
+    "total_vlestorno_all_units_computed": -8738183.49
+   },
+   {
+    "cnpj": "17159856000107",
+    "portal_credor_ids": [
+     "424866"
+    ],
+    "portal_credor_names": [
+     "EMPA S A SERVICOS DE ENGENHARIA"
+    ],
+    "by_year": [
+     {
+      "year": 2015,
+      "all_units": {
+       "vlbruto": 18987728.689999998,
+       "vlretido": 986309.33,
+       "vlliquido": 18001419.36,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 18987728.689999998,
+       "vlretido": 986309.33,
+       "vlliquido": 18001419.36,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201501&anomesfimfiltro=201512&credorfiltro%5B%5D=424866&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2016,
+      "all_units": {
+       "vlbruto": 5037846.9,
+       "vlretido": 400508.83999999997,
+       "vlliquido": 4637338.06,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 5037846.9,
+       "vlretido": 400508.83999999997,
+       "vlliquido": 4637338.06,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201601&anomesfimfiltro=201612&credorfiltro%5B%5D=424866&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     }
+    ],
+    "total_vlbruto_all_units_computed": 24025575.59,
+    "total_vlestorno_all_units_computed": 0.0
+   },
+   {
+    "cnpj": "10769406000197",
+    "portal_credor_ids": [
+     "174769"
+    ],
+    "portal_credor_names": [
+     "CONSORCIO FLORIANOPOLIS MONUMENTO"
+    ],
+    "by_year": [
+     {
+      "year": 2011,
+      "all_units": {
+       "vlbruto": 6520883.68,
+       "vlretido": 193193.61999999997,
+       "vlliquido": 6327690.060000001,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 6520883.68,
+       "vlretido": 193193.61999999997,
+       "vlliquido": 6327690.060000001,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201101&anomesfimfiltro=201112&credorfiltro%5B%5D=174769&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2012,
+      "all_units": {
+       "vlbruto": 5299956.750000001,
+       "vlretido": 118360.56999999999,
+       "vlliquido": 5181596.18,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 5299956.750000001,
+       "vlretido": 118360.56999999999,
+       "vlliquido": 5181596.18,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201201&anomesfimfiltro=201212&credorfiltro%5B%5D=174769&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2013,
+      "all_units": {
+       "vlbruto": 16878580.180000003,
+       "vlretido": 245800.13,
+       "vlliquido": 16650552.8,
+       "vlestorno": -17772.75
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 16878580.180000003,
+       "vlretido": 245800.13,
+       "vlliquido": 16650552.8,
+       "vlestorno": -17772.75
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201301&anomesfimfiltro=201312&credorfiltro%5B%5D=174769&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2014,
+      "all_units": {
+       "vlbruto": 5187935.080000001,
+       "vlretido": 70037.14,
+       "vlliquido": 5117897.94,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 5187935.080000001,
+       "vlretido": 70037.14,
+       "vlliquido": 5117897.94,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201401&anomesfimfiltro=201412&credorfiltro%5B%5D=174769&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     }
+    ],
+    "total_vlbruto_all_units_computed": 33887355.69,
+    "total_vlestorno_all_units_computed": -17772.75
+   },
+   {
+    "cnpj": "38738381000183",
+    "portal_credor_ids": [
+     "423600"
+    ],
+    "portal_credor_names": [
+     "RMG - ENGENHARIA S C LTDA"
+    ],
+    "by_year": [
+     {
+      "year": 2015,
+      "all_units": {
+       "vlbruto": 1951820.02,
+       "vlretido": 29277.300000000003,
+       "vlliquido": 1922542.72,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 1951820.02,
+       "vlretido": 29277.300000000003,
+       "vlliquido": 1922542.72,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201501&anomesfimfiltro=201512&credorfiltro%5B%5D=423600&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2016,
+      "all_units": {
+       "vlbruto": 2373842.6199999996,
+       "vlretido": 154299.78,
+       "vlliquido": 2219542.8400000003,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 2373842.6199999996,
+       "vlretido": 154299.78,
+       "vlliquido": 2219542.8400000003,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201601&anomesfimfiltro=201612&credorfiltro%5B%5D=423600&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2017,
+      "all_units": {
+       "vlbruto": 4185844.1599999997,
+       "vlretido": 291635.73,
+       "vlliquido": 3913764.29,
+       "vlestorno": -19555.86
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 4185844.1599999997,
+       "vlretido": 291635.73,
+       "vlliquido": 3913764.29,
+       "vlestorno": -19555.86
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201701&anomesfimfiltro=201712&credorfiltro%5B%5D=423600&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2018,
+      "all_units": {
+       "vlbruto": 2798194.2800000003,
+       "vlretido": 166183.47,
+       "vlliquido": 2645082.93,
+       "vlestorno": -13072.119999999999
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 2798194.2800000003,
+       "vlretido": 166183.47,
+       "vlliquido": 2645082.93,
+       "vlestorno": -13072.119999999999
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201801&anomesfimfiltro=201812&credorfiltro%5B%5D=423600&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2019,
+      "all_units": {
+       "vlbruto": 3542863.8700000006,
+       "vlretido": 164704.68000000002,
+       "vlliquido": 3383434.91,
+       "vlestorno": -5275.72
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 1629937.4500000002,
+       "vlretido": 78622.99,
+       "vlliquido": 1556590.1800000002,
+       "vlestorno": -5275.72
+      },
+      "unit_530001_SIE": {
+       "vlbruto": 1912926.42,
+       "vlretido": 86081.69,
+       "vlliquido": 1826844.73,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201901&anomesfimfiltro=201912&credorfiltro%5B%5D=423600&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2020,
+      "all_units": {
+       "vlbruto": 1269225.34,
+       "vlretido": 57115.14,
+       "vlliquido": 1212110.2000000002,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 1269225.34,
+       "vlretido": 57115.14,
+       "vlliquido": 1212110.2000000002,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202001&anomesfimfiltro=202012&credorfiltro%5B%5D=423600&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2021,
+      "all_units": {
+       "vlbruto": 100102.47,
+       "vlretido": 4504.610000000001,
+       "vlliquido": 95597.86,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 100102.47,
+       "vlretido": 4504.610000000001,
+       "vlliquido": 95597.86,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202101&anomesfimfiltro=202112&credorfiltro%5B%5D=423600&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     }
+    ],
+    "total_vlbruto_all_units_computed": 16221892.76,
+    "total_vlestorno_all_units_computed": -37903.7
+   },
+   {
+    "cnpj": "80996861000100",
+    "portal_credor_ids": [
+     "951"
+    ],
+    "portal_credor_names": [
+     "PROSUL PROJETOS SUPERVISAO E PLANEJAMENTO LTDA"
+    ],
+    "by_year": [
+     {
+      "year": 2011,
+      "all_units": {
+       "vlbruto": 15312416.039999995,
+       "vlretido": 617148.9700000001,
+       "vlliquido": 14709718.639999995,
+       "vlestorno": -14451.57
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 10473346.079999994,
+       "vlretido": 379303.3800000001,
+       "vlliquido": 10095656.659999996,
+       "vlestorno": -1613.9600000000003
+      },
+      "unit_530001_SIE": {
+       "vlbruto": 147373.66,
+       "vlretido": 6631.81,
+       "vlliquido": 140741.85,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201101&anomesfimfiltro=201112&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2012,
+      "all_units": {
+       "vlbruto": 17893394.44,
+       "vlretido": 916018.1200000002,
+       "vlliquido": 17110926.79,
+       "vlestorno": -133550.47
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 12897749.229999999,
+       "vlretido": 721443.53,
+       "vlliquido": 12290390.129999997,
+       "vlestorno": -114084.43
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201201&anomesfimfiltro=201212&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2013,
+      "all_units": {
+       "vlbruto": 20962507.55,
+       "vlretido": 1083457.6600000001,
+       "vlliquido": 19969094.13,
+       "vlestorno": -90044.23999999999
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 12596606.16,
+       "vlretido": 679962.2099999998,
+       "vlliquido": 11958923.810000004,
+       "vlestorno": -42279.86
+      },
+      "unit_530001_SIE": {
+       "vlbruto": 148450.5,
+       "vlretido": 4453.52,
+       "vlliquido": 143996.98,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201301&anomesfimfiltro=201312&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2014,
+      "all_units": {
+       "vlbruto": 43256230.84000002,
+       "vlretido": 2142998.4200000004,
+       "vlliquido": 41217335.39000001,
+       "vlestorno": -104102.97
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 23900372.089999996,
+       "vlretido": 1299342.7500000002,
+       "vlliquido": 22672018.85,
+       "vlestorno": -70989.51
+      },
+      "unit_530001_SIE": {
+       "vlbruto": 759785.25,
+       "vlretido": 30617.180000000004,
+       "vlliquido": 729168.0700000001,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201401&anomesfimfiltro=201412&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2015,
+      "all_units": {
+       "vlbruto": 25832191.77000001,
+       "vlretido": 1201609.0499999998,
+       "vlliquido": 24691770.160000004,
+       "vlestorno": -61187.439999999995
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 18826853.620000005,
+       "vlretido": 918564.1,
+       "vlliquido": 17969476.959999997,
+       "vlestorno": -61187.439999999995
+      },
+      "unit_530001_SIE": {
+       "vlbruto": 487945.84,
+       "vlretido": 21957.56,
+       "vlliquido": 465988.28,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201501&anomesfimfiltro=201512&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2016,
+      "all_units": {
+       "vlbruto": 23124432.61999999,
+       "vlretido": 1027135.6200000002,
+       "vlliquido": 22290069.559999995,
+       "vlestorno": -192772.56
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 16728327.739999993,
+       "vlretido": 729740.2600000001,
+       "vlliquido": 16010464.669999998,
+       "vlestorno": -11877.190000000002
+      },
+      "unit_530001_SIE": {
+       "vlbruto": 1712315.61,
+       "vlretido": 84821.39,
+       "vlliquido": 1627494.22,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201601&anomesfimfiltro=201612&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2017,
+      "all_units": {
+       "vlbruto": 21752001.479999997,
+       "vlretido": 933759.3599999998,
+       "vlliquido": 20864174.619999997,
+       "vlestorno": -45932.49999999999
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 12720857.589999998,
+       "vlretido": 515118.8200000003,
+       "vlliquido": 12212224.479999995,
+       "vlestorno": -6485.71
+      },
+      "unit_530001_SIE": {
+       "vlbruto": 3931153.4899999998,
+       "vlretido": 194408.80999999997,
+       "vlliquido": 3739209.83,
+       "vlestorno": -2465.15
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201701&anomesfimfiltro=201712&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2018,
+      "all_units": {
+       "vlbruto": 13178281.049999993,
+       "vlretido": 600686.7299999999,
+       "vlliquido": 12587307.999999996,
+       "vlestorno": -9713.679999999998
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 10319522.389999995,
+       "vlretido": 454215.32999999984,
+       "vlliquido": 9870442.139999999,
+       "vlestorno": -5135.08
+      },
+      "unit_530001_SIE": {
+       "vlbruto": 1551602.3899999997,
+       "vlretido": 81690.43000000001,
+       "vlliquido": 1474490.56,
+       "vlestorno": -4578.599999999999
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201801&anomesfimfiltro=201812&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2019,
+      "all_units": {
+       "vlbruto": 4803632.130000001,
+       "vlretido": 208774.68,
+       "vlliquido": 4595935.220000001,
+       "vlestorno": -1077.77
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 3731340.6200000006,
+       "vlretido": 160870.79000000004,
+       "vlliquido": 3571547.6000000006,
+       "vlestorno": -1077.77
+      },
+      "unit_530001_SIE": {
+       "vlbruto": 825250.3999999999,
+       "vlretido": 34024.67,
+       "vlliquido": 791225.7300000001,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201901&anomesfimfiltro=201912&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2020,
+      "all_units": {
+       "vlbruto": 1354545.7199999997,
+       "vlretido": 54402.43,
+       "vlliquido": 1303409.81,
+       "vlestorno": -3266.52
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 1261020.7399999998,
+       "vlretido": 52956.17,
+       "vlliquido": 1211331.09,
+       "vlestorno": -3266.52
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202001&anomesfimfiltro=202012&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2021,
+      "all_units": {
+       "vlbruto": 2998109.9399999995,
+       "vlretido": 145154.00999999998,
+       "vlliquido": 2852955.9299999992,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 2998109.9399999995,
+       "vlretido": 145154.00999999998,
+       "vlliquido": 2852955.9299999992,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202101&anomesfimfiltro=202112&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2022,
+      "all_units": {
+       "vlbruto": 13521150.660000002,
+       "vlretido": 445422.3200000001,
+       "vlliquido": 13076699.97,
+       "vlestorno": -971.63
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 13283953.220000003,
+       "vlretido": 434748.43000000005,
+       "vlliquido": 12850176.420000002,
+       "vlestorno": -971.63
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202201&anomesfimfiltro=202212&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2023,
+      "all_units": {
+       "vlbruto": 9585477.860000001,
+       "vlretido": 637661.93,
+       "vlliquido": 8952939.26,
+       "vlestorno": -5123.33
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 7334479.839999998,
+       "vlretido": 457683.9000000001,
+       "vlliquido": 6877519.079999999,
+       "vlestorno": -723.14
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202301&anomesfimfiltro=202312&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2024,
+      "all_units": {
+       "vlbruto": 13120685.84,
+       "vlretido": 1103895.72,
+       "vlliquido": 12055378.060000002,
+       "vlestorno": -38587.94
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 9734942.330000004,
+       "vlretido": 826816.6500000001,
+       "vlliquido": 8933800.540000001,
+       "vlestorno": -25674.86
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202401&anomesfimfiltro=202412&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2025,
+      "all_units": {
+       "vlbruto": 14665232.339999992,
+       "vlretido": 1162034.75,
+       "vlliquido": 13506296.700000001,
+       "vlestorno": -3099.1099999999997
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 14493338.989999995,
+       "vlretido": 1148627.06,
+       "vlliquido": 13347811.040000001,
+       "vlestorno": -3099.1099999999997
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202501&anomesfimfiltro=202512&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2026,
+      "all_units": {
+       "vlbruto": 8866882.800000003,
+       "vlretido": 688841.0900000002,
+       "vlliquido": 8178498.149999999,
+       "vlestorno": -456.43999999999994
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 8866882.800000003,
+       "vlretido": 688841.0900000002,
+       "vlliquido": 8178498.149999999,
+       "vlestorno": -456.43999999999994
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202601&anomesfimfiltro=202612&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     }
+    ],
+    "total_vlbruto_all_units_computed": 250227173.08,
+    "total_vlestorno_all_units_computed": -704338.17
+   },
+   {
+    "cnpj": "33146648000391",
+    "portal_credor_ids": [
+     "20913"
+    ],
+    "portal_credor_names": [
+     "CONCREMAT ENGENHARIA E TECNOLOGIA S A"
+    ],
+    "by_year": [
+     {
+      "year": 2011,
+      "all_units": {
+       "vlbruto": 993730.3799999999,
+       "vlretido": 46142.5,
+       "vlliquido": 949012.52,
+       "vlestorno": -1424.6399999999999
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 993730.3799999999,
+       "vlretido": 46142.5,
+       "vlliquido": 949012.52,
+       "vlestorno": -1424.6399999999999
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201101&anomesfimfiltro=201112&credorfiltro%5B%5D=20913&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2012,
+      "all_units": {
+       "vlbruto": 447450.94,
+       "vlretido": 21159.4,
+       "vlliquido": 427465.64,
+       "vlestorno": -1174.1
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 447450.94,
+       "vlretido": 21159.4,
+       "vlliquido": 427465.64,
+       "vlestorno": -1174.1
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201201&anomesfimfiltro=201212&credorfiltro%5B%5D=20913&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2013,
+      "all_units": {
+       "vlbruto": 555277.39,
+       "vlretido": 27746.980000000003,
+       "vlliquido": 530289.92,
+       "vlestorno": -2759.51
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 555277.39,
+       "vlretido": 27746.980000000003,
+       "vlliquido": 530289.92,
+       "vlestorno": -2759.51
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201301&anomesfimfiltro=201312&credorfiltro%5B%5D=20913&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2014,
+      "all_units": {
+       "vlbruto": 479649.52999999997,
+       "vlretido": 21930.73,
+       "vlliquido": 458065.26,
+       "vlestorno": -346.46
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 479649.52999999997,
+       "vlretido": 21930.73,
+       "vlliquido": 458065.26,
+       "vlestorno": -346.46
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201401&anomesfimfiltro=201412&credorfiltro%5B%5D=20913&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2015,
+      "all_units": {
+       "vlbruto": 319843.43,
+       "vlretido": 14392.95,
+       "vlliquido": 305450.48,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 319843.43,
+       "vlretido": 14392.95,
+       "vlliquido": 305450.48,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201501&anomesfimfiltro=201512&credorfiltro%5B%5D=20913&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2016,
+      "all_units": {
+       "vlbruto": 769547.02,
+       "vlretido": 37593.96,
+       "vlliquido": 734917.37,
+       "vlestorno": -2964.3100000000004
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 769547.02,
+       "vlretido": 37593.96,
+       "vlliquido": 734917.37,
+       "vlestorno": -2964.3100000000004
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201601&anomesfimfiltro=201612&credorfiltro%5B%5D=20913&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2017,
+      "all_units": {
+       "vlbruto": 91927.36000000002,
+       "vlretido": 4136.7300000000005,
+       "vlliquido": 87790.63,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 91927.36000000002,
+       "vlretido": 4136.7300000000005,
+       "vlliquido": 87790.63,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201701&anomesfimfiltro=201712&credorfiltro%5B%5D=20913&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2022,
+      "all_units": {
+       "vlbruto": 517652.04000000004,
+       "vlretido": 23294.32,
+       "vlliquido": 494357.72,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 517652.04000000004,
+       "vlretido": 23294.32,
+       "vlliquido": 494357.72,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202201&anomesfimfiltro=202212&credorfiltro%5B%5D=20913&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2023,
+      "all_units": {
+       "vlbruto": 1710285.8799999997,
+       "vlretido": 118633.46000000002,
+       "vlliquido": 1596661.7,
+       "vlestorno": -5009.28
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 1710285.8799999997,
+       "vlretido": 118633.46000000002,
+       "vlliquido": 1596661.7,
+       "vlestorno": -5009.28
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202301&anomesfimfiltro=202312&credorfiltro%5B%5D=20913&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2024,
+      "all_units": {
+       "vlbruto": 219452.03000000003,
+       "vlretido": 17117.26,
+       "vlliquido": 202334.77000000002,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 219452.03000000003,
+       "vlretido": 17117.26,
+       "vlliquido": 202334.77000000002,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202401&anomesfimfiltro=202412&credorfiltro%5B%5D=20913&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     }
+    ],
+    "total_vlbruto_all_units_computed": 6104816.0,
+    "total_vlestorno_all_units_computed": -13678.3
+   },
+   {
+    "cnpj": "52573623000157",
+    "portal_credor_ids": [
+     "473472"
+    ],
+    "portal_credor_names": [
+     "FARES   ASSOCIADOS ENGENHARIA LTDA"
+    ],
+    "by_year": [
+     {
+      "year": 2016,
+      "all_units": {
+       "vlbruto": 137482.95,
+       "vlretido": 15810.54,
+       "vlliquido": 121672.41,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 137482.95,
+       "vlretido": 15810.54,
+       "vlliquido": 121672.41,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {},
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201601&anomesfimfiltro=201612&credorfiltro%5B%5D=473472&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2021,
+      "all_units": {
+       "vlbruto": 530089.0199999999,
+       "vlretido": 7951.3200000000015,
+       "vlliquido": 522137.69999999995,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 530089.0199999999,
+       "vlretido": 7951.3200000000015,
+       "vlliquido": 522137.69999999995,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202101&anomesfimfiltro=202112&credorfiltro%5B%5D=473472&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2022,
+      "all_units": {
+       "vlbruto": 367262.01,
+       "vlretido": 5508.93,
+       "vlliquido": 361753.07999999996,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 367262.01,
+       "vlretido": 5508.93,
+       "vlliquido": 361753.07999999996,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202201&anomesfimfiltro=202212&credorfiltro%5B%5D=473472&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2023,
+      "all_units": {
+       "vlbruto": 4553.870000000001,
+       "vlretido": 68.31,
+       "vlliquido": 4485.56,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 4553.870000000001,
+       "vlretido": 68.31,
+       "vlliquido": 4485.56,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202301&anomesfimfiltro=202312&credorfiltro%5B%5D=473472&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     }
+    ],
+    "total_vlbruto_all_units_computed": 1039387.85,
+    "total_vlestorno_all_units_computed": 0.0
+   },
+   {
+    "cnpj": "01956161000116",
+    "portal_credor_ids": [
+     "583240"
+    ],
+    "portal_credor_names": [
+     "GEOARQUEOLOGIA PESQUISA CIENTIFICA LTDA"
+    ],
+    "by_year": [
+     {
+      "year": 2019,
+      "all_units": {
+       "vlbruto": 16402.68,
+       "vlretido": 1200.2,
+       "vlliquido": 15202.48,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {
+       "vlbruto": 16002.609999999999,
+       "vlretido": 800.13,
+       "vlliquido": 15202.48,
+       "vlestorno": 0
+      },
+      "unit_530001_SIE": {
+       "vlbruto": 400.07,
+       "vlretido": 400.07,
+       "vlliquido": 0,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201901&anomesfimfiltro=201912&credorfiltro%5B%5D=583240&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     },
+     {
+      "year": 2020,
+      "all_units": {
+       "vlbruto": 79460.17000000001,
+       "vlretido": 4113.06,
+       "vlliquido": 75747.18000000001,
+       "vlestorno": -400.07
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 79460.17000000001,
+       "vlretido": 4113.06,
+       "vlliquido": 75747.18000000001,
+       "vlestorno": -400.07
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202001&anomesfimfiltro=202012&credorfiltro%5B%5D=583240&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     }
+    ],
+    "total_vlbruto_all_units_computed": 95862.85,
+    "total_vlestorno_all_units_computed": -400.07
+   },
+   {
+    "cnpj": "24055348000144",
+    "portal_credor_ids": [
+     "592803"
+    ],
+    "portal_credor_names": [
+     "SDF ENGENHARIA EIRELI"
+    ],
+    "by_year": [
+     {
+      "year": 2020,
+      "all_units": {
+       "vlbruto": 35000,
+       "vlretido": 1050,
+       "vlliquido": 33950,
+       "vlestorno": 0
+      },
+      "unit_530025_DEINFRA": {},
+      "unit_530001_SIE": {
+       "vlbruto": 35000,
+       "vlretido": 1050,
+       "vlliquido": 33950,
+       "vlestorno": 0
+      },
+      "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202001&anomesfimfiltro=202012&credorfiltro%5B%5D=592803&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
+     }
+    ],
+    "total_vlbruto_all_units_computed": 35000.0,
+    "total_vlestorno_all_units_computed": 0.0
+   }
+  ],
+  "official_pre2011_figure": {
+   "company_cnpj": "10769406000197",
+   "quote": "o último pagamento ocorreu em maio do corrente ano, referente aos meses de janeiro a março de 2012, acumulando R$ 38.921.239,05 e medições até junho de 2012, com saldo a pagar de R$ 1.595.516,86",
+   "context": "Extrato do SICOP 'atualizado em julho de 2012', citado pelo TCE-SC; acumulado desde 2008",
+   "source": {
+    "doc": "TCE-SC, Relatório DLC 462/2012, item 2.6",
+    "url": "http://consulta.tce.sc.gov.br/relatoriosdecisao/relatoriotecnico/3728501.PDF"
+   }
+  }
+ },
+ "findings": [
+  {
+   "body": "TCE-SC",
+   "process": "ELC 07/00582703",
+   "date": "2007-12-12 e 2008-03-19",
+   "summary_quote": "Decisão 4067/2007: 'Determinar, cautelarmente [...] que promova a sustação do procedimento licitatório'. Decisão 0594/2008: 'Conhecer do Edital de Concorrência Pública n. 044/2007 [...] considerando seus termos em consonância com as determinações do art. 40 da Lei Federal n. 8.666/93'.",
+   "status": "encerrado; lido na transcrição do Relatório DLC 462/2012",
+   "url": "http://consulta.tce.sc.gov.br/relatoriosdecisao/relatoriotecnico/3728501.PDF"
+  },
+  {
+   "body": "TCE-SC",
+   "process": "RLA 12/00285490 (Acórdão 0788/2015)",
+   "date": "2015-11-04 (sessão); 2015-12-04 (publicação)",
+   "summary_quote": "Aplicar aos Responsáveis [...] as multas adiante relacionadas; por exemplo, 'por permitir que o Contrato n. PJ-264/2008 (restauração da ponte) sofresse acréscimo de 50,29% e supressão de 44,78% do seu valor por meio de Termos Aditivos, extrapolando o limite permitido no art. 65, §1º, da Lei n. 8.666/93'.",
+   "status": "julgado com multas; alterado em recurso (ver Acórdãos 0632 a 0636/2017)",
+   "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2015-12-04.pdf",
+   "fines_original_brl": {
+    "Paulo Roberto Meller": 24200.0,
+    "Romualdo Theophanes de França Júnior": 24200.0,
+    "Nelson Luiz Giorno Picanço": 11200.0,
+    "Wenceslau Jerônimo Diotallévy": 13000.0,
+    "Lyana Carrilho Cardoso": 5000.0
+   },
+   "fines_note": "Somas calculadas a partir dos itens do acórdão.",
+   "technical_report": {
+    "doc": "Relatório DLC 462/2012 (preliminar)",
+    "url": "http://consulta.tce.sc.gov.br/relatoriosdecisao/relatoriotecnico/3728501.PDF"
+   }
+  },
+  {
+   "body": "TCE-SC",
+   "process": "REC 16/00030243, 16/00030324, 16/00030405, 16/00030596, 16/00030677 (Acórdãos 0632 a 0636/2017)",
+   "date": "2017-11-01 (sessão); 2017-12-01 (publicação)",
+   "summary_quote": "0632/2017: 'dar-lhe provimento parcial para: 6.1.1. cancelar a multa estabelecida no subitem 6.2.4.1'; 0633/2017 e 0634/2017: 'negar-lhe provimento, ratificando na íntegra a deliberação recorrida'; 0635/2017: 'tornar insubsistentes os itens 6.2.3.1, 6.2.3.2 e 6.2.3.3 [...] cancelando as multas aplicadas'; 0636/2017: 'cancelar a multa estabelecida no subitem 6.2.1.2'.",
+   "status": "decidido no TCE-SC após recurso; pagamento ou contestação judicial não verificados",
+   "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2017-12-01.pdf",
+   "fines_after_appeal_brl_computed": {
+    "Paulo Roberto Meller": 19200.0,
+    "Romualdo Theophanes de França Júnior": 24200.0,
+    "Nelson Luiz Giorno Picanço (espólio)": 0.0,
+    "Wenceslau Jerônimo Diotallévy": 8000.0,
+    "Lyana Carrilho Cardoso": 5000.0
+   }
+  },
+  {
+   "body": "TCE-SC",
+   "process": "REP 14/00346689 (Acórdão 0585/2017)",
+   "date": "2017-10-04 (sessão); 2017-11-06 (publicação)",
+   "summary_quote": "Julgar procedente a Representação [...]. Aplicar ao Sr. Romualdo Theophanes de França Júnior - ex-Presidente do Departamento Estadual de Infraestrutura - DEINFRA [...] a multa no valor de R$ 1.136,52 [...] em face da omissão no poder-dever de fiscalização em relação à apresentação do 'Seguro de Riscos de Engenharia' pelo Consórcio Florianópolis Monumento, junto ao Termo de Contrato n. PJ 264/2008",
+   "status": "julgado; recurso não verificado",
+   "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2017-11-06.pdf"
+  },
+  {
+   "body": "Alesc (CPI, Ato 0030-DL/2019)",
+   "process": "CPI da Ponte Hercílio Luz",
+   "date": "2019-12-18",
+   "summary_quote": "O relatório aprovado suprime a palavra 'indiciamento' e a substitui por encaminhamento para apurar possíveis ilicitudes e o documento será encaminhado ao Ministério Público junto ao Tribunal de Contas (MPTC), Ministério Público (MP) e Tribunal de Contas do Estado (TCE).",
+   "amounts_quote": "para que sejam analisadas possíveis irregularidades de R$ 24,6 milhões aos cofres públicos por parte do Consórcio Florianópolis Movimento [sic], de R$ 12,2 milhões pela Usimec (referente a contrato de 1982) e de outros R$ 5,2 milhões pela contratação da Steimann, em 1993.",
+   "persons_cited_heading": "Pessoas citadas no relatório final da CPI",
+   "persons_cited": [
+    "Raul Ozório de Almeida",
+    "Telmo Fernando Mattar de Souza",
+    "Tolstói Maia Duarte",
+    "Sidney Lourenço Dal Sasso",
+    "Hubert Beck Júnior",
+    "Roberto Alexandre Zattar",
+    "Paulo Ney Almeida",
+    "Marcos Amin",
+    "Luiz Antônio Ramos",
+    "Justiniano Pedroso",
+    "Olívio Karasek Rocha",
+    "Eduardo Hamond Régua",
+    "Raimundo Colombo",
+    "Paulo Meller",
+    "Wenceslau Jerônimo Diotallévy",
+    "Wilfredo Brillinger",
+    "Celso Magalhães Carvalho",
+    "Romualdo Theophanes de França Junior",
+    "Dalmo Pickler Baesso",
+    "Ricardo Bridon Soares"
+   ],
+   "companies_cited_heading": "Empresas citadas no relatório",
+   "companies_cited": [
+    "Construtora Roca",
+    "TEC - Técnica de Engenharia Catarinense",
+    "Prosul",
+    "Construtora Espaço Aberto",
+    "Consórcio Florianópolis Monumento",
+    "CSA Group Florida e CSA"
+   ],
+   "display_recommendation": "não exibir as listas de nomes até ler o relatório integral: a nota não liga cada nome a um fato; cobre fatos desde 1982",
+   "status": "CPI encerrada; encaminhamento a MPTC, MP e TCE (não é acusação nem condenação); relatório integral não acessado",
+   "url": "https://agenciaal.alesc.sc.gov.br/index.php/noticia_single/aprovado-relatorio-final-da-cpi-da-ponte-hercilio-luz",
+   "related_minutes": {
+    "doc": "Diário da Assembleia nº 7.566 (ata da 31ª reunião; texto do relatório depois rejeitado)",
+    "url": "https://www.alesc.sc.gov.br/wp-content/uploads/diarios/7566dia.pdf"
+   }
+  },
+  {
+   "body": "TCE-SC",
+   "process": "@REP 15/00524643 (Decisão 928/2025)",
+   "date": "2025-08-08 (sessão); 2025-08-19 (publicação)",
+   "summary_quote": "1. Reconhecer, de ofício, a prescrição das pretensões punitiva e ressarcitória deste Tribunal [...] em relação aos seguintes Contratos: [...] PJ 170/2006 [...] PJ 264/2008 [...] PJ 204/2014 [...] PJ 12/2015 e PJ 143/2015 [...] PJ 001/2016 [...] PJ 93/2016 [...] PJ 009/2019 [...] CT 026/2019, PJ 060/2019 e DL-00001/2618-2019 [...]. 2. [...] formação de autos apartados [...] Processo 1 - RMG Engenharia: Contrato CT 006/2019 [...] Processo 2 - Teixeira Duarte e EMPA: Contrato PJ 056/2016 [...]. 3. Julgar improcedente a Representação quanto ao Contrato PJ 046/90 [...]. 7. Determinar o arquivamento dos autos.",
+   "status": "arquivado; prescrição reconhecida (sem julgamento de mérito sobre os contratos prescritos); dois processos novos determinados (PJ 056/2016 e CT 006/2019), número e andamento não encontrados",
+   "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2025-08-19.pdf"
+  },
+  {
+   "body": "MPSC (26ª Promotoria de Justiça da Capital)",
+   "process": "Ação civil pública por atos de improbidade administrativa (número não encontrado)",
+   "date": "2018-12-17",
+   "summary_quote": "A ação civil pública por atos de improbidade administrativa com pedido de ressarcimento de R$ 233.675.518,92 aos cofres públicos foi ajuizada, no final da tarde de segunda-feira (17/12)",
+   "defendants_count_quote": "contra 12 envolvidos - oito com atuação no Departamento Estadual de Infraestrutura (Deinfra) e quatro empresas",
+   "display_recommendation": "não exibir a lista de réus sem decisão judicial localizada",
+   "status": "ajuizada; última informação oficial lida (2018-12-18): 'sob análise do Juiz de Direito da Vara da Fazenda Pública da comarca da Capital'; resultado judicial não encontrado",
+   "url": "https://www.mpsc.mp.br/w/noticias/-ponte-hercilio-luz-mpsc-requer-devolucao-de-r-23367-milhoes-por-obra-nao-concluida"
+  },
+  {
+   "body": "MPSC (30ª Promotoria de Justiça da Capital)",
+   "process": "Inquérito civil (número não informado)",
+   "date": "2012-03-14 (notícia)",
+   "summary_quote": "instaurou inquérito civil para apurar o andamento das obras de recuperação da Ponte Hercílio Luz",
+   "status": "instaurado; desfecho não encontrado",
+   "url": "https://www.mpsc.mp.br/w/noticias/inquerito-civil-apura-andamento-de-reforma-da-ponte-hercilio-luz"
+  }
+ ],
+ "terms_check": "Nenhum documento oficial lido usa 'superfaturamento' ou 'sobrepreço'."
+}

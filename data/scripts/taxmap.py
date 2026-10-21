@@ -1,0 +1,26 @@
+TAXMAP={
+ 'import_tax':['IMPOSTO SOBRE IMPORTAÇÃO'],
+ 'export_tax':['IMPOSTO SOBRE EXPORTAÇÃO'],
+ 'ipi':['IPI - FUMO','IPI - BEBIDAS','IPI - AUTOMÓVEIS','IPI - VINCULADO À IMPORTACAO','IPI - OUTROS'],
+ 'irpf':['IRPF'],
+ 'irpj':['IRPJ - ENTIDADES FINANCEIRAS','IRPJ - DEMAIS EMPRESAS'],
+ 'irrf':['IRRF - RENDIMENTOS DO TRABALHO','IRRF - RENDIMENTOS DO CAPITAL','IRRF - REMESSAS P/ EXTERIOR','IRRF - OUTROS RENDIMENTOS'],
+ 'iof':['IMPOSTO S/ OPERAÇÕES FINANCEIRAS'],
+ 'itr':['IMPOSTO TERRITORIAL RURAL'],
+ 'cofins':['COFINS','COFINS - FINANCEIRAS','COFINS - DEMAIS'],
+ 'pis_pasep':['CONTRIBUIÇÃO PARA O PIS/PASEP','CONTRIBUIÇÃO PARA O PIS/PASEP - FINANCEIRAS','CONTRIBUIÇÃO PARA O PIS/PASEP - DEMAIS'],
+ 'csll':['CSLL','CSLL - FINANCEIRAS','CSLL - DEMAIS'],
+ 'cide_fuels':['CIDE-COMBUSTÍVEIS (parc. não dedutível)','CIDE-COMBUSTÍVEIS'],
+ 'civil_servant_social_security_pss':['CONTRIBUIÇÃO PLANO SEG. SOC. SERVIDORES','CPSSS - Contrib. p/ o Plano de Segurid. Social Serv. Público'],
+ 'other_rfb_revenue':['IMPOSTO PROVIS.S/ MOVIMENT. FINANC. - IPMF','CPMF','CONTRIBUICÕES PARA FUNDAF','REFIS','PAES','RETENÇÃO NA FONTE - LEI 10.833, Art. 30','PAGAMENTO UNIFICADO','OUTRAS RECEITAS ADMINISTRADAS','DEMAIS RECEITAS'],
+ 'social_security_contributions_rgps':['RECEITA PREVIDENCIÁRIA','RECEITA PREVIDENCIÁRIA - PRÓPRIA','RECEITA PREVIDENCIÁRIA - DEMAIS'],
+ 'administered_by_other_agencies':['ADMINISTRADAS POR OUTROS ÓRGÃOS'],
+}
+# national series (R$ milhoes) line labels in the xlsx
+NATMAP={
+ 'import_tax':'IMPOSTO SOBRE IMPORTAÇÃO','export_tax':'IMPOSTO SOBRE EXPORTAÇÃO','ipi':'I.P.I-TOTAL','irpf':'  I.RENDA-PESSOA FÍSICA',
+ 'irpj':'  I.RENDA-PESSOA JURÍDICA','irrf':'  I.RENDA-RETIDO NA FONTE','iof':'IOF - I. S/ OPERAÇÕES FINANCEIRAS','itr':'ITR - I. TERRITORIAL RURAL',
+ 'cofins':'COFINS - CONTRIB. P/ A SEGURIDADE SOCIAL','pis_pasep':'CONTRIBUIÇÃO PARA O PIS/PASEP','csll':'CSLL - CONTRIB. SOCIAL S/ LUCRO LÍQUIDO',
+ 'cide_fuels':'CIDE-COMBUSTÍVEIS','civil_servant_social_security_pss':'PSS - CONTRIB. DO PLANO DE SEGURIDADE DO SERVIDOR',
+ 'other_rfb_revenue':'OUTRAS RECEITAS ADMINISTRADAS','social_security_contributions_rgps':'RECEITA PREVIDENCIÁRIA [B]',
+ 'administered_by_other_agencies':'ADMINISTRADAS POR OUTROS ÓRGÃOS [D]','TOTAL':'TOTAL GERAL [E]=[C]+[D]'}

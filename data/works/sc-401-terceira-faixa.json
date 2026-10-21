@@ -1,0 +1,835 @@
+{
+ "slug": "sc-401-terceira-faixa",
+ "collected_on": "2026-09-30",
+ "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_obras-sc-sc-401-terceira-faixa_2026-09-30.md",
+ "rules": "Somente papéis e achados oficiais, com as palavras do órgão. Nenhuma inferência de irregularidade. Valores nominais salvo quando marcados como reais de dez/2024. Somas marcadas como computed são desta pesquisa.",
+ "work": {
+  "name": "Terceira faixa da SC-401 (melhoramento com aumento de capacidade entre o acesso a Santo Antônio de Lisboa e a SC-404)",
+  "municipalities_ibge": [
+   {
+    "code": "4205407",
+    "name": "Florianópolis"
+   }
+  ],
+  "level": "state",
+  "agency": {
+   "name": "Secretaria de Estado da Infraestrutura e Mobilidade (SIE)",
+   "cnpj": "82951344000140",
+   "managing_unit": "530001"
+  },
+  "status": "Em execução. Prazo prorrogado para 19/02/2027. Liberação de novos trechos da terceira faixa suspensa por cautelar do TCE-SC desde 22/04/2026.",
+  "dates": {
+   "start": "2025-03-17",
+   "start_note": "Ordem de serviço OS OBR 008/2025",
+   "planned_end": "2026-09-08",
+   "planned_end_current": "2027-02-19",
+   "actual_end": null,
+   "first_partial_release": "2025-12-18",
+   "first_partial_release_source": "https://consulta.tce.sc.gov.br/Diario/dotc-e2026-04-24.pdf"
+  },
+  "length_km": 10.07,
+  "main_axis_km": {
+   "from": "12+695",
+   "to": "19+285",
+   "length": 6.59
+  },
+  "description": "Obra do Governo do Estado na rodovia mais movimentada de Santa Catarina, no norte da Ilha de Santa Catarina. Acrescenta uma terceira faixa em cada sentido entre o km 12,7 e o km 19,3, com vias marginais para o trânsito local, ciclofaixa, drenagem e contenções, em 10,07 km no total. Os viadutos e retornos elevados previstos no projeto ficaram para outra licitação. Começou em março de 2025 para durar 18 meses; o prazo foi estendido para fevereiro de 2027.",
+  "traffic_quote": "a rodovia, no seu trecho norte, registra tráfego médio diário de 60.592 veículos, sendo que em janeiro de 2025, essa média se elevou para 98.965 veículos",
+  "siconfi_function": "Transporte",
+  "budget_source": "Empenhos na unidade orçamentária 53001 (SIE), subação 14465, fonte 1500100000 (recursos do Tesouro do Estado), segundo o extrato SICOP."
+ },
+ "contracts": [
+  {
+   "number": "CT-00014/2025",
+   "object": "MELHORAMENTO COM AUMENTO DE CAPACIDADE NA ROD. SC-401, TRECHO: ENTR. ACESSO SANTO ANTÔNIO DE LISBOA - ENTR. SC-404 (P/ LAGOA DA CONCEIÇÃO) ENTRE O KM 12+695 E O KM 19+285, COM EXT. TOTAL DE 10,07 KM.",
+   "company": "BRITAGEM VOGELSANGER LTDA",
+   "cnpj": "84689066000392",
+   "signed_on": "2025-03-07",
+   "start": "2025-03-17",
+   "end_original": "2026-09-08",
+   "end_current": "2027-02-19",
+   "value_original_brl": 55983533.75,
+   "value_current_brl": 64185445.29,
+   "value_amendments_brl": 6732194.7,
+   "value_price_adjustment_brl": 1469716.84,
+   "status_in_record": "Andamento",
+   "process_sgpe": "SIE 36159/2024",
+   "managing_unit": {
+    "code": "530001",
+    "name": "Secretaria de Estado da Infraestrutura e Mobilidade (SIE)"
+   },
+   "amendments": [
+    {
+     "numero": "1",
+     "data": "2026-03-31",
+     "justificativa": "Aditivo 01",
+     "dias_aditados": 0,
+     "valor_aditado_brl": 6732194.7,
+     "percentual_no_registro": 12.03
+    },
+    {
+     "numero": "3",
+     "data": "2026-08-21",
+     "justificativa": "Conforme processo SIE 32927/2026",
+     "dias_aditados": 173,
+     "valor_aditado_brl": 0.0,
+     "percentual_no_registro": 0.0
+    }
+   ],
+   "stoppages": [],
+   "inspector_field_raw": "ANDREA CRISTINA VOGELSANGER; CRISTIANO SILVA; DAGOBERTO ARNS; GUILHERME STAPENHORST ALVES PEREIRO; LEANDRO DA COSTA VIEIRA",
+   "inspector_field_warning": "Campo NMFISCAL do registro; o próprio SICOP classifica esses nomes como engenheiro fiscal, engenheiro da consultoria ou engenheiro da contratada (lista \"contratoFiscais\"). Não é lista de servidores.",
+   "sources": [
+    {
+     "doc": "Registro de contratos SIGEF/SICOP, CGE-SC (dados.sc.gov.br)",
+     "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+     "collected_on": "2026-09-30"
+    },
+    {
+     "doc": "Extrato SICOP do contrato, Portal da Transparência do Poder Executivo de SC (API)",
+     "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=104411",
+     "collected_on": "2026-09-30"
+    }
+   ],
+   "role_in_work": "obra (execução)",
+   "contractor_note": "CNPJ de filial (0003-92, Palhoça/SC). Nome fantasia na Receita: MINERACAO SANTA BARBARA.",
+   "tender": {
+    "type": "Concorrência eletrônica nº 204/2024 (Lei 14.133/2021, art. 28, II)",
+    "published_pncp": "2024-11-12",
+    "proposals_closed": "2024-12-18",
+    "estimated_value_brl": 59503283.51,
+    "awarded_value_brl": 55983533.75,
+    "discount_pct_pncp": 5.9152,
+    "discount_in_doe_extract": "Percentual de Desconto: 25% (vinte e cinco por cento)",
+    "discount_note": "O PNCP registra desconto de 5,9152% (o valor homologado é 5,92% menor que o orçamento estimado, cálculo). O extrato publicado no DOE-SC diz \"25%\". Os dois documentos oficiais divergem; o número que bate com os valores é o do PNCP.",
+    "estimated_budget_quote_etp": "VALOR TOTAL DO ORÇAMENTO: R$ 59.503.283,51",
+    "scope_note": "Contrato sem as obras de arte especiais (viadutos e retornos elevados), que o Estudo Técnico Preliminar diz que \"serão licitadas posteriormente\".",
+    "url": "https://pncp.gov.br/app/editais/82951344000140/2024/194",
+    "api": "https://pncp.gov.br/api/consulta/v1/orgaos/82951344000140/compras/2024/194"
+   },
+   "measured_to_date": {
+    "measurements": 18,
+    "last_period_end": "2026-08-31",
+    "accumulated_initial_prices_brl": 40224998.39,
+    "accumulated_price_adjustment_brl": 1469716.84,
+    "accumulated_total_brl": 41694715.23
+   },
+   "signatories_doe": "Local e data da assinatura: Florianópolis, 07/03/2025. Signatários: secretário Jerry Edson comper, pela siE e o sr. Jorge angelo coelho, pela contratada. Processo: siE 36159/2024.",
+   "extra_sources": [
+    {
+     "doc": "Extrato de contrato no DOE-SC nº 22.468, 11/03/2025, p. 74",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2025/20250311/Jornal/22468.pdf"
+    },
+    {
+     "doc": "Contrato no PNCP (82951344000140-2-000002/2025)",
+     "url": "https://pncp.gov.br/app/contratos/82951344000140/2025/2",
+     "api": "https://pncp.gov.br/api/pncp/v1/orgaos/82951344000140/contratos/2025/2"
+    }
+   ]
+  },
+  {
+   "number": "CT-00018/2021",
+   "object": "Elaboração Projeto Engenharia Rodoviária para Obras de Melhoramento com Aumento de Capacidade da Rodovia SC-401, trecho: Santo Antônio de Lisboa - Entr. SC-404 - Lagoa da Conceição.",
+   "company": "NORDEN ENGENHARIA EIRELI",
+   "cnpj": "03616409000125",
+   "signed_on": "2021-03-09",
+   "start": "2021-09-20",
+   "end_original": "2022-07-17",
+   "end_current": "2023-02-01",
+   "value_original_brl": 417200.0,
+   "value_current_brl": 548376.18,
+   "value_amendments_brl": 0.0,
+   "value_price_adjustment_brl": 131176.18,
+   "status_in_record": "Paralisado",
+   "process_sgpe": "SIE 8131/2020",
+   "managing_unit": {
+    "code": "530001",
+    "name": "Secretaria de Estado da Infraestrutura e Mobilidade"
+   },
+   "amendments": [
+    {
+     "numero": "1",
+     "data": "2022-02-22",
+     "justificativa": "Aditivo de Valor ao contrato de supressão no valor de R$82.107,09.",
+     "dias_aditados": 0,
+     "valor_aditado_brl": -82107.09,
+     "percentual_no_registro": -19.68
+    },
+    {
+     "numero": "2",
+     "data": "2022-07-15",
+     "justificativa": "Aditivo de Prazo de 90 dias ao contrato. SIE 24965/2022",
+     "dias_aditados": 90,
+     "valor_aditado_brl": 0.0,
+     "percentual_no_registro": 0.0
+    },
+    {
+     "numero": "3",
+     "data": "2022-10-14",
+     "justificativa": "Aditivo de prazo de 120 dias ao contrato. SIE 34679/2022",
+     "dias_aditados": 120,
+     "valor_aditado_brl": 0.0,
+     "percentual_no_registro": 0.0
+    },
+    {
+     "numero": "7",
+     "data": "2023-09-12",
+     "justificativa": "acréscimo  de  mais  90  dias  ao  prazo  contratual  para finalização dos  trabalhos, referentes ao CT-018/2021. SIE 00014103/2023",
+     "dias_aditados": 90,
+     "valor_aditado_brl": 0.0,
+     "percentual_no_registro": 0.0
+    },
+    {
+     "numero": "8",
+     "data": "2023-11-06",
+     "justificativa": "Aditivo de valor ao contrato. SIE 4034/2023",
+     "dias_aditados": 0,
+     "valor_aditado_brl": 82107.09,
+     "percentual_no_registro": 19.68
+    },
+    {
+     "numero": "9",
+     "data": "2024-11-26",
+     "justificativa": "Justificativa no processo SIE 37159/2024",
+     "dias_aditados": 90,
+     "valor_aditado_brl": 0.0,
+     "percentual_no_registro": 0.0
+    }
+   ],
+   "stoppages": [
+    {
+     "inicio": "2023-01-07",
+     "reinicio": "2024-01-02",
+     "dias": 360,
+     "observacao": "Justificativa no processo SIE 1084/2023."
+    },
+    {
+     "inicio": "2024-04-01",
+     "reinicio": "2024-11-01",
+     "dias": 214,
+     "observacao": "Ordem Técnica conforme consta no processo SIE-12144/2024."
+    },
+    {
+     "inicio": "2025-02-20",
+     "reinicio": null,
+     "dias": 586,
+     "observacao": "Processo SIE 6636/2025."
+    }
+   ],
+   "inspector_field_raw": "AILTON PAULINO ROSA; LUCAS REBELLO HORTA VALADARES GONTIJO; LUIZ ERNESTO PANTOJA TELLES DE MENEZES; THAÍS APARECIDA DOS SANTOS LOPES; WILSON TADEU BESEN",
+   "inspector_field_warning": "Campo NMFISCAL do registro; o próprio SICOP classifica esses nomes como engenheiro fiscal, engenheiro da consultoria ou engenheiro da contratada (lista \"contratoFiscais\"). Não é lista de servidores.",
+   "sources": [
+    {
+     "doc": "Registro de contratos SIGEF/SICOP, CGE-SC (dados.sc.gov.br)",
+     "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+     "collected_on": "2026-09-30"
+    },
+    {
+     "doc": "Extrato SICOP do contrato, Portal da Transparência do Poder Executivo de SC (API)",
+     "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=101659",
+     "collected_on": "2026-09-30"
+    }
+   ],
+   "role_in_work": "projeto de engenharia do mesmo trecho (km 12+695 a 19+285, 10,07 km)",
+   "contractor_note": "O relatório do projeto executivo publicado no PNCP (anexo IV do edital) é desta empresa."
+  },
+  {
+   "number": "CT-00315/2022",
+   "object": "Supervisão, Coord. Controle e de Subsídios a Fiscalização de Obras Rod. da exec. dos trab. de Restauração com da Rod. SC-401 e SC-404 no Município de Florianópolis/SC contemplando 3 trechos.",
+   "company": "IGUATEMI CONSULTORIA E SERVIÇOS DE ENGENHARIA LTDA",
+   "cnpj": "83256172000158",
+   "signed_on": "2022-11-21",
+   "start": "2024-10-25",
+   "end_original": "2026-05-18",
+   "end_current": "2024-11-11",
+   "value_original_brl": 1982999.95,
+   "value_current_brl": 2266198.06,
+   "value_amendments_brl": 0.0,
+   "value_price_adjustment_brl": 275244.14,
+   "status_in_record": "Andamento",
+   "process_sgpe": "SIE 31246/2022",
+   "managing_unit": {
+    "code": "530001",
+    "name": "Secretaria de Estado da Infraestrutura e Mobilidade"
+   },
+   "amendments": [
+    {
+     "numero": "1",
+     "data": "2025-01-07",
+     "justificativa": "Prorrogação de Vigencia conforme processo SIE 28227/2024",
+     "dias_aditados": 0,
+     "valor_aditado_brl": 0.0,
+     "percentual_no_registro": 0.0
+    },
+    {
+     "numero": "5",
+     "data": "2025-05-14",
+     "justificativa": "Conforme processo SIE 17822/2026",
+     "dias_aditados": 150,
+     "valor_aditado_brl": 0.0,
+     "percentual_no_registro": 0.0
+    }
+   ],
+   "stoppages": [],
+   "inspector_field_raw": "CRISTIANO SILVA; DAGOBERTO ARNS; GUILHERME STAPENHORST ALVES PEREIRO; LEANDRO DA COSTA VIEIRA; LUIZ ERNESTO PANTOJA TELLES DE MENEZES",
+   "inspector_field_warning": "Campo NMFISCAL do registro; o próprio SICOP classifica esses nomes como engenheiro fiscal, engenheiro da consultoria ou engenheiro da contratada (lista \"contratoFiscais\"). Não é lista de servidores.",
+   "sources": [
+    {
+     "doc": "Registro de contratos SIGEF/SICOP, CGE-SC (dados.sc.gov.br)",
+     "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+     "collected_on": "2026-09-30"
+    },
+    {
+     "doc": "Extrato SICOP do contrato, Portal da Transparência do Poder Executivo de SC (API)",
+     "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=103057",
+     "collected_on": "2026-09-30"
+    }
+   ],
+   "role_in_work": "supervisão (ligação indicada pelo SICOP)",
+   "link_note": "O objeto fala em \"restauração\" da SC-401 e SC-404 (3 trechos). A ligação com a terceira faixa vem do SICOP: os três \"engenheiros da consultoria\" listados no CT-00014/2025 são os \"engenheiros da contratada\" deste contrato, e o mesmo fiscal foi designado para os dois a partir de 17/03/2025 (Portarias 324 e 325/2025, DOE-SC nº 22.483)."
+  }
+ ],
+ "contracts_totals_computed": {
+  "ct_00014_2025_initial_prices_with_amendment_brl": 62715728.45,
+  "all_three_current_brl": 67000019.53
+ },
+ "payments": {
+  "source": {
+   "doc": "Extrato SICOP do contrato (\"contratoResumoFinanceiro\" e \"contratoPagamento\"), Portal da Transparência do Poder Executivo de SC",
+   "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=104411",
+   "collected_on": "2026-09-30"
+  },
+  "by_contract": {
+   "CT-00014/2025": [
+    {
+     "year": 2025,
+     "committed_brl": 28865874.75,
+     "liquidated_brl": 26786756.45,
+     "paid_brl": 26786756.45
+    },
+    {
+     "year": 2026,
+     "committed_brl": 20488803.68,
+     "liquidated_brl": 14907958.78,
+     "paid_brl": 13942009.55
+    }
+   ],
+   "CT-00018/2021": [
+    {
+     "year": 2021,
+     "committed_brl": 188324.08,
+     "liquidated_brl": 0.0,
+     "paid_brl": 0.0
+    },
+    {
+     "year": 2022,
+     "committed_brl": 108859.03,
+     "liquidated_brl": 107233.52,
+     "paid_brl": 107233.52
+    },
+    {
+     "year": 2023,
+     "committed_brl": -189949.59,
+     "liquidated_brl": 0.0,
+     "paid_brl": 0.0
+    },
+    {
+     "year": 2024,
+     "committed_brl": 288956.96,
+     "liquidated_brl": 231399.5,
+     "paid_brl": 231399.5
+    },
+    {
+     "year": 2025,
+     "committed_brl": 44916.7,
+     "liquidated_brl": 102474.16,
+     "paid_brl": 102474.16
+    }
+   ],
+   "CT-00315/2022": [
+    {
+     "year": 2022,
+     "committed_brl": 120000.0,
+     "liquidated_brl": 0.0,
+     "paid_brl": 0.0
+    },
+    {
+     "year": 2023,
+     "committed_brl": -120000.0,
+     "liquidated_brl": 0.0,
+     "paid_brl": 0.0
+    },
+    {
+     "year": 2024,
+     "committed_brl": 150000.0,
+     "liquidated_brl": 0.0,
+     "paid_brl": 0.0
+    },
+    {
+     "year": 2025,
+     "committed_brl": 898634.6,
+     "liquidated_brl": 982217.33,
+     "paid_brl": 982217.33
+    },
+    {
+     "year": 2026,
+     "committed_brl": 784339.52,
+     "liquidated_brl": 850756.79,
+     "paid_brl": 764359.44
+    }
+   ]
+  },
+  "total_paid_ct_00014_2025_brl_computed": 40728766.0,
+  "checks": [
+   "Em cada ano, a soma das linhas de pagamento do extrato (despesa paga + retenções de INSS, IRRF e ISS - estornos) é igual ao \"vlpago\" do resumo, ao centavo.",
+   "Pagamento por contrato, não por credor: a consulta por credor (Britagem Vogelsanger, filial 0003) mistura outros contratos da mesma empresa com o Estado (ex.: CT-00225/2022, SC-108, R$ 168 mi)."
+  ],
+  "coverage": "Até a carga do Portal em 2026-09-30; 2026 é parcial."
+ },
+ "companies": [
+  {
+   "cnpj": "84689066000392",
+   "legal_name": "BRITAGEM VOGELSANGER LTDA",
+   "trade_name": "MINERACAO SANTA BARBARA",
+   "head_or_branch": "FILIAL",
+   "city": "PALHOCA/SC",
+   "registration_status": "ATIVA",
+   "registration_status_date": "2006-07-05",
+   "legal_nature": "Sociedade Empresária Limitada",
+   "contracts": [
+    "CT-00014/2025"
+   ],
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto (só com correspondência sem ambiguidade).",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/84689066000392",
+    "https://www.transparencia.sc.gov.br/fornecedores"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, lida via espelho (servidor oficial inacessível do exterior)",
+    "url": "https://minhareceita.org/84689066000392",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "cnpj": "03616409000125",
+   "legal_name": "NORDEN ENGENHARIA LTDA",
+   "trade_name": "NORDEN LEVANTAMENTOS ESPECIAIS",
+   "head_or_branch": "MATRIZ",
+   "city": "BELO HORIZONTE/MG",
+   "registration_status": "ATIVA",
+   "registration_status_date": "1999-12-16",
+   "legal_nature": "Sociedade Empresária Limitada",
+   "contracts": [
+    "CT-00018/2021"
+   ],
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto (só com correspondência sem ambiguidade).",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/03616409000125",
+    "https://www.transparencia.sc.gov.br/fornecedores"
+   ],
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, lida via espelho (servidor oficial inacessível do exterior)",
+    "url": "https://brasilapi.com.br/api/cnpj/v1/03616409000125",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "cnpj": "83256172000158",
+   "legal_name": null,
+   "trade_name": null,
+   "head_or_branch": null,
+   "city": null,
+   "registration_status": null,
+   "registration_status_date": null,
+   "legal_nature": null,
+   "contracts": [
+    "CT-00315/2022"
+   ],
+   "official_website": null,
+   "official_website_note": "Não verificado nesta coleta; deixado vazio pela regra do projeto (só com correspondência sem ambiguidade).",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/83256172000158",
+    "https://www.transparencia.sc.gov.br/fornecedores"
+   ],
+   "source": {
+    "doc": "Cadastro não lido: espelhos da Receita indisponíveis (HTTP 503) em 2026-09-30",
+    "url": null
+   }
+  }
+ ],
+ "people": [
+  {
+   "name": "Jerry Edson Comper",
+   "role": "Secretário de Estado da Infraestrutura e Mobilidade (SIE)",
+   "signed": [
+    "CT-00014/2025 (07/03/2025)",
+    "Edital da Concorrência 204/2024 (08/11/2024)"
+   ],
+   "source": [
+    {
+     "doc": "Extrato do contrato, DOE-SC nº 22.468, 11/03/2025, p. 74",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2025/20250311/Jornal/22468.pdf"
+    },
+    {
+     "doc": "Edital CE 204/2024 no PNCP (assinatura na p. 37)",
+     "url": "https://pncp.gov.br/app/editais/82951344000140/2024/194"
+    }
+   ]
+  },
+  {
+   "name": "Adalberto Cervino Ventura",
+   "role": "Diretor de Administração e Finanças da SIE",
+   "signed": [
+    "Portaria 325/2025 (designação do fiscal do CT-014/2025)",
+    "Portaria 312/2025 (comissão de desapropriação do CT-014/2025)"
+   ],
+   "source": [
+    {
+     "doc": "DOE-SC nº 22.483, 01/04/2025, p. 5",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2025/20250401/Jornal/22483.pdf"
+    },
+    {
+     "doc": "DOE-SC nº 22.480, 27/03/2025, p. 7",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2025/20250327/Jornal/22480.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Leandro da Costa Vieira",
+   "role": "Gerente de Fiscalização de Obras da SIE; fiscal do contrato a partir de 17/03/2025",
+   "signed": [],
+   "source": [
+    {
+     "doc": "Portaria 325/2025, DOE-SC nº 22.483, p. 5",
+     "url": "https://portal.doe.sea.sc.gov.br/repositorio/2025/20250401/Jornal/22483.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Ricardo Euclides Grando",
+   "role": "Secretário de Estado da Infraestrutura e Mobilidade na data das decisões do TCE-SC de 2026 (destinatário da cautelar)",
+   "signed": [],
+   "note": "Assinatura dos aditivos de 2026 não verificada nesta coleta.",
+   "source": [
+    {
+     "doc": "Decisão Singular GAC/WWD 190/2026, DOTC-e nº 4301, 24/04/2026",
+     "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2026-04-24.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Luiz Ernesto Pantoja Telles de Menezes",
+   "role": "Diretor de Fiscalização de Obras de Infraestrutura da SIE (destinatário de diligência do TCE-SC)",
+   "signed": [],
+   "source": [
+    {
+     "doc": "Decisão Singular GAC/WWD 190/2026 e 451/2026",
+     "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2026-08-27.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Jorginho Mello",
+   "full_name": "Jorginho dos Santos Mello",
+   "role": "Governador",
+   "head_of_government": true,
+   "on_dates": [
+    "2024-11-08 (edital)",
+    "2025-03-07 (CT-00014/2025)",
+    "2026-03-31 (1º aditivo)",
+    "2026-08-21 (aditivo de prazo)"
+   ],
+   "party_at_time": "PL",
+   "party_name": "Partido Liberal",
+   "term": {
+    "start": "2023-01-01",
+    "start_note": "Data de posse fixada pela Constituição; a biografia da Alesc registra o mandato como \"01/02/2023 - 31/01/2027\".",
+    "end": null
+   },
+   "note": "O governador não assina o contrato: no extrato, assina o secretário da SIE.",
+   "source": [
+    {
+     "doc": "Biografia, Memória Política de SC (Alesc)",
+     "url": "https://memoriapolitica.alesc.sc.gov.br/biografia/514-Jorginho_Mello"
+    },
+    {
+     "doc": "TSE, candidaturas 2022 (SC), partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
+    }
+   ]
+  },
+  {
+   "name": "Carlos Moisés da Silva",
+   "role": "Governador",
+   "head_of_government": true,
+   "on_dates": [
+    "2021-03-09 (CT-00018/2021, projeto)",
+    "2022-11-21 (CT-00315/2022, supervisão)"
+   ],
+   "party_at_time": {
+    "2021-03-09": "PSL",
+    "2022-11-21": "REPUBLICANOS"
+   },
+   "party_note": "Filiou-se ao PSL em 2018; passou ao Republicanos em março de 2022 (biografia da Alesc). Em 2021-03-09 estava no exercício do cargo (afastamentos: 26/10 a 27/11/2020 e 30/03 a 07/05/2021).",
+   "source": [
+    {
+     "doc": "Biografia, Memória Política de SC (Alesc)",
+     "url": "https://memoriapolitica.alesc.sc.gov.br/biografia/1308-Carlos_Moises"
+    },
+    {
+     "doc": "TSE, candidaturas 2022 (SC)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
+    }
+   ]
+  }
+ ],
+ "people_note": "Só papéis, com fonte. A presença de um nome numa decisão do TCE-SC como destinatário de cautelar ou diligência não é acusação nem sanção.",
+ "findings": [
+  {
+   "body": "TCE-SC",
+   "process": "@PAF 25/80004143, convertido em auditoria RLA 25/80004143",
+   "decision": "Decisão Singular GAC/AMF 216/2025 (relator Adircélio de Moraes Ferreira Júnior)",
+   "date": "2025-04-25 (publicação); retificação em 2025-05-02",
+   "summary_quote": "a demanda surgiu em decorrência da ausência de atenção ao Plano de Mobilidade Urbana Sustentável da Grande Florianópolis (PLAMUS) e da falta de interlocução entre a Secretaria de Estado da Infraestrutura e Mobilidade (SIE) e a Prefeitura de Florianópolis",
+   "correction_quote": "onde se lê “para a realização de Acompanhamento (ACO)”, leia-se “para a realização de Auditoria (RLA)”",
+   "status": "auditoria autorizada sobre as obras de aumento de capacidade da SC-401 Norte; decisão de mérito não localizada até 2026-09-30",
+   "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2025-04-25.pdf",
+   "extra_urls": [
+    "https://consulta.tce.sc.gov.br/Diario/dotc-e2025-05-02.pdf"
+   ]
+  },
+  {
+   "body": "TCE-SC",
+   "process": "REP 25/00183305",
+   "decision": "Decisão 424/2026, Tribunal Pleno (sessão virtual de 20/03/2026)",
+   "date": "2026-03-20 (sessão); 2026-04-06 (publicação)",
+   "summary_quote": "Determinar o arquivamento dos autos por perda de objeto, haja vista a inclusão do mesmo tema no Processo n. RLA 25/80004143",
+   "context": "Representação do deputado estadual Marcos José de Abreu (Marquito), a partir da Indicação 1133/2025, sobre drenagem e outros aspectos da terceira pista (texto da decisão).",
+   "status": "arquivada por perda de objeto; o tema segue na auditoria RLA 25/80004143",
+   "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2026-04-06.pdf"
+  },
+  {
+   "body": "TCE-SC",
+   "process": "ACO 25/80006863 (acompanhamento do Contrato 14/2025)",
+   "decision": "Decisão Singular GAC/WWD 190/2026 (relator Wilson Rogério Wan-Dall), medida cautelar",
+   "date": "2026-04-22 (decisão); 2026-04-24 (publicação)",
+   "summary_quote": "que se abstenha da liberação de novos trechos da terceira faixa da rodovia SC-401, sem a necessária e cogente segurança viária",
+   "technical_quote": "a liberação precoce de alguns trechos da rodovia SC 401, com serviços inacabados, redução das seções das faixas, ausência de dispositivos de proteção e segurança, mudanças abruptas de faixa e presença de obstáculos fixos próximos a faixa de rolamento",
+   "quantities_quote": "21.857m³ de material de terceira, que equivaleria a R$ 4.719.144,87, no trecho entre as estacas 26+0 até 52+0",
+   "addressee_as_in_text": "Secretário de Estado da Infraestrutura e Mobilidade (Ricardo Euclides Grando), com diligências ao Diretor de Fiscalização de Obras e ao fiscal do contrato",
+   "ratification_quote": "ACO 25/80006863 pelo(a) Conselheiro Wilson Rogério Wan-Dall em 22/04/2026, Decisão Singular GAC/WWD - 190/2026",
+   "status": "cautelar ratificada pela Primeira Câmara (sessão virtual iniciada em 24/04/2026); é determinação preventiva, não julgamento de mérito nem sanção",
+   "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2026-04-24.pdf",
+   "extra_urls": [
+    "https://consulta.tce.sc.gov.br/Diario/dotc-e2026-05-05.pdf"
+   ]
+  },
+  {
+   "body": "TCE-SC",
+   "process": "ACO 25/80006863",
+   "decision": "Decisão Singular GAC/WWD 451/2026 (relator Wilson Rogério Wan-Dall)",
+   "date": "2026-08-24 (decisão); 2026-08-27 (publicação)",
+   "summary_quote": "entendo que não restou comprovado o saneamento das inconformidades que embasaram a medida cautelar",
+   "schedule_quote": "considerando o término previsto para 08/09/2026, percentual físico-financeiro executado de 61,86%, enquanto o percentual projetado para o período era 91,75%",
+   "accident_quote": "ao acidente ocorrido em 31/03/2026, no qual um veículo saiu da pista e caiu sobre uma residência situada em cota inferior à do pavimento",
+   "pavement_quote": "os achados não apontam, neste momento, para uma deficiência de espessura capaz de indicar prejuízo quantitativo à administração pública",
+   "ratification_quote": "ACO 25/80006863 pelo(a) Conselheiro Wilson Rogério Wan-Dall em 24/08/2026, Decisão Singular GAC/WWD - 451/2026",
+   "status": "cautelar mantida e ratificada (Primeira Câmara, sessão virtual iniciada em 28/08/2026); diligências com prazo de 20 dias; processo em andamento",
+   "url": "https://consulta.tce.sc.gov.br/Diario/dotc-e2026-08-27.pdf",
+   "extra_urls": [
+    "https://consulta.tce.sc.gov.br/Diario/dotc-e2026-09-08.pdf"
+   ]
+  },
+  {
+   "body": "MPSC, MPF, Justiça",
+   "process": null,
+   "summary_quote": null,
+   "status": "Nenhum procedimento localizado nesta coleta (uma busca na web; os sistemas do MPSC e do TJSC não foram consultados por número).",
+   "url": null
+  }
+ ],
+ "terms_check": {
+  "terms": [
+   "superfaturamento",
+   "sobrepreço",
+   "desvio"
+  ],
+  "found_in_sc401_decisions": {
+   "2025-04-25": [],
+   "2026-04-24": [],
+   "2026-08-27": []
+  },
+  "note": "Busca feita só no trecho de cada DOTC-e que trata da SC-401 (as mesmas edições trazem esses termos em outros processos). Controle positivo conferido."
+ },
+ "media": [
+  {
+   "file": "docs/superpowers/previews/assets/cases/sc-401-terceira-faixa/centro-administrativo-2014.jpg",
+   "caption": "2014: Centro Administrativo do Governo de SC, na SC-401 (km 15, Saco Grande), dentro do trecho da obra",
+   "author": "Rachmaninoff",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Centro_Administrativo_de_Santa_Catarina.jpg",
+   "date": "2014-10-22 15:00:59"
+  },
+  {
+   "file": "docs/superpowers/previews/assets/cases/sc-401-terceira-faixa/saco-grande-2023.jpg",
+   "caption": "2023: bairro Saco Grande, cortado pela SC-401, visto do Floripa Shopping",
+   "author": "Ajmcbarreto",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Floripa_Shopping_-_2.jpg",
+   "date": "2023-12-06 16:46:35"
+  },
+  {
+   "file": "docs/superpowers/previews/assets/cases/sc-401-terceira-faixa/sc-401-margin-2015.jpg",
+   "caption": "2015: agência bancária às margens da SC-401, no complexo do Centro Administrativo",
+   "author": "Rachmaninoff",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Banco_do_Brasil_SC-401.jpg",
+   "date": "2015-01-02 12:02:52"
+  }
+ ],
+ "media_note": "Não há no Wikimedia Commons foto com licença livre da obra da terceira faixa (buscas: \"SC-401\", \"Rodovia SC-401\", \"Cacupé\", \"Saco Grande\", geobusca num raio de 2,5 km do trecho). As fotos mostram o entorno do trecho.",
+ "comparison": {
+  "unit": "R$ por km de extensão contratada, em reais de dezembro de 2024",
+  "method": "Valor do contrato a preços iniciais (sem reajuste) com aditivos de valor, corrigido pelo IPCA do mês de assinatura até dez/2024 (IBGE/SIDRA 1737). Todos os valores já estão em reais: não há conversão de câmbio. Fator = IPCA dez/2024 / IPCA do mês-base.",
+  "ipca_dec_2024": 7100.5,
+  "ipca_source": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/all?formato=json",
+  "this_work": {
+   "name": "SC-401, terceira faixa (Florianópolis/SC)",
+   "category": "urbana, sem obras de arte especiais",
+   "scope": "Terceira faixa nos dois sentidos, vias marginais, ciclofaixa, drenagem e contenções, em área urbana; SEM viadutos e retornos elevados (licitados à parte).",
+   "lanes": "2+2 para 3+3 faixas",
+   "length_km": 10.07,
+   "cost_reported_brl": 62715728.45,
+   "cost_basis": "Valor original R$ 55.983.533,75 + aditivo de R$ 6.732.194,70 (preços iniciais). O valor atual no SIGEF, R$ 64.185.445,29, inclui ainda R$ 1.469.716,84 de reajuste.",
+   "price_base_month": "2025-03",
+   "ipca_index_base_month": 7245.38,
+   "ipca_factor_to_dec2024": 0.980004,
+   "cost_brl_2024": 61461652.79,
+   "cost_per_km_brl_2024": 6103441.19,
+   "sources": [
+    {
+     "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=104411"
+    },
+    {
+     "url": "https://pncp.gov.br/app/contratos/82951344000140/2025/2"
+    }
+   ],
+   "cost_per_km_brl_2024_alt": {
+    "length_km": 6.59,
+    "value": 9326502.7,
+    "note": "Só o eixo principal (km 12+695 a 19+285); os 10,07 km somam as vias marginais."
+   }
+  },
+  "comparables": [
+   {
+    "name": "BR-428/PE, duplicação da travessia urbana de Petrolina (DNIT)",
+    "category": "urbana, sem obras de arte especiais no objeto",
+    "scope": "Duplicação para adequação de capacidade em travessia urbana, km 180,89 a 188,00.",
+    "lanes": "2 para 4 faixas",
+    "length_km": 7.11,
+    "cost_reported_brl": 50708357.79,
+    "cost_basis": "Valor a preços iniciais vigente depois do 8º termo aditivo (R$ 50.708.357,79); contrato 921/2020, assinado em 30/12/2020.",
+    "price_base_month": "2020-12",
+    "ipca_index_base_month": 5560.59,
+    "ipca_factor_to_dec2024": 1.276933,
+    "cost_brl_2024": 64751167.5,
+    "cost_per_km_brl_2024": 9107055.91,
+    "sources": [
+     {
+      "url": "https://contratos.comprasnet.gov.br/api/contrato/99884/historico"
+     }
+    ]
+   },
+   {
+    "name": "BR-282/SC, ruas laterais e ponto crítico na travessia urbana de Maravilha (DNIT)",
+    "category": "urbana, sem obras de arte especiais no objeto",
+    "scope": "Correção de ponto crítico e implantação e pavimentação de ruas laterais, km 604,3 a 607,7.",
+    "lanes": "pista existente + ruas laterais",
+    "length_km": 3.4,
+    "cost_reported_brl": 28572115.68,
+    "cost_basis": "Valor do contrato 674/2024 (sem aditivo de valor até 2026-06).",
+    "price_base_month": "2024-12",
+    "ipca_index_base_month": 7100.5,
+    "ipca_factor_to_dec2024": 1.0,
+    "cost_brl_2024": 28572115.68,
+    "cost_per_km_brl_2024": 8403563.44,
+    "sources": [
+     {
+      "url": "https://contratos.comprasnet.gov.br/api/contrato/352579/historico"
+     }
+    ]
+   },
+   {
+    "name": "BR-324/BA, travessia urbana de Feira de Santana (DNIT)",
+    "category": "urbana, com obras de arte especiais",
+    "scope": "Implantação/duplicação, adequação de capacidade e eliminação de segmentos críticos, INCLUINDO obras de arte especiais, km 512,5 a 519,7.",
+    "lanes": "2 para 4 faixas + obras de arte",
+    "length_km": 7.2,
+    "cost_reported_brl": 179422844.66,
+    "cost_basis": "Valor do contrato 287/2025 (sem aditivo de valor até 2026-06).",
+    "price_base_month": "2025-06",
+    "ipca_index_base_month": 7312.97,
+    "ipca_factor_to_dec2024": 0.970946,
+    "cost_brl_2024": 174209918.61,
+    "cost_per_km_brl_2024": 24195822.03,
+    "sources": [
+     {
+      "url": "https://contratos.comprasnet.gov.br/api/contrato/568641/historico"
+     }
+    ]
+   },
+   {
+    "name": "MG-230, restauração e terceira faixa, Serra do Salitre a Salitre de Minas (DER-MG)",
+    "category": "rural",
+    "scope": "Restauração e aumento de capacidade com terceira faixa, rodovia rural.",
+    "lanes": "2 para 3 faixas (terceira faixa)",
+    "length_km": 15.04,
+    "cost_reported_brl": 34487308.95,
+    "cost_basis": "Valor do contrato no PNCP, assinado em 11/08/2026.",
+    "price_base_month": "2026-08",
+    "ipca_index_base_month": 7633.23,
+    "ipca_factor_to_dec2024": 0.930209,
+    "cost_brl_2024": 32080408.58,
+    "cost_per_km_brl_2024": 2133005.89,
+    "sources": [
+     {
+      "url": "https://pncp.gov.br/app/contratos/17309790000194/2026/293"
+     }
+    ]
+   }
+  ],
+  "result": "Por km de extensão contratada, a SC-401 custou R$ 6,1 mi/km (dez/2024), MENOS que as duas obras urbanas comparáveis sem obras de arte (R$ 9,1 e R$ 8,4 mi/km). Contando só o eixo principal (6,59 km), fica em R$ 9,3 mi/km, no mesmo patamar delas.",
+  "caveats": [
+   "O contrato da SC-401 não inclui os viadutos e retornos elevados; quando forem contratados, o custo da obra completa sobe.",
+   "O TCE-SC registra que os quantitativos de escavação, terraplenagem e pavimentação estão se esgotando antes do fim da obra e pede a atualização dos quantitativos e do impacto financeiro: o valor final deve ser maior que o atual.",
+   "Os comparáveis são contratos (valor contratado), não custo final auditado; três ainda estão em execução.",
+   "Extensões diferentes medem coisas diferentes: os 10,07 km da SC-401 somam eixo e vias marginais."
+  ]
+ },
+ "card": {
+  "image": "docs/superpowers/previews/assets/cases/sc-401-terceira-faixa/centro-administrativo-2014.jpg",
+  "stats": [
+   [
+    "Valor atual do contrato",
+    "R$ 64,2 mi"
+   ],
+   [
+    "Aditivo de valor",
+    "+12%"
+   ],
+   [
+    "Pago até set/2026",
+    "R$ 40,7 mi"
+   ],
+   [
+    "Custo por km (dez/2024)",
+    "R$ 6,1 mi"
+   ]
+  ]
+ }
+}

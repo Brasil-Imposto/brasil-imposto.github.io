@@ -1,0 +1,331 @@
+{
+ "rule": "D90 (\"a conta fecha?\"): todo registro oficial aparece como cartão, com os detalhes; o que contaria dinheiro duas vezes, ou o dinheiro que não chegou a existir, fica marcado e fora da soma (in_total false). Uma carta por medida: a lei de conversão no lugar da MP (D79) e a arrecadação dentro do ato que criou o imposto. MP de gasto que perdeu a validade continua na soma, com marca: o dinheiro pode ter sido gasto enquanto ela valia (ex.: Auxílio Emergencial, MPs 937 e 988 de 2020).",
+ "merge": {
+  "lei-15503-2026-driver-vehicle-financing": "mp-1359-2026-driver-vehicle-financing",
+  "lei-15473-2026-export-credit-lines": "mp-1345-2026-export-credit-lines"
+ },
+ "not_in_total": {
+  "mp-1303-2025-financial-investments-tax-expected": {
+   "tags": [
+    "Perdeu a validade",
+    "Fora da soma"
+   ],
+   "reason": "A MP perdeu a validade em 08/10/2025 sem ser votada: a receita prevista não chegou a existir."
+  },
+  "mp-1227-2024-tax-offset-limits-expected": {
+   "tags": [
+    "Perdeu a validade",
+    "Fora da soma"
+   ],
+   "reason": "O Congresso rejeitou a parte da MP que gerava a receita: a receita prevista não chegou a existir."
+  },
+  "mp-1184-2023-closed-funds-tax-expected": {
+   "tags": [
+    "Perdeu a validade",
+    "Fora da soma"
+   ],
+   "reason": "A MP perdeu a validade em 04/02/2024; a tributação dos fundos fechados veio pela Lei nº 14.754/2023, que tem cartão próprio."
+  },
+  "mp-1163-2023-crude-oil-export-tax-expected": {
+   "tags": [
+    "Perdeu a validade",
+    "Fora da soma"
+   ],
+   "reason": "A MP perdeu a validade em 28/06/2023; o valor é a previsão, não o que foi arrecadado enquanto ela valeu."
+  },
+  "mp-1202-2023-perse-revocation-expected": {
+   "tags": [
+    "Perdeu a validade",
+    "Fora da soma"
+   ],
+   "reason": "A parte do Perse foi revogada pela Lei nº 14.859/2024: a receita prevista com o fim do Perse não chegou a existir."
+  },
+  "mp-905-2019-unemployment-insurance-contribution-expected": {
+   "tags": [
+    "Perdeu a validade",
+    "Fora da soma"
+   ],
+   "reason": "A MP foi revogada pela MP nº 955/2020: a contribuição prevista não chegou a existir."
+  },
+  "mp-1164-2023-bolsa-familia": {
+   "tags": [
+    "Fora da soma"
+   ],
+   "reason": "O valor é o orçamento do Bolsa Família inteiro em 2023; a maior parte já estava no orçamento do Auxílio Brasil, que ele substituiu. Somar contaria duas vezes."
+  },
+  "mp-1340-2026-crude-oil-export-tax-expected": {
+   "tags": [
+    "Fora da soma"
+   ],
+   "reason": "Previsão do governo; o arrecadado aparece mês a mês."
+  }
+ },
+ "lapsed_spending_tag": "MP perdeu a validade",
+ "items": [
+  {
+   "id": "bcb-result-transfer-2019-03-14",
+   "year": 2019,
+   "moved_on": "2019-03-14",
+   "title": "Resultado do Banco Central transferido ao Tesouro",
+   "short_title": "Lucro do Banco Central ao Tesouro",
+   "kind": "revenue",
+   "act": {
+    "type": "Lei",
+    "number": "13.820",
+    "date": "2019-05-03",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/L13820.htm"
+   },
+   "signed_by": [],
+   "amount_brl": 25973338020.89,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Portal da Transparência, receitas da União, natureza \"RESULTADO DO BACEN-DEMAIS OPERACOES\"",
+    "url": "https://portaldatransparencia.gov.br/receitas",
+    "quote": "14/03/2019: R$ 25.973.338.020,89",
+    "date": "2019-03-14"
+   },
+   "status": "Registrado no Portal da Transparência em 14/03/2019. O Tesouro conta esse valor como receita financeira, fora do resultado primário (o resultado das contas antes dos juros).",
+   "summary": "O Banco Central transferiu ao Tesouro R$ 25.973.338.020,89 do resultado positivo do seu balanço. Pela Lei nº 13.820/2019, art. 2º, § 2º, esses valores \"serão destinados exclusivamente ao pagamento da Dívida Pública Mobiliária Federal (DPMF)\"; o art. 5º permite usar a reserva de resultado do Banco Central também para a dívida, com autorização do Conselho Monetário Nacional. Por lei, esse dinheiro paga a dívida pública, e não obras, salários ou saúde.",
+   "tags": [
+    "Receita financeira",
+    "Só paga a dívida pública"
+   ],
+   "in_total": true
+  },
+  {
+   "id": "bcb-result-transfer-2019-09-12",
+   "year": 2019,
+   "moved_on": "2019-09-12",
+   "title": "Resultado do Banco Central transferido ao Tesouro",
+   "short_title": "Lucro do Banco Central ao Tesouro",
+   "kind": "revenue",
+   "act": {
+    "type": "Lei",
+    "number": "13.820",
+    "date": "2019-05-03",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/L13820.htm"
+   },
+   "signed_by": [],
+   "amount_brl": 21413301786.56,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Portal da Transparência, receitas da União, natureza \"RESULTADO DO BACEN-DEMAIS OPERACOES\"",
+    "url": "https://portaldatransparencia.gov.br/receitas",
+    "quote": "12/09/2019: R$ 21.413.301.786,56",
+    "date": "2019-09-12"
+   },
+   "status": "Registrado no Portal da Transparência em 12/09/2019. O Tesouro conta esse valor como receita financeira, fora do resultado primário (o resultado das contas antes dos juros).",
+   "summary": "O Banco Central transferiu ao Tesouro R$ 21.413.301.786,56 do resultado positivo do seu balanço. Pela Lei nº 13.820/2019, art. 2º, § 2º, esses valores \"serão destinados exclusivamente ao pagamento da Dívida Pública Mobiliária Federal (DPMF)\"; o art. 5º permite usar a reserva de resultado do Banco Central também para a dívida, com autorização do Conselho Monetário Nacional. Por lei, esse dinheiro paga a dívida pública, e não obras, salários ou saúde.",
+   "tags": [
+    "Receita financeira",
+    "Só paga a dívida pública"
+   ],
+   "in_total": true
+  },
+  {
+   "id": "bcb-result-transfer-2020-03-06",
+   "year": 2020,
+   "moved_on": "2020-03-06",
+   "title": "Resultado do Banco Central transferido ao Tesouro",
+   "short_title": "Lucro do Banco Central ao Tesouro",
+   "kind": "revenue",
+   "act": {
+    "type": "Lei",
+    "number": "13.820",
+    "date": "2019-05-03",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/L13820.htm"
+   },
+   "signed_by": [],
+   "amount_brl": 22288681258.25,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Portal da Transparência, receitas da União, natureza \"RESULTADO DO BACEN-DEMAIS OPERACOES\"",
+    "url": "https://portaldatransparencia.gov.br/receitas",
+    "quote": "06/03/2020: R$ 22.288.681.258,25",
+    "date": "2020-03-06"
+   },
+   "status": "Registrado no Portal da Transparência em 06/03/2020. O Tesouro conta esse valor como receita financeira, fora do resultado primário (o resultado das contas antes dos juros).",
+   "summary": "O Banco Central transferiu ao Tesouro R$ 22.288.681.258,25 do resultado positivo do seu balanço. Pela Lei nº 13.820/2019, art. 2º, § 2º, esses valores \"serão destinados exclusivamente ao pagamento da Dívida Pública Mobiliária Federal (DPMF)\"; o art. 5º permite usar a reserva de resultado do Banco Central também para a dívida, com autorização do Conselho Monetário Nacional. Por lei, esse dinheiro paga a dívida pública, e não obras, salários ou saúde.",
+   "tags": [
+    "Receita financeira",
+    "Só paga a dívida pública"
+   ],
+   "in_total": true
+  },
+  {
+   "id": "bcb-result-transfer-2020-08-28",
+   "year": 2020,
+   "moved_on": "2020-08-28",
+   "title": "Resultado do Banco Central transferido ao Tesouro",
+   "short_title": "Lucro do Banco Central ao Tesouro",
+   "kind": "revenue",
+   "act": {
+    "type": "Lei",
+    "number": "13.820",
+    "date": "2019-05-03",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/L13820.htm"
+   },
+   "signed_by": [],
+   "amount_brl": 350022251304.3,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Portal da Transparência, receitas da União, natureza \"RESULTADO DO BACEN-DEMAIS OPERACOES\"",
+    "url": "https://portaldatransparencia.gov.br/receitas",
+    "quote": "28/08/2020: R$ 350.022.251.304,30",
+    "date": "2020-08-28"
+   },
+   "status": "Registrado no Portal da Transparência em 28/08/2020. O Tesouro conta esse valor como receita financeira, fora do resultado primário (o resultado das contas antes dos juros).",
+   "summary": "O Banco Central transferiu ao Tesouro R$ 350.022.251.304,30 do resultado positivo do seu balanço. Pela Lei nº 13.820/2019, art. 2º, § 2º, esses valores \"serão destinados exclusivamente ao pagamento da Dívida Pública Mobiliária Federal (DPMF)\"; o art. 5º permite usar a reserva de resultado do Banco Central também para a dívida, com autorização do Conselho Monetário Nacional. Por lei, esse dinheiro paga a dívida pública, e não obras, salários ou saúde.",
+   "tags": [
+    "Receita financeira",
+    "Só paga a dívida pública"
+   ],
+   "in_total": true
+  },
+  {
+   "id": "bcb-result-transfer-2022-02-25",
+   "year": 2022,
+   "moved_on": "2022-02-25",
+   "title": "Resultado do Banco Central transferido ao Tesouro",
+   "short_title": "Lucro do Banco Central ao Tesouro",
+   "kind": "revenue",
+   "act": {
+    "type": "Lei",
+    "number": "13.820",
+    "date": "2019-05-03",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/L13820.htm"
+   },
+   "signed_by": [],
+   "amount_brl": 72801160234.9,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Portal da Transparência, receitas da União, natureza \"RESULTADO DO BACEN-DEMAIS OPERACOES\"",
+    "url": "https://portaldatransparencia.gov.br/receitas",
+    "quote": "25/02/2022: R$ 72.801.160.234,90",
+    "date": "2022-02-25"
+   },
+   "status": "Registrado no Portal da Transparência em 25/02/2022. O Tesouro conta esse valor como receita financeira, fora do resultado primário (o resultado das contas antes dos juros).",
+   "summary": "O Banco Central transferiu ao Tesouro R$ 72.801.160.234,90 do resultado positivo do seu balanço. Pela Lei nº 13.820/2019, art. 2º, § 2º, esses valores \"serão destinados exclusivamente ao pagamento da Dívida Pública Mobiliária Federal (DPMF)\"; o art. 5º permite usar a reserva de resultado do Banco Central também para a dívida, com autorização do Conselho Monetário Nacional. Por lei, esse dinheiro paga a dívida pública, e não obras, salários ou saúde.",
+   "tags": [
+    "Receita financeira",
+    "Só paga a dívida pública"
+   ],
+   "in_total": true
+  },
+  {
+   "id": "bcb-result-transfer-2025-03-14",
+   "year": 2025,
+   "moved_on": "2025-03-14",
+   "title": "Resultado do Banco Central transferido ao Tesouro",
+   "short_title": "Lucro do Banco Central ao Tesouro",
+   "kind": "revenue",
+   "act": {
+    "type": "Lei",
+    "number": "13.820",
+    "date": "2019-05-03",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/L13820.htm"
+   },
+   "signed_by": [],
+   "amount_brl": 28746262897.98,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Portal da Transparência, receitas da União, natureza \"RESULTADO DO BACEN-DEMAIS OPERACOES\"",
+    "url": "https://portaldatransparencia.gov.br/receitas",
+    "quote": "14/03/2025: R$ 28.746.262.897,98",
+    "date": "2025-03-14"
+   },
+   "status": "Registrado no Portal da Transparência em 14/03/2025. O Tesouro conta esse valor como receita financeira, fora do resultado primário (o resultado das contas antes dos juros).",
+   "summary": "O Banco Central transferiu ao Tesouro R$ 28.746.262.897,98 do resultado positivo do seu balanço. Pela Lei nº 13.820/2019, art. 2º, § 2º, esses valores \"serão destinados exclusivamente ao pagamento da Dívida Pública Mobiliária Federal (DPMF)\"; o art. 5º permite usar a reserva de resultado do Banco Central também para a dívida, com autorização do Conselho Monetário Nacional. Por lei, esse dinheiro paga a dívida pública, e não obras, salários ou saúde.",
+   "tags": [
+    "Receita financeira",
+    "Só paga a dívida pública"
+   ],
+   "in_total": true
+  },
+  {
+   "id": "mp-1374-2026-fndct-rural-credit",
+   "year": 2026,
+   "title": "Até R$ 10 bilhões do FNDCT para crédito a máquinas agrícolas nacionais, via Finep",
+   "short_title": "FNDCT para crédito rural via Finep",
+   "kind": "spending",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.374",
+    "date": "2026-07-01",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1374.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Luciana Barbosa de Oliveira Santos",
+     "office": null
+    },
+    {
+     "name": "Dario Carnevalli Durigan",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Bruno Moretti",
+     "office": null
+    }
+   ],
+   "amount_brl": 10000000000,
+   "amount_kind": "cap",
+   "amount_source": {
+    "body": "Medida Provisória nº 1.374/2026, art. 15-A da Lei nº 11.540/2007 (texto do Planalto, cópia do Internet Archive)",
+    "url": "https://web.archive.org/web/2026/https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1374.htm",
+    "quote": "Em caráter extraordinário, no exercício financeiro de 2026, observada a legislação orçamentária, será destinado o montante de até R$ 10.000.000.000,00 (dez bilhões de reais) do superávit financeiro de que trata o art. 12, § 6º, à linha de financiamento reembolsável",
+    "date": "2026-07-01"
+   },
+   "status": "Assinada em 30/06/2026; Diário Oficial da União de 01/07/2026. O crédito extraordinário da MP nº 1.377 (R$ 13,285 bilhões, já listado) inclui R$ 9 bilhões para esta linha, segundo a exposição de motivos.",
+   "summary": "A MP autoriza destinar até R$ 10 bilhões do superávit do Fundo Nacional de Desenvolvimento Científico e Tecnológico a uma linha de crédito, operada pela Finep, para equipamentos agrícolas nacionais. A mesma MP cria a subvenção a produtores independentes de cana-de-açúcar do Nordeste.",
+   "tags": [
+    "Fora da soma"
+   ],
+   "in_total": false,
+   "not_in_total_reason": "O dinheiro desta linha já está no crédito extraordinário da MP nº 1.377 (R$ 9 bilhões dos R$ 13,285 bilhões); somar os dois contaria duas vezes."
+  },
+  {
+   "id": "mp-1340-2026-crude-oil-export-tax-2026-07",
+   "year": 2026,
+   "moved_on": "2026-07",
+   "title": "Imposto de exportação sobre petróleo bruto recolhido em julho de 2026",
+   "short_title": "Imposto sobre exportação de petróleo (julho)",
+   "kind": "revenue",
+   "act": {
+    "type": "Medida Provisória",
+    "number": "1.340",
+    "date": "2026-03-12",
+    "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1340.htm"
+   },
+   "signed_by": [
+    {
+     "name": "Luiz Inácio Lula da Silva",
+     "office": "Presidente da República"
+    },
+    {
+     "name": "Fernando Haddad",
+     "office": "Ministro de Estado da Fazenda"
+    },
+    {
+     "name": "Alexandre Silveira de Oliveira",
+     "office": "Ministro de Estado de Minas e Energia"
+    }
+   ],
+   "amount_brl": 3200000000,
+   "amount_kind": "paid",
+   "amount_source": {
+    "body": "Secretaria do Tesouro Nacional, Resultado do Tesouro Nacional de julho de 2026, Nota 6 do resultado mês contra mês",
+    "url": "https://cdn.tesouro.gov.br/sistemas-internos/apex/producao/sistemas/thot/arquivos/publicacoes/55499_1749788/boletim_jul26.pdf",
+    "quote": "resultado refletiu, principalmente, as alterações legislativas no Imposto de Exportação sobre óleo bruto (MP nº 1.340/2026), item responsável pelo recolhimento de R$ 3,2 bilhões no mês de julho de 2026.",
+    "date": "2026-08-27"
+   },
+   "status": "Recolhido em julho de 2026, segundo o Resultado do Tesouro Nacional de julho (publicado em 27/08/2026). A partir de 10/07/2026 a alíquota de 12% passou a ser fixada pela Resolução Gecex nº 938/2026; o Tesouro atribui o recolhimento de julho à MP nº 1.340/2026.",
+   "summary": "Segundo o Tesouro Nacional, o imposto de exportação sobre petróleo bruto criado pela MP nº 1.340/2026 recolheu R$ 3,2 bilhões em julho de 2026.",
+   "in_total": true
+  }
+ ]
+}

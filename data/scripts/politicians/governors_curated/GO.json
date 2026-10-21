@@ -1,0 +1,172 @@
+{
+ "uf": "GO",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Ronaldo Caiado",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Lincoln Tejota",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governador",
+   "name": "Ronaldo Caiado",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-03-31",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "renúncia (desincompatibilização para a eleição de 2026)",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "saída do titular para disputar a eleição e posse do vice como governador em 31/03/2026 (Assembleia Legislativa de Goiás, 31/03/2026)",
+     "url": "https://portal.al.go.leg.br/noticias/163542",
+     "type": "oficial",
+     "quote": "31 de Março de 2026 às 17:20 [...] Com a desincompatibilização de Ronaldo Caiado para disputar a Presidência, o vice-governador Daniel Vilela assumiu o comando do Estado durante sessão solene na Assembleia [...] Agora governador de Goiás, Daniel Vilela (MDB) tomou posse do cargo máximo da política goiana na tarde desta terça-feira, 31 [...] o emedebista substituiu definitivamente o então governador Ronaldo Caiado (PSD), que se afastou da gestão para disputar a Presidência da República"
+    }
+   ],
+   "verified": true,
+   "note": "Saída do titular para disputar a Presidência (desincompatibilização) e posse do vice como governador na terça-feira, 31/03/2026, em sessão solene da Assembleia (Alego)."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Daniel Vilela",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-03-31",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "assumiu o cargo de governador",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "saída do titular para disputar a eleição e posse do vice como governador em 31/03/2026 (Assembleia Legislativa de Goiás, 31/03/2026)",
+     "url": "https://portal.al.go.leg.br/noticias/163542",
+     "type": "oficial",
+     "quote": "31 de Março de 2026 às 17:20 [...] Com a desincompatibilização de Ronaldo Caiado para disputar a Presidência, o vice-governador Daniel Vilela assumiu o comando do Estado durante sessão solene na Assembleia [...] Agora governador de Goiás, Daniel Vilela (MDB) tomou posse do cargo máximo da política goiana na tarde desta terça-feira, 31 [...] o emedebista substituiu definitivamente o então governador Ronaldo Caiado (PSD), que se afastou da gestão para disputar a Presidência da República"
+    }
+   ],
+   "verified": true,
+   "note": "Saída do titular para disputar a Presidência (desincompatibilização) e posse do vice como governador na terça-feira, 31/03/2026, em sessão solene da Assembleia (Alego)."
+  },
+  {
+   "role": "governador",
+   "name": "Daniel Vilela",
+   "full_name": null,
+   "kind": "vice no cargo de titular",
+   "start": "2026-03-31",
+   "end": null,
+   "start_reason": "renúncia do titular",
+   "end_reason": null,
+   "party_at_start": "MDB",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "saída do titular para disputar a eleição e posse do vice como governador em 31/03/2026 (Assembleia Legislativa de Goiás, 31/03/2026)",
+     "url": "https://portal.al.go.leg.br/noticias/163542",
+     "type": "oficial",
+     "quote": "31 de Março de 2026 às 17:20 [...] Com a desincompatibilização de Ronaldo Caiado para disputar a Presidência, o vice-governador Daniel Vilela assumiu o comando do Estado durante sessão solene na Assembleia [...] Agora governador de Goiás, Daniel Vilela (MDB) tomou posse do cargo máximo da política goiana na tarde desta terça-feira, 31 [...] o emedebista substituiu definitivamente o então governador Ronaldo Caiado (PSD), que se afastou da gestão para disputar a Presidência da República"
+    },
+    {
+     "fact": "Lei nº 24.561, de 30/09/2026, sancionada por ele (base de legislação da Casa Civil de Goiás)",
+     "url": "https://legisla.casacivil.go.gov.br/api/v2/pesquisa/legislacoes/117827",
+     "type": "oficial",
+     "quote": "Goiânia, 30 de setembro de 2026; 138º da República. DANIEL VILELA Governador do Estado"
+    }
+   ],
+   "verified": true,
+   "note": "Saída do titular para disputar a Presidência (desincompatibilização) e posse do vice como governador na terça-feira, 31/03/2026, em sessão solene da Assembleia (Alego). Partido: MDB (Alego, 31/03/2026). Segue no cargo: Lei nº 24.561, de 30/09/2026, sancionada por ele."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2026-03-31",
+   "end": null,
+   "start_reason": "o vice-governador assumiu o cargo de governador",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "saída do titular para disputar a eleição e posse do vice como governador em 31/03/2026 (Assembleia Legislativa de Goiás, 31/03/2026)",
+     "url": "https://portal.al.go.leg.br/noticias/163542",
+     "type": "oficial",
+     "quote": "31 de Março de 2026 às 17:20 [...] Com a desincompatibilização de Ronaldo Caiado para disputar a Presidência, o vice-governador Daniel Vilela assumiu o comando do Estado durante sessão solene na Assembleia [...] Agora governador de Goiás, Daniel Vilela (MDB) tomou posse do cargo máximo da política goiana na tarde desta terça-feira, 31 [...] o emedebista substituiu definitivamente o então governador Ronaldo Caiado (PSD), que se afastou da gestão para disputar a Presidência da República"
+    }
+   ],
+   "verified": true,
+   "note": "Sem vice desde a posse do vice como governador em 31/03/2026."
+  }
+ ],
+ "gaps": []
+}

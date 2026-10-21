@@ -1,0 +1,22 @@
+{
+ "joinville-zona-leste.jpg": {
+  "file": "joinville-zona-leste.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Mirante_Parque_Morro_do_Finder,_com_vista_para_a_zona_leste_de_Joinville_e_a_Baia_da_Babitonga.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Vitor Marilone Cidral da Costa do Amaral",
+  "date": "2023-09-09",
+  "description": "Mirante Parque Morro do Finder, com vista para a zona leste de Joinville e a Baia da Babitonga.",
+  "bytes": 250930
+ },
+ "prefeito-adriano-silva.jpg": {
+  "file": "prefeito-adriano-silva.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Prefeito-Adriano-Silva.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Vz6 felipe",
+  "date": "0001-01-18",
+  "description": "na prefeitura de Joinville",
+  "bytes": 99556
+ }
+}

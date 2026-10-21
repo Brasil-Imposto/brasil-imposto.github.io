@@ -1,0 +1,52 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;overflow:hidden;background:#fff}iframe{border:0;display:block}</style></head><body>
+<div id="probe" style="position:fixed;left:-9999px">PROBE pending</div>
+<script>
+// Loads a preview, waits for data-ready, then optionally opens a state modal (?open=SC) and clicks
+// the n-th clickable row (?row=5) or the first case card (?case=1) / compare button (?cta=1).
+const p = new URLSearchParams(location.search);
+const w = +p.get('w') || 1440, h = +p.get('h') || 900;
+const f = document.createElement('iframe');
+f.style.cssText = `width:${w}px;height:${h}px`;
+f.src = p.get('src');
+const out = (t) => { document.getElementById('probe').textContent = 'PROBE ' + t; };
+f.onload = () => {
+  const d = f.contentDocument, win = f.contentWindow;
+  const wait = () => {
+    if (d.body.dataset.ready !== '1') return setTimeout(wait, 200);
+    setTimeout(() => {
+      try {
+        if (p.get('hover')) {
+          const map = d.querySelector('.hero-map');
+          const lab = [...map.querySelectorAll('.uf-label')].find((e) => e.textContent === p.get('hover'));
+          const r = lab.getBoundingClientRect();
+          map.dispatchEvent(new win.PointerEvent('pointermove', { clientX: r.left + r.width / 2 + (+p.get('dx') || 0), clientY: r.top + r.height / 2 + (+p.get('dy') || 0), bubbles: true }));
+        }
+        if (p.get('open')) win.__openState(p.get('open'));
+        if (p.get('brasil')) d.querySelector('[data-open-brasil]').click();
+        if (p.get('period')) { const [mode, val] = p.get('period').split(':'); win.__onPeriod(mode === 'year' ? { mode, year: +val, month: '2026-07', mandate: '2023-2026' } : mode === 'mandate' ? { mode, mandate: val, year: 2026, month: '2026-07' } : { mode, month: val, year: 2026, mandate: '2023-2026' }); }
+        if (p.get('click')) for (const sel of p.getAll('click')) d.querySelector(sel).click();
+        if (p.get('row')) d.querySelectorAll('.bars li.clickable')[+p.get('row')].click();
+        if (p.get('case')) d.querySelectorAll('.case-card')[+p.get('case') - 1].click();
+        if (p.get('cta')) d.querySelector('.cta').click();
+        if (p.get('mapat')) {
+          // mapat=fx,fy: pointer at that fraction of the state map, then click there.
+          const st = d.querySelector('.st-map .sm-stage'); const r = st.getBoundingClientRect();
+          const [fx, fy] = p.get('mapat').split(',').map(Number);
+          const o = { clientX: r.left + r.width * fx, clientY: r.top + r.height * fy, bubbles: true };
+          st.dispatchEvent(new win.PointerEvent('pointermove', o)); if (!p.get('noclick')) st.dispatchEvent(new win.MouseEvent('click', o));
+        }
+        if (p.get('mun')) d.querySelector('[data-mun-panel]').__select(p.get('mun'));
+        if (p.get('scrollto')) { const el = d.querySelector(p.get('scrollto')); el.scrollIntoView({ block: 'start' }); }
+        const panel = d.querySelector('.modal-panel');
+        if (p.get('scroll') && panel) panel.scrollTop = +p.get('scroll');
+        const labels = [...d.querySelectorAll('.uf-label')];
+        const tip = d.querySelector('.hero-tooltip');
+        const mun = d.querySelector('.mun-panel h3'); const canvas = d.querySelector('.st-map canvas');
+        out(`stateMap=${canvas ? 'canvas' : 'none'} municipality=${mun ? mun.textContent : '-'} tooltip=${tip.hidden ? 'hidden' : tip.querySelector('strong').textContent} vis=${d.visibilityState} modalOpen=${d.querySelector('.hero').classList.contains('modal-open')} crumbs=${(d.querySelector('.crumbs')||{}).textContent||''} labels=${labels.length}`);
+      } catch (e) { out('ERROR ' + e.message); }
+    }, 1500);
+  };
+  wait();
+};
+document.body.appendChild(f);
+</script></body></html>

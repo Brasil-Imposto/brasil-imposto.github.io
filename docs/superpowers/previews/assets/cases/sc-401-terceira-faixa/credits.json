@@ -1,0 +1,50 @@
+{
+ "centro-administrativo-2014.jpg": {
+  "file": "centro-administrativo-2014.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Centro_Administrativo_de_Santa_Catarina.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Rachmaninoff",
+  "date": "2014-10-22 15:00:59",
+  "description": "Centro administrativo do Governo de Santa Catarina, Brasil.",
+  "width_px": 1000,
+  "height_px": 750,
+  "gps": [
+   "-27.541492",
+   "-48.504646"
+  ],
+  "bytes": 309268
+ },
+ "saco-grande-2023.jpg": {
+  "file": "saco-grande-2023.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Floripa_Shopping_-_2.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Ajmcbarreto",
+  "date": "2023-12-06 16:46:35",
+  "description": "Bairro de Saco Grande visto a partir da praça de alimentação do Floripa Shopping, Florianópolis, SC",
+  "width_px": 1000,
+  "height_px": 1777,
+  "gps": [
+   null,
+   null
+  ],
+  "bytes": 551576
+ },
+ "sc-401-margin-2015.jpg": {
+  "file": "sc-401-margin-2015.jpg",
+  "commons": "https://commons.wikimedia.org/wiki/File:Banco_do_Brasil_SC-401.jpg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Rachmaninoff",
+  "date": "2015-01-02 12:02:52",
+  "description": "Agência do Banco do Brasil na SC-401, Florianópolis, Santa Catarina.",
+  "width_px": 1000,
+  "height_px": 750,
+  "gps": [
+   "-27.540047",
+   "-48.505962"
+  ],
+  "bytes": 479958
+ }
+}

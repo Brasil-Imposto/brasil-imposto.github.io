@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#0a0a0a;overflow:hidden}iframe{border:0;display:block}#probe{position:fixed;left:-99999px}</style></head><body>
+<div id="probe">PROBE pending</div>
+<script>
+const p=new URLSearchParams(location.search);
+const w=+p.get('w')||1440, h=+p.get('h')||1000, y=+p.get('y')||0, src=p.get('src');
+const f=document.createElement('iframe');
+f.style.cssText=`width:${w}px;height:${h}px;margin-top:-${y}px;border:0;display:block`;
+f.src=src;
+f.onload=()=>{ const d=f.contentDocument; d.fonts.ready.then(()=>{ const fam={}; for(const ff of d.fonts){ const k=ff.family.replace(/["']/g,''); (fam[k]=fam[k]||new Set()).add(ff.status); }
+  const rep=Object.entries(fam).map(([k,v])=>k+':'+[...v].join('|')).join(' ; ');
+  const txt=`PROBE scrollHeight=${d.documentElement.scrollHeight} bodyWidth=${d.body.clientWidth} FONTS[${rep}]`;
+  document.getElementById('probe').textContent=txt; document.title=txt; }); };
+document.body.appendChild(f);
+</script></body></html>

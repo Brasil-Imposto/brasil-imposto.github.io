@@ -1,0 +1,2 @@
+window.TP3B = window.TP3B || {};
+window.TP3B["camara:225846"] = [{"t":"PEC","n":"15","y":"2026","e":"Altera os art. 150 Constituição Federal para incluir as entidades esportivas sem fins lucrativos.","d":"2026-06-17","o":"in_progress","s":"Aguardando Despacho do Presidente da Câmara dos Deputados (Chancela)","tr":"Notificações","u":"2026-07-20","ds":"Indeferido o Requerimento n. 3565/2026.","id":"2633488","law":false,"r":"c"}];

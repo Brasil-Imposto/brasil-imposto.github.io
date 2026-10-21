@@ -1,0 +1,307 @@
+{
+ "collected_on": "2026-10-06",
+ "source": "Wikimedia Commons, the file named by the flag image property (P41) of each state or country item on Wikidata",
+ "check": "sha1 of every file equals the Commons file sha1 (checked 2026-10-06)",
+ "flags": [
+  {
+   "file": "ar.svg",
+   "commons_file": "Flag of Argentina.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Argentina.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Manuel Belgrano",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "b54fa14d4d27a1dc3f763d650f9e5afe155e376b"
+  },
+  {
+   "file": "aw.svg",
+   "commons_file": "Flag of Aruba.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Aruba.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Aruba.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Original: Whitney Smith Vector:  Wester",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "dde393d4f4d6b058cc69319960a4ffabda9f44db"
+  },
+  {
+   "file": "bo.svg",
+   "commons_file": "Flag of Bolivia.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Bolivia.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "See file history' below for details.",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "a57c58925f69f4efde5c4bb9035971fd9bad8816"
+  },
+  {
+   "file": "br.svg",
+   "commons_file": "Flag of Brazil.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Brazil.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Raimundo Teixeira Mendes",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "cca9ce8271c6b21de0bd126681b1b04f9ad074f7"
+  },
+  {
+   "file": "bs.svg",
+   "commons_file": "Flag of the Bahamas.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Bahamas.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_the_Bahamas.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Government of Bahamas",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "3db489eff3b554033bf065b636c56850b9ad66a7"
+  },
+  {
+   "file": "bz.svg",
+   "commons_file": "Flag of Belize.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Belize.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Caleb Moore",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "ff5ba8047243266955df6a518f83fbd2bc4354f2"
+  },
+  {
+   "file": "cl.svg",
+   "commons_file": "Flag of Chile.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Chile.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "See file history below for details.",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "22a43c801d3d9f56988f6d9947e5a03e1fc59c4b"
+  },
+  {
+   "file": "co.svg",
+   "commons_file": "Flag of Colombia.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Colombia.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "See File history below for details.",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "a3c233df324c01babf5085147da5987767d72aac"
+  },
+  {
+   "file": "cr.svg",
+   "commons_file": "Flag of Costa Rica.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Costa_Rica.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Costa_Rica.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "See File history below for details.",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "c34ebf92545fbf770469c05c5d79fa1102cf2c1e"
+  },
+  {
+   "file": "cu.svg",
+   "commons_file": "Flag of Cuba.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Cuba.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Flag_of_Cuba.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Miguel Teurbe Tolón and Narciso López",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "7602a27f1a47b84f621ed7fab13ed2451f31f7f8"
+  },
+  {
+   "file": "cw.svg",
+   "commons_file": "Flag of Curaçao.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Cura%C3%A7ao.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_Cura%C3%A7ao.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Original: Unknown Vector:  David Benbennick",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "f3d6598410b4e6632a292355926322010a078155"
+  },
+  {
+   "file": "do.svg",
+   "commons_file": "Flag of the Dominican Republic.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Dominican_Republic.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_the_Dominican_Republic.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Juan Pablo Duarte",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "1593746a787f6d9d7e95068c14949a4cae211616"
+  },
+  {
+   "file": "ec.svg",
+   "commons_file": "Flag of Ecuador.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Ecuador.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Flag_of_Ecuador.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "President of the Republic of Ecuador, first uploaded by Denelson83 as Flag of Ecuador.svg, modifications by Husunqu, Zsc",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "784256b8eedc7c56fb0eb0557b06a66605b4dad9"
+  },
+  {
+   "file": "fr.svg",
+   "commons_file": "Flag of France.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_France.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Original: Unknown Vector:  SKopp",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "66bdc8e9edf0515a0742b58a4f04fa1103084d56"
+  },
+  {
+   "file": "gt.svg",
+   "commons_file": "Flag of Guatemala.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Guatemala.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Guatemala.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "K21edgo",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "c6eef241fbe63821ebf65572f4c709ea46a90dd1"
+  },
+  {
+   "file": "gy.svg",
+   "commons_file": "Flag of Guyana.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Guyana.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_Guyana.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Whitney Smith",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "70bf8e2dd672afab02ba486414d571f501634543"
+  },
+  {
+   "file": "hn.svg",
+   "commons_file": "Flag of Honduras (1949–2022, 2026–present).svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Honduras_(1949%E2%80%932022,_2026%E2%80%93present).svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Honduras_%281949%E2%80%932022%2C_2026%E2%80%93present%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Kes47",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "f7beffafe4d697c80368c564007ed98d787e4bc6"
+  },
+  {
+   "file": "ht.svg",
+   "commons_file": "Flag of Haiti.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Haiti.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Haiti.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "(colours and size changes of the now deleted versions) Madden, Vzb83, Denelson83, Chanheigeorge, Zscout370 and Nightstal",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "c94c1bd328e4321c9f0f3872cdfd6b79bd42cac6"
+  },
+  {
+   "file": "jm.svg",
+   "commons_file": "Flag of Jamaica.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Jamaica.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Jamaica.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "The SVG code is valid. This vector image was created with Inkscape by SKopp, and then manually edited by Zscout370, Madd",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "ba10f319829880d36ae03260afda197986e8583b"
+  },
+  {
+   "file": "mx.svg",
+   "commons_file": "Flag of Mexico.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Mexico.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Omar Alejandro Covarrubias Neri, 9 April 2006. Based on the 1968 arms by Francisco Eppens Helguera and Juan Manuel Gabin",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "580aa7f038cdab20cf0b91dccd4d23bbdeb44b1c"
+  },
+  {
+   "file": "ni.svg",
+   "commons_file": "Flag of Nicaragua.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Nicaragua.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Nicaragua.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "C records",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "d81065bcb258a573ac1a66691e55b8e990b0988b"
+  },
+  {
+   "file": "pa.svg",
+   "commons_file": "Flag of Panama.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Panama.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Panama.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Zscout370 et al.",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "a8422372fc1fe3b566cb75c3e5bf43719c1374af"
+  },
+  {
+   "file": "pe.svg",
+   "commons_file": "Flag of Peru.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Peru.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Peru.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "David Benbennick",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "9bd26bf3325a894c32971cb4630322a611dcd15c"
+  },
+  {
+   "file": "pr.svg",
+   "commons_file": "Flag of Puerto Rico.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Puerto_Rico.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Flag_of_Puerto_Rico.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Original: Unknown Vector:  Cerejota",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "593762b7702d923ad2c9f5785a555ad3c7eaad1a"
+  },
+  {
+   "file": "py.svg",
+   "commons_file": "Flag of Paraguay.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Paraguay.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Republica del Paraguay",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "14034d186581df411b137d912f00ae1d1ff6de4e"
+  },
+  {
+   "file": "sr.svg",
+   "commons_file": "Flag of Suriname.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Suriname.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Flag_of_Suriname.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "See File history below for details.",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "b1bb21ac15859de28d94e9c0fe4bee752c35d9ca"
+  },
+  {
+   "file": "sv.svg",
+   "commons_file": "Flag of El Salvador.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_El_Salvador.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_El_Salvador.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "See File history below for details.",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "a4d2dd4c90057dfc75b9bc865fe10d60a70d9faf"
+  },
+  {
+   "file": "tt.svg",
+   "commons_file": "Flag of Trinidad and Tobago.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Trinidad_and_Tobago.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Trinidad_and_Tobago.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "See File history, below, for details.",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "52de7eb7e6f97943891cdcb7b2c9036f1d8531f6"
+  },
+  {
+   "file": "uy.svg",
+   "commons_file": "Flag of Uruguay.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Uruguay.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Uruguay.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "See File history below for details.",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "61484b40376000c504e8ba273d4d521727c78749"
+  },
+  {
+   "file": "ve.svg",
+   "commons_file": "Flag of Venezuela.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Venezuela.svg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Venezuela.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "author": "Various, see File history below for details.",
+   "license": "Public domain",
+   "license_url": null,
+   "sha1": "2cc53adfde42fda71450e863301ce1c97e0cd136"
+  }
+ ]
+}

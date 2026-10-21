@@ -1,0 +1,226 @@
+{
+ "municipality": "Florianópolis",
+ "state": "SC",
+ "ibge_code": 4205407,
+ "collected_on": "2026-09-25",
+ "currency": "BRL",
+ "notes": "Values copied from official sources. Fields marked computed=true are sums or ratios of official values done by this research. null means not found.",
+ "revenue": {
+  "source_dca_2025": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2025&no_anexo=DCA-Anexo%20I-C&id_ente=4205407",
+  "source_dca_2024": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2024&no_anexo=DCA-Anexo%20I-C&id_ente=4205407",
+  "source_rreo_2025": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2001&co_esfera=M&id_ente=4205407",
+  "budget_law_2025_forecast_total": 3994765697.0,
+  "budget_law_2025_forecast_excluding_intra": 3774158602.0,
+  "by_year": {
+   "2025": {
+    "gross_excluding_intra": 4353418802.26,
+    "fundeb_deduction": 151170819.91,
+    "other_deductions": 17111261.9,
+    "net_excluding_intra": 4185136720.45,
+    "intra_budgetary": 249711100.18,
+    "net_total": 4434847820.63,
+    "own": {
+     "iss": 878638086.83,
+     "iptu": 531590229.92,
+     "irrf_retained": 261843349.82,
+     "itbi": 190275849.41,
+     "taxes_total": 1862347515.98,
+     "fees_total": 224130227.59,
+     "waste_collection_fee": 191284529.83,
+     "taxes_fees_and_improvement_contributions": 2086477743.57,
+     "public_lighting_contribution": 68170099.87
+    },
+    "transfers_gross": {
+     "fpm": 332904423.01,
+     "icms_share": 265413311.91,
+     "ipva_share": 191003793.37,
+     "fundeb_return": 356700607.1,
+     "fundeb_federal_complement": 1985585.51,
+     "sus_federal": 148346175.88,
+     "sus_state": 34399501.88,
+     "state_agreements_current": 149078647.09,
+     "current_transfers_total": 1552252249.22,
+     "capital_transfers_total": 81659398.0
+    }
+   },
+   "2024": {
+    "gross_excluding_intra": 3823377666.5,
+    "fundeb_deduction": 133023824.55,
+    "other_deductions": 31707426.24,
+    "intra_budgetary": 222200380.05,
+    "own": {
+     "iss": 755464881.08,
+     "iptu": 475813063.87,
+     "irrf_retained": 231692250.93,
+     "itbi": 166653294.63,
+     "taxes_total": 1629623490.51,
+     "fees_total": 193504834.39,
+     "waste_collection_fee": 166877884.31,
+     "taxes_fees_and_improvement_contributions": 1823128324.9
+    },
+    "transfers_gross": {
+     "fpm": 264622198.69,
+     "icms_share": 247117052.17,
+     "ipva_share": 174876779.89,
+     "fundeb_return": 338462277.35,
+     "sus_federal": 164939734.75,
+     "current_transfers_total": 1345968200.69
+    }
+   }
+  },
+  "education_base_2023": {
+   "value_cited_by_city_council": 2201184214,
+   "reconstructed_from_dca_2023": 2201245421.0,
+   "computed": true,
+   "includes_transfers": 627202422.27,
+   "note": "Constitutional education minimum base (CF art. 212) for fiscal year 2023; includes FPM, ICMS, IPVA, IPI and ITR shares."
+  }
+ },
+ "personnel": {
+  "source_rgf_2025_executive": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio=2025&in_periodicidade=Q&nr_periodo=3&co_tipo_demonstrativo=RGF&no_anexo=RGF-Anexo%2001&co_esfera=M&co_poder=E&id_ente=4205407",
+  "2025": {
+   "executive_gross": 2113727415.55,
+   "executive_total_personnel_expense": 1683371620.07,
+   "executive_pct_adjusted_rcl": 44.63,
+   "legislative_total_personnel_expense": 97607370.64,
+   "legislative_pct_adjusted_rcl": 2.59,
+   "adjusted_rcl": 3771739861.76,
+   "municipality_total_personnel_expense": {
+    "value": 1780978990.71,
+    "computed": true
+   },
+   "municipality_pct_adjusted_rcl": {
+    "value": 47.22,
+    "computed": true
+   }
+  },
+  "2024": {
+   "executive_gross": 1984387190.29,
+   "executive_total_personnel_expense": 1579512225.3,
+   "executive_pct_adjusted_rcl": 49.16,
+   "adjusted_rcl": 3213175268.02
+  },
+  "rpps_insured": {
+   "source": "https://www.gov.br/previdencia/pt-br/assuntos/rpps/estatisticas-e-informacoes-dos-rpps-1/arquivos/2026/1estadosemunicipios.zip",
+   "reference": "DRAA 2025 (AEPS 2024-2025)",
+   "active": 6604,
+   "retirees": 3744,
+   "pensioners": 563,
+   "total": 10911
+  },
+  "total_active_employees": null,
+  "partial_hr_report_2025_05_03": {
+   "source": "https://web.archive.org/web/20250503060001/https://adm.pmf.sc.gov.br/srh/funcionarios.pdf.php?lotacoes=Principal%20Ativa&regime=2&tipo=Ativos&detalhe=0&in_output=I",
+   "statutory_listed": 8916,
+   "note": "Filter: main active posting, statutory regime; scope of subtotals not documented."
+  }
+ },
+ "transit": {
+  "source": "https://transparencia.e-publica.net/epublica-portal/#/florianopolis/portal?entidade=2002",
+  "social_fare_actions": {
+   "2024": {
+    "committed": 113302445.76,
+    "liquidated": 108276016.24,
+    "initial_budget": 125000000.0
+   },
+   "2025": {
+    "committed": 123812950.89,
+    "liquidated": 113150322.89,
+    "initial_budget": 114559002.0
+   },
+   "computed_totals": true
+  },
+  "consorcio_fenix_cnpj": "19.962.391/0001-53",
+  "consorcio_fenix_all_units": {
+   "2024": {
+    "committed_net": 125048803.51,
+    "paid_plus_withheld": 120022373.99,
+    "employee_transit_vouchers": 4933634.35,
+    "school_passes": 990300.35,
+    "no_description": 119113912.81
+   },
+   "2025": {
+    "committed_net": 140576684.83,
+    "paid_plus_withheld": 129464056.83,
+    "employee_transit_vouchers": 6489485.81,
+    "school_passes": 1066205.88,
+    "no_description": 133006641.14
+   }
+  }
+ },
+ "comcap": {
+  "legal_nature": "municipal autarchy (Autarquia de Melhoramentos da Capital)",
+  "source": "https://transparencia.e-publica.net/epublica-portal/#/florianopolis/portal?entidade=2002",
+  "2024": {
+   "initial_budget": 221838003.0,
+   "updated_budget": 266704209.0,
+   "committed": 219218563.76,
+   "liquidated": 219165447.49,
+   "paid_plus_withheld": 212669451.31
+  },
+  "2025": {
+   "initial_budget": 238787502.0,
+   "updated_budget": 255529417.33,
+   "committed": 237556288.22,
+   "liquidated": 231871464.86,
+   "paid_plus_withheld": 224206568.51
+  },
+  "action_330_waste_transport_and_disposal_committed": {
+   "2024": 52582235.08,
+   "2025": 55846140.75
+  }
+ },
+ "hercilio_luz_bridge": {
+  "source_contracts": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+  "restoration_contracts_2006_2019": {
+   "count": 13,
+   "original_value": 465106951.83,
+   "current_value": 484645236.82,
+   "computed": true,
+   "note": "Contract values, nominal, not payments."
+  },
+  "main_contract_teixeira_duarte_pj_00056_2016": {
+   "original_value": 262925435.21,
+   "current_value": 363824397.74
+  },
+  "total_since_1982_official": null,
+  "cpi_688m_official_document": null,
+  "cost_1926_official": null,
+  "official_finding_of_overpricing": null,
+  "cpi_possible_irregularities_referred": {
+   "source": "https://www.alesc.sc.gov.br/agencia/noticia/aprovado-relatorio-final-da-cpi-da-ponte-hercilio-luz/",
+   "values": [
+    24600000,
+    12200000,
+    5200000
+   ]
+  },
+  "tce_sc_audit": "http://consulta.tce.sc.gov.br/relatoriosdecisao/relatoriotecnico/3728501.PDF"
+ },
+ "attributed_taxes": {
+  "federal_rfb": {
+   "source": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/copy_of_arrecadacao-das-receitas-administradas-pela-rfb-por-municipio",
+   "2024": {
+    "total_darf_plus_gps": 16086393193.14,
+    "social_security_part": 4974479629.31
+   },
+   "2025": {
+    "total_darf_plus_gps": 14573835680.03,
+    "social_security_part": 4233950254.82
+   },
+   "attribution_method_documented": false
+  },
+  "icms_sef_sc": {
+   "2025_index": {
+    "source": "https://legislacao.sef.sc.gov.br/html/portarias/2024/port_24_343.htm",
+    "value_added_base_2023": 10703797816.04,
+    "ipm_pct": 2.2895951
+   },
+   "2026_index": {
+    "source": "https://legislacao.sef.sc.gov.br/html/portarias/2025/port_25_457.htm",
+    "value_added_base_2024": 12097306509.39,
+    "ipm_pct": 2.3355858
+   }
+  }
+ }
+}

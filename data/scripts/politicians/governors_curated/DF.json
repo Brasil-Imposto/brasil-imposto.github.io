@@ -1,0 +1,273 @@
+{
+ "uf": "DF",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Ibaneis",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Paco Britto",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "expediente do Diário Oficial do DF de 29/12/2022 (edição extra nº 97-A): vice-governador no cargo no fim do mandato",
+     "url": "https://www.sinj.df.gov.br/sinj/Diario/92dbc78e-87b3-38b8-b3a9-ef103169300c/DODF%20097%2029-12-2022%20EDICAO%20EXTRA%20A.pdf",
+     "type": "oficial",
+     "quote": "MARCUS VINICIUS BRITTO Vice-Governador"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governador",
+   "name": "Ibaneis Rocha",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-03-28",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "afastamento do titular por decisão do STF na noite de 08/01/2023 (STF, 09/01/2023)",
+     "url": "https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=500254&ori=1",
+     "type": "oficial",
+     "quote": "09/01/2023 08h30 [...] Em decisão tomada na noite deste domingo (8), o ministro Alexandre de Moraes, do Supremo Tribunal Federal (STF), afastou Ibaneis Rocha do cargo de governador do Distrito Federal pelo prazo inicial de 90 dias"
+    },
+    {
+     "fact": "revogação do afastamento e retorno autorizado pelo STF em 15/03/2023 (STF, 15/03/2023)",
+     "url": "https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=504068&ori=1",
+     "type": "oficial",
+     "quote": "15/03/2023 17h10 [...] O ministro Alexandre de Moraes, do Supremo Tribunal Federal (STF), revogou a ordem de afastamento do governador do Distrito Federal, Ibaneis Rocha, e autorizou seu retorno ao cargo"
+    },
+    {
+     "fact": "últimos atos do titular, de 27/03/2026 (Diário Oficial do DF, edição extra nº 24-A, 27/03/2026)",
+     "url": "https://www.sinj.df.gov.br/sinj/Diario/d88f25e8-3e13-352b-944a-dec941e0ae8e/DODF%20024%2027-03-2026%20EDICAO%20EXTRA%20A.pdf",
+     "type": "oficial",
+     "quote": "Brasília, 27 de março de 2026. 137º da República e 66º de Brasília IBANEIS ROCHA"
+    },
+    {
+     "fact": "renúncia do titular em 28/03/2026 e posse da vice como governadora em 30/03/2026 (Câmara Legislativa do DF, 30/03/2026; lida no Internet Archive)",
+     "url": "https://web.archive.org/web/20260911204011/https://www.cl.df.gov.br/-/celina-leao-toma-posse-como-governadora-do-distrito-federal",
+     "type": "oficial",
+     "quote": "Publicado em 30/03/2026 13h05 [...] Celina Leão assumiu o Governo do Distrito Federal nesta segunda-feira (30) [...] Celina tomou posse após o governador Ibaneis Rocha renunciar ao cargo, no sábado (28), a fim de cumprir o prazo de desincompatibilização exigido pela legislação eleitoral"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia do titular no sábado, 28/03/2026; posse da vice como governadora na segunda-feira, 30/03/2026 (Câmara Legislativa do DF). Os últimos atos do titular no Diário Oficial são de 27/03/2026 e os primeiros dela como governadora, de 30/03/2026. Em 2023, afastado pelo STF de 08/01 a 15/03.",
+   "interruptions": [
+    {
+     "start": "2023-01-08",
+     "end": "2023-03-15",
+     "reason": "afastamento por decisão do STF depois dos atos de 8 de janeiro; revogado em 2023-03-15",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "role": "vice-governador",
+   "name": "Celina Leão",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-03-30",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "assumiu o cargo de governador",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "renúncia do titular em 28/03/2026 e posse da vice como governadora em 30/03/2026 (Câmara Legislativa do DF, 30/03/2026; lida no Internet Archive)",
+     "url": "https://web.archive.org/web/20260911204011/https://www.cl.df.gov.br/-/celina-leao-toma-posse-como-governadora-do-distrito-federal",
+     "type": "oficial",
+     "quote": "Publicado em 30/03/2026 13h05 [...] Celina Leão assumiu o Governo do Distrito Federal nesta segunda-feira (30) [...] Celina tomou posse após o governador Ibaneis Rocha renunciar ao cargo, no sábado (28), a fim de cumprir o prazo de desincompatibilização exigido pela legislação eleitoral"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia do titular no sábado, 28/03/2026; posse da vice como governadora na segunda-feira, 30/03/2026 (Câmara Legislativa do DF). Os últimos atos do titular no Diário Oficial são de 27/03/2026 e os primeiros dela como governadora, de 30/03/2026."
+  },
+  {
+   "role": "governador",
+   "name": "Celina Leão",
+   "full_name": null,
+   "kind": "interino",
+   "start": "2023-01-08",
+   "end": "2023-03-15",
+   "start_reason": "afastamento do titular por decisão do STF",
+   "end_reason": "retorno do titular autorizado pelo STF",
+   "party_at_start": "PP",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "afastamento do titular por decisão do STF na noite de 08/01/2023 (STF, 09/01/2023)",
+     "url": "https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=500254&ori=1",
+     "type": "oficial",
+     "quote": "09/01/2023 08h30 [...] Em decisão tomada na noite deste domingo (8), o ministro Alexandre de Moraes, do Supremo Tribunal Federal (STF), afastou Ibaneis Rocha do cargo de governador do Distrito Federal pelo prazo inicial de 90 dias"
+    },
+    {
+     "fact": "leis de 10/01/2023 sancionadas pela vice no exercício do cargo (Diário Oficial do DF nº 8, 11/01/2023)",
+     "url": "https://www.sinj.df.gov.br/sinj/Diario/fa765eac-7a23-3cdf-9890-549a86fcebe3/DODF%20008%2011-01-2023%20INTEGRA.pdf",
+     "type": "oficial",
+     "quote": "A VICE-GOVERNADORA DO DISTRITO FEDERAL, NO EXERCÍCIO DO CARGO DE GOVERNADORA, FAÇO SABER [...] Brasília, 10 de janeiro de 2023 134º da República e 63º de Brasília CELINA LEÃO Governadora em exercício"
+    },
+    {
+     "fact": "governadora em exercício e partido (Câmara Legislativa do DF, 01/02/2023; lida no Internet Archive)",
+     "url": "https://web.archive.org/web/20260618012422/https://www.cl.df.gov.br/-/celina-nao-me-furtarei-de-dialogar-institucionalmente-com-ninguem",
+     "type": "oficial",
+     "quote": "Publicado em 01/02/2023 16h24 [...] A governadora em exercício do Distrito Federal, Celina Leão (PP), esteve hoje (1º) na Câmara Legislativa"
+    },
+    {
+     "fact": "últimos decretos da vice no exercício do cargo, de 15/03/2023 (Diário Oficial do DF nº 52, 16/03/2023)",
+     "url": "https://www.sinj.df.gov.br/sinj/Diario/5732360f-ab52-3c54-a517-4c2c734e2dc7/DODF%20052%2016-03-2023%20INTEGRA.pdf",
+     "type": "oficial",
+     "quote": "Brasília, 15 de março de 2023 134º da República e 63º de Brasília CELINA LEÃO Governadora em exercício"
+    },
+    {
+     "fact": "revogação do afastamento e retorno autorizado pelo STF em 15/03/2023 (STF, 15/03/2023)",
+     "url": "https://portal.stf.jus.br/noticias/verNoticiaDetalhe.asp?idConteudo=504068&ori=1",
+     "type": "oficial",
+     "quote": "15/03/2023 17h10 [...] O ministro Alexandre de Moraes, do Supremo Tribunal Federal (STF), revogou a ordem de afastamento do governador do Distrito Federal, Ibaneis Rocha, e autorizou seu retorno ao cargo"
+    },
+    {
+     "fact": "despacho do titular de volta, de 17/03/2023 (Diário Oficial do DF nº 54, 20/03/2023)",
+     "url": "https://www.sinj.df.gov.br/sinj/Diario/db8e9b7a-f41c-3ba2-82f5-f59a3b274507/DODF%20054%2020-03-2023%20INTEGRA.pdf",
+     "type": "oficial",
+     "quote": "IBANEIS ROCHA DESPACHO DO GOVERNADOR Em 17"
+    }
+   ],
+   "verified": true,
+   "note": "Afastamento do titular decidido pelo STF na noite de domingo, 08/01/2023 (90 dias); revogado pelo STF em 15/03/2023, com retorno autorizado. A vice assinou como 'Governadora em exercício' de 10/01/2023 (primeiro ato lido) a 15/03/2023; o primeiro ato do titular de volta lido é um despacho de 17/03/2023. Partido: PP (Câmara Legislativa, 01/02/2023)."
+  },
+  {
+   "role": "governador",
+   "name": "Celina Leão",
+   "full_name": null,
+   "kind": "vice no cargo de titular",
+   "start": "2026-03-30",
+   "end": null,
+   "start_reason": "renúncia do titular",
+   "end_reason": null,
+   "party_at_start": "PP",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "renúncia do titular em 28/03/2026 e posse da vice como governadora em 30/03/2026 (Câmara Legislativa do DF, 30/03/2026; lida no Internet Archive)",
+     "url": "https://web.archive.org/web/20260911204011/https://www.cl.df.gov.br/-/celina-leao-toma-posse-como-governadora-do-distrito-federal",
+     "type": "oficial",
+     "quote": "Publicado em 30/03/2026 13h05 [...] Celina Leão assumiu o Governo do Distrito Federal nesta segunda-feira (30) [...] Celina tomou posse após o governador Ibaneis Rocha renunciar ao cargo, no sábado (28), a fim de cumprir o prazo de desincompatibilização exigido pela legislação eleitoral"
+    },
+    {
+     "fact": "últimos atos do titular, de 27/03/2026 (Diário Oficial do DF, edição extra nº 24-A, 27/03/2026)",
+     "url": "https://www.sinj.df.gov.br/sinj/Diario/d88f25e8-3e13-352b-944a-dec941e0ae8e/DODF%20024%2027-03-2026%20EDICAO%20EXTRA%20A.pdf",
+     "type": "oficial",
+     "quote": "Brasília, 27 de março de 2026. 137º da República e 66º de Brasília IBANEIS ROCHA"
+    },
+    {
+     "fact": "primeiros atos como governadora, de 30/03/2026 (Diário Oficial do DF, edição extra nº 25-A, 30/03/2026)",
+     "url": "https://www.sinj.df.gov.br/sinj/Diario/c5729a1b-bb6a-39f9-a1a0-59bec52b69eb/DODF%20025%2030-03-2026%20EDICAO%20EXTRA%20A.pdf",
+     "type": "oficial",
+     "quote": "ATO DE AUTORIZAÇÃO Nº 001, DE 30 DE MARÇO DE 2026 A GOVERNADORA DO DISTRITO FEDERAL [...] Brasília, 30 de março de 2026. CELINA LEÃO"
+    },
+    {
+     "fact": "decretos de 05/10/2026 assinados por ela (Diário Oficial do DF nº 186, 06/10/2026)",
+     "url": "https://www.sinj.df.gov.br/sinj/Diario/d0f6b97b-f701-393d-bc62-8143ecf3283d/visualizar-pdf.pdf",
+     "type": "oficial",
+     "quote": "Brasília, 05 de outubro de 2026. 137º da República e 67º de Brasília CELINA LEÃO"
+    },
+    {
+     "fact": "partido no registro de candidatura de 2022 (PP)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia do titular no sábado, 28/03/2026; posse da vice como governadora na segunda-feira, 30/03/2026 (Câmara Legislativa do DF). Os últimos atos do titular no Diário Oficial são de 27/03/2026 e os primeiros dela como governadora, de 30/03/2026. Segue no cargo: decretos de 05/10/2026 assinados por ela no Diário Oficial do DF de 06/10/2026. Partido: o do registro do TSE de 2022 (PP); as páginas da posse não citam partido. A Câmara Legislativa registra que o mandato vai até 6 de janeiro de 2027."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2026-03-30",
+   "end": null,
+   "start_reason": "a vice-governadora assumiu o cargo de governadora",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "renúncia do titular em 28/03/2026 e posse da vice como governadora em 30/03/2026 (Câmara Legislativa do DF, 30/03/2026; lida no Internet Archive)",
+     "url": "https://web.archive.org/web/20260911204011/https://www.cl.df.gov.br/-/celina-leao-toma-posse-como-governadora-do-distrito-federal",
+     "type": "oficial",
+     "quote": "Publicado em 30/03/2026 13h05 [...] Celina Leão assumiu o Governo do Distrito Federal nesta segunda-feira (30) [...] Celina tomou posse após o governador Ibaneis Rocha renunciar ao cargo, no sábado (28), a fim de cumprir o prazo de desincompatibilização exigido pela legislação eleitoral"
+    }
+   ],
+   "verified": true,
+   "note": "Sem vice desde a posse da vice como governadora em 30/03/2026."
+  }
+ ],
+ "gaps": []
+}

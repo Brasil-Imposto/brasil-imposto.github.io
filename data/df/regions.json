@@ -1,0 +1,875 @@
+{
+ "collected_on": "2026-10-02",
+ "law": "37 RAs: Leis distritais nº 7.917 e 7.918, de 03/07/2026, criaram Ponte Alta (RA XXXVII) e 26 de Setembro (RA XXXVI)",
+ "survey": {
+  "name": "PDAD-A 2024 (Pesquisa Distrital por Amostra de Domicílios Ampliada)",
+  "body": "IPEDF Codeplan",
+  "url": "https://pdad.ipe.df.gov.br",
+  "df_population": 2982816.0,
+  "df_rural_population": 121759.0,
+  "df_household_income": 5268.6,
+  "df_income_per_person": 3117.6,
+  "df_report_last_modified": "Fri, 13 Mar 2026 11:52:41 GMT"
+ },
+ "regions": {
+  "RA-I": {
+   "name": "Plano Piloto",
+   "number": 1,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/plano_piloto_eobnOtj.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:53:31 GMT",
+   "population": {
+    "value": 207996,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": null,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": 20.9,
+     "Mais de 5 até 10": 24.3,
+     "Mais de 10 até 20": 25.2,
+     "Mais de 20": 23.0
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-II": {
+   "name": "Gama",
+   "number": 2,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/gama_LwMBTtb.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:53:49 GMT",
+   "population": {
+    "value": 133948,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 44.3,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-III": {
+   "name": "Taguatinga",
+   "number": 3,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/taguatinga_FZaaEtc.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:54:22 GMT",
+   "population": {
+    "value": 201332,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 29.2,
+     "Mais de 1 até 2": 26.2,
+     "Mais de 2 até 5": 26.2,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-IV": {
+   "name": "Brazlândia",
+   "number": 4,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/brazl%C3%A2ndia_0xsKWMk.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:54:57 GMT",
+   "population": {
+    "value": 41859,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 32.8,
+     "Mais de 1 até 2": 30.3,
+     "Mais de 2 até 5": 31.1,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-V": {
+   "name": "Sobradinho",
+   "number": 5,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/sobradinho_zyHHkyz.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:55:20 GMT",
+   "population": {
+    "value": 70608,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": null,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-VI": {
+   "name": "Planaltina",
+   "number": 6,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/planaltina_fSBA9Jt.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:55:43 GMT",
+   "population": {
+    "value": 121856,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 58.5,
+     "Mais de 1 até 2": 30.2,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-VII": {
+   "name": "Paranoá",
+   "number": 7,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/parano%C3%A1_ZrybTXT.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:56:09 GMT",
+   "population": {
+    "value": 55551,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 46.3,
+     "Mais de 1 até 2": 37.3,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-VIII": {
+   "name": "Núcleo Bandeirante",
+   "number": 8,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/n%C3%BAcleo_bandeirante_h8aKcNd.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:56:37 GMT",
+   "population": {
+    "value": 22566,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 35.8,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-IX": {
+   "name": "Ceilândia",
+   "number": 9,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/ceil%C3%A2ndia_sPes2Ar.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:56:54 GMT",
+   "population": {
+    "value": 287113,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 37.4,
+     "Mais de 1 até 2": 29.7,
+     "Mais de 2 até 5": 23.1,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-X": {
+   "name": "Guará",
+   "number": 10,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/guar%C3%A1_1oAa1xV.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:57:10 GMT",
+   "population": {
+    "value": 127952,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": null,
+     "Mais de 1 até 2": 19.8,
+     "Mais de 2 até 5": 29.1,
+     "Mais de 5 até 10": 20.9,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XI": {
+   "name": "Cruzeiro",
+   "number": 11,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/cruzeiro_yE3O0I8.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:57:23 GMT",
+   "population": {
+    "value": 26435,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": null,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": 32.2,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XII": {
+   "name": "Samambaia",
+   "number": 12,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/samambaia_AuICYUn.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:57:34 GMT",
+   "population": {
+    "value": 227118,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 49.6,
+     "Mais de 1 até 2": 25.2,
+     "Mais de 2 até 5": 20.0,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XIII": {
+   "name": "Santa Maria",
+   "number": 13,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/santa_maria_FcafCAC.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:57:50 GMT",
+   "population": {
+    "value": 121635,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 52.3,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XIV": {
+   "name": "São Sebastião",
+   "number": 14,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/s%C3%A3o_sebasti%C3%A3o_qMWvsFw.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:58:08 GMT",
+   "population": {
+    "value": 99050,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 44.1,
+     "Mais de 1 até 2": 31.1,
+     "Mais de 2 até 5": 17.8,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XV": {
+   "name": "Recanto das Emas",
+   "number": 15,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/recanto_das_emas_j9EAlFH.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:58:26 GMT",
+   "population": {
+    "value": 105862,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 54.3,
+     "Mais de 1 até 2": 23.9,
+     "Mais de 2 até 5": 18.5,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XVI": {
+   "name": "Lago Sul",
+   "number": 16,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/lago_sul_VTkcYIR.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:58:52 GMT",
+   "population": {
+    "value": 27213,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": null,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": 40.7,
+     "Mais de 20": 42.4
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XVII": {
+   "name": "Riacho Fundo",
+   "number": 17,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/riacho_fundo_2fixTia.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:59:11 GMT",
+   "population": {
+    "value": 41040,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 30.6,
+     "Mais de 1 até 2": 24.3,
+     "Mais de 2 até 5": 26.1,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XVIII": {
+   "name": "Lago Norte",
+   "number": 18,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/lago_norte_Rva0kOA.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:59:27 GMT",
+   "population": {
+    "value": 43817,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": null,
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XIX": {
+   "name": "Candangolândia",
+   "number": 19,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/candangol%C3%A2ndia_FDNQlg0.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:59:42 GMT",
+   "population": {
+    "value": 14540,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": null,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": 30.5,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XX": {
+   "name": "Águas Claras",
+   "number": 20,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/%C3%A1guas_claras_eGY6fsa.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 11:59:56 GMT",
+   "population": {
+    "value": 141872,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": null,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXI": {
+   "name": "Riacho Fundo II",
+   "number": 21,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/riacho_fundo_ii_jtbOuTD.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:00:12 GMT",
+   "population": {
+    "value": 70180,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 55.0,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXII": {
+   "name": "Sudoeste/Octogonal",
+   "number": 22,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/sudoeste_e_octogonal_OsjrOsN.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:00:29 GMT",
+   "population": {
+    "value": 46004,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": null,
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXIII": {
+   "name": "Varjão",
+   "number": 23,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/varj%C3%A3o_ffujnBf.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:01:05 GMT",
+   "population": {
+    "value": 9017,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 51.9,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXIV": {
+   "name": "Park Way",
+   "number": 24,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/park_way_rbDyxlf.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:01:22 GMT",
+   "population": {
+    "value": 22667,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": null,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": 38.2,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXV": {
+   "name": "SCIA/Estrutural",
+   "number": 25,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/scia_qlpPDMx.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:01:51 GMT",
+   "population": {
+    "value": 38047,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 63.1,
+     "Mais de 1 até 2": 18.0,
+     "Mais de 2 até 5": 18.9,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXVI": {
+   "name": "Sobradinho II",
+   "number": 26,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/sobradinho_ii_0Flu4cr.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:02:17 GMT",
+   "population": {
+    "value": 79932,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 52.2,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXVII": {
+   "name": "Jardim Botânico",
+   "number": 27,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/jardim_bot%C3%A2nico_ucaAefn.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:02:34 GMT",
+   "population": {
+    "value": 75133,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": null,
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXVIII": {
+   "name": "Itapoã",
+   "number": 28,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/itapo%C3%A3_3s8mQYX.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:02:53 GMT",
+   "population": {
+    "value": 67021,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 55.0,
+     "Mais de 1 até 2": 26.7,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXIX": {
+   "name": "SIA",
+   "number": 29,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/sia_fg6pLpg.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:03:18 GMT",
+   "population": {
+    "value": 5630,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": null,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXX": {
+   "name": "Vicente Pires",
+   "number": 30,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/vicente_pires_hSI2LYg.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:03:32 GMT",
+   "population": {
+    "value": 105062,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 25.5,
+     "Mais de 1 até 2": null,
+     "Mais de 2 até 5": 31.1,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXXI": {
+   "name": "Fercal",
+   "number": 31,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/fercal_8DZaRtB.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:03:48 GMT",
+   "population": {
+    "value": 9141,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 53.2,
+     "Mais de 1 até 2": 33.8,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXXII": {
+   "name": "Sol Nascente/Pôr do Sol",
+   "number": 32,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/_p%C3%B4r_do_sol_Upcrdl3.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:10:18 GMT",
+   "population": {
+    "value": 108713,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 50.0,
+     "Mais de 1 até 2": 33.7,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXXIII": {
+   "name": "Arniqueira",
+   "number": 33,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/arniqueira_yovLi0G.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:11:03 GMT",
+   "population": {
+    "value": 44774,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": null,
+     "Mais de 1 até 2": 34.5,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXXIV": {
+   "name": "Arapoanga",
+   "number": 34,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/arapoanga_TjJUTPz.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:11:25 GMT",
+   "population": {
+    "value": 49067,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 51.7,
+     "Mais de 1 até 2": 35.6,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXXV": {
+   "name": "Água Quente",
+   "number": 35,
+   "pdad_report": "https://pdad.ipe.df.gov.br/files/reports/%C3%A1gua_quente_aaGSNdC.pdf",
+   "file_last_modified": "Fri, 13 Mar 2026 12:11:36 GMT",
+   "population": {
+    "value": 11306,
+    "year": 2024,
+    "source": "IPEDF, PDAD-A 2024"
+   },
+   "household_income_bands_pct": {
+    "value": {
+     "Até 1": 53.3,
+     "Mais de 1 até 2": 31.5,
+     "Mais de 2 até 5": null,
+     "Mais de 5 até 10": null,
+     "Mais de 10 até 20": null,
+     "Mais de 20": null
+    },
+    "year": 2024,
+    "unit": "% dos domicílios por faixa de salário mínimo (R$ 1.412,00, jul/2024)",
+    "source": "IPEDF, PDAD-A 2024, Tabela 49 do relatório da RA"
+   }
+  },
+  "RA-XXXVI": {
+   "name": "26 de Setembro",
+   "number": 36,
+   "population": {
+    "value": null
+   },
+   "household_income_bands_pct": {
+    "value": null
+   },
+   "why_no_data": "RA criada em julho de 2026; a PDAD-A 2024 conta este território dentro da RA de onde ele saiu."
+  },
+  "RA-XXXVII": {
+   "name": "Ponte Alta",
+   "number": 37,
+   "population": {
+    "value": null
+   },
+   "household_income_bands_pct": {
+    "value": null
+   },
+   "why_no_data": "RA criada em julho de 2026; a PDAD-A 2024 conta este território dentro da RA de onde ele saiu."
+  }
+ },
+ "check": {
+  "ra_urban_population_plus_rural": 2982816.0,
+  "rural_population": 121759.0,
+  "df_population_pdad": 2982816.0,
+  "difference": 0.0,
+  "difference_pct": 0.0,
+  "ras_without_population": [
+   "26 de Setembro",
+   "Ponte Alta"
+  ],
+  "unmatched_report_names": [],
+  "passed": true,
+  "control_run": false
+ },
+ "union_balance_by_region": {
+  "available": false,
+  "reason": "A arrecadação federal, os repasses, o Bolsa Família e o BPC por município existem para o DF só como um todo (Brasília); nenhuma fonte federal aberta os divide por Região Administrativa."
+ }
+}

@@ -1,0 +1,195 @@
+{
+ "uf": "AC",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Gladson Cameli",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governador",
+   "name": "Gladson Cameli",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-04-02",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "renúncia com efeito em 2026-04-02 (agência do governo do Acre, 24/03/2026; página suspensa no período eleitoral, lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://agencia.ac.gov.br/gladson-cameli-anuncia-renuncia-ao-governo-do-acre/",
+     "type": "oficial",
+     "quote": "comunicou oficialmente à Assembleia Legislativa do Estado (Aleac) nesta terça-feira, 24, sua renúncia ao cargo, com efeito a partir de 2 de abril"
+    },
+    {
+     "fact": "discurso de despedida na transmissão (agência do governo do Acre, 02/04/2026, lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://agencia.ac.gov.br/pronunciamento-do-governador-gladson-cameli-para-solenidade-de-transmissao-do-cargo-de-governador-para-vice-governadora-mailza-assis/",
+     "type": "oficial",
+     "quote": "Da Redação 02 abr 2026 18:59 [...] no momento em que me despeço do Executivo estadual"
+    }
+   ],
+   "verified": true,
+   "note": "Datas lidas no texto das páginas da agência do governo do Acre (suspensas no período eleitoral pela Lei 9.504/1997; lidas na cópia do Internet Archive): renúncia comunicada à Aleac em 24/03/2026 com efeito a partir de 2 de abril; transmissão do cargo em 02/04/2026."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Major Rocha",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Mailza Assis",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-04-02",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "assumiu o cargo de governadora",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "renúncia com efeito em 2026-04-02 (agência do governo do Acre, 24/03/2026; página suspensa no período eleitoral, lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://agencia.ac.gov.br/gladson-cameli-anuncia-renuncia-ao-governo-do-acre/",
+     "type": "oficial",
+     "quote": "comunicou oficialmente à Assembleia Legislativa do Estado (Aleac) nesta terça-feira, 24, sua renúncia ao cargo, com efeito a partir de 2 de abril"
+    },
+    {
+     "fact": "transmissão do cargo em 2026-04-02 (agência do governo do Acre, 02/04/2026, lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://agencia.ac.gov.br/pronunciamento-para-posse-da-governadora-do-estado-do-acre-mailza-assis-para-solenidade-de-transmissao-do-cargo-do-governador-gladson-cameli-para-vice-governadora/",
+     "type": "oficial",
+     "quote": "Pronunciamento para posse da governadora do Estado do Acre, Mailza Assis, para solenidade de transmissão do cargo do governador Gladson Camelí para vice-governadora. Da Redação 02 abr 2026"
+    }
+   ],
+   "verified": true,
+   "note": "Datas lidas no texto das páginas da agência do governo do Acre (suspensas no período eleitoral pela Lei 9.504/1997; lidas na cópia do Internet Archive): renúncia comunicada à Aleac em 24/03/2026 com efeito a partir de 2 de abril; transmissão do cargo em 02/04/2026."
+  },
+  {
+   "role": "governador",
+   "name": "Mailza Assis",
+   "full_name": null,
+   "kind": "vice no cargo de titular",
+   "start": "2026-04-02",
+   "end": null,
+   "start_reason": "renúncia do titular",
+   "end_reason": null,
+   "party_at_start": "PP",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "renúncia com efeito em 2026-04-02 (agência do governo do Acre, 24/03/2026; página suspensa no período eleitoral, lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://agencia.ac.gov.br/gladson-cameli-anuncia-renuncia-ao-governo-do-acre/",
+     "type": "oficial",
+     "quote": "comunicou oficialmente à Assembleia Legislativa do Estado (Aleac) nesta terça-feira, 24, sua renúncia ao cargo, com efeito a partir de 2 de abril"
+    },
+    {
+     "fact": "transmissão do cargo em 2026-04-02 (agência do governo do Acre, 02/04/2026, lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://agencia.ac.gov.br/pronunciamento-para-posse-da-governadora-do-estado-do-acre-mailza-assis-para-solenidade-de-transmissao-do-cargo-do-governador-gladson-cameli-para-vice-governadora/",
+     "type": "oficial",
+     "quote": "Pronunciamento para posse da governadora do Estado do Acre, Mailza Assis, para solenidade de transmissão do cargo do governador Gladson Camelí para vice-governadora. Da Redação 02 abr 2026"
+    },
+    {
+     "fact": "partido no registro de candidatura de 2022 (PP)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Datas lidas no texto das páginas da agência do governo do Acre (suspensas no período eleitoral pela Lei 9.504/1997; lidas na cópia do Internet Archive): renúncia comunicada à Aleac em 24/03/2026 com efeito a partir de 2 de abril; transmissão do cargo em 02/04/2026. Partido: o do registro do TSE de 2022 (PP); as páginas oficiais da posse não citam partido."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2026-04-02",
+   "end": null,
+   "start_reason": "a vice-governadora assumiu o cargo de governadora",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "renúncia com efeito em 2026-04-02 (agência do governo do Acre, 24/03/2026; página suspensa no período eleitoral, lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://agencia.ac.gov.br/gladson-cameli-anuncia-renuncia-ao-governo-do-acre/",
+     "type": "oficial",
+     "quote": "comunicou oficialmente à Assembleia Legislativa do Estado (Aleac) nesta terça-feira, 24, sua renúncia ao cargo, com efeito a partir de 2 de abril"
+    },
+    {
+     "fact": "transmissão do cargo em 2026-04-02 (agência do governo do Acre, 02/04/2026, lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://agencia.ac.gov.br/pronunciamento-para-posse-da-governadora-do-estado-do-acre-mailza-assis-para-solenidade-de-transmissao-do-cargo-do-governador-gladson-cameli-para-vice-governadora/",
+     "type": "oficial",
+     "quote": "Pronunciamento para posse da governadora do Estado do Acre, Mailza Assis, para solenidade de transmissão do cargo do governador Gladson Camelí para vice-governadora. Da Redação 02 abr 2026"
+    }
+   ],
+   "verified": true,
+   "note": "Datas lidas no texto das páginas da agência do governo do Acre (suspensas no período eleitoral pela Lei 9.504/1997; lidas na cópia do Internet Archive): renúncia comunicada à Aleac em 24/03/2026 com efeito a partir de 2 de abril; transmissão do cargo em 02/04/2026. Sem vice desde a posse da vice como governadora."
+  }
+ ],
+ "gaps": []
+}

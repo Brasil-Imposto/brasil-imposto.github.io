@@ -1,0 +1,450 @@
+{
+ "year": 2024,
+ "fcdf_2024": 23606312156.44,
+ "state_spending": [
+  {
+   "uf": "AC",
+   "pop": 880631,
+   "spending_liquidated": 10836359094.48,
+   "spending_committed": 11267054152.08,
+   "transfers_subfunction": 623762709.57,
+   "per_capita_ex_transfers": 11596.907654749833,
+   "to_municipalities": 611010709.57,
+   "revenue_total": 11345153390.57,
+   "per_capita_liquidated": 12305.22102274392
+  },
+  {
+   "uf": "DF",
+   "pop": 2982818,
+   "spending_liquidated": 35303270142.74,
+   "spending_committed": 37165148341.7,
+   "transfers_subfunction": 0,
+   "per_capita_ex_transfers": 11835.542813118333,
+   "to_municipalities": null,
+   "revenue_total": 35629361262.64,
+   "per_capita_liquidated": 11835.542813118333
+  },
+  {
+   "uf": "AP",
+   "pop": 802837,
+   "spending_liquidated": 9299452041.83,
+   "spending_committed": 9736292895.71,
+   "transfers_subfunction": 2481570.56,
+   "per_capita_ex_transfers": 11580.146992814232,
+   "to_municipalities": 444001493.37,
+   "revenue_total": 10447763448.14,
+   "per_capita_liquidated": 11583.237994549329
+  },
+  {
+   "uf": "RR",
+   "pop": 716793,
+   "spending_liquidated": 7803696098.54,
+   "spending_committed": 8128793823.86,
+   "transfers_subfunction": 137976404.25,
+   "per_capita_ex_transfers": 10694.467850955576,
+   "to_municipalities": 570876973.13,
+   "revenue_total": 8609931702.63,
+   "per_capita_liquidated": 10886.95913400382
+  },
+  {
+   "uf": "TO",
+   "pop": 1577342,
+   "spending_liquidated": 15609747328.55,
+   "spending_committed": 16285356130.72,
+   "transfers_subfunction": 72553576.44,
+   "per_capita_ex_transfers": 9850.23777475652,
+   "to_municipalities": 1766593910.76,
+   "revenue_total": 16299319242.3,
+   "per_capita_liquidated": 9896.235140223236
+  },
+  {
+   "uf": "MT",
+   "pop": 3836399,
+   "spending_liquidated": 33176046140.88,
+   "spending_committed": 36264462941.99,
+   "transfers_subfunction": 522390049.65,
+   "per_capita_ex_transfers": 8511.538057232838,
+   "to_municipalities": 7036606758.25,
+   "revenue_total": 36117367824.22,
+   "per_capita_liquidated": 8647.704824466902
+  },
+  {
+   "uf": "MS",
+   "pop": 2901895,
+   "spending_liquidated": 22388732403.22,
+   "spending_committed": 22929791107.97,
+   "transfers_subfunction": 202256.42,
+   "per_capita_ex_transfers": 7715.141363419421,
+   "to_municipalities": 5099860608.22,
+   "revenue_total": 22126096515.89,
+   "per_capita_liquidated": 7715.211061468454
+  },
+  {
+   "uf": "AM",
+   "pop": 4281209,
+   "spending_liquidated": 32897257357.41,
+   "spending_committed": 33524114754.33,
+   "transfers_subfunction": 4760737437.86,
+   "per_capita_ex_transfers": 6572.096788442236,
+   "to_municipalities": 4412773931.43,
+   "revenue_total": 34299095495.13,
+   "per_capita_liquidated": 7684.104503519917
+  },
+  {
+   "uf": "RO",
+   "pop": 1746227,
+   "spending_liquidated": 12824349413.72,
+   "spending_committed": 14446046567.01,
+   "transfers_subfunction": 0,
+   "per_capita_ex_transfers": 7344.033400995403,
+   "to_municipalities": 2185575323.94,
+   "revenue_total": 15071356907.3,
+   "per_capita_liquidated": 7344.033400995403
+  },
+  {
+   "uf": "SP",
+   "pop": 45973194,
+   "spending_liquidated": 335692614882.49,
+   "spending_committed": 345724835564.36,
+   "transfers_subfunction": 71287625812.48,
+   "per_capita_ex_transfers": 5751.28604442863,
+   "to_municipalities": 71172236934.15,
+   "revenue_total": 354009688730.42,
+   "per_capita_liquidated": 7301.92065581717
+  },
+  {
+   "uf": "SE",
+   "pop": 2291077,
+   "spending_liquidated": 14600699729.56,
+   "spending_committed": 14885365581.76,
+   "transfers_subfunction": 11652500,
+   "per_capita_ex_transfers": 6367.76818481439,
+   "to_municipalities": 1606653593.11,
+   "revenue_total": 16129987037.42,
+   "per_capita_liquidated": 6372.854220770406
+  },
+  {
+   "uf": "ES",
+   "pop": 4102129,
+   "spending_liquidated": 25949820986.94,
+   "spending_committed": 27810905230.79,
+   "transfers_subfunction": 451771295.01,
+   "per_capita_ex_transfers": 6215.8088377839895,
+   "to_municipalities": 5962219228.85,
+   "revenue_total": 28814559965.12,
+   "per_capita_liquidated": 6325.939771016465
+  },
+  {
+   "uf": "PI",
+   "pop": 3375646,
+   "spending_liquidated": 20209833380.24,
+   "spending_committed": 20903831504.23,
+   "transfers_subfunction": 573985373.59,
+   "per_capita_ex_transfers": 5816.915638265979,
+   "to_municipalities": 2207720917.62,
+   "revenue_total": 20493868514.2,
+   "per_capita_liquidated": 5986.952832210487
+  },
+  {
+   "uf": "SC",
+   "pop": 8058441,
+   "spending_liquidated": 45739708452.68,
+   "spending_committed": 47523185461.69,
+   "transfers_subfunction": 0,
+   "per_capita_ex_transfers": 5675.999669499349,
+   "to_municipalities": 12857175395.06,
+   "revenue_total": 49164303864.69,
+   "per_capita_liquidated": 5675.999669499349
+  },
+  {
+   "uf": "RJ",
+   "pop": 17219679,
+   "spending_liquidated": 97597435760.19,
+   "spending_committed": 98837749127,
+   "transfers_subfunction": 0,
+   "per_capita_ex_transfers": 5667.784850123513,
+   "to_municipalities": 18917618142.81,
+   "revenue_total": 98296331940.65,
+   "per_capita_liquidated": 5667.784850123513
+  },
+  {
+   "uf": "GO",
+   "pop": 7350483,
+   "spending_liquidated": 40503693849.1,
+   "spending_committed": 42009294789.86,
+   "transfers_subfunction": 0,
+   "per_capita_ex_transfers": 5510.344537780715,
+   "to_municipalities": 8922574805.73,
+   "revenue_total": 44601992497.13,
+   "per_capita_liquidated": 5510.344537780715
+  },
+  {
+   "uf": "RN",
+   "pop": 3446071,
+   "spending_liquidated": 18735308695.78,
+   "spending_committed": 19141439984.09,
+   "transfers_subfunction": 28866000,
+   "per_capita_ex_transfers": 5428.339316218383,
+   "to_municipalities": 2450307857.74,
+   "revenue_total": 19085896138.21,
+   "per_capita_liquidated": 5436.7158122337
+  },
+  {
+   "uf": "AL",
+   "pop": 3220104,
+   "spending_liquidated": 17478395563.43,
+   "spending_committed": 18968612907.67,
+   "transfers_subfunction": 33693246.17,
+   "per_capita_ex_transfers": 5417.434442260251,
+   "to_municipalities": 2327862569.11,
+   "revenue_total": 18945024960.04,
+   "per_capita_liquidated": 5427.89784535841
+  },
+  {
+   "uf": "PR",
+   "pop": 11824665,
+   "spending_liquidated": 63503291896.96,
+   "spending_committed": 69520200287.91,
+   "transfers_subfunction": 37683137.28,
+   "per_capita_ex_transfers": 5367.222560612076,
+   "to_municipalities": 16337747747.28,
+   "revenue_total": 70236705706.64,
+   "per_capita_liquidated": 5370.4093855479205
+  },
+  {
+   "uf": "RS",
+   "pop": 11229915,
+   "spending_liquidated": 59448877020.62,
+   "spending_committed": 64739368814.79,
+   "transfers_subfunction": 0,
+   "per_capita_ex_transfers": 5293.795814182031,
+   "to_municipalities": 15663662889.66,
+   "revenue_total": 65575024545.87,
+   "per_capita_liquidated": 5293.795814182031
+  },
+  {
+   "uf": "PA",
+   "pop": 8664306,
+   "spending_liquidated": 44658993520.48,
+   "spending_committed": 44943282229.05,
+   "transfers_subfunction": 195641208.67,
+   "per_capita_ex_transfers": 5131.784624389998,
+   "to_municipalities": 6928067634.47,
+   "revenue_total": 45431435974.71,
+   "per_capita_liquidated": 5154.364760487453
+  },
+  {
+   "uf": "MG",
+   "pop": 21322691,
+   "spending_liquidated": 102735416952.83,
+   "spending_committed": 106717021386.34,
+   "transfers_subfunction": 0,
+   "per_capita_ex_transfers": 4818.126237107221,
+   "to_municipalities": 26385167800.96,
+   "revenue_total": 111987208007.35,
+   "per_capita_liquidated": 4818.126237107221
+  },
+  {
+   "uf": "PE",
+   "pop": 9539029,
+   "spending_liquidated": 45920118410.06,
+   "spending_committed": 45920118410.06,
+   "transfers_subfunction": 0,
+   "per_capita_ex_transfers": 4813.919572952341,
+   "to_municipalities": 7376587028.46,
+   "revenue_total": 46828306844.31,
+   "per_capita_liquidated": 4813.919572952341
+  },
+  {
+   "uf": "BA",
+   "pop": 14850513,
+   "spending_liquidated": 69740359568.72,
+   "spending_committed": 71413980155.87,
+   "transfers_subfunction": 42651048.35,
+   "per_capita_ex_transfers": 4693.286253503162,
+   "to_municipalities": 11113669460.25,
+   "revenue_total": 71518231477.96,
+   "per_capita_liquidated": 4696.158278755757
+  },
+  {
+   "uf": "PB",
+   "pop": 4145040,
+   "spending_liquidated": 18880469163.8,
+   "spending_committed": 19223056026.57,
+   "transfers_subfunction": 9902044.65,
+   "per_capita_ex_transfers": 4552.565745843224,
+   "to_municipalities": 2774891577.54,
+   "revenue_total": 20348822323.53,
+   "per_capita_liquidated": 4554.954635853936
+  },
+  {
+   "uf": "CE",
+   "pop": 9233656,
+   "spending_liquidated": 38688913486.61,
+   "spending_committed": 40222529935.91,
+   "transfers_subfunction": 0,
+   "per_capita_ex_transfers": 4189.988611944174,
+   "to_municipalities": 5983013990.24,
+   "revenue_total": 39438506525.95,
+   "per_capita_liquidated": 4189.988611944174
+  },
+  {
+   "uf": "MA",
+   "pop": 7010960,
+   "spending_liquidated": 27623349409.13,
+   "spending_committed": 28216422580.9,
+   "transfers_subfunction": 0,
+   "per_capita_ex_transfers": 3940.023821150028,
+   "to_municipalities": 4022874349.8,
+   "revenue_total": 31127179900.51,
+   "per_capita_liquidated": 3940.023821150028
+  }
+ ],
+ "df_gdf_plus_fcdf": {
+  "value": 58909582299.17999,
+  "per_capita": 19749.640205731623
+ },
+ "sc_state_plus_municipalities": {
+  "state": 45739708452.68,
+  "municipalities": 50431892521.49998,
+  "n_municipalities": 295,
+  "per_capita": 11934.26879643097
+ },
+ "federal_payroll_located": [
+  {
+   "uf": "DF",
+   "value": 39041721507.76,
+   "per_capita_year": 13088.871499286917
+  },
+  {
+   "uf": "RS",
+   "value": 11276129637.15,
+   "per_capita_year": 1004.1153149556341
+  },
+  {
+   "uf": "PB",
+   "value": 3594565957.18,
+   "per_capita_year": 867.1969286617258
+  },
+  {
+   "uf": "RJ",
+   "value": 14760564592.73,
+   "per_capita_year": 857.1916231847295
+  },
+  {
+   "uf": "RN",
+   "value": 2836365608.2,
+   "per_capita_year": 823.0723070418455
+  },
+  {
+   "uf": "MG",
+   "value": 11705427109.94,
+   "per_capita_year": 548.9657524906214
+  },
+  {
+   "uf": "MS",
+   "value": 1581475594.94,
+   "per_capita_year": 544.9802956137283
+  },
+  {
+   "uf": "SE",
+   "value": 1229577529.49,
+   "per_capita_year": 536.6810148633153
+  },
+  {
+   "uf": "AC",
+   "value": 458930271.89,
+   "per_capita_year": 521.1379929732203
+  },
+  {
+   "uf": "RR",
+   "value": 369152254.35,
+   "per_capita_year": 515.0053841904148
+  },
+  {
+   "uf": "ES",
+   "value": 2027023366.56,
+   "per_capita_year": 494.13935216566813
+  },
+  {
+   "uf": "AL",
+   "value": 1588293016.02,
+   "per_capita_year": 493.2427698049504
+  },
+  {
+   "uf": "PE",
+   "value": 4400096497.15,
+   "per_capita_year": 461.27299719394915
+  },
+  {
+   "uf": "MT",
+   "value": 1713414907.27,
+   "per_capita_year": 446.6206219087222
+  },
+  {
+   "uf": "SC",
+   "value": 3559844919.87,
+   "per_capita_year": 441.75355008121295
+  },
+  {
+   "uf": "PI",
+   "value": 1419184231.4,
+   "per_capita_year": 420.4185602992731
+  },
+  {
+   "uf": "TO",
+   "value": 608552275.55,
+   "per_capita_year": 385.808705753096
+  },
+  {
+   "uf": "GO",
+   "value": 2795276729.21,
+   "per_capita_year": 380.2847689342319
+  },
+  {
+   "uf": "AP",
+   "value": 303376598.81,
+   "per_capita_year": 377.8806891187128
+  },
+  {
+   "uf": "PR",
+   "value": 4433843968.22,
+   "per_capita_year": 374.96571515725816
+  },
+  {
+   "uf": "CE",
+   "value": 2955939037.11,
+   "per_capita_year": 320.12661475692835
+  },
+  {
+   "uf": "RO",
+   "value": 532255006.85,
+   "per_capita_year": 304.80287319460757
+  },
+  {
+   "uf": "BA",
+   "value": 4376448444.99,
+   "per_capita_year": 294.70015244523876
+  },
+  {
+   "uf": "PA",
+   "value": 2427861690.33,
+   "per_capita_year": 280.2142133865078
+  },
+  {
+   "uf": "AM",
+   "value": 1170523010.92,
+   "per_capita_year": 273.409453011988
+  },
+  {
+   "uf": "MA",
+   "value": 1781470044.01,
+   "per_capita_year": 254.09787589859306
+  },
+  {
+   "uf": "SP",
+   "value": 9213734685.32,
+   "per_capita_year": 200.41536999408828
+  }
+ ]
+}

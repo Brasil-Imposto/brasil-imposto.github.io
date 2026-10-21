@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;overflow:hidden;background:#fff}iframe{border:0;display:block}</style></head><body>
+<div id="probe" style="position:fixed;left:-9999px">PROBE pending</div>
+<script>
+// Simulates a pointer over one state label (?uf=SP) in the first hero, to check lift + tooltip.
+const p = new URLSearchParams(location.search);
+const w = +p.get('w') || 1440, h = +p.get('h') || 900, y = +p.get('y') || 0, uf = p.get('uf') || 'SP', hero = +p.get('hero') || 0;
+const f = document.createElement('iframe');
+f.style.cssText = `width:${w}px;height:${y + h}px;margin-top:-${y}px`;
+f.src = p.get('src');
+f.onload = () => {
+  const d = f.contentDocument;
+  const wait = () => {
+    if (d.body.dataset.ready !== '1') return setTimeout(wait, 200);
+    setTimeout(() => {
+      const map = d.querySelectorAll('.hero-map')[hero];
+      const label = [...map.querySelectorAll('.uf-label')].find((e) => e.textContent === uf);
+      const r = label.getBoundingClientRect();
+      const ev = new f.contentWindow.PointerEvent('pointermove', { clientX: r.left + r.width / 2, clientY: r.top + r.height / 2 + 6, bubbles: true });
+      map.dispatchEvent(ev);
+      setTimeout(() => {
+        const tip = map.parentElement.querySelector('.hero-tooltip');
+        document.getElementById('probe').textContent = `PROBE tooltipHidden=${tip.hidden} text=${tip.textContent.replace(/\s+/g, ' ').trim()}`;
+      }, 1200);
+    }, 1500);
+  };
+  wait();
+};
+document.body.appendChild(f);
+</script></body></html>

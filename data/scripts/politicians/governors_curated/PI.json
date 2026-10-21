@@ -1,0 +1,178 @@
+{
+ "uf": "PI",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Wellington Dias",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2022-03-31",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "renúncia apresentada e lida na Assembleia em 31/03/2022 (Alepi, publicado em 31/03/2022)",
+     "url": "https://www.al.pi.leg.br/comunicacao/noticias/wellington-dias-entrega-renuncia-do-cargo-de-governador-a-assembleia",
+     "type": "oficial",
+     "quote": "O documento foi lido em Plenário na sessão que também deu posse à governadora Maria Regina Sousa. O governador do Piauí, Wellington Dias, apresentou, nesta quinta-feira (31)"
+    },
+    {
+     "fact": "posse da vice como governadora em 31/03/2022, com partido (PT) (Alepi, publicado em 31/03/2022)",
+     "url": "https://www.al.pi.leg.br/comunicacao/noticias/assembleia-legislativa-da-posse-a-regina-sousa-como-governadora-do-piaui",
+     "type": "oficial",
+     "quote": "A vice-governadora Regina Sousa (PT) tomou posse na Assembleia Legislativa, na manhã desta quinta-feira, como a primeira governadora do Piauí. A posse aconteceu logo após a leitura da renúncia do governador Wellington Dias"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida e posse da vice como governadora na manhã de quinta-feira, 31/03/2022 (textos da Alepi publicados em 31/03/2022)."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Regina Sousa",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2022-03-31",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "assumiu o cargo de governadora",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "posse da vice como governadora em 31/03/2022, com partido (PT) (Alepi, publicado em 31/03/2022)",
+     "url": "https://www.al.pi.leg.br/comunicacao/noticias/assembleia-legislativa-da-posse-a-regina-sousa-como-governadora-do-piaui",
+     "type": "oficial",
+     "quote": "A vice-governadora Regina Sousa (PT) tomou posse na Assembleia Legislativa, na manhã desta quinta-feira, como a primeira governadora do Piauí. A posse aconteceu logo após a leitura da renúncia do governador Wellington Dias"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida e posse da vice como governadora na manhã de quinta-feira, 31/03/2022 (textos da Alepi publicados em 31/03/2022)."
+  },
+  {
+   "role": "governador",
+   "name": "Regina Sousa",
+   "full_name": null,
+   "kind": "vice no cargo de titular",
+   "start": "2022-03-31",
+   "end": "2023-01-01",
+   "start_reason": "renúncia do titular",
+   "end_reason": "fim do mandato",
+   "party_at_start": "PT",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "renúncia apresentada e lida na Assembleia em 31/03/2022 (Alepi, publicado em 31/03/2022)",
+     "url": "https://www.al.pi.leg.br/comunicacao/noticias/wellington-dias-entrega-renuncia-do-cargo-de-governador-a-assembleia",
+     "type": "oficial",
+     "quote": "O documento foi lido em Plenário na sessão que também deu posse à governadora Maria Regina Sousa. O governador do Piauí, Wellington Dias, apresentou, nesta quinta-feira (31)"
+    },
+    {
+     "fact": "posse da vice como governadora em 31/03/2022, com partido (PT) (Alepi, publicado em 31/03/2022)",
+     "url": "https://www.al.pi.leg.br/comunicacao/noticias/assembleia-legislativa-da-posse-a-regina-sousa-como-governadora-do-piaui",
+     "type": "oficial",
+     "quote": "A vice-governadora Regina Sousa (PT) tomou posse na Assembleia Legislativa, na manhã desta quinta-feira, como a primeira governadora do Piauí. A posse aconteceu logo após a leitura da renúncia do governador Wellington Dias"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida e posse da vice como governadora na manhã de quinta-feira, 31/03/2022 (textos da Alepi publicados em 31/03/2022). Partido na posse: PT, no texto da Alepi."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2022-03-31",
+   "end": "2023-01-01",
+   "start_reason": "a vice-governadora assumiu o cargo de governadora",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "posse da vice como governadora em 31/03/2022, com partido (PT) (Alepi, publicado em 31/03/2022)",
+     "url": "https://www.al.pi.leg.br/comunicacao/noticias/assembleia-legislativa-da-posse-a-regina-sousa-como-governadora-do-piaui",
+     "type": "oficial",
+     "quote": "A vice-governadora Regina Sousa (PT) tomou posse na Assembleia Legislativa, na manhã desta quinta-feira, como a primeira governadora do Piauí. A posse aconteceu logo após a leitura da renúncia do governador Wellington Dias"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida e posse da vice como governadora na manhã de quinta-feira, 31/03/2022 (textos da Alepi publicados em 31/03/2022). Sem vice desde a posse da vice como governadora até o fim do mandato."
+  },
+  {
+   "role": "governador",
+   "name": "Rafael Fonteles",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Themístocles Filho",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  }
+ ],
+ "gaps": []
+}

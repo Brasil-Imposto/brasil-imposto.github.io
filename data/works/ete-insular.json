@@ -1,0 +1,1310 @@
+{
+ "slug": "ete-insular",
+ "collected_on": "2026-09-30",
+ "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_obras-sc-ete-insular_2026-09-30.md",
+ "rules": "Somente papéis e atos oficiais, com as palavras do órgão. Nenhuma inferência de irregularidade. Valores nominais com fonte e data de coleta; somas e razões marcadas como computed são desta pesquisa.",
+ "work": {
+  "name": "Ampliação e modernização da Estação de Tratamento de Esgoto (ETE) Insular e das Bacias D e F",
+  "short_name": "ETE Insular",
+  "municipalities": [
+   {
+    "name": "Florianópolis",
+    "uf": "SC",
+    "ibge_code": 4205407
+   }
+  ],
+  "level": "state",
+  "level_note": "Obra da Casan, sociedade de economia mista controlada pelo Estado de SC. A Casan não usa o SIGEF: seus contratos e gastos ficam no portal próprio da companhia.",
+  "agency": {
+   "name": "Companhia Catarinense de Águas e Saneamento (Casan)",
+   "cnpj": "82508433000117"
+  },
+  "financing": "Financiamento da JICA (Programa de Saneamento Ambiental de Santa Catarina, contrato de 2010)",
+  "financing_source": "https://www.casan.com.br/menu-conteudo/index/url/japanese-international-cooperation-agency-jica",
+  "siconfi_function": "Saneamento",
+  "siconfi_function_code": 17,
+  "siconfi_note": "Função de governo em que a obra se enquadra (Portaria MOG 42/1999). Como é gasto de empresa estatal, não aparece nos balanços do Estado no SICONFI.",
+  "status": "em execução",
+  "status_detail": [
+   {
+    "text": "82,87% da estrutura civil concluída; 'Já para 2026, a CASAN vai trabalhar para a conclusão das estruturas em andamento com o objetivo de iniciar a operação.'",
+    "date": "2026-01-20",
+    "url": "https://www.casan.com.br/noticia/index/url/trabalhos-na-obra-de-ampliacao-e-modernizacao-da-ete-insular-sao-retomados"
+   },
+   {
+    "text": "Situação 'Andamento', início nov/20, término abr/27",
+    "date": "2026-08-30",
+    "url": "https://transparencia.casan.com.br/data/download/4981/2"
+   },
+   {
+    "text": "Vigência prorrogada até 14/04/2027 (TA 08/2026)",
+    "date": "2026-03-10",
+    "url": "https://transparencia.casan.com.br/data/contrato/arquivo/175242"
+   }
+  ],
+  "dates": {
+   "first_contract_start": "2018-09-10",
+   "first_contract_rescinded": "2019-08-19",
+   "new_tender_bids": "2020-01-23",
+   "current_contract_signed": "2020-11-06",
+   "current_contract_end_original": "2025-04-14",
+   "current_contract_end_now": "2027-04-14",
+   "expected_operation": "2026 (meta da Casan); contrato até abr/2027"
+  },
+  "capacity": {
+   "before_l_s": 296,
+   "after_l_s": 612,
+   "population_before": 150000,
+   "population_after": 225000,
+   "source": "https://casan.com.br/noticia/index/url/tres-consorcios-se-habilitam-para-ampliar-a-maior-estacao-de-esgoto-do-estado",
+   "source_2": "https://www.casan.com.br/noticia/index/url/no-dia-de-seu-aniversario-casan-licita-maior-obra-de-saneamento-do-estado"
+  },
+  "description_plain": "A ETE Insular é a maior estação de esgoto do estado e trata o esgoto do Centro e de bairros vizinhos de Florianópolis. A obra quase dobra a capacidade (de 296 para 612 litros por segundo), troca o tratamento por um que também tira nitrogênio e fósforo, e leva redes de coleta a bairros ainda sem ligação (José Mendes, Morro da Lagoa e partes de Itacorubi, Pantanal e Córrego Grande). O primeiro contrato, de 2018, foi rescindido em 2019 sem pagamento registrado; o atual começou em novembro de 2020 e deveria acabar em abril de 2025, mas foi prorrogado até abril de 2027.",
+  "location_note": "'Localizada na entrada da Ilha de Santa Catarina' (Casan, 02/07/2020). A foto do cartão mostra a Baía Sul, não a estação: não há foto livre da ETE no Wikimedia Commons.",
+  "sources": [
+   "https://casan.com.br/noticia/index/url/tres-consorcios-se-habilitam-para-ampliar-a-maior-estacao-de-esgoto-do-estado",
+   "https://www.casan.com.br/noticia/index/url/no-dia-de-seu-aniversario-casan-licita-maior-obra-de-saneamento-do-estado",
+   "https://www.casan.com.br/noticia/index/url/obras-de-ampliacao-e-modernizacao-da-ete-insular-chegam-a-80-da-estrutura-civil",
+   "https://www.casan.com.br/noticia/index/url/trabalhos-na-obra-de-ampliacao-e-modernizacao-da-ete-insular-sao-retomados"
+  ]
+ },
+ "contracts": [
+  {
+   "number": "EOC 1151/2018 (EOC001151/2018-A e -B no SAP)",
+   "role": "primeiro contrato da ampliação; rescindido",
+   "tender": "Concorrência Pública Internacional nº 7/2017 (CI 7/2017)",
+   "object": "Execução de obras civis, com fornecimento de materiais e equipamentos para ampliação e pré operação do Sistema de Esgotamento Sanitário da Estação de Tratamento de Esgotos Insular e das Bacias D & F, município de Florianópolis, Estado de Santa Catarina..",
+   "company": "CONSÓRCIO TRIX-INFRACON",
+   "company_cnpj": null,
+   "company_cnpj_note": "O registro da Casan e as Resoluções que rescindiram o contrato não trazem CNPJ; as consorciadas são TRIX Engenharia Civil Ltda e INFRACON Engenharia e Comércio Ltda (Resolução 213/2019).",
+   "signed_on": "2018-09-10",
+   "signed_on_note": "Início de vigência no registro da Casan; data de assinatura não publicada no registro.",
+   "value_original_brl": 94663085.48,
+   "value_current_brl": 94663085.48,
+   "value_by_company_sap_brl": {
+    "EOC001151/2018-A": 47331542.73,
+    "EOC001151/2018-B": 47331542.75
+   },
+   "amount_consumed_sap_brl": 0.0,
+   "duration_days": 1620,
+   "status": "Rescindido",
+   "amendments": [
+    {
+     "act": "APLICAÇÃO DE PENALIDADE 0/2019",
+     "date": "2019-08-19",
+     "value_added_brl": 0.0,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "RESOLUÇÃO Nº 213, DE 19 DE AGOSTO DE 2019. A DIRETORIA EXECUTIVA DA COMPANHIA CATARINENSE DE ÁGUAS E SANEAMENTO - CASAN, no uso de suas atribuições estatutárias, em reunião realizada no dia 19 de agosto de 2019, considerando a CI/UGP/nº 055/2019; o Parecer Jurídico nº 571/2019; o memorando GPR/DIPE/nº 084/2019, o Ofício nº 143/19 da JICA e os demais documentos que integram o processo sob o protocolo 2019/33106; R E S O L V E: 1) Aplicar as Empresas TRIX Engenharia Civil Ltda e INFRACON Engenharia e Comércio Ltda., componentes do Consórcio TRIX-INFRACON INSULAR, a penalidade de \"Suspensão Temporária por 2 (dois) anos\" para participar de licitação, impedimento de contratar com a CASAN e rescisão unilateral do Contrato EOC n.º 1.151/2018 decorrente da Concorrência Pública Internacional nº 7/2017, com fulcro no artigo 87, parágrafo 2º da Lei nº 8.666/93 e nos termos da sub-cláusula 15.2, e item 2.1 da Seção III, das Condições Específicas (CE) do referido contrato, tendo em vista o descumprimento das obrigações contratuais. 2) Determinar à GLI a publicação desta imputação no Diário Oficial do Estado, bem como as providências decorrentes, comunicando à referida empresa da decisão da Diretoria Colegiada. Eng.ª ROBERTA MAAS DOS ANJOS - Diretora-Presidente. Eng.º FÁBIO CESAR F. KRIEGER - Diretor de Operação e Expansão.",
+     "files": []
+    },
+    {
+     "act": "APLICAÇÃO DE PENALIDADE 0/2019",
+     "date": "2019-10-07",
+     "value_added_brl": 0.0,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "RESOLUÇÃO Nº 264, DE 7 DE OUTUBRO DE 2019. A DIRETORIA EXECUTIVA DA COMPANHIA CATARINENSE DE ÁGUAS E SANEAMENTO - CASAN, no uso de suas atribuições estatutárias, em reunião realizada no dia 7 de outubro de 2019, considerando a CI/UGP/nº 91/2019; o Parecer Jurídico nº 700/2019; recurso administrativo protocolado pelo Consórcio TRIX-INFRACON; Mandado de Segurança nº 5006892-58.2019.8.24.0023/SC e os demais documentos que integram o processo sob o protocolo 2019/47101; R E S O L V E: 1) Atribuir efeito suspensivo à penalidade, aplicada por meio da Resolução nº 213/2019, de ¿Suspensão Temporária por 2 (dois) anos¿ para participar de licitação, impedimento de contratar com a CASAN, aplicada as Empresas TRIX Engenharia Civil Ltda e INFRACON Engenharia e Comércio Ltda., componentes do Consórcio TRIX-INFRACON INSULAR, estabelecendo o prazo de 5 (cinco) dias úteis para que estas exerçam o direito ao contraditório e ampla defesa, instaurando o processo administrativo, com fulcro no artigo 87, parágrafo 2º da Lei nº 8.666/93. 2) Manter a decisão de rescisão unilateral, aplicada por meio da Resolução nº 213/2019, do Contrato EOC n.º 1.151/2018 decorrente da Concorrência Pública Internacional nº 7/2017, com fulcro no artigo 87, parágrafo 2º da Lei nº 8.666/93 e nos termos da sub-cláusula 15.2, e item 2.1 da Seção III, das Condições Específicas (CE) do referido contrato, tendo em vista o descumprimento das obrigações contratuais. 3) Determinar à GLI a publicação desta decisão no Diário Oficial do Estado, bem como as providências decorrentes, comunicando à referida empresa da decisão da Diretoria Colegiada. Eng.ª ROBERTA MAAS DOS ANJOS Diretora-Presidente Eng.º FÁBIO CESAR F. KRIEGER Diretor de Operação e Expansão",
+     "files": []
+    },
+    {
+     "act": "APLICAÇÃO DE PENALIDADE 0/2021",
+     "date": "2021-04-19",
+     "value_added_brl": 0.0,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "RESOLUÇÃO Nº 135, DE 19 DE ABRIL DE 2021. A DIRETORIA EXECUTIVA DA COMPANHIA CATARINENSE DE ÁGUAS E SANEAMENTO - CASAN, no uso de suas atribuições estatutárias, em reunião realizada no dia 19 de abril de 2021, considerando o Despacho/Decisão, de 20/10/2020 expedido pela 4ª Vara Cível da Comarca de Florianópolis, referente os Autos do Processo nº 5006866-60.2019.8.24.0023; Acordo Judicial de 10/12/2020; Sentença de Homologação expedida em 17/12/2020; despacho da Procuradoria Geral da CASAN de 06/04/2021; bem como os demais documentos que integram o Processo SGPe nº 00022262/2021; R E S O L V E: 1) Aplicar às Empresas integrantes do Consórcio TRIX-INFRACON INSULAR, a penalidade de ¿Advertência e multa no valor de R$ 198.466,16 (cento e noventa e oito mil quatrocentos e sessenta e seis reais e dezesseis centavos) ¿, conforme acordo judicial celebrado entre o referido consórcio e a CASAN, em virtude da rescisão do Contrato EOC n° 1151/2018 e aplicação de penalidades, que foram objeto de judicialização (Autos do Processo n° 5006866-60.2019.8.24.0023), e que em audiência de conciliação as partes entenderam pela celebração do referido acordo. 2) Determinar à GLI a publicação desta imputação no Diário Oficial do Estado comunicando à referida empresa da decisão da Diretoria Colegiada e à PGC as demais providências decorrentes desta decisão. Eng.ª ROBERTA MAAS DOS ANJOS Diretora-Presidente Eng.º FÁBIO CESAR F. KRIEGER Diretor de Operação e Expansão",
+     "files": []
+    }
+   ],
+   "manager_in_record": "FABIO CESAR FERNANDES KRIEGER",
+   "source": {
+    "doc": "Portal da Transparência da Casan, Contratos (vista PNTP) e Saldos contratuais (SAP)",
+    "url": "https://transparencia.casan.com.br/data/contrato?ano=2018&objeto=INSULAR&page=1",
+    "url_sap": "https://transparencia.casan.com.br/data/contratos?empresafiltro%5B%5D=2000004715&dtinivigenciainifiltro=2000-01-01&dtinivigenciafimfiltro=2026-12-31&page=1",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "number": "EOC 1246/2020 (EOC001246/2020)",
+   "role": "contrato principal em execução",
+   "tender": "Concorrência nº 01/2019 (CN 1/2019; nos documentos, 'CP 01/2019')",
+   "object": "EXECUÇÃO DE OBRAS CIVIS PARA AMPLIAÇÃO DA ETE E BACIAS D/F - SES INSULAR - SUB LOTE 1C - MUNICÍPIO DE FLORIANÓPOLIS.",
+   "object_full": "CP 01/2019 - Execução de Obras Civis, com Fornecimento de Materiais e Equipamentos para Ampliação e Pré-operação do SES da ETE Insul ar e das Bacias D & F, Município de Florianópolis, Estado de Santa Catarina",
+   "company": "CONSÓRCIO ITAJUÍ/CONSTRUTAMI ETE INSULAR",
+   "company_cnpj": "39673759000170",
+   "signed_on": "2020-11-06",
+   "signed_on_source": "Termos aditivos: 'celebrado em 06/11/2020'",
+   "value_original_brl": 144899952.36,
+   "value_current_brl": 261908002.3,
+   "value_current_note": "Calculado: valor original + aditivos - supressões do registro PNTP da Casan (inclui reajustes contratuais).",
+   "value_principal_brl": 197768490.12,
+   "value_principal_note": "Valor original + termos aditivos, sem os reajustes (tabela 'Obras de expansão' da Casan; igual ao cálculo pelo registro, ao centavo).",
+   "readjustments_total_brl": 64139512.18,
+   "value_contract_sap_brl": 251067149.78,
+   "value_contract_sap_note": "O SAP (base de 2026-09-05) ainda não incorpora o TA 7/2025 (R$ 4.719.562,01) e o reajuste 6/2026 (R$ 6.121.290,51); a soma dos dois fecha a diferença.",
+   "duration_days_original": 1620,
+   "end_original_computed": "2025-04-14",
+   "end_current": "2027-04-14",
+   "status": "Vigente",
+   "amendments": [
+    {
+     "act": "REAJUSTE 1/2021",
+     "date": "2021-06-08",
+     "value_added_brl": 13573213.24,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Reajuste referente ao período de jan/20 a jan/21 no percentual de 0,093673 - itens 7-12.",
+     "files": [
+      {
+       "name": "EOC001246-20-Reajuste-01-21.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/174781"
+      },
+      {
+       "name": "EOC001246-20-Reajuste-01-21-Processo SGPE 15937-21.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/174782"
+      }
+     ]
+    },
+    {
+     "act": "MODIFICATIVO E/OU RETIFICAÇÃO 1/2021",
+     "date": "2021-10-25",
+     "value_added_brl": 21502843.2,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "A finalidade do presente Termo é ajustar com a EMPREITEIRA o reequilíbrio econômico financeiro no percentual de 14,84% (quatorze inteiros e oitenta e quatro centésimos por cento), em face ao evento imprevisível ou, no mínimo, previsível de consequências incalculáveis, anormal e extraordinária, que impactou diretamente na proposta da requerente, conforme análise da área técnica da CASAN e documentos constantes no processo que originou o presente termo.",
+     "files": [
+      {
+       "name": "EOC001246-20-TA-01-21.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134841"
+      }
+     ]
+    },
+    {
+     "act": "REAJUSTE 2/2022",
+     "date": "2022-04-28",
+     "value_added_brl": 19023487.57,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Reajuste referente ao período de jan/20 a jan/22, no índice de 0,242916, carrinho 3*22449 (itens 14 até 19)",
+     "files": [
+      {
+       "name": "EOC001246-20-Reajuste-02-22-Processo SGPE 18397-22.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/172643"
+      },
+      {
+       "name": "EOC001246-20-Reajuste-02-22.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/174783"
+      }
+     ]
+    },
+    {
+     "act": "ACRÉSCIMO E/OU SUPRESSÃO 2/2023",
+     "date": "2023-01-09",
+     "value_added_brl": 9357632.0,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Acréscimo quantitativo e qualitativo de 6,46% ao valor original do contrato",
+     "files": [
+      {
+       "name": "EOC001246-20-TA-02-23.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134842"
+      }
+     ]
+    },
+    {
+     "act": "REAJUSTE 3/2023",
+     "date": "2023-03-24",
+     "value_added_brl": 10619068.06,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Reajuste contratual referente ao período de jan/2020 a jan/2023, no índice de 0,354788 (itens 22 a 27, carrinho 3*29351)",
+     "files": [
+      {
+       "name": "EOC001246-20-Reajuste 03-23-Processo SGPE 20600-23.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/172661"
+      },
+      {
+       "name": "EOC001246-20-Reajuste-03-23.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/174784"
+      }
+     ]
+    },
+    {
+     "act": "ACRÉSCIMO E/OU SUPRESSÃO 3/2023",
+     "date": "2023-10-25",
+     "value_added_brl": 5320331.68,
+     "value_removed_brl": 163879.12,
+     "new_end": null,
+     "object": "Acréscimo de quantitativo e qualitativo, relativo ao índice de 3,67% e a supressão no percentual de 0,11% ao valor atualizado do referido contrato.",
+     "files": [
+      {
+       "name": "EOC001246-20-TA-03-23.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134843"
+      }
+     ]
+    },
+    {
+     "act": "REEQUILÍBRIO 0/2023",
+     "date": "2023-12-01",
+     "value_added_brl": 168254.68,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Atualização dos valores do TA 03/2023 - Acréscimo quantitativo e qualitativo - com a aplicação do reequilíbrio econômico financeiro (item 31, carrinho 3*3*33547).",
+     "files": []
+    },
+    {
+     "act": "REAJUSTE 4/2024",
+     "date": "2024-04-23",
+     "value_added_brl": 4430637.92,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Reajuste referente ao período de jan/20 a jan/24 no percentual de 0,399458 - itens 32-37, carrinho 3*35907",
+     "files": [
+      {
+       "name": "EOC001246-20-Reajuste-04-24-Processo SGPE 16190-24.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/172662"
+      },
+      {
+       "name": "EOC001246-20-Reajuste-04-24.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/174785"
+      }
+     ]
+    },
+    {
+     "act": "SUBSTITUIÇÃO GESTOR/FISCAL 0/2024",
+     "date": "2024-06-05",
+     "value_added_brl": 0.0,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Alteração de Fiscal. Anterior: ANTONIO ALEXANDRE MARTINS",
+     "files": []
+    },
+    {
+     "act": "ACRÉSCIMO E/OU SUPRESSÃO 4/2024",
+     "date": "2024-09-12",
+     "value_added_brl": 2864534.77,
+     "value_removed_brl": 125983.66,
+     "new_end": null,
+     "object": "Acréscimo de quantitativo e qualitativo, relativo ao índice de 1,98% e a supressão no percentual de 0,09%ao valor atualizado do referido contrato.",
+     "files": [
+      {
+       "name": "EOC001246-20-TA-04-24.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134844"
+      }
+     ]
+    },
+    {
+     "act": "SUBSTITUIÇÃO GESTOR/FISCAL 0/2024",
+     "date": "2024-07-23",
+     "value_added_brl": 0.0,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Alteração de Gestor. Anterior: FELIPE COSTA LEITE",
+     "files": []
+    },
+    {
+     "act": "ACRÉSCIMO E/OU SUPRESSÃO 5/2024",
+     "date": "2024-10-23",
+     "value_added_brl": 9225242.2,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Acréscimo quantitativo de 6,37% ao valor original do contrato.",
+     "files": [
+      {
+       "name": "EOC001246-20-TA-05-24.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/124795"
+      }
+     ]
+    },
+    {
+     "act": "REAJUSTE 5/2025",
+     "date": "2025-03-06",
+     "value_added_brl": 10371814.88,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Reajuste contratual referente ao período de jan/2020 a jan/2025, no índice 0,499316 (itens 42 a 47, carrinho 3*41298)",
+     "files": [
+      {
+       "name": "EOC001246-20-Reajuste-05-25 - Processo SGPe 19081-25.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/172681"
+      },
+      {
+       "name": "EOC001246-20-Reajuste-05-25.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/174786"
+      }
+     ]
+    },
+    {
+     "act": "PRAZO 6/2025",
+     "date": "2025-04-14",
+     "value_added_brl": 0.0,
+     "value_removed_brl": null,
+     "new_end": "2026-04-14",
+     "object": "Prorrogação dos prazos de vigência e execução do Contrato.",
+     "files": [
+      {
+       "name": "EOC001246-20-TA-06-25.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/140141"
+      }
+     ]
+    },
+    {
+     "act": "SUBSTITUIÇÃO GESTOR/FISCAL 0/2025",
+     "date": "2025-07-14",
+     "value_added_brl": 0.0,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Alteração de Fiscal. Anterior: DOUGLAS ZIMMERMANN MELO.",
+     "files": []
+    },
+    {
+     "act": "ACRÉSCIMO E/OU SUPRESSÃO 7/2025",
+     "date": "2025-08-22",
+     "value_added_brl": 4719562.01,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Acréscimo quantitativo e qualitativo de 3,26% ao valor original atualizado do Contrato.",
+     "files": [
+      {
+       "name": "EOC001246-20-TA-07-25.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/154641"
+      }
+     ]
+    },
+    {
+     "act": "REAJUSTE 6/2026",
+     "date": "2026-03-17",
+     "value_added_brl": 6121290.51,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Reajuste contratual referente à data-base de jan/2020 a jan/2026, no índice de 0,586420 (itens 53 a 58, carrinho 3*47557)",
+     "files": [
+      {
+       "name": "EOC001246-20-Reajuste-06-26 - Processo SGPe 18022-26.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/172682"
+      },
+      {
+       "name": "EOC001246-20-Reajuste-06-26.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/174787"
+      }
+     ]
+    },
+    {
+     "act": "PRAZO 8/2026",
+     "date": "2026-04-14",
+     "value_added_brl": 0.0,
+     "value_removed_brl": null,
+     "new_end": "2027-04-14",
+     "object": "Prorrogação dos prazos de vigência e de execução do Contrato.",
+     "files": [
+      {
+       "name": "EOC001246-20-TA-08-26.pdf",
+       "url": "https://transparencia.casan.com.br/data/contrato/arquivo/175242"
+      }
+     ]
+    },
+    {
+     "act": "SUBSTITUIÇÃO GESTOR/FISCAL 0/2026",
+     "date": "2026-05-08",
+     "value_added_brl": 0.0,
+     "value_removed_brl": null,
+     "new_end": null,
+     "object": "Alteração gestor antigo ADALBERTO CUNHA JUNIOR.",
+     "files": []
+    }
+   ],
+   "manager_in_record": "EVANDRO ANDRE MARTINS",
+   "inspectors_in_record": "1 - ANTONIO ALEXANDRE MARTINS, 2 - RAFAEL CASARIL.",
+   "financing": "JICA (Agência de Cooperação Internacional do Japão), segundo os termos aditivos ('Os recursos financeiros [...] são provenientes da Agência de Cooperação Internacional do Japão - JICA').",
+   "source": {
+    "doc": "Portal da Transparência da Casan, Contratos (vista PNTP), Saldos contratuais (SAP) e PDFs dos aditivos",
+    "url": "https://transparencia.casan.com.br/data/contrato?ano=2020&objeto=INSULAR&page=1",
+    "url_sap": "https://transparencia.casan.com.br/data/contratos?empresafiltro%5B%5D=2000009269&dtinivigenciainifiltro=2000-01-01&dtinivigenciafimfiltro=2026-12-31&page=1",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "number": "EOC 1534/2026",
+   "role": "obra ligada: emissário de esgoto bruto do SES Insular (junto com adutora de água do Sul da Ilha)",
+   "tender": "PL 115/2026",
+   "object": "Execução de Obras Civis para implantação do emissário de efluente bruto do Sistema de Esgotamento Sanitário (SES) Insular (de 560mm) e adutora de água tratada (de 710mm) do Sistema de Abastecimento de Água (SAA) Sul da ilha pelo bairro José Mendes em Florianópolis",
+   "company": "CONSTRUTORA CFO LTDA",
+   "company_cnpj": "19862375000199",
+   "signed_on": "2026-09-15",
+   "signed_on_source": "Contrato: 'Lavrado na sede da CASAN [...] aos 15/09/2026'; assinaturas digitais de 15 e 17/09/2026",
+   "value_original_brl": 31190417.28,
+   "value_current_brl": 31190417.28,
+   "value_split_quote": "O valor relativo à mão de obra é R$ 6.737.130,13 [...] O valor relativo aos materiais e equipamentos é R$ 24.453.287,15",
+   "end_current": "2028-06-19",
+   "status": "Vigente",
+   "funding_quote": "Os recursos financeiros destinados ao pagamento dos serviços, objeto deste Contrato, são provenientes do Orçamento de 2026, 2027 e 2028 da CASAN",
+   "amendments": [],
+   "manager_in_record": "EVANDRO ANDRE MARTINS",
+   "inspectors_in_record": "RAFAEL CASARIL",
+   "note": "Mistura esgoto (SES Insular) e água (SAA Sul da Ilha); fica fora das somas e da comparação.",
+   "source": {
+    "doc": "Portal da Transparência da Casan, Contratos (vista PNTP) e PDF do contrato",
+    "url": "https://transparencia.casan.com.br/data/contrato?ano=2026&objeto=INSULAR&page=1",
+    "contract_pdf": "https://transparencia.casan.com.br/data/contrato/arquivo/183567",
+    "collected_on": "2026-09-30"
+   }
+  }
+ ],
+ "context_contracts": [
+  {
+   "number": "EOC 1119/2017",
+   "role": "contexto: sistema complementar da Beira-Mar Norte (URA), do mesmo SES Insular; não é a ampliação da ETE",
+   "company": "CONSÓRCIO FAST - CFO",
+   "value_original_brl": 17039000.0,
+   "signed_on": "2018-01-11",
+   "status": "Vencido",
+   "object": "Implantação de um Sistema de Esgotamento Sanitário complementar para as praias na Avenida Beira Mar Norte Insular, localizada no Município de Florianópolis/SC, com fornecimento de materiais e equipamentos inerentes.",
+   "source": {
+    "url": "https://transparencia.casan.com.br/data/contrato?ano=2017&objeto=INSULAR&page=1",
+    "collected_on": "2026-09-30"
+   }
+  }
+ ],
+ "contracts_totals_computed": {
+  "main_contract_original_brl": 144899952.36,
+  "main_contract_current_brl": 261908002.3,
+  "main_contract_principal_brl": 197768490.12,
+  "main_contract_readjustments_brl": 64139512.18,
+  "growth_over_original_pct": 80.75,
+  "growth_principal_over_original_pct": 36.49
+ },
+ "payments": {
+  "by_year": null,
+  "by_year_reason": "A Casan é empresa estatal e não paga pelo SIGEF: os pagamentos não aparecem no Portal da Transparência do Poder Executivo de SC. O portal da Casan publica, por contrato, só o acumulado ('valor consumido') e o saldo; a página 'Despesa da Empresa' remete às demonstrações financeiras, que não abrem por contrato.",
+  "cumulative": [
+   {
+    "measure": "Valor consumido do contrato (SAP)",
+    "contract": "EOC001246/2020",
+    "amount_brl": 177381260.29,
+    "balance_brl": 73685889.49,
+    "as_of": "2026-09-05",
+    "note": "Campo 'valorConsumido' do SAP da Casan; inclui reajustes. Não é, por definição publicada, 'valor pago'.",
+    "source": "https://transparencia.casan.com.br/data/contratos?empresafiltro%5B%5D=2000009269&dtinivigenciainifiltro=2000-01-01&dtinivigenciafimfiltro=2026-12-31&page=1"
+   },
+   {
+    "measure": "Valor principal faturado (sem reajustes)",
+    "contract": "EOC001246/2020",
+    "amount_brl": 159075646.78,
+    "of_principal_brl": 197768490.12,
+    "as_of": "Dados atualizados: Contratos celebrados e Valores consolidados até 30/08/2026",
+    "source": "https://transparencia.casan.com.br/data/download/4981/2",
+    "source_label": "Obras de expansão (Valores consolidados até 30/08/2026)"
+   },
+   {
+    "measure": "Valor consumido do contrato rescindido (SAP)",
+    "contract": "EOC001151/2018",
+    "amount_brl": 0.0,
+    "note": "As duas linhas do consórcio Trix-Infracon aparecem com valor consumido zero.",
+    "source": "https://transparencia.casan.com.br/data/contratos?empresafiltro%5B%5D=2000004715&dtinivigenciainifiltro=2000-01-01&dtinivigenciafimfiltro=2026-12-31&page=1"
+   }
+  ],
+  "share_billed_computed": 0.8044
+ },
+ "companies": [
+  {
+   "legal_name": "CONSORCIO ITAJUI/CONSTRUTAMI ETE INSULAR",
+   "trade_name": null,
+   "legal_nature": "Consórcio de Sociedades",
+   "city": "Curitiba/PR",
+   "registration_status": "Ativa",
+   "registration_status_date": "2020-11-04",
+   "partners": [
+    {
+     "name": "CONSTRUTAMI ENGENHARIA E COMERCIO LTDA",
+     "qualification": "Sociedade Consorciada",
+     "since": "2020-11-04"
+    },
+    {
+     "name": "ITAJUI ENGENHARIA DE OBRAS LTDA",
+     "qualification": "Sociedade Consorciada",
+     "since": "2020-11-04"
+    },
+    {
+     "name": "LORENZO VARASSIN",
+     "qualification": "Administrador",
+     "since": "2020-11-04"
+    }
+   ],
+   "cnpj": "39673759000170",
+   "contracts": [
+    "EOC 1246/2020"
+   ],
+   "official_website": null,
+   "official_website_evidence": null,
+   "portal_transparencia_federal": "https://portaldatransparencia.gov.br/pessoa-juridica/39673759000170",
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, lida via espelho publica.cnpj.ws (servidor oficial inacessível do exterior)",
+    "url": "https://publica.cnpj.ws/cnpj/39673759000170",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "legal_name": "ITAJUI ENGENHARIA DE OBRAS LTDA",
+   "trade_name": null,
+   "legal_nature": "Sociedade Empresária Limitada",
+   "city": "Curitiba/PR",
+   "registration_status": "Ativa",
+   "registration_status_date": "2005-11-03",
+   "partners": [
+    {
+     "name": "SEREMAX PARTICIPACOES SOCIETARIAS LTDA",
+     "qualification": "Sócio",
+     "since": "2023-01-05"
+    },
+    {
+     "name": "ANAMA PARTICIPACOES SOCIETARIAS LTDA",
+     "qualification": "Sócio",
+     "since": "2023-01-05"
+    },
+    {
+     "name": "JURUA PARTICIPACOES SOCIETARIAS LTDA",
+     "qualification": "Sócio",
+     "since": "2023-01-05"
+    },
+    {
+     "name": "PAULO CESAR VARASSIN",
+     "qualification": "Sócio-Administrador",
+     "since": "1997-06-05"
+    },
+    {
+     "name": "LORENZO VARASSIN",
+     "qualification": "Administrador",
+     "since": "2007-08-17"
+    }
+   ],
+   "cnpj": "78739158000175",
+   "contracts": [
+    "EOC 1246/2020 (líder do consórcio)"
+   ],
+   "official_website": "https://www.itajui.com.br/",
+   "official_website_evidence": "Título do site 'Itajui - Engenharia de Obras Ltda'; o e-mail do consórcio na Autorização Contratual da Casan é do mesmo domínio (itajui.com.br).",
+   "portal_transparencia_federal": "https://portaldatransparencia.gov.br/pessoa-juridica/78739158000175",
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, lida via espelho publica.cnpj.ws (servidor oficial inacessível do exterior)",
+    "url": "https://publica.cnpj.ws/cnpj/78739158000175",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "legal_name": "CONSTRUTAMI ENGENHARIA E COMERCIO LTDA",
+   "trade_name": null,
+   "legal_nature": "Sociedade Empresária Limitada",
+   "city": "São Paulo/SP",
+   "registration_status": "Ativa",
+   "registration_status_date": "2005-11-03",
+   "partners": [
+    {
+     "name": "F M RODRIGUES & CIA LTDA",
+     "qualification": "Sócio",
+     "since": "2009-03-25"
+    },
+    {
+     "name": "MARCELO SOUZA DE CAMARGO RODRIGUES",
+     "qualification": "Sócio-Administrador",
+     "since": "2009-03-30"
+    }
+   ],
+   "cnpj": "58793852000163",
+   "contracts": [
+    "EOC 1246/2020 (consorciada)"
+   ],
+   "official_website": "https://www.construtami.com.br/",
+   "official_website_evidence": "Logotipo 'CONSTRUTAMI', e-mail construtami@construtami.com.br e endereço em São Paulo, mesma cidade da Receita.",
+   "portal_transparencia_federal": "https://portaldatransparencia.gov.br/pessoa-juridica/58793852000163",
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, lida via espelho publica.cnpj.ws (servidor oficial inacessível do exterior)",
+    "url": "https://publica.cnpj.ws/cnpj/58793852000163",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "legal_name": "CONSTRUTORA CFO LTDA",
+   "trade_name": null,
+   "legal_nature": "Sociedade Empresária Limitada",
+   "city": "FLORIANOPOLIS/SC",
+   "registration_status": "ATIVA",
+   "registration_status_date": "2014-03-07",
+   "partners": [
+    {
+     "name": "JOSE ALESSANDRO DA SILVA OLIVEIRA",
+     "qualification": "Sócio",
+     "since": "2020-04-17"
+    },
+    {
+     "name": "MARCIO FRANK SILVA DE OLIVEIRA",
+     "qualification": "Sócio-Administrador",
+     "since": "2014-03-07"
+    }
+   ],
+   "cnpj": "19862375000199",
+   "contracts": [
+    "EOC 1534/2026"
+   ],
+   "official_website": "https://www.cfo.eng.br/",
+   "official_website_evidence": "Título do site traz o mesmo endereço do contrato (Rua Araci Vaz Callado, 1201, Estreito, Florianópolis) e o e-mail contato@cfo.eng.br consta na Autorização Contratual.",
+   "portal_transparencia_federal": "https://portaldatransparencia.gov.br/pessoa-juridica/19862375000199",
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, lida via espelho minhareceita.org (servidor oficial inacessível do exterior)",
+    "url": "https://minhareceita.org/19862375000199",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "cnpj": null,
+   "legal_name": "TRIX ENGENHARIA CIVIL LTDA",
+   "contracts": [
+    "EOC 1151/2018 (consorciada, contrato rescindido)"
+   ],
+   "note": "CNPJ não consta nos documentos da Casan lidos; nome como grafado na Resolução 213/2019 e no SAP (fornecedor 2000004715).",
+   "official_website": null,
+   "source": {
+    "url": "https://transparencia.casan.com.br/data/contratos?empresafiltro%5B%5D=2000004715&dtinivigenciainifiltro=2000-01-01&dtinivigenciafimfiltro=2026-12-31&page=1",
+    "collected_on": "2026-09-30"
+   }
+  },
+  {
+   "cnpj": null,
+   "legal_name": "INFRACON ENGENHARIA E COMÉRCIO LTDA",
+   "contracts": [
+    "EOC 1151/2018 (consorciada, contrato rescindido)"
+   ],
+   "note": "CNPJ não consta nos documentos da Casan lidos; no SAP: 'INFRACON ENG. E COM. LTDA' (fornecedor 2000005225).",
+   "official_website": null,
+   "source": {
+    "url": "https://transparencia.casan.com.br/data/contratos?empresafiltro%5B%5D=2000005225&dtinivigenciainifiltro=2000-01-01&dtinivigenciafimfiltro=2026-12-31&page=1",
+    "collected_on": "2026-09-30"
+   }
+  }
+ ],
+ "people": [
+  {
+   "name": "Roberta Maas dos Anjos",
+   "role": "Diretora-Presidente da Casan",
+   "role_source": "Resoluções da Diretoria 213/2019, 264/2019 e 135/2021 (texto no registro de contratos da Casan)",
+   "signed": [
+    {
+     "act": "TA 01/2021 ao EOC 1246/2020 (reequilíbrio de 14,84%)",
+     "date": "2021-10-21",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134841"
+    },
+    {
+     "act": "TA 02/2023 ao EOC 1246/2020 (acréscimo de 6,46%)",
+     "date": "2023-01-04",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134842"
+    },
+    {
+     "act": "Resoluções 213/2019 (rescisão do EOC 1151/2018), 264/2019 e 135/2021",
+     "date": "2019-08-19 a 2021-04-19",
+     "url": "https://transparencia.casan.com.br/data/contrato?ano=2018&objeto=INSULAR&page=1"
+    }
+   ]
+  },
+  {
+   "name": "Fábio Cesar F. Krieger",
+   "role": "Diretor de Operação e Expansão da Casan",
+   "role_source": "Resoluções 213/2019, 264/2019 e 135/2021; notícia da Casan de 02/07/2020",
+   "signed": [
+    {
+     "act": "Resoluções 213/2019, 264/2019 e 135/2021 (contrato EOC 1151/2018)",
+     "date": "2019-08-19 a 2021-04-19",
+     "url": "https://transparencia.casan.com.br/data/contrato?ano=2018&objeto=INSULAR&page=1"
+    }
+   ]
+  },
+  {
+   "name": "Pedro Joel Horstmann",
+   "role": "Diretor de Operação e Expansão desde 19/07/2021; Diretor-Presidente desde 15/04/2026 (acumula)",
+   "role_source": "https://ri.casan.com.br/bfd_download/13-04-2026-eleicao-de-novo-diretor-presidente-e-alteracoes-na-diretoria-executiva-da-companhia/",
+   "signed": [
+    {
+     "act": "TA 01/2021",
+     "date": "2021-10-20",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134841"
+    },
+    {
+     "act": "TA 02/2023",
+     "date": "2023-01-04",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134842"
+    },
+    {
+     "act": "TA 03/2023",
+     "date": "2023-10-24",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134843"
+    },
+    {
+     "act": "TA 04/2024",
+     "date": "2024-09-02",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134844"
+    },
+    {
+     "act": "TA 05/2024",
+     "date": "2024-10-14",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/124795"
+    },
+    {
+     "act": "TA 06/2025 (prazo)",
+     "date": "2025-04-08",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/140141"
+    },
+    {
+     "act": "TA 08/2026 (prazo)",
+     "date": "2026-03-12",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/175242"
+    },
+    {
+     "act": "Contrato EOC 1534/2026",
+     "date": "2026-09-17",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/183567"
+    }
+   ]
+  },
+  {
+   "name": "Edson Moritz Martins da Silva",
+   "role": "Diretor-Presidente da Casan (agosto de 2023 a 14/04/2026)",
+   "role_source": [
+    "https://ri.casan.com.br/bfd_download/13-04-2026-eleicao-de-novo-diretor-presidente-e-alteracoes-na-diretoria-executiva-da-companhia/",
+    "https://www.casan.com.br/noticia/index/url/casan-tera-funcionario-de-carreira-como-novo-presidente"
+   ],
+   "signed": [
+    {
+     "act": "TA 03/2023",
+     "date": "2023-10-24",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134843"
+    },
+    {
+     "act": "TA 04/2024",
+     "date": "2024-09-04",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134844"
+    },
+    {
+     "act": "TA 05/2024",
+     "date": "2024-10-15",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/124795"
+    },
+    {
+     "act": "TA 06/2025 (prazo)",
+     "date": "2025-04-09",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/140141"
+    },
+    {
+     "act": "TA 07/2025 (acréscimo de 3,26%)",
+     "date": "2025-08-15",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/154641"
+    }
+   ]
+  },
+  {
+   "name": "Rosane Vettori",
+   "role": "Diretora Administrativa da Casan (e de Inovação e Negócios desde 15/04/2026)",
+   "role_source": [
+    "https://ri.casan.com.br/governanca-corporativa/diretoria/",
+    "https://ri.casan.com.br/bfd_download/13-04-2026-eleicao-de-novo-diretor-presidente-e-alteracoes-na-diretoria-executiva-da-companhia/"
+   ],
+   "signed": [
+    {
+     "act": "TA 07/2025",
+     "date": "2025-08-14",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/154641"
+    },
+    {
+     "act": "TA 08/2026 (prazo)",
+     "date": "2026-03-10",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/175242"
+    }
+   ]
+  },
+  {
+   "name": "Carlos Ivan Sturzbecher",
+   "role": "Diretor Financeiro e de Relações com os Investidores da Casan",
+   "role_source": [
+    "https://ri.casan.com.br/governanca-corporativa/diretoria/",
+    "https://ri.casan.com.br/bfd_download/13-04-2026-eleicao-de-novo-diretor-presidente-e-alteracoes-na-diretoria-executiva-da-companhia/"
+   ],
+   "signed": [
+    {
+     "act": "Contrato EOC 1534/2026",
+     "date": "2026-09-15",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/183567"
+    }
+   ]
+  },
+  {
+   "name": "Paulo Cesar Varassin",
+   "role": "assinou pela contratada (certificado digital no TA 01/2021); sócio-administrador da Itajuí Engenharia de Obras Ltda na Receita",
+   "role_source": [
+    "https://transparencia.casan.com.br/data/contrato/arquivo/134841",
+    "https://publica.cnpj.ws/cnpj/78739158000175"
+   ],
+   "side": "contratada",
+   "signed": [
+    {
+     "act": "TA 01/2021",
+     "date": "2021-10-25",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134841"
+    }
+   ]
+  },
+  {
+   "name": "Lorenzo Varassin",
+   "role": "assinou pela contratada (certificado digital nos TAs de 2023 em diante); administrador do consórcio na Receita",
+   "role_source": [
+    "https://transparencia.casan.com.br/data/contrato/arquivo/134842",
+    "https://publica.cnpj.ws/cnpj/39673759000170"
+   ],
+   "side": "contratada",
+   "signed": [
+    {
+     "act": "TA 02/2023 e TA 03/2023",
+     "date": "2023",
+     "url": "https://transparencia.casan.com.br/data/contrato/arquivo/134842"
+    }
+   ]
+  },
+  {
+   "name": "Evandro André Martins",
+   "role": "gestor do contrato EOC 1246/2020 no registro da Casan (campo 'gestor')",
+   "role_source": "https://transparencia.casan.com.br/data/contrato?ano=2020&objeto=INSULAR&page=1",
+   "signed": []
+  }
+ ],
+ "governors": [
+  {
+   "name": "Eduardo Pinho Moreira",
+   "office": "Governador (titular)",
+   "start": "2018-04-06",
+   "end": "2018-12-31",
+   "party_at_time": "MDB",
+   "party_quote": "Com a mudança de nome do partido, Eduardo Pinho filiou-se ao Movimento Democrático Brasileiro (MDB) e assumiu efetivamente como Governador em 6 de abril de 2018",
+   "relevant_dates": [
+    "2018-09-10 (início do EOC 1151/2018)"
+   ],
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/1158-Eduardo_Pinho_Moreira"
+  },
+  {
+   "name": "Daniela Reinehr",
+   "office": "Governadora interina",
+   "start": "2020-10-26",
+   "end": "2020-11-27",
+   "party_at_time": "sem partido",
+   "party_quote": "Atualmente sem Partido, Daniela participa da organização do partido Aliança pelo Brasil",
+   "party_note": "Frase da própria biografia, escrita em 2020; a tabela de mandatos da mesma página rotula os períodos de forma inconsistente (PSL e 'Partido Liberal').",
+   "relevant_dates": [
+    "2020-11-06 (assinatura do EOC 1246/2020)"
+   ],
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/1386-Daniela_Reinehr",
+   "source_period": "https://memoriapolitica.alesc.sc.gov.br/biografia/1308-Carlos_Moises"
+  },
+  {
+   "name": "Carlos Moisés da Silva",
+   "office": "Governador (titular)",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "party_at_time": "PSL (Republicanos a partir de março de 2022)",
+   "party_quote": "No ano de 2018, filiou-se ao Partido Social Liberal (PSL) [...] a partir de março do ano que concorrerá à reeleição, passou para a sigla Republicanos",
+   "interruptions": [
+    "afastado de 2020-10-26 a 2020-11-27 e de 2021-03-30 a 2021-05-07 (Daniela Reinehr interina)"
+   ],
+   "relevant_dates": [
+    "2019-08-19 (rescisão do EOC 1151/2018)",
+    "2021-10-20 (TA 01/2021)"
+   ],
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/1308-Carlos_Moises"
+  },
+  {
+   "name": "Jorginho Mello",
+   "office": "Governador (titular)",
+   "start": "2023-01-01",
+   "end": null,
+   "party_at_time": "PL",
+   "party_quote": "Mandatos: Governador(a) 01/02/2023 - 31/01/2027 Partido Liberal",
+   "start_note": "A tabela da Alesc registra 01/02/2023; a posse constitucional foi em 01/01/2023.",
+   "relevant_dates": [
+    "2023-01-04 (TA 02/2023) em diante",
+    "2026-09-15 (EOC 1534/2026)"
+   ],
+   "source": "https://memoriapolitica.alesc.sc.gov.br/biografia/514-Jorginho_Mello"
+  }
+ ],
+ "governors_note": "O governador não assina os contratos da Casan: nos documentos lidos assinam os diretores da companhia. Os mandatos vêm das biografias da Alesc.",
+ "findings": [
+  {
+   "body": "Casan (Diretoria Executiva)",
+   "kind": "ato administrativo da contratante",
+   "process": "Resolução nº 213/2019 (protocolo 2019/33106)",
+   "date": "2019-08-19",
+   "summary_quote": "Aplicar as Empresas TRIX Engenharia Civil Ltda e INFRACON Engenharia e Comércio Ltda., componentes do Consórcio TRIX-INFRACON INSULAR, a penalidade de \"Suspensão Temporária por 2 (dois) anos\" para participar de licitação, impedimento de contratar com a CASAN e rescisão unilateral do Contrato EOC n.º 1.151/2018 [...] tendo em vista o descumprimento das obrigações contratuais.",
+   "status": "rescisão mantida (Resolução 264/2019); suspensão com efeito suspensivo (264/2019) e substituída por advertência e multa em acordo judicial (135/2021)",
+   "url": "https://transparencia.casan.com.br/data/contrato?ano=2018&objeto=INSULAR&page=1"
+  },
+  {
+   "body": "Casan (Diretoria Executiva)",
+   "kind": "ato administrativo da contratante",
+   "process": "Resolução nº 264/2019 (protocolo 2019/47101)",
+   "date": "2019-10-07",
+   "summary_quote": "Atribuir efeito suspensivo à penalidade [...] Manter a decisão de rescisão unilateral [...] do Contrato EOC n.º 1.151/2018",
+   "status": "decidido",
+   "url": "https://transparencia.casan.com.br/data/contrato?ano=2018&objeto=INSULAR&page=1"
+  },
+  {
+   "body": "Justiça de SC (4ª Vara Cível da Comarca de Florianópolis) e Casan",
+   "kind": "acordo judicial homologado, registrado em ato da Casan",
+   "process": "Autos nº 5006866-60.2019.8.24.0023; Mandado de Segurança nº 5006892-58.2019.8.24.0023 (citados pela Casan); Resolução Casan nº 135/2021",
+   "date": "2020-12-10 (acordo); 2020-12-17 (homologação); 2021-04-19 (resolução)",
+   "summary_quote": "Aplicar às Empresas integrantes do Consórcio TRIX-INFRACON INSULAR, a penalidade de 'Advertência e multa no valor de R$ 198.466,16' [...] conforme acordo judicial celebrado entre o referido consórcio e a CASAN, em virtude da rescisão do Contrato EOC n° 1151/2018 e aplicação de penalidades, que foram objeto de judicialização",
+   "status": "acordo homologado por sentença (segundo a Casan); autos do TJSC não consultados (consulta exige acesso do Brasil)",
+   "url": "https://transparencia.casan.com.br/data/contrato?ano=2018&objeto=INSULAR&page=1"
+  },
+  {
+   "body": "Casan",
+   "kind": "versão da contratante sobre o atraso",
+   "process": "Notícia oficial de 02/07/2020",
+   "date": "2020-07-02",
+   "summary_quote": "A licitação teve de ser relançada em 2019, pois o consórcio vencedor do processo licitatório anterior se recusou a executar a obra nos moldes previstos no Termo de Referência, forçando a rescisão do contrato e atraso do empreendimento.",
+   "status": "afirmação de uma das partes; o acordo judicial de 2020 encerrou a disputa",
+   "url": "https://www.casan.com.br/noticia/index/url/no-dia-de-seu-aniversario-casan-licita-maior-obra-de-saneamento-do-estado"
+  },
+  {
+   "body": "TCE-SC",
+   "kind": "auditoria operacional da ETE Insular existente (antes da ampliação)",
+   "process": "AOR 04/05801564 e PMO 07/00627901 (Decisão 3567/2010, sobre o Relatório de Monitoramento DAE 020/2010)",
+   "date": "2010-08-16 (sessão)",
+   "summary_quote": "6.1.3. reiterar a implantação das recomendações 6.2.4 e 6.2.6 da Decisão n. 1457/2008, que não foram cumpridas, com prazo de vencimento em 30/11/2010",
+   "context_quote": "Reiterar a realização de avaliação técnica sobre a capacidade da ETE Insular, com o objetivo de verificar se a Estação tem condições de receber novas ligações de esgoto (Decisão 1457/2008, item 6.2.1)",
+   "status": "monitoramento de plano de ação de 2010; desfecho final não localizado. Trata da estação antiga, não do contrato de ampliação.",
+   "url": "https://www.tcesc.tc.br/sites/default/files/ETE%20insular%20PM.pdf"
+  },
+  {
+   "body": "TCE-SC (Diretoria de Licitações e Contratações)",
+   "kind": "relatório técnico sobre contrato vizinho do mesmo sistema (não é a ampliação da ETE)",
+   "process": "@REP 20/00098007, Relatório DLC 408/2022 (Contrato EOC 1119/2017, URA Beira-Mar Norte)",
+   "date": "2022-05-17",
+   "summary_quote": "A Casan informa a ampliação da ETE Insular, no valor de R$ 144,8 milhões de investimento. [...] se demonstra que a ETE Insular está apresentando eficiência no tratamento dos efluentes.",
+   "status": "sugestão da área técnica ao relator; decisão do Pleno não localizada",
+   "url": "https://consulta.tce.sc.gov.br/RelatoriosDecisao/ConsultaRelatorioNovo/2000098007_16773723.pdf"
+  }
+ ],
+ "findings_none_note": "Nenhuma decisão do TCE-SC, do MPSC, da CGU, do TCU ou do MPF específica sobre a Concorrência 01/2019 ou o contrato EOC 1246/2020 foi localizada nesta coleta. Limites: o Diário do TCE-SC não foi lido dia a dia (como na pesquisa da ponte) e o TJSC não foi consultado.",
+ "media": "docs/superpowers/previews/assets/cases/ete-insular/credits.json",
+ "comparison": {
+  "unit": "R$ de dez/2024 por litro por segundo (L/s) de capacidade de tratamento ao fim da obra",
+  "unit_secondary": [
+   "R$ por L/s acrescentado",
+   "R$ por habitante de projeto (quando a fonte informa)"
+  ],
+  "items": [
+   {
+    "id": "ete-insular",
+    "name": "ETE Insular (ampliação e modernização, com Bacias D e F)",
+    "place": "Florianópolis/SC",
+    "country": "Brazil",
+    "is_subject": true,
+    "years": "2020-2027 (contrato); preços-base de jan/2020",
+    "treatment": "terciário com remoção de nitrogênio e fósforo (Casan, 24/01/2020)",
+    "capacity_final_l_s": 612,
+    "capacity_added_l_s": 316,
+    "population_served_after": 225000,
+    "scope_note": "O contrato inclui redes: 12.209 m de rede coletora, 6 estações elevatórias, 9.512 m de emissários e 3.753 ligações (Casan, 02/07/2020). Não há valor separado da estação no registro; o custo por L/s aqui é um limite superior do custo só da ETE.",
+    "cost_reported": {
+     "amount": 197768490.12,
+     "currency": "BRL",
+     "basis": "Valor principal (original + aditivos, sem reajustes), tabela 'Obras de expansão' da Casan, Dados atualizados: Contratos celebrados e Valores consolidados até 30/08/2026"
+    },
+    "conversion": {
+     "amount_brl_nominal": 197768490.12,
+     "price_month": "202001",
+     "ipca_index_price_month": 5331.42,
+     "ipca_index_dec2024": 7100.5,
+     "ipca_factor_to_dec2024": 1.331822,
+     "amount_brl_2024": 263392335.27
+    },
+    "cost_brl_2024": 263392335.27,
+    "sources": [
+     {
+      "field": "cost",
+      "url": "https://transparencia.casan.com.br/data/download/4981/2"
+     },
+     {
+      "field": "capacity, population",
+      "url": "https://casan.com.br/noticia/index/url/tres-consorcios-se-habilitam-para-ampliar-a-maior-estacao-de-esgoto-do-estado"
+     },
+     {
+      "field": "scope",
+      "url": "https://www.casan.com.br/noticia/index/url/no-dia-de-seu-aniversario-casan-licita-maior-obra-de-saneamento-do-estado"
+     }
+    ],
+    "cost_per_l_s_final_brl_2024": 430379.63,
+    "cost_per_l_s_added_brl_2024": 833520.05,
+    "cost_per_inhabitant_brl_2024": 1170.63
+   },
+   {
+    "id": "ete-potecas",
+    "name": "Nova ETE Potecas (primeira etapa)",
+    "place": "São José/SC",
+    "country": "Brazil",
+    "years": "2022-2026 (contratos); preços-base de mai/2022, dez/2023 e jul/2024",
+    "treatment": "lodos ativados por aeração prolongada, com remoção complementar de fósforo (Casan, 07/12/2023)",
+    "capacity_final_l_s": 600,
+    "capacity_added_l_s": null,
+    "capacity_note": "Estação nova que substitui lagoas de 423 L/s; a segunda etapa prevê 800 L/s.",
+    "population_served_after": 328494,
+    "scope_note": "Três contratos da mesma estação (obra principal, emissários com tratamento preliminar e desidratação de lodo, elétrica e automação). Sem redes coletoras.",
+    "cost_reported": {
+     "amount": 240841428.47,
+     "currency": "BRL",
+     "basis": "Valor principal da 'Nova ETE Potecas' na mesma tabela da Casan (soma dos três contratos, sem reajustes; conferido pelo registro)"
+    },
+    "conversion": [
+     {
+      "amount_brl_nominal": 184593973.07,
+      "price_month": "202205",
+      "ipca_index_price_month": 6412.88,
+      "ipca_index_dec2024": 7100.5,
+      "ipca_factor_to_dec2024": 1.107225,
+      "amount_brl_2024": 204387031.38,
+      "contract": "EOC1314/2022/MAT",
+      "company": "CONSÓRCIO ETE POTECAS (COSATEL/ENFIL)",
+      "price_base_note": "mês-base dos reajustes do próprio contrato",
+      "object": "Implantação da nova Estação de Tratamento de Esgoto - ETE de Potecas, no município de São José/SC",
+      "source": "https://transparencia.casan.com.br/data/contrato?ano=2022&objeto=POTECAS&page=1"
+     },
+     {
+      "amount_brl_nominal": 43332495.85,
+      "price_month": "202312",
+      "ipca_index_price_month": 6773.27,
+      "ipca_index_dec2024": 7100.5,
+      "ipca_factor_to_dec2024": 1.048312,
+      "amount_brl_2024": 45425973.98,
+      "contract": "EOC1377/2024/MAT",
+      "company": "ITAJUI ENGENHARIA DE OBRAS LTDA",
+      "price_base_note": "mês-base dos reajustes do próprio contrato",
+      "object": "Execução de obras civis para implantação dos emissários e das unidades de tratamento preliminar e desidratação de lodo - nova Estação de Tratamento de Esgoto (ETE) de Potecas em São José/SC, com forne",
+      "source": "https://transparencia.casan.com.br/data/contrato?ano=2024&objeto=POTECAS&page=1"
+     },
+     {
+      "amount_brl_nominal": 12914959.55,
+      "price_month": "202407",
+      "ipca_index_price_month": 6967.89,
+      "ipca_index_dec2024": 7100.5,
+      "ipca_factor_to_dec2024": 1.019032,
+      "amount_brl_2024": 13160751.72,
+      "contract": "EOC1399/2024/MAT",
+      "company": "CONSÓRCIO AG-TECH SCL",
+      "price_base_note": "mês-base dos reajustes do próprio contrato",
+      "object": "Execução de obras civis do escopo de elétrica, instrumentação e automação da Estação de Tratamento de Esgoto (ETE) de Potecas (3ª etapa), incluindo comissionamento, startup e treinamento, com fornecim",
+      "source": "https://transparencia.casan.com.br/data/contrato?ano=2024&objeto=POTECAS&page=1"
+     }
+    ],
+    "cost_brl_2024": 262973757.08,
+    "sources": [
+     {
+      "field": "cost",
+      "url": "https://transparencia.casan.com.br/data/download/4981/2"
+     },
+     {
+      "field": "capacity, population",
+      "url": "https://www.casan.com.br/noticia/index/url/obra-da-ete-potecas-avanca-em-ritmo-acelerado-em-sao-jose"
+     },
+     {
+      "field": "treatment",
+      "url": "https://www.casan.com.br/noticia/index/url/sao-jose-obras-avancam-para-tornar-tratamento-de-esgoto-em-potecas-mais-moderno"
+     }
+    ],
+    "cost_per_l_s_final_brl_2024": 438289.6,
+    "cost_per_l_s_added_brl_2024": null,
+    "cost_per_inhabitant_brl_2024": 800.54
+   },
+   {
+    "id": "ete-belem",
+    "name": "ETE Belém (ampliação, Sanepar)",
+    "place": "Curitiba/PR",
+    "country": "Brazil",
+    "years": "duas etapas, concluídas em 28/04/2022",
+    "treatment": "ampliação com decantadores primários (processo existente mantido); remoção de nutrientes não citada na fonte",
+    "capacity_final_l_s": 2520,
+    "capacity_added_l_s": 1020,
+    "population_served_after": null,
+    "population_note": "A fonte fala em 'cerca de 800 mil moradores' atendidos hoje; é população atual, não de projeto.",
+    "scope_note": "Só a estação. Escala 4 vezes maior que a Insular, o que barateia o L/s.",
+    "cost_reported": {
+     "amount": 140000000.0,
+     "currency": "BRL",
+     "basis": "'O investimento, feito em duas as etapas, é de cerca de R$ 140 milhões' (valor aproximado, nominal)"
+    },
+    "conversion": {
+     "amount_brl_nominal": 140000000.0,
+     "price_month": "202204",
+     "ipca_index_price_month": 6382.88,
+     "ipca_index_dec2024": 7100.5,
+     "ipca_factor_to_dec2024": 1.112429,
+     "amount_brl_2024": 155740042.11
+    },
+    "cost_brl_2024": 155740042.11,
+    "conversion_note": "Corrigido desde abr/2022 (data da notícia). Como parte foi gasta antes, a correção fica abaixo da real: é um limite inferior.",
+    "source_type": "Agência Estadual de Notícias do Paraná (governo do estado), lida em cópia do Internet Archive porque a página original responde 404.",
+    "sources": [
+     {
+      "field": "cost, capacity",
+      "url": "https://web.archive.org/web/20251114233919/https://www.parana.pr.gov.br/aen/Noticia/Inaugurada-ampliacao-da-Estacao-de-Tratamento-de-Esgoto-Belem-maior-da-Sanepar-no-PR"
+     }
+    ],
+    "cost_per_l_s_final_brl_2024": 61801.6,
+    "cost_per_l_s_added_brl_2024": 152686.32
+   },
+   {
+    "id": "fredericksburg",
+    "name": "Fredericksburg Wastewater Treatment Plant Upgrade",
+    "place": "Fredericksburg, Virginia",
+    "country": "United States",
+    "years": "acordo de projeto e obra em 2024; obra de cerca de 4 anos",
+    "treatment": "remoção avançada de nitrogênio e fósforo ('enhanced nutrient removal')",
+    "capacity_final_l_s": 262.9,
+    "capacity_added_l_s": 65.7,
+    "capacity_note": "4,5 para 6,0 milhões de galões por dia (1 MGD = 43,81 L/s).",
+    "population_served_after": null,
+    "scope_note": "Só a estação (ampliação e modernização de planta dos anos 1950). Orçamento, não custo final.",
+    "cost_reported": {
+     "amount": 180000000.0,
+     "currency": "USD",
+     "basis": "'The $180 million project' (página oficial da prefeitura)"
+    },
+    "conversion": {
+     "amount_lcu": 180000000.0,
+     "year": 2024,
+     "ipca_year_avg": 6952.0733,
+     "ipca_factor_to_dec2024": 1.02135,
+     "fx_lcu_per_usd": 1.0,
+     "fx_brl_per_usd": 5.3889349057096,
+     "ppp_lcu_per_intl_usd": 1.0,
+     "ppp_brl_per_intl_usd": 2.48371015372826,
+     "amount_brl_2024_fx": 990717946.06,
+     "amount_brl_2024_ppp": 456612719.43
+    },
+    "cost_brl_2024": 990717946.06,
+    "cost_brl_2024_ppp": 456612719.43,
+    "conversion_note": "Convertido pelos fatores de 2024 (ano do acordo); o gasto se estende até cerca de 2028, sem cronograma anual publicado.",
+    "sources": [
+     {
+      "field": "cost, capacity, scope",
+      "url": "https://www.fredericksburgva.gov/1883/Wastewater-Treatment-Plant-Upgrade"
+     }
+    ],
+    "cost_per_l_s_final_brl_2024": 3768421.25,
+    "cost_per_l_s_added_brl_2024": 15079420.79,
+    "cost_per_l_s_final_brl_2024_ppp": 1736830.43,
+    "cost_per_l_s_added_brl_2024_ppp": 6949965.29
+   }
+  ],
+  "ratios_computed": {
+   "ete-insular": 1.0,
+   "ete-potecas": 1.018,
+   "ete-belem": 0.144,
+   "fredericksburg": 8.756
+  },
+  "reading": "Por L/s de capacidade final, a Insular custa quase o mesmo que a nova ETE Potecas, da mesma Casan (a Potecas sai 2% mais cara por L/s), mesmo com redes dentro do contrato da Insular; custa 7,0 vezes o L/s da ampliação da ETE Belém, que é 4 vezes maior e cuja fonte não cita redes nem tratamento terciário; e custa menos que a ampliação com remoção de nutrientes de Fredericksburg (EUA): esta sai 8,8 vezes mais cara pelo câmbio e 4,0 vezes pela PPP. Nada disso, sozinho, indica preço acima do mercado: as diferenças de escala e de escopo são grandes e estão anotadas em cada item.",
+  "excluded_candidates": [
+   {
+    "name": "Outras obras de esgoto da Casan com redes (SES Ingleses, Saco Grande)",
+    "reason": "Mesma cidade; escopos dominados por redes, sem capacidade de estação comparável publicada na mesma fonte."
+   },
+   {
+    "name": "ETE Alambari, Cambará/PR (Sanepar, R$ 13 milhões)",
+    "reason": "A página oficial da Sanepar respondeu 403 do exterior; vazão não confirmada em fonte oficial."
+   },
+   {
+    "name": "ETE Mampituba, Torres/RS (Corsan, R$ 24 milhões)",
+    "reason": "A Corsan foi privatizada em 2023; a nota é de empresa privada, não de órgão público."
+   }
+  ],
+  "method": {
+   "target": "BRL de dezembro de 2024",
+   "brl_rule": "Valores em BRL: correção pelo IPCA do mês-base do preço (ou do mês do gasto) até dez/2024.",
+   "fx_method": "amount_LCU * (BRL por USD / LCU por USD) do ano do gasto * IPCA dez/2024 / média anual do IPCA do ano do gasto",
+   "ppp_method": "amount_LCU * (fator PPP do Brasil / fator PPP do país) do ano do gasto * IPCA dez/2024 / média anual do IPCA do ano do gasto",
+   "same_as": "data/scripts/bridges/build.py (mesmas fontes e fórmulas)",
+   "ipca": {
+    "source": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/all?formato=json",
+    "table": "SIDRA 1737, variável 2266, número-índice (dez/1993 = 100)",
+    "dec_2024": 7100.5,
+    "months_used": {
+     "202001": 5331.42,
+     "202204": 6382.88,
+     "202205": 6412.88,
+     "202312": 6773.27,
+     "202407": 6967.89
+    },
+    "year_averages_used": {
+     "2024": 6952.0733
+    }
+   },
+   "fx": {
+    "source": "https://api.worldbank.org/v2/country/BRA;USA/indicator/PA.NUS.FCRF?format=json&per_page=1000&date=2015:2025",
+    "indicator": "PA.NUS.FCRF, Official exchange rate (LCU per US$, period average), World Bank WDI",
+    "last_updated": "2026-07-13",
+    "values": {
+     "BRA": {
+      "2024": 5.3889349057096
+     },
+     "USA": {
+      "2024": 1.0
+     }
+    }
+   },
+   "ppp": {
+    "source": "https://api.worldbank.org/v2/country/BRA;USA/indicator/PA.NUS.PPP?format=json&per_page=1000&date=2015:2025",
+    "indicator": "PA.NUS.PPP, PPP conversion factor, GDP (LCU per international $), World Bank WDI / ICP",
+    "last_updated": "2026-07-13",
+    "values": {
+     "BRA": {
+      "2024": 2.48371015372826
+     },
+     "USA": {
+      "2024": 1.0
+     }
+    }
+   }
+  }
+ },
+ "card": {
+  "title": "ETE Insular",
+  "subtitle": "Ampliação da estação que a Casan chama de maior do estado",
+  "place": "Florianópolis",
+  "stats": [
+   {
+    "label": "Contrato atual",
+    "value": 261908002.3,
+    "unit": "BRL",
+    "display": "R$ 261,9 mi",
+    "note": "com aditivos e reajustes; original R$ 144,9 mi"
+   },
+   {
+    "label": "Capacidade",
+    "value": 612,
+    "unit": "L/s",
+    "display": "296 → 612 L/s",
+    "note": "Casan"
+   },
+   {
+    "label": "Já consumido",
+    "value": 177381260.29,
+    "unit": "BRL",
+    "display": "R$ 177,4 mi",
+    "note": "SAP da Casan, base de 2026-09-05"
+   },
+   {
+    "label": "Atraso",
+    "value": 24,
+    "unit": "meses",
+    "display": "+2 anos",
+    "note": "fim previsto abr/2025, prorrogado para abr/2027"
+   }
+  ],
+  "photo": "docs/superpowers/previews/assets/cases/ete-insular/baia-sul.jpg"
+ },
+ "terms_check": "Nenhum documento oficial lido usa 'superfaturamento', 'sobrepreço' ou 'desvio' para esta obra. O termo usado pela Casan para o primeiro contrato é 'descumprimento das obrigações contratuais'."
+}

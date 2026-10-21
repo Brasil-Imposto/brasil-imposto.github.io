@@ -1,0 +1,161 @@
+{
+ "read_on": "2026-10-02",
+ "rule": "date = the last date the government published the data, read at the source; null with unchecked=true means not read yet; null without it means the source publishes no date",
+ "sources": {
+  "receita": {
+   "label": "Receita Federal",
+   "what": "Arrecadação federal por estado, até julho de 2026",
+   "date": "2026-08-25",
+   "how": "Data da Análise da Arrecadação de julho de 2026 no gov.br (25/08/2026, 11h17). O arquivo por estado não traz data própria.",
+   "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv"
+  },
+  "portal_exec": {
+   "label": "Portal da Transparência (CGU)",
+   "what": "Execução da despesa federal, jan a jul de 2026",
+   "date": "2026-09-17",
+   "how": "Data de geração dos arquivos mensais no servidor de dados abertos da CGU.",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao"
+  },
+  "portal_transf": {
+   "label": "Portal da Transparência (CGU)",
+   "what": "Repasses da União a estados e prefeituras, até julho de 2026",
+   "date": "2026-09-22",
+   "how": "Data de geração do arquivo de julho de 2026.",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias"
+  },
+  "tesouro_base": {
+   "label": "Tesouro Nacional",
+   "what": "Despesas e Transferências Totais da União (Legislativo, Judiciário, MPU, DPU, FCDF)",
+   "date": "2026-09-29",
+   "how": "Data de atualização do arquivo de 2026 no Tesouro Transparente.",
+   "url": "https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais"
+  },
+  "beps": {
+   "label": "Previdência Social",
+   "what": "Benefícios do INSS por estado (BEPS), julho de 2026",
+   "date": "2026-08-31",
+   "how": "Data de publicação do boletim de julho de 2026 no gov.br.",
+   "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/Dados-estatisticos-previdencia-social-e-inss/boletins-da-previdencia-social"
+  },
+  "mds": {
+   "label": "MDS",
+   "what": "Bolsa Família e BPC por município (MI Social)",
+   "date": null,
+   "how": "A fonte não publica a data de divulgação. Consultada em 30/09/2026.",
+   "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial"
+  },
+  "ibge": {
+   "label": "IBGE",
+   "what": "População estimada de 2026",
+   "date": "2026-08-28",
+   "how": "Data de modificação da tabela 6579 (SIDRA) para 2026.",
+   "url": "https://sidra.ibge.gov.br/tabela/6579"
+  },
+  "rtn": {
+   "label": "Tesouro Nacional",
+   "what": "Resultado do Tesouro Nacional (contas da União), até agosto de 2026",
+   "date": "2026-09-29",
+   "how": "Data de publicação da série histórica do RTN de agosto de 2026.",
+   "url": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8"
+  },
+  "bcb": {
+   "label": "Banco Central",
+   "what": "Dívida bruta do governo geral (SGS 13761), até agosto de 2026",
+   "date": "2026-09-30",
+   "how": "Data da Nota para a imprensa de estatísticas fiscais do Banco Central com os dados de agosto de 2026 (30/09/2026), na página de estatísticas fiscais do Banco Central. A API do Banco Central não informa a data.",
+   "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.13761/dados",
+   "url_release": "https://www.bcb.gov.br/estatisticas/estatisticasfiscais"
+  },
+  "siape": {
+   "label": "Ministério da Gestão",
+   "what": "Servidores civis do Executivo em exercício, agosto de 2026",
+   "date": "2026-09-04",
+   "how": "Data do arquivo no repositório de dados abertos.",
+   "url": "https://repositorio.dados.gov.br/segrt/Serv_por_municipio/2026/Serv_por_mun_exerc_202608.csv"
+  },
+  "camara_ceap": {
+   "label": "Câmara dos Deputados",
+   "what": "Cota parlamentar (CEAP) de 2026",
+   "date": "2026-10-02",
+   "how": "Data do arquivo anual; a Câmara o atualiza todos os dias.",
+   "url": "https://www.camara.leg.br/cotas/Ano-2026.csv.zip"
+  },
+  "senado_ceaps": {
+   "label": "Senado Federal",
+   "what": "Cota parlamentar dos senadores (CEAPS) de 2026",
+   "date": "2026-10-02",
+   "how": "Linha \"ULTIMA ATUALIZACAO\" do próprio arquivo (02/10/2026, 02h03).",
+   "url": "https://www.senado.leg.br/transparencia/LAI/verba/despesa_ceaps_2026.csv"
+  },
+  "emendas": {
+   "label": "Portal da Transparência (CGU)",
+   "what": "Emendas parlamentares",
+   "date": "2026-10-01",
+   "how": "Data de geração do arquivo único de emendas.",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/emendas-parlamentares/UNICO"
+  },
+  "receita_2024": {
+   "label": "Receita Federal",
+   "what": "Arrecadação federal por estado, 2024",
+   "date": "2025-01-28",
+   "how": "Data da Análise da Arrecadação de dezembro de 2024 no gov.br (28/01/2025, 11h00), lida na cópia do Internet Archive: em 03/07/2026 o gov.br republicou os arquivos antigos e a data da página mudou. O arquivo por estado não traz data própria.",
+   "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv"
+  },
+  "portal_transf_2024": {
+   "label": "Portal da Transparência (CGU)",
+   "what": "Repasses da União a estados e prefeituras, 2024",
+   "date": "2026-09-25",
+   "how": "Data de geração do arquivo de dezembro de 2024.",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias"
+  },
+  "beps_2024": {
+   "label": "Previdência Social",
+   "what": "Benefícios do INSS por estado (BEPS), 2024",
+   "date": "2025-03-31",
+   "how": "Data em que o arquivo oficial do boletim de dezembro de 2024 foi salvo (31/03/2025): a página não mostra mais a data de publicação, porque o gov.br republicou os boletins em 03/07/2026.",
+   "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/Dados-estatisticos-previdencia-social-e-inss/boletins-da-previdencia-social"
+  },
+  "portal_exec_2024": {
+   "label": "Portal da Transparência (CGU)",
+   "what": "Execução da despesa federal, 2024",
+   "date": "2026-09-17",
+   "how": "Data de geração dos arquivos mensais de 2024.",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao"
+  },
+  "tesouro_base_2024": {
+   "label": "Tesouro Nacional",
+   "what": "Despesas e Transferências Totais da União, 2024",
+   "date": "2025-12-30",
+   "how": "Data de atualização do arquivo de 2024.",
+   "url": "https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais"
+  },
+  "fat_2024": {
+   "label": "Ministério do Trabalho",
+   "what": "Seguro-desemprego e abono por estado, 2024 (Relatório de Gestão do FAT)",
+   "date": "2025-04",
+   "how": "Mês da pasta do arquivo no Portal do FAT (abril de 2025).",
+   "url": "https://portalfat.trabalho.gov.br/wp-content/uploads/2025/04/Relatorio-de-Gestao-do-FAT-2024.pdf"
+  },
+  "ibge_2024": {
+   "label": "IBGE",
+   "what": "População estimada de 2024",
+   "date": "2024-12-30",
+   "how": "Data de modificação da tabela 6579 para 2024.",
+   "url": "https://sidra.ibge.gov.br/tabela/6579"
+  },
+  "rpps_actuarial": {
+   "label": "Ministério da Previdência e Ministério da Defesa",
+   "what": "Quantos servidores, aposentados e pensionistas a União paga em cada Poder, e a remuneração média de cada grupo (julho de 2025; militares, maio de 2025)",
+   "date": "2026-04-15",
+   "how": "Data do PDF do Anexo IV.11 do PLDO 2027 (avaliação atuarial do regime próprio), registrada na coleta; o Anexo IV.12, dos militares, faz parte do mesmo projeto de lei.",
+   "url": "https://www.gov.br/planejamento/pt-br/assuntos/orcamento/orcamentos-anuais/2027/pldo/anexo-iv-11-avaliacao-atuarial-rpps.pdf"
+  },
+  "cnj_jn": {
+   "label": "Conselho Nacional de Justiça",
+   "what": "Custo médio mensal por magistrado e por servidor em cada ramo da Justiça (2024)",
+   "date": "2025-10-09",
+   "how": "Data de modificação do PDF do Justiça em Números 2025 no servidor do CNJ.",
+   "url": "https://www.cnj.jus.br/wp-content/uploads/2025/10/justica-em-numeros-2025.pdf"
+  }
+ }
+}

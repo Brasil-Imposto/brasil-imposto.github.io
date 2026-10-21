@@ -1,0 +1,898 @@
+{
+ "collected_on": "2026-10-07",
+ "source": {
+  "doc": "Extrato SICOP de cada contrato (\"contratoResumoFinanceiro\" e \"contratoPagamento\"), Portal da Transparência do Poder Executivo de SC",
+  "api": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=<NUTITULO>",
+  "nutitulo_from": {
+   "doc": "Registro de contratos SIGEF/SICOP, CGE-SC, coluna NUTITULO",
+   "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
+   "read_on": "2026-10-05"
+  },
+  "script": "data/scripts/ponte/build_paid_by_contract.py"
+ },
+ "method": [
+  "Pago por contrato = soma de todas as linhas de \"contratoPagamento\" do extrato (despesa paga, retenções de ISS, IRRF, INSS e caução, e estornos com sinal negativo). Em cada contrato e cada ano, essa soma é igual ao \"vlpago\" do \"contratoResumoFinanceiro\", ao centavo.",
+  "paid_brl = soma das linhas positivas; reversed_brl = soma das linhas negativas (estornos), em valor absoluto; net_paid_brl = paid_brl - reversed_brl = soma do \"vlpago\" anual.",
+  "Linhas com situação \"PP Resolvida por outra PP\" (2 linhas, PJ-00056/2016) e \"Paga e Estornada por NE\" (2 linhas, PJ-00056/2016) entram, porque o \"vlpago\" oficial as inclui; retenções de IRRF \"Canceladas pelo usuário\" entram junto com o estorno que as anula (somam zero ou fecham o ano com o resumo).",
+  "first_payment e last_payment: data de referência da primeira e da última linha positiva do extrato.",
+  "Valores nominais, sem correção."
+ ],
+ "coverage": {
+  "portal": "O extrato SICOP do Portal tem linhas de pagamento só de 2011 em diante (SIGEF). Nos três contratos anteriores a 2011 (PJ-00170/2006, nas duas linhas, e PJ-00264/2008), não há linha antes de 2011.",
+  "portal_years_by_contract": {
+   "PJ-00170/2006": [
+    2011,
+    2012,
+    2013,
+    2016
+   ],
+   "PJ-00170/2006/PROSUL": [
+    2011,
+    2012,
+    2013,
+    2014
+   ],
+   "PJ-00264/2008": [
+    2011,
+    2012,
+    2013,
+    2014
+   ],
+   "PJ-00204/2014": [
+    2015
+   ],
+   "PJ-00012/2015": [
+    2015
+   ],
+   "PJ-00143/2015": [
+    2015,
+    2016
+   ],
+   "PJ-00001/2016/FARES": [
+    2016
+   ],
+   "PJ-00056/2016": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2020
+   ],
+   "PJ-00093/2016": [
+    2016,
+    2017,
+    2018,
+    2019
+   ],
+   "PJ-00009/2019": [
+    2019
+   ],
+   "CT-00006/2019": [
+    2019,
+    2020
+   ],
+   "PJ-00060/2019": [
+    2019,
+    2020
+   ],
+   "CT-00026/2019": [
+    2020
+   ]
+  },
+  "last_load": "Carga do Portal lida em 2026-10-07; o último pagamento dos 13 registros é de 2020-11-23."
+ },
+ "contracts": [
+  {
+   "number": "PJ-00170/2006",
+   "company": "CONCREMAT ENG. E TECNOLOGIA S.A.",
+   "cnpj": "33146648000391",
+   "nutitulo": "53682",
+   "paid_brl": 2149968.61,
+   "reversed_brl": 5358.25,
+   "net_paid_brl": 2144610.36,
+   "first_payment": "2011-01-11",
+   "last_payment": "2016-04-29",
+   "years_in_portal": [
+    2011,
+    2012,
+    2013,
+    2016
+   ],
+   "by_year": [
+    {
+     "year": 2011,
+     "net_paid_brl": 1104600.17
+    },
+    {
+     "year": 2012,
+     "net_paid_brl": 447450.94
+    },
+    {
+     "year": 2013,
+     "net_paid_brl": 555277.39
+    },
+    {
+     "year": 2016,
+     "net_paid_brl": 37281.86
+    }
+   ],
+   "payment_lines": 210,
+   "value_current_brl": 6106108.74,
+   "final_measured_accumulated_brl": 6108599.21,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=53682"
+  },
+  {
+   "number": "PJ-00170/2006/PROSUL",
+   "company": "PROSUL - Proj., Superv. e Planejamento Ltda",
+   "cnpj": "80996861000100",
+   "nutitulo": "53663",
+   "paid_brl": 3385087.62,
+   "reversed_brl": 13779.78,
+   "net_paid_brl": 3371307.84,
+   "first_payment": "2011-01-11",
+   "last_payment": "2014-03-26",
+   "years_in_portal": [
+    2011,
+    2012,
+    2013,
+    2014
+   ],
+   "by_year": [
+    {
+     "year": 2011,
+     "net_paid_brl": 1379740.11
+    },
+    {
+     "year": 2012,
+     "net_paid_brl": 671111.24
+    },
+    {
+     "year": 2013,
+     "net_paid_brl": 833377.53
+    },
+    {
+     "year": 2014,
+     "net_paid_brl": 487078.96
+    }
+   ],
+   "payment_lines": 253,
+   "value_current_brl": 9160234.18,
+   "final_measured_accumulated_brl": 9162724.64,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=53663"
+  },
+  {
+   "number": "PJ-00264/2008",
+   "company": "Consórcio Florianópolis Monumento",
+   "cnpj": "10769406000197",
+   "nutitulo": "70204",
+   "paid_brl": 33905128.44,
+   "reversed_brl": 17772.75,
+   "net_paid_brl": 33887355.69,
+   "first_payment": "2011-01-07",
+   "last_payment": "2014-11-04",
+   "years_in_portal": [
+    2011,
+    2012,
+    2013,
+    2014
+   ],
+   "by_year": [
+    {
+     "year": 2011,
+     "net_paid_brl": 6520883.68
+    },
+    {
+     "year": 2012,
+     "net_paid_brl": 5299956.75
+    },
+    {
+     "year": 2013,
+     "net_paid_brl": 16878580.18
+    },
+    {
+     "year": 2014,
+     "net_paid_brl": 5187935.08
+    }
+   ],
+   "payment_lines": 150,
+   "value_current_brl": 63008872.09,
+   "final_measured_accumulated_brl": 63008872.09,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=70204"
+  },
+  {
+   "number": "PJ-00204/2014",
+   "company": "RMG ENGENHARIA S/C LTDA.",
+   "cnpj": "38738381000183",
+   "nutitulo": "88906",
+   "paid_brl": 1951820.02,
+   "reversed_brl": 0.0,
+   "net_paid_brl": 1951820.02,
+   "first_payment": "2015-04-08",
+   "last_payment": "2015-05-19",
+   "years_in_portal": [
+    2015
+   ],
+   "by_year": [
+    {
+     "year": 2015,
+     "net_paid_brl": 1951820.02
+    }
+   ],
+   "payment_lines": 6,
+   "value_current_brl": 1951820.02,
+   "final_measured_accumulated_brl": 1951820.02,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=88906"
+  },
+  {
+   "number": "PJ-00012/2015",
+   "company": "EMPA SA SERVIÇOS DE ENGENHARIA",
+   "cnpj": "17159856000107",
+   "nutitulo": "89257",
+   "paid_brl": 12624974.17,
+   "reversed_brl": 0.0,
+   "net_paid_brl": 12624974.17,
+   "first_payment": "2015-05-13",
+   "last_payment": "2015-11-26",
+   "years_in_portal": [
+    2015
+   ],
+   "by_year": [
+    {
+     "year": 2015,
+     "net_paid_brl": 12624974.17
+    }
+   ],
+   "payment_lines": 22,
+   "value_current_brl": 12941168.93,
+   "final_measured_accumulated_brl": 12624974.17,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=89257"
+  },
+  {
+   "number": "PJ-00143/2015",
+   "company": "EMPA SA SERVIÇOS DE ENGENHARIA",
+   "cnpj": "17159856000107",
+   "nutitulo": "90666",
+   "paid_brl": 11400601.42,
+   "reversed_brl": 0.0,
+   "net_paid_brl": 11400601.42,
+   "first_payment": "2015-11-17",
+   "last_payment": "2016-05-05",
+   "years_in_portal": [
+    2015,
+    2016
+   ],
+   "by_year": [
+    {
+     "year": 2015,
+     "net_paid_brl": 6362754.52
+    },
+    {
+     "year": 2016,
+     "net_paid_brl": 5037846.9
+    }
+   ],
+   "payment_lines": 18,
+   "value_current_brl": 11400601.42,
+   "final_measured_accumulated_brl": 11400601.42,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=90666"
+  },
+  {
+   "number": "PJ-00001/2016/FARES",
+   "company": "Fares & Associados Engenharia Ltda.",
+   "cnpj": "52573623000157",
+   "nutitulo": "91908",
+   "paid_brl": 137482.95,
+   "reversed_brl": 0.0,
+   "net_paid_brl": 137482.95,
+   "first_payment": "2016-07-07",
+   "last_payment": "2016-07-13",
+   "years_in_portal": [
+    2016
+   ],
+   "by_year": [
+    {
+     "year": 2016,
+     "net_paid_brl": 137482.95
+    }
+   ],
+   "payment_lines": 4,
+   "value_current_brl": 137482.95,
+   "final_measured_accumulated_brl": 137482.95,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=91908"
+  },
+  {
+   "number": "PJ-00056/2016",
+   "company": "TEIXEIRA DUARTE - Engenharia e Construções S.A.",
+   "cnpj": "24447770000145",
+   "nutitulo": "91858",
+   "paid_brl": 372292879.82,
+   "reversed_brl": 8738183.49,
+   "net_paid_brl": 363554696.33,
+   "first_payment": "2016-05-30",
+   "last_payment": "2020-06-29",
+   "years_in_portal": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2020
+   ],
+   "by_year": [
+    {
+     "year": 2016,
+     "net_paid_brl": 61363201.36
+    },
+    {
+     "year": 2017,
+     "net_paid_brl": 93659794.67
+    },
+    {
+     "year": 2018,
+     "net_paid_brl": 86470181.26
+    },
+    {
+     "year": 2019,
+     "net_paid_brl": 85863190.6
+    },
+    {
+     "year": 2020,
+     "net_paid_brl": 36198328.44
+    }
+   ],
+   "payment_lines": 340,
+   "value_current_brl": 363824397.74,
+   "final_measured_accumulated_brl": 363626160.99,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=91858"
+  },
+  {
+   "number": "PJ-00093/2016",
+   "company": "RMG ENGENHARIA S/C LTDA.",
+   "cnpj": "38738381000183",
+   "nutitulo": "92132",
+   "paid_brl": 10514984.53,
+   "reversed_brl": 37903.7,
+   "net_paid_brl": 10477080.83,
+   "first_payment": "2016-07-08",
+   "last_payment": "2019-09-27",
+   "years_in_portal": [
+    2016,
+    2017,
+    2018,
+    2019
+   ],
+   "by_year": [
+    {
+     "year": 2016,
+     "net_paid_brl": 2373842.62
+    },
+    {
+     "year": 2017,
+     "net_paid_brl": 4185844.16
+    },
+    {
+     "year": 2018,
+     "net_paid_brl": 2798194.28
+    },
+    {
+     "year": 2019,
+     "net_paid_brl": 1119199.77
+    }
+   ],
+   "payment_lines": 224,
+   "value_current_brl": 11110051.81,
+   "final_measured_accumulated_brl": 10546101.92,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=92132"
+  },
+  {
+   "number": "PJ-00009/2019",
+   "company": "TEIXEIRA DUARTE - Engenharia e Construções S.A.",
+   "cnpj": "24447770000145",
+   "nutitulo": "97701",
+   "paid_brl": 3156151.79,
+   "reversed_brl": 0.0,
+   "net_paid_brl": 3156151.79,
+   "first_payment": "2019-03-18",
+   "last_payment": "2019-07-04",
+   "years_in_portal": [
+    2019
+   ],
+   "by_year": [
+    {
+     "year": 2019,
+     "net_paid_brl": 3156151.79
+    }
+   ],
+   "payment_lines": 12,
+   "value_current_brl": 3156151.79,
+   "final_measured_accumulated_brl": 3156151.79,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=97701"
+  },
+  {
+   "number": "CT-00006/2019",
+   "company": "RMG ENGENHARIA S/C LTDA.",
+   "cnpj": "38738381000183",
+   "nutitulo": "98298",
+   "paid_brl": 1712033.96,
+   "reversed_brl": 0.0,
+   "net_paid_brl": 1712033.96,
+   "first_payment": "2019-09-05",
+   "last_payment": "2020-07-01",
+   "years_in_portal": [
+    2019,
+    2020
+   ],
+   "by_year": [
+    {
+     "year": 2019,
+     "net_paid_brl": 972351.09
+    },
+    {
+     "year": 2020,
+     "net_paid_brl": 739682.87
+    },
+    {
+     "year": 2021,
+     "net_paid_brl": 0.0
+    }
+   ],
+   "payment_lines": 36,
+   "value_current_brl": 1717146.84,
+   "final_measured_accumulated_brl": 1781055.05,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=98298"
+  },
+  {
+   "number": "PJ-00060/2019",
+   "company": "GEOARQUEOLOGIA Pesquisa Científica Ltda - ME",
+   "cnpj": "01956161000116",
+   "nutitulo": "98300",
+   "paid_brl": 80260.31,
+   "reversed_brl": 400.07,
+   "net_paid_brl": 79860.24,
+   "first_payment": "2019-11-08",
+   "last_payment": "2020-11-23",
+   "years_in_portal": [
+    2019,
+    2020
+   ],
+   "by_year": [
+    {
+     "year": 2019,
+     "net_paid_brl": 400.07
+    },
+    {
+     "year": 2020,
+     "net_paid_brl": 79460.17
+    }
+   ],
+   "payment_lines": 23,
+   "value_current_brl": 96200.31,
+   "final_measured_accumulated_brl": 167711.85,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=98300"
+  },
+  {
+   "number": "CT-00026/2019",
+   "company": "SDF Engenharia EIRELI",
+   "cnpj": "24055348000144",
+   "nutitulo": "98679",
+   "paid_brl": 35000.0,
+   "reversed_brl": 0.0,
+   "net_paid_brl": 35000.0,
+   "first_payment": "2020-03-11",
+   "last_payment": "2020-03-13",
+   "years_in_portal": [
+    2020
+   ],
+   "by_year": [
+    {
+     "year": 2020,
+     "net_paid_brl": 35000.0
+    }
+   ],
+   "payment_lines": 2,
+   "value_current_brl": 35000.0,
+   "final_measured_accumulated_brl": 35000.0,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=98679"
+  }
+ ],
+ "related_records": [
+  {
+   "number": "DL-00001/2618-2019",
+   "company": "RMG ENGENHARIA S/C LTDA.",
+   "cnpj": "38738381000183",
+   "nutitulo": "98648",
+   "paid_brl": 1451313.01,
+   "reversed_brl": 0.0,
+   "net_paid_brl": 1451313.01,
+   "first_payment": "2019-11-11",
+   "last_payment": "2019-11-20",
+   "years_in_portal": [
+    2019
+   ],
+   "by_year": [
+    {
+     "year": 2019,
+     "net_paid_brl": 1451313.01
+    }
+   ],
+   "payment_lines": 3,
+   "value_current_brl": 1451313.01,
+   "final_measured_accumulated_brl": 0.0,
+   "source_url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=98648",
+   "object": "Para pagamento realizado na supervisão da PHL e que não estava no escopo do Contrato PJ 093/2016",
+   "note": "Registro ligado à ponte fora dos 13 contratos (grupo \"related_record_outside_original_filter\" em data/hercilio-luz.json). Não entra no total."
+  }
+ ],
+ "pre_portal": [
+  {
+   "number": "PJ-00264/2008",
+   "company": "Consórcio Florianópolis Monumento",
+   "cnpj": "10769406000197",
+   "official_figure_brl": 38921239.05,
+   "official_figure_covers": "Pago acumulado no contrato desde 2008 até o último pagamento, em maio de 2012 (medições até março de 2012).",
+   "quote": "Conforme extrato do Sistema Integrado de Controle de Obras Públicas - SICOP da Administração Estadual, atualizado em julho de 2012, o último pagamento ocorreu em maio do corrente ano, referente aos meses de janeiro a março de 2012, acumulando R$ 38.921.239,05",
+   "source": {
+    "doc": "TCE-SC, Relatório DLC 462/2012 (processo RLA-12/00285490), item 2.6",
+    "url": "http://consulta.tce.sc.gov.br/relatoriosdecisao/relatoriotecnico/3728501.PDF"
+   },
+   "portal_paid_2011_01_to_2012_05_brl": 9799722.65,
+   "portal_paid_after_2012_05_brl": 24087633.04,
+   "pre_2011_paid_brl_computed": 29121516.4,
+   "pre_2011_note": "Diferença calculada entre dois números oficiais (o acumulado do TCE-SC até maio de 2012 menos as linhas de pagamento do Portal de janeiro de 2011 a maio de 2012). Não é estimativa, mas nenhum documento imprime este valor.",
+   "included_in_total": true,
+   "cross_checks": [
+    "O acumulado do TCE-SC é igual, ao centavo, ao acumulado da MEDIÇÃO 040 do SICOP (período até 2012-03-31).",
+    "Acumulado do TCE-SC + pagamentos do Portal depois de maio de 2012 = 63008872.09; medição final acumulada no SICOP = 63008872.09; valor atual do contrato no registro = 63008872.09. Iguais ao centavo.",
+    "No extrato do Portal não há pagamento entre 29/05/2012 e 17/08/2012, o que bate com \"último pagamento em maio\" num extrato atualizado em julho de 2012."
+   ]
+  },
+  {
+   "number": "PJ-00170/2006 e PJ-00170/2006/PROSUL",
+   "company": "Consórcio Prosul-Concremat (uma linha por empresa no registro)",
+   "official_figure_brl": null,
+   "official_figure_covers": "Nenhum número oficial de valor PAGO de 2006 a 2010 foi encontrado. O Relatório DLC 462/2012 do TCE-SC dá valor inicial, aditivos e o custo mensal da supervisão (R$ 117.616,86, base abril de 2012), não o pago acumulado.",
+   "measured_up_to_2010_for_context_only": [
+    {
+     "number": "PJ-00170/2006",
+     "measurement": "MEDIÇÃO 053",
+     "period_end": "2010-12-31",
+     "measured_accumulated_brl": 3691338.9
+    },
+    {
+     "number": "PJ-00170/2006/PROSUL",
+     "measurement": "MEDIÇÃO 053",
+     "period_end": "2010-12-31",
+     "measured_accumulated_brl": 5536403.29
+    }
+   ],
+   "measured_note": "Valor MEDIDO acumulado no SICOP até dezembro de 2010; medido não é pago. Só contexto, fora do total.",
+   "source": {
+    "doc": "Extrato SICOP dos contratos (contratoMedicoes) e TCE-SC DLC 462/2012, item 2.7",
+    "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=53682"
+   },
+   "included_in_total": false
+  }
+ ],
+ "total_net_paid_portal_brl": 444532975.6,
+ "total_net_paid_brl": 473654492.0,
+ "total_includes": "Os 13 contratos da restauração (2006 a 2019), pagamentos do Poder Executivo de SC lidos por contrato no Portal (2011 a 2020), mais o pago antes de 2011 no contrato PJ-00264/2008, tirado do acumulado oficial do TCE-SC (R$ 38.921.239,05 até maio de 2012) no lugar das linhas do Portal até maio de 2012.",
+ "first_stage_pj015_2006": {
+  "number": "PJ 015/2006",
+  "company": "Consórcio Roca-TEC (uma tabela de pagamentos por empresa)",
+  "signed_on": "2006-02-16",
+  "signed_quote": "Em 16 de fevereiro de 2006 foi assinado o Contrato PJ 015/2006",
+  "object": "restauração, reabilitação e manutenção da Ponte Hercílio Luz, etapa 1, viadutos de acesso",
+  "value_original_brl": 20986796.34,
+  "value_with_amendments_brl": 22981232.32,
+  "paid_brl": 23915063.53,
+  "members": [
+   {
+    "member": "TEC",
+    "paid_brl": 11957532.7,
+    "measurements": 42,
+    "first_payment": "2006-06-27",
+    "last_payment": "2009-09-18",
+    "table": "Apêndice A, tabela \"Contrato PJ 015/2006 - TEC\" (linha TOTAL)"
+   },
+   {
+    "member": "Roca",
+    "paid_brl": 11957530.83,
+    "measurements": 42,
+    "first_payment": "2006-06-27",
+    "last_payment": "2009-09-18",
+    "table": "Apêndice A, tabela \"Contrato PJ 015/2006 - Roca\" (linha TOTAL)"
+   }
+  ],
+  "source": {
+   "doc": "Relatório final da CPI da Ponte Hercílio Luz (Alesc): Apêndice A, tabelas \"Contrato PJ 015/2006 - TEC\" e \"Contrato PJ 015/2006 - Roca\"; item 6.11",
+   "url": "https://portalelegis.alesc.sc.gov.br/proposicoes/legado/RQC-0016.6-2019/anexo/10766/visualizar"
+  },
+  "note": "Fora do Portal (os extratos começam em 2011) e fora do registro SIGEF (13 registros da restauração). As duas tabelas trazem as mesmas 42 medições, cada uma com a parte de uma empresa do consórcio. O quadro-resumo da CPI (p. 1344) dá R$ 12.487.834 para a TEC; vale a tabela de pagamentos, que fecha com a sua linha TOTAL."
+ },
+ "initial_contracts_2006_2008": {
+  "contracts": [
+   {
+    "number": "PJ 015/2006",
+    "what": "restauração, etapa 1 (viadutos de acesso), Consórcio Roca-TEC",
+    "signed_on": "2006-02-16",
+    "value_original_brl": 20986796.34,
+    "source": {
+     "doc": "Relatório final da CPI da Ponte Hercílio Luz (Alesc), item 6.11",
+     "url": "https://portalelegis.alesc.sc.gov.br/proposicoes/legado/RQC-0016.6-2019/anexo/10766/visualizar",
+     "quote": "firmada no valor original de R$ 20.986.796,34"
+    }
+   },
+   {
+    "number": "PJ-00170/2006",
+    "what": "supervisão da restauração, Consórcio Prosul-Concremat (duas linhas no registro do Estado, uma por empresa)",
+    "signed_on": "2006-08-25",
+    "value_original_brl": 9811282.66,
+    "source": {
+     "doc": "Relatório final da CPI da Ponte Hercílio Luz (Alesc), item 6.12, e registro de contratos SIGEF/SICOP",
+     "url": "https://portalelegis.alesc.sc.gov.br/proposicoes/legado/RQC-0016.6-2019/anexo/10766/visualizar",
+     "quote": "valor histórico de R$ 9.811.282,66"
+    }
+   },
+   {
+    "number": "PJ-00264/2008",
+    "what": "restauração, etapa 2, Consórcio Florianópolis Monumento",
+    "signed_on": "2008-11-27",
+    "value_original_brl": 154879651.29,
+    "note": "Rescindido (SICOP: valor rescindido R$ 111.248.364,29). A obra foi contratada de novo em 2016 (PJ-00056/2016, R$ 262.925.435,21 assinados), que não entra no contrato inicial: somar os dois contaria a mesma obra duas vezes.",
+    "source": {
+     "doc": "Extrato SICOP do contrato, campo valororiginal",
+     "url": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/contratos/extratosicop?nutitulofiltro[]=70204"
+    }
+   }
+  ],
+  "value_original_brl": 185677730.29,
+  "rule": "Contrato inicial da obra = valores assinados dos primeiros contratos (2006 a 2008): 1ª etapa, supervisão e 2ª etapa. Um contrato que substitui um contrato rescindido não entra (D95: ler contrato por contrato, sem somar contratos que se sobrepõem)."
+ },
+ "total_paid_2006_2020_brl": 507319980.2,
+ "total_paid_2006_2020_parts_brl": {
+  "ten_contracts_portal": 405129701.71,
+  "PJ-170/2006_cpi": 15266342.87,
+  "PJ-264/2008_cpi": 63008872.09,
+  "PJ-015/2006_cpi": 23915063.53
+ },
+ "total_paid_2006_2020_includes": "Pago contrato por contrato, valores nominais: os 10 contratos de 2011 em diante pelos extratos do Portal de SC; PJ-00170/2006 (Prosul e Concremat) e PJ-00264/2008 pelas tabelas de pagamento da CPI da Alesc (começaram antes do Portal); e a 1ª etapa, PJ 015/2006, pelas suas duas tabelas na CPI.",
+ "total_paid_2006_2020_not_included": [
+  "DL-00001/2618-2019 (RMG, R$ 1.451.313,01 pagos em 2019, supervisão fora do escopo do PJ-00093/2016): registro à parte (related_records), fora desta soma até decisão do autor.",
+  "Pagamentos que não estão ligados ao contrato no extrato (PJ-00060/2019, R$ 16.002,61) e obras da ponte antes de 2006 ou depois de 2019: fora do escopo."
+ ],
+ "total_missing": [
+  "Pagamentos de 2006 a 2010 no contrato de supervisão PJ-00170/2006 (Prosul e Concremat): fora deste total (Portal e TCE-SC). O SICOP mede R$ 9.227.742,19 acumulados até dezembro de 2010 nas duas linhas, mas medido não é pago. Os pagamentos estão nas tabelas da CPI e entram em total_paid_2006_2020_brl.",
+  "PJ-00060/2019 (Geoarqueologia): a consulta por credor mostra R$ 16.402,68 pagos em 2019, e o extrato do contrato mostra só R$ 400,07 nesse ano; a diferença de R$ 16.002,61 não está ligada ao contrato no extrato e fica fora do total.",
+  "DL-00001/2618-2019 (RMG, R$ 1.451.313,01 pagos em 2019, \"pagamento realizado na supervisão da PHL e que não estava no escopo do Contrato PJ 093/2016\"): fora dos 13 contratos, mostrado em related_records e fora do total.",
+  "PJ-00170/2006 (Concremat), 2011: o extrato do contrato soma R$ 1.104.600,17 e a consulta por credor (CNPJ 33.146.648/0003-91) mostra R$ 993.730,38 para a empresa inteira no ano. A diferença de R$ 110.869,79 não foi explicada (talvez pagamentos do contrato registrados em outro CNPJ ou credor). O total usa o extrato do contrato.",
+  "Obras e contratos da ponte anteriores a 2006 e posteriores a 2019 (iluminação, manutenção) e gastos de outros órgãos: fora do escopo."
+ ],
+ "check": {
+  "pass_1": "Inteiros em centavos a partir do \"vlpago\" anual do resumo de cada contrato.",
+  "pass_2": "Decimal, soma das linhas de pagamento de cada contrato.",
+  "per_contract_per_year_equal": true,
+  "total_portal_pass_1_brl": 444532975.6,
+  "total_portal_pass_2_brl": "444532975.60",
+  "total_with_pre_portal_pass_1_brl": 473654492.0,
+  "total_with_pre_portal_pass_2_brl": "473654492.00",
+  "match_to_the_cent": true,
+  "total_2006_2020_pass_1_brl": "507319980.20",
+  "total_2006_2020_pass_2_brl": 507319980.2,
+  "total_2006_2020_pass_1": "Decimal, contrato por contrato: linhas de pagamento do Portal; linhas das tabelas da CPI; coluna VALOR MEDIDO das duas tabelas do PJ 015/2006.",
+  "total_2006_2020_pass_2": "Inteiros em centavos: total do \"vlpago\" do Portal, trocando os três contratos anteriores a 2011 pela coluna PGTOS NO MÊS das tabelas da CPI, mais a mesma coluna do PJ 015/2006.",
+  "cpi_tables_equal_their_total_line": true,
+  "control": "Rodar com --control soma R$ 0,01 à primeira linha do PJ-00056/2016 e à primeira medição do PJ 015/2006 (TEC); a checagem tem de falhar e nada é gravado.",
+  "creditor_cross_check": [
+   {
+    "cnpj": "24447770000145",
+    "year": 2016,
+    "creditor_vlbruto_brl": 61363201.36,
+    "contracts_net_paid_brl": 61363201.36,
+    "equal": true
+   },
+   {
+    "cnpj": "24447770000145",
+    "year": 2017,
+    "creditor_vlbruto_brl": 93659794.67,
+    "contracts_net_paid_brl": 93659794.67,
+    "equal": true
+   },
+   {
+    "cnpj": "24447770000145",
+    "year": 2018,
+    "creditor_vlbruto_brl": 86470181.26,
+    "contracts_net_paid_brl": 86470181.26,
+    "equal": true
+   },
+   {
+    "cnpj": "24447770000145",
+    "year": 2019,
+    "creditor_vlbruto_brl": 89019342.39,
+    "contracts_net_paid_brl": 89019342.39,
+    "equal": true
+   },
+   {
+    "cnpj": "24447770000145",
+    "year": 2020,
+    "creditor_vlbruto_brl": 43182475.31,
+    "contracts_net_paid_brl": 36198328.44,
+    "equal": false
+   },
+   {
+    "cnpj": "17159856000107",
+    "year": 2015,
+    "creditor_vlbruto_brl": 18987728.69,
+    "contracts_net_paid_brl": 18987728.69,
+    "equal": true
+   },
+   {
+    "cnpj": "17159856000107",
+    "year": 2016,
+    "creditor_vlbruto_brl": 5037846.9,
+    "contracts_net_paid_brl": 5037846.9,
+    "equal": true
+   },
+   {
+    "cnpj": "10769406000197",
+    "year": 2011,
+    "creditor_vlbruto_brl": 6520883.68,
+    "contracts_net_paid_brl": 6520883.68,
+    "equal": true
+   },
+   {
+    "cnpj": "10769406000197",
+    "year": 2012,
+    "creditor_vlbruto_brl": 5299956.75,
+    "contracts_net_paid_brl": 5299956.75,
+    "equal": true
+   },
+   {
+    "cnpj": "10769406000197",
+    "year": 2013,
+    "creditor_vlbruto_brl": 16878580.18,
+    "contracts_net_paid_brl": 16878580.18,
+    "equal": true
+   },
+   {
+    "cnpj": "10769406000197",
+    "year": 2014,
+    "creditor_vlbruto_brl": 5187935.08,
+    "contracts_net_paid_brl": 5187935.08,
+    "equal": true
+   },
+   {
+    "cnpj": "38738381000183",
+    "year": 2015,
+    "creditor_vlbruto_brl": 1951820.02,
+    "contracts_net_paid_brl": 1951820.02,
+    "equal": true
+   },
+   {
+    "cnpj": "38738381000183",
+    "year": 2016,
+    "creditor_vlbruto_brl": 2373842.62,
+    "contracts_net_paid_brl": 2373842.62,
+    "equal": true
+   },
+   {
+    "cnpj": "38738381000183",
+    "year": 2017,
+    "creditor_vlbruto_brl": 4185844.16,
+    "contracts_net_paid_brl": 4185844.16,
+    "equal": true
+   },
+   {
+    "cnpj": "38738381000183",
+    "year": 2018,
+    "creditor_vlbruto_brl": 2798194.28,
+    "contracts_net_paid_brl": 2798194.28,
+    "equal": true
+   },
+   {
+    "cnpj": "38738381000183",
+    "year": 2019,
+    "creditor_vlbruto_brl": 3542863.87,
+    "contracts_net_paid_brl": 3542863.87,
+    "equal": true
+   },
+   {
+    "cnpj": "38738381000183",
+    "year": 2020,
+    "creditor_vlbruto_brl": 1269225.34,
+    "contracts_net_paid_brl": 739682.87,
+    "equal": false
+   },
+   {
+    "cnpj": "38738381000183",
+    "year": 2021,
+    "creditor_vlbruto_brl": 100102.47,
+    "contracts_net_paid_brl": 0.0,
+    "equal": false
+   },
+   {
+    "cnpj": "80996861000100",
+    "year": 2011,
+    "creditor_vlbruto_brl": 15312416.04,
+    "contracts_net_paid_brl": 1379740.11,
+    "equal": false
+   },
+   {
+    "cnpj": "80996861000100",
+    "year": 2012,
+    "creditor_vlbruto_brl": 17893394.44,
+    "contracts_net_paid_brl": 671111.24,
+    "equal": false
+   },
+   {
+    "cnpj": "80996861000100",
+    "year": 2013,
+    "creditor_vlbruto_brl": 20962507.55,
+    "contracts_net_paid_brl": 833377.53,
+    "equal": false
+   },
+   {
+    "cnpj": "80996861000100",
+    "year": 2014,
+    "creditor_vlbruto_brl": 43256230.84,
+    "contracts_net_paid_brl": 487078.96,
+    "equal": false
+   },
+   {
+    "cnpj": "33146648000391",
+    "year": 2011,
+    "creditor_vlbruto_brl": 993730.38,
+    "contracts_net_paid_brl": 1104600.17,
+    "equal": false
+   },
+   {
+    "cnpj": "33146648000391",
+    "year": 2012,
+    "creditor_vlbruto_brl": 447450.94,
+    "contracts_net_paid_brl": 447450.94,
+    "equal": true
+   },
+   {
+    "cnpj": "33146648000391",
+    "year": 2013,
+    "creditor_vlbruto_brl": 555277.39,
+    "contracts_net_paid_brl": 555277.39,
+    "equal": true
+   },
+   {
+    "cnpj": "33146648000391",
+    "year": 2016,
+    "creditor_vlbruto_brl": 769547.02,
+    "contracts_net_paid_brl": 37281.86,
+    "equal": false
+   },
+   {
+    "cnpj": "52573623000157",
+    "year": 2016,
+    "creditor_vlbruto_brl": 137482.95,
+    "contracts_net_paid_brl": 137482.95,
+    "equal": true
+   },
+   {
+    "cnpj": "01956161000116",
+    "year": 2019,
+    "creditor_vlbruto_brl": 16402.68,
+    "contracts_net_paid_brl": 400.07,
+    "equal": false
+   },
+   {
+    "cnpj": "01956161000116",
+    "year": 2020,
+    "creditor_vlbruto_brl": 79460.17,
+    "contracts_net_paid_brl": 79460.17,
+    "equal": true
+   },
+   {
+    "cnpj": "24055348000144",
+    "year": 2020,
+    "creditor_vlbruto_brl": 35000,
+    "contracts_net_paid_brl": 35000.0,
+    "equal": true
+   }
+  ],
+  "creditor_note": "Total por credor (data/hercilio-luz.json, consulta Fornecedores) contra a soma dos contratos da ponte da mesma empresa no mesmo ano. Diferença esperada onde a empresa tem outros contratos com o Estado. Onde é igual, mostra também que o \"vlbruto\" do credor já desconta os estornos."
+ }
+}

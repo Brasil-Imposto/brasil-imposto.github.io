@@ -1,0 +1,333 @@
+{
+ "collected_on": "2026-10-03",
+ "reference": "Headcount of people paid by the Union per branch, active vs retired vs pensioners. Main reference: RPPS actuarial base of July 2025 (civil branches) and Armed Forces base of May 2025 (military). Branch keys match federal_payroll_by_branch in data/federal/federal-section-2026-01-07.json.",
+ "branches": {
+  "executive_civil": {
+   "active": 663308,
+   "retired": 421369,
+   "pensioners": 281712,
+   "pensioners_counted_as": "beneficiaries",
+   "as_of": "2025-07",
+   "source": {
+    "body": "Ministério da Previdência Social, CGAAI/DRPPS/SRPC",
+    "document": "PLDO 2027, Anexo IV.11, Avaliação Atuarial do RPPS dos Servidores, Aposentados e Pensionistas dos Poderes Executivo, Legislativo e Judiciário (data focal 31/12/2025), Tabela 3",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/orcamento/orcamentos-anuais/2027/pldo/anexo-iv-11-avaliacao-atuarial-rpps.pdf",
+    "quote": "Poder Executivo: Servidores Quantidade 663.308; Aposentados Quantidade 421.369; Pensionistas Quantidade 281.712"
+   },
+   "average_monthly_brl": {
+    "active": 13369.72,
+    "retired": 12013.58,
+    "pensioners": 7050.41
+   },
+   "includes": "SIAPE bodies plus extra-SIAPE institutions named in the document: DPU, ABIN, Banco Central; also ex-territories military. DPU is NOT separated in this source.",
+   "excludes": "Armed Forces; DF police and firefighters paid through FCDF; commissioned-only staff, temporaries and public employees (RGPS)."
+  },
+  "executive_military": {
+   "active": 350858,
+   "retired": 168564,
+   "pensioners": 224321,
+   "pensioners_counted_as": "beneficiaries",
+   "pension_founders": 139842,
+   "as_of": "2025-05",
+   "active_breakdown": {
+    "career_officers": 34076,
+    "temporary_officers": 16589,
+    "career_enlisted": 102922,
+    "temporary_enlisted": 181334,
+    "special_career_enlisted": 8063,
+    "special_temporary_enlisted": 7874
+   },
+   "average_monthly_brl": {
+    "active_career_officer": 21456.96,
+    "active_temporary_officer": 12840.88,
+    "active_career_enlisted": 8854.28,
+    "active_temporary_enlisted": 2486.77,
+    "retired_officer": 25719.58,
+    "retired_enlisted": 10296.38,
+    "pension_beneficiary_of_officer": 13512.51,
+    "pension_beneficiary_of_enlisted": 5636.32
+   },
+   "source": {
+    "body": "Ministério da Defesa (Centro de Análises de Sistemas Navais)",
+    "document": "PLDO 2027, Anexo IV.12, Avaliação Atuarial do Sistema de Pensões Militares das Forças Armadas, Volume 1, seção 3.1.1 Quantidades",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/orcamento/orcamentos-anuais/2027/pldo/anexo-iv-12-avaliacao-atuarial-pensoes-militares-2013-volume-1.pdf",
+    "quote": "Os dados correntes utilizados foram de maio de 2025, extrapolados para a posição de 31 de dezembro de 2025. [...] a) Militares Ativos ... Total 350.858; b) Militares Inativos ... 168.564; c) Pensionistas Tronco ... 139.842; d) Pensionistas Beneficiários ... 224.321"
+   },
+   "regime": "SPSMFA (Sistema de Proteção Social dos Militares das Forças Armadas), neither RPPS nor RGPS/INSS"
+  },
+  "judiciary": {
+   "active": 105545,
+   "retired": 34919,
+   "pensioners": 10145,
+   "pensioners_counted_as": "beneficiaries",
+   "as_of": "2025-07",
+   "source": {
+    "body": "Ministério da Previdência Social, CGAAI/DRPPS/SRPC",
+    "document": "PLDO 2027, Anexo IV.11, Avaliação Atuarial do RPPS dos Servidores, Aposentados e Pensionistas dos Poderes Executivo, Legislativo e Judiciário (data focal 31/12/2025), Tabela 5",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/orcamento/orcamentos-anuais/2027/pldo/anexo-iv-11-avaliacao-atuarial-rpps.pdf",
+    "quote": "Poder Judiciário: Servidores Quantidade 105.545; Aposentados Quantidade 34.919; Pensionistas Quantidade 10.145"
+   },
+   "average_monthly_brl": {
+    "active": 14977.9,
+    "retired": 22056.8,
+    "pensioners": 16016.67
+   },
+   "includes": "STF, STJ, STM, TJDFT, TRFs and federal judicial sections, TRTs, TREs, CJF, CNJ, CSJT; magistrates included (members are a functional status in the base)."
+  },
+  "legislative": {
+   "active": 6960,
+   "retired": 8752,
+   "pensioners": 3729,
+   "pensioners_counted_as": "beneficiaries",
+   "as_of": "2025-07",
+   "source": {
+    "body": "Ministério da Previdência Social, CGAAI/DRPPS/SRPC",
+    "document": "PLDO 2027, Anexo IV.11, Avaliação Atuarial do RPPS dos Servidores, Aposentados e Pensionistas dos Poderes Executivo, Legislativo e Judiciário (data focal 31/12/2025), Tabela 4",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/orcamento/orcamentos-anuais/2027/pldo/anexo-iv-11-avaliacao-atuarial-rpps.pdf",
+    "quote": "Poder Legislativo: Servidores Quantidade 6.960; Aposentados Quantidade 8.752; Pensionistas Quantidade 3.729"
+   },
+   "average_monthly_brl": {
+    "active": 18541.4,
+    "retired": 39389.57,
+    "pensioners": 25356.55
+   },
+   "includes": "Senado Federal, Câmara dos Deputados and TCU (career staff and members in the RPPS).",
+   "excludes": "Commissioned-only staff (Câmara parliamentary secretaries and CNE, Senado commissioned staff), who are RGPS but paid from this payroll."
+  },
+  "mpu": {
+   "active": 16889,
+   "retired": 2797,
+   "pensioners": 1055,
+   "pensioners_counted_as": "beneficiaries",
+   "as_of": "2025-07",
+   "source": {
+    "body": "Ministério da Previdência Social, CGAAI/DRPPS/SRPC",
+    "document": "PLDO 2027, Anexo IV.11, Avaliação Atuarial do RPPS dos Servidores, Aposentados e Pensionistas dos Poderes Executivo, Legislativo e Judiciário (data focal 31/12/2025), Tabela 6",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/orcamento/orcamentos-anuais/2027/pldo/anexo-iv-11-avaliacao-atuarial-rpps.pdf",
+    "quote": "Poder MP: Servidores Quantidade 16.889; Aposentados Quantidade 2.797; Pensionistas Quantidade 1.055"
+   },
+   "average_monthly_brl": {
+    "active": 16663.22,
+    "retired": 23664.18,
+    "pensioners": 17383.86
+   },
+   "includes": "MPDFT, MPF, MPM, MPT and CNMP."
+  },
+  "dpu": {
+   "active": 1085,
+   "retired": 48,
+   "pensioners": 29,
+   "pensioners_counted_as": "beneficiaries",
+   "pension_founders": 30,
+   "as_of": "2026-07",
+   "active_breakdown": {
+    "public_defenders": 680,
+    "own_career_staff_pccdpu": 405,
+    "requisitioned_from_other_bodies_not_counted": 676
+   },
+   "source": {
+    "body": "Defensoria Pública da União",
+    "document": "Anexo I - Quantitativo Físico de Pessoal, Tabelas 1 e 2 (planilha Portal_da_transparencia_JULHO_2026___DIDEP.xls)",
+    "url": "https://www.dpu.def.br/images/stories/transparencia/gestao_de_pessoas/2026/julho/Portal_da_transparencia_JULHO_2026___DIDEP.xls",
+    "quote": "DEFENSOR PÚBLICO DA UNIÃO | 680 | 17 | 697 | 29 | 22 | 51 | 25 (Tabela 2, posição 12/07/2026); PCCDPU TOTAL 405 ocupados, 19 aposentados, 8 instituidores, 4 beneficiários (Tabela 1, posição 12.8.2026)"
+   },
+   "caveat": "Different date and source from the other civil branches. The RPPS source counts DPU inside executive_civil, so do not add this to executive_civil. The sheet's inactive TOTAL column says 89, which does not match 48 + 30; the column values are used."
+  }
+ },
+ "details": {
+  "legislative_by_house": {
+   "chamber": {
+    "active_career_staff": 2626,
+    "members": 513,
+    "parliamentary_secretaries": 10082,
+    "special_nature_commissioned": 1738,
+    "retired_staff": 3291,
+    "staff_pension_founders": 1020,
+    "staff_pension_beneficiaries": 1230,
+    "retired_members": 376,
+    "member_pension_founders": 436,
+    "member_pension_beneficiaries": 468,
+    "as_of": "2025-12",
+    "source": {
+     "body": "Câmara dos Deputados, Departamento de Pessoal",
+     "document": "Anexo I Tabelas 1 e 2 e Anexo III (cargos em comissão), posição dezembro de 2025",
+     "url": "https://www2.camara.leg.br/transparencia/recursos-humanos/servidores/quantitativos/2025",
+     "quote": "TOTAL 2.349 277 2.626 743 3.369 3.291 1.020 4.311 1.230; DEPUTADO 513 - 513 376 436 812 468; Secretário Parlamentar TOTAL 10082; CNE TOTAL ocupados 1.738"
+    }
+   },
+   "senate": {
+    "active_career_staff": 2325,
+    "members": 87,
+    "commissioned_without_tie": 3942,
+    "commissioned_as_of": "2025-08",
+    "retired_staff": 3653,
+    "staff_pension_founders": 1388,
+    "staff_pension_beneficiaries": 1710,
+    "retired_members": 63,
+    "member_pension_founders": 59,
+    "member_pension_beneficiaries": 69,
+    "as_of": "2025-12",
+    "source": {
+     "body": "Senado Federal, Secretaria de Gestão de Pessoas (ERGON)",
+     "document": "Anexo I Tabelas 1 e 2 (posição DEZ/2025) e Anexo III (posição AGO/2025)",
+     "url": "https://www12.senado.leg.br/transparencia/rh/segp/arquivos",
+     "quote": "TOTAL 1440 885 2325 984 3309 3653 1388 5041 1710; SENADOR DA REPÚBLICA 87 0 87 63 59 122 69"
+    }
+   },
+   "tcu": null,
+   "tcu_note": "Not confirmed: the TCU personnel tables system (contas.tcu.gov.br) blocked automated access with a firewall message; no Wayback copy."
+  },
+  "judiciary_active_by_court": {
+   "as_of": "2024-12",
+   "counts": "magistrates and servants (own career, requisitioned from other bodies, commissioned without tie); no retirees or pensioners in this source",
+   "courts": {
+    "stf": {
+     "magistrates": 11,
+     "servants": 1177,
+     "career_servants": 999
+    },
+    "stj": {
+     "magistrates": 33,
+     "servants": 2871,
+     "career_servants": 2571
+    },
+    "tst": {
+     "magistrates": 27,
+     "servants": 2386,
+     "career_servants": 2094
+    },
+    "tse": {
+     "magistrates": 14,
+     "servants": 890,
+     "career_servants": 786
+    },
+    "military_justice": {
+     "magistrates": 54,
+     "servants": 1139,
+     "career_servants": 774
+    },
+    "federal_justice": {
+     "magistrates": 2014,
+     "servants": 27656,
+     "career_servants": 25197
+    },
+    "labor_justice_regional": {
+     "magistrates": 3662,
+     "servants": 39305,
+     "career_servants": 37442
+    },
+    "electoral_justice_regional": {
+     "magistrates": 2841,
+     "servants": 23093,
+     "career_servants": 14374,
+     "note": "Most electoral judges are state or federal judges on assignment, and 7,710 servants are requisitioned from other bodies."
+    },
+    "tjdft": {
+     "magistrates": 379,
+     "servants": 10232,
+     "career_servants": null
+    }
+   },
+   "source": {
+    "body": "Conselho Nacional de Justiça",
+    "document": "Justiça em Números 2025 (ano-base 2024)",
+    "url": "https://www.cnj.jus.br/wp-content/uploads/2025/10/justica-em-numeros-2025.pdf",
+    "quote": "a Justiça Federal possuía um total de 27.656 servidores(as), dentre os quais 25.197 eram do quadro efetivo (91,1%) [...] a Justiça do Trabalho possuía um total de 39.305 servidores(as), dentre os quais 37.442 eram do quadro efetivo (95,3%)"
+   }
+  }
+ },
+ "branches_2024": {
+  "executive_civil": {
+   "active": 669182,
+   "retired": 446775,
+   "pensioners": 294419,
+   "as_of": "2024-07"
+  },
+  "judiciary": {
+   "active": 105294,
+   "retired": 33949,
+   "pensioners": 10055,
+   "as_of": "2024-07"
+  },
+  "legislative": {
+   "active": 6776,
+   "retired": 8747,
+   "pensioners": 3643,
+   "as_of": "2024-07"
+  },
+  "mpu": {
+   "active": 17032,
+   "retired": 2768,
+   "pensioners": 1015,
+   "as_of": "2024-07"
+  },
+  "executive_military": {
+   "active": 354230,
+   "retired": 169491,
+   "pensioners": 221374,
+   "pension_founders": 138370,
+   "as_of": "2024-05"
+  },
+  "sources": {
+   "civil": {
+    "document": "PLDO 2026, Anexo IV.11, Avaliação Atuarial do RPPS da União (data focal 31/12/2024), Tabelas 6 a 9",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/orcamento/orcamentos-anuais/2026/pldo/11-iv-11-avaliacao-atuarial-rpps.pdf",
+    "quote": "No total, foram considerados 1.599.655 segurados, sendo 798.284 servidores ativos (49,9%), 492.239 aposentados (30,8%) e 309.132 pensionistas (19,3%)."
+   },
+   "military": {
+    "document": "PLDO 2026, Anexo IV.12, Volume 1, seção 3.1.1",
+    "url": "https://www.gov.br/planejamento/pt-br/assuntos/orcamento/orcamentos-anuais/2026/pldo/12-anexo-iv-12-avaliacao-atuarial-do-sistema-de-pensoes-militares-das-forcas-armadas-volume-1.pdf",
+    "quote": "Os dados correntes utilizados foram de maio de 2024 [...] Militares Ativos Total 354.230; Militares Veteranos 169.491; Pensionistas Tronco 138.370; Pensionistas Beneficiários 221.374"
+   }
+  }
+ },
+ "notes": [
+  "All civil retirees and pensioners in these counts belong to the Union's own civil servant regime (RPPS, Constitution art. 40), not to INSS/RGPS. Commissioned-only staff, temporaries, public employees and elected mandates are RGPS (Constitution art. 40, para. 13). Military retirees and pensioners belong to the SPSMFA, a third system.",
+  "RPPS counts only career posts and members; it excludes commissioned-only staff, who are on the payroll. Dividing a branch payroll by these counts overstates cost per person, most of all in the Legislative (Câmara: about 11,530 commissioned staff without tie in Dec 2025).",
+  "pensioners = beneficiaries (people receiving a pension) in the RPPS tables, inferred because each pensioner has own sex and age; the document does not say 'instituidor'. Military and Anexo I sources give both founders and beneficiaries explicitly.",
+  "The URLs on gov.br/planejamento return an HTML page; append /@@download/file to get the PDF.",
+  "RPPS executive retirees fell by 25,406 between July 2024 and July 2025; the report pages read do not explain it. Do not show it as a trend without an explanation.",
+  "DF police and firefighters paid through FCDF have no headcount in these sources.",
+  "Dates differ by source: civil RPPS July 2025, military May 2025, Câmara and Senado December 2025, DPU July 2026, CNJ December 2024. Do not add across sources."
+ ],
+ "judiciary_cost_per_person_cnj": {
+  "as_of": "2024",
+  "unit": "BRL per month, average",
+  "what": "Total monthly spending per person: remuneration, indemnities, social and pension charges, income tax, travel (tickets and per diem); payments to retirees and pensioners are included in the calculation. It is not a salary.",
+  "courts": {
+   "superior_courts": {
+    "name": "Tribunais Superiores",
+    "per_magistrate": 101600.0,
+    "per_servant": 27300.0,
+    "quote": "despesas médias mensais dos Tribunais Superiores com pagamento de magistrados(as) e servidores(as). É importante esclarecer que os valores incluem os pagamentos de remunerações, indenizações, encargos sociais, pre- videnciários, imposto de renda, despesas com viagens a serviço (passagens aéreas e diárias16), o que não corresponde, portanto, aos salários, tampouco aos valores recebidos pelos(as) servidores(as) públicos. Dito isso, observa-se que as despesas representam uma média mensal de R$ 101,6 mil por magistrado(a); de R$ 27,3 mil por servidor(a); de R$ 7,4 mil por terceirizado(a); e de R$ 1,4 mil por estagiário(a)."
+   },
+   "federal_justice": {
+    "name": "Justiça Federal",
+    "per_magistrate": 71800.0,
+    "per_servant": 27000.0,
+    "quote": "despesas médias mensais da Justiça Federal com pagamento de magistrados(as) e servidores(as). É importante esclarecer que os valores incluem os pagamentos de remunerações, indenizações, encargos sociais, previdenciá- rios, imposto de renda, despesas com viagens a serviço (passagens aéreas e diárias24), o que não corresponde, portanto, aos salários, tampouco aos valores recebidos pelos(as) servidores(as) públicos. Dito isso, observa-se que as despesas representam uma média mensal de R$ 71,8 mil por magistrado(a); de R$ 27 mil por servidor(a); de R$ 4,2 mil por terceirizado(a); e de R$ 1.354,62 por estagiário(a)."
+   },
+   "labor_justice": {
+    "name": "Justiça do Trabalho",
+    "per_magistrate": 68700.0,
+    "per_servant": 26700.0,
+    "quote": "despesas médias mensais da Justiça do Trabalho com pagamento de magistrados(as) e servidores(as). É importante esclarecer que os valores incluem os pagamentos de remunerações, indenizações, encargos sociais, pre- videnciários, imposto de renda, despesas com viagens a serviço (passagens aéreas e diárias28), o que não corresponde, portanto, aos salários, tampouco aos valores recebidos pelos(as) servidores(as) públicos. Dito isso, observa-se que as despesas representam uma média mensal de R$ 68,7 mil por magistrado(a); de R$ 26,7 mil por servidor(a); de R$ 5,1 mil por terceirizado(a); e de R$ 1.268,67 por estagiário(a)."
+   },
+   "electoral_justice": {
+    "name": "Justiça Eleitoral",
+    "per_magistrate": 10400.0,
+    "per_servant": 19300.0,
+    "quote": "despesas médias mensais da Justiça Eleitoral com pagamento de magistrados(as) e servidores(as). É importante esclarecer que os valores incluem os pagamentos de remunerações, indenizações, encargos sociais, previdenciá- rios, imposto de renda, despesas com viagens a serviço (passagens aéreas e diárias31), o que não corresponde, portanto, aos salários, tampouco aos valores recebidos pelos(as) servidores(as) públicos. Dito isso, observa-se que as despesas representam uma média mensal de R$ 10,4 mil por magistrado(a); de R$ 19,3 mil por servidor(a); de R$ 3,9 mil por terceirizado(a); e de R$ 1.042,07 por estagiário(a)."
+   }
+  },
+  "electoral_note": "Electoral Justice pays only the electoral gratification to its judges; their salaries come from their home courts, so its per-magistrate figure is not comparable.",
+  "caveat_quote": "No cálculo, estão considerados os pagamentos com inativos e pensionistas, o que pode acarretar diferenças quando feita a comparação entre tribunais, uma vez que o pagamento de tais vencimentos pode ocorrer às expensas do órgão ou por meio de fundos de pen- são, neste caso, não computados.",
+  "source": {
+   "body": "Conselho Nacional de Justiça",
+   "document": "Justiça em Números 2025 (ano-base 2024), Figuras 70, 124, 151 e 173",
+   "url": "https://www.cnj.jus.br/wp-content/uploads/2025/10/justica-em-numeros-2025.pdf",
+   "file_last_modified": "Thu, 09 Oct 2025 19:14:54 GMT"
+  },
+  "not_available": "No equivalent all-in cost per person is published for the Legislative or the Executive; do not rank these figures against the RPPS averages."
+ }
+}

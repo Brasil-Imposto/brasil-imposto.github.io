@@ -1,0 +1,306 @@
+# Brasil-Imposto: padrões aprendidos
+
+Registro do que as sessões de 2026-09-25 a 2026-10-01 (rounds 1 a 11 das prévias) e de 2026-10-01 a 02 (grill de alinhamento) ensinaram. As decisões do autor ficam no
+`README.md` (tabela D, perguntas Q); aqui ficam os padrões de trabalho, as armadilhas dos dados e as receitas que funcionaram.
+
+## Learned patterns
+
+### Fontes oficiais: frequência e armadilhas
+| Dado | Fonte | Frequência | Armadilha |
+|---|---|---|---|
+| Arrecadação federal por estado | Receita Federal | mensal | De fev/2025 a jan/2026 a Receita lançou no DF de 14,8% a 25,2% da arrecadação do país (antes, no máximo 10,8%), em quase todos os tributos ao mesmo tempo. Meses com 2% a 4% sem estado em 2024-09 e 2026. Ver D37 e D40. |
+| Arrecadação federal por município | Receita Federal | **anual** (2005 a 2025) | Não há versão mensal aberta encontrada; por isso o saldo da cidade não fecha num mês do ano corrente. O arquivo de 2025 tem a mesma quebra do DF (Brasília com R$ 603 bi). |
+| Repasses da União | Portal da Transparência (CGU) | mensal | O servidor de downloads tem um WAF da AWS que bloqueia rajadas (HTTP 405 com página de desafio no lugar do ZIP). Ritmo que funcionou: um arquivo a cada 90 s, com espera crescente; o script retoma de onde parou (`data/scripts/series/agg_transfers_monthly.py`). |
+| Bolsa Família, BPC | MDS (MI Social) | mensal | O programa mudou de nome (Auxílio Brasil de nov/2021 a fev/2023). |
+| INSS | Previdência (BEPS) | mensal por estado | Por município existe microdado aberto do INSS (jul/2021 em diante), sem login; ainda não carregado. Nunca escrever "não há dado aberto" sem procurar. |
+| Orçamentos de estados e prefeituras | Tesouro, SICONFI | a cada 2 meses (RREO) e 4 meses (RGF) | Buscar o RREO **e** o RREO Simplificado: só o primeiro faz 2.329 municípios parecerem "sem relatório". Os relatórios são acumulados no ano: o bimestre isolado é a diferença entre dois. |
+| Contas do governo federal | Tesouro (RTN) e BCB (dívida) | mensal | Um mês de atraso. |
+| Folha federal por estado | Portal da Transparência (execução da despesa) | mensal | Militares não têm estado em nenhum arquivo aberto (todos os registros com UF -1). O arquivo de servidores tem 40% das linhas sem UF e põe no DF quem trabalha fora. Aposentados e pensionistas não têm coluna de UF. R$ 208 bi da folha de 2024 ficam sem estado. |
+| Gasto federal direto por UF | Portal (execução da despesa) mais o cadastro de UGs do SIAFI (Tesouro Transparente, `siafi-relatorio-unidades-gestoras`) | mensal | Pelo localizador, 90% do gasto direto do Executivo fica sem UF; pela UG que paga, quase tudo ganha UF, mas seguro-desemprego, abono, folha militar, compras centralizadas da Saúde e obras do DNIT caem na sede (DF, RJ). Regra adotada: as duas etapas (D45). O arquivo de jun/2025 vem com quase o dobro do normal. |
+| Seguro-desemprego e abono por UF | MTE, Relatório de Gestão do FAT (anual) | anual | A única série por UF achada são os rótulos de dois gráficos do PDF. No seguro-desemprego, a soma das barras por UF não bate com a pizza por região do mesmo gráfico; o total bate e o texto confirma as barras. |
+| Vínculos públicos por UF, três esferas | Ipea, Atlas do Estado Brasileiro (a partir da RAIS) | anual, com atraso | O ano mais recente por UF é 2021. Federais civis do Executivo mais recentes: arquivo do SIAPE do Ministério da Gestão. |
+| Arrecadação federal por natureza jurídica | Receita Federal | mensal | Não tem UF. Mostra que 98,7% da contribuição dos servidores federais (CPSSS) é paga por órgãos federais: imposto que a União paga a si mesma e que o arquivo por UF registra no DF. |
+
+### Estimativa só com teste
+- Uma estimativa só entra no site com um teste do método em anos em que o dado verdadeiro existe, e o erro vai para a tela.
+- Fica num arquivo separado do dado publicado (ex.: `data/series/federal-revenue-uf-estimated.json`). O publicado nunca é alterado.
+- Quando o teste mostra erro grande para a pergunta em jogo, não se estima. Ex.: a folha federal por participação errou 4,8% na mediana e 10,6% no DF, justo o estado em discussão (D41).
+- Uma "foto de antes" para comparar pode ser um estado intermediário de outra coleta. O invariante certo é o arquivo publicado: 2024 da série mensal tem de bater ao centavo com `data/uf-balance-2024.json`, e a checagem tem de pegar um erro de controle de R$ 500.
+
+- Checagem ao centavo, sessão de 2026-10-02: o arquivo da Receita por estado tem colunas com três casas decimais, e 4
+  estado-mês de 2026 caem em meio centavo exato (AC, MA e RR em fev, RO em jun). O critério certo é "a série é o valor
+  exato do arquivo arredondado ao centavo" (diferença de até meio centavo contra uma passada em `Decimal`), não igualdade.
+- A passada independente também erra: a primeira somou as colunas erradas (`r[13] + r[14]` em vez de pago mais restos a
+  pagar) e o controle acusou R$ 29,7 bi a mais do que o centavo esperado. Quando o controle falha por mais do que o erro
+  plantado, o defeito está na checagem.
+- O script só grava o JSON depois de a checagem passar; antes, uma rodada que falhava deixava o arquivo no disco.
+- A base do Tesouro somada sem mês (`data/scripts/ug/agg_dtt_full.py`) não serve para um período parcial; `data/scripts/ug/agg_dtt_monthly.py` guarda o mês.
+  O FCDF (unidade 73901) fica sob o órgão 25000 (Fazenda) nessa base, não sob o 73000.
+
+- **A checagem ao centavo não pega um erro de recorte.** Em 2019 o fundo do INSS tinha outro código de unidade (25917;
+  40904 em 2023; 33904 em 2024), a exclusão por código não pegou nada, os benefícios entraram de novo como gasto do
+  Executivo no DF e o DF saiu a -R$ 21.687 por pessoa por mês, com todas as checagens ao centavo verdes. A defesa:
+  excluir pelo nome do fundo e pela ação, e comparar o que o recorte deixa de fora com a série que conta aquilo pelo
+  destino (INSS, Bolsa Família, BPC, FCDF numa faixa de 0,85 a 1,3), provada com o erro plantado de volta.
+- **Arquivo do governo quebrado:** o arquivo do Portal de jun/2025 foi gerado de novo pela CGU em 01/10/2026 com todos os
+  valores zerados (uma versão anterior tinha a folha em dobro). Conferir cada mês do Portal contra a base do Tesouro no
+  mesmo recorte **sem as sentenças judiciais** (só o Tesouro as traz: R$ 61,6 bi de precatórios em dez/2023, R$ 25,9 bi
+  em mar/2026 com a ação nova 00WU, por isso identificadas pela categoria do RTN, não pelo código). Sem elas a razão fica
+  entre 1,00 e 1,01 mês a mês; fora de 0,9 a 1,1 o mês fica de fora dos dois lados, com aviso na tela.
+
+### Data de divulgação (GD33): onde ler
+- Portal da Transparência: `Last-Modified` do arquivo no servidor de dados abertos da CGU (os meses de 2026 foram gerados
+  de novo em 17/09/2026). Receita: a data "Publicado em" da Análise da Arrecadação do mês no gov.br (o CSV por estado não
+  tem data e o gov.br não manda `Last-Modified`). Tesouro: `last_modified` do recurso no CKAN. IBGE: campo `modificacao`
+  de `/api/v3/agregados/6579/periodos`. Previdência: data da página `/view` do boletim. MDS (MI Social) e a API do Banco
+  Central não publicam data.
+- "Sem data publicada" (a fonte não tem) e "data a conferir" (ainda não lemos) são coisas diferentes na tela; a prévia
+  quase mostrou a data do BEPS de 2026 para os números de 2024.
+- Em 2026-10-02 o Portal entregou os arquivos de execução da despesa de jan a jul/2026 no ritmo de 90 s, sem bloqueio:
+  a coleta que travou em Q32 (folha federal de nov/2025 em diante) pode ser tentada de novo.
+
+### Regra de localização: a mesma dos dois lados
+- O lado "envia" segue a lei: IR retido, PIS e COFINS são recolhidos na matriz de quem paga (Lei 9.779/1999, art. 15; RIR/2018,
+  arts. 202 e 932), o que infla SP e o DF. Um lado "voltou" que só conta o que tem UF no localizador fica assimétrico e pintou o
+  DF de verde.
+- Quando o autor diz que um número "não faz sentido", pesquisar os fatos **e** testar a definição da métrica. No DF, os fatos
+  confirmaram a leitura dele (1º em vínculos públicos e em gasto por pessoa) e o defeito era a regra, não o dado.
+- Mostrar a sensibilidade entre variantes antes de decidir: o DF ficou em último em todas (de -R$ 1.968 a -R$ 6.836 por pessoa
+  por mês em 2024), então a conclusão se sustenta e só o tamanho depende da regra.
+- Toda regra vale igual para os 27 estados; nenhuma regra só para o DF.
+
+### Rodadas depois do grill (D59)
+- Uma rodada nova parte da simulação aprovada e muda só o que a regra pede. A rodada 1 foi montada do zero e perdeu o
+  modal do estado, os casos, as fotos, o seletor de anos e as bandeiras dos vizinhos; o autor reprovou na hora.
+- Os vizinhos ficaram pretos porque a página não carregava `bi-data.js` (as bandeiras vão embutidas nele): pelo caminho do
+  arquivo, o Chrome bloqueia o desenho de imagens soltas no WebGL. A sonda servida por http escondeu isso. **Conferir a
+  prévia pelo `file://`, do jeito que o autor abre**, com uma foto (não só `data-ready`).
+- Cartão sobre o mapa: conferir em 1024, 1280, 1366, 1440, 1680 e 1920 px. A legenda cresceu com notas e datas e cobriu a
+  costa da BA e do ES em 1280 px; as notas longas foram para a faixa "Como ler o mapa" e, entre 761 e 1062 px de janela (1180 px de CSS, com o zoom de 90% de D96), os cartões
+  saem de cima do mapa.
+- Uma classe genérica num componente novo colide com a página: a dica da busca de emendas usou `.hint` e herdou o
+  `position: absolute` da dica do hero, aparecendo em cima do mapa.
+
+### Banco Central e posts de redes sociais (2026-10-03)
+- Em 2026-10-03 o `api.bcb.gov.br` servia um certificado de outro host. O serviço SOAP do SGS em
+  `www3.bcb.gov.br/wssgs/services/FachadaWSSGS` (certificado válido) entrega as mesmas séries (`getValoresSeriesXML`).
+- O SGS publica em R$ milhões com duas casas (R$ 10 mil). A cópia do Tesouro tem mais casas: a conferência entre as duas
+  é dentro de uma unidade publicada, não ao centavo.
+- Números de posts políticos costumam estar certos e mal rotulados: os R$ 126 bi de superávit de 2022 são do setor
+  público inteiro (o governo federal teve R$ 46 a 55 bi); os R$ 10,8 tri são a dívida bruta (estoque), não déficit.
+  Mostrar no site o número com o escopo escrito, nunca escolher o escopo que favorece um lado.
+- `inOffice` contava como no cargo quem saía no primeiro dia do período (a data de fim é o dia da posse do sucessor):
+  o mandato 2023 a 2026 mostrava dois presidentes. Fim é exclusivo.
+
+### Dado que não existe (2026-10-03)
+- Quando o dado pedido não existe (saldo com a União por Região Administrativa do DF), perguntar ao autor; nunca colorir
+  com outra medida que ele não pediu (a população foi reprovada na hora, D68).
+- Edição por fatia de texto (`t[:a] + novo + t[b:]`) com marcador de fim distante apagou dez funções de `statehero.js`
+  (do painel do DF até o fim do mapa municipal) e o mapa sumiu de todos os estados. A cópia de segurança já tinha sido
+  apagada na limpeza; foi preciso reconstruir pelo que foi lido na sessão. Regras: substituição exata com
+  `assert t.count(old) == 1`, nunca fatia entre marcadores distantes; apagar a cópia de segurança só depois de testar a
+  página; depois de mexer num módulo compartilhado, testar os modais que o usam (SC e DF).
+
+### Linhas de um anexo somam o total do anexo (2026-10-03)
+- O mapa de linhas do RREO Anexo 3 tinha só as linhas dos estados. O DF informa no mesmo anexo os impostos de prefeitura de
+  Brasília (ISS, IPTU, ITBI) e o FPM, cerca de R$ 6 bi por ano, e eles sumiram da coluna "Pagou" por semanas; a legenda ainda
+  dizia que estavam dentro de "Taxas estaduais" (R$ 606 mi, que são outra coisa). O total não acusou porque a linha
+  "Demais receitas" era calculada como o resto e engolia a diferença calada.
+- Regra: toda lista de linhas tirada de um anexo soma o total do próprio anexo ao real, em todos os entes e períodos, e o
+  script não grava quando não soma (controle: tirar uma linha tem que falhar). Uma linha "Demais" calculada como resto nunca
+  serve de checagem. A mesma checagem pegou Minas, que preencheu o IRRF do 1º bimestre de 2026 com o nome "IBS".
+
+### Comparar só na mesma régua (2026-10-03)
+- "O Judiciário é o mais caro por servidor": na única régua igual para todos os Poderes civis (remuneração média do quadro
+  efetivo, avaliação atuarial do RPPS, julho de 2025) a maior média é a do Legislativo. A conta do CNJ (R$ 68,7 mil a
+  R$ 101,6 mil por magistrado por mês) soma indenizações, encargos e o que se paga a aposentados, e não existe igual para os
+  outros Poderes. As duas aparecem lado a lado, cada uma com o que mede, e nunca numa lista ordenada única.
+- Dividir a folha do Tesouro pela contagem do RPPS infla o Legislativo: os comissionados sem vínculo (cerca de 15 mil na
+  Câmara e no Senado) recebem dessa folha e não entram na contagem.
+
+### "Por pessoa, por mês" em período aberto (2026-10-03)
+- Cada fonte cobre meses diferentes dentro do mesmo período: em 2026, a arrecadação federal ia até julho e os relatórios dos
+  estados (bimestrais) até junho, mas a página dividia tudo pelos 8 meses do período. Todos os estados apareciam até 25% abaixo
+  em 2026 (DF: pagou R$ 5.460 em vez de R$ 6.360 por pessoa e por mês). Ninguém viu porque o número parecia plausível.
+- Regra: a média mensal divide pelos meses que a fonte cobre (`sum()` já devolve `n`; usar), e o cartão diz quais meses são
+  ("2026 (janeiro a junho), último relatório do governo"). Conferir com um número feito à mão: ISS do DF de janeiro a junho
+  dividido por 6 deu R$ 113,62, e a tela mostrava R$ 85 (dividido por 8).
+
+### DF por Região Administrativa (2026-10-03)
+- Brasília é o único município do DF (CF art. 32); o GDF cobra ISS, IPTU e ITBI e recebe o FPM, e informa tudo no mesmo RREO
+  dos impostos de estado. As 37 regiões não têm prefeitura, câmara nem imposto próprio.
+- Portal da Transparência do DF: API aberta em `/api/...`, que exige o cabeçalho `x-client-id` com qualquer UUID. Tem orçamento por
+  Unidade Gestora (cada Administração Regional é uma), gasto por subtítulo (o lugar vem no fim do nome), o painel "Despesas
+  Regionais" (pago por Administração) e a folha (função "ADMINISTRADOR REGIONAL"). DODF, Infobras e os sites das Administrações não
+  responderam; a "Consulta Dinâmica" dá "Erro SQL".
+- Só 3,5% a 8,7% do gasto do GDF cita uma região, e parte disso é sede de órgão (Plano Piloto: folha do TCDF, do DER e do
+  Hemocentro). Nenhuma das duas medidas por região serve para colorir o mapa sem enganar; isso tem de ir ao autor antes (ver
+  CLAUDE.md), não depois.
+
+### Custo por pessoa no setor público federal (2026-10-03)
+- Quantidades e médias por Poder: avaliações atuariais do PLDO (Anexo IV.11, regime próprio dos civis; Anexo IV.12, militares),
+  baixar com `/@@download/file` no fim do endereço do gov.br. A DPU vem dentro do Executivo nessa fonte.
+- Custo por magistrado com tudo somado: CNJ, Justiça em Números (PDF de 27 MB; `pdftotext` e apagar o PDF). As frases
+  "média mensal de R$ X mil por magistrado(a)" estão no texto, por ramo; incluem o que se paga a aposentados.
+
+### Disco (2026-10-02)
+- O disco do autor encheu (ENOSPC) com cinco agentes de coleta em paralelo; a ferramenta de comandos parou de funcionar e
+  nem o diagnóstico rodava. Com o disco cheio só o autor pode liberar espaço. Regra no CLAUDE.md: um arquivo por vez,
+  apagar o bruto, ler por HTTP Range, temporário apagado no fim, parar com menos de 5 GB, no máximo dois agentes de coleta.
+- Um agente parado pode deixar processo órfão (um `http.server` ficou servindo a pasta temporária): conferir `pgrep` e
+  o diretório do processo antes de matar.
+- Pasta temporária de sessão antiga guardava 2,9 GB de brutos já processados (obras, ponte, séries): apagar o bruto assim
+  que o JSON do projeto existe.
+
+### Prévias que abrem pelo arquivo
+- As prévias abrem por `file://`: nada de `fetch` nem import de módulo local. Os dados vão como scripts clássicos (`window.BI` em `assets/bi-data.js`), gerados por `docs/superpowers/tools/build-standalone-data.py`. A simulação da home sai de `tools/build-simulation.py`.
+- Ordem depois de qualquer mudança em `data/`: `build-cases.py` (se mexeu em obras), `build-standalone-data.py`, `build-simulation.py`.
+- Os módulos compartilhados em `docs/superpowers/previews/assets/` (`proposals.js`, `statehero.js`, `serieslayer.js`, `contas.js`, `periods.js`, `politicians.js`, `cases.js`) servem a página de propostas e a simulação, para nunca divergirem.
+
+### Conferir antes de entregar
+- **Link longo perde o fim ao ser copiado do terminal** (2026-10-06, duas vezes): o endereço da spec tinha 142 caracteres e o
+  Chrome do autor recebeu só até `.htm`, sem o `l`, e deu ERR_FILE_NOT_FOUND. Na entrega, abrir a página no Chrome dele
+  (`open -a "Google Chrome" <arquivo>`) e dar também o link curto da pasta (`file://<pasta do projeto>/docs/superpowers/previews/`).
+- Servir `docs/superpowers` com `python3 -m http.server 8765 --bind 127.0.0.1` e fotografar com `docs/superpowers/tools/shot.sh` (o `chrome-headless-shell` do Playwright, já com os ajustes abaixo).
+- O WebGL do mapa 3D só funciona no headless com `--enable-unsafe-swiftshader --use-angle=swiftshader`.
+- Usar um `--user-data-dir` novo a cada foto: o perfil reaproveitado serviu `bi-data.js` e `contas.js` velhos duas vezes e quase gerou diagnóstico falso.
+- `tools/action-probe.html` abre o estado (`open=SC`), escolhe município (`mun=<IBGE>`), período (`period=year:2024`), modal do Brasil (`brasil=1`) e rola até um seletor (`scrollto=`). A página do round 10 aceita `?case=<id>&cmp=1`.
+- Sempre em duas larguras: 1440 e 420.
+
+- Erro de execução e console são coisas diferentes: o probe (`tools/action-probe.html`) pega o erro que estoura na ação
+  ("PROBE ERROR ..."), e o console do Chrome sem cabeça (`--enable-logging=stderr`) pega `console.error` e erros soltos. Ler os
+  dois. O console foi provado com uma página quebrada de propósito (2 erros achados) antes de confiar no zero.
+
+### Agentes de pesquisa
+- Dar a cada agente um prefixo de arquivo próprio. Dois agentes escreveram `data/scripts/works/download.sh` e um apagou o do outro; recuperado do registro do agente.
+- Um agente que morre no limite de uso pode deixar o próprio download rodando até o fim. Depois, conferir o log do job e rodar o passo de montagem que o agente não alcançou (assim foram recuperados os repasses de 2025 e 2026).
+- Agentes com "verifique na fonte" passam do prazo (a folha levou 5h30 contra 90 min pedidos). Escopo pela decisão, não pelo tema.
+- Fotos de pessoas: URLs remotas do Wikimedia Commons, da Câmara e do Senado, com autor e licença; os termos de uso da Câmara e do Senado permitem reproduzir citando a fonte.
+- Três de seis agentes travaram em 2026-10-01 ("no progress for 600s"), sempre depois de escrever boa parte do trabalho. O que
+  funcionou: conferir o disco antes de relançar; rodar de novo o script do agente e o controle que deve falhar; escrever a seção
+  que faltou, ou lançar um agente novo só para "terminar as seções que faltam" lendo o relatório parcial (cerca de 40 min contra
+  um recomeço inteiro).
+- Registrar as decisões no grill **antes** de lançar um agente que lê o registro: um agente lançado antes leu até GD37 e
+  relatou que GD38 a GD43 "não existiam".
+- Pedir no prompt chaves de JSON e nomes de arquivo em inglês: os agentes de 2026-10-01 gravaram chaves em português
+  (`data/ug/*.json`), que precisam ser renomeadas (D54).
+
+### Texto na tela
+- Nada de afirmação sem fonte, nem para explicar um número. Ex.: "boa parte da folha sem estado deve ser paga no DF" saiu do texto porque nenhum arquivo diz isso.
+- Neutralidade: só cargos, datas e partido na época, o mesmo tratamento para todos. Candidaturas de 2026 ficam nos dados para a revisão jurídica e nunca na tela.
+- Foto que mostra só a região da obra diz isso na legenda.
+- Pistas do autor conferidas em 2026-10-04 e 05: fundo eleitoral de 2026 (5 bi certo; "dobrou" errado, igual a 2024; votação
+  simbólica, sem voto por partido), monotrilho de SP (Linha 17-Ouro aberta em 31/03/2026, não 2024; nenhum documento oficial diz
+  "superfaturamento"), ponte Hercílio Luz (R$ 507,3 mi pagos de 2006 a 2020, contrato por contrato com a supervisão e a 1ª etapa pela CPI; nenhum documento perto dos R$ 800 mi lembrados). Em
+  todos, a resposta mostrou o fato oficial lado a lado com a lembrança, e o autor aceitou.
+- Foto de obra no Wikimedia Commons: abrir e olhar antes de usar. A primeira candidata do monotrilho ("Monotrilho, Linha
+  17-Ouro") mostrava um túnel de avenida, sem monotrilho; a escolhida mostra a Estação Morumbi em obras (2020).
+- Afirmação do autor é pista, não fato: a venda dos gasodutos atribuída ao Tarcísio (a Petrobras vendeu a NTS em 2017 e a TAG em
+  2019; ele era ministro da Infraestrutura), o "nunca apresentou um projeto" do Tiririca, os "pelo menos R$ 100 bi" dos
+  escândalos e os shows "no Norte e Nordeste" (o caso mais repercutido foi em MG). Conferir na fonte antes de qualquer frase.
+- Quando o pedido vem com linguagem carregada ("sugam", "gera valor", uma página só sobre um político, a Rouanet como "comprar
+  artistas"), manter a intenção e propor a forma neutra apoiada na própria regra do autor (GD10, só dados): legenda formal,
+  ficha igual para todos com busca, Rouanet entre os demais incentivos. Ele aceitou todas as vezes.
+
+### Grill e rodadas de decisão
+- Estado do grill num arquivo do projeto: árvore de pontos (G), registro de decisões (GD) com as palavras do autor, e uma tabela
+  que liga cada pergunta da rodada ao seu ponto. Nos títulos da rodada, numerar de 1 em diante; os códigos G só no arquivo.
+- Começar pela raiz (o objetivo, montado com as frases do próprio autor), nunca pela logística de lançamento.
+- O autor responde melhor a uma tabela curta (# | decisão | recomendação) do que a texto longo; repetir em formato curto o que
+  ele pular. Uma pergunta escondida na primeira linha de uma tabela logo depois de uma lista passou despercebida.
+- Ao acrescentar linhas a uma tabela markdown por script, inserir depois da última linha e conferir que nenhuma linha em branco
+  separa as linhas; inserir antes do título seguinte quebrou a tabela de decisões em sete pedaços.
+- Na conversa com o autor (terminal), nada de `<br>` dentro de tabela: o terminal mostra a tag crua (2026-10-04, *"wtf are these
+  <br> ?? are you bugged??"*). Opções de uma célula vão separadas por ponto e vírgula, ou a tabela vira lista.
+
+### Mudar como um estado aparece: são quatro lugares (2026-10-17, D138)
+O veredito de um estado ("Enviou", "Recebeu", "o que mais envia") e a cor dele saem de quatro fontes, e cada uma precisa
+mudar junto: a página-fonte da home (`BRASIL-IMPOSTO_DESIGN_hero-mapa-3d-round-2_2026-09-29.html`: valor da métrica, escala,
+tooltip, linha da legenda, notas e o líder), `assets/statehero.js` (janela do DF e mapa das Regiões Administrativas),
+`assets/proposals.js` (caixa "O estado e a União" da janela de qualquer estado) e `assets/ledger-graph-view.js` (a rede).
+Depois, reconstruir com `build-simulation.py` e `build-platform-preview.py`, e conferir no navegador as três métricas, os
+três períodos, alguns anos, o passar do mouse e o clique, procurando o veredito antigo em todo texto visível. A primeira
+passada do DF em revisão esqueceu `proposals.js`, achado só porque a janela foi aberta com clique de verdade.
+O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarregar com Cmd+Shift+R.
+
+### DF, vizinhos e entradas de dinheiro (2026-10-04)
+- O mapa de um estado mostra o mesmo número do mapa do Brasil quando o dado não desce mais: o DF usa a linha `BIL.federalAt('DF')` e
+  a escala de 26 estados da home (`statemap` aceita `scale` de fora), em vez de inventar uma medida por região (D68, D78).
+- Nome de vizinho no mapa 3D: no celular (420 px) o quadro é limitado pela largura e as margens laterais somem; só a margem de cima
+  aparece em todas as larguras. Goiás fica acima da divisa norte; Minas, que só encosta no canto sudeste, aparece em 1440 e some em
+  420. O construtor confere que cada nome cai dentro do próprio estado, com controle plantado.
+- Entradas de dinheiro na União (dividendos, imposto novo): a fonte é o Resultado do Tesouro Nacional do mês (tabela por empresa e
+  texto sobre receitas atípicas) mais o arquivo diário de receitas do Portal da Transparência para a data. Datas no cartão: o dia
+  do pagamento (`moved_on`), não a data do documento que o registra.
+
+### RS no formato de SC (2026-10-04)
+- Generalizar em vez de copiar: os scripts de SC ganharam `--uf`, e a prova de que nada mudou foi refazer SC com eles. Onde o bruto
+  de SC já tinha sido apagado, o mesmo arquivo nacional baixado para o RS foi agregado para os dois estados numa passada só, e SC
+  saiu igual valor por valor ao publicado, menos set/2026, que o Portal ainda estava preenchendo quando SC foi coletado.
+- O agente de coleta parou por travamento (600 s), mas os dois downloads que ele lançou seguiram sozinhos e terminaram; o log de
+  progresso do agente (feito, rodando, próximo) bastou para continuar sem relançar nada.
+- O WAF do Portal alternou: de 90 s por arquivo a esperas de 1 a 2 horas por arquivo (das 3h às 9h), e depois voltou a 90 s.
+  Script que retoma de onde parou é obrigatório.
+- Uma checagem nova (o nome de cada vizinho cai dentro do próprio país) achou um defeito antigo no mapa de SC (Argentina do lado
+  brasileiro). Defeito achado assim vai para o autor como item à parte; a exceção fica escrita no próprio script.
+- Na Grande Porto Alegre, quatro dos dez maiores municípios ficam colados: os nomes no mapa do RS pulam o município cujo nome
+  cobriria outro (só no RS; SC ficou como estava).
+- Afirmação do autor conferida na fonte (fundo eleitoral, 2026-10-04): "5 bi" certo; "dobrou" errado para 2026 (igual a 2024; o
+  que dobrou foi 2020 para 2022; em 2026 o Congresso multiplicou por 4,9 a proposta do Executivo); "esquerda e direita votaram a
+  favor" sem registro: votação simbólica, só os votos contrários ficam anotados. As APIs de votação da Câmara e do Senado não
+  registram sessões conjuntas do Congresso; resultado vazio delas não prova nada. tse.jus.br bloqueia acesso automático (403):
+  ler pelo Internet Archive.
+- "A conta fecha?" (D90): perder a validade não quer dizer a mesma coisa dos dois lados. Receita prevista de MP que caducou
+  nunca existiu (fora da soma); MP de gasto que caducou pode ter sido gasta enquanto valia (Auxílio Emergencial, MPs 937 e
+  988): tirar da soma seria falso negativo. Teto e previsão não são caixa: a conta que fecha usa só valores pagos.
+- Planalto, in.gov.br e camara.leg.br recusaram conexão desta máquina em 2026-10-04 e 05; o servidor de documentos do Senado
+  responde com desafio de robô. Funcionou: cópia do Planalto no Internet Archive (`web.archive.org/web/2026/<url>`, com
+  `curl -L`) e a API de dados abertos do Senado para ementa e lista de documentos.
+- No celular as listas da home ficam numa faixa fora do hero: qualquer atualização tem de procurar no documento inteiro, não
+  dentro do hero (a faixa ficou parada no ano errado até a correção).
+- Zoom do navegador x CSS `zoom` (Chrome 149, medido em 2026-10-05): `html { zoom: .9 }` imita o zoom de 90% para posições,
+  elementos fixos e coordenadas do mouse (getBoundingClientRect e clientX ficam na mesma escala), mas encolhe `vh` e `vw` em
+  10%: toda unidade de tela precisa ser dividida pelo fator. Mapas WebGL com rótulos CSS2D medem o tamanho em px da página
+  (`offsetWidth`), não da tela, e convertem a posição do mouse pelo fator `k = rect.width / offsetWidth` antes de posicionar o
+  balão. Conferir comparando a página nova em 100% com uma cópia sem o zoom renderizada na janela dividida por 0,9.
+- "Soma" de uma lista de destaques não é a conta (2026-10-05): somar só os cartões (maiores movimentos isolados) mostrou
+  R$ 34 bi de receitas da União, sem os impostos comuns; o autor pegou comparando com SC (R$ 97,5 bi só de um estado). Uma
+  soma com o nome "Receitas" tem de ser o total oficial (RTN), e toda conta exibida tem de fechar com os valores como aparecem
+  na tela: com "tri" de duas casas, cada linha arredonda até R$ 5 bi e a conta feita à mão não fecha. Conferir somando os
+  valores exibidos, em todos os períodos.
+- Base do Tesouro "Despesas e Transferências Totais da União": a coluna CATEGORIA_RTN muda de forma entre os anos (números
+  romanos "I." e "II." até 2023, "nan" no lugar de "N/A" em 2024). Sem normalizar, 2019 a 2024 pareciam 13% a 96% acima do
+  RTN; normalizado, todos os anos batem em até 0,2%. Câmara e Senado saem por órgão (1000, 2000); fundos partidário e eleitoral
+  por ação (0413, 0EB8).
+- CSS `zoom` não muda as media queries: elas leem a janela real. Para "100% igual a 90%", todo limite de layout tem de ser
+  dividido pelo fator também (layout lateral a partir de 1181 px de CSS = 1063 px de janela). O erro de 2026-10-05 deixou
+  janelas de 1063 a 1180 px no layout empilhado; conferir na largura da janela do autor, não só em larguras redondas.
+- O pacote da prévia passou de 43 MB para 85 MB (orçamentos do RS, 37,6 MB) e abre em cerca de 1 s pelo arquivo; no site (D55) cada
+  estado vai num JSON próprio.
+
+### Rede do dinheiro e testes de interação (2026-10-09, D133 a D136)
+
+- **A rede usa as funções do mapa no navegador, para qualquer período** (`assets/ledger-graph-model.js`): o número de cada estado
+  é o do mapa no mesmo período. `docs/superpowers/tools/ledger-graph-periods-check.cjs` roda os 100 períodos (92 meses, 8 anos,
+  2 mandatos) e planta dois controles (R$ 1 na Cofins de SC; um ponto sem ligação) em ano, mandato e mês.
+- **A tolerância tem de ser menor que o controle.** Com tolerância de R$ 1, o controle de R$ 1 passou no mandato 2023 a 2026,
+  porque a diferença real ali era de R$ 0,08. Medir antes a maior diferença real em todos os períodos e pôr a tolerância entre
+  ela e o controle (hoje R$ 0,50).
+- **3d-force-graph 1.80, o que a biblioteca faz sozinha:** deixa arrastar os pontos (`enableNodeDrag` vem ligado); o
+  ForceGraph3D fixa `clickAfterDrag(false)` e conta qualquer movimento de 1 px do mouse apertado como arrasto, então o clique
+  some; o raio dela acerta pontos apagados quase invisíveis (a opacidade sai do alfa da cor) e testa todas as ligações a cada
+  movimento; trocar `linkColor` refaz toda a atualização das ligações, partículas incluídas. Solução que ficou
+  (`assets/ledger-graph-view.js`): `enablePointerInteraction(false)`; a página lê o clique (até 6 px e 700 ms) e escolhe o
+  ponto pela linha de visão do cursor (`screen2GraphCoords`) contra a esfera de cada ponto (raio `cbrt(val) * nodeRelSize`),
+  o aceso mais perto primeiro; folga de 6 px só quando nada é atingido (a folga competindo em profundidade deu 12 de 20
+  cidades certas); o destaque espera o ponteiro parar 0,2 s (recolorir a cada cidade cruzada travava a página).
+- **Interação se confere com eventos reais de mouse, não com captura de tela** (o autor achou três defeitos seguidos: arrastar,
+  clicar, selecionar no cacho). Receita da máquina no CLAUDE.md global. A janela de automação do Chrome do autor pode ficar
+  escondida: a captura sai branca e a cena não anda. No Chrome sem tela, o desenho por software é lento: depois de um voo de
+  câmera de 1,4 s, esperar 3 s antes de apontar para um ponto.
+- **A sonda não pode usar o mesmo cálculo que testa.** A de seleção calcula a linha de visão por conta própria e, em cada erro,
+  imprime o que a geometria atinge; foi isso que mostrou o defeito da folga em uma rodada. Controle: a mesma sonda 25 px fora do
+  centro tem de errar quase tudo.
+- **Pergunta sobre estimativa diz o número e os meses exatos.** "2025 tem meses estimados" foi lido como "2025 é tudo
+  estimativa" e o autor achou que a pesquisa tinha sido perdida. Dizer: só "o que cada estado pagou", de fev a dez/2025; o total
+  do país e tudo o que voltou são oficiais.

@@ -1,0 +1,978 @@
+{
+ "slug": "cei-comasa-joinville",
+ "collected_on": "2026-09-30",
+ "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_obras-sc-cei-comasa-joinville_2026-09-30.md",
+ "rules": "Somente papéis e atos oficiais, com as palavras do órgão. Nenhuma inferência de irregularidade. Valores nominais com fonte e data de coleta; somas e razões marcadas como computed são desta pesquisa.",
+ "work": {
+  "name": "Construção do Centro de Educação Infantil (CEI) Manoel Antônio da Rosa, no bairro Comasa (contrato 'CEI Rio Negro')",
+  "short_name": "CEI Comasa (Manoel Antônio da Rosa)",
+  "municipalities": [
+   {
+    "name": "Joinville",
+    "uf": "SC",
+    "ibge_code": 4209102
+   }
+  ],
+  "level": "municipal",
+  "agency": {
+   "name": "Prefeitura de Joinville, Secretaria de Educação (SED)",
+   "cnpj": "83169623000110"
+  },
+  "siconfi_function": "Educação",
+  "siconfi_function_code": 12,
+  "siconfi_subfunctions": [
+   "365 Educação Infantil",
+   "361 Ensino Fundamental (uma das dotações do 3º apostilamento)"
+  ],
+  "funding_quote": "Dotações dos apostilamentos: 'Fonte 336 - Recursos Superávit Salário-Educação' (1º e 3º), 'Fonte 136 - Salário-Educação' e 'Fonte 119 - Transferências do FUNDEB' (2º). A Prefeitura divulgou 'recursos próprios da Prefeitura'. O pago por fonte está em payments.gross_by_source_of_funds_computed.",
+  "status": "concluída e em funcionamento",
+  "status_detail": [
+   {
+    "text": "inaugurado em 07/03/2025; aulas a partir de 10/03/2025",
+    "url": "https://www.joinville.sc.gov.br/noticias/prefeitura-de-joinville-inaugura-primeiro-mega-centro-de-educacao-infantil-com-capacidade-para-ate-600-criancas/"
+   }
+  ],
+  "dates": {
+   "contract_signed": "2023-03-01",
+   "contract_signed_register": "2023-02-23",
+   "contract_signed_note": "O extrato no Diário Oficial diz 'assinado em 01/03/2023'; o registro de contratos da Prefeitura traz 23/02/2023.",
+   "first_commitment": "2023-03-06",
+   "inauguration": "2025-03-07",
+   "last_payment": "2025-01",
+   "tac_deadline_original": "2025-06"
+  },
+  "capacity": {
+   "places_single_shift_type": 600,
+   "children_served_2025": 462,
+   "classrooms": 17,
+   "area_m2": 2900,
+   "source": "https://www.joinville.sc.gov.br/noticias/prefeitura-de-joinville-inaugura-primeiro-mega-centro-de-educacao-infantil-com-capacidade-para-ate-600-criancas/"
+  },
+  "operation": "Gestão por organização social (ABCD da Educação), vencedora de chamamento público; ensino gratuito.",
+  "operation_source": "https://www.joinville.sc.gov.br/noticias/prefeitura-de-joinville-inaugura-primeiro-mega-centro-de-educacao-infantil-com-capacidade-para-ate-600-criancas/",
+  "description_plain": "Creche municipal para 462 crianças de 0 a 5 anos, com 2,9 mil m² e 17 salas, a primeira das 15 que Joinville se comprometeu com o MPSC a construir para zerar a fila de vagas. Contratada em março de 2023 por R$ 15,1 milhões, teve seis termos aditivos e quatro apostilamentos; os pagamentos somam R$ 16,25 milhões. Inaugurada em março de 2025, é administrada por uma organização social.",
+  "program_context": {
+   "summary": "Contratos de construção de CEIs registrados na API de contratos da Prefeitura (2023 a 2026), valores originais",
+   "contracts": [
+    {
+     "number": "366/2023",
+     "signed_on": "2023-02-23",
+     "value_original_brl": 15115820.73,
+     "company": "CONSTRUTORA VISEU LTDA",
+     "company_cnpj": "03.184.733/0001-11",
+     "object": "Construção do Centro de Educação Infantil Rio Negro."
+    },
+    {
+     "number": "364/2023",
+     "signed_on": "2023-03-01",
+     "value_original_brl": 16425230.13,
+     "company": "CONSTRUTORA VISEU LTDA",
+     "company_cnpj": "03.184.733/0001-11",
+     "object": "Contratação de empresa para construção de um novo Centro de Educação Infantil Dalmázio Conrado Miranda"
+    },
+    {
+     "number": "1369/2023",
+     "signed_on": "2023-12-12",
+     "value_original_brl": 16490000.0,
+     "company": "CONSTRUTORA RICHTER LTDA",
+     "company_cnpj": "81.534.240/0001-78",
+     "object": "Contratação de empresa especializada para construção de uma nova unidade escolar. No presente caso, de um Centro de Educação Infantil, nomeado de CEI Osvaldo Tavares, no Bairro Nova Brasília"
+    },
+    {
+     "number": "196/2024",
+     "signed_on": "2024-02-02",
+     "value_original_brl": 17078000.0,
+     "company": "METRIOS ENGENHARIA LTDA",
+     "company_cnpj": "14.589.125/0001-03",
+     "object": "Contratação de empresa especializada para construção do Centro de Educação Infantil Morro do Meio"
+    },
+    {
+     "number": "726/2024",
+     "signed_on": "2024-04-23",
+     "value_original_brl": 6899999.0,
+     "company": "ENGECON SERVICOS DE ENGENHARIA LTDA",
+     "company_cnpj": "26.472.634/0001-30",
+     "object": "Contratação de empresa especializada para construção do Centro de Educação Infantil Jarivatuba."
+    },
+    {
+     "number": "951/2024",
+     "signed_on": "2024-07-04",
+     "value_original_brl": 7207530.82,
+     "company": "ESQUADRO EMPREENDIMENTOS LTDA",
+     "company_cnpj": "18.218.416/0001-46",
+     "object": "Contratação de empresa especializada para construção do Centro de Educação Infantil Santa Catarina."
+    },
+    {
+     "number": "999/2024",
+     "signed_on": "2024-07-25",
+     "value_original_brl": 18879433.38,
+     "company": "EMBRACOL OBRAS LTDA",
+     "company_cnpj": "05.901.551/0001-40",
+     "object": "Contratação de empresa especializada para Construção do CEI Juliano Busarello."
+    },
+    {
+     "number": "1045/2024",
+     "signed_on": "2024-07-31",
+     "value_original_brl": 16271287.44,
+     "company": "EMBRACOL OBRAS LTDA",
+     "company_cnpj": "05.901.551/0001-40",
+     "object": "Contratação de empresa especializada para construção do Centro de Educação Infantil Ministro Luiz Galotti"
+    },
+    {
+     "number": "910/2024",
+     "signed_on": "2024-08-30",
+     "value_original_brl": 19960000.0,
+     "company": "CONSÓRCIO ESCOLA ABRAHÃO",
+     "company_cnpj": "56.334.462/0001-08",
+     "object": "Contratação de empresa especializada para construção de Construção de CEI Aulo Abrahão."
+    },
+    {
+     "number": "1263/2024",
+     "signed_on": "2024-10-30",
+     "value_original_brl": 13290900.0,
+     "company": "EMBRACOL OBRAS LTDA",
+     "company_cnpj": "05.901.551/0001-40",
+     "object": "Contratação de empresa especializada para construção do Centro de Educação Infantil Heitor Dominino."
+    },
+    {
+     "number": "1292/2024",
+     "signed_on": "2024-11-14",
+     "value_original_brl": 19949952.31,
+     "company": "EMBRACOL OBRAS LTDA",
+     "company_cnpj": "05.901.551/0001-40",
+     "object": "Contratação de empresa especializada para construção do Centro de Educação Infantil Minas Gerais."
+    },
+    {
+     "number": "1316/2024",
+     "signed_on": "2024-11-27",
+     "value_original_brl": 16148994.76,
+     "company": "EMBRACOL OBRAS LTDA",
+     "company_cnpj": "05.901.551/0001-40",
+     "object": "Contratação de empresa especializada para construção do Centro de Educação Infantil Senador Rodrigo Lobo."
+    },
+    {
+     "number": "234/2025",
+     "signed_on": "2025-04-03",
+     "value_original_brl": 12569499.45,
+     "company": "ORACON OBRAS LTDA",
+     "company_cnpj": "05.901.551/0001-40",
+     "object": "Contratação de empresa especializada para construção do Centro de Educação Infantil Astra Urban"
+    },
+    {
+     "number": "447/2025",
+     "signed_on": "2025-05-08",
+     "value_original_brl": 14532000.0,
+     "company": "Az Construções Ltda",
+     "company_cnpj": "73.461.170/0001-47",
+     "object": "Contratação de empresa especializada para construção do Centro de Educação Infantil João Augusto de Oliveira."
+    },
+    {
+     "number": "320/2025",
+     "signed_on": "2025-05-14",
+     "value_original_brl": 14003948,
+     "company": "ORACON OBRAS LTDA",
+     "company_cnpj": "05.901.551/0001-40",
+     "object": "Contratação de empresa especializada para construção do Centro de Educação Infantil Estrada Timbé."
+    },
+    {
+     "number": "498/2026",
+     "signed_on": "2026-06-17",
+     "value_original_brl": 7130900.0,
+     "company": "ENGECON SERVICOS DE ENGENHARIA LTDA",
+     "company_cnpj": "26.472.634/0001-30",
+     "object": "Contratação de empresa especializa na construção Centro de Educação Infantil, nomeado CEI Eugênio Gudin."
+    }
+   ],
+   "count": 16,
+   "total_original_brl_computed": 231953496.02,
+   "official_total": "'R$ 226 milhões na construção de 15 novos Centros de Educação Infantil' (Prefeitura)",
+   "official_total_url": "https://www.joinville.sc.gov.br/noticias/prefeitura-de-joinville-investe-r-226-milhoes-na-construcao-de-15-novos-centos-de-educacao-infantil/"
+  },
+  "sources": [
+   "https://www.joinville.sc.gov.br/noticias/prefeitura-de-joinville-inaugura-primeiro-mega-centro-de-educacao-infantil-com-capacidade-para-ate-600-criancas/",
+   "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/90a691d4a47230c05c64b4266712c8f0.pdf"
+  ]
+ },
+ "contracts": [
+  {
+   "number": "366/2023",
+   "tender": "Concorrência nº 807/2022",
+   "object": "Construção do Centro de Educação Infantil Rio Negro.",
+   "company": "CONSTRUTORA VISEU LTDA",
+   "company_cnpj": "03184733000111",
+   "signed_on": "2023-03-01",
+   "duration_months_original": 18,
+   "value_original_brl": 15115820.73,
+   "value_current_brl": 16145753.13,
+   "value_current_note": "Calculado: original + acréscimos - supressões dos termos aditivos + reajustes dos apostilamentos publicados no Diário Oficial do Município. Não há campo de valor atualizado nas bases abertas lidas.",
+   "added_by_amendments_brl": 907657.59,
+   "removed_by_amendments_brl": 4162.04,
+   "readjustments_brl_computed": 126436.85,
+   "status": "concluído (obra inaugurada em 07/03/2025); último pagamento em 2025-01",
+   "amendments": [
+    {
+     "act": "1º Apostilamento",
+     "published_in": "Diário Oficial Eletrônico do Município de Joinville nº 2176, 2023-03-20",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/36b7ad4174b91348337a8db84b424f43.pdf",
+     "text": "Extrato do 1° Apostilamento ao Termo de Contrato nº 366/2023, celebrado entre o Município de Joinville - Secretaria de Educação, representada pelo Sr. Diego Calegari Feldhaus, e a empresa contratada Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, que versa sobre a construção do Centro de Educação Infantil Rio Negro, na forma de Concorrência nº 807/2022. O Município apostila o c o n t r a t o incluindo as seguintes dotações orçamentárias: nº 883/2023 - 6001.12.361.4.1.3058.0.4490 - Fonte 336 - Recursos Superávit Salário-Educação; nº 884/2023 - 6001.12.361.4.1.3056.0.4490 - Fonte 336 - Recursos Superávit Salário-Educação; nº 885/2023 - 6001.12.361.4.1.3057.0.4490 - Fonte 336 - Recursos Superávit Salário-Educação."
+    },
+    {
+     "act": "2º Apostilamento",
+     "published_in": "Diário Oficial Eletrônico do Município de Joinville nº 2365, 2023-12-21",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/07fc655b51cc73993f5540279ef15fd1.pdf",
+     "text": "Extrato do 2º Apostilamento ao Termo de Contrato nº 366/2023, celebrado entre o Município de Joinville - Secretaria de Educaçã o, representada pelo Sr. Diego Calegari Feldhause, e a empresa contratada Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, que versa sobre a contratação de empresa para a Nº 2365, quinta-feira, 21 de dezembro de 2023 90 de 201 construção do Centro de Educação Infantil Rio Negro, na forma do Concorrência nº 807/2022. O Município apostila o contrato incluindo as seguintes dotações orçamentárias: 583/2024 0.6001.12.782.4.2.3387.0.339000 Fonte 136 - Salário-Educação - Secretaria de Educação; Fonte 119 - Transferências do FUNDEB (aplicações em outras 584/2024 0.6001.12.782.4.2.3387.0.339000"
+    },
+    {
+     "act": "1º Termo Aditivo",
+     "published_in": "Diário Oficial Eletrônico do Município de Joinville nº 2428, 2024-03-21",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/4ee7800de1dbf474446d3b41aecb52ad.pdf",
+     "text": "Extrato do 1º Termo Aditivo do Contrato nº 366/2023, celebrado entre o Município de Joinville - Secretaria de Educação, representada pelo Nº 2428, quinta-feira, 21 de marÃ§o de 2024 366/2023 celebrado entre o Município de Joinville - Secretaria de Educação representada pelo235 191 de seu Secretário, Sr. Diego Calegari Feldhaus, e a empresa Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, cujo quadro societário é formado por Alexandra Correa Gayoso Neves e Manuel Carlos Maia de Oliveira, neste ato representado pelo Sr. Manuel Carlos Maia de Oliveira, que versa sobre a contratação de empresa para a construção do Centro de Educação Infantil Rio Negro, na forma do edital de Concorrência nº 807/2022. O Município adita o contrato acrescendo-o quantitativamente em 0,45% (zero vírgula quarenta e cinco centésimos por cento), equivalente ao valor de R$ 67.333,48 (sessenta e sete mil, trezentos e trinta e três reais e quarenta e oito centavos).",
+     "value_added_brl": 67333.48
+    },
+    {
+     "act": "2º Termo Aditivo",
+     "published_in": "Diário Oficial Eletrônico do Município de Joinville nº 2428, 2024-03-21",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/4ee7800de1dbf474446d3b41aecb52ad.pdf",
+     "text": "Extrato do 2º Termo Aditivo do Contrato nº 366/2023, celebrado entre o Município de Joinville - Secretaria Educação, representada pelo seu Secretário, Sr. Diego Calegari Feldhaus, e a empresa Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, cujo quadro societário é formado por Alexandra Correa Gayoso Neves e Manuel Carlos Maia de Oliveira, neste ato representado pelo Sr. Manuel Carlos Maia de Oliveira, que versa sobre a construção do Centro de Educação Infantil Rio Negro, na forma do edital de Concorrência nº 807/2022. O Município adita o contrato prorrogando o prazo de vigência e execução em 04 (quatro) meses, alterando seus vencimentos para os dias 01/01/2025 e 20/07/2024, respectivamente."
+    },
+    {
+     "act": "3º Apostilamento",
+     "published_in": "Diário Oficial Eletrônico do Município de Joinville nº 2453, 2024-04-25",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/5704d2c7ce51a35e2daa441a2704e222.pdf",
+     "text": "Extrato do 3° Apostilamento ao Termo de Contrato nº 366/2023, celebrado entre o Município de Joinville - Secretaria de Educaçã o, representada pelo Sr. Diego Calegari Feldhaus, e a empresa contratada Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, que versa sobre a construção do Centro de Educação Infantil Rio Negro, na forma de Concorrência nº 807/2022. O Município apostila o contrato incluindo as dotações orçamentárias abaixo: 1035/2024 - 0.6001.12.361.04.1.3058.0.449000. Fonte: 336 - Superávit Salário-Educação - Secretaria de Educação; 1036/2024 - 0.6001.12.365.04.1.3057.0.449000. Fonte: 336 - Superávit Salário- Nº 2453, quinta-feira, 25 de abril de 2024 157 de 264 Educação - Secretaria de Educação; 1037/2024 - 0.6001.12.365.04.1.3056.0.449000. Fonte: 336 - Superávit Salário-Educação - Secretaria d"
+    },
+    {
+     "act": "3º Termo Aditivo",
+     "published_in": "Diário Oficial Eletrônico do Município de Joinville nº 2504, 2024-07-09",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/03dd64173a663db1670b7a7761345e79.pdf",
+     "text": "Extrato do 3º Termo Aditivo do Contrato nº 366/2023, celebrado entre o Município de Joinville - Secretaria de Educação, representada pelo Sr. Diego Calegari Feldhaus e a empresa Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, cujo quadro societário é formado por Alexandra Correa Gayoso Neves e Manuel Carlos Maia de Oliveira, neste ato representado pelo Sr. Manuel Carlos Maia de Oliveira, que versa sobre a construção do Centro de Educação Infantil Rio Negro, na forma do edital de Edital de Concorrência nº 807/2022. O Município adita o contrato prorrogando o prazo de vigência e execução em 01 (um) mês, alterando seus vencimentos para os dias 01/02/2025 e 20/08/2024, respectivamente. A presente prorrogação dos prazos contratados justifica-se em conformidade com a solicitação de prorrogação - serviços por escopo SEI nº 0021624525 - SED.UIN, Carta de Anuência nº 0021678705, cronograma físico-financeiro SEI nº 0021637674 e Par"
+    },
+    {
+     "act": "4º Apostilamento",
+     "published_in": "Diário Oficial Eletrônico do Município de Joinville nº 2508, 2024-07-15",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/56ac438cb8aeb35710a74abe376c2696.pdf",
+     "text": "Extrato do 4º Apostilamento ao Termo de Contrato nº 366/2023, celebrado entre o Município de Joinville - Secretaria de Educaçã o, representada pelo Sr. Diego Calegari Feldhaus, e a empresa contratada Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, que versa sobre a construção do Centro de Educação Infantil Rio Negro, na forma do Edital de Concorrência nº 807/2022. O Município apostila o contrato reajustando-o pelo \"Índice Nacional de Custo da Construção-Disponibilidade Interna - INCC/DI” referente ao período acumulado de janeiro/2023 à dezembro/2023, em 3,49% (três inteiros e quarenta e nove centésimos por cento), para aplicação a partir de 23 de janeiro de 2024. I. Alterando assim, o saldo contratual de R$ 3.622.909,27 (três milhões, seiscentos e vinte e dois mil novecentos e nove reais e vinte e sete centavos) para R$ 3.749.346,12 (três milhões, setecentos e quarenta e nove mil trezentos e quarenta e seis reais e doze centavos).",
+     "readjustment_brl_computed": 126436.85
+    },
+    {
+     "act": "4º Termo Aditivo",
+     "published_in": "Diário Oficial Eletrônico do Município de Joinville nº 2536, 2024-08-21",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/db4a5ced5a920342616591d84be16cff.pdf",
+     "text": "Extrato do 4º Termo Aditivo do Contrato nº 366/2023, celebrado entre o Município de Joinville - Secretaria de Educação, representada pelo Sr. Diego Calegari Feldhaus e a empresa Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, cujo quadro societário é formado por Alexandra Correa Gayoso Neves e Manuel Carlos Maia de Oliveira, neste ato representado pelo Sr. Manuel Carlos Maia de Oliveira, que versa sobre a construção do Centro de Educação Infantil Rio Negro, na forma do edital de Nº 2536, quarta-feira, 21 de agosto de 2024 78 de 167 Edital de Concorrência nº 807/2022. O Município adita o contrato prorrogando o prazo de vigência em 02 (dois) meses, alterando seu vencimento para o dia 01/04/2025 e o prazo de execução em 02 (dois) meses, alterando seu vencimento para o dia 20/10/2024."
+    },
+    {
+     "act": "5º Termo Aditivo",
+     "published_in": "Diário Oficial Eletrônico do Município de Joinville nº 2547, 2024-09-05",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/acf2320b0df08c20f822a447f671235a.pdf",
+     "text": "Extrato do 5º Termo Aditivo do Contrato nº 366/2023, celebrado entre o Município de Joinville - Secretaria de Educação, representada pelo Sr. Diego Calegari Feldhaus e a empresa Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, cujo quadro societário é formado por Alexandra Correa Gayoso Neves e Manuel Carlos Maia de Oliveira, neste ato representado pelo Sr. Manuel Carlos Maia de Oliveira, que versa sobre a construção do Centro de Educação Infantil Rio Negro, na forma do edital de Edital de Concorrência nº 807/2022. O Município adita o contrato acrescendo-o quantitativamente em 2,72%, equivalente ao valor de R$ 411.416,15 (quatrocentos e onze mil quatrocentos e dezesseis reais e quinze centavos).",
+     "value_added_brl": 411416.15
+    },
+    {
+     "act": "6º Termo Aditivo",
+     "published_in": "Diário Oficial Eletrônico do Município de Joinville nº 2581, 2024-10-23",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/25a8161a9d3ffa6b3227f5d0a1503c88.pdf",
+     "text": "Extrato do 6º Termo Aditivo do Contrato nº 366/2023, celebrado entre o Município de Joinville - Secretaria de Educação, representada pelo Sr. Diego Calegari Feldhaus e a empresa Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, cujo quadro societário é formado por Alexandra Correa Gayoso Neves e Manuel Carlos Maia de Oliveira, neste ato representado pelo Sr. Manuel Carlos Maia de Oliveira, que versa sobre a construção do Centro de Educação Infantil Rio Negro, na forma do edital de Edital de Concorrência nº 807/2022. O Município adita o contrato acrescendo-o qualitativamente em 2,84%, equivalente ao valor de R$ 428.907,96 (quatrocentos e vinte e oito mil novecentos e sete reais e noventa e seis centavos). E suprimindo-o em 0,03%, equivalente ao valor de R$ 4.162,04 (quatro mil cento e sessenta e dois reais e quatro centavos).",
+     "value_added_brl": 428907.96,
+     "value_removed_brl": 4162.04
+    }
+   ],
+   "extract": {
+    "text": "Extrato do Termo de Contrato n° 366/2023, celebrado entre o Município de Joinville - Secretaria de Educação, representada pelo Sr. Diego Calegari Feldhaus e a empresa Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, neste ato representada pelo Sr. Manuel Carlos Maia de Oliveira, CPF [omitido], que versa sobre a a construção do Centro de Educação Infantil Rio Negro, oriundo da licitação na modalidade de Concorrência nº 807/2022, assinado em 01/03/2023, com a vigência de 18 (dezoito) meses, no valor de R$ 15.115.820,73 (Quinze milhões, cento e quinze mil, oitocentos e vinte reais e setenta e três centavos).",
+    "published_in": "Diário Oficial Eletrônico do Município de Joinville nº 2169, 2023-03-08",
+    "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/90a691d4a47230c05c64b4266712c8f0.pdf"
+   },
+   "errata": {
+    "act": "Errata ao extrato (troca de número entre os contratos 364/2023 e 366/2023)",
+    "gazette_edition": 2176,
+    "gazette_date": "2023-03-20",
+    "gazette_pdf": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/36b7ad4174b91348337a8db84b424f43.pdf",
+    "text": "ERRATA AO EXTRATO DE PUBLICAÇÃO 1º) Consoante ao documento SEI nº 0016065932: Onde se lê: O Município de Joinville através da Unidade de Contratos da Secretaria de Administração e Planejamento leva ao conhecimento dos interessados o Extrato do Termo de Contrato n° 366/2023, celebrado entre o Município de Joinville - Secretaria de Educação, representada pelo Sr. Diego Calegari Feldhaus e a empresa Construtora Viseu Ltda, inscrita no CNPJ nº 03.184.733/0001-11, neste ato representada pelo Sr. Manuel Carlos Maia de Oliveira, CPF [omitido], que versa sobre a construção do Centro de Educação Infantil Rio Negro, oriundo da licitação na modalidade de Concorrência nº 816/2022, assinado em 01/03/2023, com a vigência de 18 (dezoito) meses, no valor de R$ 16.425.230,13 (Dezesseis milhões, quatrocentos e vinte e cinco mil, duzentos e trinta reais e treze centavos). Leia-se: O Município de Joinville através da Unidade de Contratos da Secretaria de Administração e Planejamento leva ao conhecimento dos interessados o Extrato do Termo de Contrato n° 364/2023, celebrado entre o Município de Joinville - Secretaria de Educação, representada pelo Sr. Diego Calegari"
+   },
+   "register_record": {
+    "url": "https://transparencia.joinville.sc.gov.br/epublica-portal/rest/joinville/api/v1/contrato?periodo_inicial=01/01/2023&periodo_final=31/12/2023&codigo_unidade=0",
+    "signed_on": "2023-02-23",
+    "end": "2024-04-23",
+    "value": 15115820.73
+   },
+   "source": {
+    "doc": "Diário Oficial Eletrônico do Município de Joinville e API de contratos do Portal da Transparência",
+    "collected_on": "2026-09-30"
+   }
+  }
+ ],
+ "payments": {
+  "source": {
+   "doc": "API de dados abertos do Portal da Transparência de Joinville (e-Pública), despesa por mês, movimentos de cada empenho",
+   "url": "https://transparencia.joinville.sc.gov.br/epublica-portal/rest/joinville/api/v1/despesa?periodo_inicial=MM/AAAA&periodo_final=MM/AAAA&codigo_unidade=0",
+   "collected_on": "2026-09-30",
+   "script": "data/scripts/works/joinville_payments.py",
+   "months_queried": "02/2023 em diante"
+  },
+  "by_year": [
+   {
+    "year": 2023,
+    "paid_to_supplier_brl": 5225313.02,
+    "withheld_brl": 84350.06,
+    "gross_brl": 5309663.08
+   },
+   {
+    "year": 2024,
+    "paid_to_supplier_brl": 10710523.1,
+    "withheld_brl": 214177.85,
+    "gross_brl": 10924700.95
+   },
+   {
+    "year": 2025,
+    "paid_to_supplier_brl": 16149.22,
+    "withheld_brl": 0,
+    "gross_brl": 16149.22
+   }
+  ],
+  "total_gross_brl": 16250513.25,
+  "total_paid_to_supplier_brl": 15951985.34,
+  "total_withheld_brl": 298527.91,
+  "total_gross_brl_2024_computed": 16762524.07,
+  "gross_by_source_of_funds_computed": {
+   "Receitas e Transferências de Impostos - Educação": 10948730.33,
+   "Transferências do FUNDEB - (aplicação em outras despesas da Educação  Básica)": 3592352.8,
+   "Salário-Educação": 1353361.1,
+   "Superávit Salário-Educação": 356069.02
+  },
+  "gross_vs_contract_current_computed": 104760.12,
+  "gross_vs_contract_current_note": "O bruto liquidado supera o valor atualizado calculado pelos extratos publicados. A diferença não foi explicada nesta coleta: edições do Diário Oficial de mar/2023 a jul/2025 foram lidas e nenhum outro aditivo ou apostilamento do contrato 366/2023 apareceu; um reajuste posterior não localizado é a hipótese mais simples, não verificada.",
+  "definitions": {
+   "paid_to_supplier_brl": "Soma dos movimentos 'Pagamento de empenho' e 'Pagamento de restos a pagar', menos estornos.",
+   "withheld_brl": "Retenções (tributos retidos na fonte) dos mesmos empenhos; somadas ao pago dão o valor bruto liquidado."
+  },
+  "commitments": [
+   {
+    "number": 3513,
+    "fiscal_year": 2023,
+    "issued": "2023-03-06",
+    "type": "Global",
+    "action": "Gestão de infraestrutura em Centros de Educação Infantil  - Creche - CEIs - SED ",
+    "function": "Educação",
+    "subfunction": "Educação Infantil",
+    "source_of_funds": "Receitas e Transferências de Impostos - Educação"
+   },
+   {
+    "number": 19267,
+    "fiscal_year": 2023,
+    "issued": "2023-11-24",
+    "type": "Global",
+    "action": "Gestão de infraestrutura em Centros de Educação Infantil - Pré-escola - CEIs - SED ",
+    "function": "Educação",
+    "subfunction": "Educação Infantil",
+    "source_of_funds": "Salário-Educação"
+   },
+   {
+    "number": 461,
+    "fiscal_year": 2024,
+    "issued": "2024-01-02",
+    "type": "Global",
+    "action": "Gestão de infraestrutura em Centros de Educação Infantil  - Creche - CEIs - SED ",
+    "function": "Educação",
+    "subfunction": "Educação Infantil",
+    "source_of_funds": "Transferências do FUNDEB - (aplicação em outras despesas da Educação  Básica)"
+   },
+   {
+    "number": 3513,
+    "fiscal_year": 2024,
+    "issued": "2023-03-06",
+    "type": "Global",
+    "action": "Gestão de infraestrutura em Centros de Educação Infantil  - Creche - CEIs - SED ",
+    "function": "Educação",
+    "subfunction": "Educação Infantil",
+    "source_of_funds": "Receitas e Transferências de Impostos - Educação"
+   },
+   {
+    "number": 10081,
+    "fiscal_year": 2024,
+    "issued": "2024-06-07",
+    "type": "Global",
+    "action": "Gestão de infraestrutura em Centros de Educação Infantil - Pré-escola - CEIs - SED ",
+    "function": "Educação",
+    "subfunction": "Educação Infantil",
+    "source_of_funds": "Receitas e Transferências de Impostos - Educação"
+   },
+   {
+    "number": 10449,
+    "fiscal_year": 2024,
+    "issued": "2024-06-17",
+    "type": "Global",
+    "action": "Gestão de infraestrutura em Centros de Educação Infantil  - Creche - CEIs - SED ",
+    "function": "Educação",
+    "subfunction": "Educação Infantil",
+    "source_of_funds": "Receitas e Transferências de Impostos - Educação"
+   },
+   {
+    "number": 12315,
+    "fiscal_year": 2024,
+    "issued": "2024-07-25",
+    "type": "Global",
+    "action": "Gestão de infraestrutura em Centros de Educação Infantil  - Creche - CEIs - SED ",
+    "function": "Educação",
+    "subfunction": "Educação Infantil",
+    "source_of_funds": "Receitas e Transferências de Impostos - Educação"
+   },
+   {
+    "number": 15183,
+    "fiscal_year": 2024,
+    "issued": "2024-09-12",
+    "type": "Global",
+    "action": "Gestão de infraestrutura em Centros de Educação Infantil - Pré-escola - CEIs - SED ",
+    "function": "Educação",
+    "subfunction": "Educação Infantil",
+    "source_of_funds": "Receitas e Transferências de Impostos - Educação"
+   },
+   {
+    "number": 16957,
+    "fiscal_year": 2024,
+    "issued": "2024-10-23",
+    "type": "Ordinário",
+    "action": "Gestão de infraestrutura em Centros de Educação Infantil  - Creche - CEIs - SED ",
+    "function": "Educação",
+    "subfunction": "Educação Infantil",
+    "source_of_funds": "Superávit Salário-Educação"
+   },
+   {
+    "number": 19267,
+    "fiscal_year": 2024,
+    "issued": "2023-11-24",
+    "type": "Global",
+    "action": "Gestão de infraestrutura em Centros de Educação Infantil - Pré-escola - CEIs - SED ",
+    "function": "Educação",
+    "subfunction": "Educação Infantil",
+    "source_of_funds": "Salário-Educação"
+   },
+   {
+    "number": 16957,
+    "fiscal_year": 2025,
+    "issued": "2024-10-23",
+    "type": "Ordinário",
+    "action": "Gestão de infraestrutura em Centros de Educação Infantil  - Creche - CEIs - SED ",
+    "function": "Educação",
+    "subfunction": "Educação Infantil",
+    "source_of_funds": "Superávit Salário-Educação"
+   }
+  ],
+  "caveat": "Empenhos filtrados pelo campo 'contrato' = 366/2023. Os empenhos de 2023 a 2025 foram lidos nos meses em que tiveram movimento."
+ },
+ "companies": [
+  {
+   "cnpj": "03184733000111",
+   "legal_name": "CONSTRUTORA VISEU LTDA",
+   "trade_name": "CONSTRUTORA VISEU",
+   "legal_nature": "Sociedade Empresária Limitada",
+   "city": "Joinville/SC",
+   "registration_status": "Ativa",
+   "registration_status_date": "2003-05-10",
+   "activity_start": "1999-05-24",
+   "partners": [
+    {
+     "name": "ALEXANDRA CORREA GAYOSO NEVES",
+     "qualification": "Sócio-Administrador",
+     "since": "1999-05-24"
+    },
+    {
+     "name": "MANUEL CARLOS MAIA DE OLIVEIRA",
+     "qualification": "Sócio-Administrador",
+     "since": "2008-06-20"
+    }
+   ],
+   "partners_official_text": "cujo quadro societário é formado por Alexandra Correa Gayoso Neves e Manuel Carlos Maia de Oliveira (extratos dos termos aditivos no Diário Oficial do Município)",
+   "contracts": [
+    "366/2023",
+    "364/2023 (outro CEI do mesmo programa)"
+   ],
+   "official_website": "https://construtoraviseu.com.br/",
+   "official_website_evidence": "Título 'Construtora Viseu' e endereço em Joinville, mesma cidade e nome do cadastro; o site não mostra o CNPJ.",
+   "portal_transparencia_federal": "https://portaldatransparencia.gov.br/pessoa-juridica/03184733000111",
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal, lida via espelho publica.cnpj.ws",
+    "url": "https://publica.cnpj.ws/cnpj/03184733000111",
+    "collected_on": "2026-09-30"
+   }
+  }
+ ],
+ "people": [
+  {
+   "name": "Diego Calegari Feldhaus",
+   "role": "Secretário de Educação de Joinville; representou o Município no contrato e nos seis termos aditivos",
+   "role_source": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/90a691d4a47230c05c64b4266712c8f0.pdf",
+   "signed": [
+    {
+     "act": "Termo de Contrato 366/2023",
+     "date": "2023-03-01",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/90a691d4a47230c05c64b4266712c8f0.pdf"
+    },
+    {
+     "act": "1º Termo Aditivo",
+     "date": "2024-03-21",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/4ee7800de1dbf474446d3b41aecb52ad.pdf"
+    },
+    {
+     "act": "2º Termo Aditivo",
+     "date": "2024-03-21",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/4ee7800de1dbf474446d3b41aecb52ad.pdf"
+    },
+    {
+     "act": "3º Termo Aditivo",
+     "date": "2024-07-09",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/03dd64173a663db1670b7a7761345e79.pdf"
+    },
+    {
+     "act": "4º Termo Aditivo",
+     "date": "2024-08-21",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/db4a5ced5a920342616591d84be16cff.pdf"
+    },
+    {
+     "act": "5º Termo Aditivo",
+     "date": "2024-09-05",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/acf2320b0df08c20f822a447f671235a.pdf"
+    },
+    {
+     "act": "6º Termo Aditivo",
+     "date": "2024-10-23",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/25a8161a9d3ffa6b3227f5d0a1503c88.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Manuel Carlos Maia de Oliveira",
+   "role": "representou a Construtora Viseu Ltda no contrato e nos aditivos; sócio-administrador na Receita",
+   "side": "contratada",
+   "role_source": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/90a691d4a47230c05c64b4266712c8f0.pdf",
+   "signed": [
+    {
+     "act": "Termo de Contrato 366/2023",
+     "date": "2023-03-01",
+     "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/90a691d4a47230c05c64b4266712c8f0.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Silvia Cristina Bello",
+   "role": "Diretora Executiva; assinou eletronicamente o extrato publicado",
+   "role_source": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/90a691d4a47230c05c64b4266712c8f0.pdf",
+   "signed": []
+  },
+  {
+   "group": "Comissão de Acompanhamento e Fiscalização do Contrato nº 366/2023",
+   "designated_by": "Secretário de Educação",
+   "members_text": "I - Titulares: a) Ademar Stringari Junior b) Carlos Eduardo Dumke da Rocha c) José Roberto Ribeiro d) Ricardo Soares II - Suplentes: a) Carla Tais Pereira b) Tiago Nielson",
+   "published_in": "DOE Joinville nº 2171, 2023-03-13",
+   "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/cbad6b84dceffe2106bfce640ebebaf8.pdf",
+   "note": "Servidores designados como fiscais; papel administrativo, sem qualquer achado associado."
+  }
+ ],
+ "head_of_government": [
+  {
+   "name": "Adriano Bornschein Silva (Adriano Silva)",
+   "office": "Prefeito de Joinville",
+   "terms": [
+    "2021-2024 (eleito em 2020, 2º turno)",
+    "2025-2028 (eleito em 2024)"
+   ],
+   "party_at_time": "NOVO",
+   "tse_records": [
+    {
+     "year": 2020,
+     "office": "PREFEITO",
+     "unit": "JOINVILLE",
+     "party": "NOVO",
+     "result": "2º TURNO",
+     "turn": "1"
+    },
+    {
+     "year": 2020,
+     "office": "PREFEITO",
+     "unit": "JOINVILLE",
+     "party": "NOVO",
+     "result": "ELEITO",
+     "turn": "2"
+    },
+    {
+     "year": 2024,
+     "office": "PREFEITO",
+     "unit": "JOINVILLE",
+     "party": "NOVO",
+     "result": "ELEITO",
+     "turn": "1"
+    }
+   ],
+   "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2020.zip (e 2024)",
+   "relevant_dates": [
+    "2023-03-01 (assinatura do contrato)",
+    "2023-05-15 (TAC com o MPSC, no gabinete do prefeito)",
+    "2025-03-07 (inauguração)"
+   ]
+  }
+ ],
+ "head_of_government_note": "O prefeito não assina o contrato: assina o Secretário de Educação. O acordo com o MPSC foi assinado no gabinete do prefeito (MPSC, 15/05/2023).",
+ "findings": [
+  {
+   "body": "MPSC (4ª Promotoria de Justiça da Comarca de Joinville) e Município",
+   "kind": "termo de ajustamento de conduta (acordo) em ação civil pública",
+   "process": "Ação Civil Pública n. 0905644-43.2017.8.24.0038; acordo assinado em 15/05/2023",
+   "date": "2023-05-15",
+   "summary_quote": "o poder público municipal se comprometeu a seguir o Plano de Expansão de Vagas, que estabelece o mês de junho de 2025 como limite para a finalização da construção das 15 unidades de educação infantil",
+   "status": "em vigor; o Município pediu em junho de 2026 a prorrogação dos prazos (MPSC, 17/07/2026)",
+   "url": "https://www.mpsc.mp.br/w/noticias/mpsc-e-municipio-de-joinville-firmam-acordo-para-zerar-filas-de-espera-na-educacao-infantil-"
+  },
+  {
+   "body": "MPSC (12ª Promotoria de Justiça de Joinville)",
+   "kind": "recomendação em inquérito civil (fila de vagas)",
+   "process": "Inquérito Civil n. 06.2026.00002283-7",
+   "date": "2026-07-17",
+   "summary_quote": "Das unidades previstas, quatro já foram entregues, duas seguem dentro do cronograma e nove apresentam atrasos. Segundo a Secretaria Municipal de Educação, os problemas são atribuídos ao descumprimento de contratos, à baixa produtividade e a falhas técnicas das empresas responsáveis pelas obras.",
+   "about_this_contract": "A nota cita o CEI do Comasa entre os já inaugurados; os atrasos e multas citados são de outras obras do programa (a nota nomeia o CEI Minas Gerais).",
+   "status": "recomendação acolhida pelo Município, segundo o MPSC; procedimento de monitoramento a instaurar",
+   "url": "https://www.mpsc.mp.br/w/recomenda%C3%A7%C3%A3o-do-mpsc-requer-mudan%C3%A7as-na-fila-de-creches-em-joinville"
+  }
+ ],
+ "findings_none_note": "Nenhum achado do TCE-SC, da CGU, do TCU, do MPF ou decisão judicial sobre o contrato 366/2023 foi localizado. Os documentos do MPSC tratam do programa de 15 CEIs e da fila de vagas, não de irregularidade neste contrato.",
+ "media": "docs/superpowers/previews/assets/cases/cei-comasa-joinville/credits.json",
+ "comparison": {
+  "unit": "R$ de dez/2024 por vaga (capacidade em dois turnos parciais) e por m² construído",
+  "unit_note": "Valores de contrato assinado (antes de aditivos), para comparar igual com igual; o valor final pago do CEI de Joinville aparece à parte. Contratos assinados depois de dez/2024 (Itajaí, Naviraí, Caraá) são deflacionados pelo IPCA até dez/2024. A área FNDE é a do projeto padrão 'incluindo projeção da cobertura'; a área de Joinville é a informada pela Prefeitura (2,9 mil m²), sem definição publicada.",
+  "items": [
+   {
+    "id": "cei-comasa",
+    "name": "CEI Manoel Antônio da Rosa (contrato do 'CEI Rio Negro')",
+    "place": "Joinville/SC",
+    "is_subject": true,
+    "project": "projeto próprio do Município ('uma obra pensada para ser creche, que inclusive ganhou prêmio de arquitetura', segundo o prefeito)",
+    "area_m2": 2900.0,
+    "capacity_two_shifts": 600,
+    "capacity_note": "600 se todas as vagas fossem de um turno; atende 462 com vagas parciais e integrais",
+    "contract_value_brl": 15115820.73,
+    "contract_month": "202303",
+    "conversion": {
+     "amount_brl_nominal": 15115820.73,
+     "price_month": "202303",
+     "ipca_index_price_month": 6609.67,
+     "ipca_index_dec2024": 7100.5,
+     "ipca_factor_to_dec2024": 1.074259,
+     "amount_brl_2024": 16238312.21
+    },
+    "cost_brl_2024": 16238312.21,
+    "final_paid_gross_brl": 16250513.25,
+    "final_paid_gross_brl_2024": 16762524.07,
+    "sinapi_uf": "Santa Catarina",
+    "sinapi_m2_contract_month": 1906.27,
+    "sources": [
+     {
+      "field": "value",
+      "url": "https://www.joinville.sc.gov.br/public/portaladm/pdf/jornal/90a691d4a47230c05c64b4266712c8f0.pdf"
+     },
+     {
+      "field": "area, capacity",
+      "url": "https://www.joinville.sc.gov.br/noticias/prefeitura-de-joinville-inaugura-primeiro-mega-centro-de-educacao-infantil-com-capacidade-para-ate-600-criancas/"
+     }
+    ],
+    "cost_per_place_brl_2024": 27063.85,
+    "cost_per_m2_brl_2024": 5599.42,
+    "m2_per_place": 4.83,
+    "multiple_of_sinapi_m2_computed": 2.73
+   },
+   {
+    "id": "itajai",
+    "name": "Creche Proinfância Tipo 2, Loteamento Santa Regina",
+    "place": "Itajaí/SC",
+    "project": "projeto padrão FNDE Proinfância Tipo 2",
+    "area_m2": 895.53,
+    "capacity_two_shifts": 188,
+    "capacity_integral": 94,
+    "contract_value_brl": 3722000.0,
+    "contract_month": "202509",
+    "company": "SECON CONSTRUCOES LTDA",
+    "company_cnpj": "02529184000107",
+    "contract_number": "227/2025",
+    "pncp_id": "83102277000152-2-000351/2025",
+    "conversion": {
+     "amount_brl_nominal": 3722000.0,
+     "price_month": "202509",
+     "ipca_index_price_month": 7359.06,
+     "ipca_index_dec2024": 7100.5,
+     "ipca_factor_to_dec2024": 0.964865,
+     "amount_brl_2024": 3591227.82
+    },
+    "cost_brl_2024": 3591227.82,
+    "sinapi_uf": "Santa Catarina",
+    "sinapi_m2_contract_month": 2117.96,
+    "object": "CONTRATAÇÃO DE OBRAS DE ENGANHARIA COMUM, PARA CONSTRUÇÃO DE CENTRO DE EDUCAÇÃO INFANTIL, LOTEAMENTO SANTA REGINA, ITAJAÍ/SC- FNDE - CRECHE TIPO 2",
+    "sources": [
+     {
+      "field": "value",
+      "url": "https://pncp.gov.br/app/contratos/83102277000152/2025/351"
+     },
+     {
+      "field": "area, capacity",
+      "url": "https://www.fnde.gov.br/phocadownload/programas/pro_infancia/cheche-tipo-1/proinfancia_tipo_1-2_manual-reformulacao-mi-convencional.pdf"
+     }
+    ],
+    "cost_per_place_brl_2024": 19102.28,
+    "cost_per_m2_brl_2024": 4010.17,
+    "m2_per_place": 4.76,
+    "multiple_of_sinapi_m2_computed": 1.96
+   },
+   {
+    "id": "araujos",
+    "name": "Creche Proinfância Tipo 1",
+    "place": "Araújos/MG",
+    "project": "projeto padrão FNDE Proinfância Tipo 1",
+    "area_m2": 1513.16,
+    "capacity_two_shifts": 376,
+    "capacity_integral": 188,
+    "contract_value_brl": 3385646.77,
+    "contract_month": "202401",
+    "company": "Ville Empreendimentos Itauna Ltda",
+    "company_cnpj": "51626335000150",
+    "contract_number": "02",
+    "pncp_id": "18300996000116-2-000002/2024",
+    "conversion": {
+     "amount_brl_nominal": 3385646.77,
+     "price_month": "202401",
+     "ipca_index_price_month": 6801.72,
+     "ipca_index_dec2024": 7100.5,
+     "ipca_factor_to_dec2024": 1.043927,
+     "amount_brl_2024": 3534368.5
+    },
+    "cost_brl_2024": 3534368.5,
+    "sinapi_uf": "Minas Gerais",
+    "sinapi_m2_contract_month": 1612.58,
+    "object": "Contratação de empresa especializada para a Construção de Creche Proinfância Tipo 1 no município de Araújos/MG, em conformidade com o TERMO DE COMPROMISSO N° 202141430-1 / ID: 1114467.",
+    "sources": [
+     {
+      "field": "value",
+      "url": "https://pncp.gov.br/app/contratos/18300996000116/2024/2"
+     },
+     {
+      "field": "area, capacity",
+      "url": "https://www.fnde.gov.br/phocadownload/programas/pro_infancia/cheche-tipo-1/proinfancia_tipo_1-2_manual-reformulacao-mi-convencional.pdf"
+     }
+    ],
+    "cost_per_place_brl_2024": 9399.92,
+    "cost_per_m2_brl_2024": 2335.75,
+    "m2_per_place": 4.02,
+    "multiple_of_sinapi_m2_computed": 1.39
+   },
+   {
+    "id": "navirai_127",
+    "name": "Creche Proinfância Tipo 1, bairro Nelson Trad",
+    "place": "Naviraí/MS",
+    "project": "projeto padrão FNDE Proinfância Tipo 1",
+    "area_m2": 1513.16,
+    "capacity_two_shifts": 376,
+    "capacity_integral": 188,
+    "contract_value_brl": 4870000.0,
+    "contract_month": "202502",
+    "company": "PIMENTEL CONSTRUCOES LTDA",
+    "company_cnpj": "27538616000177",
+    "contract_number": "71",
+    "pncp_id": "03155934000190-2-000127/2025",
+    "conversion": {
+     "amount_brl_nominal": 4870000.0,
+     "price_month": "202502",
+     "ipca_index_price_month": 7205.03,
+     "ipca_index_dec2024": 7100.5,
+     "ipca_factor_to_dec2024": 0.985492,
+     "amount_brl_2024": 4799346.43
+    },
+    "cost_brl_2024": 4799346.43,
+    "sinapi_uf": "Mato Grosso do Sul",
+    "sinapi_m2_contract_month": 1748.17,
+    "object": "CONTRATACAO DE EMPRESA ESPECIALIZADA NA EXECUCAO DE OBRA DE CONSTRUCAO DA CRECHE PROINFANCIA TIPO 1 PADRAO FNDE LOCALIZADA NO BAIRRO NELSON TRAD ATRAVES DE TERMO DE COMPROMISSO FNDE N 202143748 1 SOLICITACAO DA GERENCIA DE PLANEJAMENTO E GESTAO PUBLICA E GEREN",
+    "sources": [
+     {
+      "field": "value",
+      "url": "https://pncp.gov.br/app/contratos/03155934000190/2025/127"
+     },
+     {
+      "field": "area, capacity",
+      "url": "https://www.fnde.gov.br/phocadownload/programas/pro_infancia/cheche-tipo-1/proinfancia_tipo_1-2_manual-reformulacao-mi-convencional.pdf"
+     }
+    ],
+    "cost_per_place_brl_2024": 12764.22,
+    "cost_per_m2_brl_2024": 3171.74,
+    "m2_per_place": 4.02,
+    "multiple_of_sinapi_m2_computed": 1.84
+   },
+   {
+    "id": "caraa",
+    "name": "Creche Proinfância Tipo 1",
+    "place": "Caraá/RS",
+    "project": "projeto padrão FNDE Proinfância Tipo 1",
+    "area_m2": 1513.16,
+    "capacity_two_shifts": 376,
+    "capacity_integral": 188,
+    "contract_value_brl": 4839000.0,
+    "contract_month": "202601",
+    "company": "CONSTRUTORA VITORIA",
+    "company_cnpj": "20424188000102",
+    "contract_number": "001",
+    "pncp_id": "01614158000114-2-000001/2026",
+    "conversion": {
+     "amount_brl_nominal": 4839000.0,
+     "price_month": "202601",
+     "ipca_index_price_month": 7427.72,
+     "ipca_index_dec2024": 7100.5,
+     "ipca_factor_to_dec2024": 0.955946,
+     "amount_brl_2024": 4625823.2
+    },
+    "cost_brl_2024": 4625823.2,
+    "sinapi_uf": "Rio Grande do Sul",
+    "sinapi_m2_contract_month": 1901.58,
+    "object": "O presente contrato tem por objeto a contratação de empresa especializada para a execução de obra de construção de creche Tipo 1 (Proinfância - FNDE). A execução deverá observar rigorosamente os projetos de engenharia, o memorial descritivo e o orçamento const",
+    "sources": [
+     {
+      "field": "value",
+      "url": "https://pncp.gov.br/app/contratos/01614158000114/2026/1"
+     },
+     {
+      "field": "area, capacity",
+      "url": "https://www.fnde.gov.br/phocadownload/programas/pro_infancia/cheche-tipo-1/proinfancia_tipo_1-2_manual-reformulacao-mi-convencional.pdf"
+     }
+    ],
+    "cost_per_place_brl_2024": 12302.72,
+    "cost_per_m2_brl_2024": 3057.06,
+    "m2_per_place": 4.02,
+    "multiple_of_sinapi_m2_computed": 1.68
+   }
+  ],
+  "ratios_computed": {
+   "itajai": {
+    "per_place": 1.42,
+    "per_m2": 1.4
+   },
+   "araujos": {
+    "per_place": 2.88,
+    "per_m2": 2.4
+   },
+   "navirai_127": {
+    "per_place": 2.12,
+    "per_m2": 1.77
+   },
+   "caraa": {
+    "per_place": 2.2,
+    "per_m2": 1.83
+   }
+  },
+  "regional_check": {
+   "doc": "IBGE, SINAPI, custo médio do m² por UF (tabela 2296, variável 48), mês de assinatura de cada contrato",
+   "url": "https://apisidra.ibge.gov.br/values/t/2296/n3/42,31,50,43/v/48/p/202301-202608?formato=json",
+   "reading": "Divide o custo por m² do contrato pelo m² SINAPI da UF no mesmo mês; tira a diferença regional de preços. O SINAPI mede projetos residenciais padrão, então serve só como régua regional."
+  },
+  "method": {
+   "target": "BRL de dezembro de 2024",
+   "brl_rule": "Valores em BRL: correção pelo IPCA do mês-base do preço (ou do mês do gasto) até dez/2024.",
+   "fx_method": "amount_LCU * (BRL por USD / LCU por USD) do ano do gasto * IPCA dez/2024 / média anual do IPCA do ano do gasto",
+   "ppp_method": "amount_LCU * (fator PPP do Brasil / fator PPP do país) do ano do gasto * IPCA dez/2024 / média anual do IPCA do ano do gasto",
+   "same_as": "data/scripts/bridges/build.py (mesmas fontes e fórmulas)",
+   "ipca": {
+    "source": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/all?formato=json",
+    "table": "SIDRA 1737, variável 2266, número-índice (dez/1993 = 100)",
+    "dec_2024": 7100.5,
+    "months_used": {
+     "202303": 6609.67,
+     "202304": 6649.99,
+     "202306": 6659.95,
+     "202307": 6667.94,
+     "202308": 6683.28,
+     "202309": 6700.66,
+     "202310": 6716.74,
+     "202311": 6735.55,
+     "202312": 6773.27,
+     "202401": 6801.72,
+     "202402": 6858.17,
+     "202403": 6869.14,
+     "202404": 6895.24,
+     "202405": 6926.96,
+     "202406": 6941.51,
+     "202407": 6967.89,
+     "202408": 6966.5,
+     "202409": 6997.15,
+     "202410": 7036.33,
+     "202411": 7063.77,
+     "202412": 7100.5,
+     "202501": 7111.86,
+     "202502": 7205.03,
+     "202509": 7359.06,
+     "202601": 7427.72
+    },
+    "year_averages_used": {}
+   },
+   "fx": {
+    "source": "https://api.worldbank.org/v2/country/BRA;USA/indicator/PA.NUS.FCRF?format=json&per_page=1000&date=2015:2025",
+    "indicator": "PA.NUS.FCRF, Official exchange rate (LCU per US$, period average), World Bank WDI",
+    "last_updated": "2026-07-13",
+    "values": {
+     "BRA": {},
+     "USA": {}
+    }
+   },
+   "ppp": {
+    "source": "https://api.worldbank.org/v2/country/BRA;USA/indicator/PA.NUS.PPP?format=json&per_page=1000&date=2015:2025",
+    "indicator": "PA.NUS.PPP, PPP conversion factor, GDP (LCU per international $), World Bank WDI / ICP",
+    "last_updated": "2026-07-13",
+    "values": {
+     "BRA": {},
+     "USA": {}
+    }
+   }
+  },
+  "excluded_candidates": [
+   {
+    "name": "CEIs do mesmo programa de Joinville (ex.: CEI Iramar João Viana, R$ 19 milhões, 2,8 mil m²)",
+    "reason": "Mesma cidade e mesmo programa; listados em program_context, não usados como comparáveis."
+   },
+   {
+    "name": "CEIM Cristo Rei, Chapecó/SC (R$ 3,97 milhões, 2024)",
+    "reason": "Área e capacidade não publicadas no registro do PNCP lido."
+   },
+   {
+    "name": "Contratos de 'remanescente' ou 'conclusão' de creches FNDE",
+    "reason": "Cobrem só parte da obra."
+   }
+  ],
+  "reading": "Pelo valor de contrato, o CEI de Joinville custou 1,4 vezes o m² da creche FNDE Tipo 2 de Itajaí (mesmo estado) e de 1,8 a 2,4 vezes o m² das creches FNDE Tipo 1 de MG, MS e RS; por vaga, 1,4 vezes Itajaí e de 2,1 a 2,9 vezes as Tipo 1. A diferença não é só regional: medido em múltiplos do m² SINAPI da própria UF, Joinville fica em 2,7 e os outros entre 1,4 e 2,0. O prédio de Joinville é projeto próprio, maior e premiado, e os valores dos outros são de contrato recém-assinado (podem subir com aditivos); a comparação mostra uma diferença de custo que o registro oficial não explica, sem afirmar irregularidade."
+ },
+ "card": {
+  "title": "CEI Comasa",
+  "subtitle": "Primeiro 'mega CEI' de Joinville",
+  "place": "Joinville",
+  "stats": [
+   {
+    "label": "Pago",
+    "value": 16250513.25,
+    "unit": "BRL",
+    "display": "R$ 16,25 mi",
+    "note": "contrato original R$ 15,12 mi"
+   },
+   {
+    "label": "Vagas",
+    "value": 462,
+    "unit": "crianças",
+    "display": "462 (até 600)",
+    "note": "Prefeitura"
+   },
+   {
+    "label": "Por vaga",
+    "value": 27063.85,
+    "unit": "BRL 2024",
+    "display": "R$ 27,1 mil",
+    "note": "contrato, capacidade 600"
+   },
+   {
+    "label": "vs creche FNDE em SC",
+    "value": 1.42,
+    "unit": "x",
+    "display": "1,4x por vaga",
+    "note": "Itajaí, Tipo 2, 2025"
+   }
+  ],
+  "photo": "docs/superpowers/previews/assets/cases/cei-comasa-joinville/joinville-zona-leste.jpg"
+ },
+ "terms_check": "Nenhum documento oficial lido usa 'superfaturamento', 'sobrepreço' ou 'desvio' para esta obra."
+}

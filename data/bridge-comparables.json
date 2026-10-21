@@ -1,0 +1,638 @@
+{
+ "generated": "2026-09-29",
+ "hercilio_luz": {
+  "name": "Ponte Hercílio Luz (restauração)",
+  "country": "Brazil",
+  "years": "2006-2019 (contratos assinados); obra principal 2016-2020",
+  "scope": "Substituição das barras de olhal, selas, rótulas (aparelhos de apoio) e pendurais; reforço de todas as fundações; estrutura provisória de sustentação sob o vão central com transferência de carga; substituição de cerca de 2.000 t de estrutura metálica; novo tabuleiro ortotrópico de aço (pista e dois passeios); substituição de rebites; pintura anticorrosiva de 70.000 m2; supervisão, projetos complementares e orçamento de referência.",
+  "length_m": 821.0,
+  "main_span_m": 339.471,
+  "deck_width_m": 14.2,
+  "deck_width_note": "Largura útil: pista de rolamento 9,2 m + dois passeios de 2,5 m (fonte: contratada). Largura total fora a fora não encontrada.",
+  "deck_area_m2": 11658.2,
+  "cost_reported": {
+   "amount": 484645236.82,
+   "currency": "BRL",
+   "year": "2006-2019",
+   "basis": "Soma do valor atual (com aditivos) dos 13 contratos de restauração, supervisão e projetos registrados no SIGEF; valor de contrato, nominal, não valor pago."
+  },
+  "cost_brl_2024_fx": 825219135.38,
+  "cost_brl_2024_ppp": 825219135.38,
+  "cost_per_m2_brl_2024_fx": 70784.44,
+  "cost_per_m2_brl_2024_ppp": 70784.44,
+  "lower_bound_cost_brl_2024": 646583493.73,
+  "lower_bound_cost_per_m2_brl_2024": 55461.69,
+  "lower_bound_note": "Para cada contrato, o menor entre valor original e valor atual, corrigido pelo IPCA desde a assinatura. O valor atual inclui aditivos de reajuste, que já são correção monetária; corrigi-lo de novo desde a assinatura conta parte da inflação duas vezes. O número real fica entre o limite inferior e o central.",
+  "not_included": {
+   "first_stage_access_viaducts_2006": {
+    "amount_brl_nominal_approx": 21000000.0,
+    "signed_or_started": "2006-02-17",
+    "amount_brl_2024_approx": 58227638.02,
+    "note": "Primeira etapa (viadutos de acesso), \"contratada por aproximadamente R$ 21 milhões\" segundo a linha do tempo oficial do Governo de SC; não aparece no CSV do SIGEF."
+   },
+   "before_2006": "Nada de 1982 a 2005 está no registro de contratos (o CSV praticamente começa em 2006).",
+   "after_reopening": "8 contratos posteriores (iluminação cênica, manutenção, entorno) ficam fora, como na verificação de 2026-09-25."
+  },
+  "contracts": [
+   {
+    "contract": "PJ-00170/2006",
+    "contractor": "CONCREMAT ENG. E TECNOLOGIA S.A.",
+    "signed": "2006-08-25",
+    "status": "Rescindido",
+    "object": "Execução de serviços de gerenciamento, coordenação, supervisão, controle de qualidade e apoio a fiscalização das obras de reabilitação da Ponte Hercílio Luz em Florianópolis,",
+    "original_value_brl_nominal": 3924487.59,
+    "current_value_brl_nominal": 6106108.74,
+    "ipca_index_signing_month": 2580.57,
+    "ipca_factor_to_dec2024": 2.751524,
+    "current_value_brl_2024": 16801104.06,
+    "lower_bound_value_brl_2024": 10798321.35
+   },
+   {
+    "contract": "PJ-00170/2006/PROSUL",
+    "contractor": "PROSUL - Proj., Superv. e Planejamento Ltda",
+    "signed": "2006-08-25",
+    "status": "Rescindido",
+    "object": "Execução de serviços de gerenciamento, coordenação, supervisão, controle de qualidade e apoio a fiscalização das obras de reabilitação da Ponte Hercílio Luz em Florianópolis,",
+    "original_value_brl_nominal": 5886795.07,
+    "current_value_brl_nominal": 9160234.18,
+    "ipca_index_signing_month": 2580.57,
+    "ipca_factor_to_dec2024": 2.751524,
+    "current_value_brl_2024": 25204603.17,
+    "lower_bound_value_brl_2024": 16197657.26
+   },
+   {
+    "contract": "PJ-00264/2008",
+    "contractor": "Consórcio Florianópolis Monumento",
+    "signed": "2008-11-27",
+    "status": "Rescindido",
+    "object": "Execução dos Serviços de Restauração e Reabilitação da Ponte Hercílio Luz.",
+    "original_value_brl_nominal": 154879651.29,
+    "current_value_brl_nominal": 63008872.09,
+    "ipca_index_signing_month": 2884.78,
+    "ipca_factor_to_dec2024": 2.461366,
+    "current_value_brl_2024": 155087908.36,
+    "lower_bound_value_brl_2024": 155087908.36
+   },
+   {
+    "contract": "PJ-00204/2014",
+    "contractor": "RMG ENGENHARIA S/C LTDA.",
+    "signed": "2014-11-14",
+    "status": "Concluído",
+    "object": "Elaboração de Projetos Complementares para a Execução da Restauração e Reabilitação da Ponte Hercílio Luz.",
+    "original_value_brl_nominal": 1951820.02,
+    "current_value_brl_nominal": 1951820.02,
+    "ipca_index_signing_month": 4028.44,
+    "ipca_factor_to_dec2024": 1.762593,
+    "current_value_brl_2024": 3440264.23,
+    "lower_bound_value_brl_2024": 3440264.23
+   },
+   {
+    "contract": "PJ-00012/2015",
+    "contractor": "EMPA SA SERVIÇOS DE ENGENHARIA",
+    "signed": "2015-02-25",
+    "status": "Concluído",
+    "object": "Execução dos Serviços de Conclusão das Estruturas de Sustentação Inferior da Ponte Hercílio Luz.",
+    "original_value_brl_nominal": 10357290.64,
+    "current_value_brl_nominal": 12941168.93,
+    "ipca_index_signing_month": 4160.34,
+    "ipca_factor_to_dec2024": 1.706711,
+    "current_value_brl_2024": 22086841.46,
+    "lower_bound_value_brl_2024": 17676906.74
+   },
+   {
+    "contract": "PJ-00143/2015",
+    "contractor": "EMPA SA SERVIÇOS DE ENGENHARIA",
+    "signed": "2015-10-02",
+    "status": "Concluído",
+    "object": "Execução dos Serviços de Montagem da Complementação da Treliça Espacial de Sustentação Provisória da Ponte Hercílio Luz.",
+    "original_value_brl_nominal": 11400601.42,
+    "current_value_brl_nominal": 11400601.42,
+    "ipca_index_signing_month": 4405.95,
+    "ipca_factor_to_dec2024": 1.611571,
+    "current_value_brl_2024": 18372875.4,
+    "lower_bound_value_brl_2024": 18372875.4
+   },
+   {
+    "contract": "PJ-00001/2016/FARES",
+    "contractor": "Fares & Associados Engenharia Ltda.",
+    "signed": "2016-01-04",
+    "status": "Concluído",
+    "object": "Assessoramentoao DEINFRA na Atualização do Orçamento Referencial das Obras de Restauração e Recuperação da Ponte Hercílio Luz em Florianópolis,",
+    "original_value_brl_nominal": 137482.95,
+    "current_value_brl_nominal": 137482.95,
+    "ipca_index_signing_month": 4550.23,
+    "ipca_factor_to_dec2024": 1.560471,
+    "current_value_brl_2024": 214538.1,
+    "lower_bound_value_brl_2024": 214538.1
+   },
+   {
+    "contract": "PJ-00056/2016",
+    "contractor": "TEIXEIRA DUARTE - Engenharia e Construções S.A.",
+    "signed": "2016-03-10",
+    "status": "Concluído",
+    "object": "Serviços de execução das obras de restauração e reabilitação da Ponte Hercílio Luz.",
+    "original_value_brl_nominal": 262925435.21,
+    "current_value_brl_nominal": 363824397.74,
+    "ipca_index_signing_month": 4610.92,
+    "ipca_factor_to_dec2024": 1.539931,
+    "current_value_brl_2024": 560264575.43,
+    "lower_bound_value_brl_2024": 404887105.55
+   },
+   {
+    "contract": "PJ-00093/2016",
+    "contractor": "RMG ENGENHARIA S/C LTDA.",
+    "signed": "2016-05-18",
+    "status": "Concluído",
+    "object": "Assessoramento ao DEINFRA no Monitoramento e Supervisão Técnica das Obras de Restauração e Recuperação da Ponte Hercílio Luz em Florianópolis,",
+    "original_value_brl_nominal": 8582938.87,
+    "current_value_brl_nominal": 11110051.81,
+    "ipca_index_signing_month": 4675.23,
+    "ipca_factor_to_dec2024": 1.518749,
+    "current_value_brl_2024": 16873377.97,
+    "lower_bound_value_brl_2024": 13035328.2
+   },
+   {
+    "contract": "PJ-00009/2019",
+    "contractor": "TEIXEIRA DUARTE - Engenharia e Construções S.A.",
+    "signed": "2019-02-20",
+    "status": "Concluído",
+    "object": "Execução dos Serviços Emergenciais de Substituição/Reforço das Estruturas de Sustentação Provisória (ESP) Inferior da Ponte Hercílio Luz.",
+    "original_value_brl_nominal": 3156151.79,
+    "current_value_brl_nominal": 3156151.79,
+    "ipca_index_signing_month": 5138.93,
+    "ipca_factor_to_dec2024": 1.381708,
+    "current_value_brl_2024": 4360879.75,
+    "lower_bound_value_brl_2024": 4360879.75
+   },
+   {
+    "contract": "CT-00006/2019",
+    "contractor": "RMG ENGENHARIA S/C LTDA.",
+    "signed": "2019-07-04",
+    "status": "Concluído",
+    "object": "Assessoramento ao DEINFRA no Monitoramento e Supervisão Técnica das Obras de Restauração e Recuperação da Ponte Hercílio Luz em Florianópolis,",
+    "original_value_brl_nominal": 1773434.13,
+    "current_value_brl_nominal": 1717146.84,
+    "ipca_index_signing_month": 5224.18,
+    "ipca_factor_to_dec2024": 1.359161,
+    "current_value_brl_2024": 2333878.45,
+    "lower_bound_value_brl_2024": 2333878.45
+   },
+   {
+    "contract": "PJ-00060/2019",
+    "contractor": "GEOARQUEOLOGIA Pesquisa Científica Ltda - ME",
+    "signed": "2019-07-08",
+    "status": "Andamento",
+    "object": "Serviços de Monitoramento Arqueológico e Educacional nas Obras de Restauração e Reabilitação da Ponte Hercílio Luz.",
+    "original_value_brl_nominal": 95862.85,
+    "current_value_brl_nominal": 96200.31,
+    "ipca_index_signing_month": 5224.18,
+    "ipca_factor_to_dec2024": 1.359161,
+    "current_value_brl_2024": 130751.68,
+    "lower_bound_value_brl_2024": 130293.02
+   },
+   {
+    "contract": "CT-00026/2019",
+    "contractor": "SDF Engenharia EIRELI",
+    "signed": "2019-09-25",
+    "status": "Concluído",
+    "object": "Execução dos projetos executivos das instalações elétricas, subestação, de iluminação pública viária, iluminação decorativa e de proteção contra descargas atmosféricas da Ponte Hercílio Luz.",
+    "original_value_brl_nominal": 35000.0,
+    "current_value_brl_nominal": 35000.0,
+    "ipca_index_signing_month": 5227.84,
+    "ipca_factor_to_dec2024": 1.358209,
+    "current_value_brl_2024": 47537.32,
+    "lower_bound_value_brl_2024": 47537.32
+   }
+  ],
+  "sources": [
+   {
+    "field": "contracts",
+    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv"
+   },
+   {
+    "field": "length_m, deck_width_m, scope",
+    "url": "https://www.teixeiraduarteconstrucao.com.br/projetos/reabilitacao-e-restauro-da-ponte-hercilio-luz/"
+   },
+   {
+    "field": "length_m, main_span_m",
+    "url": "https://grante.ufsc.br/graduacao_informacoes/historico/recuperacao-da-ponte-hercilio-luz/"
+   },
+   {
+    "field": "length_m (official, 821 m)",
+    "url": "http://web.archive.org/web/20240807222022/https://www.sc.gov.br/vivaaponte/caracteristicas-da-ponte-hercilio-luz/"
+   },
+   {
+    "field": "scope (engineering)",
+    "url": "https://www.abcem.org.br/construmetal/downloads/apresentacao/42_DESAFIOS-DA-REABILITACAO-DE-ESTRUTURAS-METALICAS-ANTIGAS-PONTE-HERCILIO-LUZ.pdf"
+   },
+   {
+    "field": "not_included.first_stage_access_viaducts_2006",
+    "url": "http://web.archive.org/web/20240807221921/https://www.sc.gov.br/vivaaponte/linha-do-tempo/"
+   }
+  ]
+ },
+ "comparables": [
+  {
+   "name": "Széchenyi Lánchíd (Ponte das Correntes), Budapeste",
+   "country": "Hungary",
+   "category": "restoration_historic_chain_bridge",
+   "years": "2021-2023 (obra); orçamento programado de 2019 a 2024",
+   "scope": "Ponte pênsil de correntes de barras de olhal (1849, reconstruída 1947-1949). Demolição do tabuleiro de concreto e novo tabuleiro ortotrópico de aço; passeios reconstruídos em aço; reparo e proteção anticorrosiva da estrutura metálica que ficou e das correntes (acima do tabuleiro, nos canais e nas câmaras de ancoragem); restauro de pedra, leões e guarda-corpos; nova iluminação; remanejamento de redes; impermeabilização das câmaras de ancoragem. As correntes foram tratadas, não substituídas.",
+   "length_m": 380.02,
+   "main_span_m": null,
+   "main_span_note": "Vão central não encontrado nas páginas oficiais lidas; deixado nulo.",
+   "deck_width_m": 10.79,
+   "deck_width_note": "Largura útil: pista 6,45 m + dois passeios de 2,17 m. Largura total oficial: 14,5 m (inclui as vigas de rigidez entre pista e passeios).",
+   "deck_area_m2": 4100.42,
+   "deck_area_m2_total_width": 5510.29,
+   "cost_reported": {
+    "amount": 26751161000,
+    "currency": "HUF",
+    "year": "2019-2024",
+    "basis": "Custo total previsto, bruto (com IVA de 27%), do Megvalósítási megállapodás, 3ª alteração (18/01/2021), fixado depois da licitação; líquido: HUF 21.063.907.000. Inclui obra (HUF 20.593.332.000 líquidos), gestão e outros. É orçamento aprovado, não custo final auditado."
+   },
+   "spending_year_rule": "Cada parcela anual do cronograma oficial convertida pelos fatores do seu próprio ano.",
+   "sources": [
+    {
+     "field": "cost_reported, annual schedule",
+     "url": "https://bkk.hu/downloads/5957/"
+    },
+    {
+     "field": "cost_reported (gross 26,751 bn)",
+     "url": "https://bkk.hu/fejlesztesek/kiemelt-fejlesztesek/archivum/a-lanchid-felujitasa/dokumentumok-kozbeszerzes-kozerdeku-adatok/"
+    },
+    {
+     "field": "length_m, deck_width_m",
+     "url": "https://bkk.hu/fejlesztesek/kiemelt-fejlesztesek/archivum/fovarosi-fejlesztesek/kozteruleti-fejlesztesek/-a-szechenyi-lanchid-rekonstrukcioja.5786/"
+    },
+    {
+     "field": "scope",
+     "url": "https://bkk.hu/blog/rozsdas-volt-ragyogo-lett-a-lanchid-felujitas-kulisszatitkai.10600/"
+    },
+    {
+     "field": "years (reopened 2023-08-04)",
+     "url": "https://www.budapestkozut.hu/mernok-igazgatosag/szechenyi-lanchid/"
+    }
+   ],
+   "conversion": [
+    {
+     "year": 2019,
+     "ipca_year_avg": 5213.6133,
+     "ipca_factor_to_dec2024": 1.361915,
+     "fx_lcu_per_usd": 290.66,
+     "fx_brl_per_usd": 3.9444710972507,
+     "ppp_lcu_per_intl_usd": 138.79714,
+     "ppp_brl_per_intl_usd": 2.21644520759583,
+     "amount_lcu": 22530000.0,
+     "amount_brl_2024_fx": 416403.92,
+     "amount_brl_2024_ppp": 489990.64
+    },
+    {
+     "year": 2020,
+     "ipca_year_avg": 5381.0625,
+     "ipca_factor_to_dec2024": 1.319535,
+     "fx_lcu_per_usd": 307.996666666667,
+     "fx_brl_per_usd": 5.15517878751281,
+     "ppp_lcu_per_intl_usd": 141.838435,
+     "ppp_brl_per_intl_usd": 2.26491117477417,
+     "amount_lcu": 370000.0,
+     "amount_brl_2024_fx": 8171.85,
+     "amount_brl_2024_ppp": 7796.14
+    },
+    {
+     "year": 2021,
+     "ipca_year_avg": 5827.78,
+     "ipca_factor_to_dec2024": 1.218388,
+     "fx_lcu_per_usd": 303.140833333333,
+     "fx_brl_per_usd": 5.39440078962503,
+     "ppp_lcu_per_intl_usd": 148.351175,
+     "ppp_brl_per_intl_usd": 2.37927412986755,
+     "amount_lcu": 7852568000.0,
+     "amount_brl_2024_fx": 170253582.46,
+     "amount_brl_2024_ppp": 153444377.97
+    },
+    {
+     "year": 2022,
+     "ipca_year_avg": 6368.6042,
+     "ipca_factor_to_dec2024": 1.114922,
+     "fx_lcu_per_usd": 372.595833333333,
+     "fx_brl_per_usd": 5.16397029102111,
+     "ppp_lcu_per_intl_usd": 155.230128,
+     "ppp_brl_per_intl_usd": 2.41165555900142,
+     "amount_lcu": 9280355000.0,
+     "amount_brl_2024_fx": 143401933.09,
+     "amount_brl_2024_ppp": 160749092.39
+    },
+    {
+     "year": 2023,
+     "ipca_year_avg": 6661.15,
+     "ipca_factor_to_dec2024": 1.065957,
+     "fx_lcu_per_usd": 353.088333333333,
+     "fx_brl_per_usd": 4.99437976287199,
+     "ppp_lcu_per_intl_usd": 169.087073,
+     "ppp_brl_per_intl_usd": 2.44559278607045,
+     "amount_lcu": 9556108000.0,
+     "amount_brl_2024_fx": 144085063.38,
+     "amount_brl_2024_ppp": 147331125.31
+    },
+    {
+     "year": 2024,
+     "ipca_year_avg": 6952.0733,
+     "ipca_factor_to_dec2024": 1.02135,
+     "fx_lcu_per_usd": 365.690833333333,
+     "fx_brl_per_usd": 5.3889349057096,
+     "ppp_lcu_per_intl_usd": 175.578089,
+     "ppp_brl_per_intl_usd": 2.48371015372826,
+     "amount_lcu": 39230000.0,
+     "amount_brl_2024_fx": 590448.14,
+     "amount_brl_2024_ppp": 566791.71
+    }
+   ],
+   "cost_brl_2024_fx": 458755602.83,
+   "cost_brl_2024_ppp": 462589174.17,
+   "cost_per_m2_brl_2024_fx": 111880.15,
+   "cost_per_m2_brl_2024_ppp": 112815.07,
+   "cost_per_m2_brl_2024_fx_total_width": 83254.35,
+   "cost_per_m2_brl_2024_ppp_total_width": 83950.06
+  },
+  {
+   "name": "Lions' Gate Bridge, Vancouver (substituição da estrutura suspensa)",
+   "country": "Canada",
+   "category": "restoration_suspension_deck_replacement",
+   "years": "1999-2002 (contrato abril/1999; troca set/2000 a set/2001; pavimentação 2002)",
+   "scope": "Ponte pênsil de cabos (1938). Substituição de toda a estrutura suspensa (tabuleiro, passeios, treliças de rigidez e pendurais) com tabuleiro ortotrópico mais largo, feita em fechamentos noturnos; reforço sísmico. Torres, cabos principais e ancoragens mantidos.",
+   "length_m": 847.0,
+   "main_span_m": 472.0,
+   "deck_width_m": 16.2,
+   "deck_width_note": "Nova seção: 3 faixas de 3,6 m + 2 passeios de 2,7 m = 16,2 m.",
+   "deck_area_m2": 13721.4,
+   "cost_reported": {
+    "amount": 66000000,
+    "currency": "CAD",
+    "year": 2001,
+    "basis": "\"Approximately $66 million\": parcela da ponte pênsil dentro do contrato de CAD 86,5 milhões (que inclui a via elevada e acessos). Só construção; não inclui projeto nem supervisão."
+   },
+   "spending_year_rule": "2001: a troca ocorreu de setembro/2000 a setembro/2001 (ponto médio em 2001). Não há cronograma anual publicado.",
+   "source_type": "Fonte de engenharia: artigo técnico do engenheiro do proprietário (Buckland & Taylor), conferência da Transportation Association of Canada. Não é documento do governo.",
+   "sources": [
+    {
+     "field": "cost_reported, length_m, main_span_m, deck_width_m, scope, years",
+     "url": "https://www.tac-atc.ca/wp-content/uploads/Matson.pdf"
+    }
+   ],
+   "conversion": [
+    {
+     "year": 2001,
+     "ipca_year_avg": 1748.0133,
+     "ipca_factor_to_dec2024": 4.06204,
+     "fx_lcu_per_usd": 1.548839955,
+     "fx_brl_per_usd": 2.34963170932244,
+     "ppp_lcu_per_intl_usd": 1.220053,
+     "ppp_brl_per_intl_usd": 0.802170641858437,
+     "amount_lcu": 66000000.0,
+     "amount_brl_2024_fx": 406706747.24,
+     "amount_brl_2024_ppp": 176269102.25
+    }
+   ],
+   "cost_brl_2024_fx": 406706747.24,
+   "cost_brl_2024_ppp": 176269102.25,
+   "cost_per_m2_brl_2024_fx": 29640.32,
+   "cost_per_m2_brl_2024_ppp": 12846.29
+  },
+  {
+   "name": "Ponte Pênsil Alves de Lima, Chavantes (SP)",
+   "country": "Brazil",
+   "category": "restoration_historic_suspension_light_scope",
+   "years": "2023 (entregue em 20/10/2023)",
+   "scope": "Ponte pênsil de 1920, tombada. Reparos com substituição de componentes de madeira do guarda-corpo e do tabuleiro (95 m3 de madeira, 21 t de aço). Escopo leve.",
+   "length_m": 164.0,
+   "main_span_m": 80.0,
+   "deck_width_m": 4.0,
+   "deck_area_m2": 656.0,
+   "cost_reported": {
+    "amount": 5900000,
+    "currency": "BRL",
+    "year": 2023,
+    "basis": "Investimento informado pelo DER-SP na entrega."
+   },
+   "spending_year_rule": "2023, ano da entrega; data de início não publicada na nota. Suposição sinalizada.",
+   "sources": [
+    {
+     "field": "cost_reported, length_m, main_span_m, deck_width_m, scope, years",
+     "url": "http://web.archive.org/web/20260413175100/http://www.der.sp.gov.br/WebSite/Comunicacao/SalaImprensa.aspx?idNoticia=1659"
+    }
+   ],
+   "conversion": [
+    {
+     "year": 2023,
+     "ipca_year_avg": 6661.15,
+     "ipca_factor_to_dec2024": 1.065957,
+     "amount_lcu": 5900000.0,
+     "amount_brl_2024_fx": 6289146.77,
+     "amount_brl_2024_ppp": 6289146.77
+    }
+   ],
+   "cost_brl_2024_fx": 6289146.77,
+   "cost_brl_2024_ppp": 6289146.77,
+   "cost_per_m2_brl_2024_fx": 9587.11,
+   "cost_per_m2_brl_2024_ppp": 9587.11
+  },
+  {
+   "name": "Cầu Thuận Phước, Da Nang (ponte pênsil nova)",
+   "country": "Vietnam",
+   "category": "new_suspension_bridge",
+   "years": "2003-2009 (início 17/01/2003; inauguração 19/07/2009)",
+   "scope": "Ponte nova. Trecho pênsil de 655 m (125 + 405 + 125 m) com viga caixão de aço e cabos principais de 360 mm, mais viadutos de acesso de concreto protendido de 600 m de cada lado. 4 faixas, 2 passeios, 2 faixas para bicicleta.",
+   "length_m": 1856.0,
+   "main_span_m": 405.0,
+   "deck_width_m": 18.0,
+   "deck_area_m2": 33408.0,
+   "deck_area_m2_suspension_part_only": 11790.0,
+   "cost_reported": {
+    "amount": 1000000000000,
+    "currency": "VND",
+    "year": "2003-2009",
+    "basis": "\"Tổng vốn đầu tư gần 1.000 tỷ đồng\" (investimento total de quase 1 trilhão de dong), dito na inauguração. Aproximado. Orçamento inicial de 2003: pouco mais de 587 bilhões, ajustado quatro vezes."
+   },
+   "spending_year_rule": "2006, ponto médio entre início (jan/2003) e inauguração (jul/2009); não há cronograma anual publicado.",
+   "source_type": "Geometria: portal oficial da cidade de Da Nang. Custo: FONTE SECUNDÁRIA (imprensa: Sài Gòn Giải Phóng, 19/07/2009), valor aproximado; nenhum documento oficial com o custo foi encontrado.",
+   "sources": [
+    {
+     "field": "length_m, main_span_m, deck_width_m, scope, years (opening)",
+     "url": "https://danang.gov.vn/vi/web/dng/w/cau-thuan-phuoc-dai-lua-noi-doi-bo-song-han-i"
+    },
+    {
+     "field": "cost_reported (secondary, press)",
+     "url": "https://www.sggp.org.vn/thanh-pho-da-nang-khanh-thanh-cau-thuan-phuoc-khoi-cong-xay-dung-cau-rong-post183851.html"
+    },
+    {
+     "field": "years (start 2003-01-17), budget history (secondary, press)",
+     "url": "https://tuoitre.vn/cau-thuan-phuoc-bon-lan-nang-von-262119.htm"
+    }
+   ],
+   "conversion": [
+    {
+     "year": 2006,
+     "ipca_year_avg": 2581.0342,
+     "ipca_factor_to_dec2024": 2.751029,
+     "fx_lcu_per_usd": 15994.25,
+     "fx_brl_per_usd": 2.17532666666667,
+     "ppp_lcu_per_intl_usd": 3871.27230024661,
+     "ppp_brl_per_intl_usd": 1.09856354064257,
+     "amount_lcu": 1000000000000.0,
+     "amount_brl_2024_fx": 374158643.09,
+     "amount_brl_2024_ppp": 780668470.54
+    }
+   ],
+   "cost_brl_2024_fx": 374158643.09,
+   "cost_brl_2024_ppp": 780668470.54,
+   "cost_per_m2_brl_2024_fx": 11199.67,
+   "cost_per_m2_brl_2024_ppp": 23367.71,
+   "cost_per_m2_brl_2024_fx_suspension_part_only": 31735.25,
+   "cost_per_m2_brl_2024_ppp_suspension_part_only": 66214.46
+  }
+ ],
+ "excluded_candidates": [
+  {
+   "name": "Clifton Suspension Bridge (Reino Unido)",
+   "reason": "Não verificado nesta coleta (limite de buscas); nenhuma obra de restauração com custo publicado apareceu nas buscas feitas. Candidato a verificar."
+  },
+  {
+   "name": "Hammersmith Bridge (Reino Unido)",
+   "reason": "Não verificado nesta coleta (limite de buscas). Até onde se sabe, a restauração completa não foi executada, então não haveria custo realizado; candidato a verificar."
+  },
+  {
+   "name": "Menai Suspension Bridge (País de Gales)",
+   "reason": "Obras em andamento; a imprensa técnica (New Civil Engineer, 27/01/2026) fala em conclusão em 2027. Sem custo final; não verificado em fonte oficial."
+  },
+  {
+   "name": "Brooklyn Bridge (EUA)",
+   "reason": "Programa de reconstrução em contratos de 1980 a 2023; NYC DOT publica valores por contrato (ex.: Contrato 6, 2010-2017, US$ 650 milhões, acessos e pintura), mas não o total da restauração nem a distribuição anual; a soma não seria comparável."
+  },
+  {
+   "name": "Angus L. Macdonald Bridge \"Big Lift\" (Canadá)",
+   "reason": "Escopo muito parecido (troca da estrutura suspensa, 2015-2019), mas o custo final não aparece nos relatórios anuais da Halifax Harbour Bridges; a estimativa oficial de 2014 era \"na faixa de CAD 150 milhões\" só para a construção, e a largura do tabuleiro publicada é inconsistente (11,5 m ou 34,8 pés)."
+  },
+  {
+   "name": "Pont de Tancarville (França)",
+   "reason": "Troca da suspensão de 1996 a 1999 (página oficial da CCI), sem troca de tabuleiro; o custo de 240 milhões de francos só apareceu em fonte secundária."
+  }
+ ],
+ "method": {
+  "target": "BRL de dezembro de 2024",
+  "fx_method": "amount_LCU * (BRL por USD / LCU por USD) do ano do gasto * IPCA dez/2024 / média anual do IPCA do ano do gasto",
+  "ppp_method": "amount_LCU * (fator PPP do Brasil / fator PPP do país) do ano do gasto * IPCA dez/2024 / média anual do IPCA do ano do gasto",
+  "brl_projects": "Valores em BRL: só a correção pelo IPCA. Na Ponte Hercílio Luz, do mês de assinatura de cada contrato até dez/2024.",
+  "deck_area_rule": "Comprimento total da obra x largura útil (pista + passeios) quando a fonte a traz; alternativas mostradas à parte.",
+  "ipca": {
+   "source": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/all?formato=json",
+   "table": "SIDRA 1737, variável 2266, número-índice (dez/1993 = 100)",
+   "dec_2024": 7100.5,
+   "year_averages": {
+    "2001": 1748.0133,
+    "2006": 2581.0342,
+    "2019": 5213.6133,
+    "2020": 5381.0625,
+    "2021": 5827.78,
+    "2022": 6368.6042,
+    "2023": 6661.15,
+    "2024": 6952.0733
+   }
+  },
+  "fx": {
+   "source": "https://api.worldbank.org/v2/country/BRA;HUN;CAN;VNM/indicator/PA.NUS.FCRF?format=json&per_page=1000&date=1995:2025",
+   "indicator": "PA.NUS.FCRF, Official exchange rate (LCU per US$, period average), World Bank WDI",
+   "last_updated": "2026-07-13",
+   "values": {
+    "BRA": {
+     "2001": 2.34963170932244,
+     "2006": 2.17532666666667,
+     "2019": 3.9444710972507,
+     "2020": 5.15517878751281,
+     "2021": 5.39440078962503,
+     "2022": 5.16397029102111,
+     "2023": 4.99437976287199,
+     "2024": 5.3889349057096
+    },
+    "HUN": {
+     "2001": 286.49,
+     "2006": 210.39,
+     "2019": 290.66,
+     "2020": 307.996666666667,
+     "2021": 303.140833333333,
+     "2022": 372.595833333333,
+     "2023": 353.088333333333,
+     "2024": 365.690833333333
+    },
+    "CAN": {
+     "2001": 1.548839955,
+     "2006": 1.13434472583333,
+     "2019": 1.32679336266012,
+     "2020": 1.34115267222386,
+     "2021": 1.2538769021268,
+     "2022": 1.30155477474355,
+     "2023": 1.3499086407939,
+     "2024": 1.36935976604092
+    },
+    "VNM": {
+     "2001": 14725.1666666667,
+     "2006": 15994.25,
+     "2019": 23050.2416666667,
+     "2020": 23208.3683333333,
+     "2021": 23159.7825925926,
+     "2022": 23271.2125,
+     "2023": 23787.3191666667,
+     "2024": 24164.8858333333
+    }
+   }
+  },
+  "ppp": {
+   "source": "https://api.worldbank.org/v2/country/BRA;HUN;CAN;VNM/indicator/PA.NUS.PPP?format=json&per_page=1000&date=1995:2025",
+   "indicator": "PA.NUS.PPP, PPP conversion factor, GDP (LCU per international $), World Bank WDI / ICP",
+   "last_updated": "2026-07-13",
+   "values": {
+    "BRA": {
+     "2001": 0.802170641858437,
+     "2006": 1.09856354064257,
+     "2019": 2.21644520759583,
+     "2020": 2.26491117477417,
+     "2021": 2.37927412986755,
+     "2022": 2.41165555900142,
+     "2023": 2.44559278607045,
+     "2024": 2.48371015372826
+    },
+    "HUN": {
+     "2001": 114.41857,
+     "2006": 131.519432,
+     "2019": 138.79714,
+     "2020": 141.838435,
+     "2021": 148.351175,
+     "2022": 155.230128,
+     "2023": 169.087073,
+     "2024": 175.578089
+    },
+    "CAN": {
+     "2001": 1.220053,
+     "2006": 1.205262,
+     "2019": 1.21786,
+     "2020": 1.201689,
+     "2021": 1.163492,
+     "2022": 1.145083,
+     "2023": 1.139727,
+     "2024": 1.150472
+    },
+    "VNM": {
+     "2001": 2790.42588451895,
+     "2006": 3871.27230024661,
+     "2019": 7191.1884765625,
+     "2020": 7064.95361328125,
+     "2021": 7120.01123046875,
+     "2022": 6942.55221614355,
+     "2023": 6839.77114227882,
+     "2024": 6954.97823040608
+    }
+   }
+  },
+  "collected": "2026-09-29"
+ }
+}

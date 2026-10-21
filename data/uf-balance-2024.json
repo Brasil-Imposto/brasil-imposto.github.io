@@ -1,0 +1,3566 @@
+[
+ {
+  "uf": "AC",
+  "name": "Acre",
+  "population": 880631,
+  "population_latest": 887794,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 2398091492.8,
+   "rfb_administered": 2366349541.74,
+   "by_tax": {
+    "import_tax": 642975.98,
+    "export_tax": 145351.13,
+    "ipi": 4620702.59,
+    "irpf": 120183225.69,
+    "irpj": 172941472.95,
+    "irrf": 162619341.04,
+    "iof": 6417385.2,
+    "itr": 3712726.14,
+    "cofins": 221561340.34,
+    "pis_pasep": 108546394.73,
+    "csll": 121177284.16,
+    "cide_fuels": 0.0,
+    "civil_servant_social_security_pss": 131324702.41,
+    "other_rfb_revenue": 15122033.97,
+    "social_security_contributions_rgps": 1297334605.41,
+    "administered_by_other_agencies": 31741951.06
+   }
+  },
+  "transfers": {
+   "total": 9822351911.04,
+   "by_category": {
+    "fpe_net_of_fundeb": 5438606646.76,
+    "fpm_net_of_fundeb": 959378639.37,
+    "ipi_exports_net_of_fundeb": 608759.42,
+    "itr_municipal_share_net_of_fundeb": 1463500.64,
+    "fundeb_retention_on_federal_transfers": 1572601326.2,
+    "fundeb_federal_complement": 104529287.41,
+    "oil_gas_royalties": 61538866.94,
+    "mineral_royalties_cfem": 138099.29,
+    "water_resources_compensation": 0.0,
+    "cide_fuels_share": 7725055.34,
+    "iof_gold": 161.18,
+    "lc176_kandir_compensation": 1806850.68,
+    "salario_educacao_quotas": 109955497.65,
+    "sus_health": 906854538.01,
+    "education_fnde_and_other": 74876565.77,
+    "social_assistance_suas": 41937670.21,
+    "special_transfers_emendas_pix": 178182233.0,
+    "other_legal_and_voluntary": 362148213.17
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 1970313000,
+   "inss_bpc_loas_included": 464665000,
+   "bolsa_familia": 1154054625.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 3124367625.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "AL",
+  "name": "Alagoas",
+  "population": 3220104,
+  "population_latest": 3221128,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 10971696228.6,
+   "rfb_administered": 10343999204.03,
+   "by_tax": {
+    "import_tax": 684688119.95,
+    "export_tax": 14378193.83,
+    "ipi": 391062859.08,
+    "irpf": 434990609.37,
+    "irpj": 788197830.4,
+    "irrf": 705369470.13,
+    "iof": 11435937.09,
+    "itr": 10544901.96,
+    "cofins": 1496574780.14,
+    "pis_pasep": 513287427.57,
+    "csll": 493713597.88,
+    "cide_fuels": 423090.18,
+    "civil_servant_social_security_pss": 375064131.31,
+    "other_rfb_revenue": 139920018.24,
+    "social_security_contributions_rgps": 4284348236.9,
+    "administered_by_other_agencies": 627697024.57
+   }
+  },
+  "transfers": {
+   "total": 20286354355.31,
+   "by_category": {
+    "fpe_net_of_fundeb": 6502317275.95,
+    "fpm_net_of_fundeb": 3950672312.19,
+    "ipi_exports_net_of_fundeb": 6427963.35,
+    "itr_municipal_share_net_of_fundeb": 8916741.86,
+    "fundeb_retention_on_federal_transfers": 2504202531.0,
+    "fundeb_federal_complement": 1962139834.71,
+    "oil_gas_royalties": 517609076.7,
+    "mineral_royalties_cfem": 24574178.16,
+    "water_resources_compensation": 26819678.95,
+    "cide_fuels_share": 13640980.04,
+    "iof_gold": 0.0,
+    "lc176_kandir_compensation": 23931353.06,
+    "salario_educacao_quotas": 353034224.88,
+    "sus_health": 3559978146.28,
+    "education_fnde_and_other": 200117665.57,
+    "social_assistance_suas": 124327307.02,
+    "special_transfers_emendas_pix": 192452531.0,
+    "other_legal_and_voluntary": 315192554.59
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 10832171000,
+   "inss_bpc_loas_included": 1892238000,
+   "bolsa_familia": 4455359754.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 15287530754.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "AM",
+  "name": "Amazonas",
+  "population": 4281209,
+  "population_latest": 4360926,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 26262547152.74,
+   "rfb_administered": 26052788327.55,
+   "by_tax": {
+    "import_tax": 945767060.75,
+    "export_tax": 2207783.96,
+    "ipi": 184661424.46,
+    "irpf": 458106961.96,
+    "irpj": 3441479421.97,
+    "irrf": 2218762114.0,
+    "iof": 32741591.88,
+    "itr": 3370227.04,
+    "cofins": 6287341700.35,
+    "pis_pasep": 1703262470.79,
+    "csll": 2953326151.64,
+    "cide_fuels": 61266171.84,
+    "civil_servant_social_security_pss": 399586787.24,
+    "other_rfb_revenue": 473747393.46,
+    "social_security_contributions_rgps": 6887161066.2,
+    "administered_by_other_agencies": 209758825.19
+   }
+  },
+  "transfers": {
+   "total": 19037658017.06,
+   "by_category": {
+    "fpe_net_of_fundeb": 5200089402.03,
+    "fpm_net_of_fundeb": 3114586311.77,
+    "ipi_exports_net_of_fundeb": 34701163.86,
+    "itr_municipal_share_net_of_fundeb": 1337746.45,
+    "fundeb_retention_on_federal_transfers": 1998208179.19,
+    "fundeb_federal_complement": 2854474488.7,
+    "oil_gas_royalties": 592886801.43,
+    "mineral_royalties_cfem": 22215125.34,
+    "water_resources_compensation": 4180583.01,
+    "cide_fuels_share": 14778427.77,
+    "iof_gold": 273816.57,
+    "lc176_kandir_compensation": 21271311.96,
+    "salario_educacao_quotas": 493737666.31,
+    "sus_health": 3520300825.08,
+    "education_fnde_and_other": 341680382.21,
+    "social_assistance_suas": 126319293.9,
+    "special_transfers_emendas_pix": 174196315.0,
+    "other_legal_and_voluntary": 522420176.48
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 7782950000,
+   "inss_bpc_loas_included": 2043702000,
+   "bolsa_familia": 5764710787.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 13547660787.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "AP",
+  "name": "Amapá",
+  "population": 802837,
+  "population_latest": 809953,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 2736659846.61,
+   "rfb_administered": 2700485109.02,
+   "by_tax": {
+    "import_tax": 36393017.36,
+    "export_tax": 191483.73,
+    "ipi": 14608012.34,
+    "irpf": 87789806.78,
+    "irpj": 253079398.72,
+    "irrf": 281468289.37,
+    "iof": 171862.62,
+    "itr": 1679435.72,
+    "cofins": 496264756.41,
+    "pis_pasep": 160675632.06,
+    "csll": 116591707.93,
+    "cide_fuels": 4887836.0,
+    "civil_servant_social_security_pss": 330530817.11,
+    "other_rfb_revenue": 37666641.76,
+    "social_security_contributions_rgps": 878486411.11,
+    "administered_by_other_agencies": 36174737.59
+   }
+  },
+  "transfers": {
+   "total": 9318929792.94,
+   "by_category": {
+    "fpe_net_of_fundeb": 5246312768.99,
+    "fpm_net_of_fundeb": 770017260.88,
+    "ipi_exports_net_of_fundeb": 3763035.45,
+    "itr_municipal_share_net_of_fundeb": 671815.06,
+    "fundeb_retention_on_federal_transfers": 1483188929.05,
+    "fundeb_federal_complement": 25246503.92,
+    "oil_gas_royalties": 53631745.0,
+    "mineral_royalties_cfem": 29984127.12,
+    "water_resources_compensation": 16487753.46,
+    "cide_fuels_share": 5825334.21,
+    "iof_gold": 0.0,
+    "lc176_kandir_compensation": 8064984.6,
+    "salario_educacao_quotas": 86657377.8,
+    "sus_health": 1001837930.19,
+    "education_fnde_and_other": 27298313.89,
+    "social_assistance_suas": 36498101.06,
+    "special_transfers_emendas_pix": 196235560.0,
+    "other_legal_and_voluntary": 327208252.26
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 1294047000,
+   "inss_bpc_loas_included": 507435000,
+   "bolsa_familia": 1048206384.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 2342253384.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "BA",
+  "name": "Bahia",
+  "population": 14850513,
+  "population_latest": 14889472,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 56077134570.58,
+   "rfb_administered": 55058816105.72,
+   "by_tax": {
+    "import_tax": 1086428129.16,
+    "export_tax": 97479621.01,
+    "ipi": 1637199330.85,
+    "irpf": 1706409016.34,
+    "irpj": 4824315006.74,
+    "irrf": 4990233051.89,
+    "iof": 65753085.16,
+    "itr": 104751906.44,
+    "cofins": 9434301991.52,
+    "pis_pasep": 2809897693.86,
+    "csll": 3321739267.81,
+    "cide_fuels": 259613069.86,
+    "civil_servant_social_security_pss": 1020520046.18,
+    "other_rfb_revenue": 239569105.9,
+    "social_security_contributions_rgps": 23460605783.0,
+    "administered_by_other_agencies": 1018318464.86
+   }
+  },
+  "transfers": {
+   "total": 63321039711.46,
+   "by_category": {
+    "fpe_net_of_fundeb": 13794396491.72,
+    "fpm_net_of_fundeb": 16231823555.56,
+    "ipi_exports_net_of_fundeb": 275457544.06,
+    "itr_municipal_share_net_of_fundeb": 66590098.32,
+    "fundeb_retention_on_federal_transfers": 7128314153.22,
+    "fundeb_federal_complement": 8785677529.12,
+    "oil_gas_royalties": 1160416914.31,
+    "mineral_royalties_cfem": 192372164.82,
+    "water_resources_compensation": 81042314.42,
+    "cide_fuels_share": 62530377.46,
+    "iof_gold": 0.0,
+    "lc176_kandir_compensation": 158629699.84,
+    "salario_educacao_quotas": 1352083959.03,
+    "sus_health": 11169937029.07,
+    "education_fnde_and_other": 939190468.65,
+    "social_assistance_suas": 372079308.68,
+    "special_transfers_emendas_pix": 640380120.0,
+    "other_legal_and_voluntary": 910117983.18
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 54475613000,
+   "inss_bpc_loas_included": 8509046000,
+   "bolsa_familia": 19884160661.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 74359773661.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "CE",
+  "name": "Ceará",
+  "population": 9233656,
+  "population_latest": 9302211,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 38487596154.09,
+   "rfb_administered": 38047740360.47,
+   "by_tax": {
+    "import_tax": 805128358.13,
+    "export_tax": 29085846.47,
+    "ipi": 743029555.82,
+    "irpf": 1012746062.4,
+    "irpj": 3996132941.88,
+    "irrf": 3770581990.77,
+    "iof": 153600256.26,
+    "itr": 5562935.44,
+    "cofins": 6483455460.8,
+    "pis_pasep": 1834433766.71,
+    "csll": 2778387780.42,
+    "cide_fuels": 32644150.13,
+    "civil_servant_social_security_pss": 764902875.04,
+    "other_rfb_revenue": 225580392.2,
+    "social_security_contributions_rgps": 15412467988.0,
+    "administered_by_other_agencies": 439855793.62
+   }
+  },
+  "transfers": {
+   "total": 41605637950.04,
+   "by_category": {
+    "fpe_net_of_fundeb": 10621290183.54,
+    "fpm_net_of_fundeb": 8807439086.3,
+    "ipi_exports_net_of_fundeb": 48100900.44,
+    "itr_municipal_share_net_of_fundeb": 3072720.6,
+    "fundeb_retention_on_federal_transfers": 4618333138.05,
+    "fundeb_federal_complement": 6563676211.96,
+    "oil_gas_royalties": 336669234.87,
+    "mineral_royalties_cfem": 22089445.07,
+    "water_resources_compensation": 0.0,
+    "cide_fuels_share": 37527715.71,
+    "iof_gold": 28.44,
+    "lc176_kandir_compensation": 33619504.8,
+    "salario_educacao_quotas": 838762733.83,
+    "sus_health": 7604297659.57,
+    "education_fnde_and_other": 730826515.45,
+    "social_assistance_suas": 301760012.94,
+    "special_transfers_emendas_pix": 362159485.0,
+    "other_legal_and_voluntary": 676013373.47
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 31410041000,
+   "inss_bpc_loas_included": 5592449000,
+   "bolsa_familia": 11878041263.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 43288082263.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "DF",
+  "name": "Distrito Federal",
+  "population": 2982818,
+  "population_latest": 3009996,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 184096264564.5,
+   "rfb_administered": 180228192000.12,
+   "by_tax": {
+    "import_tax": 78302427.57,
+    "export_tax": 2251157.65,
+    "ipi": 85456862.29,
+    "irpf": 2077499234.46,
+    "irpj": 12693857640.66,
+    "irrf": 63192608831.82,
+    "iof": 8923357243.0,
+    "itr": 4174862.68,
+    "cofins": 15053612535.9,
+    "pis_pasep": 8341660422.17,
+    "csll": 7220739534.12,
+    "cide_fuels": 0.0,
+    "civil_servant_social_security_pss": 18437897786.0,
+    "other_rfb_revenue": 12284328869.8,
+    "social_security_contributions_rgps": 31832444592.0,
+    "administered_by_other_agencies": 3868072564.38
+   }
+  },
+  "transfers": {
+   "total": 3777893708.96,
+   "by_category": {
+    "fpe_net_of_fundeb": 1024818707.91,
+    "fpm_net_of_fundeb": 386875295.42,
+    "ipi_exports_net_of_fundeb": 10182271.07,
+    "itr_municipal_share_net_of_fundeb": 1504639.95,
+    "fundeb_retention_on_federal_transfers": 344790748.97,
+    "fundeb_federal_complement": 74491844.2,
+    "oil_gas_royalties": 0.0,
+    "mineral_royalties_cfem": 18545056.31,
+    "water_resources_compensation": 755331.47,
+    "cide_fuels_share": 12998660.88,
+    "iof_gold": 10.0,
+    "lc176_kandir_compensation": 16194999.96,
+    "salario_educacao_quotas": 344705685.8,
+    "sus_health": 1295797541.13,
+    "education_fnde_and_other": 82613359.68,
+    "social_assistance_suas": 27138020.89,
+    "special_transfers_emendas_pix": 9741582.0,
+    "other_legal_and_voluntary": 126739953.32
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 12121601000,
+   "inss_bpc_loas_included": 1629454000,
+   "bolsa_familia": 1508301560.0,
+   "fcdf_df_constitutional_fund": 23606312156.44,
+   "federal_payroll": null,
+   "total_available": 37236214716.44
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "ES",
+  "name": "Espírito Santo",
+  "population": 4102129,
+  "population_latest": 4150692,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 49180510762.79,
+   "rfb_administered": 48717025856.24,
+   "by_tax": {
+    "import_tax": 5756871260.9,
+    "export_tax": 83603460.67,
+    "ipi": 5398089353.37,
+    "irpf": 980510893.61,
+    "irpj": 4338299505.39,
+    "irrf": 2876280390.34,
+    "iof": 368312462.41,
+    "itr": 17012815.39,
+    "cofins": 11317707032.86,
+    "pis_pasep": 2905712639.87,
+    "csll": 2331717957.77,
+    "cide_fuels": 383642.9,
+    "civil_servant_social_security_pss": 461267910.35,
+    "other_rfb_revenue": 515797357.01,
+    "social_security_contributions_rgps": 11365459173.4,
+    "administered_by_other_agencies": 463484906.55
+   }
+  },
+  "transfers": {
+   "total": 14091248018.11,
+   "by_category": {
+    "fpe_net_of_fundeb": 2390223655.13,
+    "fpm_net_of_fundeb": 3120050884.26,
+    "ipi_exports_net_of_fundeb": 205971121.7,
+    "itr_municipal_share_net_of_fundeb": 7990079.87,
+    "fundeb_retention_on_federal_transfers": 1341918685.77,
+    "fundeb_federal_complement": 290033874.5,
+    "oil_gas_royalties": 2710839260.93,
+    "mineral_royalties_cfem": 69667993.82,
+    "water_resources_compensation": 5438521.39,
+    "cide_fuels_share": 20506674.73,
+    "iof_gold": 0.0,
+    "lc176_kandir_compensation": 106846002.28,
+    "salario_educacao_quotas": 372689719.66,
+    "sus_health": 2875716293.92,
+    "education_fnde_and_other": 153150814.4,
+    "social_assistance_suas": 83076554.24,
+    "special_transfers_emendas_pix": 148339603.0,
+    "other_legal_and_voluntary": 188788278.51
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 16538652000,
+   "inss_bpc_loas_included": 1552291000,
+   "bolsa_familia": 2486503609.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 19025155609.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "GO",
+  "name": "Goiás",
+  "population": 7350483,
+  "population_latest": 7495033,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 41837064346.81,
+   "rfb_administered": 41419205443.27,
+   "by_tax": {
+    "import_tax": 1413146327.75,
+    "export_tax": 27768414.9,
+    "ipi": 1213248123.76,
+    "irpf": 2007380110.81,
+    "irpj": 4465617321.18,
+    "irrf": 3467389487.69,
+    "iof": 365977203.51,
+    "itr": 428033708.27,
+    "cofins": 6199723710.07,
+    "pis_pasep": 2097380414.17,
+    "csll": 2393298324.73,
+    "cide_fuels": 77927.94,
+    "civil_servant_social_security_pss": 894955119.62,
+    "other_rfb_revenue": 491241043.87,
+    "social_security_contributions_rgps": 15953968205.0,
+    "administered_by_other_agencies": 417858903.54
+   }
+  },
+  "transfers": {
+   "total": 21674014571.7,
+   "by_category": {
+    "fpe_net_of_fundeb": 4285132301.32,
+    "fpm_net_of_fundeb": 6614948469.7,
+    "ipi_exports_net_of_fundeb": 156284998.78,
+    "itr_municipal_share_net_of_fundeb": 322769716.31,
+    "fundeb_retention_on_federal_transfers": 2655789868.77,
+    "fundeb_federal_complement": 324363093.78,
+    "oil_gas_royalties": 174443872.55,
+    "mineral_royalties_cfem": 164567521.59,
+    "water_resources_compensation": 206726674.16,
+    "cide_fuels_share": 51064555.27,
+    "iof_gold": 2331.42,
+    "lc176_kandir_compensation": 257609223.48,
+    "salario_educacao_quotas": 579238337.01,
+    "sus_health": 4805891275.71,
+    "education_fnde_and_other": 316156624.44,
+    "social_assistance_suas": 177828907.6,
+    "special_transfers_emendas_pix": 277243657.0,
+    "other_legal_and_voluntary": 303953142.81
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 18839723000,
+   "inss_bpc_loas_included": 2555448000,
+   "bolsa_familia": 4134908358.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 22974631358.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "MA",
+  "name": "Maranhão",
+  "population": 7010960,
+  "population_latest": 7024557,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 15559315403.29,
+   "rfb_administered": 15403262816.07,
+   "by_tax": {
+    "import_tax": 100674308.76,
+    "export_tax": 1641074.92,
+    "ipi": 121023741.56,
+    "irpf": 632797014.25,
+    "irpj": 1108562136.66,
+    "irrf": 1007186201.76,
+    "iof": 16141254.1,
+    "itr": 31883099.69,
+    "cofins": 3198448185.15,
+    "pis_pasep": 1012853204.73,
+    "csll": 851377980.06,
+    "cide_fuels": 69437388.46,
+    "civil_servant_social_security_pss": 449336224.41,
+    "other_rfb_revenue": 180901112.36,
+    "social_security_contributions_rgps": 6620999889.2,
+    "administered_by_other_agencies": 156052587.22
+   }
+  },
+  "transfers": {
+   "total": 40365654278.0,
+   "by_category": {
+    "fpe_net_of_fundeb": 10555970116.97,
+    "fpm_net_of_fundeb": 7424231685.2,
+    "ipi_exports_net_of_fundeb": 75292366.2,
+    "itr_municipal_share_net_of_fundeb": 16069168.51,
+    "fundeb_retention_on_federal_transfers": 4305782404.02,
+    "fundeb_federal_complement": 8402845256.87,
+    "oil_gas_royalties": 360937609.25,
+    "mineral_royalties_cfem": 274406524.79,
+    "water_resources_compensation": 11460473.12,
+    "cide_fuels_share": 32338400.78,
+    "iof_gold": 11511.59,
+    "lc176_kandir_compensation": 93883698.5,
+    "salario_educacao_quotas": 772483302.06,
+    "sus_health": 6309872604.67,
+    "education_fnde_and_other": 570572844.87,
+    "social_assistance_suas": 210086824.24,
+    "special_transfers_emendas_pix": 370126162.0,
+    "other_legal_and_voluntary": 579283324.36
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 20588146000,
+   "inss_bpc_loas_included": 2964728000,
+   "bolsa_familia": 10418226916.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 31006372916.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "MG",
+  "name": "Minas Gerais",
+  "population": 21322691,
+  "population_latest": 21460311,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 177393071124.41,
+   "rfb_administered": 175619676755.27,
+   "by_tax": {
+    "import_tax": 4896829177.6,
+    "export_tax": 237029323.47,
+    "ipi": 11597755247.67,
+    "irpf": 6321090036.2,
+    "irpj": 23356345718.67,
+    "irrf": 16967747083.67,
+    "iof": 2126754779.5,
+    "itr": 334083926.42,
+    "cofins": 27183227010.45,
+    "pis_pasep": 7785668216.29,
+    "csll": 11839441957.74,
+    "cide_fuels": 14497.07,
+    "civil_servant_social_security_pss": 2603700482.3,
+    "other_rfb_revenue": 683690813.22,
+    "social_security_contributions_rgps": 59686298485.0,
+    "administered_by_other_agencies": 1773394369.14
+   }
+  },
+  "transfers": {
+   "total": 63650032053.82,
+   "by_category": {
+    "fpe_net_of_fundeb": 7086188107.79,
+    "fpm_net_of_fundeb": 23043095173.61,
+    "ipi_exports_net_of_fundeb": 820613572.87,
+    "itr_municipal_share_net_of_fundeb": 229465979.04,
+    "fundeb_retention_on_federal_transfers": 7136455835.1,
+    "fundeb_federal_complement": 563285914.98,
+    "oil_gas_royalties": 733219420.69,
+    "mineral_royalties_cfem": 2869063779.89,
+    "water_resources_compensation": 397783233.77,
+    "cide_fuels_share": 105415037.02,
+    "iof_gold": 66247.52,
+    "lc176_kandir_compensation": 529964583.92,
+    "salario_educacao_quotas": 1771481080.58,
+    "sus_health": 15358489058.31,
+    "education_fnde_and_other": 904420677.68,
+    "social_assistance_suas": 437407596.09,
+    "special_transfers_emendas_pix": 696550437.0,
+    "other_legal_and_voluntary": 967066317.96
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 96485990000,
+   "inss_bpc_loas_included": 8782482000,
+   "bolsa_familia": 12775181577.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 109261171577.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "MS",
+  "name": "Mato Grosso do Sul",
+  "population": 2901895,
+  "population_latest": 2946317,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 17145477527.72,
+   "rfb_administered": 16958207591.84,
+   "by_tax": {
+    "import_tax": 517291592.93,
+    "export_tax": 11861779.36,
+    "ipi": 212376901.26,
+    "irpf": 1067231746.64,
+    "irpj": 1892298492.22,
+    "irrf": 1385385439.96,
+    "iof": 176400493.74,
+    "itr": 482652642.5,
+    "cofins": 2460120584.35,
+    "pis_pasep": 885758740.01,
+    "csll": 985271556.86,
+    "cide_fuels": 21972834.41,
+    "civil_servant_social_security_pss": 371033646.05,
+    "other_rfb_revenue": 67929538.05,
+    "social_security_contributions_rgps": 6420621603.5,
+    "administered_by_other_agencies": 187269935.88
+   }
+  },
+  "transfers": {
+   "total": 9748341303.23,
+   "by_category": {
+    "fpe_net_of_fundeb": 1938326182.49,
+    "fpm_net_of_fundeb": 2569582536.22,
+    "ipi_exports_net_of_fundeb": 135734879.83,
+    "itr_municipal_share_net_of_fundeb": 390716522.96,
+    "fundeb_retention_on_federal_transfers": 1185169406.19,
+    "fundeb_federal_complement": 43580722.53,
+    "oil_gas_royalties": 69772266.54,
+    "mineral_royalties_cfem": 66430437.17,
+    "water_resources_compensation": 79120638.7,
+    "cide_fuels_share": 26967523.48,
+    "iof_gold": 0.0,
+    "lc176_kandir_compensation": 161367214.08,
+    "salario_educacao_quotas": 273665786.47,
+    "sus_health": 2073356163.09,
+    "education_fnde_and_other": 153877448.34,
+    "social_assistance_suas": 66085545.83,
+    "special_transfers_emendas_pix": 134904527.0,
+    "other_legal_and_voluntary": 379683502.31
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 9280638000,
+   "inss_bpc_loas_included": 1609014000,
+   "bolsa_familia": 1723979371.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 11004617371.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "MT",
+  "name": "Mato Grosso",
+  "population": 3836399,
+  "population_latest": 3950330,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 25790015357.23,
+   "rfb_administered": 25464130262.11,
+   "by_tax": {
+    "import_tax": 135385448.38,
+    "export_tax": 5818278.95,
+    "ipi": 145236107.87,
+    "irpf": 1362941513.99,
+    "irpj": 3133687830.02,
+    "irrf": 2356140217.42,
+    "iof": 400537209.29,
+    "itr": 492796910.72,
+    "cofins": 3098816976.23,
+    "pis_pasep": 1195670846.6,
+    "csll": 1871304490.15,
+    "cide_fuels": 3738692.4,
+    "civil_servant_social_security_pss": 390142580.52,
+    "other_rfb_revenue": 262093385.27,
+    "social_security_contributions_rgps": 10609819774.3,
+    "administered_by_other_agencies": 325885095.12
+   }
+  },
+  "transfers": {
+   "total": 13254006834.48,
+   "by_category": {
+    "fpe_net_of_fundeb": 3248943952.54,
+    "fpm_net_of_fundeb": 3163295243.98,
+    "ipi_exports_net_of_fundeb": 155582537.57,
+    "itr_municipal_share_net_of_fundeb": 382943188.57,
+    "fundeb_retention_on_federal_transfers": 1647309909.82,
+    "fundeb_federal_complement": 82403470.53,
+    "oil_gas_royalties": 88121269.36,
+    "mineral_royalties_cfem": 115497495.27,
+    "water_resources_compensation": 67714454.76,
+    "cide_fuels_share": 40254453.33,
+    "iof_gold": 9620200.24,
+    "lc176_kandir_compensation": 693672665.64,
+    "salario_educacao_quotas": 385475571.61,
+    "sus_health": 2453871953.1,
+    "education_fnde_and_other": 199170476.85,
+    "social_assistance_suas": 57609038.51,
+    "special_transfers_emendas_pix": 190791983.0,
+    "other_legal_and_voluntary": 271728969.8
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 10070676000,
+   "inss_bpc_loas_included": 1623203000,
+   "bolsa_familia": 2158366442.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 12229042442.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "PA",
+  "name": "Pará",
+  "population": 8664306,
+  "population_latest": 8756324,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 23054655766.23,
+   "rfb_administered": 22807093383.05,
+   "by_tax": {
+    "import_tax": 190738864.65,
+    "export_tax": 9150727.77,
+    "ipi": 270108464.29,
+    "irpf": 710113360.11,
+    "irpj": 2503477379.44,
+    "irrf": 1732444105.8,
+    "iof": 287799154.24,
+    "itr": 63883570.55,
+    "cofins": 3268529871.52,
+    "pis_pasep": 1198585714.22,
+    "csll": 1633975946.84,
+    "cide_fuels": 21508036.83,
+    "civil_servant_social_security_pss": 702472959.27,
+    "other_rfb_revenue": 112076532.92,
+    "social_security_contributions_rgps": 10102228694.6,
+    "administered_by_other_agencies": 247562383.18
+   }
+  },
+  "transfers": {
+   "total": 38260753586.03,
+   "by_category": {
+    "fpe_net_of_fundeb": 9264544762.71,
+    "fpm_net_of_fundeb": 5977275736.37,
+    "ipi_exports_net_of_fundeb": 429804634.56,
+    "itr_municipal_share_net_of_fundeb": 40028598.24,
+    "fundeb_retention_on_federal_transfers": 3757141915.69,
+    "fundeb_federal_complement": 7163393787.32,
+    "oil_gas_royalties": 194850693.06,
+    "mineral_royalties_cfem": 2368773802.74,
+    "water_resources_compensation": 262185615.77,
+    "cide_fuels_share": 33199825.51,
+    "iof_gold": 345450.58,
+    "lc176_kandir_compensation": 290105220.0,
+    "salario_educacao_quotas": 909229393.27,
+    "sus_health": 5965245793.52,
+    "education_fnde_and_other": 643453228.56,
+    "social_assistance_suas": 194447393.25,
+    "special_transfers_emendas_pix": 328144396.0,
+    "other_legal_and_voluntary": 438583338.88
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 18867015000,
+   "inss_bpc_loas_included": 4196075000,
+   "bolsa_familia": 11495038613.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 30362053613.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "PB",
+  "name": "Paraíba",
+  "population": 4145040,
+  "population_latest": 4182828,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 13625292407.65,
+   "rfb_administered": 13422556729.24,
+   "by_tax": {
+    "import_tax": 186662527.03,
+    "export_tax": 8867184.82,
+    "ipi": 203446394.64,
+    "irpf": 609087253.78,
+    "irpj": 1059463863.81,
+    "irrf": 1163349359.93,
+    "iof": 41484556.66,
+    "itr": 4377312.49,
+    "cofins": 1897343847.7,
+    "pis_pasep": 653928842.21,
+    "csll": 712090214.61,
+    "cide_fuels": 7041893.14,
+    "civil_servant_social_security_pss": 811012284.72,
+    "other_rfb_revenue": 110296975.1,
+    "social_security_contributions_rgps": 5954104218.6,
+    "administered_by_other_agencies": 202735678.41
+   }
+  },
+  "transfers": {
+   "total": 22962158423.03,
+   "by_category": {
+    "fpe_net_of_fundeb": 7031856531.5,
+    "fpm_net_of_fundeb": 5812453528.8,
+    "ipi_exports_net_of_fundeb": 4889422.42,
+    "itr_municipal_share_net_of_fundeb": 1814985.02,
+    "fundeb_retention_on_federal_transfers": 3046681824.57,
+    "fundeb_federal_complement": 1350371140.01,
+    "oil_gas_royalties": 237060200.43,
+    "mineral_royalties_cfem": 22834316.16,
+    "water_resources_compensation": 0.0,
+    "cide_fuels_share": 18947481.08,
+    "iof_gold": 91.71,
+    "lc176_kandir_compensation": 5665241.91,
+    "salario_educacao_quotas": 358983546.17,
+    "sus_health": 3870732537.35,
+    "education_fnde_and_other": 284531836.23,
+    "social_assistance_suas": 214844289.82,
+    "special_transfers_emendas_pix": 237570547.0,
+    "other_legal_and_voluntary": 462920902.85
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 15040109000,
+   "inss_bpc_loas_included": 2300097000,
+   "bolsa_familia": 5461720251.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 20501829251.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "PE",
+  "name": "Pernambuco",
+  "population": 9539029,
+  "population_latest": 9583176,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 42078546958.36,
+   "rfb_administered": 41501817290.92,
+   "by_tax": {
+    "import_tax": 1915617242.66,
+    "export_tax": 53215259.0,
+    "ipi": 1949094021.61,
+    "irpf": 1441158742.57,
+    "irpj": 3612700356.45,
+    "irrf": 3486219579.24,
+    "iof": 85377634.78,
+    "itr": 12456955.54,
+    "cofins": 8296788898.96,
+    "pis_pasep": 2425269460.87,
+    "csll": 2232375619.42,
+    "cide_fuels": 79236781.02,
+    "civil_servant_social_security_pss": 1373881954.39,
+    "other_rfb_revenue": 323619819.41,
+    "social_security_contributions_rgps": 14214804965.0,
+    "administered_by_other_agencies": 576729667.44
+   }
+  },
+  "transfers": {
+   "total": 36590043102.86,
+   "by_category": {
+    "fpe_net_of_fundeb": 10305503719.22,
+    "fpm_net_of_fundeb": 8694938735.5,
+    "ipi_exports_net_of_fundeb": 78131640.96,
+    "itr_municipal_share_net_of_fundeb": 4950525.33,
+    "fundeb_retention_on_federal_transfers": 4522464123.79,
+    "fundeb_federal_complement": 2556977935.45,
+    "oil_gas_royalties": 358690287.33,
+    "mineral_royalties_cfem": 10195357.91,
+    "water_resources_compensation": 22582370.69,
+    "cide_fuels_share": 32803813.2,
+    "iof_gold": 17951.84,
+    "lc176_kandir_compensation": 29473442.76,
+    "salario_educacao_quotas": 762180942.09,
+    "sus_health": 7579212931.68,
+    "education_fnde_and_other": 527546793.07,
+    "social_assistance_suas": 222631820.44,
+    "special_transfers_emendas_pix": 352458816.0,
+    "other_legal_and_voluntary": 529281895.6
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 32570160000,
+   "inss_bpc_loas_included": 5839141000,
+   "bolsa_familia": 12873122800.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 45443282800.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "PI",
+  "name": "Piauí",
+  "population": 3375646,
+  "population_latest": 3392617,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 8902547236.16,
+   "rfb_administered": 8813236249.35,
+   "by_tax": {
+    "import_tax": 127198309.68,
+    "export_tax": 3115967.91,
+    "ipi": 102317299.39,
+    "irpf": 369890580.6,
+    "irpj": 861210037.91,
+    "irrf": 605392890.73,
+    "iof": 2542589.8,
+    "itr": 33108714.98,
+    "cofins": 1139440430.84,
+    "pis_pasep": 426532354.33,
+    "csll": 583504161.72,
+    "cide_fuels": 0.0,
+    "civil_servant_social_security_pss": 376366335.65,
+    "other_rfb_revenue": 43406233.81,
+    "social_security_contributions_rgps": 4139210342.0,
+    "administered_by_other_agencies": 89310986.81
+   }
+  },
+  "transfers": {
+   "total": 21653547454.77,
+   "by_category": {
+    "fpe_net_of_fundeb": 6398073821.89,
+    "fpm_net_of_fundeb": 4701636369.28,
+    "ipi_exports_net_of_fundeb": 1527919.32,
+    "itr_municipal_share_net_of_fundeb": 17410438.91,
+    "fundeb_retention_on_federal_transfers": 2645323379.7,
+    "fundeb_federal_complement": 2454962372.59,
+    "oil_gas_royalties": 144858657.68,
+    "mineral_royalties_cfem": 11428344.89,
+    "water_resources_compensation": 2794731.39,
+    "cide_fuels_share": 26123608.14,
+    "iof_gold": 142.45,
+    "lc176_kandir_compensation": 42207016.92,
+    "salario_educacao_quotas": 342140528.7,
+    "sus_health": 3548010133.85,
+    "education_fnde_and_other": 323792285.47,
+    "social_assistance_suas": 251154687.76,
+    "special_transfers_emendas_pix": 273555829.0,
+    "other_legal_and_voluntary": 468547186.83
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 12998482000,
+   "inss_bpc_loas_included": 1488755000,
+   "bolsa_familia": 4896263129.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 17894745129.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "PR",
+  "name": "Paraná",
+  "population": 11824665,
+  "population_latest": 11952456,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 123154809287.94,
+   "rfb_administered": 122151299376.09,
+   "by_tax": {
+    "import_tax": 6458177068.6,
+    "export_tax": 217653734.08,
+    "ipi": 5258470214.84,
+    "irpf": 4470623996.3,
+    "irpj": 14238557719.4,
+    "irrf": 12585068410.9,
+    "iof": 1801813216.7,
+    "itr": 410599544.63,
+    "cofins": 21254098645.26,
+    "pis_pasep": 5905222786.19,
+    "csll": 7538473933.03,
+    "cide_fuels": 6282941.8,
+    "civil_servant_social_security_pss": 1185045751.06,
+    "other_rfb_revenue": 1413965720.3,
+    "social_security_contributions_rgps": 39407245693.0,
+    "administered_by_other_agencies": 1003509911.85
+   }
+  },
+  "transfers": {
+   "total": 34017976166.44,
+   "by_category": {
+    "fpe_net_of_fundeb": 4174046748.64,
+    "fpm_net_of_fundeb": 12031463414.47,
+    "ipi_exports_net_of_fundeb": 620678286.49,
+    "itr_municipal_share_net_of_fundeb": 291985690.14,
+    "fundeb_retention_on_federal_transfers": 3935785011.29,
+    "fundeb_federal_complement": 206587554.2,
+    "oil_gas_royalties": 462922933.29,
+    "mineral_royalties_cfem": 33565717.88,
+    "water_resources_compensation": 1312426319.8,
+    "cide_fuels_share": 62263524.1,
+    "iof_gold": 0.0,
+    "lc176_kandir_compensation": 263364688.92,
+    "salario_educacao_quotas": 1025472236.26,
+    "sus_health": 7788441076.14,
+    "education_fnde_and_other": 680626173.65,
+    "social_assistance_suas": 219909894.66,
+    "special_transfers_emendas_pix": 416331922.0,
+    "other_legal_and_voluntary": 492104974.51
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 51262048000,
+   "inss_bpc_loas_included": 4016475000,
+   "bolsa_familia": 4940227976.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 56202275976.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "RJ",
+  "name": "Rio de Janeiro",
+  "population": 17219679,
+  "population_latest": 17225410,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 459204018299.42,
+   "rfb_administered": 352350082432.42,
+   "by_tax": {
+    "import_tax": 3762635591.3,
+    "export_tax": 137969345.9,
+    "ipi": 3519228674.35,
+    "irpf": 7980980774.0,
+    "irpj": 67062374762.4,
+    "irrf": 74345152129.5,
+    "iof": 3638776124.6,
+    "itr": 22888307.52,
+    "cofins": 64006945258.3,
+    "pis_pasep": 15582943683.35,
+    "csll": 33412972428.3,
+    "cide_fuels": 2294093377.4,
+    "civil_servant_social_security_pss": 3914068334.0,
+    "other_rfb_revenue": 8814203560.5,
+    "social_security_contributions_rgps": 63854850081.0,
+    "administered_by_other_agencies": 106853935867.0
+   }
+  },
+  "transfers": {
+   "total": 70799743255.22,
+   "by_category": {
+    "fpe_net_of_fundeb": 2639292742.9,
+    "fpm_net_of_fundeb": 5342533259.86,
+    "ipi_exports_net_of_fundeb": 1353098711.72,
+    "itr_municipal_share_net_of_fundeb": 10095580.12,
+    "fundeb_retention_on_federal_transfers": 2183640565.71,
+    "fundeb_federal_complement": 1325001005.09,
+    "oil_gas_royalties": 44016130818.87,
+    "mineral_royalties_cfem": 102252351.63,
+    "water_resources_compensation": 20300091.74,
+    "cide_fuels_share": 43921193.64,
+    "iof_gold": 0.0,
+    "lc176_kandir_compensation": 124108293.42,
+    "salario_educacao_quotas": 1338648234.29,
+    "sus_health": 11131085631.08,
+    "education_fnde_and_other": 451460211.12,
+    "social_assistance_suas": 221581984.61,
+    "special_transfers_emendas_pix": 115628716.0,
+    "other_legal_and_voluntary": 380963863.42
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 81761291000,
+   "inss_bpc_loas_included": 7440014000,
+   "bolsa_familia": 13429163089.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 95190454089.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "RN",
+  "name": "Rio Grande do Norte",
+  "population": 3446071,
+  "population_latest": 3463737,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 11399327497.27,
+   "rfb_administered": 11268265695.28,
+   "by_tax": {
+    "import_tax": 116774128.48,
+    "export_tax": 4562886.08,
+    "ipi": 95197063.59,
+    "irpf": 477212058.46,
+    "irpj": 1113246410.21,
+    "irrf": 957809756.4,
+    "iof": 19463845.72,
+    "itr": 5751221.01,
+    "cofins": 1578421997.09,
+    "pis_pasep": 597654907.9,
+    "csll": 695229423.85,
+    "cide_fuels": 16258173.63,
+    "civil_servant_social_security_pss": 643079960.07,
+    "other_rfb_revenue": 64013212.19,
+    "social_security_contributions_rgps": 4883590650.6,
+    "administered_by_other_agencies": 131061801.99
+   }
+  },
+  "transfers": {
+   "total": 18703690320.11,
+   "by_category": {
+    "fpe_net_of_fundeb": 5976168210.33,
+    "fpm_net_of_fundeb": 4387751472.09,
+    "ipi_exports_net_of_fundeb": 13348183.8,
+    "itr_municipal_share_net_of_fundeb": 2389984.66,
+    "fundeb_retention_on_federal_transfers": 2469548438.34,
+    "fundeb_federal_complement": 429924616.51,
+    "oil_gas_royalties": 697056929.47,
+    "mineral_royalties_cfem": 25413676.3,
+    "water_resources_compensation": 0.0,
+    "cide_fuels_share": 17301822.03,
+    "iof_gold": 0.0,
+    "lc176_kandir_compensation": 10827714.27,
+    "salario_educacao_quotas": 284183324.32,
+    "sus_health": 3396801573.19,
+    "education_fnde_and_other": 175865566.95,
+    "social_assistance_suas": 119440508.14,
+    "special_transfers_emendas_pix": 175726447.0,
+    "other_legal_and_voluntary": 521941852.71
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 11854853000,
+   "inss_bpc_loas_included": 1653205000,
+   "bolsa_familia": 4038203536.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 15893056536.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "RO",
+  "name": "Rondônia",
+  "population": 1746227,
+  "population_latest": 1757338,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 8698266290.37,
+   "rfb_administered": 8565000404.03,
+   "by_tax": {
+    "import_tax": 703084606.03,
+    "export_tax": 8456462.59,
+    "ipi": 375545085.81,
+    "irpf": 312075031.85,
+    "irpj": 554783516.66,
+    "irrf": 667391989.03,
+    "iof": 225368826.23,
+    "itr": 34269835.99,
+    "cofins": 1376267734.34,
+    "pis_pasep": 463559571.21,
+    "csll": 350325053.86,
+    "cide_fuels": 0.0,
+    "civil_servant_social_security_pss": 330335946.57,
+    "other_rfb_revenue": 111333872.56,
+    "social_security_contributions_rgps": 3052202871.3,
+    "administered_by_other_agencies": 133265886.34
+   }
+  },
+  "transfers": {
+   "total": 9805075579.0,
+   "by_category": {
+    "fpe_net_of_fundeb": 4202002525.38,
+    "fpm_net_of_fundeb": 1574975072.91,
+    "ipi_exports_net_of_fundeb": 26755768.21,
+    "itr_municipal_share_net_of_fundeb": 21592988.2,
+    "fundeb_retention_on_federal_transfers": 1411328612.87,
+    "fundeb_federal_complement": 32838695.67,
+    "oil_gas_royalties": 62200808.94,
+    "mineral_royalties_cfem": 23529667.47,
+    "water_resources_compensation": 152566420.61,
+    "cide_fuels_share": 13853905.52,
+    "iof_gold": 1631958.1,
+    "lc176_kandir_compensation": 46363004.16,
+    "salario_educacao_quotas": 161553172.4,
+    "sus_health": 1397519471.12,
+    "education_fnde_and_other": 100527448.82,
+    "social_assistance_suas": 31373520.72,
+    "special_transfers_emendas_pix": 203608819.0,
+    "other_legal_and_voluntary": 340853718.9
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 5253723000,
+   "inss_bpc_loas_included": 824693000,
+   "bolsa_familia": 1074798284.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 6328521284.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "RR",
+  "name": "Roraima",
+  "population": 716793,
+  "population_latest": 761012,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 2187164105.93,
+   "rfb_administered": 2133275949.75,
+   "by_tax": {
+    "import_tax": 1116045.96,
+    "export_tax": 151770.63,
+    "ipi": 1895077.2,
+    "irpf": 97952611.89,
+    "irpj": 220802860.77,
+    "irrf": 181937790.17,
+    "iof": 1394810.22,
+    "itr": 3759064.32,
+    "cofins": 182952877.46,
+    "pis_pasep": 116753693.13,
+    "csll": 131300453.72,
+    "cide_fuels": 0.0,
+    "civil_servant_social_security_pss": 194542702.68,
+    "other_rfb_revenue": 10307363.16,
+    "social_security_contributions_rgps": 988408828.44,
+    "administered_by_other_agencies": 53888156.18
+   }
+  },
+  "transfers": {
+   "total": 8143464584.15,
+   "by_category": {
+    "fpe_net_of_fundeb": 4309639304.35,
+    "fpm_net_of_fundeb": 903917422.73,
+    "ipi_exports_net_of_fundeb": 7816107.4,
+    "itr_municipal_share_net_of_fundeb": 1481407.57,
+    "fundeb_retention_on_federal_transfers": 1279885238.6,
+    "fundeb_federal_complement": 15208390.25,
+    "oil_gas_royalties": 57051133.31,
+    "mineral_royalties_cfem": 524458.83,
+    "water_resources_compensation": 0.0,
+    "cide_fuels_share": 8196837.1,
+    "iof_gold": 0.0,
+    "lc176_kandir_compensation": 5163000.24,
+    "salario_educacao_quotas": 75500870.03,
+    "sus_health": 761854769.48,
+    "education_fnde_and_other": 43074515.51,
+    "social_assistance_suas": 24481596.75,
+    "special_transfers_emendas_pix": 181032691.0,
+    "other_legal_and_voluntary": 468636841.0
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 1012650000,
+   "inss_bpc_loas_included": 337858000,
+   "bolsa_familia": 698783911.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 1711433911.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "RS",
+  "name": "Rio Grande do Sul",
+  "population": 11229915,
+  "population_latest": 11233317,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 120222154287.07,
+   "rfb_administered": 119123299697.96,
+   "by_tax": {
+    "import_tax": 2051124546.4,
+    "export_tax": 372798847.87,
+    "ipi": 7258863708.17,
+    "irpf": 4556555661.0,
+    "irpj": 14566934166.34,
+    "irrf": 13734469416.41,
+    "iof": 2504517059.86,
+    "itr": 274134511.44,
+    "cofins": 18892645326.34,
+    "pis_pasep": 5273669133.34,
+    "csll": 7576718998.08,
+    "cide_fuels": 18615770.94,
+    "civil_servant_social_security_pss": 2011938473.6,
+    "other_rfb_revenue": 884617791.17,
+    "social_security_contributions_rgps": 39145696287.0,
+    "administered_by_other_agencies": 1098854589.11
+   }
+  },
+  "transfers": {
+   "total": 32514992982.27,
+   "by_category": {
+    "fpe_net_of_fundeb": 3016580608.18,
+    "fpm_net_of_fundeb": 11836069028.2,
+    "ipi_exports_net_of_fundeb": 515975914.1,
+    "itr_municipal_share_net_of_fundeb": 200774299.7,
+    "fundeb_retention_on_federal_transfers": 3554171212.13,
+    "fundeb_federal_complement": 127098742.95,
+    "oil_gas_royalties": 390495095.96,
+    "mineral_royalties_cfem": 38481984.69,
+    "water_resources_compensation": 127994604.8,
+    "cide_fuels_share": 54020671.14,
+    "iof_gold": 210.32,
+    "lc176_kandir_compensation": 285137409.4,
+    "salario_educacao_quotas": 935269273.36,
+    "sus_health": 7930308442.35,
+    "education_fnde_and_other": 516651823.23,
+    "social_assistance_suas": 256882514.0,
+    "special_transfers_emendas_pix": 445960815.0,
+    "other_legal_and_voluntary": 2283120332.76
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 67762203000,
+   "inss_bpc_loas_included": 3756930000,
+   "bolsa_familia": 5317673194.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 73079876194.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "SC",
+  "name": "Santa Catarina",
+  "population": 8058441,
+  "population_latest": 8312759,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 140218428065.48,
+   "rfb_administered": 139325266182.28,
+   "by_tax": {
+    "import_tax": 16960883272.4,
+    "export_tax": 347762973.67,
+    "ipi": 11390713261.16,
+    "irpf": 2974681011.85,
+    "irpj": 13560745273.87,
+    "irrf": 8953917612.12,
+    "iof": 1106947679.56,
+    "itr": 61716742.3,
+    "cofins": 31160055985.63,
+    "pis_pasep": 7687384836.43,
+    "csll": 6803171524.84,
+    "cide_fuels": 479.6,
+    "civil_servant_social_security_pss": 884503729.78,
+    "other_rfb_revenue": 1796430626.07,
+    "social_security_contributions_rgps": 35636351173.0,
+    "administered_by_other_agencies": 893161883.2
+   }
+  },
+  "transfers": {
+   "total": 18760542011.99,
+   "by_category": {
+    "fpe_net_of_fundeb": 1877936219.63,
+    "fpm_net_of_fundeb": 6878016639.88,
+    "ipi_exports_net_of_fundeb": 411807812.78,
+    "itr_municipal_share_net_of_fundeb": 35624726.31,
+    "fundeb_retention_on_federal_transfers": 2104333394.83,
+    "fundeb_federal_complement": 103538958.01,
+    "oil_gas_royalties": 322671659.33,
+    "mineral_royalties_cfem": 46243287.12,
+    "water_resources_compensation": 130423332.05,
+    "cide_fuels_share": 37331146.92,
+    "iof_gold": 0.0,
+    "lc176_kandir_compensation": 86210211.0,
+    "salario_educacao_quotas": 764706136.63,
+    "sus_health": 4848452774.22,
+    "education_fnde_and_other": 324272390.13,
+    "social_assistance_suas": 106632263.6,
+    "special_transfers_emendas_pix": 304976582.0,
+    "other_legal_and_voluntary": 377364477.55
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 40293612000,
+   "inss_bpc_loas_included": 1545011000,
+   "bolsa_familia": 1890903894.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 42184515894.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "SE",
+  "name": "Sergipe",
+  "population": 2291077,
+  "population_latest": 2307255,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 8253613878.82,
+   "rfb_administered": 8104695823.83,
+   "by_tax": {
+    "import_tax": 67691198.0,
+    "export_tax": 7856228.66,
+    "ipi": 128940928.25,
+    "irpf": 1083008656.58,
+    "irpj": 640914466.39,
+    "irrf": 604798500.38,
+    "iof": 67163618.43,
+    "itr": 4640773.53,
+    "cofins": 887266190.2,
+    "pis_pasep": 358734290.58,
+    "csll": 464607546.87,
+    "cide_fuels": 1.22,
+    "civil_servant_social_security_pss": 311126765.49,
+    "other_rfb_revenue": 72632093.95,
+    "social_security_contributions_rgps": 3405314565.3,
+    "administered_by_other_agencies": 148918054.99
+   }
+  },
+  "transfers": {
+   "total": 14162497782.4,
+   "by_category": {
+    "fpe_net_of_fundeb": 5984402854.94,
+    "fpm_net_of_fundeb": 2720933214.02,
+    "ipi_exports_net_of_fundeb": 4126004.18,
+    "itr_municipal_share_net_of_fundeb": 2393457.05,
+    "fundeb_retention_on_federal_transfers": 2100221345.76,
+    "fundeb_federal_complement": 188004536.34,
+    "oil_gas_royalties": 364759104.04,
+    "mineral_royalties_cfem": 19098517.47,
+    "water_resources_compensation": 18656236.43,
+    "cide_fuels_share": 12109743.69,
+    "iof_gold": 0.0,
+    "lc176_kandir_compensation": 4981202.28,
+    "salario_educacao_quotas": 194398407.64,
+    "sus_health": 1944275213.48,
+    "education_fnde_and_other": 122790918.63,
+    "social_assistance_suas": 83312896.11,
+    "special_transfers_emendas_pix": 192609329.0,
+    "other_legal_and_voluntary": 205424801.34
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 7969968000,
+   "inss_bpc_loas_included": 1204882000,
+   "bolsa_familia": 3075824635.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 11045792635.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "SP",
+  "name": "São Paulo",
+  "population": 45973194,
+  "population_latest": 46179008,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 1036613903315.14,
+   "rfb_administered": 1029238897380.84,
+   "by_tax": {
+    "import_tax": 24383888972.4,
+    "export_tax": 1398012561.73,
+    "ipi": 28184791534.53,
+    "irpf": 26962258052.2,
+    "irpj": 135228808839.0,
+    "irrf": 222245889621.1,
+    "iof": 44970295354.0,
+    "itr": 592059625.76,
+    "cofins": 169616228042.0,
+    "pis_pasep": 41035531599.5,
+    "csll": 70964104321.1,
+    "cide_fuels": 17033058.02,
+    "civil_servant_social_security_pss": 2321002409.4,
+    "other_rfb_revenue": 12216026571.1,
+    "social_security_contributions_rgps": 249102966819.0,
+    "administered_by_other_agencies": 7375005934.3
+   }
+  },
+  "transfers": {
+   "total": 70585732196.32,
+   "by_category": {
+    "fpe_net_of_fundeb": 1574314683.41,
+    "fpm_net_of_fundeb": 23558490654.86,
+    "ipi_exports_net_of_fundeb": 1353098711.72,
+    "itr_municipal_share_net_of_fundeb": 401028059.65,
+    "fundeb_retention_on_federal_transfers": 6048671938.1,
+    "fundeb_federal_complement": 609886962.55,
+    "oil_gas_royalties": 4423929877.18,
+    "mineral_royalties_cfem": 103518148.8,
+    "water_resources_compensation": 197269136.53,
+    "cide_fuels_share": 166752812.94,
+    "iof_gold": 335645.71,
+    "lc176_kandir_compensation": 618899857.68,
+    "salario_educacao_quotas": 4524208504.24,
+    "sus_health": 23186872544.24,
+    "education_fnde_and_other": 1646068052.8,
+    "social_assistance_suas": 511974353.09,
+    "special_transfers_emendas_pix": 704294027.0,
+    "other_legal_and_voluntary": 956118225.82
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 234252561000,
+   "inss_bpc_loas_included": 14867401000,
+   "bolsa_familia": 20489712397.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 254742273397.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ },
+ {
+  "uf": "TO",
+  "name": "Tocantins",
+  "population": 1577342,
+  "population_latest": 1595994,
+  "population_latest_year": 2026,
+  "federal_revenue": {
+   "total": 5788089848.23,
+   "rfb_administered": 5671609644.51,
+   "by_tax": {
+    "import_tax": 53468890.7,
+    "export_tax": 925497.11,
+    "ipi": 39433582.03,
+    "irpf": 224111962.43,
+    "irpj": 570449946.36,
+    "irrf": 348967355.79,
+    "iof": 9977636.62,
+    "itr": 79252961.15,
+    "cofins": 745909434.95,
+    "pis_pasep": 281353228.25,
+    "csll": 357000314.31,
+    "cide_fuels": 217.55,
+    "civil_servant_social_security_pss": 183684010.39,
+    "other_rfb_revenue": 16575844.92,
+    "social_security_contributions_rgps": 2760498761.95,
+    "administered_by_other_agencies": 116480203.72
+   }
+  },
+  "transfers": {
+   "total": 13205429479.73,
+   "by_category": {
+    "fpe_net_of_fundeb": 5744149611.39,
+    "fpm_net_of_fundeb": 2457686395.47,
+    "ipi_exports_net_of_fundeb": 15713332.68,
+    "itr_municipal_share_net_of_fundeb": 52516412.41,
+    "fundeb_retention_on_federal_transfers": 1997294373.99,
+    "fundeb_federal_complement": 88394092.34,
+    "oil_gas_royalties": 81077831.85,
+    "mineral_royalties_cfem": 51218432.29,
+    "water_resources_compensation": 45367719.83,
+    "cide_fuels_share": 20805045.83,
+    "iof_gold": 774.27,
+    "lc176_kandir_compensation": 66194978.76,
+    "salario_educacao_quotas": 161550838.83,
+    "sus_health": 1715867508.33,
+    "education_fnde_and_other": 122033008.11,
+    "social_assistance_suas": 58164572.85,
+    "special_transfers_emendas_pix": 179249596.0,
+    "other_legal_and_voluntary": 348144954.5
+   }
+  },
+  "direct_spending": {
+   "inss_benefits": 4313895000,
+   "inss_bpc_loas_included": 760238000,
+   "bolsa_familia": 1329995990.0,
+   "fcdf_df_constitutional_fund": 0.0,
+   "federal_payroll": null,
+   "total_available": 5643890990.0
+  },
+  "sources": [
+   {
+    "field": "population",
+    "url": "https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026."
+   },
+   {
+    "field": "federal_revenue",
+    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, Arrecadação por Estado (mensal, por tributo, preços correntes), soma de janeiro a dezembro de 2024. Página: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-por-estado/arrecadacao-por-estado"
+   },
+   {
+    "field": "federal_revenue (conciliação nacional)",
+    "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/serie-historica/arrecadacao-das-receitas-federais-1994-a-2025.xlsx",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Receita Federal, série histórica nacional, aba 2024, TOTAL GERAL."
+   },
+   {
+    "field": "transfers (exceto lc176_kandir_compensation)",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/transferencias/202401 ... https://portaldatransparencia.gov.br/download-de-dados/transferencias/202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Transferências (12 arquivos mensais, coluna VALOR TRANSFERIDO). Só favorecidos da administração pública estadual e municipal; excluídas entidades privadas, organismos internacionais e registros sem UF."
+   },
+   {
+    "field": "transfers.by_category.lc176_kandir_compensation",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/a58f5b6d-4e1f-4571-9597-3c8cca6d8259/download/lc176est.csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Tesouro Nacional, Transferências Obrigatórias da União, LC176_EST mais LC176_MUN (https://www.tesourotransparente.gov.br/ckan/dataset/f85b6632-1c9c-4beb-9e60-72e91156c984/resource/b05b73e1-6189-4be3-8ea6-98d864db8a3c/download/lc176mun.csv). O Portal da Transparência registra esta transferência sem UF."
+   },
+   {
+    "field": "direct_spending.inss_benefits",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "Ministério da Previdência Social, AEPS 2024, tabela B.15 (24SB15.xlsx): valor de benefícios emitidos, acumulado no ano, R$ mil convertido para R$. Inclui BPC/LOAS."
+   },
+   {
+    "field": "direct_spending.inss_bpc_loas_included",
+    "url": "https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/aeps_2024.zip",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "AEPS 2024, tabela 13.3 (24S13_03.xlsx): amparos assistenciais emitidos, acumulado no ano. Já contido em inss_benefits; informativo, não somar."
+   },
+   {
+    "field": "direct_spending.bolsa_familia",
+    "url": "https://aplicacoes.mds.gov.br/sagi/servicos/misocial?q=*:*&fq=anomes_s:2024*&fl=codigo_ibge,sigla_uf,municipio,anomes_s,valor_repassado_bolsa_familia_f,pbf_qtd_familias_benef_i&rows=200000&wt=csv",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "MDS, Matriz de Informação Social (MI Social), campo valor_repassado_bolsa_familia_f, soma dos 12 meses de 2024 dos 5.571 municípios."
+   },
+   {
+    "field": "direct_spending.fcdf_df_constitutional_fund",
+    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 ... /202412",
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "CGU, Portal da Transparência, Execução da Despesa, unidade orçamentária 73901 (FCDF), valor pago mais restos a pagar pagos em 2024. Só existe para o DF."
+   },
+   {
+    "field": "direct_spending.federal_payroll",
+    "url": null,
+    "reference_year": 2024,
+    "collected_at": "2026-09-25",
+    "note": "null: não foi encontrada fonte oficial com a folha federal anual por UF em formato aberto e de tamanho viável. Ver o relatório."
+   }
+  ]
+ }
+]

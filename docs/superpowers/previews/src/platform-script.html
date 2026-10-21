@@ -1,0 +1,55 @@
+<script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.80.0/dist/3d-force-graph.min.js"></script>
+<script src="assets/bi-ledger-interest.js"></script>
+<script src="assets/ledger-graph-model.js"></script>
+<script src="assets/ledger-graph-view.js"></script>
+<script>
+// Platform preview (D134): the network follows its own period selector, which starts at the map's default period
+// (the current year up to the last month every source has, D37).
+(function () {
+  const sec = document.getElementById('rede');
+  const U = window.BI && window.BI.series && window.BI.series.union;
+  if (sec && U && window.BILG && window.BILGV) {
+    const latest = U.latest.nominal_result, lc = window.BIL.latestComplete();
+    const q = new URLSearchParams(location.search).get('grafo'); // ?grafo=year:2024 | mandate:2019-2022 | month:2026-03
+    let period = { mode: 'year', year: +lc.slice(0, 4), month: lc, mandate: '2023-2026' };
+    if (q) { const [mode, v] = q.split(':'); period = { ...period, mode, ...(mode === 'year' ? { year: +v } : mode === 'month' ? { month: v } : { mandate: v }) }; }
+    const pick = sec.querySelector('[data-graph-period]');
+    let view = null;
+    const draw = () => {
+      pick.innerHTML = window.BIT.selector(period, latest, '2019-01', 'graph-period');
+      window.BIT.bind(pick, period, latest, (np) => { period = np; draw(); });
+      if (view) view.update(window.BILG.build(window.BIT.resolve(period, latest)));
+    };
+    // D136: the network is on standby, a closed "Prévia" card; the 3D scene loads only when the visitor opens it.
+    const open = () => {
+      if (view) return;
+      sec.querySelector('[data-graph-body]').hidden = false;
+      sec.querySelector('[data-graph-open]').hidden = true;
+      view = window.BILGV.mount(sec.querySelector('[data-graph-stage]'), sec.querySelector('[data-graph-checks]'));
+      draw();
+      if (location.hash === '#escuro') sec.querySelector('[data-theme]').click();
+      sec.dataset.graphReady = '1';
+    };
+    sec.querySelector('[data-graph-open]').addEventListener('click', open);
+    if (q) open();
+  }
+  // Support buttons are not live in the preview (D126).
+  document.querySelectorAll('[data-preview-btn]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
+  // "Fale com a gente" (D124): validated here, sent nowhere. The hosted service (Q40) will read the same fields, the
+  // honeypot and the minimum time before sending.
+  const form = document.querySelector('[data-contact]');
+  if (form) {
+    const opened = Date.now(), msg = form.querySelector('[data-contact-msg]');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const d = Object.fromEntries(new FormData(form));
+      const show = (cls, text) => { msg.hidden = false; msg.className = `pf-form-msg ${cls}`; msg.textContent = text; };
+      if (d.website) return show('err', 'Mensagem bloqueada como spam.');
+      if (!d.name.trim() || !d.message.trim()) return show('err', 'Preencha o nome e a mensagem.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim())) return show('err', 'Confira o e-mail: é por ele que respondemos.');
+      if (Date.now() - opened < 3000) return show('err', 'Espere um instante e envie de novo.');
+      show('ok', 'Prévia: nada foi enviado. Quando o formulário for ao ar, a mensagem chega no e-mail do projeto, que não aparece na página.');
+    });
+  }
+})();
+</script>

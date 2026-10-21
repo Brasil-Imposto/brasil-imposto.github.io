@@ -1,0 +1,213 @@
+{
+ "uf": "RS",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Eduardo Leite",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2022-03-31",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "renúncia do titular lida na Assembleia em 30/03/2022, com efeito às 16h30 de 31/03/2022 (Assembleia Legislativa do RS, 30/03/2022; site fora do ar, lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20220802065244/https://www.al.rs.gov.br/eleicoes/DetalheAgencia/tabid/789/IdMateria/327883/Default.aspx",
+     "type": "oficial",
+     "quote": "16:00 - 30/03/2022 [...] foi lido o ofício com o termo de renúncia encaminhado pelo governador Eduardo Leite à Assembleia Legislativa [...] A renúncia deve ser efetivada às 16h30 desta quinta-feira, 31 de março. Após a leitura do termo, o presidente Valdeci Oliveira anunciou a convocação de sessão solene de posse do vice-governador Ranolfo Vieira Júnior no cargo de governador do Estado para as 17h da mesma data."
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida na Assembleia em 30/03/2022, com efeito às 16h30 de quinta-feira, 31/03/2022; posse do vice às 17h do mesmo dia (Assembleia Legislativa do RS)."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Delegado Ranolfo",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2022-03-31",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "assumiu o cargo de governador",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "renúncia do titular lida na Assembleia em 30/03/2022, com efeito às 16h30 de 31/03/2022 (Assembleia Legislativa do RS, 30/03/2022; site fora do ar, lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20220802065244/https://www.al.rs.gov.br/eleicoes/DetalheAgencia/tabid/789/IdMateria/327883/Default.aspx",
+     "type": "oficial",
+     "quote": "16:00 - 30/03/2022 [...] foi lido o ofício com o termo de renúncia encaminhado pelo governador Eduardo Leite à Assembleia Legislativa [...] A renúncia deve ser efetivada às 16h30 desta quinta-feira, 31 de março. Após a leitura do termo, o presidente Valdeci Oliveira anunciou a convocação de sessão solene de posse do vice-governador Ranolfo Vieira Júnior no cargo de governador do Estado para as 17h da mesma data."
+    },
+    {
+     "fact": "posse do vice como governador em 31/03/2022 (Assembleia Legislativa do RS, 31/03/2022; site fora do ar, lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20220802065133/https://www.al.rs.gov.br/eleicoes/DetalheAgencia/tabid/789/IdMateria/327906/Default.aspx",
+     "type": "oficial",
+     "quote": "18:55 - 31/03/2022 [...] Na tarde desta quinta-feira (31), o Parlamento gaúcho deu posse ao até então vice-governador Ranolfo Vieira Júnior para o cargo de governador do Estado do Rio Grande do Sul"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida na Assembleia em 30/03/2022, com efeito às 16h30 de quinta-feira, 31/03/2022; posse do vice às 17h do mesmo dia (Assembleia Legislativa do RS)."
+  },
+  {
+   "role": "governador",
+   "name": "Delegado Ranolfo",
+   "full_name": null,
+   "kind": "vice no cargo de titular",
+   "start": "2022-03-31",
+   "end": "2023-01-01",
+   "start_reason": "renúncia do titular",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "renúncia do titular lida na Assembleia em 30/03/2022, com efeito às 16h30 de 31/03/2022 (Assembleia Legislativa do RS, 30/03/2022; site fora do ar, lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20220802065244/https://www.al.rs.gov.br/eleicoes/DetalheAgencia/tabid/789/IdMateria/327883/Default.aspx",
+     "type": "oficial",
+     "quote": "16:00 - 30/03/2022 [...] foi lido o ofício com o termo de renúncia encaminhado pelo governador Eduardo Leite à Assembleia Legislativa [...] A renúncia deve ser efetivada às 16h30 desta quinta-feira, 31 de março. Após a leitura do termo, o presidente Valdeci Oliveira anunciou a convocação de sessão solene de posse do vice-governador Ranolfo Vieira Júnior no cargo de governador do Estado para as 17h da mesma data."
+    },
+    {
+     "fact": "posse do vice como governador em 31/03/2022 (Assembleia Legislativa do RS, 31/03/2022; site fora do ar, lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20220802065133/https://www.al.rs.gov.br/eleicoes/DetalheAgencia/tabid/789/IdMateria/327906/Default.aspx",
+     "type": "oficial",
+     "quote": "18:55 - 31/03/2022 [...] Na tarde desta quinta-feira (31), o Parlamento gaúcho deu posse ao até então vice-governador Ranolfo Vieira Júnior para o cargo de governador do Estado do Rio Grande do Sul"
+    },
+    {
+     "fact": "transmissão do cargo ao governador eleito em 01/01/2023 (Governo do RS, 30/12/2022)",
+     "url": "https://www.estado.rs.gov.br/cerimonia-de-transmissao-de-cargo-de-governador-ocorre-no-palacio-piratini-neste-domingo-1-as-11h",
+     "type": "oficial",
+     "quote": "Publicação: 30/12/2022 [...] O governador Ranolfo Vieira Júnior transmite o cargo ao governador eleito, Eduardo Leite, na manhã deste domingo (1º/1), às 11h"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida na Assembleia em 30/03/2022, com efeito às 16h30 de quinta-feira, 31/03/2022; posse do vice às 17h do mesmo dia (Assembleia Legislativa do RS). Fim: transmissão do cargo ao governador eleito em 01/01/2023. Partido na posse: sem fonte oficial datada (as páginas da Assembleia não citam partido; ele não concorreu em 2022, então não há registro do TSE de 2022); na eleição de 2018 era do PTB. Fica vazio."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2022-03-31",
+   "end": "2023-01-01",
+   "start_reason": "o vice-governador assumiu o cargo de governador",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "renúncia do titular lida na Assembleia em 30/03/2022, com efeito às 16h30 de 31/03/2022 (Assembleia Legislativa do RS, 30/03/2022; site fora do ar, lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20220802065244/https://www.al.rs.gov.br/eleicoes/DetalheAgencia/tabid/789/IdMateria/327883/Default.aspx",
+     "type": "oficial",
+     "quote": "16:00 - 30/03/2022 [...] foi lido o ofício com o termo de renúncia encaminhado pelo governador Eduardo Leite à Assembleia Legislativa [...] A renúncia deve ser efetivada às 16h30 desta quinta-feira, 31 de março. Após a leitura do termo, o presidente Valdeci Oliveira anunciou a convocação de sessão solene de posse do vice-governador Ranolfo Vieira Júnior no cargo de governador do Estado para as 17h da mesma data."
+    },
+    {
+     "fact": "posse do vice como governador em 31/03/2022 (Assembleia Legislativa do RS, 31/03/2022; site fora do ar, lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20220802065133/https://www.al.rs.gov.br/eleicoes/DetalheAgencia/tabid/789/IdMateria/327906/Default.aspx",
+     "type": "oficial",
+     "quote": "18:55 - 31/03/2022 [...] Na tarde desta quinta-feira (31), o Parlamento gaúcho deu posse ao até então vice-governador Ranolfo Vieira Júnior para o cargo de governador do Estado do Rio Grande do Sul"
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia lida na Assembleia em 30/03/2022, com efeito às 16h30 de quinta-feira, 31/03/2022; posse do vice às 17h do mesmo dia (Assembleia Legislativa do RS)."
+  },
+  {
+   "role": "governador",
+   "name": "Eduardo Leite",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "sanção de leis pelo governador em 01/06/2026, depois do prazo de desincompatibilização de 2026 (Governo do RS)",
+     "url": "https://estado.rs.gov.br/governador-sanciona-leis-e-assina-decreto-em-ato-no-palacio-piratini",
+     "type": "oficial",
+     "quote": "Publicação: 01/06/2026 às 16h27min [...] O governador Eduardo Leite sancionou, na tarde desta segunda-feira (1/6), leis aprovadas pela Assembleia Legislativa"
+    },
+    {
+     "fact": "agenda oficial do governador em 05/10/2026 (Governo do RS)",
+     "url": "https://estado.rs.gov.br/agenda-do-governador-eduardo-leite-na-segunda-feira-5-de-outubro-de-2026",
+     "type": "oficial",
+     "quote": "Agenda do governador Eduardo Leite na segunda-feira, 5 de outubro de 2026 Data: 05/10/2026 8h30 às 12h - Despachos internos. Local - Palácio Piratini"
+    }
+   ],
+   "verified": true,
+   "note": "Não renunciou em 2026: sancionou leis em 01/06/2026, depois do prazo de 04/04/2026. Segue no cargo: agenda oficial de 05/10/2026."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Gabriel Souza",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "página oficial do vice-governador, lida em 06/10/2026 (Governo do RS)",
+     "url": "https://www.estado.rs.gov.br/vice-governador",
+     "type": "oficial",
+     "quote": "Vice-governador Gabriel Souza Gabriel Souza Gabriel Souza é médico veterinário"
+    }
+   ],
+   "verified": true,
+   "note": "Segue no cargo: página oficial do vice-governador lida em 06/10/2026."
+  }
+ ],
+ "gaps": []
+}

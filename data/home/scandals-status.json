@@ -1,0 +1,219 @@
+{
+ "checked_on": "2026-10-05",
+ "rule": "Resolvido só quando um registro oficial mostra os responsáveis punidos por decisão definitiva: condenação criminal com trânsito em julgado, ou punição administrativa ou de tribunal de contas da qual não cabe mais recurso (por exemplo, condenação do TCU ou de um TCE em Tomada de Contas Especial). Nos demais casos, Não resolvido. O dinheiro público recuperado ou devolvido é registrado à parte, só com valor publicado por órgão oficial; sem valor oficial, fica null.",
+ "items": {
+  "rapporteur-amendments-rp9": {
+   "resolved": false,
+   "tag": "Não resolvido",
+   "why": "O STF declarou a prática inconstitucional em 19/12/2022, decisão que trata do mecanismo e não pune pessoas; a ADPF 854 segue em execução, e em 09/09/2026 o STF registrou que o parlamentar apoiador estava identificado em 18,18% do valor empenhado em emendas de relator de 2020 a 2022. Nenhuma condenação definitiva nem condenação de tribunal de contas ligada a emendas RP 9 foi encontrada em fonte oficial até 05/10/2026.",
+   "money_recovered_brl": null,
+   "money_recovered_source": null,
+   "sources": [
+    {
+     "body": "STF (ministro Flávio Dino, relator da ADPF 854)",
+     "url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15390221646&ext=.pdf",
+     "quote": "o Poder Executivo reportou o registro de 8.340 empenhos com apoiamento identificado, os quais somavam R$ 8.471.048.174,10, importando 18,18% do valor total dos empenhos de Emendas de Relator (RP9) do período, que foi de R$ 46.593.741.196,42",
+     "date": "2026-09-09"
+    },
+    {
+     "body": "STF (ministro Flávio Dino, relator da ADPF 854)",
+     "url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15390221646&ext=.pdf",
+     "quote": "sublinhei a existência de divergência significativa entre os dados apresentados pelos Poderes Legislativo e Executivo, circunstância que comprometia a adequada compreensão do grau de rastreabilidade das “emendas de relator” (RP 9) relativas aos exercícios de 2020 a 2022",
+     "date": "2026-09-09"
+    },
+    {
+     "body": "STF (andamento da ADPF 854)",
+     "url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=6199750",
+     "quote": "05/10/2026 | Petição | ADVOGADO-GERAL DA UNIÃO - Petição: 125282 - Data: 05/10/2026",
+     "date": "2026-10-05"
+    },
+    {
+     "body": "STF (Plenário)",
+     "url": "https://legis.senado.leg.br/norma/36822451/publicacao/37033963",
+     "quote": "elevadas quantias (mais de R$ 53 bilhões entre 2020 e 2022) vinculadas a finalidades genéricas, vagas e ambíguas",
+     "date": "2022-12-19"
+    }
+   ],
+   "recovery": {
+    "applies": false,
+    "note": "O valor é o que foi distribuído por emendas de relator. O STF julgou a prática inconstitucional, mas nenhum órgão oficial apontou um valor desviado a ser devolvido; por isso não há valor a recuperar para mostrar."
+   }
+  },
+  "emergency-aid-improper-payments": {
+   "resolved": false,
+   "tag": "Não resolvido",
+   "why": "O TCU concluiu o acompanhamento e arquivou o processo em 15/12/2021 com determinações ao ministério, sem apontar nem punir responsáveis pelos pagamentos indevidos estimados; a cobrança administrativa de quem recebeu sem ter direito segue aberta (o MDS notificou 177,4 mil famílias para devolver R$ 478,8 milhões, com prazo até 11/01/2026). Nenhuma decisão definitiva de responsabilização ligada ao conjunto dos pagamentos indevidos foi encontrada em fonte oficial até 05/10/2026.",
+   "money_recovered_brl": 1073930000,
+   "money_recovered_source": {
+    "body": "TCU (Acórdão 3.142/2021-Plenário, relatório), com dados do Ministério da Cidadania e da Receita Federal",
+    "document": "Acórdão 3.142/2021-Plenário, TC 016.827/2020-1, parágrafo 197",
+    "url": "https://portal.tcu.gov.br/data/files/05/E0/04/FC/B9D038102DFE0FF7F18818A8/062_acordao_tcu_3142_2021.pdf",
+    "quote": "a estratégia de envio de SMS utilizada pelo Ministério para recuperação de valores conseguiu reaver R$ 73,93 milhões, em apuração datada de 30/9/2021, sendo R$ 31,93 milhões via GRU e R$ 42 milhões via Darf. Foram também recuperados R$ 1 bilhão no pagamento de Darfs no ajuste da Declaração de Imposto de Renda/2021, além de terem sido gerados Darfs ainda não pagos da ordem de R$ 1,9 bilhão, conforme dados recebidos da Receita Federal em 7/10/2021.",
+    "date": "2021-10-07",
+    "note": "Soma literal das duas frases (R$ 73,93 milhões mais R$ 1 bilhão); o texto não diz se os R$ 42 milhões via Darf estão dentro do R$ 1 bilhão, então o mínimo sem sobreposição é R$ 1,03 bilhão. Posição de outubro de 2021; nenhum total oficial posterior foi encontrado. Não inclui os R$ 3.786.386.021,00 devolvidos pela Caixa por falta de movimentação das contas (dinheiro que não chegou a ser usado, não pagamento indevido recuperado)."
+   },
+   "sources": [
+    {
+     "body": "TCU (Plenário)",
+     "url": "https://portal.tcu.gov.br/data/files/05/E0/04/FC/B9D038102DFE0FF7F18818A8/062_acordao_tcu_3142_2021.pdf",
+     "quote": "Não se verificou o controle do Ministério da Cidadania no pós-pagamento do Auxílio Emergencial, tampouco ações de recuperação de valores recebidos indevidamente por beneficiários.",
+     "date": "2021-12-15"
+    },
+    {
+     "body": "TCU (Plenário)",
+     "url": "https://portal.tcu.gov.br/data/files/05/E0/04/FC/B9D038102DFE0FF7F18818A8/062_acordao_tcu_3142_2021.pdf",
+     "quote": "Imperou, portanto, a voluntariedade do beneficiário em devolver o recurso que considerou recebido indevidamente, sem qualquer ação coercitiva da gestão do Auxílio Emergencial.",
+     "date": "2021-12-15"
+    },
+    {
+     "body": "Ministério do Desenvolvimento e Assistência Social (MDS)",
+     "url": "https://www.gov.br/mds/pt-br/noticias-e-conteudos/desenvolvimento-social/noticias-desenvolvimento-social/auxilio-emergencial-pago-indevidamente-177-mil-familias-devem-devolver-r-478-milhoes",
+     "quote": "Ao todo, 177,4 mil famílias têm valores a ressarcir e já foram notificadas. O valor a ser restituído para a União totaliza R$ 478,8 milhões.",
+     "date": "2025-10-07"
+    },
+    {
+     "body": "Ministério do Desenvolvimento e Assistência Social (MDS)",
+     "url": "https://www.gov.br/mds/pt-br/noticias-e-conteudos/desenvolvimento-social/noticias-desenvolvimento-social/mds-reabre-prazo-para-regularizacao-de-debitos-do-auxilio-emergencial",
+     "quote": "Agora, quem foi notificado tem até o dia 11 de janeiro para ressarcir a União.",
+     "date": "2025-11-24"
+    }
+   ],
+   "money_recovered_min_brl": 1031930000,
+   "money_recovered_min_note": "R$ 1 bilhão em Darf do Imposto de Renda de 2021 mais R$ 31,93 milhões em GRU (até 30/09/2021). O texto do TCU não diz se os R$ 42 milhões em Darf já estão dentro do R$ 1 bilhão, então o mínimo seguro não os soma.",
+   "recovery": {
+    "applies": true,
+    "base_brl": 45775508721.66,
+    "base_label": "pagamentos indevidos estimados pelo TCU",
+    "note": "Falta recuperar = estimativa do TCU menos o mínimo recuperado até 30/09/2021 (última apuração oficial encontrada)."
+   }
+  },
+  "fuel-sector-tax-evasion-carbono-oculto": {
+   "resolved": false,
+   "tag": "Não resolvido",
+   "why": "O Ministério Público de São Paulo ofereceu denúncia contra 16 pessoas em 18/08/2026; o recebimento da denúncia pela Justiça e qualquer sentença não foram encontrados em fonte oficial até 05/10/2026. A Receita Federal lançou mais de R$ 8,67 bilhões em créditos tributários e a PGFN pediu o bloqueio de bens, mas nenhum órgão publicou valor já pago ou recuperado.",
+   "money_recovered_brl": null,
+   "money_recovered_source": null,
+   "sources": [
+    {
+     "body": "Ministério Público do Estado de São Paulo (GAECO)",
+     "url": "https://www.mpsp.mp.br/w/gaeco-denuncia-16-alvos-da-operacao-carbono-oculto-por-adulteracao-de-combustivel-e-lavagem-de-dinheiro",
+     "quote": "O Grupo de Atuação Especial de Combate ao Crime Organizado (GAECO) ofereceu denúncia, em 18 de agosto, contra 16 homens envolvidos em um esquema de adulteração de combustíveis, falsidades documentais, fraudes contra o consumo, crimes fiscais e conexão com outras organizações criminosas independentes.",
+     "date": "2026-08-26"
+    },
+    {
+     "body": "Receita Federal",
+     "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2025/agosto/operacao-carbono-oculto-rrb-e-orgaos-parceiros-combatem-organizacao-responsavel-por-sonegacao-e-lavagem-de-dinheiro-no-setor-de-combustiveis",
+     "quote": "A Receita Federal já constituiu créditos tributários federais de um total de mais de R$ 8,67 bilhões em pessoas e empresas integrantes do esquema.",
+     "date": "2025-08-28"
+    },
+    {
+     "body": "Receita Federal",
+     "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/maio/operacao-fluxo-oculto-receita-federal-gaeco-sp-e-orgaos-parceiros-ampliam-investigacoes-sobre-organizacao-criminosa-atuante-no-setor-de-combustiveis",
+     "quote": "Trata-se da 2ª fase da Operação Carbono Oculto, maior operação contra o crime organizado da história do País em termos de cooperação institucional e amplitude, deflagrada há exatos nove meses.",
+     "date": "2026-05-28"
+    },
+    {
+     "body": "Receita Federal",
+     "url": "https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/agosto/operacao-bomba-oculta-fecha-o-cerco-a-postos-de-combustiveis-clandestinos",
+     "quote": "A operação conjunta dá prosseguimento ao desmantelamento do esquema de fraudes, sonegação e lavagem de dinheiro no setor de combustíveis, que veio à tona com a Operação Carbono Oculto, que completa um ano neste dia 28 de agosto.",
+     "date": "2026-08-28"
+    }
+   ],
+   "recovery": {
+    "applies": true,
+    "base_brl": 8670000000,
+    "base_label": "impostos federais cobrados pela Receita (lançados, não arrecadados)",
+    "note": "Nenhum pagamento desses impostos foi publicado em fonte oficial até 05/10/2026."
+   }
+  },
+  "inss-deductions": {
+   "resolved": false,
+   "tag": "Não resolvido",
+   "why": "Está decidida a devolução aos aposentados: o STF homologou o acordo de ressarcimento (ADPF 1.236), sem recurso contra o acórdão publicado em 10/04/2026, e o INSS pagou R$ 3,65 bilhões até setembro de 2026. A responsabilização segue aberta: investigação criminal no STF ainda com diligências em julho de 2026, ações da AGU contra entidades com bloqueios por liminar, processo do TCU sem julgamento de mérito e nenhuma denúncia recebida nem condenação encontrada em fonte oficial até 05/10/2026.",
+   "money_recovered_brl": null,
+   "money_recovered_source": null,
+   "sources": [
+    {
+     "body": "STF (andamento da ADPF 1.236)",
+     "url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=7287062",
+     "quote": "Certifico que, até a data de 17 de abril de 2026, não foi interposto recurso contra o acórdão publicado em 10 de abril de 2026.",
+     "date": "2026-04-22"
+    },
+    {
+     "body": "Polícia Federal",
+     "url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2026/07/pf-cumpre-mandado-de-busca-e-apreensao-no-ambito-da-operacao-sem-desconto",
+     "quote": "A ordem judicial foi expedida pelo Supremo Tribunal Federal e tem a finalidade de descapitalizar investigado apontado como um dos principais atores do esquema criminoso.",
+     "date": "2026-07-21"
+    },
+    {
+     "body": "Advocacia-Geral da União",
+     "url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss",
+     "quote": "Desse total, R$ 514 milhões já foram efetivamente bloqueados, por meio do Sistema de Busca de Ativos do Poder Judiciário (Sisbajud), além da constrição de 17 imóveis e 76 veículos.",
+     "date": "2025-12-20"
+    },
+    {
+     "body": "CGU, Portal da Transparência, execução da despesa da ação 00XK: soma de \"Valor Pago\" e \"Valor Restos a Pagar Pagos\" de jul/2025 a set/2026 = R$ 3.654.802.192,32 (cálculo do projeto, registro de 02/10/2026)",
+     "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202609",
+     "quote": "Ressarcimento aos Beneficiários do Regime Geral de Previdência Social por Descontos Indevidos",
+     "date": "2026-09-30"
+    },
+    {
+     "body": "TCU, Acórdão 2.252/2026-Plenário (Ata 32/2026 no DOU): sobrestá as contas de 2023 do Ministério da Previdência até o julgamento do TC 007.871/2025-2 (texto lido na pesquisa do caso em 02/10/2026; in.gov.br recusou conexão nesta pesquisa)",
+     "url": "https://www.in.gov.br/web/dou/-/ata-n-32-de-25-de-agosto-de-2026-729951781",
+     "quote": "apontou necessidade de citação e/ou audiência",
+     "date": "2026-08-25"
+    }
+   ],
+   "recovery": {
+    "applies": true,
+    "base_brl": 3650000000,
+    "base_label": "pagos pela União aos aposentados até setembro de 2026",
+    "note": "A União pagou aos aposentados e cobra das entidades; a AGU tem R$ 514 milhões bloqueados, que ainda não são dinheiro devolvido."
+   }
+  },
+  "banco-master": {
+   "resolved": false,
+   "tag": "Não resolvido",
+   "why": "O Banco Central decretou a liquidação extrajudicial do conglomerado em 18/11/2025, medida que encerra o banco e não pune pessoas; a investigação criminal segue no STF, com a 10ª fase da Operação Compliance Zero em 09/07/2026, sem denúncia oferecida encontrada. No TCDF, o caso do BRB virou Tomada de Contas Especial em 23/09/2026, com bloqueio cautelar de bens de ex-dirigentes por um ano e sem julgamento de mérito.",
+   "money_recovered_brl": null,
+   "money_recovered_source": null,
+   "sources": [
+    {
+     "body": "Banco Central do Brasil (63ª Ata do Comef, 19/11/2025)",
+     "url": "https://www.bcb.gov.br/content/publicacoes/atascomef/202511/Ata_63_Comef_pt.pdf",
+     "quote": "O Banco Central decretou a liquidação extrajudicial do Banco Master S.A., do Banco Master de Investimento S.A., do Banco Letsbank S.A., e da Master S.A. Corretora de Câmbio, Títulos e Valores Mobiliários, bem como Regime de Administração Especial Temporária (RAET) no Banco Master Múltiplo S.A.",
+     "date": "2025-11-19"
+    },
+    {
+     "body": "Polícia Federal",
+     "url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2026/07/policia-federal-deflagra-10a-fase-da-operacao-compliance-zero",
+     "quote": "A Polícia Federal deflagrou, nesta quinta-feira (9/7), a 10ª fase da Operação Compliance Zero para apurar indícios de atuação coordenada em redes sociais voltada, em tese, a comprometer a credibilidade da atuação do Banco Central do Brasil.",
+     "date": "2026-07-09"
+    },
+    {
+     "body": "STF",
+     "url": "https://noticias.stf.jus.br/postsnoticias/stf-autoriza-9a-fase-da-operacao-compliance-zero-em-sp-ba-e-df/",
+     "quote": "O ministro André Mendonça, do Supremo Tribunal Federal (STF), autorizou a Polícia Federal (PF) a deflagrar a 9ª fase da Operação Compliance Zero, com o cumprimento de mandados de busca e apreensão e a aplicação de medidas cautelares contra investigados",
+     "date": "2026-06-18"
+    },
+    {
+     "body": "TCDF",
+     "url": "https://www2.tc.df.gov.br/tcdf-determina-bloqueio-de-bens-de-ex-dirigentes-do-brb/",
+     "quote": "Além do bloqueio cautelar de bens por prazo de um ano, o Tribunal determinou a conversão do processo em Tomada de Contas Especial (TCE), instrumento destinado à apuração de responsabilidades e de possíveis danos ao patrimônio público.",
+     "date": "2026-09-23"
+    }
+   ],
+   "recovery": {
+    "applies": true,
+    "base_brl": null,
+    "base_label": "a perda ainda não foi calculada pelo BRB",
+    "note": "O BRB tem R$ 15 bi em ativos vindos do Master (valor de referência, Fato Relevante de 20/04/2026); em 24/08/2026 o banco informou que \"a quantificação definitiva dos prejuízos depende da conclusão dos trabalhos em curso e da divulgação das demonstrações financeiras correspondentes\".",
+    "base_source": {
+     "url": "https://www.rad.cvm.gov.br/",
+     "doc": "BRB, comunicados à CVM de 20/04/2026 e 24/08/2026",
+     "date": "2026-08-24"
+    }
+   }
+  }
+ }
+}

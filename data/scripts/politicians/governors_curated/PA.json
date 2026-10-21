@@ -1,0 +1,202 @@
+{
+ "uf": "PA",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Helder Barbalho",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "vice-governador",
+   "name": "Lúcio Vale",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2021-04-22",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "deixou o cargo para assumir vaga de conselheiro do Tribunal de Contas dos Municípios",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "carta de renúncia ao cargo de vice-governador, datada de 22/04/2021, publicada no Diário Oficial do Pará de 23/04/2021 (Poder Legislativo)",
+     "url": "https://www.ioepa.com.br/pages/2021/2021.04.23.DOE.pdf",
+     "type": "oficial",
+     "quote": "Belém, 22/04/2021. À ASSEMBLEIA LEGISLATIVA DO ESTADO DO PARÁ [...] sirvo-me do presente Instrumento para RENUNCIAR AO CARGO DE VICE GOVERNADOR DO ESTADO DO PARÁ, a contar da data de protocolo desta correspondência"
+    },
+    {
+     "fact": "termo de posse como conselheiro do TCM-PA em 23/04/2021 (Diário Oficial Eletrônico do TCM-PA de 27/04/2021)",
+     "url": "https://tcm.ioepa.com.br/diarios/2021/2021.04.27.DOE.pdf",
+     "type": "oficial",
+     "quote": "Aos vinte e três dias do mês de abril de dois mil e vinte e um, compareceu ao Tribunal de Contas dos Municípios do Estado do Pará, o Ilustríssimo Senhor Lúcio Dutra Vale, nomeado pelo Decreto Executivo, de vinte de abril de dois mil e vinte e um"
+    }
+   ],
+   "verified": true,
+   "note": "Carta de renúncia datada de 22/04/2021, com efeito a partir do protocolo na Assembleia (Diário Oficial de 23/04/2021); posse no TCM-PA em 23/04/2021. A data anterior (2021-04-26, pista da Wikipédia) foi corrigida para 2021-04-22, a data da carta; o número do protocolo na Assembleia não traz data no texto publicado."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2021-04-22",
+   "end": "2023-01-01",
+   "start_reason": "saída do vice-governador",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "carta de renúncia ao cargo de vice-governador, datada de 22/04/2021, publicada no Diário Oficial do Pará de 23/04/2021 (Poder Legislativo)",
+     "url": "https://www.ioepa.com.br/pages/2021/2021.04.23.DOE.pdf",
+     "type": "oficial",
+     "quote": "Belém, 22/04/2021. À ASSEMBLEIA LEGISLATIVA DO ESTADO DO PARÁ [...] sirvo-me do presente Instrumento para RENUNCIAR AO CARGO DE VICE GOVERNADOR DO ESTADO DO PARÁ, a contar da data de protocolo desta correspondência"
+    },
+    {
+     "fact": "termo de posse como conselheiro do TCM-PA em 23/04/2021 (Diário Oficial Eletrônico do TCM-PA de 27/04/2021)",
+     "url": "https://tcm.ioepa.com.br/diarios/2021/2021.04.27.DOE.pdf",
+     "type": "oficial",
+     "quote": "Aos vinte e três dias do mês de abril de dois mil e vinte e um, compareceu ao Tribunal de Contas dos Municípios do Estado do Pará, o Ilustríssimo Senhor Lúcio Dutra Vale, nomeado pelo Decreto Executivo, de vinte de abril de dois mil e vinte e um"
+    }
+   ],
+   "verified": true,
+   "note": "Carta de renúncia datada de 22/04/2021, com efeito a partir do protocolo na Assembleia (Diário Oficial de 23/04/2021); posse no TCM-PA em 23/04/2021. A data anterior (2021-04-26, pista da Wikipédia) foi corrigida para 2021-04-22, a data da carta; o número do protocolo na Assembleia não traz data no texto publicado. Sem vice até o fim do mandato."
+  },
+  {
+   "role": "governador",
+   "name": "Helder Barbalho",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-04-02",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "renúncia e posse da sucessora",
+     "url": "https://www.alepa.pa.gov.br/Comunicacao/Noticia/11627/mensagem-de-renuncia-de-helder-e-entregue-ao-legislativo-e-marca-transicao-no-governo-do-para",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Texto da Assembleia: 'formalizou a renúncia [...] durante cerimônia realizada nesta quinta-feira, 2 de abril, no Hangar [...] a posse da nova governadora, Hana Ghassan (MDB)'."
+  },
+  {
+   "role": "vice-governador",
+   "name": "Hana Ghassan",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": "2026-04-02",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "assumiu o cargo de governadora",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "posse como governadora",
+     "url": "https://www.alepa.pa.gov.br/Comunicacao/Noticia/11627/mensagem-de-renuncia-de-helder-e-entregue-ao-legislativo-e-marca-transicao-no-governo-do-para",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governador",
+   "name": "Hana Ghassan",
+   "full_name": null,
+   "kind": "vice no cargo de titular",
+   "start": "2026-04-02",
+   "end": null,
+   "start_reason": "renúncia do titular",
+   "end_reason": null,
+   "party_at_start": "MDB",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "posse como governadora e partido (MDB)",
+     "url": "https://www.alepa.pa.gov.br/Comunicacao/Noticia/11627/mensagem-de-renuncia-de-helder-e-entregue-ao-legislativo-e-marca-transicao-no-governo-do-para",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Texto da Assembleia: 'formalizou a renúncia [...] durante cerimônia realizada nesta quinta-feira, 2 de abril, no Hangar [...] a posse da nova governadora, Hana Ghassan (MDB)'."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2026-04-02",
+   "end": null,
+   "start_reason": "a vice-governadora assumiu o cargo de governadora",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "posse como governadora",
+     "url": "https://www.alepa.pa.gov.br/Comunicacao/Noticia/11627/mensagem-de-renuncia-de-helder-e-entregue-ao-legislativo-e-marca-transicao-no-governo-do-para",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  }
+ ],
+ "gaps": []
+}

@@ -1,0 +1,272 @@
+{
+ "uf": "TO",
+ "terms": [
+  {
+   "role": "governador",
+   "name": "Mauro Carlesse",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2022-03-11",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "renúncia lida em sessão extra na sexta-feira, 11",
+     "url": "https://al.to.leg.br/noticia/10942/mesa-diretora-da-aleto-faz-leitura-de-renuncia-de-carlesse-em-sessao-extra",
+     "type": "oficial"
+    },
+    {
+     "fact": "processos após a renúncia",
+     "url": "https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/28032022-STJ-envia-processos-contra-ex-governador-do-Tocantins-para-o-primeiro-grau-apos-a-renuncia-do-mandato.aspx",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Afastado por decisão do STJ antes da renúncia; o início do afastamento (2021-10-20) vem da pista da Wikipédia e não foi conferido em fonte oficial.",
+   "interruptions": [
+    {
+     "start": "2021-10-20",
+     "end": "2022-03-11",
+     "reason": "afastamento por decisão do STJ; renunciou em 2022-03-11",
+     "verified": true
+    }
+   ]
+  },
+  {
+   "role": "vice-governador",
+   "name": "Wanderlei Barbosa",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2022-03-11",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "assumiu o cargo de governador",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "posse como governador",
+     "url": "https://www.al.to.leg.br/noticia/10943/aleto-empossa-wanderlei-barbosa-como-governador-do-estado",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governador",
+   "name": "Wanderlei Barbosa",
+   "full_name": null,
+   "kind": "interino",
+   "start": "2021-10-20",
+   "end": "2022-03-11",
+   "start_reason": "afastamento do titular por decisão do STJ",
+   "end_reason": "posse definitiva após a renúncia do titular",
+   "party_at_start": "sem partido",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "afastamento confirmado pela Corte Especial do STJ em 20/10/2021 (STJ, 20/10/2021; lida no Internet Archive)",
+     "url": "https://web.archive.org/web/20211021121824/https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/20102021-STJ-afasta-governador-do-Tocantins-por-180-dias-em-investigacao-sobre-desvios-no-plano-de-saude-dos-servidores.aspx",
+     "type": "oficial",
+     "quote": "a Corte Especial do Superior Tribunal de Justiça (STJ) confirmou nesta quarta-feira (20) a decisão cautelar do ministro Mauro Campbell Marques que determinou o afastamento do governador do Tocantins [...] a Polícia Federal cumpriu na manhã desta quarta-feira outras medidas"
+    },
+    {
+     "fact": "atos de 21/10/2021 assinados pelo vice em exercício (Diário Oficial do Tocantins nº 5954, 25/10/2021; lido no Internet Archive)",
+     "url": "https://web.archive.org/web/20211026065610/https://doe.to.gov.br/diario/4483/download",
+     "type": "oficial",
+     "quote": "Palácio Araguaia, em Palmas, aos 21 dias do mês de outubro de 2021 [...] WANDERLEI BARBOSA CASTRO Governador do Estado, em exercício"
+    },
+    {
+     "fact": "posse definitiva em 11/03/2022 (Aleto, 16/03/2022; página fora do ar, lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://www.al.to.leg.br/noticia/10943/aleto-empossa-wanderlei-barbosa-como-governador-do-estado",
+     "type": "oficial",
+     "quote": "empossou na noite desta sexta-feira, 11, o governador em exercício Wanderlei Barbosa (sem partido) de forma definitiva no cargo"
+    }
+   ],
+   "verified": true,
+   "note": "Início: afastamento do titular confirmado pelo STJ e cumprido em 20/10/2021; o Diário Oficial traz atos de 21/10/2021 assinados por ele como 'Governador do Estado, em exercício'. Fim: posse definitiva em 11/03/2022, após a renúncia do titular (Aleto). Partido: a Aleto o registra 'sem partido' em 11/03/2022; não há fonte oficial datada do partido em outubro de 2021 (na eleição de 2018 era do PHS, que deixou de existir em 2019)."
+  },
+  {
+   "role": "governador",
+   "name": "Wanderlei Barbosa",
+   "full_name": null,
+   "kind": "vice no cargo de titular",
+   "start": "2022-03-11",
+   "end": "2023-01-01",
+   "start_reason": "renúncia do titular",
+   "end_reason": "fim do mandato",
+   "party_at_start": "sem partido",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "posse definitiva: 'empossou na noite desta sexta-feira, 11, o governador em exercício Wanderlei Barbosa (sem partido)'",
+     "url": "https://www.al.to.leg.br/noticia/10943/aleto-empossa-wanderlei-barbosa-como-governador-do-estado",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Na posse, a Assembleia o registra como sem partido."
+  },
+  {
+   "role": "vice-governador",
+   "name": null,
+   "full_name": null,
+   "kind": "vago",
+   "start": "2022-03-11",
+   "end": "2023-01-01",
+   "start_reason": "o vice-governador assumiu o cargo de governador",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "posse como governador",
+     "url": "https://www.al.to.leg.br/noticia/10943/aleto-empossa-wanderlei-barbosa-como-governador-do-estado",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governador",
+   "name": "Wanderlei Barbosa",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": "Afastado por decisão do STJ em 2025; retorno autorizado por liminar do STF.",
+   "interruptions": [
+    {
+     "start": "2025-09-03",
+     "end": "2025-12-05",
+     "reason": "afastamento cautelar pelo STJ; retorno autorizado por liminar do STF",
+     "verified": false
+    }
+   ]
+  },
+  {
+   "role": "vice-governador",
+   "name": "Laurez Moreira",
+   "full_name": null,
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governador",
+   "name": "Laurez Moreira",
+   "full_name": null,
+   "kind": "interino",
+   "start": "2025-09-03",
+   "end": "2025-12-05",
+   "start_reason": "afastamento do titular por decisão do STJ",
+   "end_reason": "retorno do titular autorizado por liminar do STF",
+   "party_at_start": "PDT",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "afastamento confirmado pela Corte Especial do STJ em 03/09/2025 (lida no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/2025/03092025-Corte-Especial-confirma-afastamento-do-governador-de-Tocantins-por-180-dias.aspx",
+     "type": "oficial",
+     "quote": "confirmou nesta quarta-feira (3) a decisão do relator, ministro Mauro Campbell Marques, que determinou o afastamento cautelar do governador do Tocantins, Wanderlei Barbosa, pelo prazo mínimo de 180 dias"
+    },
+    {
+     "fact": "operação da Polícia Federal com as medidas cautelares, 03/09/2025 (lida no Internet Archive)",
+     "url": "https://web.archive.org/web/20250903131005/https://www.gov.br/pf/pt-br/assuntos/noticias/2025/09/pf-deflagra-2o-fase-de-operacao-que-investiga-desvio-de-recursos-publicos-destinados-ao-fornecimento-de-cestas-basicas-durante-a-pandemia-de-covid-19",
+     "type": "oficial",
+     "quote": "Publicado em 03/09/2025 07h36 [...] A Polícia Federal deflagrou nesta quarta-feira (3/9) a segunda fase da Operação Fames-19 [...] além de outras medidas cautelares"
+    },
+    {
+     "fact": "partido no registro de candidatura de 2022 (PDT)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "lei sancionada em 2025-11-26 pelo 'VICE-GOVERNADOR DO ESTADO DO TOCANTINS, no exercício do cargo de GOVERNADOR'",
+     "url": "https://www.al.to.leg.br/arquivos/lei_4880-2025_78145.PDF",
+     "type": "oficial"
+    },
+    {
+     "fact": "último ato do vice em exercício: 04/12/2025 (Diário Oficial do Tocantins de 04/12/2025; lido no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://doe.to.gov.br/diario/5571/download",
+     "type": "oficial",
+     "quote": "aos 4 dias do mês de dezembro de 2025 [...] LAUREZ DA ROCHA MOREIRA Governador do Estado, em exercício"
+    },
+    {
+     "fact": "primeiros atos do titular de volta: 06/12/2025 (Diário Oficial do Tocantins nº 6.955, 06/12/2025; lido no Internet Archive)",
+     "url": "https://web.archive.org/web/2026/https://doe.to.gov.br/diario/5574/download",
+     "type": "oficial",
+     "quote": "aos 6 dias do mês de dezembro de 2025 [...] WANDERLEI BARBOSA CASTRO Governador do Estado"
+    },
+    {
+     "fact": "jornal regional publicado no site da prefeitura de Praia Norte: liminar do STF na 'sexta-feira (5)' de dezembro de 2025",
+     "url": "https://praianorte.to.gov.br/storage/documentos/19203320251211693b43b173675.pdf",
+     "type": "imprensa"
+    }
+   ],
+   "verified": false,
+   "note": "Início conferido: afastamento do titular confirmado pelo STJ e cumprido em 03/09/2025 (STJ e Polícia Federal). Fim não conferido no dia: o Diário Oficial mostra o vice em exercício até 04/12/2025 e o titular de volta em 06/12/2025; a edição de 05/12/2025 não abre desta máquina nem tem cópia arquivada, e a decisão do STF de 05/12/2025 só aparece na imprensa. Partido: o do registro do TSE de 2022 (PDT); sem fonte oficial datada de 2025."
+  }
+ ],
+ "gaps": []
+}

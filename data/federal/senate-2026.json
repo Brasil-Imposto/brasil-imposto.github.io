@@ -1,0 +1,2590 @@
+{
+ "collected_on": "2026-10-21",
+ "sources": [
+  {
+   "name": "Senado, dados abertos administrativos: remuneracoes dos servidores 2026 (meses 1 a 9)",
+   "url": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Senado, dados abertos administrativos: lista de servidores com lotacao",
+   "url": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/servidores",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Senado, dados abertos administrativos: recursos utilizados por senador 2026 (pessoal, cotas)",
+   "url": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/{codigoParlamentar}/recursos-utilizados?ano=2026",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Senado, dados abertos legislativos: senadores em exercicio, mandatos e exercicios",
+   "url": "https://legis.senado.leg.br/dadosabertos/senador/lista/atual",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Ato do Presidente do Senado n 8, de 2025 (valores da CEAPS), pagina da norma",
+   "url": "https://adm.senado.gov.br/normas/ui/pub/normaConsultada?0=&idNorma=14383699",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Anexo ao Ato do Presidente n 8, de 2025 (tabela CEAPS por UF)",
+   "url": "https://www.senado.leg.br/transparencia/SECRH/BASF/Anexo/A_01_2025_1761064.PDF",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Ato da Comissao Diretora n 2, de 2023 (reajustes e 4 trechos aereos por mes)",
+   "url": "https://adm.senado.gov.br/normas/ui/pub/normaConsultada?idNorma=14380751",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Ato do Primeiro-Secretario n 5, de 2014, compilado (regras da CEAPS)",
+   "url": "https://www12.senado.leg.br/transparencia/leg/pdf/normas/APS-5-2014-compilado.pdf",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Tabela antiga da CEAPS (PDF de 19/06/2017)",
+   "url": "https://www12.senado.leg.br/transparencia/leg/pdf/CotaExercicioAtivParlamSenadores.pdf",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Guia do Parlamentar (versao antiga): composicao do gabinete",
+   "url": "https://www12.senado.leg.br/publicacoes/guias/parl_guia_old/gestao-administrativa/gabinete-parlamentar/composicao",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Decreto 5.978/2006, Regulamento de Documentos de Viagem",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+   "read_on": "2026-10-21"
+  }
+ ],
+ "ceaps_rules": {
+  "act": "Ato do Presidente do Senado Federal n 8, de 28/02/2025, ad referendum da Comissao Diretora, publicado no Boletim Administrativo do Senado Federal n 9678, secao 1, de 28/02/2025, p. 2; em vigor desde 01/03/2025. Reajusta os valores do Anexo do Ato da Comissao Diretora n 2, de 2023. Nenhum ato posterior que altere esse anexo aparece no sistema de normas do Senado (consulta de 2026-10-21).",
+  "act_url": "https://adm.senado.gov.br/normas/ui/pub/normaConsultada?0=&idNorma=14383699",
+  "carries_over": true,
+  "explanation": "Os valores de R$ 21.045,20 (DF) a R$ 44.276,60 (AM) vem de uma tabela de 2017, superada. O Ato da Comissao Diretora n 2/2023 reajustou a CEAPS (6% em 2023, 6% em 2024, 6,13% em 2025) e criou, fora da CEAPS, 4 trechos aereos ida e volta por mes ate o DF (o saldo de trechos passa para os meses seguintes, nunca para o ano seguinte); o Ato do Presidente n 8/2025 fixou os valores atuais, de R$ 36.582,46 (DF) a R$ 52.798,82 (AM), em vigor desde 01/03/2025. Pelo Ato do Primeiro-Secretario n 5/2014, art. 5, par. 5 a 7, o valor mensal nao usado pode ser remanejado para os meses seguintes dentro do mesmo exercicio, nunca para o exercicio seguinte, e pode pagar despesas de meses anteriores ao pedido; por isso um mes isolado pode passar do valor mensal. Com os valores de 2025, nenhum dos 81 senadores passou de 9 vezes o valor mensal de jan a set 2026 (maior: 8,99 vezes); Damares Alves (R$ 301.972,81) e Izalci Lucas (R$ 313.534,64) ficam abaixo de 9 x R$ 36.582,46 = R$ 329.242,14. carries_over = true vale so dentro do mesmo ano.",
+  "monthly_by_uf": {
+   "AC": 50426.26,
+   "AL": 46737.9,
+   "AM": 52798.82,
+   "AP": 51103.82,
+   "BA": 44804.65,
+   "CE": 48245.57,
+   "DF": 36582.46,
+   "ES": 43217.71,
+   "GO": 41300.86,
+   "MA": 47945.49,
+   "MG": 41886.51,
+   "MS": 46336.64,
+   "MT": 45221.83,
+   "PA": 48207.3,
+   "PB": 47826.36,
+   "PE": 47470.6,
+   "PI": 46765.57,
+   "PR": 44665.66,
+   "RJ": 41553.77,
+   "RN": 48525.79,
+   "RO": 49466.29,
+   "RR": 51406.33,
+   "RS": 46669.7,
+   "SC": 45671.58,
+   "SE": 49898.53,
+   "SP": 42837.33,
+   "TO": 45297.41
+  }
+ },
+ "office_rules": {
+  "limit_note": "Pagina do Guia do Parlamentar marcada como versao antiga (sem data): em regra o gabinete tem 5 Assessor Parlamentar (SF02), 6 Secretario Parlamentar (SF01) e 1 Motorista (AP04) comissionados, mais funcoes para efetivos (1 Chefe de Gabinete FC-3, 1 Subchefe FC-2, 4 Assistente Tecnico FC-1); os cargos SF02 podem ser desmembrados em cargos menores desde que a soma nao passe da 'verba permitida ao Gabinete Parlamentar' (valor em reais nao publicado na pagina); maximo de 50 comissionados por gabinete. A contagem atual do Senado contradiz esse teto em: Beto Faro (68), Eduardo Gomes (79), Efraim Filho (61), Eliziane Gama (60), Izalci Lucas (58), Jaques Wagner (52), Lucas Barreto (76), Marcio Bittar (67), Marcos Rogério (58), Nelsinho Trad (79), Omar Aziz (66), Plínio Valério (52), Professora Dorinha Seabra (53), Randolfe Rodrigues (55), Roberta Acioly (60), Rogério Carvalho (84), Weverton (69), Zequinha Marinho (68) (comissionados de Gabinete mais Escritorios de Apoio), entao o teto da pagina pode estar desatualizado ou valer por unidade. O texto vigente do Regulamento Administrativo nao foi lido.",
+  "source": "https://www12.senado.leg.br/publicacoes/guias/parl_guia_old/gestao-administrativa/gabinete-parlamentar/composicao"
+ },
+ "people": [
+  {
+   "id": "senado:5672",
+   "name": "Alan Rick",
+   "office": {
+    "uses": true,
+    "monthly": 578518.39,
+    "year_total": 5206665.55,
+    "months": "jan a set 2026",
+    "staff_count": 36,
+    "by_month": {
+     "1": 511528.59,
+     "2": 472472.75,
+     "3": 516462.35,
+     "4": 555509.19,
+     "5": 573515.13,
+     "6": 852420.05,
+     "7": 585741.17,
+     "8": 589129.73,
+     "9": 549886.59
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 810.699,39 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 36 pessoas, 33 comissionadas."
+  },
+  {
+   "id": "senado:5982",
+   "name": "Alessandro Vieira",
+   "office": {
+    "uses": true,
+    "monthly": 409950.92,
+    "year_total": 3689558.28,
+    "months": "jan a set 2026",
+    "staff_count": 36,
+    "by_month": {
+     "1": 474479.08,
+     "2": 363921.5,
+     "3": 364631.43,
+     "4": 381551.18,
+     "5": 384951.3,
+     "6": 587522.47,
+     "7": 368203.0,
+     "8": 378046.3,
+     "9": 386252.02
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 679.017,81 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 36 pessoas, 35 comissionadas."
+  },
+  {
+   "id": "senado:6358",
+   "name": "Ana Paula Lobato",
+   "office": {
+    "uses": true,
+    "monthly": 479082.28,
+    "year_total": 2874493.67,
+    "months": "jan a jun 2026",
+    "staff_count": 32,
+    "by_month": {
+     "1": 479185.81,
+     "2": 391525.85,
+     "3": 421520.68,
+     "4": 450494.53,
+     "5": 470126.24,
+     "6": 661640.56
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2026-10-06",
+   "note": "Meses publicados fora da conta por exercicio incompleto ou ausente: jul, ago, set. Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 642.921,15 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 32 pessoas, 31 comissionadas. 1º Suplente de Flávio Dino; exercicio atual desde 2026-10-06."
+  },
+  {
+   "id": "senado:5967",
+   "name": "Angelo Coronel",
+   "office": {
+    "uses": true,
+    "monthly": 735479.15,
+    "year_total": 6619312.31,
+    "months": "jan a set 2026",
+    "staff_count": 41,
+    "by_month": {
+     "1": 816986.04,
+     "2": 627029.36,
+     "3": 630063.6,
+     "4": 667439.88,
+     "5": 667523.35,
+     "6": 1026673.64,
+     "7": 709682.87,
+     "8": 742302.79,
+     "9": 731610.78
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 806.229,99 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 41 pessoas, 39 comissionadas."
+  },
+  {
+   "id": "senado:6009",
+   "name": "Astronauta Marcos Pontes",
+   "office": {
+    "uses": true,
+    "monthly": 451362.71,
+    "year_total": 4062264.36,
+    "months": "jan a set 2026",
+    "staff_count": 24,
+    "by_month": {
+     "1": 511860.39,
+     "2": 382408.13,
+     "3": 384610.13,
+     "4": 407077.48,
+     "5": 427895.73,
+     "6": 634960.06,
+     "7": 433503.06,
+     "8": 435302.14,
+     "9": 444647.24
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 556.532,21 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 24 pessoas, 23 comissionadas."
+  },
+  {
+   "id": "senado:4639",
+   "name": "Beto Faro",
+   "office": {
+    "uses": true,
+    "monthly": 672134.57,
+    "year_total": 6049211.14,
+    "months": "jan a set 2026",
+    "staff_count": 70,
+    "by_month": {
+     "1": 756494.46,
+     "2": 595046.12,
+     "3": 594038.51,
+     "4": 629825.56,
+     "5": 637266.01,
+     "6": 931022.03,
+     "7": 645247.91,
+     "8": 627139.77,
+     "9": 633130.77
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.281.387,90 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 70 pessoas, 68 comissionadas."
+  },
+  {
+   "id": "senado:6336",
+   "name": "Camilo Santana",
+   "office": {
+    "uses": true,
+    "monthly": 438968.22,
+    "year_total": 2194841.1,
+    "months": "mai a set 2026",
+    "staff_count": 35,
+    "by_month": {
+     "5": 419968.01,
+     "6": 494141.93,
+     "7": 425653.46,
+     "8": 437837.38,
+     "9": 417240.32
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2026-04-02",
+   "note": "Meses publicados fora da conta por exercicio incompleto ou ausente: jan, fev, mar, abr. 1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.085.021,32 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 35 pessoas, 34 comissionadas. Titular; exercicio atual desde 2026-04-02."
+  },
+  {
+   "id": "senado:6295",
+   "name": "Carlos Fávaro",
+   "office": {
+    "uses": true,
+    "monthly": 336801.96,
+    "year_total": 2020811.77,
+    "months": "abr a set 2026",
+    "staff_count": 18,
+    "by_month": {
+     "4": 279532.98,
+     "5": 294879.21,
+     "6": 471186.19,
+     "7": 337375.49,
+     "8": 321572.09,
+     "9": 316265.81
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2026-03-31",
+   "note": "Meses publicados fora da conta por exercicio incompleto ou ausente: jan, fev, mar. 1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 417.718,01 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 18 pessoas, 18 comissionadas. Titular; exercicio atual desde 2026-03-31."
+  },
+  {
+   "id": "senado:5936",
+   "name": "Carlos Portinho",
+   "office": {
+    "uses": true,
+    "monthly": 419387.9,
+    "year_total": 3774491.09,
+    "months": "jan a set 2026",
+    "staff_count": 28,
+    "by_month": {
+     "1": 488562.3,
+     "2": 360329.31,
+     "3": 356256.03,
+     "4": 372581.25,
+     "5": 387299.0,
+     "6": 586215.81,
+     "7": 407781.38,
+     "8": 415694.33,
+     "9": 399771.68
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2020-11-03",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 514.482,85 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 28 pessoas, 28 comissionadas. 1º Suplente de Arolde de Oliveira; exercicio atual desde 2020-11-03."
+  },
+  {
+   "id": "senado:5990",
+   "name": "Carlos Viana",
+   "office": {
+    "uses": true,
+    "monthly": 479910.94,
+    "year_total": 4319198.48,
+    "months": "jan a set 2026",
+    "staff_count": 25,
+    "by_month": {
+     "1": 548926.61,
+     "2": 477003.09,
+     "3": 479302.52,
+     "4": 495484.99,
+     "5": 435343.67,
+     "6": 583075.63,
+     "7": 426173.73,
+     "8": 441512.3,
+     "9": 432375.94
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2024-11-16",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 896.124,51 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 25 pessoas, 24 comissionadas."
+  },
+  {
+   "id": "senado:470",
+   "name": "Chico Rodrigues",
+   "office": {
+    "uses": true,
+    "monthly": 406690.84,
+    "year_total": 3660217.54,
+    "months": "jan a set 2026",
+    "staff_count": 40,
+    "by_month": {
+     "1": 471105.4,
+     "2": 354106.44,
+     "3": 361692.73,
+     "4": 382349.01,
+     "5": 376035.83,
+     "6": 559184.88,
+     "7": 387875.47,
+     "8": 392439.57,
+     "9": 375428.21
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2021-02-18",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 771.364,61 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 40 pessoas, 40 comissionadas."
+  },
+  {
+   "id": "senado:5973",
+   "name": "Cid Gomes",
+   "office": {
+    "uses": true,
+    "monthly": 631641.54,
+    "year_total": 5684773.83,
+    "months": "jan a set 2026",
+    "staff_count": 48,
+    "by_month": {
+     "1": 732348.6,
+     "2": 554289.27,
+     "3": 555054.02,
+     "4": 575912.09,
+     "5": 564752.3,
+     "6": 868089.04,
+     "7": 619633.81,
+     "8": 612521.86,
+     "9": 602172.84
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-01-04",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 781.945,07 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 48 pessoas, 44 comissionadas."
+  },
+  {
+   "id": "senado:739",
+   "name": "Ciro Nogueira",
+   "office": {
+    "uses": true,
+    "monthly": 837344.36,
+    "year_total": 7536099.2,
+    "months": "jan a set 2026",
+    "staff_count": 48,
+    "by_month": {
+     "1": 885251.94,
+     "2": 696145.64,
+     "3": 721251.03,
+     "4": 778936.67,
+     "5": 813850.65,
+     "6": 1191752.2,
+     "7": 881056.67,
+     "8": 754020.46,
+     "9": 813833.94
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2022-12-30",
+   "note": "2 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.557.697,96 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 48 pessoas, 45 comissionadas."
+  },
+  {
+   "id": "senado:6337",
+   "name": "Cleitinho",
+   "office": {
+    "uses": true,
+    "monthly": 366932.58,
+    "year_total": 3302393.26,
+    "months": "jan a set 2026",
+    "staff_count": 19,
+    "by_month": {
+     "1": 426110.09,
+     "2": 322518.43,
+     "3": 322753.98,
+     "4": 339264.32,
+     "5": 341930.49,
+     "6": 512753.38,
+     "7": 347091.1,
+     "8": 348890.09,
+     "9": 341081.38
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 339.056,14 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 19 pessoas, 19 comissionadas."
+  },
+  {
+   "id": "senado:475",
+   "name": "Confúcio Moura",
+   "office": {
+    "uses": true,
+    "monthly": 568570.06,
+    "year_total": 5117130.57,
+    "months": "jan a set 2026",
+    "staff_count": 35,
+    "by_month": {
+     "1": 637319.89,
+     "2": 497357.85,
+     "3": 497357.85,
+     "4": 519598.48,
+     "5": 521588.22,
+     "6": 767528.81,
+     "7": 552883.12,
+     "8": 567309.84,
+     "9": 556186.51
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2022-01-25",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 672.522,11 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 35 pessoas, 33 comissionadas."
+  },
+  {
+   "id": "senado:6335",
+   "name": "Damares Alves",
+   "office": {
+    "uses": true,
+    "monthly": 427788.57,
+    "year_total": 3850097.11,
+    "months": "jan a set 2026",
+    "staff_count": 33,
+    "by_month": {
+     "1": 478266.96,
+     "2": 371619.51,
+     "3": 380685.39,
+     "4": 407636.28,
+     "5": 413738.69,
+     "6": 604245.66,
+     "7": 407174.21,
+     "8": 396231.71,
+     "9": 390498.7
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 655.319,90 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 33 pessoas, 33 comissionadas."
+  },
+  {
+   "id": "senado:5998",
+   "name": "Daniella Ribeiro",
+   "office": {
+    "uses": true,
+    "monthly": 543897.99,
+    "year_total": 4895081.91,
+    "months": "jan a set 2026",
+    "staff_count": 40,
+    "by_month": {
+     "1": 622620.19,
+     "2": 497470.97,
+     "3": 499046.87,
+     "4": 514489.2,
+     "5": 503132.5,
+     "6": 750120.61,
+     "7": 499323.22,
+     "8": 498511.17,
+     "9": 510367.18
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2021-01-22",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 710.239,54 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 40 pessoas, 40 comissionadas."
+  },
+  {
+   "id": "senado:3830",
+   "name": "Davi Alcolumbre",
+   "office": {
+    "uses": true,
+    "monthly": 395504.61,
+    "year_total": 3559541.46,
+    "months": "jan a set 2026",
+    "staff_count": 25,
+    "by_month": {
+     "1": 444422.09,
+     "2": 330528.75,
+     "3": 345090.67,
+     "4": 361381.06,
+     "5": 373120.81,
+     "6": 551362.51,
+     "7": 387290.56,
+     "8": 381431.16,
+     "9": 384913.85
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 460.435,00 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 25 pessoas, 25 comissionadas."
+  },
+  {
+   "id": "senado:5793",
+   "name": "Dr. Hiran",
+   "office": {
+    "uses": true,
+    "monthly": 414553.38,
+    "year_total": 3730980.42,
+    "months": "jan a set 2026",
+    "staff_count": 42,
+    "by_month": {
+     "1": 433985.19,
+     "2": 331998.66,
+     "3": 335112.13,
+     "4": 349539.76,
+     "5": 401943.44,
+     "6": 594143.96,
+     "7": 422582.99,
+     "8": 427773.17,
+     "9": 433901.12
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 735.862,48 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 42 pessoas, 40 comissionadas."
+  },
+  {
+   "id": "senado:5906",
+   "name": "Dra. Eudócia",
+   "office": {
+    "uses": true,
+    "monthly": 463615.96,
+    "year_total": 4172543.63,
+    "months": "jan a set 2026",
+    "staff_count": 26,
+    "by_month": {
+     "1": 454840.39,
+     "2": 378778.92,
+     "3": 388155.56,
+     "4": 372537.55,
+     "5": 425351.12,
+     "6": 679350.04,
+     "7": 493704.83,
+     "8": 496395.14,
+     "9": 483430.08
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2024-12-29",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 472.025,40 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 26 pessoas, 24 comissionadas. 1º Suplente de Rodrigo Cunha; exercicio atual desde 2024-12-29."
+  },
+  {
+   "id": "senado:4994",
+   "name": "Eduardo Braga",
+   "office": {
+    "uses": true,
+    "monthly": 590591.9,
+    "year_total": 5315327.1,
+    "months": "jan a set 2026",
+    "staff_count": 39,
+    "by_month": {
+     "1": 684160.97,
+     "2": 560355.02,
+     "3": 537870.94,
+     "4": 541883.77,
+     "5": 547811.78,
+     "6": 838649.35,
+     "7": 530586.69,
+     "8": 528559.66,
+     "9": 545448.92
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 704.546,16 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 39 pessoas, 38 comissionadas."
+  },
+  {
+   "id": "senado:3777",
+   "name": "Eduardo Gomes",
+   "office": {
+    "uses": true,
+    "monthly": 984147.23,
+    "year_total": 8857325.09,
+    "months": "jan a set 2026",
+    "staff_count": 84,
+    "by_month": {
+     "1": 1175737.46,
+     "2": 892539.18,
+     "3": 894524.14,
+     "4": 922273.86,
+     "5": 895409.76,
+     "6": 1333562.71,
+     "7": 909766.03,
+     "8": 904993.7,
+     "9": 928518.25
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2022-11-11",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.705.845,63 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 84 pessoas, 79 comissionadas."
+  },
+  {
+   "id": "senado:4642",
+   "name": "Efraim Filho",
+   "office": {
+    "uses": true,
+    "monthly": 692127.87,
+    "year_total": 6229150.81,
+    "months": "jan a set 2026",
+    "staff_count": 62,
+    "by_month": {
+     "1": 806327.98,
+     "2": 602503.17,
+     "3": 613425.91,
+     "4": 637283.55,
+     "5": 640121.74,
+     "6": 953663.87,
+     "7": 653502.51,
+     "8": 645471.82,
+     "9": 676850.26
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2024-10-18",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.365.225,25 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 62 pessoas, 61 comissionadas."
+  },
+  {
+   "id": "senado:5718",
+   "name": "Eliziane Gama",
+   "office": {
+    "uses": true,
+    "monthly": 616217.59,
+    "year_total": 5545958.32,
+    "months": "jan a set 2026",
+    "staff_count": 62,
+    "by_month": {
+     "1": 726374.41,
+     "2": 545046.9,
+     "3": 556785.64,
+     "4": 583256.9,
+     "5": 590080.84,
+     "6": 838324.29,
+     "7": 565704.58,
+     "8": 571212.62,
+     "9": 569172.14
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2024-10-17",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.236.956,50 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 62 pessoas, 60 comissionadas."
+  },
+  {
+   "id": "senado:22",
+   "name": "Esperidião Amin",
+   "office": {
+    "uses": true,
+    "monthly": 567646.84,
+    "year_total": 5108821.56,
+    "months": "jan a set 2026",
+    "staff_count": 35,
+    "by_month": {
+     "1": 689495.72,
+     "2": 497160.32,
+     "3": 512680.15,
+     "4": 536857.01,
+     "5": 527513.02,
+     "6": 792067.98,
+     "7": 521143.1,
+     "8": 515745.25,
+     "9": 516159.01
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 686.463,97 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 35 pessoas, 34 comissionadas."
+  },
+  {
+   "id": "senado:5953",
+   "name": "Fabiano Contarato",
+   "office": {
+    "uses": true,
+    "monthly": 341223.3,
+    "year_total": 3071009.73,
+    "months": "jan a set 2026",
+    "staff_count": 32,
+    "by_month": {
+     "1": 399195.58,
+     "2": 307815.49,
+     "3": 303591.37,
+     "4": 312806.6,
+     "5": 314847.28,
+     "6": 474778.01,
+     "7": 315324.42,
+     "8": 325350.7,
+     "9": 317300.28
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 625.839,80 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 32 pessoas, 32 comissionadas."
+  },
+  {
+   "id": "senado:5917",
+   "name": "Fernando Dueire",
+   "office": {
+    "uses": true,
+    "monthly": 520467.18,
+    "year_total": 4684204.65,
+    "months": "jan a set 2026",
+    "staff_count": 29,
+    "by_month": {
+     "1": 607129.81,
+     "2": 437051.83,
+     "3": 448604.7,
+     "4": 471014.63,
+     "5": 481545.15,
+     "6": 733287.4,
+     "7": 515249.89,
+     "8": 492025.59,
+     "9": 498295.65
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-09-04",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 547.941,53 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 29 pessoas, 27 comissionadas. 1º Suplente de Jarbas Vasconcelos; exercicio atual desde 2023-09-04."
+  },
+  {
+   "id": "senado:345",
+   "name": "Flávio Arns",
+   "office": {
+    "uses": true,
+    "monthly": 488326.69,
+    "year_total": 4394940.19,
+    "months": "jan a set 2026",
+    "staff_count": 29,
+    "by_month": {
+     "1": 562455.03,
+     "2": 416096.92,
+     "3": 420412.45,
+     "4": 446794.3,
+     "5": 457746.54,
+     "6": 685689.71,
+     "7": 467657.07,
+     "8": 467810.14,
+     "9": 470278.03
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "2 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 469.690,04 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 29 pessoas, 27 comissionadas."
+  },
+  {
+   "id": "senado:5894",
+   "name": "Flávio Bolsonaro",
+   "office": {
+    "uses": true,
+    "monthly": 500939.63,
+    "year_total": 4508456.67,
+    "months": "jan a set 2026",
+    "staff_count": 21,
+    "by_month": {
+     "1": 668967.3,
+     "2": 488271.39,
+     "3": 440429.35,
+     "4": 464928.09,
+     "5": 467066.98,
+     "6": 663142.82,
+     "7": 423330.52,
+     "8": 444799.3,
+     "9": 447520.92
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 747.156,67 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 21 pessoas, 20 comissionadas."
+  },
+  {
+   "id": "senado:6008",
+   "name": "Giordano",
+   "office": {
+    "uses": true,
+    "monthly": 487849.18,
+    "year_total": 4390642.62,
+    "months": "jan a set 2026",
+    "staff_count": 24,
+    "by_month": {
+     "1": 524651.54,
+     "2": 394320.23,
+     "3": 390510.82,
+     "4": 405896.62,
+     "5": 465338.71,
+     "6": 714146.91,
+     "7": 489772.9,
+     "8": 493420.43,
+     "9": 512584.46
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2021-03-31",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 628.263,97 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 24 pessoas, 22 comissionadas. 1º Suplente de Major Olimpio; exercicio atual desde 2021-03-31."
+  },
+  {
+   "id": "senado:6341",
+   "name": "Hamilton Mourão",
+   "office": {
+    "uses": true,
+    "monthly": 492082.42,
+    "year_total": 4428741.77,
+    "months": "jan a set 2026",
+    "staff_count": 24,
+    "by_month": {
+     "1": 573992.59,
+     "2": 425229.86,
+     "3": 433148.77,
+     "4": 452848.76,
+     "5": 454538.81,
+     "6": 680235.21,
+     "7": 468355.45,
+     "8": 468414.72,
+     "9": 471977.6
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 444.828,21 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 24 pessoas, 22 comissionadas."
+  },
+  {
+   "id": "senado:5008",
+   "name": "Humberto Costa",
+   "office": {
+    "uses": true,
+    "monthly": 546306.49,
+    "year_total": 4916758.38,
+    "months": "jan a set 2026",
+    "staff_count": 36,
+    "by_month": {
+     "1": 626914.76,
+     "2": 471098.71,
+     "3": 483300.49,
+     "4": 511933.27,
+     "5": 507156.54,
+     "6": 775323.54,
+     "7": 525104.85,
+     "8": 509860.43,
+     "9": 506065.79
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 624.648,99 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 36 pessoas, 34 comissionadas."
+  },
+  {
+   "id": "senado:5385",
+   "name": "Irajá",
+   "office": {
+    "uses": true,
+    "monthly": 702383.33,
+    "year_total": 6321449.94,
+    "months": "jan a set 2026",
+    "staff_count": 46,
+    "by_month": {
+     "1": 796718.96,
+     "2": 594655.16,
+     "3": 604640.65,
+     "4": 632359.04,
+     "5": 642286.75,
+     "6": 930762.6,
+     "7": 689396.34,
+     "8": 705896.36,
+     "9": 724734.08
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.177.490,57 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 46 pessoas, 43 comissionadas."
+  },
+  {
+   "id": "senado:6010",
+   "name": "Ivete da Silveira",
+   "office": {
+    "uses": true,
+    "monthly": 605714.32,
+    "year_total": 5451428.85,
+    "months": "jan a set 2026",
+    "staff_count": 36,
+    "by_month": {
+     "1": 679037.19,
+     "2": 522925.81,
+     "3": 540823.98,
+     "4": 558178.63,
+     "5": 565095.71,
+     "6": 834086.1,
+     "7": 586318.38,
+     "8": 569942.6,
+     "9": 595020.45
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2024-11-30",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 676.212,54 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 36 pessoas, 34 comissionadas. 1º Suplente de Jorginho Mello; exercicio atual desde 2024-11-30."
+  },
+  {
+   "id": "senado:4770",
+   "name": "Izalci Lucas",
+   "office": {
+    "uses": true,
+    "monthly": 497449.21,
+    "year_total": 4477042.89,
+    "months": "jan a set 2026",
+    "staff_count": 61,
+    "by_month": {
+     "1": 519972.68,
+     "2": 396778.21,
+     "3": 421372.61,
+     "4": 428664.98,
+     "5": 439181.43,
+     "6": 702937.61,
+     "7": 517537.56,
+     "8": 513705.67,
+     "9": 536892.14
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 868.781,42 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 61 pessoas, 58 comissionadas."
+  },
+  {
+   "id": "senado:35",
+   "name": "Jader Barbalho",
+   "office": {
+    "uses": true,
+    "monthly": 368990.72,
+    "year_total": 3320916.44,
+    "months": "jan a set 2026",
+    "staff_count": 22,
+    "by_month": {
+     "1": 428820.24,
+     "2": 308842.14,
+     "3": 323795.6,
+     "4": 343705.03,
+     "5": 347637.44,
+     "6": 520112.16,
+     "7": 350921.92,
+     "8": 343505.23,
+     "9": 353576.68
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 363.035,35 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 22 pessoas, 22 comissionadas."
+  },
+  {
+   "id": "senado:6340",
+   "name": "Jaime Bagattoli",
+   "office": {
+    "uses": true,
+    "monthly": 449030.64,
+    "year_total": 4041275.74,
+    "months": "jan a set 2026",
+    "staff_count": 33,
+    "by_month": {
+     "1": 497654.42,
+     "2": 384832.03,
+     "3": 388754.68,
+     "4": 415055.0,
+     "5": 431364.41,
+     "6": 637622.56,
+     "7": 415853.83,
+     "8": 429354.83,
+     "9": 440783.98
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 709.845,62 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 33 pessoas, 32 comissionadas."
+  },
+  {
+   "id": "senado:581",
+   "name": "Jaques Wagner",
+   "office": {
+    "uses": true,
+    "monthly": 624105.38,
+    "year_total": 5616948.43,
+    "months": "jan a set 2026",
+    "staff_count": 54,
+    "by_month": {
+     "1": 697940.05,
+     "2": 538384.43,
+     "3": 550923.6,
+     "4": 580847.49,
+     "5": 583801.45,
+     "6": 876827.23,
+     "7": 578989.82,
+     "8": 590819.65,
+     "9": 618414.71
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.105.251,16 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 54 pessoas, 52 comissionadas."
+  },
+  {
+   "id": "senado:4531",
+   "name": "Jayme Campos",
+   "office": {
+    "uses": true,
+    "monthly": 611124.11,
+    "year_total": 5500117.02,
+    "months": "jan a set 2026",
+    "staff_count": 41,
+    "by_month": {
+     "1": 698569.28,
+     "2": 520976.26,
+     "3": 528704.7,
+     "4": 553521.3,
+     "5": 578124.99,
+     "6": 845988.53,
+     "7": 585606.16,
+     "8": 584289.62,
+     "9": 604336.18
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2022-07-30",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 776.659,11 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 41 pessoas, 38 comissionadas."
+  },
+  {
+   "id": "senado:5895",
+   "name": "Jorge Kajuru",
+   "office": {
+    "uses": true,
+    "monthly": 565738.16,
+    "year_total": 5091643.42,
+    "months": "jan a set 2026",
+    "staff_count": 30,
+    "by_month": {
+     "1": 672591.29,
+     "2": 491639.77,
+     "3": 490146.45,
+     "4": 530207.98,
+     "5": 531403.27,
+     "6": 774623.36,
+     "7": 533077.36,
+     "8": 534036.73,
+     "9": 533917.21
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 590.916,48 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 30 pessoas, 30 comissionadas. Sem nenhuma linha no arquivo CEAPS 2026 (atualizado em 02/10/2026, meses 1 a 9); recursos-utilizados 2026 tambem mostra cota total 0."
+  },
+  {
+   "id": "senado:6342",
+   "name": "Jorge Seif",
+   "office": {
+    "uses": true,
+    "monthly": 590683.29,
+    "year_total": 2362733.16,
+    "months": "jan a abr 2026",
+    "staff_count": 31,
+    "by_month": {
+     "1": 700221.55,
+     "2": 526838.0,
+     "3": 542968.21,
+     "4": 592705.4
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2026-09-02",
+   "note": "Meses publicados fora da conta por exercicio incompleto ou ausente: mai, jun, jul, ago, set. Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 544.247,85 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 31 pessoas, 27 comissionadas. Titular; exercicio atual desde 2026-09-02."
+  },
+  {
+   "id": "senado:6369",
+   "name": "Jussara Lima",
+   "office": {
+    "uses": true,
+    "monthly": 584168.4,
+    "year_total": 4089178.78,
+    "months": "jan a mar, jun a set 2026",
+    "staff_count": 41,
+    "by_month": {
+     "1": 671871.05,
+     "2": 497068.91,
+     "3": 506858.95,
+     "6": 781303.26,
+     "7": 542286.82,
+     "8": 542863.68,
+     "9": 546926.11
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2026-05-06",
+   "note": "Meses publicados fora da conta por exercicio incompleto ou ausente: abr, mai. Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 723.479,78 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 41 pessoas, 38 comissionadas. 1º Suplente de Wellington Dias; exercicio atual desde 2026-05-06."
+  },
+  {
+   "id": "senado:4811",
+   "name": "Laércio Oliveira",
+   "office": {
+    "uses": true,
+    "monthly": 499152.04,
+    "year_total": 4492368.32,
+    "months": "jan a set 2026",
+    "staff_count": 38,
+    "by_month": {
+     "1": 494985.76,
+     "2": 415029.67,
+     "3": 424165.58,
+     "4": 432564.1,
+     "5": 441873.26,
+     "6": 701054.76,
+     "7": 519305.82,
+     "8": 524042.04,
+     "9": 539347.33
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 667.457,56 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 38 pessoas, 38 comissionadas."
+  },
+  {
+   "id": "senado:5977",
+   "name": "Leany Lemos",
+   "office": {
+    "uses": true,
+    "monthly": null,
+    "year_total": null,
+    "months": null,
+    "staff_count": 43,
+    "by_month": {},
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2026-10-06",
+   "note": "Nenhum mes publicado (jan a set 2026) com o senador em exercicio o mes inteiro, entao nao ha custo de gabinete 2026 atribuivel a ele ainda. Meses publicados fora da conta por exercicio incompleto ou ausente: jan, fev, mar, abr, mai, jun, jul, ago, set. 2 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Equipe atual pelo Senado (recursos-utilizados): 43 pessoas, 40 comissionadas. Sem nenhuma linha no arquivo CEAPS 2026 (atualizado em 02/10/2026, meses 1 a 9); recursos-utilizados 2026 tambem mostra cota total 0. 1º Suplente de Leila Barros; exercicio atual desde 2026-10-06."
+  },
+  {
+   "id": "senado:5926",
+   "name": "Lucas Barreto",
+   "office": {
+    "uses": true,
+    "monthly": 858059.61,
+    "year_total": 7722536.48,
+    "months": "jan a set 2026",
+    "staff_count": 78,
+    "by_month": {
+     "1": 979611.37,
+     "2": 738442.55,
+     "3": 764269.64,
+     "4": 794927.37,
+     "5": 813485.78,
+     "6": 1197877.51,
+     "7": 792644.74,
+     "8": 817964.83,
+     "9": 823312.69
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2020-04-20",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.345.580,89 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 78 pessoas, 76 comissionadas."
+  },
+  {
+   "id": "senado:1186",
+   "name": "Luis Carlos Heinze",
+   "office": {
+    "uses": true,
+    "monthly": 512443.82,
+    "year_total": 4611994.34,
+    "months": "jan a set 2026",
+    "staff_count": 23,
+    "by_month": {
+     "1": 572945.66,
+     "2": 423828.06,
+     "3": 435364.27,
+     "4": 478909.28,
+     "5": 476814.56,
+     "6": 700246.6,
+     "7": 513060.94,
+     "8": 520305.67,
+     "9": 490519.3
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2024-08-07",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 602.286,09 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 23 pessoas, 22 comissionadas."
+  },
+  {
+   "id": "senado:631",
+   "name": "Magno Malta",
+   "office": {
+    "uses": true,
+    "monthly": 393082.14,
+    "year_total": 3537739.24,
+    "months": "jan a set 2026",
+    "staff_count": 36,
+    "by_month": {
+     "1": 435607.24,
+     "2": 345717.97,
+     "3": 348950.62,
+     "4": 362910.19,
+     "5": 366788.07,
+     "6": 564221.27,
+     "7": 384830.79,
+     "8": 374289.34,
+     "9": 354423.75
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 670.698,93 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 36 pessoas, 36 comissionadas."
+  },
+  {
+   "id": "senado:5376",
+   "name": "Mara Gabrilli",
+   "office": {
+    "uses": true,
+    "monthly": 528108.44,
+    "year_total": 4752975.98,
+    "months": "jan a set 2026",
+    "staff_count": 30,
+    "by_month": {
+     "1": 634180.7,
+     "2": 470009.27,
+     "3": 473547.33,
+     "4": 492356.72,
+     "5": 476629.07,
+     "6": 743030.25,
+     "7": 531844.15,
+     "8": 479559.74,
+     "9": 451818.75
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 813.623,91 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 30 pessoas, 28 comissionadas."
+  },
+  {
+   "id": "senado:742",
+   "name": "Marcelo Castro",
+   "office": {
+    "uses": true,
+    "monthly": 694377.05,
+    "year_total": 6249393.45,
+    "months": "jan a set 2026",
+    "staff_count": 49,
+    "by_month": {
+     "1": 815281.59,
+     "2": 602225.38,
+     "3": 614002.89,
+     "4": 640123.92,
+     "5": 648993.22,
+     "6": 967277.85,
+     "7": 650605.33,
+     "8": 653920.81,
+     "9": 656962.46
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 992.569,08 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 49 pessoas, 46 comissionadas."
+  },
+  {
+   "id": "senado:285",
+   "name": "Marcio Bittar",
+   "office": {
+    "uses": true,
+    "monthly": 726926.52,
+    "year_total": 6542338.71,
+    "months": "jan a set 2026",
+    "staff_count": 69,
+    "by_month": {
+     "1": 804831.87,
+     "2": 633373.63,
+     "3": 643512.96,
+     "4": 691625.36,
+     "5": 691691.7,
+     "6": 1003967.33,
+     "7": 690857.1,
+     "8": 688808.95,
+     "9": 693669.81
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2022-10-15",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.344.606,52 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 69 pessoas, 67 comissionadas."
+  },
+  {
+   "id": "senado:5422",
+   "name": "Marcos Rogério",
+   "office": {
+    "uses": true,
+    "monthly": 890506.88,
+    "year_total": 8014561.9,
+    "months": "jan a set 2026",
+    "staff_count": 59,
+    "by_month": {
+     "1": 1058820.71,
+     "2": 804118.61,
+     "3": 797218.83,
+     "4": 827728.93,
+     "5": 812391.86,
+     "6": 1214091.0,
+     "7": 843258.7,
+     "8": 837397.32,
+     "9": 819535.94
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-06-12",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.376.237,05 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 59 pessoas, 58 comissionadas."
+  },
+  {
+   "id": "senado:5942",
+   "name": "Marcos do Val",
+   "office": {
+    "uses": true,
+    "monthly": 271469.7,
+    "year_total": 2443227.26,
+    "months": "jan a set 2026",
+    "staff_count": 24,
+    "by_month": {
+     "1": 355785.77,
+     "2": 256112.13,
+     "3": 245378.67,
+     "4": 257497.27,
+     "5": 259749.12,
+     "6": 385290.48,
+     "7": 226352.88,
+     "8": 236849.96,
+     "9": 220210.98
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 609.676,55 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 24 pessoas, 24 comissionadas."
+  },
+  {
+   "id": "senado:5985",
+   "name": "Nelsinho Trad",
+   "office": {
+    "uses": true,
+    "monthly": 876803.5,
+    "year_total": 7891231.46,
+    "months": "jan a set 2026",
+    "staff_count": 81,
+    "by_month": {
+     "1": 929727.45,
+     "2": 714054.2,
+     "3": 751067.06,
+     "4": 795735.73,
+     "5": 804740.54,
+     "6": 1219618.36,
+     "7": 862160.93,
+     "8": 903064.81,
+     "9": 911062.38
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.426.020,15 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 81 pessoas, 79 comissionadas."
+  },
+  {
+   "id": "senado:5525",
+   "name": "Omar Aziz",
+   "office": {
+    "uses": true,
+    "monthly": 845066.69,
+    "year_total": 7605600.17,
+    "months": "jan a set 2026",
+    "staff_count": 69,
+    "by_month": {
+     "1": 958457.55,
+     "2": 702167.23,
+     "3": 723528.86,
+     "4": 760076.2,
+     "5": 785166.69,
+     "6": 1192299.86,
+     "7": 841173.89,
+     "8": 819103.93,
+     "9": 823625.96
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.257.975,43 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 69 pessoas, 66 comissionadas."
+  },
+  {
+   "id": "senado:5924",
+   "name": "Oriovisto Guimarães",
+   "office": {
+    "uses": true,
+    "monthly": 278612.2,
+    "year_total": 2507509.79,
+    "months": "jan a set 2026",
+    "staff_count": 13,
+    "by_month": {
+     "1": 310025.61,
+     "2": 224196.99,
+     "3": 224110.57,
+     "4": 241159.04,
+     "5": 266614.68,
+     "6": 389966.09,
+     "7": 283752.14,
+     "8": 283752.14,
+     "9": 283932.53
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 202.617,31 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 13 pessoas, 13 comissionadas."
+  },
+  {
+   "id": "senado:5523",
+   "name": "Otto Alencar",
+   "office": {
+    "uses": true,
+    "monthly": 484607.25,
+    "year_total": 4361465.26,
+    "months": "jan a set 2026",
+    "staff_count": 49,
+    "by_month": {
+     "1": 552209.49,
+     "2": 420580.81,
+     "3": 425445.27,
+     "4": 436212.73,
+     "5": 442098.08,
+     "6": 665038.81,
+     "7": 469359.6,
+     "8": 468617.85,
+     "9": 481902.62
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "2 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 821.133,53 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 49 pessoas, 49 comissionadas."
+  },
+  {
+   "id": "senado:825",
+   "name": "Paulo Paim",
+   "office": {
+    "uses": true,
+    "monthly": 494979.13,
+    "year_total": 4454812.15,
+    "months": "jan a set 2026",
+    "staff_count": 44,
+    "by_month": {
+     "1": 550417.42,
+     "2": 400639.7,
+     "3": 426454.89,
+     "4": 450993.13,
+     "5": 470599.53,
+     "6": 696553.98,
+     "7": 467700.9,
+     "8": 487222.08,
+     "9": 504230.52
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 775.568,08 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 44 pessoas, 44 comissionadas."
+  },
+  {
+   "id": "senado:5502",
+   "name": "Plínio Valério",
+   "office": {
+    "uses": true,
+    "monthly": 594324.81,
+    "year_total": 5348923.3,
+    "months": "jan a set 2026",
+    "staff_count": 55,
+    "by_month": {
+     "1": 673107.74,
+     "2": 505052.41,
+     "3": 514460.43,
+     "4": 536239.59,
+     "5": 553775.55,
+     "6": 811497.72,
+     "7": 569261.79,
+     "8": 582955.99,
+     "9": 602572.08
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "2 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 926.648,68 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 55 pessoas, 52 comissionadas."
+  },
+  {
+   "id": "senado:5386",
+   "name": "Professora Dorinha Seabra",
+   "office": {
+    "uses": true,
+    "monthly": 689057.01,
+    "year_total": 6201513.07,
+    "months": "jan a set 2026",
+    "staff_count": 55,
+    "by_month": {
+     "1": 751235.0,
+     "2": 572604.07,
+     "3": 593940.19,
+     "4": 624276.5,
+     "5": 641911.48,
+     "6": 974061.24,
+     "7": 667784.29,
+     "8": 683357.49,
+     "9": 692342.81
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.040.953,78 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 55 pessoas, 53 comissionadas."
+  },
+  {
+   "id": "senado:5012",
+   "name": "Randolfe Rodrigues",
+   "office": {
+    "uses": true,
+    "monthly": 706535.37,
+    "year_total": 6358818.3,
+    "months": "jan a set 2026",
+    "staff_count": 58,
+    "by_month": {
+     "1": 820267.46,
+     "2": 610423.27,
+     "3": 616725.72,
+     "4": 655818.62,
+     "5": 657861.8,
+     "6": 982737.41,
+     "7": 672489.08,
+     "8": 669856.88,
+     "9": 672638.06
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "3 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.304.751,49 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 58 pessoas, 55 comissionadas."
+  },
+  {
+   "id": "senado:70",
+   "name": "Renan Calheiros",
+   "office": {
+    "uses": true,
+    "monthly": 1030556.44,
+    "year_total": 9275007.94,
+    "months": "jan a set 2026",
+    "staff_count": 53,
+    "by_month": {
+     "1": 1200002.85,
+     "2": 891500.77,
+     "3": 916616.91,
+     "4": 944264.25,
+     "5": 957213.65,
+     "6": 1412840.43,
+     "7": 983052.83,
+     "8": 981847.02,
+     "9": 987669.23
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2022-10-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 908.494,65 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 53 pessoas, 47 comissionadas."
+  },
+  {
+   "id": "senado:5207",
+   "name": "Renan Filho",
+   "office": {
+    "uses": true,
+    "monthly": 338479.23,
+    "year_total": 2030875.38,
+    "months": "abr a set 2026",
+    "staff_count": 16,
+    "by_month": {
+     "4": 320580.52,
+     "5": 331068.84,
+     "6": 467151.46,
+     "7": 303619.09,
+     "8": 300198.8,
+     "9": 308256.67
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2026-04-01",
+   "note": "Meses publicados fora da conta por exercicio incompleto ou ausente: jan, fev, mar. Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 374.303,83 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 16 pessoas, 16 comissionadas. Titular; exercicio atual desde 2026-04-01."
+  },
+  {
+   "id": "senado:5257",
+   "name": "Renzo Braz",
+   "office": {
+    "uses": true,
+    "monthly": null,
+    "year_total": null,
+    "months": null,
+    "staff_count": 28,
+    "by_month": {},
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2026-09-30",
+   "note": "Nenhum mes publicado (jan a set 2026) com o senador em exercicio o mes inteiro, entao nao ha custo de gabinete 2026 atribuivel a ele ainda. Meses publicados fora da conta por exercicio incompleto ou ausente: jan, fev, mar, abr, mai, jun, jul, ago, set. Equipe atual pelo Senado (recursos-utilizados): 28 pessoas, 26 comissionadas. Sem nenhuma linha no arquivo CEAPS 2026 (atualizado em 02/10/2026, meses 1 a 9); recursos-utilizados 2026 tambem mostra cota total 0. 1º Suplente de Rodrigo Pacheco; exercicio atual desde 2026-09-30."
+  },
+  {
+   "id": "senado:6025",
+   "name": "Roberta Acioly",
+   "office": {
+    "uses": true,
+    "monthly": 526094.56,
+    "year_total": 3156567.36,
+    "months": "abr a set 2026",
+    "staff_count": 60,
+    "by_month": {
+     "4": 474723.58,
+     "5": 480298.6,
+     "6": 714705.44,
+     "7": 495187.1,
+     "8": 496819.6,
+     "9": 494833.04
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2026-03-11",
+   "note": "Meses publicados fora da conta por exercicio incompleto ou ausente: jan, fev, mar. Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.147.637,66 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 60 pessoas, 60 comissionadas. 1º Suplente de Mecias de Jesus; exercicio atual desde 2026-03-11."
+  },
+  {
+   "id": "senado:4694",
+   "name": "Rogerio Marinho",
+   "office": {
+    "uses": true,
+    "monthly": 475003.55,
+    "year_total": 4275031.92,
+    "months": "jan a set 2026",
+    "staff_count": 32,
+    "by_month": {
+     "1": 499854.36,
+     "2": 404347.3,
+     "3": 415074.57,
+     "4": 418977.42,
+     "5": 430601.18,
+     "6": 640404.51,
+     "7": 486205.89,
+     "8": 487525.88,
+     "9": 492040.81
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2024-10-18",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 639.881,15 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 32 pessoas, 32 comissionadas."
+  },
+  {
+   "id": "senado:5352",
+   "name": "Rogério Carvalho",
+   "office": {
+    "uses": true,
+    "monthly": 808497.27,
+    "year_total": 7276475.47,
+    "months": "jan a set 2026",
+    "staff_count": 89,
+    "by_month": {
+     "1": 930623.27,
+     "2": 702461.41,
+     "3": 717258.72,
+     "4": 743122.49,
+     "5": 747132.82,
+     "6": 1116419.4,
+     "7": 767537.41,
+     "8": 773574.89,
+     "9": 778345.06
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.631.402,21 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 89 pessoas, 84 comissionadas."
+  },
+  {
+   "id": "senado:5322",
+   "name": "Romário",
+   "office": {
+    "uses": true,
+    "monthly": 690803.01,
+    "year_total": 3454015.06,
+    "months": "mai a set 2026",
+    "staff_count": 31,
+    "by_month": {
+     "5": 619485.36,
+     "6": 929175.58,
+     "7": 633576.7,
+     "8": 638254.41,
+     "9": 633523.01
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2026-04-10",
+   "note": "Meses publicados fora da conta por exercicio incompleto ou ausente: jan, fev, mar, abr. Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 590.163,69 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 31 pessoas, 28 comissionadas. Titular; exercicio atual desde 2026-04-10."
+  },
+  {
+   "id": "senado:5974",
+   "name": "Sargento Reginauro",
+   "office": {
+    "uses": true,
+    "monthly": 304892.97,
+    "year_total": 304892.97,
+    "months": "set 2026",
+    "staff_count": 19,
+    "by_month": {
+     "9": 304892.97
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2026-08-11",
+   "note": "Meses publicados fora da conta por exercicio incompleto ou ausente: jan, fev, mar, abr, mai, jun, jul, ago. Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 376.796,75 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 19 pessoas, 18 comissionadas. 1º Suplente de Eduardo Girão; exercicio atual desde 2026-08-11."
+  },
+  {
+   "id": "senado:6331",
+   "name": "Sergio Moro",
+   "office": {
+    "uses": true,
+    "monthly": 530861.54,
+    "year_total": 4777753.9,
+    "months": "jan a set 2026",
+    "staff_count": 22,
+    "by_month": {
+     "1": 594565.83,
+     "2": 453687.39,
+     "3": 464978.94,
+     "4": 486742.5,
+     "5": 499997.57,
+     "6": 754212.22,
+     "7": 501606.73,
+     "8": 513976.93,
+     "9": 507985.79
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 528.121,20 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 22 pessoas, 20 comissionadas."
+  },
+  {
+   "id": "senado:5988",
+   "name": "Soraya Thronicke",
+   "office": {
+    "uses": true,
+    "monthly": 536989.86,
+    "year_total": 4832908.78,
+    "months": "jan a set 2026",
+    "staff_count": 44,
+    "by_month": {
+     "1": 568903.98,
+     "2": 457348.03,
+     "3": 463775.01,
+     "4": 484148.2,
+     "5": 497440.39,
+     "6": 757570.84,
+     "7": 533499.22,
+     "8": 527487.18,
+     "9": 542735.93
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.070.988,31 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 44 pessoas, 41 comissionadas."
+  },
+  {
+   "id": "senado:5959",
+   "name": "Styvenson Valentim",
+   "office": {
+    "uses": true,
+    "monthly": 477321.36,
+    "year_total": 4295892.24,
+    "months": "jan a set 2026",
+    "staff_count": 18,
+    "by_month": {
+     "1": 540364.02,
+     "2": 421915.68,
+     "3": 422337.74,
+     "4": 432635.96,
+     "5": 434844.17,
+     "6": 652141.91,
+     "7": 453128.58,
+     "8": 469456.84,
+     "9": 469067.34
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 307.503,06 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 18 pessoas, 16 comissionadas."
+  },
+  {
+   "id": "senado:4560",
+   "name": "Sérgio Petecão",
+   "office": {
+    "uses": true,
+    "monthly": 748655.81,
+    "year_total": 6737902.27,
+    "months": "jan a set 2026",
+    "staff_count": 34,
+    "by_month": {
+     "1": 856831.46,
+     "2": 649300.46,
+     "3": 655785.47,
+     "4": 684224.5,
+     "5": 701397.27,
+     "6": 1043798.5,
+     "7": 708561.08,
+     "8": 711144.13,
+     "9": 726859.4
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2022-11-04",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 684.784,68 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 34 pessoas, 31 comissionadas."
+  },
+  {
+   "id": "senado:6338",
+   "name": "Teresa Leitão",
+   "office": {
+    "uses": true,
+    "monthly": 686870.59,
+    "year_total": 6181835.29,
+    "months": "jan a set 2026",
+    "staff_count": 41,
+    "by_month": {
+     "1": 765634.34,
+     "2": 596080.17,
+     "3": 610706.44,
+     "4": 623107.59,
+     "5": 636498.85,
+     "6": 949626.5,
+     "7": 655824.73,
+     "8": 669275.26,
+     "9": 675081.41
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 756.614,83 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 41 pessoas, 38 comissionadas."
+  },
+  {
+   "id": "senado:5736",
+   "name": "Tereza Cristina",
+   "office": {
+    "uses": true,
+    "monthly": 406180.87,
+    "year_total": 3655627.87,
+    "months": "jan a set 2026",
+    "staff_count": 23,
+    "by_month": {
+     "1": 466298.54,
+     "2": 340712.21,
+     "3": 362662.63,
+     "4": 376963.75,
+     "5": 381853.42,
+     "6": 559579.67,
+     "7": 387823.86,
+     "8": 383559.12,
+     "9": 396174.67
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 411.514,14 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 23 pessoas, 23 comissionadas."
+  },
+  {
+   "id": "senado:5899",
+   "name": "Vanderlan Cardoso",
+   "office": {
+    "uses": true,
+    "monthly": 420409.36,
+    "year_total": 3783684.2,
+    "months": "jan a set 2026",
+    "staff_count": 40,
+    "by_month": {
+     "1": 443931.13,
+     "2": 342654.72,
+     "3": 373180.08,
+     "4": 389205.53,
+     "5": 385037.56,
+     "6": 585473.28,
+     "7": 417391.62,
+     "8": 428454.05,
+     "9": 418356.23
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2025-10-30",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 785.623,82 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 40 pessoas, 40 comissionadas. Titular; exercicio atual desde 2025-10-30."
+  },
+  {
+   "id": "senado:5748",
+   "name": "Veneziano Vital do Rêgo",
+   "office": {
+    "uses": true,
+    "monthly": 656896.7,
+    "year_total": 5912070.26,
+    "months": "jan a set 2026",
+    "staff_count": 49,
+    "by_month": {
+     "1": 764281.3,
+     "2": 546455.91,
+     "3": 585181.2,
+     "4": 615368.43,
+     "5": 623597.58,
+     "6": 922585.52,
+     "7": 624797.81,
+     "8": 619686.6,
+     "9": 610115.91
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2021-01-22",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 937.989,63 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 49 pessoas, 47 comissionadas."
+  },
+  {
+   "id": "senado:1173",
+   "name": "Wellington Fagundes",
+   "office": {
+    "uses": true,
+    "monthly": 733421.8,
+    "year_total": 6600796.24,
+    "months": "jan a set 2026",
+    "staff_count": 45,
+    "by_month": {
+     "1": 890451.5,
+     "2": 645161.0,
+     "3": 668233.45,
+     "4": 695497.15,
+     "5": 680869.83,
+     "6": 940654.39,
+     "7": 664993.83,
+     "8": 690582.09,
+     "9": 724353.0
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2024-10-28",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 869.859,55 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 45 pessoas, 42 comissionadas."
+  },
+  {
+   "id": "senado:5411",
+   "name": "Weverton",
+   "office": {
+    "uses": true,
+    "monthly": 745680.37,
+    "year_total": 6711123.3,
+    "months": "jan a set 2026",
+    "staff_count": 72,
+    "by_month": {
+     "1": 833742.8,
+     "2": 642668.0,
+     "3": 660492.68,
+     "4": 693007.25,
+     "5": 707350.96,
+     "6": 1045292.64,
+     "7": 708351.57,
+     "8": 700486.92,
+     "9": 719730.48
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2022-11-04",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.274.303,69 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 72 pessoas, 69 comissionadas. Sem nenhuma linha no arquivo CEAPS 2026 (atualizado em 02/10/2026, meses 1 a 9); recursos-utilizados 2026 tambem mostra cota total 0."
+  },
+  {
+   "id": "senado:5070",
+   "name": "Wilder Morais",
+   "office": {
+    "uses": true,
+    "monthly": 383139.78,
+    "year_total": 3448257.99,
+    "months": "jan a set 2026",
+    "staff_count": 30,
+    "by_month": {
+     "1": 453218.69,
+     "2": 341453.75,
+     "3": 343473.41,
+     "4": 358534.91,
+     "5": 362213.82,
+     "6": 511110.86,
+     "7": 375065.97,
+     "8": 354438.29,
+     "9": 348748.29
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2023-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 730.544,32 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 30 pessoas, 28 comissionadas."
+  },
+  {
+   "id": "senado:5783",
+   "name": "Zenaide Maia",
+   "office": {
+    "uses": true,
+    "monthly": 561071.47,
+    "year_total": 5049643.22,
+    "months": "jan a set 2026",
+    "staff_count": 30,
+    "by_month": {
+     "1": 624168.03,
+     "2": 486810.49,
+     "3": 504072.59,
+     "4": 516906.34,
+     "5": 521729.91,
+     "6": 762947.63,
+     "7": 540879.48,
+     "8": 548550.68,
+     "9": 543578.07
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "1 nome(s) da equipe ficaram fora por ambiguidade (homonimo, ou registro de aposentado com o mesmo nome). Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 562.713,18 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 30 pessoas, 27 comissionadas."
+  },
+  {
+   "id": "senado:3806",
+   "name": "Zequinha Marinho",
+   "office": {
+    "uses": true,
+    "monthly": 655514.42,
+    "year_total": 5899629.74,
+    "months": "jan a set 2026",
+    "staff_count": 70,
+    "by_month": {
+     "1": 761261.98,
+     "2": 564947.95,
+     "3": 575321.66,
+     "4": 602722.1,
+     "5": 609424.66,
+     "6": 910422.4,
+     "7": 626475.59,
+     "8": 619427.51,
+     "9": 629625.89
+    },
+    "method": "Soma, por mes, da remuneracao bruta paga aos servidores lotados no Gabinete e nos Escritorios de Apoio do senador (remuneracao basica, vantagens pessoais, funcao comissionada, gratificacao natalina, horas extras, outras eventuais, abono de permanencia, menos a reversao do teto), de todas as folhas do mes (Normal e Suplementar). Fora do total: diarias, auxilios, vantagens indenizatorias e encargos patronais (nao publicados). Lotacao tirada da lista atual de servidores (/servidores/servidores; desligados mantem a ultima lotacao) e ligada a folha pelo nome exato, pois o 'sequencial' da folha nao e o da lista. Exclui o proprio senador (vinculo PARLAMENTAR). Conta so os meses publicados em que o senador esteve em exercicio o mes inteiro. Servidor que mudou de unidade durante 2026 fica inteiro na lotacao atual.",
+    "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   },
+   "passport": {
+    "uses": null,
+    "source": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "note": "Direito previsto no Decreto 5.978/2006, Anexo, art. 6, IX (membros do Congresso Nacional). Nenhuma lista oficial de titulares de passaporte diplomatico publicada pelo Senado ou pelo Itamaraty foi encontrada."
+   },
+   "exercise_since": "2019-02-01",
+   "note": "Auxilios, diarias e indenizacoes da equipe, fora do total: R$ 1.367.454,23 no ano (jan a set, todos os meses). Equipe atual pelo Senado (recursos-utilizados): 70 pessoas, 68 comissionadas."
+  }
+ ],
+ "not_found": [
+  {
+   "what": "Valor em reais da verba de gabinete (limite de dinheiro por gabinete de senador)",
+   "why": "A pagina oficial encontrada cita a 'verba permitida ao Gabinete Parlamentar' sem valor e e marcada como versao antiga; o OpenAPI do adm-dadosabertos nao tem endpoint de limite por gabinete.",
+   "tried": [
+    "https://www12.senado.leg.br/publicacoes/guias/parl_guia_old/gestao-administrativa/gabinete-parlamentar/composicao",
+    "https://adm.senado.gov.br/adm-dadosabertos/v3/api-docs"
+   ]
+  },
+  {
+   "what": "Lista oficial de senadores com passaporte diplomatico",
+   "why": "O Decreto 5.978/2006 da o direito aos membros do Congresso, mas nem o Senado nem o Itamaraty publicam lista de titulares; noticias citam listas obtidas so por pedido via Lei de Acesso a Informacao. O OpenAPI do Senado nao tem endpoint de passaporte.",
+   "tried": [
+    "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/decreto/d5978.htm",
+    "https://adm.senado.gov.br/adm-dadosabertos/v3/api-docs",
+    "busca web: Itamaraty lista passaportes diplomaticos concedidos parlamentares"
+   ]
+  },
+  {
+   "what": "Custo de gabinete 2026 de quem nao teve mes inteiro de exercicio entre jan e set 2026",
+   "why": "A folha publicada vai de jan a set 2026; a lotacao e um retrato atual, entao meses fora do exercicio pagariam a equipe do antecessor.",
+   "tried": [
+    "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/10"
+   ]
+  },
+  {
+   "what": "Encargos patronais (previdencia patronal) da equipe de gabinete",
+   "why": "A folha aberta publica so os valores do servidor (bruto, descontos, indenizacoes), nao a contribuicao do Senado.",
+   "tried": [
+    "https://adm.senado.gov.br/adm-dadosabertos/api/v1/servidores/remuneracoes/2026/{mes}"
+   ]
+  }
+ ]
+}

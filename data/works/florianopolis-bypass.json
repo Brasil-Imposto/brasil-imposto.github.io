@@ -1,0 +1,990 @@
+{
+ "slug": "florianopolis-bypass",
+ "collected_on": "2026-10-06",
+ "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_case-florianopolis-bypass_2026-10-06.md",
+ "rules": "Somente papéis e achados oficiais, com as palavras do órgão. Nenhuma inferência de irregularidade. Valores nominais salvo quando marcados (preços de jul/2007 do contrato, jan/2019 do orçamento ou reais de dez/2024). Somas marcadas como computed são desta pesquisa.",
+ "work": {
+  "name": "Contorno Viário da Grande Florianópolis (BR-101/SC, Biguaçu a Palhoça)",
+  "municipalities_ibge": [
+   {
+    "code": "4202305",
+    "name": "Biguaçu"
+   },
+   {
+    "code": "4216602",
+    "name": "São José"
+   },
+   {
+    "code": "4211900",
+    "name": "Palhoça"
+   }
+  ],
+  "level": "federal (concessão)",
+  "agency": {
+   "name": "ANTT, Agência Nacional de Transportes Terrestres (poder concedente: União)",
+   "concessionaire": "Autopista Litoral Sul S.A."
+  },
+  "status": "Inaugurado e liberado ao tráfego em 09/08/2024. Em 2025 o TCU registrou desapropriações ainda pendentes.",
+  "dates": {
+   "contract_signed": "2008-02-14",
+   "concession_start": "2008-02-18",
+   "planned_end": "2012-02",
+   "planned_end_note": "PER original, item 5.1.4: \"a ser executado até o final do 4º ano\"; TCU: \"em fevereiro de 2012\" (Acórdão 2954/2011)",
+   "works_start": "2014-05",
+   "works_start_note": "DFP 2021 a 2024 da concessionária: \"foi iniciado em maio de 2014\"",
+   "actual_end": "2024-08-09",
+   "actual_end_note": "inauguração e liberação ao tráfego de todo o tronco (DFP 2024; ANTT); o relatório da administração diz \"deu início a sua operação em 10/08/2024\"",
+   "delay_vs_contract_years": 12.5,
+   "planned_duration_years": 4,
+   "actual_duration_years": 16.5,
+   "deadlines": [
+    {
+     "date": "2012-02",
+     "act": "PER original (contrato de 2008)",
+     "source": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/documentos-de-gestao/contrato-e-anexos/anexos-do-contrato/per-original.pdf"
+    },
+    {
+     "date": "2015-02",
+     "act": "Resolução ANTT 3.312, de 05/11/2009, e 1ª Revisão Extraordinária (adiamento de três anos)",
+     "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/3346/2012/Plen%C3%A1rio"
+    },
+    {
+     "date": "2016-02",
+     "act": "Termo de Ajuste de Conduta ANTT e concessionária, assinado em 28/08/2013 (\"entre março de 2014 e fevereiro de 2016\")",
+     "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2957/2020/Plen%C3%A1rio"
+    },
+    {
+     "date": "2024-02",
+     "act": "\"novo prazo de conclusão estimado para fevereiro de 2024\" (TCU, depois do TAC Parcial de 2020 com MPF e municípios)",
+     "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2802/2022/Plen%C3%A1rio"
+    }
+   ]
+  },
+  "length_km": 50.0,
+  "length_note": "50 km na DFP 2024 e na ANTT; \"aproximadamente 51 km\" no relatório mensal da ANTT (jul/2024); 47,33 km por sentido no contrato de 2008",
+  "description": "Rodovia nova em pista dupla que desvia o tráfego de longa distância do trecho urbano da BR-101 na Grande Florianópolis, de Biguaçu a Palhoça. É obra obrigatória do contrato de concessão da Autopista Litoral Sul (ANTT, 2008), feita e paga pela concessionária e recuperada pelo pedágio. O contrato mandava entregar até fevereiro de 2012; abriu em agosto de 2024.",
+  "features": "50 km de pista dupla, 4 túneis duplos, 7 pontes, 20 passagens em desnível, 6 trevos (DFP 2024)",
+  "siconfi_function": "Transporte"
+ },
+ "contracts": [
+  {
+   "group": "concessão",
+   "number": "Edital ANTT 003/2007",
+   "company": "Autopista Litoral Sul S.A.",
+   "object": "Contrato de concessão da BR-116/376/PR e BR-101/SC, Curitiba a Palhoça (25 anos). Obra obrigatória do PER, item 5.1.2: \"Contorno de Florianópolis - Pista Dupla - L = 47,33 x 2 = 94,66 km\", a concluir até o fim do 4º ano.",
+   "signed_on": "2008-02-14",
+   "value_original_brl": 175951204.31,
+   "value_original_note": "preço do Contorno na proposta vencedora, a preços de julho de 2007 (sem obras associadas nem desapropriações)",
+   "value_current_brl": null,
+   "status_in_record": "Obra concluída; inaugurada em 09/08/2024",
+   "sources": [
+    {
+     "doc": "Contrato de concessão (ANTT)",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/documentos-de-gestao/contrato-e-anexos/contrato-e-aditivos/contrato.pdf"
+    },
+    {
+     "doc": "Proposta comercial, planilha do PER, p. 211 do PDF",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/documentos-de-gestao/processo-de-licitacao/proposta-comercial-cronograma-fisico-e-plano-economico-financeiro.pdf"
+    },
+    {
+     "doc": "TCU, Acórdão 2954/2011",
+     "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2954/2011/Plen%C3%A1rio"
+    }
+   ]
+  },
+  {
+   "group": "concessão",
+   "number": "Termo Aditivo 002/2020",
+   "company": "Autopista Litoral Sul S.A.",
+   "object": "Inclusão do trecho \"Sul A\" do Contorno (km 220+396 a 228+310, 7,91 km, 3 túneis duplos), por mudança de traçado \"pelo crescimento da mancha urbana de Palhoça/SC\".",
+   "signed_on": "2020-12-10",
+   "value_original_brl": 491251185.69,
+   "value_original_note": "a preços de julho de 2007; igual a R$ 907.409.977,72 a preços de janeiro de 2019 (Voto DDB 120/2020)",
+   "value_current_brl": 461243802.12,
+   "value_current_note": "valor do item na planilha de execução da ANTT (18º ano), sem custos administrativos",
+   "status_in_record": "Executado (planilha da ANTT, 18º ano)",
+   "sources": [
+    {
+     "doc": "Termo Aditivo nº 002/2020 (ANTT)",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/documentos-de-gestao/contrato-e-anexos/termos-aditivos/termo-aditivo-autopista-litoral-sul-contorno-de-florianopolis.pdf"
+    },
+    {
+     "doc": "Deliberação ANTT 500/2020",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/revisoes-e-reajustes/2020-1/deliberacao-500-de-08-12-2020.pdf"
+    },
+    {
+     "doc": "Voto DDB 120/2020",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/revisoes-e-reajustes/2020-1/sei_antt-4693800-voto-ddb-120_2020.pdf"
+    }
+   ]
+  },
+  {
+   "group": "obra (contrato privado da concessionária)",
+   "number": "contrato de 19/06/2023",
+   "company": "Azevedo & Travassos Infraestrutura Ltda.",
+   "object": "Contrato de obra do Contorno firmado pela concessionária; rescindido (\"Conforme comunicado ao mercado emitido em 10 de julho de 2023 a Litoral Sul rescindiu o contrato de prestação de serviços com a referida empresa\").",
+   "signed_on": "2023-06-19",
+   "value_original_brl": null,
+   "value_current_brl": null,
+   "status_in_record": "Rescindido em julho de 2023",
+   "sources": [
+    {
+     "doc": "DFP 2024 da Autopista Litoral Sul, nota de fornecedores",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/relatorios/relatorios-financeiros/df-4degtri2024-litoral-sul.pdf"
+    }
+   ]
+  }
+ ],
+ "contracts_totals_computed": {
+  "regulatory_items_jul2007_brl": 664672742.58,
+  "regulatory_items": [
+   {
+    "item": "PER original, item 5.1.2.1 (FCO)",
+    "value_brl": 175951204.3
+   },
+   {
+    "item": "Trecho Sul A, item 5.1.2.1 (FCM7)",
+    "value_brl": 461243802.12
+   },
+   {
+    "item": "Passagem superior km 229+300, Sul B (FCM6)",
+    "value_brl": 4396976.69
+   },
+   {
+    "item": "Passagem superior km 232+150, Sul B (FCM6)",
+    "value_brl": 11266671.93
+   },
+   {
+    "item": "Trevos do Contorno, item 5.1.8.1 (FCO)",
+    "value_brl": 11814087.54
+   }
+  ],
+  "regulatory_note": "Itens só do Contorno na planilha de execução acumulada da ANTT (18º ano), a preços iniciais do contrato (jul/2007). É o que a tarifa remunera, não o dinheiro gasto.",
+  "fco_executed_value_brl": 165235775.96,
+  "fco_executed_note": "A planilha marca o item 5.1.2.1 (FCO) como 100% executado, mas com valor executado de R$ 165235775.96 contra o total de R$ 175951204.30; a planilha não explica a diferença."
+ },
+ "payments": {
+  "concessionaire": {
+   "investment_total_brl": 3900000000.0,
+   "display": "R$ 3,9 bi",
+   "measures": "investimento total declarado pela concessionária, nominal, 2014 a 2024",
+   "quote": "Com um investimento total de R$ 3,9 bilhões, o Contorno foi projetado para melhorar significativamente a mobilidade",
+   "source": {
+    "doc": "DFP 31/12/2024 da Autopista Litoral Sul (CVM), publicada pela ANTT",
+    "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/relatorios/relatorios-financeiros/df-4degtri2024-litoral-sul.pdf",
+    "collected_on": "2026-10-06"
+   },
+   "also_in": [
+    {
+     "doc": "ANTT, 06/08/2024",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/ultimas-noticias/maior-obra-de-infraestrutura-terrestre-da-america-latina-sera-inaugurada-em-santa-catarina-nesta-sexta-feira-9-8"
+    },
+    {
+     "doc": "BNDES, 09/08/2024 (cópia do Internet Archive)",
+     "url": "https://web.archive.org/web/20260606013112/https://agenciadenoticias.bndes.gov.br/cultura/Com-apoio-do-BNDES-Contorno-Viario-de-Florianopolis-e-inaugurado/"
+    }
+   ],
+   "precision_note": "Os três documentos oficiais trazem o total arredondado; nenhum traz o valor ao centavo nem por ano."
+  },
+  "federal_budget": {
+   "total_brl": 0.0,
+   "siop_rows_found": 0,
+   "siop_control_rows": 7,
+   "years": "2008 a 2026",
+   "source": "https://www1.siop.planejamento.gov.br/sparql/",
+   "note": "Nenhuma ação do Orçamento da União para este Contorno; a consulta de controle acha os contornos de Joinville, São Francisco do Sul, Chapecó e Araranguá."
+  },
+  "public_bank_loans": {
+   "bndes_2011_brl": 703000000.0,
+   "bndes_2011_note": "financiamento à concessionária para a concessão inteira (empréstimo, quitado com a emissão de debêntures de 2021)",
+   "bndes_debentures_2021_brl": 134000000.0,
+   "bndes_debentures_note": "6,7% da emissão de R$ 2 bilhões",
+   "source": "https://web.archive.org/web/20260606013112/https://agenciadenoticias.bndes.gov.br/cultura/Com-apoio-do-BNDES-Contorno-Viario-de-Florianopolis-e-inaugurado/"
+  },
+  "toll": {
+   "deliberation": "Deliberação ANTT 500, de 08/12/2020",
+   "car_toll_before_brl": 2.7,
+   "car_toll_after_brl": 3.9,
+   "effective": "2020-12-12",
+   "plazas": "P1 São José dos Pinhais/PR, P2 Garuva/SC, P3 Araquari/SC, P4 Porto Belo/SC, P5 Palhoça/SC",
+   "tbp_before_extraordinary": 1.43948,
+   "tbp_after_extraordinary": 1.93101,
+   "tbp_increment_contorno": 0.40039,
+   "tbp_increment_contorno_admin": 0.02154,
+   "note": "Aumento de 44,44% no carro depois do arredondamento, somando revisão ordinária, revisão extraordinária (Contorno, terceira faixa da BR-101 e ponte do Rio Camboriú) e IPCA. Dos R$ 0,49153 de aumento da TBP na revisão extraordinária, R$ 0,42193 são do Contorno e seus custos administrativos (Voto DDB 120/2020, Figura 06); o resto não tem divisão publicada.",
+   "source": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/revisoes-e-reajustes/2020-1/deliberacao-500-de-08-12-2020.pdf"
+  },
+  "who_pays": "Usuários do pedágio, pela tarifa (dinheiro da concessionária recuperado pela tarifa, nos termos do contrato). Não há dinheiro do Orçamento da União; o BNDES emprestou à concessionária."
+ },
+ "money_timeline": [
+  {
+   "date": "2007-07",
+   "value_brl": 175951204.31,
+   "what": "preço do Contorno (47,33 km) na proposta vencedora",
+   "source": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/documentos-de-gestao/processo-de-licitacao/proposta-comercial-cronograma-fisico-e-plano-economico-financeiro.pdf"
+  },
+  {
+   "date": "2007-07",
+   "value_brl": 81715204.0,
+   "what": "obras associadas ao Contorno na proposta (TCU)",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2954/2011/Plen%C3%A1rio"
+  },
+  {
+   "date": "2007-07",
+   "value_brl": 100710500.0,
+   "what": "verba de desapropriação da concessão inteira, a maior parte para o Contorno (TCU)",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2954/2011/Plen%C3%A1rio"
+  },
+  {
+   "date": "2019-01",
+   "value_brl": 500000000.0,
+   "what": "\"cerca de\" R$ 500 mi: investimentos já contratados para os 47,33 km (TCU)",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2957/2020/Plen%C3%A1rio"
+  },
+  {
+   "date": "2019-01",
+   "value_brl": 1640000000.0,
+   "what": "\"aproximadamente R$ 1,64 bilhões\": orçamento inicial do Sul A pela concessionária (ANTT)",
+   "source": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/revisoes-e-reajustes/2020-1/sei_antt-4693800-voto-ddb-120_2020.pdf"
+  },
+  {
+   "date": "2019-01",
+   "value_brl": 923846486.36,
+   "what": "orçamento do Sul A aprovado pela área técnica da ANTT",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2957/2020/Plen%C3%A1rio"
+  },
+  {
+   "date": "2019-01",
+   "value_brl": 907537042.19,
+   "what": "orçamento ajustado pela ANTT, depois do TCU",
+   "source": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2957/2020/Plen%C3%A1rio"
+  },
+  {
+   "date": "2019-01",
+   "value_brl": 907409977.72,
+   "what": "valor final do reequilíbrio do Sul A (obra + 6,24%)",
+   "source": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/revisoes-e-reajustes/2020-1/sei_antt-4693800-voto-ddb-120_2020.pdf"
+  },
+  {
+   "date": "2007-07",
+   "value_brl": 491251185.69,
+   "what": "Sul A no Termo Aditivo 002/2020, a preços de julho de 2007",
+   "source": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/documentos-de-gestao/contrato-e-anexos/termos-aditivos/termo-aditivo-autopista-litoral-sul-contorno-de-florianopolis.pdf"
+  },
+  {
+   "date": "2014 a 2024",
+   "value_brl": 3900000000.0,
+   "what": "investimento total declarado (nominal)",
+   "source": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/relatorios/relatorios-financeiros/df-4degtri2024-litoral-sul.pdf"
+  }
+ ],
+ "companies": [
+  {
+   "cnpj": "09313969000197",
+   "legal_name": "AUTOPISTA LITORAL SUL S.A.",
+   "role": "concessionária",
+   "trade_name": null,
+   "city": "São José dos Pinhais/PR",
+   "registration_status": "Ativa",
+   "head_or_branch": "Matriz",
+   "activity_start": "2008-01-21",
+   "contracts": [
+    "Edital ANTT 003/2007",
+    "Termo Aditivo 002/2020"
+   ],
+   "cvm": {
+    "code": "21997",
+    "category": "Categoria B",
+    "status": "ATIVO"
+   },
+   "official_website": "https://www.arteris.com.br/rodovias/litoral-sul/",
+   "official_website_note": "link dado pela ANTT na página da concessão",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/09313969000197"
+   ],
+   "antt_page": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul",
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal via espelho público CNPJ.ws; cadastro de companhias abertas da CVM",
+    "url": "https://publica.cnpj.ws/cnpj/09313969000197",
+    "collected_on": "2026-10-06"
+   }
+  },
+  {
+   "cnpj": "02919555000167",
+   "legal_name": "ARTERIS S.A.",
+   "role": "controladora da concessionária",
+   "trade_name": null,
+   "city": "São Paulo/SP",
+   "registration_status": "Ativa",
+   "head_or_branch": "Matriz",
+   "activity_start": "1998-11-24",
+   "contracts": [
+    "controladora da Autopista Litoral Sul (página da concessão na ANTT)"
+   ],
+   "cvm": {
+    "code": "19771",
+    "category": "Categoria B",
+    "status": "ATIVO"
+   },
+   "official_website": "https://ri.arteris.com.br/",
+   "official_website_note": "site citado na DFP 2024 da controlada",
+   "transparency_links": [
+    "https://portaldatransparencia.gov.br/pessoa-juridica/02919555000167"
+   ],
+   "antt_page": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul",
+   "source": {
+    "doc": "Base aberta do CNPJ da Receita Federal via espelho público CNPJ.ws; cadastro de companhias abertas da CVM",
+    "url": "https://publica.cnpj.ws/cnpj/02919555000167",
+    "collected_on": "2026-10-06"
+   }
+  },
+  {
+   "cnpj": null,
+   "legal_name": null,
+   "name_in_record": "Azevedo & Travassos Infraestrutura Ltda.",
+   "role": "construtora contratada pela concessionária (rescindido)",
+   "contracts": [
+    "contrato de 19/06/2023"
+   ],
+   "official_website": null,
+   "identity_note": "CNPJ não publicado nos documentos lidos. Azevedo & Travassos S.A. (CNPJ 61.351.532/0001-68) tem nome parecido, mas nenhum documento lido liga as duas.",
+   "source": {
+    "doc": "DFP 2023 a 2025 da Autopista Litoral Sul",
+    "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/relatorios/relatorios-financeiros/df-4degtri2024-litoral-sul.pdf"
+   }
+  }
+ ],
+ "people": [
+  {
+   "name": "José Alexandre Nogueira de Resende",
+   "role": "Diretor-Geral da ANTT",
+   "signed": [
+    "2008-02-14 (contrato de concessão)"
+   ],
+   "source": [
+    {
+     "doc": "Contrato de concessão, preâmbulo",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/documentos-de-gestao/contrato-e-anexos/contrato-e-aditivos/contrato.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Noboru Ofugi",
+   "role": "Diretor da ANTT",
+   "signed": [
+    "2008-02-14 (contrato de concessão)"
+   ],
+   "source": [
+    {
+     "doc": "Contrato de concessão, preâmbulo",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/documentos-de-gestao/contrato-e-anexos/contrato-e-aditivos/contrato.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Bernardo José Figueiredo Gonçalves de Oliveira",
+   "role": "Diretor-Geral da ANTT",
+   "signed": [
+    "2009-11-05 (Resolução ANTT 3.312, adiamento de três anos)"
+   ],
+   "note": "O TCU acolheu suas razões de justificativa, sem multa (Acórdão 1366/2019).",
+   "source": [
+    {
+     "doc": "TCU, Acórdão 1366/2019",
+     "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1366/2019/Plen%C3%A1rio"
+    }
+   ]
+  },
+  {
+   "name": "Mário Rodrigues Júnior",
+   "role": "Diretor da ANTT",
+   "signed": [
+    "2009 (Voto 162/2009, proposta da 1ª revisão)"
+   ],
+   "note": "Multa de R$ 17.000,00 no Acórdão 1366/2019, excluída no Acórdão 1416/2020.",
+   "source": [
+    {
+     "doc": "TCU, Acórdão 1366/2019",
+     "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1366/2019/Plen%C3%A1rio"
+    },
+    {
+     "doc": "TCU, Acórdão 1416/2020",
+     "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1416/2020/Plen%C3%A1rio"
+    }
+   ]
+  },
+  {
+   "name": "Mário Mondolfo",
+   "role": "Superintendente de Exploração de Infraestrutura Rodoviária da ANTT",
+   "signed": [
+    "2009-11-03 (Nota Técnica 137/2009)"
+   ],
+   "note": "Multado em R$ 15.000,00 pelo TCU (Acórdão 1366/2019, mantido pelo 1416/2020).",
+   "source": [
+    {
+     "doc": "TCU, Acórdão 1366/2019",
+     "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1366/2019/Plen%C3%A1rio"
+    },
+    {
+     "doc": "TCU, Acórdão 1416/2020",
+     "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1416/2020/Plen%C3%A1rio"
+    }
+   ]
+  },
+  {
+   "name": "Deuzedir Martins",
+   "role": "Gerente de Engenharia e Investimentos de Rodovias da ANTT",
+   "signed": [
+    "2009-11-03 (Nota Técnica 137/2009)",
+    "2010-03-31 (Ofício 295/2010, aprovação do projeto alterado)"
+   ],
+   "note": "Multado em R$ 12.000,00 pelo TCU (Acórdão 1366/2019, mantido pelo 1416/2020).",
+   "source": [
+    {
+     "doc": "TCU, Acórdão 1366/2019",
+     "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1366/2019/Plen%C3%A1rio"
+    },
+    {
+     "doc": "TCU, Acórdão 1416/2020",
+     "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1416/2020/Plen%C3%A1rio"
+    }
+   ]
+  },
+  {
+   "name": "Rubens Narciso Peduti Dal Molin",
+   "role": "Gerente de Fiscalização e Controle Operacional de Rodovias da ANTT",
+   "on_dates": [
+    "2009 a 2011 (fiscalização do contrato)"
+   ],
+   "note": "Multado em R$ 10.000,00 pelo TCU (Acórdão 1366/2019, mantido pelo 1416/2020).",
+   "source": [
+    {
+     "doc": "TCU, Acórdão 1366/2019",
+     "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1366/2019/Plen%C3%A1rio"
+    }
+   ]
+  },
+  {
+   "name": "Davi Ferreira Gomes Barreto",
+   "role": "Diretor da ANTT",
+   "signed": [
+    "2020-12-08 (Voto DDB 120/2020, 14ª Revisão Extraordinária e aditivo do Sul A)"
+   ],
+   "source": [
+    {
+     "doc": "Voto DDB 120/2020",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/revisoes-e-reajustes/2020-1/sei_antt-4693800-voto-ddb-120_2020.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Marcelo Vinaud Prado",
+   "role": "Diretor-Geral em exercício da ANTT",
+   "signed": [
+    "2020-12-08 (Deliberação ANTT 500/2020)",
+    "2020-12-10 (Termo Aditivo 002/2020)"
+   ],
+   "source": [
+    {
+     "doc": "Termo Aditivo 002/2020",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/documentos-de-gestao/contrato-e-anexos/termos-aditivos/termo-aditivo-autopista-litoral-sul-contorno-de-florianopolis.pdf"
+    },
+    {
+     "doc": "Deliberação 500/2020",
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/revisoes-e-reajustes/2020-1/deliberacao-500-de-08-12-2020.pdf"
+    }
+   ]
+  },
+  {
+   "name": "Luiz Inácio Lula da Silva",
+   "role": "Presidente da República",
+   "head_of_government": true,
+   "on_dates": [
+    "2008-02-14 (contrato)",
+    "2009-11-05 (Resolução ANTT 3.312)",
+    "2010-03-31 (Ofício 295/2010)",
+    "2024-08-09 (inauguração)"
+   ],
+   "party_at_time": "PT",
+   "party_name": "Partido dos Trabalhadores",
+   "term_note": "Candidato pelo PT em 2006 (mandato 2007 a 2010) e em 2022 (mandato 2023 a 2026), segundo o TSE.",
+   "source": [
+    {
+     "doc": "TSE, candidaturas 2006 (BR)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2006.zip"
+    },
+    {
+     "doc": "TSE, candidaturas 2022 (BR)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
+    }
+   ]
+  },
+  {
+   "name": "Dilma Rousseff",
+   "full_name": "Dilma Vana Rousseff",
+   "role": "Presidenta da República",
+   "head_of_government": true,
+   "on_dates": [
+    "2013-08-28 (TAC ANTT e concessionária)",
+    "maio de 2014 (início das obras)"
+   ],
+   "party_at_time": "PT",
+   "party_name": "Partido dos Trabalhadores",
+   "term_note": "Eleita pelo PT em 2010 e em 2014, segundo o TSE.",
+   "source": [
+    {
+     "doc": "TSE, candidaturas 2010 (BR)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2010.zip"
+    },
+    {
+     "doc": "TSE, candidaturas 2014 (BR)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2014.zip"
+    }
+   ]
+  },
+  {
+   "name": "Jair Bolsonaro",
+   "full_name": "Jair Messias Bolsonaro",
+   "role": "Presidente da República",
+   "head_of_government": true,
+   "on_dates": [
+    "2020-12-08 (Deliberação ANTT 500/2020)",
+    "2020-12-10 (Termo Aditivo 002/2020)"
+   ],
+   "party_at_time": null,
+   "party_name": null,
+   "note": "Eleito em 2018 pelo PSL e candidato em 2022 pelo PL (TSE). A filiação na data dos atos (dez/2020) não está em fonte oficial aberta encontrada.",
+   "source": [
+    {
+     "doc": "TSE, candidaturas 2018 (BR)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip"
+    },
+    {
+     "doc": "TSE, candidaturas 2022 (BR)",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
+    }
+   ]
+  }
+ ],
+ "people_gaps": [
+  "Filiação partidária do Presidente da República em dezembro de 2020: não achada em fonte oficial aberta (biografia da Biblioteca da Presidência \"em manutenção\"; listas de filiados do TSE fora do ar).",
+  "Governadores de SC não entram: a obra é de concessão federal e nenhum ato do Estado aparece nos documentos de contrato e dinheiro.",
+  "As construtoras que fizeram a maior parte da obra não aparecem em documento oficial aberto."
+ ],
+ "findings": [
+  {
+   "body": "TCU",
+   "process": "TC 005.534/2011-9",
+   "decision": "Acórdão 3346/2012-Plenário (relator Marcos Bemquerer)",
+   "date": "2012-12-05",
+   "summary_quote": "abstenha-se de postergar novamente a data de conclusão do Contorno de Florianópolis (com extensão de 47,33 km) e das obras associadas, prevista para fevereiro de 2015",
+   "status": "alterado em recursos (Acórdãos 427/2013, 1043/2014 e 2883/2015): a ANTT passou a ter de fixar a data pelo novo traçado",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/3346/2012/Plen%C3%A1rio"
+  },
+  {
+   "body": "Justiça Federal (TRF4)",
+   "process": "Apelação/Remessa Necessária 5014533-38.2012.4.04.7200/SC",
+   "decision": "3ª Turma do TRF4",
+   "date": "2018-11-29",
+   "summary_quote": "confirmou a decisão de primeiro grau que havia concluído pela impossibilidade de imputação de responsabilidade à ANTT pelo atraso das obras obrigatórias",
+   "status": "transitado em julgado em 08/02/2019 (segundo o TCU; a decisão não foi lida)",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1366/2019/Plen%C3%A1rio"
+  },
+  {
+   "body": "TCU",
+   "process": "TC 005.534/2011-9",
+   "decision": "Acórdão 1366/2019-Plenário (relator Marcos Bemquerer)",
+   "date": "2019-06-12",
+   "summary_quote": "vislumbro a ocorrência de negligência e imperícia tanto na conduta dos que elaboraram a Nota Técnica 137/2009/GEINV/SUINF",
+   "second_quote": "plano de ação com especificação de todas as medidas a serem adotadas para se garantir a implementação urgente do Contorno Rodoviário de Florianópolis",
+   "sanctions": [
+    {
+     "name": "Mário Mondolfo",
+     "fine_brl": 15000.0
+    },
+    {
+     "name": "Deuzedir Martins",
+     "fine_brl": 12000.0
+    },
+    {
+     "name": "Rubens Narciso Peduti Dal Molin",
+     "fine_brl": 10000.0
+    },
+    {
+     "name": "Mário Rodrigues Júnior",
+     "fine_brl": 17000.0,
+     "excluded_by": "Acórdão 1416/2020"
+    }
+   ],
+   "status": "Resolvido: multas a três servidores da ANTT mantidas pelo Acórdão 1416/2020 (03/06/2020); pagamento não verificado. O tribunal registrou que \"a unidade técnica reconheceu que não houve dano ao erário\".",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/1366/2019/Plen%C3%A1rio"
+  },
+  {
+   "body": "TCU",
+   "process": "TC 026.406/2020-9",
+   "decision": "Acórdão 2957/2020-Plenário (relator Raimundo Carreiro)",
+   "date": "2020-11-04",
+   "summary_quote": "indícios de significativo sobrepreço no orçamento das obras de implantação do Contorno Rodoviário de Florianópolis e nos respectivos procedimentos de alteração da tarifa, no valor de R$ 203.122.754,88",
+   "second_quote": "realize tratativas com vistas a obter o valor justo dos investimentos, com redução estimada em R$ 136 milhões",
+   "values": {
+    "unit_initial_brl": 203122754.88,
+    "unit_merit_brl": 136563993.32,
+    "antt_budget_brl": 923846486.36,
+    "base": "jan/2019",
+    "printed_ratio": "22,99%",
+    "computed_ratio_pct": 21.99,
+    "ratio_note": "O acórdão escreve 22,99%; a conta R$ 203.122.754,88 / R$ 923.846.486,36 dá 21,99%."
+   },
+   "status": "Representação parcialmente procedente; aditivo liberado com correções no orçamento; renegociação determinada (item 9.5)",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2957/2020/Plen%C3%A1rio"
+  },
+  {
+   "body": "TCU",
+   "process": "TC 010.683/2013-5 (monitoramento)",
+   "decision": "Acórdão 2802/2022-Plenário (relator Marcos Bemquerer)",
+   "date": "2022-12-13",
+   "summary_quote": "após atrasos e paralisações por conta de problemas com o traçado da rodovia, licenciamento ambiental e desapropriação, com novo prazo de conclusão estimado para fevereiro de 2024",
+   "status": "encerrado (determinações cumpridas ou acompanhadas em outros processos)",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2802/2022/Plen%C3%A1rio"
+  },
+  {
+   "body": "TCU",
+   "process": "TC 006.219/2023-3 (monitoramento do Acórdão 2957/2020)",
+   "decision": "Acórdão de Relação 2029/2024-Plenário (relator Antonio Anastasia)",
+   "date": "2024-09-25",
+   "summary_quote": "obtendo, contudo, alteração de valores consideravelmente aquém da estimativa do Tribunal (R$ 16.309.444,17, data-base: janeiro/2019)",
+   "second_quote": "considerar não cumprida a determinação do item 9.5, dispensando-se a continuidade do monitoramento",
+   "values": {
+    "tcu_estimate_brl": 136563993.32,
+    "obtained_cut_brl": 16309444.17,
+    "not_cut_brl_computed": 120254549.15,
+    "base": "jan/2019"
+   },
+   "status": "Não resolvido no valor: determinação \"não cumprida\", processo encerrado sem multa nem débito; R$ 120,3 mi (jan/2019) apontados pela unidade técnica ficaram sem corte (diferença sem explicação aceita pelo TCU)",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2029/2024/Plen%C3%A1rio"
+  },
+  {
+   "body": "TCU",
+   "process": "TC 039.653/2020-0 (monitoramento do Acórdão 2605/2020)",
+   "decision": "Acórdão de Relação 2062/2025-Plenário",
+   "date": "2025-09-10",
+   "summary_quote": "as obras foram concluídas, restando pendente desapropriações, que têm muitos trechos com objeção e/ou com ressalvas",
+   "status": "obra concluída; desapropriações pendentes",
+   "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2062/2025/Plen%C3%A1rio"
+  }
+ ],
+ "terms_check": {
+  "terms": [
+   "superfaturamento",
+   "sobrepreco",
+   "desvio",
+   "dano ao erario"
+  ],
+  "window_chars": 1500,
+  "found": {
+   "2954/2011": {},
+   "3346/2012": {
+    "desvio": 2
+   },
+   "427/2013": {
+    "superfaturamento": 1,
+    "desvio": 1
+   },
+   "1043/2014": {
+    "desvio": 3
+   },
+   "2883/2015": {},
+   "1179/2016": {
+    "desvio": 1,
+    "dano ao erario": 1
+   },
+   "2195/2019": {},
+   "1366/2019": {},
+   "1416/2020": {
+    "dano ao erario": 1
+   },
+   "2112/2020": {
+    "sobrepreco": 25
+   },
+   "2833/2020": {
+    "sobrepreco": 1
+   },
+   "2957/2020": {
+    "sobrepreco": 44,
+    "dano ao erario": 5
+   },
+   "2802/2022": {},
+   "1836/2023": {},
+   "2029/2024": {},
+   "2062/2025": {}
+  },
+  "note": "Nenhum documento usa \"superfaturamento\" para esta obra (a única ocorrência, no Acórdão 427/2013, é texto genérico). \"Sobrepreço\" aparece sobre o orçamento do Sul A. \"Desvio\" é desvio de tráfego. Controle positivo conferido."
+ },
+ "media": [
+  {
+   "file": "docs/superpowers/previews/assets/cases/florianopolis-bypass/tunnel-2-palhoca-2024.jpg",
+   "caption": "2024: emboque do Túnel 2 (908 m) do Contorno, em Palhoça, no dia da inauguração",
+   "author": "Ricardo Stuckert/PR",
+   "license": "CC BY-SA 2.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:09.08.2024_-_Cerim%C3%B4nia_de_inaugura%C3%A7%C3%A3o_do_Contorno_Vi%C3%A1rio_da_Grande_Florian%C3%B3polis_(53912407328).jpg",
+   "date": "Taken on 9 August 2024",
+   "modification": "recorte sem as pessoas da cerimônia, 960 x 720 px (mesma licença)",
+   "shows_the_work": true
+  }
+ ],
+ "comparison": {
+  "unit": "R$ por km de rodovia nova em pista dupla, em reais de dezembro de 2024",
+  "method": "Valores oficiais na data-base de cada documento, corrigidos pelo IPCA do mês-base até dez/2024 (IBGE/SIDRA 1737). O Contorno aparece com duas medidas: o valor regulatório (o que a tarifa remunera, preços de jul/2007) e o investimento declarado pela concessionária (nominal, sem correção).",
+  "ipca_dec_2024": 7100.5,
+  "ipca_source": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/200707,201503,201901,202408,202412?formato=json",
+  "this_work": {
+   "name": "Contorno Viário da Grande Florianópolis (valor regulatório)",
+   "category": "SC, contorno novo com 4 túneis duplos e 44 obras de arte especiais",
+   "lanes": "pista dupla nova",
+   "length_km": 50.0,
+   "cost_reported_brl": 664672742.58,
+   "price_base_month": "2007-07",
+   "ipca_factor_to_dec2024": 2.653609,
+   "cost_brl_2024": 1763781465.92,
+   "cost_per_km_brl_2024": 35275629.32,
+   "cost_basis": "Itens só do Contorno na planilha de execução da ANTT (PER original, Sul A, duas passagens do Sul B e trevos), a preços iniciais do contrato.",
+   "sources": [
+    {
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/documentos-de-gestao/acompanhamento-de-obras/execucao-acumulada-de-obras-de-ampliacao-de-capacidade-e-melhorias/als-execucao-acumulada-de-obras-de-ampliacao-de-capacidade-e-melhorias-18o-ano-com-os-efeitos-do-10ota.xlsx"
+    },
+    {
+     "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/documentos-de-gestao/contrato-e-anexos/termos-aditivos/termo-aditivo-autopista-litoral-sul-contorno-de-florianopolis.pdf"
+    }
+   ]
+  },
+  "comparables": [
+   {
+    "name": "Contorno Viário da Grande Florianópolis (investimento declarado, nominal)",
+    "category": "mesma obra, dinheiro investido pela concessionária de 2014 a 2024, sem correção",
+    "length_km": 50.0,
+    "cost_reported_brl": 3900000000.0,
+    "price_base_month": "2014 a 2024 (nominal)",
+    "cost_brl_2024": 3900000000.0,
+    "cost_brl_2024_note": "piso: corrigido pelo IPCA seria maior",
+    "cost_per_km_brl_2024": 78000000.0,
+    "sources": [
+     {
+      "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/relatorios/relatorios-financeiros/df-4degtri2024-litoral-sul.pdf"
+     }
+    ]
+   },
+   {
+    "name": "Contorno de Florianópolis, trecho Sul A (7,914 km, 3 túneis duplos)",
+    "category": "SC, trecho com túneis",
+    "length_km": 7.914,
+    "cost_reported_brl": 907409977.72,
+    "price_base_month": "2019-01",
+    "ipca_factor_to_dec2024": 1.387648,
+    "cost_brl_2024": 1259166052.07,
+    "cost_per_km_brl_2024": 159106147.6,
+    "sources": [
+     {
+      "url": "https://www.gov.br/antt/pt-br/assuntos/rodovias/concessionarias/lista-de-concessoes/autopista-litoral-sul/revisoes-e-reajustes/2020-1/sei_antt-4693800-voto-ddb-120_2020.pdf"
+     }
+    ]
+   },
+   {
+    "name": "Contorno de Goiânia, projeto de 44 km Classe Especial (BR-060/153, não construído)",
+    "category": "GO, projeto executivo de contorno novo",
+    "length_km": 44.0,
+    "cost_reported_brl": 913869440.0,
+    "price_base_month": "2015-03",
+    "ipca_factor_to_dec2024": 1.684475,
+    "cost_brl_2024": 1539390205.76,
+    "cost_per_km_brl_2024": 34986141.04,
+    "sources": [
+     {
+      "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2195/2019/Plen%C3%A1rio"
+     }
+    ]
+   },
+   {
+    "name": "Contorno de Goiânia, previsto no PER, 30 km classe 1A (não construído)",
+    "category": "GO, estimativa do projeto executivo",
+    "length_km": 30.0,
+    "cost_reported_brl": 233622469.57,
+    "price_base_month": "2015-03",
+    "ipca_factor_to_dec2024": 1.684475,
+    "cost_brl_2024": 393531204.52,
+    "cost_per_km_brl_2024": 13117706.82,
+    "sources": [
+     {
+      "url": "https://pesquisa.apps.tcu.gov.br/doc/acordao-completo/2195/2019/Plen%C3%A1rio"
+     }
+    ]
+   }
+  ],
+  "original_proposal": {
+   "cost_reported_brl": 175951204.31,
+   "length_km": 47.33,
+   "cost_brl_2024": 466905671.3,
+   "cost_per_km_brl_2024": 9864899.03
+  },
+  "result": "Pelo valor que a tarifa remunera, o Contorno custou R$ 35,3 mi por km (dez/2024), o mesmo que o projeto do Contorno de Goiânia na classe mais alta (R$ 35,0 mi/km), mesmo com quatro túneis duplos. Pelo investimento que a concessionária declara (R$ 3,9 bi, sem correção), são R$ 78,0 mi por km, mais que o dobro. O trecho Sul A, com três túneis em 7,9 km, custou R$ 159,1 mi por km.",
+  "gap_unexplained": true,
+  "gap_note": "Os documentos não explicam a diferença entre o valor regulatório corrigido (R$ 1,76 bi) e o investimento declarado (R$ 3,9 bi nominal); as DFP citam juros capitalizados durante a obra. Separadamente, o TCU apontou R$ 120,3 mi (jan/2019) no Sul A que não foram cortados.",
+  "caveats": [
+   "Goiânia é projeto, não obra feita, e em outro terreno.",
+   "Nenhum valor é o gasto final ao centavo: a concessionária publica só o total arredondado (R$ 3,9 bi).",
+   "Custos médios de contornos citados pelo TCU (R$ 5,5 mi/km da Infra S.A.; R$ 11,7 mi/km da Eco101, jan/2023) medem só as pistas, sem túneis e obras de arte, e ficaram fora."
+  ]
+ },
+ "owner_lead_check": {
+  "superfaturado": "Não confirmado como \"superfaturamento\": nenhum documento oficial usa o termo para esta obra. A unidade técnica do TCU apontou \"indícios de significativo sobrepreço\" no orçamento do trecho Sul A (R$ 203,1 mi, depois R$ 136,6 mi, jan/2019); o TCU mandou renegociar, a ANTT cortou R$ 16,3 mi, e o TCU encerrou como \"não cumprida\", sem multa nem débito. Ficaram R$ 120,3 mi sem corte.",
+  "delays": "Confirmado: o contrato mandava concluir em fev/2012; abriu em 09/08/2024, 12 anos e 6 meses depois. Prazos adiados em 2009, 2013 e depois de 2020. O TCU multou três servidores da ANTT pelo adiamento de 2009 e atribuiu o atraso inicial à concessionária; o TRF4 concluiu que o atraso não podia ser imputado à ANTT."
+ },
+ "card": {
+  "image": "docs/superpowers/previews/assets/cases/florianopolis-bypass/tunnel-2-palhoca-2024.jpg",
+  "stats": [
+   [
+    "Investimento total (concessionária)",
+    "R$ 3,9 bi"
+   ],
+   [
+    "Contrato inicial (proposta de 2007)",
+    "R$ 176,0 mi"
+   ],
+   [
+    "Prazo",
+    "16,5 anos (previsto 4)"
+   ],
+   [
+    "Atraso",
+    "12,5 anos além do contrato"
+   ]
+  ],
+  "head": {
+   "investment_total": {
+    "label": "Investimento total (concessionária)",
+    "value_brl": 3900000000.0,
+    "display": "R$ 3,9 bi",
+    "note": "investimento declarado pela concessionária na DFP 2024 (CVM), nominal, 2014 a 2024; pago pelo pedágio, sem dinheiro do Orçamento da União"
+   },
+   "initial_contract": {
+    "label": "Contrato inicial (proposta de 2007)",
+    "value_brl": 175951204.31,
+    "display": "R$ 176,0 mi",
+    "note": "preço do Contorno (47,33 km) na proposta vencedora da concessão, a preços de jul/2007"
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "TA 002/2020: obra, soma dos 4 anos = total do item",
+   "computed": "462397576.89",
+   "official": "462397576.89",
+   "ok": true
+  },
+  {
+   "check": "TA 002/2020: custos administrativos, soma dos 4 anos = total do item",
+   "computed": "28853608.80",
+   "official": "28853608.80",
+   "ok": true
+  },
+  {
+   "check": "TA 002/2020: obra + custos administrativos = total do aditivo",
+   "computed": "491251185.69",
+   "official": "491251185.69",
+   "ok": true
+  },
+  {
+   "check": "TA 002/2020: 13º ano, obra + custos administrativos = total do ano",
+   "computed": "14246284.39",
+   "official": "14246284.39",
+   "ok": true
+  },
+  {
+   "check": "TA 002/2020: 14º ano, obra + custos administrativos = total do ano",
+   "computed": "100706493.06",
+   "official": "100706493.07",
+   "ok": true
+  },
+  {
+   "check": "TA 002/2020: 15º ano, obra + custos administrativos = total do ano",
+   "computed": "198170728.31",
+   "official": "198170728.31",
+   "ok": true
+  },
+  {
+   "check": "TA 002/2020: 16º ano, obra + custos administrativos = total do ano",
+   "computed": "178127679.93",
+   "official": "178127679.93",
+   "ok": true
+  },
+  {
+   "check": "TA 002/2020: soma dos totais anuais = total do aditivo (arredondamento da tabela oficial)",
+   "computed": "491251185.70",
+   "official": "491251185.69",
+   "ok": true
+  },
+  {
+   "check": "TA 002/2020: custos administrativos = 6,24% da obra",
+   "computed": "28853608.80",
+   "official": "28853608.80",
+   "ok": true
+  },
+  {
+   "check": "Voto DDB 120/2020: obra do Sul A x 1,0624 = valor final do reequilíbrio",
+   "computed": "907409977.72",
+   "official": "907409977.72",
+   "ok": true
+  },
+  {
+   "check": "Deliberação 500/2020: aumento da TBP na 14ª revisão = 34,15% (voto)",
+   "computed": "34.15",
+   "official": "34.15",
+   "ok": true
+  },
+  {
+   "check": "TCU 2957/2020: orçamento aprovado - redução = orçamento ajustado",
+   "computed": "907537042.19",
+   "official": "907537042.19",
+   "ok": true
+  },
+  {
+   "check": "TCU 2029/2024: corte obtido pela ANTT = redução registrada no 2957/2020",
+   "computed": "16309444.17",
+   "official": "16309444.17",
+   "ok": true
+  },
+  {
+   "check": "TCU 2954/2011: Contorno + obras associadas + 80% da desapropriação >= R$ 330 mi",
+   "computed": "True",
+   "official": "True",
+   "ok": true
+  },
+  {
+   "check": "Proposta (TCU) = planilha da ANTT para o item 5.1.2.1, até 1 centavo",
+   "computed": "175951204.30",
+   "official": "175951204.31",
+   "ok": true
+  },
+  {
+   "check": "SIOP: controle acha contornos em SC (precisa ser > 0)",
+   "computed": "True",
+   "official": "True",
+   "ok": true
+  },
+  {
+   "check": "SIOP: ações orçamentárias federais do Contorno de Florianópolis, 2008 a 2026",
+   "computed": "0",
+   "official": "0",
+   "ok": true
+  },
+  {
+   "check": "JSON sem travessão nem meia-risca",
+   "computed": "0",
+   "official": "0",
+   "ok": true
+  }
+ ],
+ "companies_note": "As demais construtoras do Contorno não aparecem em documento oficial aberto: a obra é contratada pela concessionária, sem licitação pública; os relatórios da ANTT e as DFP não trazem os nomes.",
+ "people_note": "Pela concessionária assinaram José Carlos Ferreira de Oliveira Filho e Francisco Leonardo Moura da Costa (contrato de 2008) e Antonio Cesar Ribas Sass e Giane Luza Zimmer Freitas (TA 002/2020); ficam só no registro da pesquisa (D36).",
+ "media_note": "As 29 fotos livres do Contorno no Wikimedia Commons são da cerimônia de inauguração (conta Lula Oficial no Flickr). A escolhida mostra a obra (Túnel 2) e foi recortada para tirar as autoridades do quadro."
+}

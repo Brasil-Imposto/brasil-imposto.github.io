@@ -1,0 +1,402 @@
+{
+ "dataset": "union",
+ "collected_on": "2026-10-01",
+ "period": {
+  "start": "2019-01-01",
+  "end": "2026-10-01"
+ },
+ "scope_note": "Presidente, Vice-Presidente e ministro da área econômica (Economia de 2019 a 2022, Fazenda a partir de 2023). start é o dia em que a pessoa assumiu; end é o dia em que deixou o cargo (em geral o mesmo dia em que o sucessor assume); null quando segue no cargo. Atos publicados no DOU valem a partir da publicação: a data usada é a da publicação, e a data do decreto fica no texto. Substituições curtas (viagens do Presidente, ministro substituto em férias) não entram. Partido: observed_on é a data da eleição em que o registro de candidatura do TSE mostra aquele partido; observações datadas (registro de candidatura no TSE) e mudanças com data apenas quando há fonte; o resto fica sem data.",
+ "sources": [
+  {
+   "name": "TSE, candidaturas 2018 e 2022 (consulta_cand)",
+   "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_{2018,2022}.zip"
+  },
+  {
+   "name": "Diário Oficial da União (Imprensa Nacional)",
+   "url": "https://www.in.gov.br/"
+  },
+  {
+   "name": "Constituição Federal",
+   "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+  },
+  {
+   "name": "Agência Brasil (EBC)",
+   "url": "https://agenciabrasil.ebc.com.br/"
+  },
+  {
+   "name": "Wikimedia Commons e Wikidata (fotos)",
+   "url": "https://commons.wikimedia.org/"
+  }
+ ],
+ "photo_policy": "URL remota do Wikimedia Commons; licença, autor e página do arquivo em cada foto, como o Commons registra.",
+ "build_script": "data/scripts/politicians/build_union.py",
+ "offices": [
+  {
+   "office": "Presidente da República",
+   "person_id": "jair-bolsonaro",
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": "PSL",
+   "sources": [
+    {
+     "fact": "eleição e partido",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "início e duração do mandato (art. 82)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ]
+  },
+  {
+   "office": "Presidente da República",
+   "person_id": "lula",
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": "PT",
+   "sources": [
+    {
+     "fact": "eleição e partido",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "início do mandato (art. 82)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    },
+    {
+     "fact": "o mandato seguinte começa em 5 de janeiro (EC 111/2021)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc111.htm",
+     "type": "oficial"
+    }
+   ]
+  },
+  {
+   "office": "Vice-Presidente da República",
+   "person_id": "hamilton-mourao",
+   "kind": "eleito",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": "PRTB",
+   "sources": [
+    {
+     "fact": "eleição e partido",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "mandato (art. 82)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ]
+  },
+  {
+   "office": "Vice-Presidente da República",
+   "person_id": "geraldo-alckmin",
+   "kind": "eleito",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": "PSB",
+   "sources": [
+    {
+     "fact": "eleição e partido",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "oficial"
+    },
+    {
+     "fact": "mandato (art. 82)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "oficial"
+    }
+   ]
+  },
+  {
+   "office": "Ministro de Estado da Economia",
+   "person_id": "paulo-guedes",
+   "kind": "nomeado",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "nomeação (Decreto de 1º de janeiro de 2019, DOU edição especial)",
+   "end_reason": "exoneração (Decreto de 31 de dezembro de 2022, publicado no DOU de 2023-01-01)",
+   "party_at_start": null,
+   "sources": [
+    {
+     "fact": "nomeação",
+     "url": "https://www.in.gov.br/web/dou/-/decreto-de-1-de-janeiro-de-2019-57510644",
+     "type": "oficial"
+    },
+    {
+     "fact": "exoneração",
+     "url": "https://www.in.gov.br/web/dou/-/decretos-de-31-de-dezembro-de-2022-455342941",
+     "type": "oficial"
+    }
+   ],
+   "note": "O decreto de exoneração foi assinado pelo Vice-Presidente 'no exercício do cargo de Presidente da República'. O Ministério da Economia existiu de 2019 a 2022; em 2023 a pasta econômica passou a ser o Ministério da Fazenda."
+  },
+  {
+   "office": "Ministro de Estado da Fazenda",
+   "person_id": "fernando-haddad",
+   "kind": "nomeado",
+   "start": "2023-01-01",
+   "end": "2026-03-20",
+   "start_reason": "nomeação (Decreto de 1º de janeiro de 2023)",
+   "end_reason": "exoneração a pedido (Decreto de 19 de março de 2026, publicado no DOU de 2026-03-20)",
+   "party_at_start": "PT",
+   "sources": [
+    {
+     "fact": "nomeação",
+     "url": "https://www.in.gov.br/web/dou/-/decreto-de-1-de-janeiro-de-2023-455346888",
+     "type": "oficial"
+    },
+    {
+     "fact": "exoneração",
+     "url": "https://www.in.gov.br/web/dou/-/decretos-de-19-de-marco-de-2026-694021652",
+     "type": "oficial"
+    }
+   ]
+  },
+  {
+   "office": "Ministro de Estado da Fazenda",
+   "person_id": "dario-durigan",
+   "kind": "nomeado",
+   "start": "2026-03-20",
+   "end": null,
+   "start_reason": "nomeação (Decreto de 19 de março de 2026, publicado no DOU de 2026-03-20)",
+   "end_reason": null,
+   "party_at_start": null,
+   "sources": [
+    {
+     "fact": "nomeação",
+     "url": "https://www.in.gov.br/web/dou/-/decretos-de-19-de-marco-de-2026-694021652",
+     "type": "oficial"
+    },
+    {
+     "fact": "ministro atual na página do Ministério da Fazenda (atualizada em 10/04/2026)",
+     "url": "https://www.gov.br/fazenda/pt-br/composicao/ministro",
+     "type": "oficial"
+    }
+   ]
+  }
+ ],
+ "people": {
+  "jair-bolsonaro": {
+   "name": "Jair Bolsonaro",
+   "full_name": "JAIR MESSIAS BOLSONARO",
+   "party_history": [
+    {
+     "party": "PSL",
+     "start": null,
+     "end": "2019-11-19",
+     "basis": "eleito pelo partido em 2018 (TSE); carta de desfiliacao assinada em 2019-11-19 (Agência Brasil)",
+     "sources": [
+      "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+      "https://agenciabrasil.ebc.com.br/politica/noticia/2019-11/bolsonaro-assinou-carta-de-desfiliacao-do-psl-anuncia-advogada"
+     ]
+    },
+    {
+     "party": null,
+     "label": "sem partido",
+     "start": "2019-11-19",
+     "end": "2021-11-30",
+     "basis": "Agência Brasil, 2021-11-30: 'deixou o partido em novembro de 2019 e não estava filiado a nenhum partido'",
+     "sources": [
+      "https://agenciabrasil.ebc.com.br/politica/noticia/2021-11/presidente-bolsonaro-assina-filiacao-ao-pl"
+     ]
+    },
+    {
+     "party": "PL",
+     "start": "2021-11-30",
+     "end": null,
+     "basis": "ficha de filiacao assinada em 2021-11-30 (Agência Brasil); candidatura de 2022 pelo mesmo partido (TSE)",
+     "sources": [
+      "https://agenciabrasil.ebc.com.br/politica/noticia/2021-11/presidente-bolsonaro-assina-filiacao-ao-pl",
+      "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
+     ]
+    }
+   ],
+   "party_sources_note": "A desfiliacao e a filiacao sao datadas pela Agência Brasil (EBC, empresa publica federal), não por registro do TSE: a lista nominal de filiados não é dado aberto.",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Presidente_Jair_Messias_Bolsonaro.jpg/500px-Presidente_Jair_Messias_Bolsonaro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Presidente_Jair_Messias_Bolsonaro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Presidente_Jair_Messias_Bolsonaro.jpg",
+    "license": "Public domain",
+    "license_url": null,
+    "author": "US Embassy Brasília",
+    "credit": "https://www.flickr.com/photos/embaixadaeua-brasil/44751487210/",
+    "wikidata": "Q10304982",
+    "match_note": "entidade escolhida por nome, cidadania brasileira e cargo; conferir o QID"
+   }
+  },
+  "hamilton-mourao": {
+   "name": "Hamilton Mourão",
+   "full_name": "ANTÔNIO HAMILTON MARTINS MOURÃO",
+   "party_history": [
+    {
+     "party": "PRTB",
+     "start": null,
+     "end": null,
+     "observed_on": "2018-10-28",
+     "basis": "eleito vice-presidente pelo partido em 2018 (TSE)",
+     "sources": [
+      "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip"
+     ]
+    },
+    {
+     "party": "REPUBLICANOS",
+     "start": null,
+     "end": null,
+     "observed_on": "2022-10-02",
+     "basis": "candidatura de 2022 (TSE); o Senado registra a filiação na data da eleição, 2022-10-02, não na data da mudança",
+     "sources": [
+      "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+      "https://legis.senado.leg.br/dadosabertos/senador/6341/filiacoes.json"
+     ]
+    }
+   ],
+   "party_sources_note": "Data exata da troca de partido não confirmada em fonte oficial; entre as duas observações, o partido é desconhecido.",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Hamilton_Mour%C3%A3o_em_25_de_junho_de_2019_%282%3B_recorte%29.jpg/500px-Hamilton_Mour%C3%A3o_em_25_de_junho_de_2019_%282%3B_recorte%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Hamilton_Mour%C3%A3o_em_25_de_junho_de_2019_%282%3B_recorte%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Hamilton_Mour%C3%A3o_em_25_de_junho_de_2019_(2;_recorte).jpg",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Alan Santos/PR",
+    "credit": "Palácio do Planalto",
+    "wikidata": "Q52871852",
+    "match_note": "entidade escolhida por nome, cidadania brasileira e cargo; conferir o QID"
+   }
+  },
+  "lula": {
+   "name": "Luiz Inácio Lula da Silva",
+   "full_name": "LUIZ INÁCIO LULA DA SILVA",
+   "party_history": [
+    {
+     "party": "PT",
+     "start": null,
+     "end": null,
+     "observed_on": "2022-10-30",
+     "basis": "eleito pelo partido em 2022 (TSE)",
+     "sources": [
+      "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
+     ]
+    }
+   ],
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%28estreita%29.jpg/500px-Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%28estreita%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%28estreita%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_(estreita).jpg",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Palácio do Planalto from Brasilia, Brasil",
+    "credit": "Foto Oficial do Presidente da República, Luiz Inácio Lula da Silva",
+    "wikidata": "Q37181",
+    "match_note": "entidade escolhida por nome, cidadania brasileira e cargo; conferir o QID"
+   }
+  },
+  "geraldo-alckmin": {
+   "name": "Geraldo Alckmin",
+   "full_name": "GERALDO JOSÉ RODRIGUES ALCKMIN FILHO",
+   "party_history": [
+    {
+     "party": "PSDB",
+     "start": null,
+     "end": null,
+     "observed_on": "2018-10-07",
+     "basis": "candidatura de 2018 (TSE)",
+     "sources": [
+      "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip"
+     ]
+    },
+    {
+     "party": "PSB",
+     "start": null,
+     "end": null,
+     "observed_on": "2022-10-30",
+     "basis": "eleito vice-presidente pelo partido em 2022 (TSE); Agência Brasil: 'ele deixou o PSDB e filiou-se ao Partido Socialista Brasileiro (PSB)', sem data no texto",
+     "sources": [
+      "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+      "https://agenciabrasil.ebc.com.br/politica/noticia/2022-12/conheca-a-trajetoria-politica-de-geraldo-alckmin"
+     ]
+    }
+   ],
+   "party_sources_note": "Data exata da troca de partido não conferida em fonte oficial.",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/08.08.2026_-_FOTOS_OFICIAIS_-_55450293534.jpg/500px-08.08.2026_-_FOTOS_OFICIAIS_-_55450293534.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/08.08.2026_-_FOTOS_OFICIAIS_-_55450293534.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "file_page": "https://commons.wikimedia.org/wiki/File:08.08.2026_-_FOTOS_OFICIAIS_-_55450293534.jpg",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Ricardo Stuckert",
+    "credit": "https://www.flickr.com/photos/157736962@N05/55450293534/",
+    "wikidata": "Q964493",
+    "match_note": "entidade escolhida por nome, cidadania brasileira e cargo; conferir o QID"
+   }
+  },
+  "paulo-guedes": {
+   "name": "Paulo Guedes",
+   "full_name": "Paulo Roberto Nunes Guedes",
+   "party_history": [],
+   "party_null_reason": "nenhuma filiação encontrada nas fontes oficiais consultadas; o cargo de ministro não exige filiação",
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Jair_Bolsonaro_e_Paulo_Guedes_em_solenidade_%28cropped%29.jpg/500px-Jair_Bolsonaro_e_Paulo_Guedes_em_solenidade_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Jair_Bolsonaro_e_Paulo_Guedes_em_solenidade_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Jair_Bolsonaro_e_Paulo_Guedes_em_solenidade_(cropped).jpg",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Marcos Corrêa",
+    "credit": "https://www.flickr.com/photos/palaciodoplanalto/49561461073/",
+    "wikidata": "Q56347746",
+    "match_note": "entidade escolhida por nome, cidadania brasileira e cargo; conferir o QID"
+   }
+  },
+  "fernando-haddad": {
+   "name": "Fernando Haddad",
+   "full_name": "Fernando Haddad",
+   "party_history": [
+    {
+     "party": "PT",
+     "start": null,
+     "end": null,
+     "observed_on": "2022-10-02",
+     "basis": "candidatura de 2022 (TSE)",
+     "sources": [
+      "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
+     ]
+    }
+   ],
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Fernando_Haddad_posse_min._da_Fazenda.jpg/500px-Fernando_Haddad_posse_min._da_Fazenda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Fernando_Haddad_posse_min._da_Fazenda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Fernando_Haddad_posse_min._da_Fazenda.jpg",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Ricardo Stuckert",
+    "credit": "https://www.flickr.com/photos/palaciodoplanalto/52626557319/",
+    "wikidata": "Q3069485",
+    "match_note": "entidade escolhida por nome, cidadania brasileira e cargo; conferir o QID"
+   }
+  },
+  "dario-durigan": {
+   "name": "Dario Durigan",
+   "full_name": "Dario Carnevalli Durigan",
+   "party_history": [],
+   "party_null_reason": "nenhuma filiação encontrada nas fontes oficiais consultadas; o cargo de ministro não exige filiação",
+   "photo": null,
+   "photo_null_reason": "pessoa nao encontrada no Wikidata com cidadania brasileira e cargo"
+  }
+ }
+}

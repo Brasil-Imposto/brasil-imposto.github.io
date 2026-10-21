@@ -1,0 +1,1766 @@
+{
+ "case_id": "inss-deductions",
+ "title": "Descontos associativos não autorizados em benefícios do INSS",
+ "collected_on": "2026-10-02",
+ "research_doc": "docs/research/BRASIL-IMPOSTO_RESEARCH_case-inss-deductions_2026-10-02.md",
+ "access_note": "Em 2026-10-02 as notícias do gov.br respondiam \"Conteúdo Restrito\"; os textos citados de notícias do gov.br foram lidos na cópia do Internet Archive indicada em archive_url. Páginas que não são notícia, DOU, Planalto, STF, TCU, Senado e Portal da Transparência foram lidos no original.",
+ "summary": [
+  "Segundo a CGU, Acordos de Cooperação Técnica com o INSS \"permitiam que as entidades realizassem descontos de mensalidades associativas diretamente na folha de pagamento de aposentados e pensionistas do INSS, sem a autorização dos beneficiários\".",
+  "Na auditoria da CGU, \"1.242 beneficiários entrevistados (97,6%) informaram não ter autorizado o desconto, e 1.221 (95,9%) afirmaram não participar de associação\".",
+  "Em 23/04/2025 a CGU e a PF deflagraram a Operação Sem Desconto, \"com o objetivo de combater um esquema nacional de descontos associativos não autorizados em aposentadorias e pensões\".",
+  "A União, o INSS, o MPF, a DPU e a OAB fecharam um acordo homologado pelo STF (ADPF 1.236) para devolver pela via administrativa os descontos \"realizados entre março de 2020 e março de 2025\", pagos com crédito extraordinário do orçamento federal."
+ ],
+ "money_private_deducted": {
+  "what": "Mensalidades associativas descontadas dos benefícios e repassadas às entidades (dinheiro dos beneficiários).",
+  "by_year": [
+   {
+    "value_brl": 413200000.0,
+    "reference_date": "2016-12-31",
+    "source_body": "CGU",
+    "source_url": "https://eaud.cgu.gov.br/relatorio/1675762",
+    "quote": "Gráfico 1: R$ 413,2",
+    "year": 2016,
+    "estimate": false,
+    "document": "Relatório de Auditoria nº 1675291, Gráfico 1, p. 12 (rótulos em R$ milhões)",
+    "source_pdf": "https://eaud.cgu.gov.br/relatorios/download/1675762"
+   },
+   {
+    "value_brl": 460400000.0,
+    "reference_date": "2017-12-31",
+    "source_body": "CGU",
+    "source_url": "https://eaud.cgu.gov.br/relatorio/1675762",
+    "quote": "Gráfico 1: R$ 460,4",
+    "year": 2017,
+    "estimate": false,
+    "document": "Relatório de Auditoria nº 1675291, Gráfico 1, p. 12 (rótulos em R$ milhões)",
+    "source_pdf": "https://eaud.cgu.gov.br/relatorios/download/1675762"
+   },
+   {
+    "value_brl": 617400000.0,
+    "reference_date": "2018-12-31",
+    "source_body": "CGU",
+    "source_url": "https://eaud.cgu.gov.br/relatorio/1675762",
+    "quote": "Gráfico 1: R$ 617,4",
+    "year": 2018,
+    "estimate": false,
+    "document": "Relatório de Auditoria nº 1675291, Gráfico 1, p. 12 (rótulos em R$ milhões)",
+    "source_pdf": "https://eaud.cgu.gov.br/relatorios/download/1675762"
+   },
+   {
+    "value_brl": 604600000.0,
+    "reference_date": "2019-12-31",
+    "source_body": "CGU",
+    "source_url": "https://eaud.cgu.gov.br/relatorio/1675762",
+    "quote": "Gráfico 1: R$ 604,6",
+    "year": 2019,
+    "estimate": false,
+    "document": "Relatório de Auditoria nº 1675291, Gráfico 1, p. 12 (rótulos em R$ milhões)",
+    "source_pdf": "https://eaud.cgu.gov.br/relatorios/download/1675762"
+   },
+   {
+    "value_brl": 510900000.0,
+    "reference_date": "2020-12-31",
+    "source_body": "CGU",
+    "source_url": "https://eaud.cgu.gov.br/relatorio/1675762",
+    "quote": "Gráfico 1: R$ 510,9",
+    "year": 2020,
+    "estimate": false,
+    "document": "Relatório de Auditoria nº 1675291, Gráfico 1, p. 12 (rótulos em R$ milhões)",
+    "source_pdf": "https://eaud.cgu.gov.br/relatorios/download/1675762"
+   },
+   {
+    "value_brl": 536300000.0,
+    "reference_date": "2021-12-31",
+    "source_body": "CGU",
+    "source_url": "https://eaud.cgu.gov.br/relatorio/1675762",
+    "quote": "saindo de R$ 536,3 milhões em 2021 para R$ 1,3 bilhão em 2023",
+    "year": 2021,
+    "estimate": false,
+    "document": "Relatório de Auditoria nº 1675291, Gráfico 1, p. 12 (rótulos em R$ milhões)",
+    "source_pdf": "https://eaud.cgu.gov.br/relatorios/download/1675762"
+   },
+   {
+    "value_brl": 706200000.0,
+    "reference_date": "2022-12-31",
+    "source_body": "CGU",
+    "source_url": "https://eaud.cgu.gov.br/relatorio/1675762",
+    "quote": "Gráfico 1: R$ 706,2",
+    "year": 2022,
+    "estimate": false,
+    "document": "Relatório de Auditoria nº 1675291, Gráfico 1, p. 12 (rótulos em R$ milhões)",
+    "source_pdf": "https://eaud.cgu.gov.br/relatorios/download/1675762"
+   },
+   {
+    "value_brl": 1299800000.0,
+    "reference_date": "2023-12-31",
+    "source_body": "CGU",
+    "source_url": "https://eaud.cgu.gov.br/relatorio/1675762",
+    "quote": "Gráfico 1: R$ 1.299,8",
+    "year": 2023,
+    "estimate": false,
+    "document": "Relatório de Auditoria nº 1675291, Gráfico 1, p. 12 (rótulos em R$ milhões)",
+    "source_pdf": "https://eaud.cgu.gov.br/relatorios/download/1675762"
+   },
+   {
+    "value_brl": 2637200000.0,
+    "reference_date": "2024-12-31",
+    "source_body": "CGU",
+    "source_url": "https://eaud.cgu.gov.br/relatorio/1675762",
+    "quote": "com a possibilidade de alcançar R$ 2,6 bilhões até o final de 2024, se os descontos realizados em maio de 2024 permanecerem estáveis nos demais meses do ano",
+    "year": 2024,
+    "estimate": true,
+    "document": "Relatório de Auditoria nº 1675291, Gráfico 1, p. 12 (rótulos em R$ milhões)",
+    "source_pdf": "https://eaud.cgu.gov.br/relatorios/download/1675762"
+   }
+  ],
+  "total_2019_2024": {
+   "value_brl": 6300000000.0,
+   "reference_date": "2024-12-31",
+   "source_body": "CGU e Polícia Federal",
+   "source_url": "https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/cgu-e-pf-combatem-descontos-nao-autorizados-em-beneficios-do-inss",
+   "quote": "Até o momento, as entidades cobraram de aposentados e pensionistas o valor estimado de R$ 6,3 bilhões, no período entre 2019 e 2024.",
+   "estimate": true,
+   "archive_url": "https://web.archive.org/web/20250423150501/https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/cgu-e-pf-combatem-descontos-nao-autorizados-em-beneficios-do-inss",
+   "also_in": "https://www.gov.br/pf/pt-br/assuntos/noticias/2025/04/pf-e-cgu-investigam-descontos-irregulares-em-beneficios-do-inss",
+   "check": "Soma dos rótulos do Gráfico 1 de 2019 a 2024 = R$ 6.295,0 milhões."
+  },
+  "people_possibly_affected": {
+   "value": 6000000,
+   "reference_date": "2025-04-23",
+   "source_body": "CGU",
+   "source_url": "https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/fraude-no-inss-aposentados-e-pensionistas-tiveram-quase-r-6-3-bi-em-descontos-sem-autorizacao",
+   "archive_url": "https://web.archive.org/web/20250430054541/https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/fraude-no-inss-aposentados-e-pensionistas-tiveram-quase-r-6-3-bi-em-descontos-sem-autorizacao",
+   "quote": "Seis milhões de aposentados e pensionistas podem ter sido lesados, o que significaria um impacto financeiro com descontos associativos da ordem de R$ 6,3 bilhões."
+  },
+  "notes": [
+   "R$ 6,3 bi é o total dos descontos associativos no período, não o total comprovado como não autorizado; a taxa de 97,6% vem da amostra de 1.273 entrevistas.",
+   "A CGU diz que os valores estão subestimados: \"Os valores e quantidades calculados a partir da Maciça estão subestimados em aproximadamente 20%\" (nota 3, p. 12).",
+   "2024 é estimativa (maio de 2024 repetido até dezembro).",
+   "O acordo de devolução cobre março de 2020 a março de 2025, não todo o período da tabela."
+  ]
+ },
+ "returned_to_beneficiaries": [
+  {
+   "reference_date": "2025-12-20",
+   "value_brl": 2740000000.0,
+   "beneficiaries": null,
+   "beneficiaries_text": "mais de 4 milhões",
+   "paid_by": "INSS (União)",
+   "source_body": "AGU",
+   "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss",
+   "archive_url": "https://web.archive.org/web/20260327201725/https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss",
+   "quote": "Até o momento, o INSS já ressarciu R$ 2,74 bilhões a mais de 4 milhões de beneficiários que contestaram os descontos realizados em seus benefícios."
+  },
+  {
+   "reference_date": "2026-04-01",
+   "value_brl": 3011377439.58,
+   "beneficiaries": 4431470,
+   "beneficiaries_text": "beneficiários que aderiram ao acordo",
+   "paid_by": "Governo Federal, via acordo coordenado pelo INSS",
+   "source_body": "INSS",
+   "source_url": "https://www.gov.br/inss/pt-br/assuntos/governo-federal-ja-devolveu-mais-de-r-3-bilhoes-a-beneficiarios-vitimas-de-descontos-indevidos",
+   "archive_url": "https://web.archive.org/web/20260513032519/https://www.gov.br/inss/pt-br/assuntos/governo-federal-ja-devolveu-mais-de-r-3-bilhoes-a-beneficiarios-vitimas-de-descontos-indevidos",
+   "quote": "O Governo Federal já devolveu R$ 3.011.377439, 58 a aposentados e pensionistas que sofreram descontos associativos não autorizados em seus benefícios previdenciários. [...] Até o momento, 4.431.470 beneficiários aderiram ao acordo, garantindo a devolução dos valores.",
+   "note": "Separadores trocados no original; lido como R$ 3.011.377.439,58."
+  },
+  {
+   "reference_date": "2026-09-30",
+   "value_brl": 3654802192.32,
+   "beneficiaries": null,
+   "paid_by": "INSS, ação orçamentária 00XK",
+   "source_body": "CGU, Portal da Transparência",
+   "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202609",
+   "quote": "Soma de \"Valor Pago\" e \"Valor Restos a Pagar Pagos\" da ação 00XK (Ressarcimento aos Beneficiários do Regime Geral de Previdência Social por Descontos Indevidos), arquivos mensais de julho de 2025 a 2026-09.",
+   "note": "Pagamento orçamentário; inclui o que foi pago a beneficiários por qualquer via do acordo. Confere com o INSS: até março de 2026 a soma dá cerca de R$ 3,0 bi, contra R$ 3,011 bi informados em 01/04/2026."
+  }
+ ],
+ "money_public_spent": {
+  "credits": [
+   {
+    "value_brl": 3312824545.0,
+    "reference_date": "2025-07-16",
+    "source_body": "Presidência da República (Planalto)",
+    "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1306.htm",
+    "quote": "Fica aberto crédito extraordinário, em favor do Ministério da Previdência Social, no valor de R$ 3.312.824.545,00 [...] para atender à programação constante do Anexo.",
+    "act": "Medida Provisória nº 1.306, de 16/07/2025 (DOU 17/07/2025)",
+    "budget_action": "00XK",
+    "signed_by": [
+     "Luiz Inácio Lula da Silva",
+     "Simone Nassar Tebet"
+    ],
+    "status": "perdeu a eficácia em novembro de 2025 sem conversão em lei",
+    "status_source": "https://www.congressonacional.leg.br/materias/medidas-provisorias/-/mpv/169657",
+    "status_quote": "Último estado SEM EFICÁCIA"
+   },
+   {
+    "value_brl": 547000000.0,
+    "reference_date": "2026-07-20",
+    "source_body": "Presidência da República (Planalto)",
+    "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1378.htm",
+    "quote": "Fica aberto crédito extraordinário, em favor do Ministério da Previdência Social, no valor de R$ 547.000.000,00 [...]",
+    "act": "Medida Provisória nº 1.378, de 20/07/2026 (DOU 21/07/2026)",
+    "budget_action": "00XK",
+    "signed_by": [
+     "Luiz Inácio Lula da Silva",
+     "Bruno Moretti"
+    ],
+    "funding": "superávit financeiro de 2025, fonte 3049 (Recursos Próprios da UO para Aplicação em Seguridade Social)",
+    "reason_source": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/exm/exm-mp-1378-26.pdf",
+    "reason_quote": "O pedido decorre da ampliação, pelo Supremo Tribunal Federal (STF), em abril de 2026, do alcance do acordo homologado na Arguição de Descumprimento de Preceito Fundamental - ADPF nº 1.236/DF"
+   }
+  ],
+  "credits_total_brl": 3859824545.0,
+  "execution_by_month": [
+   {
+    "month": "2025-07",
+    "committed_brl": 3312824545.0,
+    "liquidated_brl": 938170594.56,
+    "paid_brl": 908400802.74,
+    "prior_year_commitments_paid_brl": 0.0,
+    "cumulative_paid_brl": 908400802.74,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202507",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2025-08",
+    "committed_brl": 0.0,
+    "liquidated_brl": 375290525.47,
+    "paid_brl": 393050649.34,
+    "prior_year_commitments_paid_brl": 0.0,
+    "cumulative_paid_brl": 1301451452.08,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202508",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2025-09",
+    "committed_brl": 0.0,
+    "liquidated_brl": 418520760.08,
+    "paid_brl": 411744935.8,
+    "prior_year_commitments_paid_brl": 0.0,
+    "cumulative_paid_brl": 1713196387.88,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202509",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2025-10",
+    "committed_brl": 0.0,
+    "liquidated_brl": 714748924.03,
+    "paid_brl": 712284303.7,
+    "prior_year_commitments_paid_brl": 0.0,
+    "cumulative_paid_brl": 2425480691.58,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202510",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2025-11",
+    "committed_brl": 0.0,
+    "liquidated_brl": 258145227.39,
+    "paid_brl": 272024598.8,
+    "prior_year_commitments_paid_brl": 0.0,
+    "cumulative_paid_brl": 2697505290.38,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202511",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2025-12",
+    "committed_brl": 0.0,
+    "liquidated_brl": 129735909.59,
+    "paid_brl": 137106650.74,
+    "prior_year_commitments_paid_brl": 0.0,
+    "cumulative_paid_brl": 2834611941.12,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202512",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2026-01",
+    "committed_brl": 0.0,
+    "liquidated_brl": 0.0,
+    "paid_brl": 0.0,
+    "prior_year_commitments_paid_brl": 83088521.47,
+    "cumulative_paid_brl": 2917700462.59,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202601",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2026-02",
+    "committed_brl": 0.0,
+    "liquidated_brl": 0.0,
+    "paid_brl": 0.0,
+    "prior_year_commitments_paid_brl": 45062437.64,
+    "cumulative_paid_brl": 2962762900.23,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202602",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2026-03",
+    "committed_brl": 0.0,
+    "liquidated_brl": 0.0,
+    "paid_brl": 0.0,
+    "prior_year_commitments_paid_brl": 39777683.0,
+    "cumulative_paid_brl": 3002540583.23,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202603",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2026-04",
+    "committed_brl": 0.0,
+    "liquidated_brl": 0.0,
+    "paid_brl": 0.0,
+    "prior_year_commitments_paid_brl": 59311848.8,
+    "cumulative_paid_brl": 3061852432.03,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202604",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2026-05",
+    "committed_brl": 0.0,
+    "liquidated_brl": 0.0,
+    "paid_brl": 0.0,
+    "prior_year_commitments_paid_brl": 57375900.92,
+    "cumulative_paid_brl": 3119228332.95,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202605",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2026-06",
+    "committed_brl": 0.0,
+    "liquidated_brl": 0.0,
+    "paid_brl": 0.0,
+    "prior_year_commitments_paid_brl": 91684720.68,
+    "cumulative_paid_brl": 3210913053.63,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202606",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2026-07",
+    "committed_brl": 0.0,
+    "liquidated_brl": 0.0,
+    "paid_brl": 0.0,
+    "prior_year_commitments_paid_brl": 11584321.11,
+    "cumulative_paid_brl": 3222497374.74,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202607",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2026-08",
+    "committed_brl": 547000000.0,
+    "liquidated_brl": 233837818.18,
+    "paid_brl": 227981879.4,
+    "prior_year_commitments_paid_brl": 90327170.26,
+    "cumulative_paid_brl": 3540806424.4,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202608",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   },
+   {
+    "month": "2026-09",
+    "committed_brl": 0.0,
+    "liquidated_brl": 108140720.6,
+    "paid_brl": 113995767.92,
+    "prior_year_commitments_paid_brl": 0.0,
+    "cumulative_paid_brl": 3654802192.32,
+    "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202609",
+    "source_body": "CGU, Portal da Transparência (execução da despesa)"
+   }
+  ],
+  "execution_paid_2025_brl": 2834611941.12,
+  "execution_paid_2026_to_date_brl": 820190251.2,
+  "execution_paid_total_brl": 3654802192.32,
+  "execution_last_month": "2026-09",
+  "fiscal_rule": {
+   "source_body": "STF",
+   "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378455298&ext=.pdf",
+   "reference_date": "2025-07-09",
+   "quote": "a dotação orçamentária destinada ao cumprimento das obrigações objeto do Acordo Interinstitucional homologado seja excluída dos limites referidos no art. 3º da Lei Complementar nº 200/23, conforme § 2º do dispositivo, bem como para fins de verificação do cumprimento da meta prevista no art. 4º, § 1º, da Lei Complementar nº 101"
+  },
+  "note": "É dinheiro público (orçamento da Seguridade Social). A União depois cobra das entidades por ação de regresso (ver recovered_or_blocked)."
+ },
+ "recovered_or_blocked": [
+  {
+   "value_brl": 1000000000.0,
+   "reference_date": "2025-04-23",
+   "source_body": "CGU e Polícia Federal",
+   "source_url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2025/04/pf-e-cgu-investigam-descontos-irregulares-em-beneficios-do-inss",
+   "quote": "ordens de sequestro de bens no valor de mais de R$ 1 bilhão",
+   "kind": "sequestro judicial na deflagração (valor mínimo)",
+   "archive_url": "https://web.archive.org/web/20250423150501/https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/cgu-e-pf-combatem-descontos-nao-autorizados-em-beneficios-do-inss"
+  },
+  {
+   "value_brl": 2560000000.0,
+   "reference_date": "2025-05-08",
+   "source_body": "AGU",
+   "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-pede-bloqueio-de-r-2-56-bilhoes-de-associacoes-suspeitas-de-fraudes-contra-aposentados",
+   "quote": "ajuizou ação cautelar de urgência para pedir o bloqueio de bens móveis e imóveis na ordem de R$ 2,56 bilhões contra 12 entidades associativas (e seus dirigentes)",
+   "kind": "pedido de bloqueio",
+   "archive_url": "https://web.archive.org/web/20260606170413/https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-pede-bloqueio-de-r-2-56-bilhoes-de-associacoes-suspeitas-de-fraudes-contra-aposentados"
+  },
+  {
+   "value_brl": 2800000000.0,
+   "reference_date": "2025-06-12",
+   "source_body": "AGU",
+   "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/justica-bloqueia-r-2-8-bilhoes-de-investigados-por-fraude-no-inss",
+   "quote": "A Advocacia-Geral da União (AGU) obteve o bloqueio de R$ 2,8 bilhões em bens e ativos financeiros de associações, empresas e pessoas físicas investigadas",
+   "kind": "bloqueio deferido (15 ações, 7ª Vara Federal do DF)",
+   "archive_url": "https://web.archive.org/web/20260316114320/https://www.gov.br/agu/pt-br/comunicacao/noticias/justica-bloqueia-r-2-8-bilhoes-de-investigados-por-fraude-no-inss"
+  },
+  {
+   "value_brl": 12000000.0,
+   "reference_date": "2025-06-17",
+   "source_body": "Polícia Federal",
+   "source_url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2025/06/pf-deflagra-operacao-sem-desconto-contra-fraudes-no-inss",
+   "quote": "o sequestro de cinco imóveis vinculados aos investigados, avaliados em aproximadamente R$ 12 milhões",
+   "kind": "sequestro de imóveis (3ª Vara Federal de Sergipe)"
+  },
+  {
+   "value_brl": 6600000000.0,
+   "reference_date": "2025-12-20",
+   "source_body": "AGU",
+   "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss",
+   "quote": "a AGU requereu o bloqueio de R$ 6,6 bilhões de associações, pessoas físicas e jurídicas por meio de 37 ações cautelares ajuizadas até o momento",
+   "kind": "total pedido",
+   "archive_url": "https://web.archive.org/web/20260327201725/https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss"
+  },
+  {
+   "value_brl": 4400000000.0,
+   "reference_date": "2025-12-20",
+   "source_body": "AGU",
+   "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss",
+   "quote": "Decisões liminares já determinaram bloqueio de R$ 4,4 bilhões.",
+   "kind": "total deferido por liminar",
+   "archive_url": "https://web.archive.org/web/20260327201725/https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss"
+  },
+  {
+   "value_brl": 514000000.0,
+   "reference_date": "2025-12-20",
+   "source_body": "AGU",
+   "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss",
+   "quote": "Desse total, R$ 514 milhões já foram efetivamente bloqueados, por meio do Sistema de Busca de Ativos do Poder Judiciário (Sisbajud), além da constrição de 17 imóveis e 76 veículos.",
+   "kind": "efetivamente bloqueado",
+   "archive_url": "https://web.archive.org/web/20260327201725/https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss"
+  },
+  {
+   "value_brl": 135000000.0,
+   "reference_date": "2025-12-20",
+   "source_body": "AGU",
+   "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss",
+   "quote": "Somam-se a isso outros R$ 135 milhões cobrados por meio das ações regressivas do quarto lote.",
+   "kind": "cobrado em ações regressivas",
+   "archive_url": "https://web.archive.org/web/20260327201725/https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss"
+  }
+ ],
+ "recovered_note": "Valores sobrepostos (não somar). Bloqueado não é recuperado; nenhuma fonte oficial encontrada informa valor já devolvido aos cofres públicos pelas entidades até 2026-10-02.",
+ "return_three_lines": {
+  "cost": {
+   "text_pt": "Dinheiro público aberto para devolver: R$ 3.859.824.545,00 em créditos extraordinários (MP 1.306/2025 e MP 1.378/2026). Pago pela ação 00XK de julho de 2025 a setembro de 2026 (arquivo de setembro baixado em 02/10/2026, pode ser revisto pelo Portal): R$ 3.654.802.192,32.",
+   "value_brl": 3654802192.32,
+   "reference_date": "2026-09-30",
+   "source_url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202609",
+   "source_body": "CGU, Portal da Transparência"
+  },
+  "money_in_and_out": {
+   "text_pt": "Sai: o ressarcimento acima. Pode voltar: R$ 514 milhões efetivamente bloqueados (de R$ 4,4 bi em liminares) e R$ 135 milhões cobrados em ações regressivas (AGU, 20/12/2025). Nenhuma devolução efetiva aos cofres públicos encontrada em fonte oficial até 02/10/2026.",
+   "blocked_effective_brl": 514000000.0,
+   "regress_claims_brl": 135000000.0,
+   "reference_date": "2025-12-20",
+   "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss",
+   "source_body": "AGU"
+  },
+  "measured_use": {
+   "text_pt": "4.431.470 beneficiários aderiram ao acordo e o Governo Federal informou R$ 3.011.377.439,58 devolvidos até 01/04/2026 (INSS). A CGU estimava \"6 milhões\" de possíveis lesados.",
+   "beneficiaries_adhered": 4431470,
+   "reference_date": "2026-04-01",
+   "source_url": "https://www.gov.br/inss/pt-br/assuntos/governo-federal-ja-devolveu-mais-de-r-3-bilhoes-a-beneficiarios-vitimas-de-descontos-indevidos",
+   "source_body": "INSS"
+  }
+ },
+ "people": [
+  {
+   "name": "Luiz Inácio Lula da Silva",
+   "role_at_time": "Presidente da República",
+   "group": "decided",
+   "acts": [
+    {
+     "act": "MP nº 1.306/2025 (crédito de R$ 3,31 bi)",
+     "date": "2025-07-16",
+     "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1306.htm"
+    },
+    {
+     "act": "MP nº 1.378/2026 (crédito de R$ 547 mi)",
+     "date": "2026-07-20",
+     "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1378.htm"
+    },
+    {
+     "act": "Autor (requerente) da ADPF 1.236",
+     "date": null,
+     "source_url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=7287062"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": "PT (eleição de 2022, TSE)"
+  },
+  {
+   "name": "Simone Nassar Tebet",
+   "role_at_time": "Ministra do Planejamento e Orçamento",
+   "group": "decided",
+   "acts": [
+    {
+     "act": "Coassina a MP nº 1.306/2025",
+     "date": "2025-07-16",
+     "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1306.htm"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Bruno Moretti",
+   "role_at_time": "Ministro do Planejamento e Orçamento",
+   "group": "decided",
+   "acts": [
+    {
+     "act": "Coassina a MP nº 1.378/2026",
+     "date": "2026-07-20",
+     "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1378.htm"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Miriam Belchior",
+   "role_at_time": "Ministra substituta da Casa Civil",
+   "group": "decided",
+   "acts": [
+    {
+     "act": "Portaria nº 489 (exonera o presidente do INSS)",
+     "date": "2025-04-23",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-n-489-de-23-de-abril-de-2025-625461333"
+    },
+    {
+     "act": "Portaria nº 530 (nomeia o presidente do INSS)",
+     "date": "2025-04-30",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-n-530-de-30-de-abril-de-2025-626984227"
+    },
+    {
+     "act": "Portarias nº 362 e 363 (troca na presidência do INSS)",
+     "date": "2026-04-13",
+     "source_url": "https://www.in.gov.br/web/dou/-/portarias-de-13-de-abril-de-2026-699267256"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Jorge Rodrigo Araújo Messias",
+   "role_at_time": "Advogado-Geral da União",
+   "group": "decided",
+   "acts": [
+    {
+     "act": "Assina o Acordo Interinstitucional pela União (homologado na ADPF 1.236)",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    },
+    {
+     "act": "Ações cautelares e regressivas contra entidades",
+     "date": "2025-12-20",
+     "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Wolney Queiroz Maciel",
+   "role_at_time": "Ministro da Previdência Social (desde 02/05/2025)",
+   "group": "decided",
+   "acts": [
+    {
+     "act": "Assina o Acordo Interinstitucional pela União",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    }
+   ],
+   "legal_status": "contas de 2023 do Ministério da Previdência sobrestadas pelo TCU até o julgamento do TC 007.871/2025-2 (Acórdão 2.252/2026-Plenário); sem julgamento de mérito",
+   "legal_status_date": "2026-08-25",
+   "party_at_time": "PDT como deputado federal de 2019 a 2023 (Câmara); em 2025 não verificado",
+   "status_source": "https://www.in.gov.br/web/dou/-/ata-n-32-de-25-de-agosto-de-2026-729951781"
+  },
+  {
+   "name": "Gilberto Waller Júnior",
+   "role_at_time": "Presidente do INSS (30/04/2025 a 13/04/2026)",
+   "group": "decided",
+   "acts": [
+    {
+     "act": "Assina o Acordo Interinstitucional pelo INSS",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    },
+    {
+     "act": "Portaria PRES/INSS nº 736 (afastamentos cautelares)",
+     "date": "2025-07-25",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-736-de-25-de-julho-de-2025-644495789"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Adriana Maia Venturini",
+   "role_at_time": "Procuradora-Geral Federal",
+   "group": "decided",
+   "acts": [
+    {
+     "act": "Assina o Acordo Interinstitucional pelo INSS",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Débora Aparecida Andrade Floriano",
+   "role_at_time": "Presidente substituta do INSS",
+   "group": "decided",
+   "acts": [
+    {
+     "act": "Despacho Decisório PRES/INSS nº 65 (suspende ACTs, repasses e descontos)",
+     "date": "2025-04-28",
+     "source_url": "https://www.in.gov.br/web/dou/-/despacho-decisorio-pres/inss-n-65-de-28-de-abril-de-2025-626430623"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Ana Cristina Viana Silveira",
+   "role_at_time": "Presidente do INSS (desde 13/04/2026)",
+   "group": "decided",
+   "acts": [
+    {
+     "act": "Portarias PRES/INSS de prorrogação de afastamentos (nº 952/2026 a 1.838/2026)",
+     "date": "2026-09-24",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.837-de-24-de-setembro-de-2026-734467435"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Vinícius de Carvalho",
+   "role_at_time": "Ministro da CGU",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Apresentou a Operação Sem Desconto e o relatório da CGU",
+     "date": "2025-04-23",
+     "source_url": "https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/fraude-no-inss-aposentados-e-pensionistas-tiveram-quase-r-6-3-bi-em-descontos-sem-autorizacao"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null,
+   "archive_url": "https://web.archive.org/web/20250430054541/https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/fraude-no-inss-aposentados-e-pensionistas-tiveram-quase-r-6-3-bi-em-descontos-sem-autorizacao"
+  },
+  {
+   "name": "Andrei Rodrigues",
+   "role_at_time": "Diretor-Geral da Polícia Federal",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Participou da apresentação da operação",
+     "date": "2025-04-23",
+     "source_url": "https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/fraude-no-inss-aposentados-e-pensionistas-tiveram-quase-r-6-3-bi-em-descontos-sem-autorizacao"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Aroldo Cedraz",
+   "role_at_time": "Ministro do TCU, relator do TC 032.069/2023-5",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Acórdão 1.115/2024-Plenário",
+     "date": "2024-06-05",
+     "source_url": "https://portal.tcu.gov.br/imprensa/noticias/auditoria-constata-irregularidades-em-descontos-na-folha-de-pagamento-de-aposentados"
+    },
+    {
+     "act": "Acórdão 1.019/2025-Plenário",
+     "date": "2025-05-07",
+     "source_url": "https://portal.tcu.gov.br/imprensa/noticias/tcu-nega-recursos-do-inss-em-processo-sobre-descontos-na-folha-de-aposentados"
+    },
+    {
+     "act": "Acórdão 2.538/2025-Plenário",
+     "date": "2025-10-29",
+     "source_url": "https://www.in.gov.br/web/dou/-/ata-n-43-de-29-de-outubro-de-2025-667765523"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Odair Cunha",
+   "role_at_time": "Ministro do TCU, relator do TC 007.871/2025-2",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Inspeção \"voltada à responsabilização dos envolvidos\" (citada no Acórdão 2.252/2026-Plenário)",
+     "date": "2026-08-25",
+     "source_url": "https://www.in.gov.br/web/dou/-/ata-n-32-de-25-de-agosto-de-2026-729951781"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Dias Toffoli",
+   "role_at_time": "Ministro do STF, relator da ADPF 1.236",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Homologa o Acordo Interinstitucional",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    },
+    {
+     "act": "Despacho sobre os limites fiscais",
+     "date": "2025-07-09",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378455298&ext=.pdf"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "André Mendonça",
+   "role_at_time": "Ministro do STF",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Relator dos procedimentos que expediram mandados da operação",
+     "date": "2025-12-18",
+     "source_url": "https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/12/cgu-e-pf-deflagram-nova-fase-da-operacao-sem-desconto"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Paulo Gustavo Gonet Branco",
+   "role_at_time": "Procurador-Geral da República",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Assina o Acordo Interinstitucional pelo MPF",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Nicolao Dino",
+   "role_at_time": "Procurador Federal dos Direitos do Cidadão",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Assina o Acordo Interinstitucional pelo MPF",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Anselmo Henrique Cordeiro Lopes",
+   "role_at_time": "Procurador da República",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Assina o Acordo Interinstitucional pelo MPF",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Elisandra de Oliveira Olímpio",
+   "role_at_time": "Procuradora da República",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Assina o Acordo Interinstitucional pelo MPF",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Fabiano de Moraes",
+   "role_at_time": "Procurador da República",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Assina o Acordo Interinstitucional pelo MPF",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Leonardo Cardoso de Magalhães",
+   "role_at_time": "Defensor Público-Geral Federal",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Assina o Acordo Interinstitucional pela DPU",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "José Alberto Ribeiro Simonetti Cabral",
+   "role_at_time": "Presidente do Conselho Federal da OAB (não é governo)",
+   "group": "signatory_non_government",
+   "acts": [
+    {
+     "act": "Assina o Acordo Interinstitucional pelo CFOAB",
+     "date": "2025-07-02",
+     "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Carlos Viana",
+   "role_at_time": "Senador, presidente da CPMI do INSS",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Eleito presidente da CPMI",
+     "date": "2025-08-20",
+     "source_url": "https://www12.senado.leg.br/noticias/materias/2025/08/20/cpmi-do-inss-carlos-viana-e-o-presidente-e-alfredo-gaspar-o-relator"
+    },
+    {
+     "act": "Encerra a CPMI sem relatório final",
+     "date": "2026-03-28",
+     "source_url": "https://www12.senado.leg.br/noticias/materias/2026/03/28/cpmi-do-inss-termina-sem-relatorio-final"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": "PODE (Senado, filiações; de 2023-02-01 a 2026-03-31)"
+  },
+  {
+   "name": "Alfredo Gaspar",
+   "role_at_time": "Deputado federal, relator da CPMI do INSS",
+   "group": "oversight",
+   "acts": [
+    {
+     "act": "Parecer rejeitado por 19 a 12",
+     "date": "2026-03-28",
+     "source_url": "https://www12.senado.leg.br/noticias/materias/2026/03/28/cpmi-do-inss-termina-sem-relatorio-final"
+    }
+   ],
+   "legal_status": "nenhuma decisão contra a pessoa ligada ao caso encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": "UNIÃO (Câmara, até 2026-04-29)"
+  },
+  {
+   "name": "Alessandro Antonio Stefanutto",
+   "role_at_time": "Presidente do INSS (05/07/2023 a 23/04/2025)",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Exonerado pela Portaria Casa Civil nº 489 (o ato não traz motivo)",
+     "date": "2025-04-23",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-n-489-de-23-de-abril-de-2025-625461333"
+    }
+   ],
+   "legal_status": "exonerado do cargo; sem denúncia recebida nem condenação encontrada em fonte oficial",
+   "legal_status_date": "2026-10-02",
+   "party_at_time": null
+  },
+  {
+   "name": "Carlos Roberto Lupi",
+   "role_at_time": "Ministro da Previdência Social (01/01/2023 a 02/05/2025)",
+   "group": "governed",
+   "acts": [
+    {
+     "act": "Exonerado a pedido (Decreto de 02/05/2025)",
+     "date": "2025-05-02",
+     "source_url": "https://www.in.gov.br/web/dou/-/decretos-de-2-de-maio-de-2025-626969164"
+    }
+   ],
+   "legal_status": "contas de 2023 do Ministério da Previdência sobrestadas pelo TCU até o julgamento do TC 007.871/2025-2 (Acórdão 2.252/2026-Plenário); sem julgamento de mérito",
+   "legal_status_date": "2026-08-25",
+   "party_at_time": "PDT só na imprensa, não confirmado em fonte oficial",
+   "status_source": "https://www.in.gov.br/web/dou/-/ata-n-32-de-25-de-agosto-de-2026-729951781"
+  },
+  {
+   "name": "Geovani Batista Spiecker",
+   "role_at_time": "Técnico do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2025-07-25",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-736-de-25-de-julho-de-2025-644495789"
+    },
+    {
+     "act": "Última prorrogação encontrada",
+     "date": "2026-09-15",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.769-de-15-de-setembro-de-2026-732133175"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição",
+   "legal_status_date": "2026-09-15",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  },
+  {
+   "name": "Reinaldo Carlos Barroso de Almeida",
+   "role_at_time": "Técnico do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2025-07-25",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-736-de-25-de-julho-de-2025-644495789"
+    },
+    {
+     "act": "Última prorrogação encontrada",
+     "date": "2026-09-15",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.769-de-15-de-setembro-de-2026-732133175"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição",
+   "legal_status_date": "2026-09-15",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  },
+  {
+   "name": "Vanderlei Barbosa dos Santos",
+   "role_at_time": "Técnico do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2025-07-25",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-736-de-25-de-julho-de-2025-644495789"
+    },
+    {
+     "act": "Última prorrogação encontrada",
+     "date": "2026-09-15",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.769-de-15-de-setembro-de-2026-732133175"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição",
+   "legal_status_date": "2026-09-15",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  },
+  {
+   "name": "Jucimar Fonseca da Silva",
+   "role_at_time": "Técnico do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2025-07-25",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-736-de-25-de-julho-de-2025-644495789"
+    },
+    {
+     "act": "Última prorrogação encontrada",
+     "date": "2026-09-15",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.769-de-15-de-setembro-de-2026-732133175"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição",
+   "legal_status_date": "2026-09-15",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  },
+  {
+   "name": "André Paulo Félix Fidelis",
+   "role_at_time": "Analista do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2025-09-26",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.383-de-26-de-setembro-de-2025-658716128"
+    },
+    {
+     "act": "Última prorrogação encontrada",
+     "date": "2026-09-15",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.769-de-15-de-setembro-de-2026-732133175"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição",
+   "legal_status_date": "2026-09-15",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  },
+  {
+   "name": "Alan do Nascimento Santos",
+   "role_at_time": "Técnico do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2026-03-17",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-544-de-17-de-marco-de-2026-693510880"
+    },
+    {
+     "act": "Última prorrogação encontrada",
+     "date": "2026-09-14",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.768-de-14-de-setembro-de-2026-731850464"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição",
+   "legal_status_date": "2026-09-14",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  },
+  {
+   "name": "Sandra Helena Lima do Nascimento",
+   "role_at_time": "Técnica do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2026-03-17",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-544-de-17-de-marco-de-2026-693510880"
+    },
+    {
+     "act": "Última prorrogação encontrada",
+     "date": "2026-09-14",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.768-de-14-de-setembro-de-2026-731850464"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição",
+   "legal_status_date": "2026-09-14",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  },
+  {
+   "name": "Francisco Assis Santos Mano Barreto",
+   "role_at_time": "Técnico do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2026-03-17",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-544-de-17-de-marco-de-2026-693510880"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição; nenhuma prorrogação encontrada depois da portaria inicial",
+   "legal_status_date": "2026-03-17",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  },
+  {
+   "name": "Marcos de Brito Campos Junior",
+   "role_at_time": "Analista do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2026-01-30",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-261-de-30-de-janeiro-de-2026-684587495"
+    },
+    {
+     "act": "Última prorrogação encontrada",
+     "date": "2026-08-04",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.553-de-4-de-agosto-de-2026-723494424"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição",
+   "legal_status_date": "2026-08-04",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  },
+  {
+   "name": "Rogerio Soares de Souza",
+   "role_at_time": "Técnico do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2026-01-30",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-261-de-30-de-janeiro-de-2026-684587495"
+    },
+    {
+     "act": "Última prorrogação encontrada",
+     "date": "2026-08-04",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.553-de-4-de-agosto-de-2026-723494424"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição",
+   "legal_status_date": "2026-08-04",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  },
+  {
+   "name": "Everaldo Felício de Macedo Junior",
+   "role_at_time": "Técnico do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2026-05-27",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.037-de-27-de-maio-de-2026-708799906"
+    },
+    {
+     "act": "Última prorrogação encontrada",
+     "date": "2026-09-24",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.837-de-24-de-setembro-de-2026-734467435"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição",
+   "legal_status_date": "2026-09-24",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  },
+  {
+   "name": "Juliana Maria Dias Peixoto",
+   "role_at_time": "Técnica do Seguro Social",
+   "group": "official_decision_against",
+   "acts": [
+    {
+     "act": "Afastamento cautelar (Portaria PRES/INSS, cita a Operação Sem Desconto)",
+     "date": "2026-07-28",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.498-de-28-de-julho-de-2026-721898586"
+    },
+    {
+     "act": "Última prorrogação encontrada",
+     "date": "2026-09-24",
+     "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-1.838-de-24-de-setembro-de-2026-734410676"
+    }
+   ],
+   "legal_status": "afastamento cautelar sem prejuízo da remuneração, renovável a cada 60 dias; PAD \"instaurado e avocado pela CGU\" não concluído; não é punição",
+   "legal_status_date": "2026-09-24",
+   "party_at_time": null,
+   "display_recommendation": "mostrar na tela só o número de servidores afastados e o ato; nome só no dado até decisão de mérito do PAD (decisão do autor, D51)"
+  }
+ ],
+ "governments": {
+  "case_period_note": "CGU: descontos de 2016 a maio de 2024; CGU e PF: R$ 6,3 bi de 2019 a 2024; acordo de devolução: março de 2020 a março de 2025. A lista começa em 2019.",
+  "president": [
+   {
+    "name": "Jair Messias Bolsonaro",
+    "role": "Presidente da República",
+    "start": "2019-01-01",
+    "end": "2023-01-01",
+    "party_at_time": "PSL na posse; sem partido de 2019-11-19 a 2021-11-30; PL a partir de 2021-11-30 (ver data/politicians/union.json)",
+    "start_act": "posse (art. 82 da Constituição)",
+    "start_source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+    "end_act": null,
+    "end_source_url": null,
+    "note": null
+   },
+   {
+    "name": "Luiz Inácio Lula da Silva",
+    "role": "Presidente da República",
+    "start": "2023-01-01",
+    "end": null,
+    "party_at_time": "PT (eleição de 2022, TSE)",
+    "start_act": "posse (art. 82 da Constituição)",
+    "start_source_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+    "end_act": null,
+    "end_source_url": null,
+    "note": null
+   }
+  ],
+  "minister_social_security": [
+   {
+    "name": "Paulo Guedes",
+    "role": "Ministro da Economia (Previdência era secretaria especial do ministério)",
+    "start": "2019-01-01",
+    "end": "2021-07-27",
+    "party_at_time": null,
+    "start_act": "ver data/politicians/union.json",
+    "start_source_url": null,
+    "end_act": "MP nº 1.058/2021 cria o Ministério do Trabalho e Previdência",
+    "end_source_url": "https://www.in.gov.br/web/dou/-/medida-provisoria-n-1.058-de-27-de-julho-de-2021-334838067",
+    "note": null
+   },
+   {
+    "name": "Rogério Simonetti Marinho",
+    "role": "Secretário Especial de Previdência e Trabalho (não ministro)",
+    "start": "2019-01-04",
+    "end": "2020-02",
+    "party_at_time": null,
+    "start_act": "Decreto de 04/01/2019",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/decreto-de-4-de-janeiro-de-2019-58061048",
+    "end_act": null,
+    "end_source_url": null,
+    "note": "partido não verificado em fonte oficial"
+   },
+   {
+    "name": "Bruno Bianco Leal",
+    "role": "Secretário Especial de Previdência e Trabalho (não ministro)",
+    "start": "2020-02-13",
+    "end": "2021-07",
+    "party_at_time": null,
+    "start_act": "Decreto de 13/02/2020 (DOU 14/02/2020)",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/decreto-de-13-de-fevereiro-de-2020-243341998",
+    "end_act": null,
+    "end_source_url": null,
+    "note": null
+   },
+   {
+    "name": "Onyx Dornelles Lorenzoni",
+    "role": "Ministro do Trabalho e Previdência",
+    "start": "2021-07-27",
+    "end": "2022-03-30",
+    "party_at_time": "DEM até 2022-02-23, depois UNIÃO (Câmara dos Deputados, histórico do deputado)",
+    "start_act": "Decreto de 27/07/2021 (DOU 28/07/2021)",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/decreto-de-27-de-julho-de-2021-334582875",
+    "end_act": "Decreto de 30/03/2022 (exonerado a pedido)",
+    "end_source_url": "https://www.in.gov.br/web/dou/-/decretos-de-30-de-marco-de-2022-389901652",
+    "note": "Exonerado a pedido em 11/11/2021 e renomeado em 19/11/2021 (Decretos dessas datas)."
+   },
+   {
+    "name": "José Carlos Oliveira",
+    "role": "Ministro do Trabalho e Previdência",
+    "start": "2022-03-30",
+    "end": "2022-12-31",
+    "party_at_time": null,
+    "start_act": "Decreto de 30/03/2022 (DOU 31/03/2022)",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/decretos-de-30-de-marco-de-2022-389901652",
+    "end_act": "Decreto de 31/12/2022 (DOU 01/01/2023)",
+    "end_source_url": "https://www.in.gov.br/web/dou/-/decreto-de-31-de-dezembro-de-2022-455344640",
+    "note": "partido não verificado"
+   },
+   {
+    "name": "Carlos Roberto Lupi",
+    "role": "Ministro da Previdência Social",
+    "start": "2023-01-01",
+    "end": "2025-05-02",
+    "party_at_time": "PDT só na imprensa, não confirmado em fonte oficial",
+    "start_act": "Decreto de 01/01/2023",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/decreto-de-1-de-janeiro-de-2023-455343670",
+    "end_act": "Decreto de 02/05/2025 (exonerado a pedido)",
+    "end_source_url": "https://www.in.gov.br/web/dou/-/decretos-de-2-de-maio-de-2025-626969164",
+    "note": null
+   },
+   {
+    "name": "Wolney Queiroz Maciel",
+    "role": "Ministro da Previdência Social",
+    "start": "2025-05-02",
+    "end": null,
+    "party_at_time": "PDT como deputado federal de 2019 a 2023 (Câmara); em 2025 não verificado",
+    "start_act": "Decreto de 02/05/2025",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/decretos-de-2-de-maio-de-2025-626969164",
+    "end_act": null,
+    "end_source_url": null,
+    "note": "No cargo em 30/09/2026 (Portaria MPS nº 1.424/2026)."
+   }
+  ],
+  "inss_president": [
+   {
+    "name": "Renato Rodrigues Vieira",
+    "role": "Presidente do INSS",
+    "start": "2019-01-15",
+    "end": "2020-01-28",
+    "party_at_time": null,
+    "start_act": "Portaria Casa Civil nº 516, de 15/01/2019",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-15-de-janeiro-de-2019-59261831",
+    "end_act": "Portaria nº 31, de 28/01/2020 (a pedido)",
+    "end_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-28-de-janeiro-de-2020-240349993",
+    "note": null
+   },
+   {
+    "name": "Leonardo José Rolim Guimarães",
+    "role": "Presidente do INSS",
+    "start": "2020-01-28",
+    "end": "2021-11-04",
+    "party_at_time": null,
+    "start_act": "Portaria nº 33, de 28/01/2020",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-28-de-janeiro-de-2020-240349993",
+    "end_act": "Portaria nº 1.262, de 04/11/2021 (designado Secretário de Previdência)",
+    "end_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-4-de-novembro-de-2021-356956039",
+    "note": null
+   },
+   {
+    "name": "José Carlos Oliveira",
+    "role": "Presidente do INSS",
+    "start": "2021-11-04",
+    "end": "2022-03-30",
+    "party_at_time": null,
+    "start_act": "Portaria nº 1.263, de 04/11/2021",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-4-de-novembro-de-2021-356956039",
+    "end_act": "nomeado ministro (Decreto de 30/03/2022)",
+    "end_source_url": "https://www.in.gov.br/web/dou/-/decretos-de-30-de-marco-de-2022-389901652",
+    "note": null
+   },
+   {
+    "name": "Guilherme Gastaldello Pinheiro Serrano",
+    "role": "Presidente do INSS",
+    "start": "2022-04-06",
+    "end": "2023-01-01",
+    "party_at_time": null,
+    "start_act": "Portaria nº 347, de 06/04/2022",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-6-de-abril-de-2022-391570764",
+    "end_act": "Portaria nº 135, de 01/01/2023",
+    "end_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-1-de-janeiro-de-2023-455354752",
+    "note": null
+   },
+   {
+    "name": "Glauco André Fonseca Wamburg",
+    "role": "Presidente do INSS (interino)",
+    "start": "2023-02-01",
+    "end": "2023-07-04",
+    "party_at_time": null,
+    "start_act": "Portaria nº 1.465, de 01/02/2023",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-1-de-fevereiro-de-2023-461831823",
+    "end_act": "Portaria nº 2.632, de 04/07/2023",
+    "end_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-4-de-julho-de-2023-494191499",
+    "note": null
+   },
+   {
+    "name": "Alessandro Antonio Stefanutto",
+    "role": "Presidente do INSS",
+    "start": "2023-07-04",
+    "end": "2025-04-23",
+    "party_at_time": null,
+    "start_act": "Portaria nº 2.633, de 04/07/2023",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-4-de-julho-de-2023-494191499",
+    "end_act": "Portaria nº 489, de 23/04/2025 (exonerado)",
+    "end_source_url": "https://www.in.gov.br/web/dou/-/portaria-n-489-de-23-de-abril-de-2025-625461333",
+    "note": null
+   },
+   {
+    "name": "Débora Aparecida Andrade Floriano",
+    "role": "Presidente substituta do INSS",
+    "start": "2025-04-28",
+    "end": "2025-04-28",
+    "party_at_time": null,
+    "start_act": "assina como \"Presidente Substituta\" o Despacho Decisório nº 65",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/despacho-decisorio-pres/inss-n-65-de-28-de-abril-de-2025-626430623",
+    "end_act": null,
+    "end_source_url": null,
+    "note": "só a data do ato; o período da substituição não foi levantado"
+   },
+   {
+    "name": "Gilberto Waller Júnior",
+    "role": "Presidente do INSS",
+    "start": "2025-04-30",
+    "end": "2026-04-13",
+    "party_at_time": null,
+    "start_act": "Portaria nº 530, de 30/04/2025",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/portaria-n-530-de-30-de-abril-de-2025-626984227",
+    "end_act": "Portaria nº 362, de 13/04/2026",
+    "end_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-13-de-abril-de-2026-699267256",
+    "note": null
+   },
+   {
+    "name": "Ana Cristina Viana Silveira",
+    "role": "Presidente do INSS",
+    "start": "2026-04-13",
+    "end": null,
+    "party_at_time": null,
+    "start_act": "Portaria nº 363, de 13/04/2026",
+    "start_source_url": "https://www.in.gov.br/web/dou/-/portarias-de-13-de-abril-de-2026-699267256",
+    "end_act": null,
+    "end_source_url": null,
+    "note": "No cargo em 24/09/2026 (Portaria PRES/INSS nº 1.837/2026)."
+   }
+  ],
+  "gaps": [
+   "Presidência do INSS sem titular nos atos encontrados: 2023-01-02 a 2023-01-31 e 2025-04-24 a 2025-04-29 (substitutos não levantados)."
+  ],
+  "party_rule": "Partido só quando registrado em fonte oficial (TSE, Câmara, Senado); servidores de carreira sem partido procurado."
+ },
+ "control_timeline": [
+  {
+   "date": "2024-06-05",
+   "body": "TCU",
+   "act": "Acórdão 1.115/2024-Plenário (TC 032.069/2023-5, relator Aroldo Cedraz): medida cautelar exige \"assinatura eletrônica avançada e biometria\" e \"bloqueio automático para todos os novos descontos\"; determina buscar o ressarcimento",
+   "source_url": "https://portal.tcu.gov.br/imprensa/noticias/auditoria-constata-irregularidades-em-descontos-na-folha-de-pagamento-de-aposentados"
+  },
+  {
+   "date": "2025-04-23",
+   "body": "CGU",
+   "act": "Publica o Relatório de Auditoria nº 1675291 (1.273 entrevistas)",
+   "source_url": "https://eaud.cgu.gov.br/relatorio/1675762"
+  },
+  {
+   "date": "2025-04-23",
+   "body": "PF e CGU",
+   "act": "Operação Sem Desconto: 211 mandados de busca, 6 prisões temporárias, sequestro de bens de mais de R$ 1 bi, 6 servidores afastados",
+   "source_url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2025/04/pf-e-cgu-investigam-descontos-irregulares-em-beneficios-do-inss"
+  },
+  {
+   "date": "2025-04-23",
+   "body": "Presidência (Casa Civil)",
+   "act": "Portaria nº 489: exonera o presidente do INSS",
+   "source_url": "https://www.in.gov.br/web/dou/-/portaria-n-489-de-23-de-abril-de-2025-625461333"
+  },
+  {
+   "date": "2025-04-28",
+   "body": "INSS",
+   "act": "Despacho Decisório PRES/INSS nº 65: suspende ACTs, repasses e descontos de mensalidade associativa",
+   "source_url": "https://www.in.gov.br/web/dou/-/despacho-decisorio-pres/inss-n-65-de-28-de-abril-de-2025-626430623"
+  },
+  {
+   "date": "2025-05-02",
+   "body": "Presidência",
+   "act": "Decretos de 02/05/2025: ministro da Previdência exonerado a pedido; nomeado o sucessor",
+   "source_url": "https://www.in.gov.br/web/dou/-/decretos-de-2-de-maio-de-2025-626969164"
+  },
+  {
+   "date": "2025-05-07",
+   "body": "TCU",
+   "act": "Acórdão 1.019/2025-Plenário: nega recursos do INSS e de três associações",
+   "source_url": "https://portal.tcu.gov.br/imprensa/noticias/tcu-nega-recursos-do-inss-em-processo-sobre-descontos-na-folha-de-aposentados"
+  },
+  {
+   "date": "2025-05-08",
+   "body": "AGU",
+   "act": "Ação cautelar: pede bloqueio de R$ 2,56 bi de 12 entidades (Lei Anticorrupção)",
+   "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-pede-bloqueio-de-r-2-56-bilhoes-de-associacoes-suspeitas-de-fraudes-contra-aposentados"
+  },
+  {
+   "date": "2025-05-12",
+   "body": "INSS",
+   "act": "Instrução Normativa PRES/INSS nº 186 (consulta, contestação e restituição)",
+   "source_url": "https://www.in.gov.br/web/dou/-/instrucao-normativa-pres/inss-n-186-de-12-de-maio-de-2025-628921963"
+  },
+  {
+   "date": "2025-06-12",
+   "body": "Justiça Federal (pedido da AGU)",
+   "act": "Bloqueio de R$ 2,8 bi nas 15 ações do primeiro lote",
+   "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/justica-bloqueia-r-2-8-bilhoes-de-investigados-por-fraude-no-inss"
+  },
+  {
+   "date": "2025-06-17",
+   "body": "STF",
+   "act": "ADPF 1.236 (relator Dias Toffoli): liminar em parte; convoca conciliação",
+   "source_url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=7287062"
+  },
+  {
+   "date": "2025-06-17",
+   "body": "PF",
+   "act": "Prisões preventivas e sequestro de imóveis (3ª Vara Federal de Sergipe)",
+   "source_url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2025/06/pf-deflagra-operacao-sem-desconto-contra-fraudes-no-inss"
+  },
+  {
+   "date": "2025-07-02",
+   "body": "STF",
+   "act": "Homologa o Acordo Interinstitucional (União, INSS, MPF, DPU, CFOAB); suspende a prescrição",
+   "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf"
+  },
+  {
+   "date": "2025-07-09",
+   "body": "STF",
+   "act": "Despacho: despesa do acordo fora dos limites da LC 200/2023 e da meta fiscal",
+   "source_url": "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378455298&ext=.pdf"
+  },
+  {
+   "date": "2025-07-16",
+   "body": "Presidência",
+   "act": "MP nº 1.306/2025: crédito extraordinário de R$ 3.312.824.545,00",
+   "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1306.htm"
+  },
+  {
+   "date": "2025-07-25",
+   "body": "INSS",
+   "act": "Portaria PRES/INSS nº 736: primeiros afastamentos cautelares ligados à operação",
+   "source_url": "https://www.in.gov.br/web/dou/-/portaria-pres/inss-n-736-de-25-de-julho-de-2025-644495789"
+  },
+  {
+   "date": "2025-08-20",
+   "body": "Congresso Nacional",
+   "act": "Instalada a CPMI do INSS",
+   "source_url": "https://www12.senado.leg.br/noticias/materias/2025/08/20/cpmi-do-inss-carlos-viana-e-o-presidente-e-alfredo-gaspar-o-relator"
+  },
+  {
+   "date": "2025-09-12",
+   "body": "PF",
+   "act": "Operação Cambota (desdobramento): 2 prisões preventivas autorizadas pelo STF",
+   "source_url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2025/09/policia-federal-deflagra-nova-fase-da-operacao-sem-desconto"
+  },
+  {
+   "date": "2025-10-09",
+   "body": "PF e CGU",
+   "act": "Nova fase: 66 mandados de busca expedidos pelo STF",
+   "source_url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2025/10/pf-com-apoio-da-cgu-deflagra-nova-fase-da-operacao-sem-desconto"
+  },
+  {
+   "date": "2025-10-29",
+   "body": "TCU",
+   "act": "Acórdão 2.538/2025-Plenário: tema em apuração nos TCs 016.470/2024-9, 007.869/2025-8 e 007.871/2025-2",
+   "source_url": "https://www.in.gov.br/web/dou/-/ata-n-43-de-29-de-outubro-de-2025-667765523"
+  },
+  {
+   "date": "2025-11",
+   "body": "Congresso Nacional",
+   "act": "MP nº 1.306/2025 perde a eficácia sem conversão em lei",
+   "source_url": "https://www.congressonacional.leg.br/materias/medidas-provisorias/-/mpv/169657",
+   "date_precision": "month"
+  },
+  {
+   "date": "2025-11-13",
+   "body": "PF e CGU",
+   "act": "Nova fase: 63 buscas e 10 prisões preventivas",
+   "source_url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2025/11/pf-e-cgu-deflagram-nova-fase-da-operacao-sem-desconto"
+  },
+  {
+   "date": "2025-12-18",
+   "body": "CGU e PF",
+   "act": "Nova fase: 52 buscas e 16 prisões; mandados do STF sob a relatoria do ministro André Mendonça",
+   "source_url": "https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/12/cgu-e-pf-deflagram-nova-fase-da-operacao-sem-desconto"
+  },
+  {
+   "date": "2025-12-20",
+   "body": "AGU",
+   "act": "Balanço: 37 ações cautelares, R$ 4,4 bi deferidos, R$ 514 mi efetivamente bloqueados; R$ 135 mi em ações regressivas",
+   "source_url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss"
+  },
+  {
+   "date": "2026-03-13",
+   "body": "STF",
+   "act": "Plenário (sessão virtual de 06 a 13/03/2026) referenda a cautelar e homologa o acordo com interpretação conforme (pagamento com presunção de boa-fé do segurado)",
+   "source_url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=7287062",
+   "registered_on": "2026-03-16"
+  },
+  {
+   "date": "2026-03-28",
+   "body": "Congresso Nacional",
+   "act": "CPMI termina sem relatório final: parecer do relator rejeitado por 19 a 12",
+   "source_url": "https://www12.senado.leg.br/noticias/materias/2026/03/28/cpmi-do-inss-termina-sem-relatorio-final"
+  },
+  {
+   "date": "2026-07-20",
+   "body": "Presidência",
+   "act": "MP nº 1.378/2026: crédito extraordinário de R$ 547.000.000,00",
+   "source_url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1378.htm"
+  },
+  {
+   "date": "2026-08-25",
+   "body": "TCU",
+   "act": "Acórdão 2.252/2026-Plenário: sobrestá as contas de 2023 do Ministério da Previdência de quatro gestores até o julgamento do TC 007.871/2025-2",
+   "source_url": "https://www.in.gov.br/web/dou/-/ata-n-32-de-25-de-agosto-de-2026-729951781"
+  }
+ ],
+ "comparison": {
+  "kind": "share_of_rgps_benefits",
+  "text_pt": "Descontos associativos de cada ano em relação ao total pago em benefícios previdenciários do RGPS no mesmo ano.",
+  "why_pt": "Mesma base de dinheiro (o benefício do qual saía o desconto), mesmo período, duas fontes oficiais. Mostra que o desconto é fração pequena do RGPS (0,136% de 2019 a 2024) e que essa fração quase triplicou de 2019 (0,097%) para 2024 (0,281%), enquanto os benefícios cresceram 1,5 vez.",
+  "rows": [
+   {
+    "year": 2019,
+    "deductions_brl": 604600000.0,
+    "rgps_benefits_brl": 626510380000.0,
+    "share_pct": 0.097,
+    "deductions_estimate": false
+   },
+   {
+    "year": 2020,
+    "deductions_brl": 510900000.0,
+    "rgps_benefits_brl": 663904390000.0,
+    "share_pct": 0.077,
+    "deductions_estimate": false
+   },
+   {
+    "year": 2021,
+    "deductions_brl": 536300000.0,
+    "rgps_benefits_brl": 709582500000.0,
+    "share_pct": 0.076,
+    "deductions_estimate": false
+   },
+   {
+    "year": 2022,
+    "deductions_brl": 706200000.0,
+    "rgps_benefits_brl": 796976560000.0,
+    "share_pct": 0.089,
+    "deductions_estimate": false
+   },
+   {
+    "year": 2023,
+    "deductions_brl": 1299800000.0,
+    "rgps_benefits_brl": 898872910000.0,
+    "share_pct": 0.145,
+    "deductions_estimate": false
+   },
+   {
+    "year": 2024,
+    "deductions_brl": 2637200000.0,
+    "rgps_benefits_brl": 938544540000.0,
+    "share_pct": 0.281,
+    "deductions_estimate": true
+   }
+  ],
+  "total": {
+   "deductions_brl": 6295000000.0,
+   "rgps_benefits_brl": 4634391280000.0,
+   "share_pct": 0.136
+  },
+  "caveats_pt": [
+   "A CGU diz que os descontos estão subestimados em cerca de 20% (com isso, cerca de 0,16% no período).",
+   "2024 é estimativa da CGU.",
+   "Os benefícios do RTN incluem 13º e sentenças judiciais.",
+   "A fração média esconde que o desconto atingia parte dos beneficiários (6 milhões segundo a CGU, de 40,1 milhões de benefícios pagos em maio de 2024)."
+  ],
+  "alternative": "BEPS, tabela 18 (valor bruto dos benefícios emitidos), em data/series/federal-by-uf-monthly.json (inss_gross_benefit_value): 0,157% de 2019 a 2024.",
+  "sources": [
+   {
+    "source_body": "CGU",
+    "source_url": "https://eaud.cgu.gov.br/relatorio/1675762",
+    "quote": "Gráfico 1, Total dos Descontos"
+   },
+   {
+    "source_body": "Tesouro Nacional",
+    "source_url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326",
+    "quote": "Tabela 1.1, linha 4.1 Benefícios Previdenciários (R$ milhões), arquivo serie_historica_ago26.xlsx",
+    "page": "https://www.tesourotransparente.gov.br/publicacoes/boletim-resultado-do-tesouro-nacional-rtn/2026/8"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "name": "CGU, Relatório de Auditoria nº 1675291 (23/04/2025)",
+   "url": "https://eaud.cgu.gov.br/relatorio/1675762",
+   "pdf": "https://eaud.cgu.gov.br/relatorios/download/1675762"
+  },
+  {
+   "name": "CGU, notícia de 23/04/2025 (operação e coletiva)",
+   "url": "https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/fraude-no-inss-aposentados-e-pensionistas-tiveram-quase-r-6-3-bi-em-descontos-sem-autorizacao",
+   "archive_url": "https://web.archive.org/web/20250430054541/https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/fraude-no-inss-aposentados-e-pensionistas-tiveram-quase-r-6-3-bi-em-descontos-sem-autorizacao"
+  },
+  {
+   "name": "CGU, notícia de 23/04/2025 (deflagração)",
+   "url": "https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/cgu-e-pf-combatem-descontos-nao-autorizados-em-beneficios-do-inss",
+   "archive_url": "https://web.archive.org/web/20250423150501/https://www.gov.br/cgu/pt-br/assuntos/noticias/2025/04/cgu-e-pf-combatem-descontos-nao-autorizados-em-beneficios-do-inss"
+  },
+  {
+   "name": "PF, notícia de 23/04/2025",
+   "url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2025/04/pf-e-cgu-investigam-descontos-irregulares-em-beneficios-do-inss"
+  },
+  {
+   "name": "INSS, notícia de 01/04/2026 (balanço do ressarcimento)",
+   "url": "https://www.gov.br/inss/pt-br/assuntos/governo-federal-ja-devolveu-mais-de-r-3-bilhoes-a-beneficiarios-vitimas-de-descontos-indevidos",
+   "archive_url": "https://web.archive.org/web/20260513032519/https://www.gov.br/inss/pt-br/assuntos/governo-federal-ja-devolveu-mais-de-r-3-bilhoes-a-beneficiarios-vitimas-de-descontos-indevidos"
+  },
+  {
+   "name": "AGU, notícias de 08/05/2025, 12/06/2025 e 20/12/2025",
+   "url": "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-ajuiza-dois-novos-lotes-de-acoes-contra-associacoes-envolvidas-em-fraudes-do-inss",
+   "others": [
+    "https://www.gov.br/agu/pt-br/comunicacao/noticias/agu-pede-bloqueio-de-r-2-56-bilhoes-de-associacoes-suspeitas-de-fraudes-contra-aposentados",
+    "https://www.gov.br/agu/pt-br/comunicacao/noticias/justica-bloqueia-r-2-8-bilhoes-de-investigados-por-fraude-no-inss"
+   ]
+  },
+  {
+   "name": "Planalto, MP nº 1.306/2025 e MP nº 1.378/2026; EXM nº 1.689/2026",
+   "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/mpv/mpv1306.htm",
+   "others": [
+    "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/mpv/mpv1378.htm",
+    "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/exm/exm-mp-1378-26.pdf"
+   ]
+  },
+  {
+   "name": "Senado, Nota Técnica de adequação orçamentária da MPV 1.378/2026",
+   "url": "https://www12.senado.leg.br/orcamento/documentos/estudos/tipos-de-estudos/notas-tecnicas-de-adequacao-orcamentaria-e-financeira/nota_tecnica_mpv_1378_2026.pdf"
+  },
+  {
+   "name": "Congresso Nacional, tramitação da MPV 1.306/2025",
+   "url": "https://www.congressonacional.leg.br/materias/medidas-provisorias/-/mpv/169657"
+  },
+  {
+   "name": "STF, ADPF 1.236 (decisões de 02/07/2025, 09/07/2025 e Plenário de 2026)",
+   "url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=7287062",
+   "others": [
+    "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378368128&ext=.pdf",
+    "https://portal.stf.jus.br/processos/downloadPeca.asp?id=15378455298&ext=.pdf"
+   ]
+  },
+  {
+   "name": "CGU, Portal da Transparência, execução da despesa mensal (ação 00XK)",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202507"
+  },
+  {
+   "name": "TCU, notícias dos Acórdãos 1.115/2024 e 1.019/2025; DOU, Atas 43/2025 e 32/2026 do Plenário",
+   "url": "https://portal.tcu.gov.br/imprensa/noticias/auditoria-constata-irregularidades-em-descontos-na-folha-de-pagamento-de-aposentados",
+   "others": [
+    "https://portal.tcu.gov.br/imprensa/noticias/tcu-nega-recursos-do-inss-em-processo-sobre-descontos-na-folha-de-aposentados"
+   ]
+  },
+  {
+   "name": "Agência Senado, CPMI do INSS (20/08/2025 e 28/03/2026)",
+   "url": "https://www12.senado.leg.br/noticias/materias/2025/08/20/cpmi-do-inss-carlos-viana-e-o-presidente-e-alfredo-gaspar-o-relator",
+   "others": [
+    "https://www12.senado.leg.br/noticias/materias/2026/03/28/cpmi-do-inss-termina-sem-relatorio-final"
+   ]
+  },
+  {
+   "name": "Tesouro Nacional, RTN série histórica (ago/2026)",
+   "url": "https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326"
+  },
+  {
+   "name": "Diário Oficial da União (nomeações, exonerações, despacho e portarias do INSS)",
+   "url": "https://www.in.gov.br/"
+  }
+ ],
+ "not_confirmed": [
+  "Balanço do ressarcimento depois de 01/04/2026 em fonte oficial (as notícias do gov.br estavam restritas); \"R$ 3,26 bi a 4,8 milhões\" só na imprensa. O pago pela ação 00XK no Portal da Transparência cobre a lacuna.",
+  "Valor já devolvido aos cofres públicos pelas entidades (só há bloqueios e cobranças).",
+  "Quanto as próprias entidades devolveram diretamente aos beneficiários pela IN 186/2025.",
+  "Número de indiciados pela PF em 2026 (só na imprensa); indiciamento não entra em GD23.",
+  "Denúncia recebida ou condenação ligada ao caso: nenhuma encontrada.",
+  "Partido de Carlos Lupi (PDT) e de Wolney Queiroz em 2025 em fonte oficial; partido de Rogério Marinho em 2019.",
+  "Quem assinou cada ACT de mensalidade associativa pelo INSS (cópias em gov.br/inss/pt-br/acesso-a-informacao/acordos-de-cooperacao-tecnica-acts-de-mensalidades-associativas; não levantado).",
+  "Resultado dos PARs da CGU e do INSS contra entidades e do PAD avocado pela CGU.",
+  "Data exata em que a MP 1.306/2025 perdeu a eficácia (a EXM diz \"novembro de 2025\")."
+ ],
+ "people_rule": "GD23: entra quem tem papel em documento oficial (decidiu, assinou, fiscalizou, foi alvo de decisão oficial), com o ato e o link. Ficam fora, sem nome: investigados só em inquérito, pessoas com bens bloqueados por liminar, os nomes do parecer rejeitado da CPMI, indiciados pela PF e dois gestores citados no Acórdão 2.252/2026 do TCU só para citação ou audiência.",
+ "people_excluded_counts": {
+  "cpmi_rejected_report_indictment_requests": {
+   "value_text": "mais de 200",
+   "source_url": "https://www12.senado.leg.br/noticias/materias/2026/03/28/cpmi-do-inss-termina-sem-relatorio-final",
+   "quote": "o texto do relator pedia o indiciamento de mais de 200 pessoas"
+  },
+  "servants_suspended_by_court_on_2025_04_23": {
+   "value": 6,
+   "source_url": "https://www.gov.br/pf/pt-br/assuntos/noticias/2025/04/pf-e-cgu-investigam-descontos-irregulares-em-beneficios-do-inss",
+   "quote": "Seis servidores públicos foram afastados de suas funções.",
+   "note": "sem nomes no documento oficial"
+  }
+ }
+}

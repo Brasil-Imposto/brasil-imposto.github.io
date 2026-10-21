@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Os 3 Poderes · rodada 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Brasil-Imposto's own tokens (the home and the state modal): ink on paper, Manrope, green and red only for the colour law */
+  :root { --ink:#14202B; --ink2:#3C4A57; --muted:#5B6773; --faint:#8A95A1; --line:#E3E7EC; --paper:#FFFFFF; --soft:#F6F8FA;
+          --green:#12803F; --red:#B41E25; --blue:#1E5FAF; --teal:#1C958B;
+          --exe:#1E5FAF; --leg:#0B5F5A; --jud:#6B3A8C; }
+  * { box-sizing:border-box; }
+  html { color-scheme:light; font-variant-ligatures:no-common-ligatures; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:'Manrope', system-ui, sans-serif; -webkit-font-smoothing:antialiased; font-size:15px; line-height:1.5; }
+  button, select, input, textarea { font:inherit; color:inherit; }
+  a { color:var(--blue); }
+  .in { max-width:1240px; margin:0 auto; padding:0 24px; }
+  .in.wide { max-width:1488px; }
+
+  /* the site's nav */
+  .nav { border-bottom:1px solid var(--line); background:rgba(255,255,255,.92); backdrop-filter:blur(8px); position:sticky; top:0; z-index:20; }
+  .nav .in { display:flex; align-items:center; justify-content:space-between; gap:16px; height:62px; }
+  .wordmark { display:flex; align-items:center; gap:10px; font-weight:800; font-size:16px; letter-spacing:-.01em; white-space:nowrap; }
+  .wordmark i { font-style:normal; color:var(--faint); }
+  .wm-flag { width:28px; height:20px; border-radius:4px; box-shadow:0 0 0 1px rgba(20,32,43,.14); object-fit:cover; }
+  .nav nav { display:flex; gap:20px; align-items:center; font-size:13.5px; font-weight:700; color:var(--muted); }
+  .nav nav span.on { color:var(--ink); box-shadow:0 2px 0 var(--ink); padding-bottom:3px; } .nav nav a { color:inherit; text-decoration:none; } .nav nav a.cta { color:#fff; }
+  .nav .cta { color:#fff; background:var(--green); border-radius:99px; padding:6px 14px; }
+  .eyebrow { font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+
+  /* page head */
+  .head { padding:38px 0 26px; background:radial-gradient(110% 120% at 50% 0%, #FFFFFF 0%, #F8FAFB 60%, #EEF2F5 100%); border-bottom:1px solid var(--line); }
+  .head h1 { font-size:clamp(28px, 3.4vw, 44px); line-height:1.06; letter-spacing:-.03em; margin:10px 0 12px; font-weight:800; max-width:22ch; }
+  .head h1 em { font-style:normal; color:var(--green); }
+  .head p { margin:0; color:var(--ink2); font-size:16px; max-width:70ch; }
+  .facts3 { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:12px; margin-top:22px; }
+  .fact { background:#fff; border:1px solid var(--line); border-radius:16px; padding:12px 14px; }
+  .fact b { display:block; font-size:22px; letter-spacing:-.015em; font-variant-numeric:tabular-nums; }
+  .fact span { display:block; font-size:12.5px; color:var(--muted); line-height:1.4; margin-top:2px; }
+
+  .sec { padding:40px 0 46px; border-bottom:1px solid var(--line); }
+  .sec.alt { background:var(--soft); }
+  .sec-top { display:flex; justify-content:space-between; align-items:flex-end; gap:16px 24px; flex-wrap:wrap; margin-bottom:16px; }
+  .sec-top h2 { margin:6px 0 4px; font-size:clamp(24px, 2.6vw, 32px); letter-spacing:-.025em; }
+  .sec-top p { margin:0; color:var(--muted); font-size:14.5px; max-width:72ch; }
+
+  /* the site's pill switch (Por habitante / Total / Proporção) */
+  .mini-switch { display:inline-flex; gap:2px; padding:3px; background:#EDF0F3; border-radius:99px; }
+  .mini-switch button { font-size:12.5px; font-weight:700; color:var(--muted); background:none; border:0; border-radius:99px; padding:7px 14px; cursor:pointer; white-space:nowrap; display:inline-flex; align-items:center; gap:7px; }
+  .mini-switch button[aria-pressed="true"] { background:#fff; color:var(--ink); box-shadow:0 1px 3px rgba(20,32,43,.14); }
+  .mini-switch .ico { width:20px; height:20px; border-radius:50%; overflow:hidden; background:#E3E7EC; display:inline-grid; place-items:center; position:relative; }
+  .mini-switch .ico svg { width:15px; height:15px; margin-top:5px; } .mini-switch .ico img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 20%; }
+  .modebox { display:grid; gap:10px; justify-items:end; }
+  .legend { display:flex; flex-wrap:wrap; gap:14px; font-size:12.5px; color:var(--muted); align-items:center; }
+  .legend span { display:inline-flex; align-items:center; gap:6px; }
+
+  /* status marks: the colour law (green uses, red does not), amber for what is still to collect */
+  .st { flex:none; width:20px; height:20px; border-radius:50%; display:inline-grid; place-items:center; font-size:11.5px; font-weight:900; align-self:center; }
+  .st.yes { background:#E3F3E8; color:var(--green); box-shadow:inset 0 0 0 1px #BFE3CB; }
+  .st.no { background:#FCE9EA; color:var(--red); box-shadow:inset 0 0 0 1px #F3C6C9; }
+  .st.unknown { background:#FFF4DA; color:#7A5200; box-shadow:inset 0 0 0 1px #F1DFA8; }
+  .st.info { background:#EEF1F4; color:var(--muted); box-shadow:inset 0 0 0 1px #DCE2E8; font-style:normal; }
+  .chip { display:inline-block; font-size:10.5px; font-weight:800; border-radius:6px; padding:0 6px; background:#FFF4DA; color:#7A5200; white-space:nowrap; }
+  .chip.grp { background:#EEF1F4; color:var(--ink2); }
+  .party { display:inline-block; font-size:11px; font-weight:800; color:#fff; background:var(--ink); border-radius:6px; padding:1px 6px; white-space:nowrap; }
+
+  /* ---------- the tree ---------- */
+  .stage { position:relative; border-radius:20px; overflow-x:auto; overflow-y:hidden; border:1px solid var(--line);
+           background:radial-gradient(circle, #DCE2E8 1px, transparent 1.2px) 0 0 / 22px 22px, var(--soft); }
+  .tree { position:relative; min-width:1392px; padding:30px 28px 40px; display:grid; grid-template-columns:repeat(6, minmax(0, 1fr)); column-gap:18px; row-gap:64px; align-items:start; }
+  .edges { position:absolute; inset:0; pointer-events:none; overflow:visible; }
+  .node { position:relative; z-index:1; background:#fff; border:1px solid var(--line); border-top:3px solid var(--pc, var(--ink)); border-radius:16px; padding:12px 13px 11px;
+          box-shadow:0 14px 30px -22px rgba(20,32,43,.45); }
+  .node.root { justify-self:center; width:min(470px, 100%); text-align:center; border-top-color:var(--ink); }
+  .node.root .ttl { font-size:18px; } .rootnote { font-size:12.5px; color:var(--muted); margin-top:4px; }
+  .node.head { justify-self:center; width:min(320px, 100%); }
+  .node .hd { display:flex; gap:11px; align-items:center; }
+  .ph { flex:none; position:relative; width:50px; height:60px; border-radius:10px; overflow:hidden; background:#E3E7EC; display:grid; place-items:end center; }
+  .ph svg { width:40px; height:46px; }
+  .ph img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 18%; }
+  .node .pw { font-size:10px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; color:var(--pc, var(--muted)); }
+  .node .ttl { font-weight:800; font-size:14.5px; line-height:1.22; }
+  .node .sub { font-size:12px; color:var(--muted); margin-top:2px; line-height:1.4; }
+  .node .sub b { color:var(--ink); }
+  .rows { margin-top:9px; border-top:1px solid var(--line); }
+  .r { display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:1px 8px; padding:6px 0; border-bottom:1px solid #EEF1F4; font-size:12.5px; align-items:center; }
+  .r .lb { color:var(--ink2); font-weight:600; min-width:0; }
+  .r .vl { font-weight:800; text-align:right; font-variant-numeric:tabular-nums; min-width:0; }
+  .r .vl > span { display:block; white-space:nowrap; }
+  .r .vl small { display:block; font-size:10.5px; font-weight:700; color:var(--faint); }
+  .r .nt { grid-column:1 / -1; font-size:11px; color:var(--faint); line-height:1.35; overflow-wrap:anywhere; }
+  .r.person { grid-template-columns:minmax(0, 1fr) auto 20px; }
+  .r.person .nt { grid-column:1 / 3; }
+  .r.off .lb, .r.off .vl { color:var(--faint); font-weight:600; }
+  .tot { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:2px 8px; margin-top:8px; padding-top:8px; border-top:2px solid var(--ink); }
+  .tot span { font-size:11px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
+  .tot b { font-size:17px; font-variant-numeric:tabular-nums; white-space:nowrap; letter-spacing:-.01em; margin-left:auto; }
+  .tot.sub { border-top:1px solid var(--line); margin-top:6px; padding-top:6px; } .tot.sub b { font-size:14px; }
+  .tnote { font-size:11px; color:var(--faint); margin-top:4px; line-height:1.4; }
+  .stats { margin-top:9px; border-top:1px solid var(--line); }
+  .go { margin-top:10px; width:100%; border:1px solid var(--ink); background:var(--ink); color:#fff; border-radius:10px; padding:7px 10px; font-size:12.5px; font-weight:800; cursor:pointer; }
+  .go:hover { background:#24333F; }
+  .hint { position:absolute; right:16px; bottom:12px; font-size:12px; color:var(--muted); z-index:2; }
+
+  /* the President and his spouse, side by side; the spouse holds no office, so her card is a companion, not a position */
+  .pair { display:flex; align-items:stretch; justify-self:stretch; min-width:0; position:relative; z-index:1; }
+  .pair .node.head { width:auto; flex:1 1 auto; min-width:0; }
+  .tie { flex:0 0 16px; align-self:center; border-top:2px dashed #AEB8C2; position:relative; }
+  .node.spouse { flex:0 0 148px; padding:11px 10px 10px; border-top-style:dashed; }
+  .node.spouse .hd { flex-direction:column; align-items:flex-start; gap:6px; }
+  .node.spouse .r { grid-template-columns:1fr; } .node.spouse .r .vl { text-align:left; }
+  .node.spouse .r.person { grid-template-columns:minmax(0, 1fr) 20px; } .node.spouse .r.person .lb, .node.spouse .r.person .nt { grid-column:1 / -1; }
+  .node.spouse .tot { flex-direction:column; align-items:flex-start; } .node.spouse .tot b { margin-left:0; font-size:15px; }
+  .cost { margin-top:10px; padding:9px 10px; border-radius:12px; background:#F6F8FA; border:1px solid var(--line); }
+  .cost-h { font-size:10.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+  .cost .r { border-bottom-color:#E7EBEF; }
+  .cost .tot { border-top-width:1px; margin-top:4px; padding-top:6px; }
+  .cost-row { display:grid; grid-template-columns:minmax(0, 1fr) auto; gap:2px 10px; padding:7px 0; border-bottom:1px solid #EEF1F4; font-size:13.5px; }
+  .cost-row.sub { padding-left:14px; font-size:12.5px; color:var(--ink2); }
+  .cost-row b { font-variant-numeric:tabular-nums; white-space:nowrap; text-align:right; }
+  .cost-row .nt { grid-column:1 / -1; font-size:11.5px; color:var(--faint); line-height:1.4; }
+  .cost-row .tag { display:inline-block; font-size:10.5px; font-weight:800; border-radius:6px; padding:0 6px; margin-left:6px; background:#E3F3E8; color:var(--green); }
+  .cost-row .tag.out { background:#EEF1F4; color:var(--muted); }
+  .trip-list { list-style:none; margin:6px 0 0; padding:0; } .trip-list li { padding:8px 0; border-bottom:1px solid #EEF1F4; font-size:13px; }
+  .trip-list .tl-top { display:flex; justify-content:space-between; gap:10px; } .trip-list .tl-top b { white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .trip-list small { display:block; color:var(--faint); font-size:11.5px; line-height:1.4; margin-top:2px; }
+  .full2 { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:14px; margin-top:14px; }
+  @media (max-width: 980px) { .full2 { grid-template-columns:1fr; } }
+
+  /* the money split: what goes to the person, what pays the mandate and the staff */
+  .split { display:flex; height:8px; border-radius:99px; overflow:hidden; background:#EEF1F4; margin-top:7px; }
+  .split i { display:block; height:100%; } .split .own { background:var(--ink2); } .split .mand { background:var(--teal); }
+  .split-lg { display:flex; flex-wrap:wrap; gap:2px 12px; margin-top:5px; font-size:11px; color:var(--muted); }
+  .split-lg span { display:inline-flex; flex-wrap:wrap; align-items:center; gap:0 5px; } .split-lg b { color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .split-lg i { width:8px; height:8px; border-radius:50%; } .split-lg .own { background:var(--ink2); } .split-lg .mand { background:var(--teal); }
+
+  /* ---------- the directory ---------- */
+  .note { display:block; font-size:13px; line-height:1.5; color:#6B5310; background:#FFF8E1; border:1px solid #F0D48A; border-radius:12px; padding:10px 13px; margin:0 0 16px; }
+  .note b { color:#5A4410; }
+  .tools { display:grid; grid-template-columns:minmax(0, 1.6fr) auto repeat(3, minmax(0, .8fr)); gap:10px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:16px; padding:10px; }
+  .search { position:relative; }
+  .search input { width:100%; border:1px solid var(--line); background:var(--soft); border-radius:11px; padding:10px 12px 10px 38px; font-size:14.5px; font-weight:600; outline:none; }
+  .search input:focus { border-color:var(--ink2); background:#fff; }
+  .search svg { position:absolute; left:12px; top:50%; transform:translateY(-50%); width:17px; height:17px; color:var(--faint); }
+  .tools select { width:100%; border:1px solid var(--line); background:#fff; border-radius:11px; padding:9px 10px; font-size:13px; font-weight:700; color:var(--ink2); }
+  .count { margin:14px 2px 10px; font-size:13px; color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .count b { color:var(--ink); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:12px; }
+  .pc { background:#fff; border:1px solid var(--line); border-radius:18px; padding:13px 14px 12px; display:flex; flex-direction:column; transition:box-shadow .15s, transform .15s; }
+  .pc:hover { box-shadow:0 16px 30px -22px rgba(20,32,43,.5); transform:translateY(-1px); }
+  .pc.cmp { box-shadow:0 0 0 2px var(--ink) inset; }
+  .who { display:flex; gap:11px; align-items:center; min-width:0; }
+  .who strong { display:block; font-size:15px; line-height:1.22; letter-spacing:-.005em; }
+  .meta { display:flex; flex-wrap:wrap; gap:5px 8px; align-items:center; margin-top:4px; font-size:12px; color:var(--muted); font-weight:700; }
+  .meta .uf { display:inline-flex; align-items:center; gap:4px; } .meta .uf img { width:17px; height:12px; border-radius:2px; box-shadow:0 0 0 1px rgba(20,32,43,.14); object-fit:cover; }
+  .pc .rows { flex:1; }
+  .pc-ft { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:11px; }
+  .btn { border:1px solid var(--line); background:#fff; border-radius:10px; padding:7px 12px; font-size:12.5px; font-weight:800; cursor:pointer; color:var(--ink); }
+  .btn:hover { border-color:var(--ink2); }
+  .btn.dark { background:var(--ink); border-color:var(--ink); color:#fff; } .btn.dark:hover { background:#24333F; }
+  .cmpbox { display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:700; color:var(--muted); cursor:pointer; user-select:none; }
+  .cmpbox input { width:16px; height:16px; accent-color:var(--ink); margin:0; }
+  .more { display:flex; justify-content:center; margin-top:16px; }
+  .empty { padding:40px 10px; text-align:center; color:var(--muted); font-weight:700; }
+
+  /* compare tray */
+  .tray { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:30; display:flex; align-items:center; gap:12px; background:var(--ink); color:#fff;
+          border-radius:99px; padding:8px 8px 8px 14px; box-shadow:0 18px 40px -16px rgba(20,32,43,.6); font-size:13px; font-weight:700; max-width:calc(100% - 32px); }
+  .tray[hidden] { display:none; }
+  .tray .faces { display:flex; } .tray .faces span { width:28px; height:28px; border-radius:50%; overflow:hidden; background:#3C4A57; margin-left:-6px; box-shadow:0 0 0 2px var(--ink); position:relative; }
+  .tray .faces span:first-child { margin-left:0; } .tray .faces img { width:100%; height:100%; object-fit:cover; object-position:50% 18%; }
+  .tray button { border:0; border-radius:99px; padding:7px 13px; font-weight:800; font-size:12.5px; cursor:pointer; }
+  .tray .open { background:#fff; color:var(--ink); } .tray .clear { background:transparent; color:#C3CFDB; }
+
+  /* ---------- the modal (same sheet as the state modal) ---------- */
+  .back { position:fixed; inset:0; z-index:40; background:rgba(20,32,43,.42); display:flex; justify-content:center; align-items:flex-start; padding:4vh 16px; overflow-y:auto; }
+  .back[hidden] { display:none; }
+  .sheet { position:relative; width:min(880px, 100%); background:#fff; border-radius:22px; box-shadow:0 30px 70px -30px rgba(20,32,43,.6); padding:18px 22px 22px; }
+  .sheet.wide { width:min(1120px, 100%); }
+  .crumb { font-size:12px; font-weight:700; color:var(--faint); margin-bottom:12px; padding-right:40px; }
+  .crumb b { color:var(--ink2); }
+  .x { position:absolute; right:14px; top:12px; border:0; background:#EEF1F4; border-radius:99px; width:32px; height:32px; cursor:pointer; font-size:16px; font-weight:800; color:var(--ink2); }
+  .p-head { display:grid; grid-template-columns:auto minmax(0, 1fr); gap:16px; align-items:center; margin-bottom:16px; }
+  .p-head .ph { width:92px; height:110px; border-radius:14px; } .p-head .ph svg { width:74px; height:84px; }
+  .p-head h2 { margin:0; font-size:28px; letter-spacing:-.02em; line-height:1.1; }
+  .p-head .meta { font-size:13px; margin-top:6px; }
+  .links { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+  .links a, .links button { font-size:12.5px; font-weight:800; text-decoration:none; color:var(--blue); background:#EEF4FC; border:0; border-radius:99px; padding:5px 11px; cursor:pointer; }
+  .links .fix { color:#7A5200; background:#FFF4DA; }
+  .p-cols { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:18px; }
+  .box { border:1px solid var(--line); border-radius:16px; padding:13px 14px; background:#fff; }
+  .box.soft { background:var(--soft); }
+  .box h4 { margin:0 0 4px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); }
+  .box .rows { border-top:0; margin-top:4px; }
+  .box .r { font-size:13.5px; } .box .r .nt { font-size:12px; }
+  .big { display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-top:10px; padding-top:10px; border-top:2px solid var(--ink); }
+  .big span { font-size:12px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); } .big b { font-size:24px; letter-spacing:-.015em; font-variant-numeric:tabular-nums; }
+  .bars { display:grid; grid-template-columns:repeat(12, minmax(0, 1fr)); gap:4px; align-items:end; height:120px; margin-top:10px; }
+  .bars div { display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%; gap:3px; min-width:0; }
+  .bars i { display:block; width:100%; max-width:26px; border-radius:5px 5px 2px 2px; background:var(--ink2); }
+  .bars .part i { background:repeating-linear-gradient(135deg, #AEB8C2 0 4px, #C9D1D9 4px 8px); }
+  .bars .zero i { background:#E3E7EC; height:2px !important; }
+  .bars small { font-size:10px; font-weight:700; color:var(--faint); }
+  .bars-note { font-size:11.5px; color:var(--faint); margin-top:6px; line-height:1.4; }
+  .bars-max { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); font-weight:700; margin-top:8px; }
+  .others { list-style:none; margin:4px 0 0; padding:0; font-size:13px; } .others li { display:flex; justify-content:space-between; gap:10px; padding:6px 0; border-bottom:1px solid #EEF1F4; }
+  .others li b { white-space:nowrap; }
+  .fixform { margin-top:14px; border:1px dashed #E0B44A; background:#FFFBEF; border-radius:14px; padding:12px 14px; display:grid; gap:8px; }
+  .fixform[hidden] { display:none; }
+  .fixform label { display:grid; gap:4px; font-size:12px; font-weight:800; color:var(--ink2); }
+  .fixform textarea, .fixform input { border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:13.5px; background:#fff; font-weight:500; }
+  .fixform textarea { min-height:70px; resize:vertical; }
+  .fixform p { margin:0; font-size:11.5px; color:#6B5310; }
+  .srcs { margin:14px 0 0; font-size:11.5px; color:var(--faint); line-height:1.5; }
+  .srcs a { color:inherit; }
+  .cmp-grid { display:grid; gap:12px; overflow-x:auto; }
+  .cmp-col { min-width:250px; }
+
+  /* bills: what each parliamentarian presented and what became of it */
+  .bl-sum { display:flex; flex-wrap:wrap; gap:6px 14px; align-items:baseline; margin:8px 0 2px; font-size:12px; color:var(--muted); }
+  .bl-sum b { color:var(--ink); font-size:13px; }
+  .bl-bar { display:flex; height:7px; border-radius:99px; overflow:hidden; background:#EEF1F4; margin-top:5px; }
+  .bl-bar i { display:block; height:100%; }
+  .o-law { --oc:#0E6B34; } .o-ok { --oc:#3FA36B; } .o-prog { --oc:#1E5FAF; } .o-stop { --oc:#AEB8C2; } .o-no { --oc:#B41E25; } .o-unk { --oc:#E0B44A; }
+  .bl-bar i { background:var(--oc); }
+  .bills { margin-top:14px; }
+  .bills .head2 { display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; align-items:center; }
+  .bills h3 { margin:0; font-size:17px; }
+  .bl-filters { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
+  .bl-filters button { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); background:#fff; border-radius:99px; padding:4px 10px; font-size:12px; font-weight:700; color:var(--ink2); cursor:pointer; }
+  .bl-filters button i { width:9px; height:9px; border-radius:50%; background:var(--oc, #AEB8C2); }
+  .bl-filters button[aria-pressed="true"] { border-color:var(--ink); box-shadow:0 0 0 1px var(--ink) inset; color:var(--ink); }
+  .bl-q { width:100%; border:1px solid var(--line); background:var(--soft); border-radius:10px; padding:8px 11px; font-size:13.5px; font-weight:600; outline:none; }
+  .bl-list { list-style:none; margin:10px 0 0; padding:0; display:grid; gap:8px; }
+  .bl-list li { border:1px solid var(--line); border-left:4px solid var(--oc, #AEB8C2); border-radius:12px; padding:9px 12px; background:#fff; }
+  .bl-top { display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 10px; align-items:baseline; }
+  .bl-top b { font-size:14px; } .bl-top time { font-size:11.5px; color:var(--faint); font-weight:700; }
+  .bl-pill { display:inline-block; font-size:11px; font-weight:800; border-radius:99px; padding:1px 8px; color:#fff; background:var(--oc); margin-left:8px; white-space:nowrap; }
+  .o-stop .bl-pill, .bl-list li.o-stop .bl-pill { color:#3C4A57; } .o-unk .bl-pill { color:#5A4410; }
+  .bl-e { margin:5px 0 0; font-size:13px; line-height:1.45; color:var(--ink2); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  .bl-e.open { -webkit-line-clamp:unset; display:block; }
+  .bl-st { margin:5px 0 0; font-size:11.5px; color:var(--faint); line-height:1.4; } .bl-st a { color:var(--blue); font-weight:700; text-decoration:none; }
+  .bl-more { display:flex; justify-content:center; margin-top:10px; }
+  .bl-note { font-size:11.5px; color:var(--faint); margin-top:8px; line-height:1.45; }
+
+  /* sources and round notes */
+  .cols2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:16px 18px; }
+  .card h3 { margin:0 0 8px; font-size:16px; }
+  .card ul { margin:0; padding-left:18px; color:var(--ink2); font-size:13.5px; } .card li { margin:4px 0; }
+  .qs { counter-reset:q; display:grid; gap:10px; margin-top:6px; }
+  .q { background:#fff; border:1px solid var(--line); border-radius:16px; padding:13px 16px; }
+  .q h4 { margin:0; font-size:15px; } .q h4 span { display:inline-grid; place-items:center; width:24px; height:24px; border-radius:50%; background:var(--ink); color:#fff; font-size:12px; margin-right:8px; }
+  .q p { margin:6px 0 0; font-size:13.5px; color:var(--ink2); }
+  .q .rec { margin-top:8px; font-size:13px; font-weight:700; color:#6B5310; background:#FFF8E1; border-radius:10px; padding:6px 10px; }
+  .foot { padding:22px 0 60px; color:var(--muted); font-size:12.5px; }
+
+  @media (max-width: 980px) {
+    .tools { grid-template-columns:1fr 1fr; } .search { grid-column:1 / -1; } .tools .mini-switch { grid-column:1 / -1; justify-self:start; flex-wrap:wrap; max-width:100%; border-radius:16px; }
+    .p-cols, .cols2 { grid-template-columns:1fr; }
+  }
+  @media (max-width: 640px) {
+    .in { padding:0 16px; }
+    .nav nav > :not(.on) { display:none; }
+    .facts3 { grid-template-columns:1fr; } .modebox { justify-items:start; }
+    .head { padding-top:26px; }
+    .grid { grid-template-columns:1fr; }
+    .sheet { padding:14px 14px 18px; border-radius:18px; } .back { padding:10px 8px; }
+    .p-head .ph { width:72px; height:86px; } .p-head h2 { font-size:22px; }
+    .tray { bottom:10px; gap:8px; font-size:12px; } .tray .label { display:none; }
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="in">
+    <a class="wordmark" href="BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html" style="color:inherit;text-decoration:none"><img class="wm-flag" src="assets/flags/br.svg" alt="Bandeira do Brasil"><span>Brasil<i>·</i>Imposto</span></a>
+    <nav><a href="BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html">Início</a><span class="on">Os 3 Poderes</span><a href="BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html">Como o dinheiro anda</a><a class="cta" href="BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html#apoie">Apoie</a></nav>
+  </div>
+</header>
+
+<section class="head">
+  <div class="in">
+    <div class="eyebrow">Os 3 Poderes · União · 2026</div>
+    <h1>Quanto ganha cada cargo, e o que cada parlamentar <em>usa</em></h1>
+    <p>O salário e cada auxílio dos cargos da União, com o valor oficial. E, para cada pessoa que ocupa esses cargos, o que recebe e o que usa em 2026, os projetos de cada parlamentar e a página oficial onde conferir cada número.</p>
+    <div class="facts3" data-facts></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="in wide">
+    <div class="sec-top">
+      <div>
+        <div class="eyebrow">Executivo · Legislativo · Judiciário</div>
+        <h2>A árvore dos cargos</h2>
+        <p>Quem chefia cada Poder no topo, os cargos descendo. O botão troca o cargo por quem o ocupa em 2026.</p>
+      </div>
+      <div class="modebox">
+        <div class="mini-switch" role="group" aria-label="O que mostrar">
+          <button type="button" data-mode="cargo" aria-pressed="true"><span class="ico" data-ico-cargo></span>Cargos</button>
+          <button type="button" data-mode="pessoa" aria-pressed="false"><span class="ico" data-ico-pessoa></span>Quem ocupa em 2026</button>
+        </div>
+        <div class="legend"><span><i class="st yes">✓</i>usa</span><span><i class="st no">✗</i>não usa</span><span><i class="st unknown">?</i>a coletar</span></div>
+      </div>
+    </div>
+    <div class="stage" data-stage>
+      <div class="tree" data-tree></div>
+      <div class="hint" data-hint>arraste para o lado para ver a árvore toda ›</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="parlamentares">
+  <div class="in">
+    <div class="sec-top">
+      <div>
+        <div class="eyebrow">Câmara · Senado · Executivo · Judiciário</div>
+        <h2>Quem ocupa cada cargo</h2>
+        <p>Todos os deputados e senadores em exercício, o presidente, o vice e os ministros de Estado, e os ministros dos tribunais superiores. Busque pelo nome, pelo partido, pelo estado ou pelo tribunal: o salário, cada auxílio com ✓ se usa e ✗ se não usa, quanto recebeu ou usou em 2026, os projetos de cada parlamentar e a página oficial.</p>
+      </div>
+    </div>
+    <div class="note"><b>Cota e verba de gabinete não são salário.</b> <span>A cota paga despesas do mandato com nota fiscal (passagens, escritório, combustível, divulgação); a verba de gabinete paga a equipe. O total por mês soma tudo o que a pessoa usa e mostra as duas partes separadas.</span></div>
+    <div class="tools">
+      <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" data-q placeholder="Nome, partido, estado ou tribunal" aria-label="Buscar" autocomplete="off"></label>
+      <div class="mini-switch" role="group" aria-label="Casa" data-houses></div>
+      <select data-uf aria-label="Estado"></select>
+      <select data-party aria-label="Partido"></select>
+      <select data-sort aria-label="Ordem">
+        <option value="name">Nome (A a Z)</option>
+        <option value="total">Total por mês (maior primeiro)</option>
+        <option value="ceap-desc">Cota usada em 2026 (maior primeiro)</option>
+        <option value="ceap-asc">Cota usada em 2026 (menor primeiro)</option>
+      </select>
+    </div>
+    <div class="count"><span data-count></span><span data-asof></span></div>
+    <div class="grid" data-grid></div>
+    <div class="more"><button class="btn" type="button" data-more hidden></button></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="in">
+    <div class="cols2">
+      <div class="card"><h3>De onde vem cada número</h3><ul data-sources></ul></div>
+      <div class="card"><h3>O que nenhuma fonte oficial publica</h3>
+        <ul>
+          <li>Quem tem passaporte diplomático no Senado: o direito está no Decreto 5.978/2006, mas nem o Senado nem o Itamaraty publicam a lista (a Câmara publica a de cada deputado).</li>
+          <li>Um valor em reais para as residências oficiais (Alvorada e Jaburu) e para os imóveis funcionais.</li>
+          <li>O salário de três ministros licenciados da Câmara (Guilherme Boulos, José Guimarães e Alexandre Padilha): o Portal da Transparência não mostra pagamento e a Câmara não publica salário de deputado licenciado. O de Wellington Dias, senador licenciado, está na folha do Senado.</li>
+          <li>Setembro e outubro de 2026 do Executivo e dos tribunais, e fevereiro, março, julho e agosto do STJ: ainda não publicados. A média por mês de cada um usa os meses que a instituição publicou.</li>
+          <li>Fotos oficiais de 6 ministros, 5 ministros do STJ, 1 do TST, dos 15 do STM e dos juristas do TSE; datas de posse do TST e do STM. A ficha mostra a silhueta e a data em branco.</li>
+          <li>Os atos de 2026 que fixam o auxílio-alimentação do TST e do STM e o auxílio-saúde de cada tribunal: a ficha mostra o que cada tribunal pagou.</li>
+          <li>Deputados estaduais: ficam para uma contribuição pelo GitHub, no mesmo formato.</li>
+        </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="in">
+    <div class="eyebrow">Prévia de desenho · rodada 3</div>
+    <h2 style="margin:6px 0 4px;font-size:26px;letter-spacing:-.02em">Decisões desta rodada</h2>
+    <p style="margin:6px 0 0;color:var(--ink2);font-size:14px">As cinco decisões da rodada 3 (lista em ordem alfabética, total com a barra que separa a pessoa do mandato, comparar até três, link de cada ficha, média de janeiro a julho) ficam como recomendado.</p>
+    <div class="qs">
+      <div class="q"><h4><span>1</span>Projetos: quem conta como autor</h4><p>A ficha conta como projeto da pessoa só o que ela propôs (autor principal ou coautor que assina como proponente, regra do Regimento da Câmara, art. 102). As assinaturas de apoio a uma PEC de outra pessoa (são precisas 171) ficam fora: para Erika Hilton são 7, para Nikolas Ferreira 17.</p><div class="rec">Recomendação: só o que a pessoa propôs, a mesma regra da barra "Influência". Uma assinatura de apoio não é um projeto apresentado.</div></div>
+      <div class="q"><h4><span>2</span>Equipe do gabinete dos senadores</h4><p>O Senado não publica uma verba de gabinete em reais. A ficha soma os salários brutos de todos os que trabalham no gabinete e nos escritórios do senador, inclusive servidores de carreira, e por isso fica bem acima da verba de gabinete de um deputado, que paga só os secretários parlamentares.</p><div class="rec">Recomendação: manter a equipe inteira, que é o custo real, com a nota de diferença sempre à vista.</div></div>
+    </div>
+  </div>
+</section>
+<div class="in foot">Prévia de desenho, rodada 3. Valores do salário e dos auxílios lidos nas páginas oficiais em 21/10/2026; uso de cada parlamentar em 2026. Nada aqui é publicado.</div>
+
+<div class="tray" data-tray hidden><div class="faces" data-faces></div><span class="label" data-tray-label></span><button class="open" type="button" data-cmp-open>Comparar</button><button class="clear" type="button" data-cmp-clear>Limpar</button></div>
+<div class="back" data-back hidden><div class="sheet" data-sheet role="dialog" aria-modal="true"></div></div>
+
+<script src="assets/tres-poderes-r3-data.js"></script>
+<script>
+(function () {
+  const D = window.TP3, P = D.positions, byId = Object.fromEntries(P.map((p) => [p.id, p]));
+  const PEOPLE = D.people, person = Object.fromEntries(PEOPLE.map((x) => [x.id, x]));
+  const R = D.rules, AVG = D.avg_months;
+  const nf = (v, d = 2) => v.toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const brl = (v) => `R$ ${nf(v)}`;
+  const int = (v) => v.toLocaleString('pt-BR');
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const plain = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toUpperCase();
+  const MON = ['', 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+  const MONTHS = ['', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+  const HOUSE = { camara: 'Câmara', senado: 'Senado', executivo: 'Executivo', judiciario: 'Judiciário' };
+  const HOUSE_FULL = { camara: 'Câmara dos Deputados', senado: 'Senado Federal', executivo: 'Poder Executivo', judiciario: 'Poder Judiciário' };
+  const PARL = (x) => x.house === 'camara' || x.house === 'senado';
+  const place = (x) => (x.house === 'judiciario' ? x.court : x.house === 'executivo' ? 'Executivo' : HOUSE[x.house]);
+  const POWER = { 'Executivo': 'var(--exe)', 'Legislativo': 'var(--leg)', 'Judiciário': 'var(--jud)' };
+  const SIL = '<svg viewBox="0 0 40 46" aria-hidden="true"><circle cx="20" cy="15" r="9" fill="#5B6773"/><path d="M2 46c0-11 8-17 18-17s18 6 18 17z" fill="#5B6773"/></svg>';
+  const ph = (x, lazy) => `<span class="ph">${SIL}${x && x.photo ? `<img src="${esc(x.photo)}" alt="" ${lazy ? 'loading="lazy"' : ''} onerror="this.remove()">` : ''}</span>`;
+  const flag = (uf) => `<span class="uf"><img src="assets/state-flags/${esc(uf)}.svg" alt="">${esc(uf)}</span>`;
+  const mark = (s) => `<i class="st ${s}" aria-label="${s === 'yes' ? 'usa' : s === 'no' ? 'não usa' : s === 'info' ? 'informação' : 'a coletar'}">${s === 'yes' ? '✓' : s === 'no' ? '✗' : s === 'info' ? 'i' : '?'}</i>`;
+  const status = (v) => (v === true ? 'yes' : v === false ? 'no' : 'unknown');
+
+  // ---------- a minister or judge: each component the institution publishes, as published (a negative is a discount)
+  function genericModel(x) {
+    const rows = x.items.map((it) => {
+      if (it.info) {  // shown for context, never summed (net pay, the presidency's card, a discount)
+        const has = it.monthly != null && it.monthly !== 0;
+        return { k: it.key, label: it.label, s: 'info', v: has ? `<span>${brl(it.monthly)}</span><small>por mês</small>` : '', m: 0, own: it.own,
+                 nt: [(it.note || '').split('. ')[0], has ? 'não entra no total' : ''].filter(Boolean).join('; '), src: it.source };
+      }
+      const s = it.uses === true || (it.monthly || 0) < 0 ? (it.monthly < 0 ? 'no' : 'yes') : it.uses === false ? 'no' : 'unknown';
+      const v = it.monthly ? `<span>${it.monthly < 0 ? '−' : ''}${brl(Math.abs(it.monthly))}</span><small>por mês</small>` : s === 'no' ? 'não recebe' : s === 'yes' ? 'sem valor publicado' : '';
+      const nt = it.monthly ? [it.year_total != null ? `${brl(it.year_total)} em 2026` : '', it.months ? `média de ${it.months}` : ''].filter(Boolean).join(', ')
+        : s === 'unknown' ? (it.note || '').split('. ')[0] : '';
+      return { k: it.key, label: it.label, s, v, m: it.monthly || 0, own: it.own, nt, chip: 'não publicado', src: it.source };
+    });
+    const total = rows.reduce((a, r) => a + r.m, 0), own = rows.filter((r) => r.own).reduce((a, r) => a + r.m, 0);
+    return { rows, total, own, partial: rows.some((r) => r.s === 'unknown'), generic: true };
+  }
+
+  // ---------- one parliamentarian: salary and each allowance, with what is used and the monthly total
+  function model(x) {
+    if (!PARL(x)) return genericModel(x);
+    const cam = x.house === 'camara', rows = [], last = AVG[x.house];
+    const period = x.avg_months ? `média de ${x.avg_months < last ? MONTHS[last - x.avg_months + 1] : 'janeiro'} a ${MONTHS[last]}` : '';
+    rows.push({ k: 'salary', label: 'Salário', s: 'yes', v: brl(x.salary), m: x.salary, own: true, nt: cam ? 'bruto, todo mês' : 'valor do cargo, todo mês' });
+    const hv = cam ? R.housing_camara : R.housing_senado, hs = status(x.housing.uses);
+    rows.push({ k: 'housing', label: 'Auxílio-moradia', s: hs, v: hs === 'yes' ? brl(hv) : hs === 'no' ? 'não recebe' : '', m: hs === 'yes' ? hv : 0, own: true,
+                nt: hs === 'yes' ? (x.housing.received ? `recebeu ${brl(x.housing.received)} em 2026` : 'por mês') : '' });
+    // the housing complement is paid out of the cota and the Câmara counts it there; it is housing for the person, so it
+    // gets its own row on the person's side and leaves the cota row (the total does not change)
+    const hc = x.housing_complement, hcAvg = hc && hc.avg ? hc.avg : 0;
+    if (hc) rows.push({ k: 'housing_complement', label: 'Complementação do auxílio-moradia', s: 'yes', v: `<span>${brl(hcAvg)}</span><small>por mês</small>`, m: hcAvg, own: true,
+                        nt: `paga pela cota: ${brl(hc.year_total)} em 2026; ${period}` });
+    const fs = status(x.flat.uses);
+    const past = fs === 'yes' && x.flat.now === false;
+    rows.push({ k: 'flat', label: 'Imóvel funcional', s: fs, v: fs === 'yes' ? (past ? 'usou' : 'usa') : fs === 'no' ? 'não usa' : '', m: 0,
+                nt: fs === 'yes' ? `${past ? 'até ' + x.flat.until + '; ' : x.flat.since ? 'desde ' + x.flat.since + '; ' : ''}sem valor em reais publicado` : '' });
+    const c = x.ceap;
+    if (c && c.used > 0 && c.avg == null) rows.push({ k: 'ceap', label: cam ? 'Cota parlamentar' : 'Cota (CEAPS)', s: 'yes', v: `<span>${brl(c.used)}</span><small>em 2026</small>`, m: 0, own: false, noavg: true,
+                nt: `sem média por mês: os registros começam depois de ${MONTHS[last]}` });
+    else if (c && c.used > 0) rows.push({ k: 'ceap', label: cam ? 'Cota parlamentar' : 'Cota (CEAPS)', s: 'yes', v: `<span>${brl(c.avg - hcAvg)}</span><small>por mês</small>`, m: c.avg - hcAvg, own: false,
+                nt: `usou ${brl(c.used)} em 2026${cam ? ` (${nf(c.pct, 1)}% do que podia no ano)` : `, lançado até ${x.updated} (${nf(c.pct, 1)}% do limite do ano)`}${hc ? `, incluindo ${brl(hc.year_total)} da complementação da moradia, mostrada na linha própria` : ''}; ${period}` });
+    else rows.push({ k: 'ceap', label: cam ? 'Cota parlamentar' : 'Cota (CEAPS)', s: c && c.used === 0 ? 'no' : 'unknown', v: c && c.used === 0 ? 'não usou' : '', m: 0,
+                nt: c ? `${x.exercise_since && x.exercise_since >= '2026-01-01' ? `em exercício desde ${dmy(x.exercise_since)}; ` : ''}nenhum gasto registrado em 2026 até agora` : 'nenhum lançamento no arquivo de 2026' });
+    const o = x.office;
+    if (o && o.kind === 'staff') {
+      if (o.avg != null) rows.push({ k: 'office', label: 'Equipe do gabinete', s: 'yes', v: `<span>${brl(o.avg)}</span><small>por mês</small>`, m: o.avg, own: false,
+                nt: `salários brutos de ${int(o.staff)} pessoas do gabinete e dos escritórios, média de ${o.months_label}; inclui servidores de carreira (na Câmara, a verba de gabinete paga só os secretários parlamentares)` });
+      else rows.push({ k: 'office', label: 'Equipe do gabinete', s: 'unknown', chip: 'sem mês inteiro', v: '', m: 0, nt: `${int(o.staff)} pessoas na equipe; ${o.none_reason}` });
+    } else if (o && o.used > 0 && o.avg == null) rows.push({ k: 'office', label: 'Verba de gabinete', s: 'yes', v: `<span>${brl(o.used)}</span><small>em 2026</small>`, m: 0, own: false, noavg: true,
+                nt: `sem média por mês: os registros começam depois de ${MONTHS[last]}` });
+    else if (o && o.used > 0) rows.push({ k: 'office', label: 'Verba de gabinete', s: 'yes', v: `<span>${brl(o.avg)}</span><small>por mês</small>`, m: o.avg, own: false,
+                nt: `usou ${brl(o.used)} em 2026 (${nf(o.pct, 1)}% do que podia) para pagar a equipe; ${period}` });
+    else rows.push({ k: 'office', label: 'Verba de gabinete', s: o && o.used === 0 ? 'no' : 'unknown', v: o && o.used === 0 ? 'não usou' : '', m: 0,
+                nt: o ? `nenhum gasto registrado em 2026 até ${MONTHS[last]}` : 'a coletar no Senado' });
+    const total = rows.reduce((a, r) => a + r.m, 0), own = rows.filter((r) => r.own).reduce((a, r) => a + r.m, 0);
+    return { rows, total, own, partial: rows.some((r) => (r.s === 'unknown' && r.k !== 'flat') || r.noavg) };
+  }
+  function dmy(d) { return d ? d.split('-').reverse().join('/') : ''; }
+  const rowHTML = (r, notes = true) => `<div class="r person${r.s === 'no' ? ' off' : ''}"><span class="lb">${esc(r.label)}</span><span class="vl">${r.s === 'unknown' ? `<span class="chip">${esc(r.chip || 'a coletar')}</span>` : r.v}</span>${mark(r.s)}${notes && r.nt ? `<span class="nt">${esc(r.nt)}</span>` : ''}</div>`;
+  const splitHTML = (M) => {
+    if (M.total - M.own < 0.005) return '';  // nothing pays an office: the whole total goes to the person
+    const a = M.total ? (M.own / M.total) * 100 : 100;
+    return `<div class="split" aria-hidden="true"><i class="own" style="width:${a}%"></i><i class="mand" style="width:${100 - a}%"></i></div>`
+      + `<div class="split-lg"><span><i class="own"></i>para a pessoa <b>${brl(M.own)}</b></span><span><i class="mand"></i>mandato e equipe <b>${brl(M.total - M.own)}</b></span></div>`;
+  };
+  const totHTML = (M, label = 'Total por mês') => `<div class="tot"><span>${label}</span><b>${brl(M.total)}</b></div>${M.partial ? '<div class="tnote"><span class="chip">parcial</span> falta parte do dado; nunca uma estimativa</div>' : ''}${splitHTML(M)}`;
+
+  // ---------- bills: the outcome of each one, as the shared rules classify it (bill_outcomes.py)
+  const OUTC = { law: ['Virou lei', 'law'], approved: ['Aprovado, ainda sem lei', 'ok'], approved_with_another_bill: ['Aprovado junto com outro projeto', 'ok'],
+    in_progress: ['Em tramitação', 'prog'], archived_end_of_term: ['Arquivado no fim do mandato', 'stop'], archived_reason_not_stated: ['Arquivado', 'stop'],
+    prejudged: ['Prejudicado', 'stop'], withdrawn: ['Retirado pelo autor', 'stop'], returned_to_author: ['Devolvido ao autor', 'stop'],
+    rejected: ['Rejeitado', 'no'], vetoed: ['Vetado', 'no'], status_not_published: ['Situação não publicada', 'unk'] };
+  const ORDER = Object.keys(OUTC);
+  const billKey = (b) => (b.law ? 'law' : b.o);
+  // per role counts by display key, from the summary built with the data (laws are a subset of "approved")
+  const billCounts = (x, role) => { const s = x.bills && x.bills[role]; if (!s) return null; const c = Object.assign({}, s.counts); return c; };
+  const barHTML = (c) => { const n = ORDER.reduce((a, k) => a + (c[k] || 0), 0); return n ? `<div class="bl-bar" aria-hidden="true">${ORDER.filter((k) => c[k]).map((k) => `<i class="o-${OUTC[k][1]}" style="width:${(c[k] / n) * 100}%"></i>`).join('')}</div>` : ''; };
+  function billsLine(x) {
+    const c = billCounts(x, 'main'); if (!c) return '';
+    const n = ORDER.reduce((a, k) => a + (c[k] || 0), 0), co = billCounts(x, 'co'), nco = co ? ORDER.reduce((a, k) => a + (co[k] || 0), 0) : 0;
+    const ok = (c.approved || 0) + (c.approved_with_another_bill || 0);
+    return `<div class="r"><span class="lb">Projetos como autor principal</span><span class="vl">${int(n)}</span>`
+      + `<span class="nt">${int(c.law || 0)} viraram lei · ${int(ok)} aprovados ainda sem lei · ${int(c.in_progress || 0)} em tramitação · ${int((c.rejected || 0) + (c.vetoed || 0))} rejeitados ou vetados${nco ? ` · coautor de mais ${int(nco)}` : ''}</span></div>${barHTML(c)}`;
+  }
+  const loaded = {};
+  function loadBills(id) {
+    if (window.TP3B && window.TP3B[id]) return Promise.resolve(window.TP3B[id]);
+    if (loaded[id]) return loaded[id];
+    return (loaded[id] = new Promise((ok, fail) => { const s = document.createElement('script'); s.src = `assets/tres-poderes-bills/${id.replace(':', '-')}.js`;
+      s.onload = () => ok((window.TP3B || {})[id] || []); s.onerror = () => fail(new Error('bills not found')); document.head.appendChild(s); }));
+  }
+  const billLink = (x, b) => (x.house === 'camara' ? `https://www.camara.leg.br/propostas-legislativas/${b.id}` : `https://www25.senado.leg.br/web/atividade/materias/-/materia/${b.id}`);
+  function billsSection(x) {
+    const st = { role: 'main', key: '', q: '', shown: 20 }, box = document.createElement('div'); box.className = 'box bills'; box.dataset.bills = x.id;
+    box.innerHTML = `<div class="head2"><h3>Projetos apresentados</h3><div class="mini-switch" role="group" aria-label="Autoria"><button type="button" data-role="main" aria-pressed="true">Autor principal</button><button type="button" data-role="co" aria-pressed="false">Coautor</button></div></div><div data-bl>Carregando os projetos...</div>`;
+    loadBills(x.id).then((all) => {
+      const body = box.querySelector('[data-bl]');
+      const draw = () => {
+        const mine = all.filter((b) => b.r === (st.role === 'main' ? 'm' : 'c')), c = {};
+        mine.forEach((b) => { c[billKey(b)] = (c[billKey(b)] || 0) + 1; });
+        const q = plain(st.q).trim(), hit = mine.filter((b) => (!st.key || billKey(b) === st.key) && (!q || plain(`${b.t} ${b.n}/${b.y} ${b.e}`).includes(q)));
+        const years = all.map((b) => +b.y).filter(Boolean), span = years.length ? `${Math.min(...years)}${Math.max(...years) > Math.min(...years) ? ` a ${Math.max(...years)}` : ''}` : '';
+        body.innerHTML = `<div class="bl-sum"><span><b>${int(mine.length)}</b> ${st.role === 'main' ? 'como autor principal' : 'como coautor'}</span><span>${x.house === 'camara' ? 'na Câmara' : 'no Senado'}${span ? `, de ${span}` : ''}</span></div>${barHTML(c)}`
+          + `<div class="bl-filters">${ORDER.filter((k) => c[k]).map((k) => `<button type="button" class="o-${OUTC[k][1]}" data-okey="${k}" aria-pressed="${st.key === k}"><i></i>${OUTC[k][0]} ${int(c[k])}</button>`).join('')}</div>`
+          + `<input class="bl-q" type="search" data-blq placeholder="Buscar no texto dos projetos" value="${esc(st.q)}">`
+          + `<ul class="bl-list">${hit.slice(0, st.shown).map((b) => { const k = billKey(b), cls = OUTC[k] ? OUTC[k][1] : 'stop';
+              return `<li class="o-${cls}"><div class="bl-top"><span><b>${esc(b.t)} ${esc(b.n)}/${esc(b.y)}</b><span class="bl-pill">${esc(OUTC[k] ? OUTC[k][0] : b.o)}</span></span><time>apresentado em ${dmy(b.d)}</time></div>`
+              + `<p class="bl-e" data-clamp>${esc(b.e) || 'Sem ementa publicada.'}</p>`
+              + `<p class="bl-st">Última situação${b.u ? ` (${dmy(b.u)})` : ''}: ${esc(b.s || 'não publicada')}${b.norma ? ` · ${esc(b.norma)}` : ''}${b.tr && b.tr !== b.s ? ` · ${esc(b.tr)}` : ''} · <a href="${billLink(x, b)}" target="_blank" rel="noopener">ver no site ${x.house === 'camara' ? 'da Câmara' : 'do Senado'} ↗</a></p></li>`; }).join('')}</ul>`
+          + (hit.length > st.shown ? `<div class="bl-more"><button class="btn" type="button" data-blmore>Mostrar mais 20 de ${int(hit.length - st.shown)}</button></div>` : '')
+          + (hit.length ? '' : '<div class="bl-note">Nenhum projeto com esse filtro.</div>')
+          + `<div class="bl-note">Projetos de lei, de lei complementar, de emenda à Constituição e de decreto legislativo (PL, PLP, PEC, PDL e os códigos antigos PDC, PLS e PDS). A situação é a última publicada pela ${x.house === 'camara' ? 'Câmara' : 'Senado'}; "aprovado, ainda sem lei" inclui projeto aprovado numa Casa e parado na outra.</div>`;
+      };
+      box.addEventListener('click', (e) => {
+        const r = e.target.closest('[data-role]'); if (r) { st.role = r.dataset.role; st.key = ''; st.shown = 20; box.querySelectorAll('[data-role]').forEach((b) => b.setAttribute('aria-pressed', String(b === r))); draw(); return; }
+        const k = e.target.closest('[data-okey]'); if (k) { st.key = st.key === k.dataset.okey ? '' : k.dataset.okey; st.shown = 20; draw(); return; }
+        if (e.target.closest('[data-blmore]')) { st.shown += 20; draw(); return; }
+        const cl = e.target.closest('[data-clamp]'); if (cl) cl.classList.toggle('open');
+      });
+      box.addEventListener('input', (e) => { if (e.target.matches('[data-blq]')) { st.q = e.target.value; st.shown = 20; const pos = e.target.selectionStart; draw(); const i = box.querySelector('[data-blq]'); i.focus(); i.setSelectionRange(pos, pos); } });
+      draw();
+    }, () => { box.querySelector('[data-bl]').innerHTML = '<div class="bl-note"><span class="chip">a coletar</span> os projetos desta pessoa ainda não foram montados</div>'; });
+    return box;
+  }
+
+  // ---------- the tree
+  let mode = 'cargo';
+  function cargoRows(p) {
+    let total = 0, partial = false;
+    const rows = (p.items || []).map((it) => {
+      let v = '';
+      if (it.value != null) {
+        v = it.value_min != null ? `<span>${brl(it.value_min)}</span><span>a ${brl(it.value)}</span>` : brl(it.value);
+        if (it.monthly !== false) total += it.value;
+      } else if (it.todo) { v = '<span class="chip">a coletar</span>'; partial = true; }
+      else v = '<span style="color:var(--faint);font-weight:600">sem valor</span>';
+      const note = [it.note, it.law].filter(Boolean).join(' · ');
+      return `<div class="r"><span class="lb">${esc(it.label)}</span><span class="vl">${v}</span>${note ? `<span class="nt">${esc(note)}</span>` : ''}</div>`;
+    }).join('');
+    const ceil = (p.items || []).some((it) => it.value_min != null || it.cap);
+    return `<div class="rows">${rows}</div><div class="tot"><span>${(p.count || 1) > 1 ? 'Por pessoa, por mês' : 'Total do cargo por mês'}</span><b>${ceil ? 'até ' : ''}${brl(total)}</b></div>`
+      + `<div class="tnote">${partial ? '<span class="chip">parcial</span> ' : ''}${ceil ? ((p.items || []).some((it) => it.cap) ? 'Com o teto de cada auxílio. ' : 'Com a cota do estado de valor mais alto. ') : ''}${(p.items || []).some((it) => it.monthly === false) ? 'Sem a ajuda de custo, paga só no início e no fim do mandato.' : ''}</div>`;
+  }
+  // people of the Executive and the STF come from the positions file (no directory for them yet)
+  function otherPersonRows(p, x) {
+    const I = x.items; let total = 0, partial = false;
+    const rows = (p.items || []).map((it) => {
+      if (it.monthly === false) return '';
+      const u = I[it.key], s = (u && (u.status || u)) || 'unknown'; let v = '';
+      if (it.key === 'salary') { v = brl(it.value); total += it.value; }
+      else if (it.key === 'residence' || it.key === 'flat') v = s === 'yes' ? 'usa' : s === 'no' ? 'não usa' : '';
+      if (s === 'unknown') partial = true;
+      return rowHTML({ label: it.label, s, v, nt: it.key === 'residence' && s === 'yes' ? 'residência oficial, sem valor em reais publicado' : '' });
+    }).join('');
+    return `<div class="rows">${rows}</div><div class="tot"><span>Total que usa por mês</span><b>${brl(total)}</b></div>${partial ? '<div class="tnote"><span class="chip">parcial</span> falta parte do dado</div>' : ''}`;
+  }
+  // ---------- public spending tied to the President's post and to his spouse (never personal income)
+  const COST_SHORT = { trips_entourage: 'Viagens da equipe que acompanha, prepara e protege as viagens dele', cpgf_president_units: 'Cartão corporativo das unidades que o atendem',
+    trips_support: 'Viagens da equipe que apoia a agenda dela' };
+  const costValue = (c) => (c.year_total != null ? c.year_total : c.confidential_total);
+  const costSum = (x) => (x.office_costs || []).filter((c) => c.summed).reduce((a, c) => a + (c.year_total || 0), 0);
+  const SPOUSE = () => PEOPLE.find((x) => x.position === 'conjuge');
+  function costBlock(x, short) {  // the small block on a card
+    const s = costSum(x), sp = x.position === 'presidente' ? SPOUSE() : null;
+    return `<div class="cost"><div class="cost-h">Gasto público ligado ${x.position === 'conjuge' ? 'a ela' : 'ao cargo'}, ${esc(x.costs_months)}</div>`
+      + (x.office_costs || []).filter((c) => c.summed).map((c) => `<div class="r"><span class="lb">${esc(short ? COST_SHORT[c.key] || c.label : c.label)}</span><span class="vl">${brl(c.year_total)}</span></div>`).join('')
+      + `<div class="tot"><span>Somado</span><b>${brl(s)}</b></div>`
+      + `<div class="tnote">não é renda pessoal${sp ? `; com a cônjuge: ${brl(s + costSum(sp))}` : ''}</div></div>`;
+  }
+  function spouseNode(spouse) {
+    if (mode !== 'pessoa' || !spouse) return `<div class="node spouse" data-node="conjuge" style="--pc:var(--exe)"><div class="hd">${ph(null)}<div><div class="pw">Cônjuge</div><div class="ttl">Cônjuge do Presidente</div><div class="sub">sem cargo público</div></div></div>`
+      + `<div class="rows"><div class="r"><span class="lb">Salário</span><span class="vl">não há</span></div></div><div class="tnote">O Decreto 12.604/2025 manda o Gabinete Pessoal do Presidente apoiar o cônjuge; o custo desse apoio não é publicado.</div></div>`;
+    return `<div class="node spouse" data-node="conjuge" style="--pc:var(--exe)"><div class="hd">${ph(spouse)}<div><div class="pw">Cônjuge</div><div class="ttl">${esc(spouse.known_as || spouse.name)}</div><div class="sub">${esc(spouse.name)} · sem cargo público</div></div></div>`
+      + `<div class="rows">${rowHTML({ label: 'Salário', s: 'no', v: 'não recebe' }, false)}</div>${costBlock(spouse, true)}<button class="go" type="button" data-open="${spouse.id}">Ver a ficha</button></div>`;
+  }
+
+  // who holds each Executive and Judiciary node, from the collected files
+  const SINGLE_OF = { presidente: (x) => x.position === 'presidente', vice: (x) => x.position === 'vice', 'presidente-stf': (x) => x.court === 'STF' && x.role === 'Presidente' };
+  const GROUP_OF = { ministros: (x) => x.position === 'ministros', 'ministros-stf': (x) => x.court === 'STF', tribunais: (x) => x.house === 'judiciario' && x.court !== 'STF' };
+  const COUNTED = [['housing', 'Recebem auxílio-moradia'], ['jetons', 'Recebem jetons de conselhos'], ['jeton', 'Recebem jetons'], ['permanence_bonus', 'Recebem abono de permanência'], ['cumulative_jurisdiction', 'Recebem gratificação por acúmulo']];
+  function membersStats(p, xs) {
+    const n = xs.length, ms = xs.map(model), sum = ms.reduce((a, m) => a + m.total, 0), sumOwn = ms.reduce((a, m) => a + m.own, 0);
+    const r = (l, v) => `<div class="r"><span class="lb">${esc(l)}</span><span class="vl">${v}</span></div>`;
+    const counts = COUNTED.filter(([k]) => xs.some((x) => x.items.some((it) => it.key === k)))
+      .map(([k, l]) => r(l, `${int(xs.filter((x) => x.items.some((it) => it.key === k && it.monthly > 0)).length)} de ${int(n)}`)).join('');
+    const courts = [...new Set(xs.map((x) => x.court).filter(Boolean))];
+    return `<div class="stats">${r('Com ficha', `${int(n)} ${n === 1 ? 'pessoa' : 'pessoas'}`)}${courts.length > 1 ? r('Tribunais', courts.join(', ')) : ''}${counts}</div>`
+      + `<div class="tot" data-group-sum="${p.id}"><span>Os ${int(n)} juntos, por mês</span><b>${brl(sum)}</b></div><div class="tot sub"><span>Média por pessoa</span><b>${brl(sum / n)}</b></div>`
+      + (ms.some((m) => m.partial) ? '<div class="tnote"><span class="chip">parcial</span> parte do dado não é publicada</div>' : '')
+      + splitHTML({ total: sum, own: sumOwn }) + `<button class="go" type="button" data-goto-group="${p.id}">Ver cada um ↓</button>`;
+  }
+  // A group shows the sum of all its members first and the average per person second, each labelled as such.
+  function groupStats(house) {
+    const xs = PEOPLE.filter((x) => x.house === house), n = xs.length, who = house === 'camara' ? 'deputado' : 'senador';
+    const cnt = (f) => xs.filter(f).length, ms = xs.map(model);
+    const sum = ms.reduce((a, m) => a + m.total, 0), sumOwn = ms.reduce((a, m) => a + m.own, 0);
+    const avgC = xs.reduce((a, x) => a + ((x.ceap && x.ceap.avg) || 0), 0) / n, avgO = xs.reduce((a, x) => a + ((x.office && x.office.avg) || 0), 0) / n;
+    const r = (l, v, nt) => `<div class="r"><span class="lb">${esc(l)}</span><span class="vl">${v}</span>${nt ? `<span class="nt">${esc(nt)}</span>` : ''}</div>`;
+    return `<div class="stats">${r('Recebem auxílio-moradia', `${int(cnt((x) => x.housing.uses === true))} de ${int(n)}`)}${r('Usam imóvel funcional', `${int(cnt((x) => x.flat.uses === true))} de ${int(n)}`)}`
+      + `${r(`Cota, média por ${who}`, `<span>${brl(avgC)}</span><small>por mês</small>`)}`
+      + (house === 'camara' ? r(`Verba de gabinete, média por ${who}`, `<span>${brl(avgO)}</span><small>por mês</small>`) : '') + '</div>'
+      + `<div class="tot" data-group-sum="${house}"><span>Os ${int(n)} juntos, por mês</span><b>${brl(sum)}</b></div>`
+      + `<div class="tot sub"><span>Média por ${who}</span><b>${brl(sum / n)}</b></div>`
+      + (house === 'senado' ? '<div class="tnote"><span class="chip">parcial</span> sem a verba de gabinete</div>' : '')
+      + splitHTML({ total: sum, own: sumOwn })
+      + `<button class="go" type="button" data-goto="${house}">Ver cada um dos ${int(n)} ↓</button>`;
+  }
+  function nodeHTML(p) {
+    if (p.kind === 'root') return `<div class="node root" data-node="${p.id}" style="grid-column:1 / -1"><div class="ttl">${esc(p.title)}</div><div class="rootnote">${esc(p.note)}</div></div>`;
+    const col = `grid-column:${p.col[0]} / ${p.col[1] + 1};grid-row:${p.row + 1};--pc:${POWER[p.power] || 'var(--ink)'}`, head = p.row === 1;
+    const house = p.id === 'deputado' ? 'camara' : p.id === 'senador' ? 'senado' : null;
+    const members = GROUP_OF[p.id] ? PEOPLE.filter(GROUP_OF[p.id]) : [];
+    const single = SINGLE_OF[p.id] ? PEOPLE.find(SINGLE_OF[p.id]) : null;
+    const first = (p.people || [])[0] || {}, dir = single || person[first.id];
+    const who = mode === 'pessoa' && !house && !p.group && !members.length ? (dir || (first.name ? first : null)) : null;
+    const paired = p.id === 'presidente';
+    let h = `<div class="node${head ? ' head' : ''}" data-node="${p.id}" style="${paired ? `--pc:${POWER[p.power]}` : col}"><div class="hd">${ph(who)}<div style="min-width:0">`
+      + `<div class="pw">${esc(p.power)}</div><div class="ttl">${esc(p.title)}</div>`;
+    if (who) h += `<div class="sub"><b>${esc(who.name)}</b>${who.party ? ` <span class="party">${esc(who.party)}</span>` : ''}${who.uf ? ' ' + esc(who.uf) : ''}${(who.role || first.role) && !p.title.toLowerCase().includes((who.role || first.role).toLowerCase()) ? ` · ${esc(who.role || first.role)}` : ''}${(who.since || first.since) ? ` · desde ${dmy(who.since || first.since)}` : ''}</div>`;
+    else if (p.count) h += `<div class="sub">${int(p.count)} ${p.count === 1 ? 'pessoa' : 'pessoas'}${p.count_note ? ' · ' + esc(p.count_note) : ''}</div>`;
+    h += '</div></div>';
+    if (p.group) h += `<div class="rows">${p.averages.map(([l, v]) => `<div class="r"><span class="lb">${esc(l)}</span><span class="vl">${brl(v)}</span></div>`).join('')}</div>`
+      + `<div class="tnote">${mode === 'pessoa' ? '<span class="chip grp">grupo</span> ' : ''}${esc(p.averages_note || 'Média do que cada pessoa recebe por mês.')} ${p.count_detail ? esc(p.count_detail) + '.' : ''} Posição de ${esc(p.as_of)}.</div>`;
+    else if (mode === 'pessoa' && house) h += groupStats(house);
+    else if (mode === 'pessoa' && members.length) h += membersStats(p, members);
+    else if (who && dir) { const M = model(dir); h += `<div class="rows">${(M.generic ? cardRows(M) : M.rows).map((r) => rowHTML(r, false)).join('')}</div>${totHTML(M, 'Salário e auxílios por mês')}${dir.office_costs ? costBlock(dir, true) : ''}<button class="go" type="button" data-open="${dir.id}">Ver a ficha completa</button>`; }
+    else if (who) h += otherPersonRows(p, who);
+    else {
+      h += cargoRows(p);
+      if (mode === 'pessoa') h += '<div class="tnote"><span class="chip">a coletar</span> quem ocupa e o que usa</div>';
+      if (house && mode === 'cargo') h += `<button class="go" type="button" data-goto="${house}">Ver cada um dos ${int(p.count)} ↓</button>`;
+    }
+    h += '</div>';
+    return paired ? `<div class="pair" style="${col}">${h}<div class="tie" aria-hidden="true"></div>${spouseNode(SPOUSE())}</div>` : h;
+  }
+  const tree = document.querySelector('[data-tree]');
+  function drawEdges() {
+    const svg = tree.querySelector('.edges'), T = tree.getBoundingClientRect();
+    const box = (id) => tree.querySelector(`[data-node="${id}"]`).getBoundingClientRect();
+    svg.setAttribute('width', tree.scrollWidth); svg.setAttribute('height', tree.scrollHeight);
+    let s = '<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8A95A1"/></marker></defs>';
+    P.filter((p) => p.parent).forEach((p) => {
+      const a = box(p.parent), b = box(p.id);
+      const x1 = a.left + a.width / 2 - T.left, y1 = a.bottom - T.top, x2 = b.left + b.width / 2 - T.left, y2 = b.top - T.top - 3;
+      s += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#8A95A1" stroke-width="1.6" marker-end="url(#ah)"/>`;
+      if (p.count > 1) {
+        const mx = x1 + (x2 - x1) * 0.6, my = y1 + (y2 - y1) * 0.6;
+        s += `<text x="${mx + (x2 >= x1 ? 9 : -9)}" y="${my}" text-anchor="${x2 >= x1 ? 'start' : 'end'}" font-family="Manrope, system-ui" font-size="13" font-weight="800" fill="#5B6773">× ${int(p.count)}</text>`;
+      }
+    });
+    svg.innerHTML = s;
+  }
+  function drawTree() { tree.innerHTML = '<svg class="edges" aria-hidden="true"></svg>' + P.map(nodeHTML).join(''); drawEdges(); }
+  document.querySelector('[data-ico-cargo]').innerHTML = SIL;
+  document.querySelector('[data-ico-pessoa]').innerHTML = SIL + `<img src="${esc(byId.presidente.people[0].photo)}" alt="">`;
+  document.querySelectorAll('[data-mode]').forEach((b) => b.addEventListener('click', () => {
+    mode = b.dataset.mode; document.querySelectorAll('[data-mode]').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); drawTree();
+  }));
+  window.addEventListener('resize', drawEdges);
+  tree.addEventListener('load', drawEdges, true);
+  if (document.fonts) document.fonts.ready.then(drawEdges);
+  const stage = document.querySelector('[data-stage]'), hint = document.querySelector('[data-hint]');
+  const hintState = () => { hint.hidden = stage.scrollWidth <= stage.clientWidth + 2; };
+  stage.addEventListener('scroll', () => { hint.hidden = true; });
+  window.addEventListener('resize', hintState);
+
+  // ---------- the directory
+  const F = { q: '', house: 'all', uf: '', party: '', sort: 'name' }; let shown = 24;
+  const cmp = [];
+  const housesEl = document.querySelector('[data-houses]');
+  const nOf = (h) => PEOPLE.filter((x) => h === 'all' || x.house === h).length;
+  housesEl.innerHTML = [['all', 'Todos'], ['camara', 'Câmara'], ['senado', 'Senado'], ['executivo', 'Executivo'], ['judiciario', 'Judiciário']].filter(([k]) => nOf(k))
+    .map(([k, l]) => `<button type="button" data-house="${k}" aria-pressed="${k === 'all'}">${l} ${int(nOf(k))}</button>`).join('');
+  const ufs = [...new Set(PEOPLE.map((x) => x.uf).filter(Boolean))].sort(), parties = [...new Set(PEOPLE.map((x) => x.party).filter(Boolean))].sort((a, b) => plain(a).localeCompare(plain(b)));
+  document.querySelector('[data-uf]').innerHTML = '<option value="">Todos os estados</option>' + ufs.map((u) => `<option>${u}</option>`).join('');
+  document.querySelector('[data-party]').innerHTML = '<option value="">Todos os partidos</option>' + parties.map((u) => `<option>${esc(u)}</option>`).join('');
+  const IDX = PEOPLE.map((x) => ({ x, words: plain(`${x.name} ${x.known_as || ''} ${x.court || ''} ${x.ministry || ''}`).split(/\s+/), name: plain(x.name), party: plain(x.party), uf: x.uf, M: model(x) }));
+  function matches(e) {
+    if (F.house !== 'all' && e.x.house !== F.house) return false;
+    if (F.uf && e.uf !== F.uf) return false;
+    if (F.party && e.x.party !== F.party) return false;
+    const toks = plain(F.q).split(/\s+/).filter(Boolean);
+    return toks.every((t) => e.party === t || e.uf === t || e.words.some((w) => w.startsWith(t)) || (t.length > 3 && e.name.includes(t)));
+  }
+  function cardHTML(e) {
+    const x = e.x, M = e.M, on = cmp.includes(x.id);
+    return `<article class="pc${on ? ' cmp' : ''}" data-card="${x.id}"><div class="who">${ph(x, true)}<div style="min-width:0"><strong>${esc(x.name)}</strong>`
+      + `<div class="meta">${metaHTML(x)}</div></div></div>`
+      + `<div class="rows">${(M.generic ? cardRows(M) : M.rows).map((r) => rowHTML(r, !M.generic)).join('')}</div>${M.generic && M.rows.length > cardRows(M).length ? `<div class="tnote">mais ${int(M.rows.length - cardRows(M).length)} componentes sem valor em 2026 na ficha completa</div>` : ''}${totHTML(M)}`
+      + (x.bills ? `<div class="rows">${billsLine(x)}</div>` : '')
+      + (x.office_costs ? costBlock(x, true) : '')
+      + `<div class="pc-ft"><button class="btn dark" type="button" data-open="${x.id}">Ver ficha completa</button><label class="cmpbox"><input type="checkbox" data-cmp="${x.id}"${on ? ' checked' : ''}>Comparar</label></div></article>`;
+  }
+  // a minister's or judge's card shows what was paid in 2026, plus the housing line either way
+  const SHORT = { salary: 'Salário bruto', christmas_bonus: '13º salário', vacation: 'Férias', other_pay: 'Outras remunerações', indemnities: 'Verbas indenizatórias', ceiling_cut: 'Abate-teto' };
+  const cardRows = (M) => M.rows.filter((r) => r.m || r.k === 'salary' || r.k === 'housing').map((r) => (M.generic && SHORT[r.k] ? Object.assign({}, r, { label: SHORT[r.k] }) : r));
+  const metaHTML = (x) => (PARL(x) ? `<span class="party">${esc(x.party)}</span>${flag(x.uf)}<span>${HOUSE[x.house]}</span>`
+    : `${x.party ? `<span class="party">${esc(x.party)}</span>` : ''}<span>${esc(place(x))}</span><span>${esc(x.role || '')}${x.ministry && !(x.role || '').includes(x.ministry) ? ', ' + esc(x.ministry) : ''}</span>`);
+  const grid = document.querySelector('[data-grid]'), moreBtn = document.querySelector('[data-more]');
+  function drawList() {
+    let xs = IDX.filter(matches);
+    const by = { name: (a, b) => a.name.localeCompare(b.name), total: (a, b) => b.M.total - a.M.total,
+                 'ceap-desc': (a, b) => ((b.x.ceap && b.x.ceap.used) || -1) - ((a.x.ceap && a.x.ceap.used) || -1),
+                 'ceap-asc': (a, b) => ((a.x.ceap && a.x.ceap.used != null ? a.x.ceap.used : 1e12)) - ((b.x.ceap && b.x.ceap.used != null ? b.x.ceap.used : 1e12)) };
+    xs.sort(by[F.sort]);
+    document.querySelector('[data-count]').innerHTML = `<b>${int(xs.length)}</b> ${xs.length === 1 ? 'pessoa' : 'pessoas'}`;
+    grid.innerHTML = xs.length ? xs.slice(0, shown).map(cardHTML).join('') : '<div class="empty">Ninguém com esse nome, partido ou estado. Confira a grafia ou limpe os filtros.</div>';
+    moreBtn.hidden = xs.length <= shown; moreBtn.textContent = `Mostrar mais ${Math.min(24, xs.length - shown)} de ${int(xs.length - shown)}`;
+  }
+  const qEl = document.querySelector('[data-q]');
+  qEl.addEventListener('input', () => { F.q = qEl.value; shown = 24; drawList(); });
+  housesEl.addEventListener('click', (e) => { const b = e.target.closest('[data-house]'); if (!b) return; F.house = b.dataset.house; shown = 24;
+    housesEl.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); drawList(); });
+  [['uf', '[data-uf]'], ['party', '[data-party]'], ['sort', '[data-sort]']].forEach(([k, s]) => document.querySelector(s).addEventListener('change', (e) => { F[k] = e.target.value; shown = 24; drawList(); }));
+  moreBtn.addEventListener('click', () => { shown += 24; drawList(); });
+
+  // ---------- compare
+  const tray = document.querySelector('[data-tray]');
+  function drawTray() {
+    tray.hidden = !cmp.length;
+    document.querySelector('[data-faces]').innerHTML = cmp.map((id) => `<span>${person[id].photo ? `<img src="${esc(person[id].photo)}" alt="">` : ''}</span>`).join('');
+    document.querySelector('[data-tray-label]').textContent = `${cmp.length} de 3 para comparar`;
+    document.querySelector('[data-cmp-open]').disabled = cmp.length < 2;
+    document.querySelector('[data-cmp-open]').style.opacity = cmp.length < 2 ? .55 : 1;
+  }
+  document.addEventListener('change', (e) => {
+    const c = e.target.closest('[data-cmp]'); if (!c) return;
+    const id = c.dataset.cmp, i = cmp.indexOf(id);
+    if (c.checked && i < 0) { if (cmp.length >= 3) { c.checked = false; return; } cmp.push(id); }
+    if (!c.checked && i >= 0) cmp.splice(i, 1);
+    const card = c.closest('.pc'); if (card) card.classList.toggle('cmp', c.checked);
+    drawTray();
+  });
+  document.querySelector('[data-cmp-clear]').addEventListener('click', () => { cmp.length = 0; drawTray(); drawList(); });
+
+  // ---------- the sheet: one parliamentarian in full, or the comparison
+  const back = document.querySelector('[data-back]'), sheet = document.querySelector('[data-sheet]');
+  const fixFormHTML = `<form class="fixform" data-fixform hidden><label>O que está errado nesta ficha?<textarea name="what" placeholder="Por exemplo: o auxílio-moradia mudou em setembro (com o link da fonte)"></textarea></label><label>E-mail para resposta (opcional)<input name="email" type="email"></label><p>Nesta prévia o envio não está ligado; na plataforma vai para o mesmo canal do "Fale com a gente", com o nome e o link da ficha.</p><div><button class="btn dark" type="button">Enviar</button></div></form>`;
+  function bars(by, last, label) {
+    const vals = Object.entries(by || {}).map(([m, v]) => [+m, v]), max = Math.max(1, ...vals.map(([, v]) => v));
+    const get = (m) => (vals.find(([k]) => k === m) || [m, null])[1];
+    const top = Math.max(...vals.map(([m]) => m), last);
+    let h = `<div class="bars" role="img" aria-label="${esc(label)} mês a mês">`;
+    for (let m = 1; m <= 12; m++) {
+      const v = get(m), cls = m > top ? 'zero' : m > last ? 'part' : v ? '' : 'zero';
+      h += `<div class="${cls}" title="${MON[m]}: ${v != null ? brl(v) : 'sem lançamento'}"><i style="height:${v ? Math.max(3, (v / max) * 96) : 2}px"></i><small>${MON[m]}</small></div>`;
+    }
+    return h + `</div><div class="bars-max"><span>maior mês: ${brl(max)}</span><span>${vals.some(([m]) => m > last) ? `listras: depois de ${MONTHS[last]}, ainda chegando` : ''}</span></div>`;
+  }
+  function openGeneric(x, M) {
+    const srcs = [...new Set(x.items.map((it) => it.source).filter(Boolean))];
+    return `<div class="crumb">Os 3 Poderes › ${HOUSE_FULL[x.house]}${x.court ? ' › ' + esc(x.court) : ''} › <b>${esc(x.name)}</b></div>`
+      + `<div class="p-head">${ph(x)}<div><h2>${esc(x.name)}</h2><div class="meta">${metaHTML(x)}</div>`
+      + `<div class="links">${x.page ? `<a href="${esc(x.page)}" target="_blank" rel="noopener">Página oficial ↗</a>` : ''}<button type="button" data-copy>Copiar link</button><button type="button" class="fix" data-fix>Pedir correção</button></div></div></div>`
+      + fixFormHTML
+      + `<div class="p-cols"><div class="box"><h4>Salário e cada componente pago em 2026</h4><div class="rows">${M.rows.map((r) => rowHTML(r)).join('')}</div>`
+      + `<div class="big"><span>Total por mês</span><b>${brl(M.total)}</b></div>${M.partial ? '<div class="tnote"><span class="chip">parcial</span> parte do dado não é publicada; nunca uma estimativa</div>' : ''}${splitHTML(M)}</div>`
+      + `<div style="display:grid;gap:14px;align-content:start"><div class="box"><h4>Outros</h4><ul class="others">`
+      + `${x.role ? `<li><span>Cargo</span><b>${esc(x.role)}</b></li>` : ''}${x.tse_role ? `<li><span>No TSE</span><b>${esc(x.tse_role)}</b></li>` : ''}`
+      + `${x.since ? `<li><span>No cargo desde</span><b>${dmy(x.since)}</b></li>` : ''}${x.data_as_of ? `<li><span>Último mês publicado</span><b>${esc(x.data_as_of.split('-').reverse().join('/'))}</b></li>` : ''}</ul>`
+      + `${x.note ? `<p class="bars-note">${esc(x.note)}</p>` : ''}</div></div></div>`
+      + (x.office_costs ? costsSection(x) : '')
+      + `<p class="srcs">Fontes: ${srcs.map((u, i) => { const h = new URL(u).hostname.replace(/^www\./, ''), n = srcs.filter((v) => new URL(v).hostname.replace(/^www\./, '') === h);
+          return `<a href="${esc(u)}">${esc(h)}${n.length > 1 ? ` (${n.indexOf(u) + 1})` : ''}</a>`; }).join(', ')}. A média por mês é o total de 2026 dividido pelos meses que a instituição publicou.</p>`;
+  }
+  function costsSection(x) {
+    const her = x.position === 'conjuge', s = costSum(x), sp = x.position === 'presidente' ? SPOUSE() : null;
+    // a summed item says so; a valued item left out says why; an item with no value is information only
+    const row = (c) => { const v = costValue(c), why = c.key.includes('confidential') ? 'motivo sob sigilo' : 'ligação mais fraca no motivo da viagem';
+      const tag = c.summed ? '<span class="tag">somado</span>' : c.part_of || v == null ? '' : `<span class="tag out">não somado: ${why}</span>`;
+      return `<div class="cost-row${c.part_of ? ' sub' : ''}"><span>${esc(c.label.replace(/ \(gasto público ligado[^)]*\)/, ''))}${tag}</span>`
+        + `<b>${v != null ? brl(v) : 'sem valor publicado'}</b>${c.note ? `<span class="nt">${esc(c.note.split('. ').slice(0, c.part_of ? 1 : 2).join('. '))}</span>` : ''}</div>`; };
+    const by = {}; (x.office_costs || []).filter((c) => c.summed && c.by_month).forEach((c) => Object.entries(c.by_month).forEach(([m, v]) => { by[m] = (by[m] || 0) + v; }));
+    const trips = (x.trips || []).slice().sort((a, b) => (b.total || 0) - (a.total || 0));
+    const tripLi = (tr) => `<li><div class="tl-top"><span>${esc(tr.destinations || 'destino sob sigilo')}</span><b>${tr.total != null ? brl(tr.total) : 'sem valor'}</b></div>`
+      + `<small>${dmy(tr.start)}${tr.end && tr.end !== tr.start ? ' a ' + dmy(tr.end) : ''}${tr.travellers ? ` · ${int(tr.travellers)} ${tr.travellers === 1 ? 'viajante' : 'viajantes'}` : ''}${tr.traveller ? ` · ${esc(tr.traveller)}` : ''}${tr.confidential ? ' · sigilosa' : ''}</small>`
+      + (her && tr.purpose ? `<small>Motivo: ${esc(tr.purpose)}</small>` : '') + '</li>';
+    return `<div class="full2"><div class="box"><h4>Gasto público ligado ${her ? 'a ela' : 'ao cargo'}, ${esc(x.costs_months)}</h4>`
+      + `<p class="bars-note" style="margin-top:0">Não é renda pessoal: é o que órgãos federais gastaram ${her ? 'com viagens de servidores para apoiar a agenda dela' : 'com viagens de servidores ligadas às viagens dele e com o cartão corporativo das unidades que o atendem'}, pelos arquivos do Portal da Transparência.</p>`
+      + (x.office_costs || []).map(row).join('')
+      + `<div class="big"><span>Somado em 2026</span><b>${brl(s)}</b></div>${sp ? `<div class="tnote">Com a cônjuge: <b>${brl(s + costSum(sp))}</b> em 2026.</div>` : ''}`
+      + (Object.keys(by).length ? bars(by, 12, 'Gasto somado') : '') + '</div>'
+      + `<div class="box"><h4>${her ? 'Viagens de apoio a ela' : 'Viagens identificadas'} (${int(trips.length)})</h4>`
+      + `<p class="bars-note" style="margin-top:0">${her ? 'Cada viagem com o motivo escrito pelo órgão.' : 'Viagens de servidores agrupadas por destino e datas; as datas são as da equipe, não as dele. O Portal não publica a lista das viagens do presidente.'}</p>`
+      + `<ul class="trip-list">${trips.slice(0, 10).map(tripLi).join('')}</ul>${trips.length > 10 ? `<details><summary class="bars-note" style="cursor:pointer">ver as outras ${int(trips.length - 10)}</summary><ul class="trip-list">${trips.slice(10).map(tripLi).join('')}</ul></details>` : ''}</div></div>`
+      + `<div class="full2">${(x.structure || x.other_units) ? `<div class="box"><h4>${her ? 'Estrutura e documentos oficiais' : 'Outras unidades da Presidência, fora do total'}</h4><ul class="others">`
+      + (her ? x.structure.map((d) => `<li><span>${esc(d.what)}${d.source ? ` <a href="${esc(d.source)}">fonte</a>` : ''}</span><b>${d.cost != null ? brl(d.cost) : 'sem valor'}</b></li>`).join('')
+             : x.other_units.map((u) => `<li><span>${esc(u.unit)}</span><b>${brl(u.year_total)}</b></li>`).join('')) + '</ul></div>' : ''}`
+      + `${(x.unpublished || []).length ? `<div class="box"><h4>O que não é publicado</h4><ul class="others">${x.unpublished.map((n) => `<li><span>${esc(n.what)}</span><b>não publicado</b></li>`).join('')}</ul></div>` : ''}</div>`;
+  }
+  function openPerson(id, push = true) {
+    const x = person[id]; if (!x) return; const M = model(x), cam = x.house === 'camara';
+    if (!PARL(x)) {
+      sheet.className = 'sheet'; sheet.innerHTML = `<button class="x" type="button" data-close aria-label="Fechar">✕</button>` + openGeneric(x, M);
+      back.hidden = false; document.body.style.overflow = 'hidden';
+      if (push) history.replaceState(null, '', '#p=' + encodeURIComponent(id));
+      return;
+    }
+    sheet.className = 'sheet';
+    const others = cam ? `<ul class="others"><li><span>Passaporte diplomático</span><b>${x.passport.uses ? 'possui' : 'não possui'}</b></li><li><span>Viagens em missão oficial em 2026</span><b>${x.missions != null ? int(x.missions) : 'a coletar'}</b></li><li><span>Página da Câmara atualizada em</span><b>${esc(x.updated)}</b></li></ul>`
+      : `<ul class="others"><li><span>Passaporte diplomático</span><b>não publicado</b></li><li><span>Em exercício desde</span><b>${dmy(x.exercise_since)}</b></li><li><span>Arquivo da cota atualizado em</span><b>${esc(x.updated)}</b></li></ul><p class="bars-note">O direito ao passaporte diplomático está no Decreto 5.978/2006, mas nem o Senado nem o Itamaraty publicam a lista de quem tem.</p>`;
+    sheet.innerHTML = `<button class="x" type="button" data-close aria-label="Fechar">✕</button>`
+      + `<div class="crumb">Os 3 Poderes › ${HOUSE_FULL[x.house]} › <b>${esc(x.name)}</b></div>`
+      + `<div class="p-head">${ph(x)}<div><h2>${esc(x.name)}</h2><div class="meta"><span class="party">${esc(x.party)}</span>${flag(x.uf)}<span>${cam ? 'Deputado(a) federal' : 'Senador(a)'}</span></div>`
+      + `<div class="links"><a href="${esc(x.page)}" target="_blank" rel="noopener">Página oficial ↗</a><button type="button" data-copy>Copiar link</button><button type="button" class="fix" data-fix>Pedir correção</button></div></div></div>`
+      + fixFormHTML
+      + `<div class="p-cols"><div class="box"><h4>Salário e auxílios</h4><div class="rows">${M.rows.map((r) => rowHTML(r)).join('')}</div>`
+      + `<div class="big"><span>Total por mês</span><b>${brl(M.total)}</b></div>${M.partial ? '<div class="tnote"><span class="chip">parcial</span> falta parte do dado; nunca uma estimativa</div>' : ''}${splitHTML(M)}</div>`
+      + `<div style="display:grid;gap:14px;align-content:start"><div class="box soft"><h4>${cam ? 'Cota parlamentar' : 'Cota (CEAPS)'}, mês a mês em 2026</h4>${x.ceap ? bars(x.ceap.by_month, AVG[x.house], 'Cota') + `<div class="bars-note">Total em 2026: <b>${brl(x.ceap.used)}</b>${x.ceap.pct != null ? `, ${nf(x.ceap.pct, 1)}% do que podia usar no ano` : ''}.</div>` : '<div class="bars-note"><span class="chip">a coletar</span> nenhum lançamento no arquivo de 2026</div>'}</div>`
+      + (cam && x.office ? `<div class="box soft"><h4>Verba de gabinete, mês a mês em 2026</h4>${bars(x.office.by_month, AVG.camara, 'Verba de gabinete')}<div class="bars-note">Total em 2026: <b>${brl(x.office.used)}</b>, ${nf(x.office.pct, 1)}% do que podia usar.</div></div>` : '')
+      + (!cam && x.office && x.office.avg != null ? `<div class="box soft"><h4>Equipe do gabinete, mês a mês em 2026</h4>${bars(x.office.by_month, 12, 'Equipe do gabinete')}<div class="bars-note">Total em 2026: <b>${brl(x.office.used)}</b>, salários brutos de ${int(x.office.staff)} pessoas (sem diárias, auxílios e encargos, que o Senado não publica por gabinete).</div></div>` : '')
+      + `<div class="box"><h4>Outros</h4>${others}</div></div></div>`
+      + `<div data-bills-slot></div>`
+      + `<p class="srcs">Fontes: ${cam ? `<a href="${esc(x.page)}">a página do deputado na Câmara</a> (salário, imóvel funcional, auxílio-moradia, cota, verba de gabinete, passaporte, missões)` : `<a href="${esc(D.urls.sen_moradia)}">Senado, auxílio-moradia e imóveis funcionais</a> e o arquivo de despesas da cota do Senado (atualizado em ${esc(x.updated)})`}; valores dos auxílios: ${cam ? `<a href="${esc(D.urls.posse)}">Câmara, exercício do mandato</a>` : `<a href="${esc(D.urls.sen_verbas)}">Senado, verbas além do subsídio</a>`}; salário: <a href="${esc(D.urls.dl172)}">Decreto Legislativo 172/2022</a>.</p>`;
+    sheet.querySelector('[data-bills-slot]').appendChild(billsSection(x));
+    back.hidden = false; document.body.style.overflow = 'hidden';
+    if (push) history.replaceState(null, '', '#p=' + encodeURIComponent(id));
+  }
+  function openCompare() {
+    sheet.className = 'sheet wide';
+    const xs = cmp.map((id) => person[id]), Ms = xs.map(model);
+    sheet.innerHTML = `<button class="x" type="button" data-close aria-label="Fechar">✕</button><div class="crumb">Os 3 Poderes › Parlamentares federais › <b>Comparação</b></div>`
+      + `<div class="cmp-grid" style="grid-template-columns:repeat(${xs.length}, minmax(250px, 1fr))">${xs.map((x, i) => `<div class="cmp-col box"><div class="who">${ph(x)}<div><strong>${esc(x.name)}</strong><div class="meta">${metaHTML(x)}</div></div></div>`
+      + `<div class="rows">${Ms[i].rows.map((r) => rowHTML(r)).join('')}</div>${totHTML(Ms[i])}</div>`).join('')}</div>`;
+    back.hidden = false; document.body.style.overflow = 'hidden';
+  }
+  function close() { back.hidden = true; document.body.style.overflow = ''; if (location.hash) history.replaceState(null, '', location.pathname); }
+  document.addEventListener('click', (e) => {
+    const o = e.target.closest('[data-open]'); if (o) { openPerson(o.dataset.open); return; }
+    const gg = e.target.closest('[data-goto-group]'); if (gg) { const h = gg.dataset.gotoGroup === 'ministros' ? 'executivo' : 'judiciario'; F.house = h; F.q = gg.dataset.gotoGroup === 'ministros-stf' ? 'STF' : '';
+      qEl.value = F.q; shown = 24; housesEl.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.house === F.house))); drawList(); document.getElementById('parlamentares').scrollIntoView({ behavior: 'smooth' }); return; }
+    const g = e.target.closest('[data-goto]'); if (g) { F.house = g.dataset.goto; shown = 24; housesEl.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.house === F.house))); drawList(); document.getElementById('parlamentares').scrollIntoView({ behavior: 'smooth' }); return; }
+    if (e.target.closest('[data-close]') || e.target === back) { close(); return; }
+    if (e.target.closest('[data-cmp-open]') && cmp.length >= 2) { openCompare(); return; }
+    if (e.target.closest('[data-fix]')) { const f = sheet.querySelector('[data-fixform]'); f.hidden = !f.hidden; if (!f.hidden) f.querySelector('textarea').focus(); return; }
+    const c = e.target.closest('[data-copy]'); if (c) { const u = location.href; (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(() => { c.textContent = 'Link copiado'; }, () => { c.textContent = u; }); }
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !back.hidden) close(); });
+
+  // ---------- head facts and sources
+  const nDep = nOf('camara'), nSen = nOf('senado');
+  document.querySelector('[data-facts]').innerHTML = [
+    [brl(D.salary), 'salário por mês do presidente, dos ministros de Estado, dos deputados, dos senadores e dos ministros do STF'],
+    [int(PEOPLE.length), `fichas: ${int(nDep)} deputados, ${int(nSen)} senadores, ${int(PEOPLE.filter((x) => x.house === 'executivo' && x.position !== 'conjuge').length)} no Executivo, ${int(nOf('judiciario'))} nos tribunais superiores${SPOUSE() ? ' e a cônjuge do presidente' : ''}`],
+    ['21/10/2026', 'dia em que os valores foram lidos nas páginas oficiais da Câmara, do Senado, do Planalto e do STF'],
+  ].map(([b, s]) => `<div class="fact"><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join('');
+  document.querySelector('[data-asof]').textContent = `Câmara: páginas lidas em 21/10/2026 · Senado: cota até ${PEOPLE.find((x) => x.house === 'senado').updated}`;
+  const U = D.urls;
+  document.querySelector('[data-sources]').innerHTML = [
+    ['Salário do presidente, do vice, dos ministros, dos deputados e dos senadores: Decreto Legislativo 172/2022', U.dl172],
+    ['Salário dos ministros do STF: Lei 14.520/2023; tribunais superiores: 95% dele (CF art. 93, V)', U.l14520],
+    ['Auxílio-moradia, verba de gabinete e cota de cada estado dos deputados: Câmara, "Exercício do mandato"', U.posse],
+    ['O que cada deputado usa em 2026: a página de cada deputado na Câmara, lida em 21/10/2026', 'https://www.camara.leg.br/deputados/quem-sao'],
+    ['Auxílio-moradia e imóvel funcional de cada senador: dados abertos do Senado', U.sen_moradia],
+    ['O que cada senador usou da cota em 2026: arquivo de despesas da cota do Senado', 'https://www.senado.leg.br/transparencia/LAI/verba/despesa_ceaps_2026.csv'],
+    ['Senadores em exercício, partido e foto: dados abertos do Senado', 'https://legis.senado.leg.br/dadosabertos/senador/lista/atual'],
+    ['Deputados em exercício, partido e foto: dados abertos da Câmara', 'https://dadosabertos.camara.leg.br/api/v2/deputados'],
+  ].map(([t, u]) => `<li>${esc(t)}. <a href="${esc(u)}">fonte</a></li>`).join('');
+
+  drawTree(); hintState(); drawList(); drawTray();
+  if (stage.scrollWidth > stage.clientWidth) stage.scrollLeft = (stage.scrollWidth - stage.clientWidth) / 2;
+  const fromHash = () => { const h = decodeURIComponent(location.hash || '').match(/^#p=(.+)$/); if (h && person[h[1]]) openPerson(h[1], false); };
+  window.addEventListener('hashchange', fromHash); fromHash();
+  document.body.dataset.ready = '1';
+})();
+</script>
+</body>
+</html>

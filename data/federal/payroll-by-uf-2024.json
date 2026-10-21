@@ -1,0 +1,7020 @@
+{
+ "year": 2024,
+ "generated_on": "2026-10-21",
+ "generated_by": "docs/superpowers/tools/collect-federal-payroll-by-uf.py",
+ "method": {
+  "gross": "sum of the R$ columns REMUNERACAOBASICABRUTAR, ABATETETOR, GRATIFICACAONATALINAR, ABATETETODAGRATIFICACAONATALINAR, FERIASR, OUTRASREMUNERACOESEVENTUAISR (abate-teto is negative in the file, so gross is after the cap)",
+  "irrf": "IRRF (R$), sign flipped",
+  "pss": "PSS/RPGS (R$), sign flipped",
+  "military_pension": "PENSAO MILITAR (R$), sign flipped",
+  "pension": "pss + military_pension",
+  "net": "REMUNERACAO APOS DEDUCOES OBRIGATORIAS (R$), the file's own column",
+  "indemnities": "TOTAL DE VERBAS INDENIZATORIAS (R$): paid but not salary, outside gross and net",
+  "usd_not_converted": "the U$ columns summed in US dollars, never converted",
+  "uf": "distinct valid UF codes of the person's cadastro rows in the same zip: one UF places the person there; none or two or more go to no_uf (reasons missing_uf, conflicting_uf); a Remuneracao Id absent from the cadastro goes to no_uf (not_in_cadastro); a file with no UF column goes to no_uf (no_uf_column). Nothing is allocated.",
+  "people": "distinct Id_SERVIDOR_PORTAL with gross R$ or U$ above zero in the month; people_avg = mean of the months"
+ },
+ "sources": [
+  {
+   "name": "Portal da Transparencia, download de dados, servidores (page listing the files)",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/servidores",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Portal da Transparencia, servidores, Servidores_SIAPE, 202401",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/servidores/202401_Servidores_SIAPE",
+   "final_url": "https://dadosabertos-download.cgu.gov.br/PortalDaTransparencia/saida/servidores/202401_Servidores_SIAPE.zip",
+   "last_modified": "Fri, 09 Oct 2026 17:17:43 GMT",
+   "bytes": 79359782,
+   "sha256": "421cc27e4b71da190910e347fbdf6e928a3da773a5e76e1bcad92e635dcfa6ba",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Portal da Transparencia, servidores, Servidores_BACEN, 202401",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/servidores/202401_Servidores_BACEN",
+   "final_url": "https://dadosabertos-download.cgu.gov.br/PortalDaTransparencia/saida/servidores/202401_Servidores_BACEN.zip",
+   "last_modified": "Fri, 09 Oct 2026 17:17:43 GMT",
+   "bytes": 274688,
+   "sha256": "fa74354f9c2c64c0ddf71fa0161cb3dc24ef9a17d7ab0e65bf0e86d51754bea5",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Portal da Transparencia, servidores, Militares, 202401",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/servidores/202401_Militares",
+   "final_url": "https://dadosabertos-download.cgu.gov.br/PortalDaTransparencia/saida/servidores/202401_Militares.zip",
+   "last_modified": "Fri, 09 Oct 2026 17:17:41 GMT",
+   "bytes": 25359589,
+   "sha256": "9aacc9c172ef683edbd80d8f5ae5f351648effa5ddcd4b5c37a10a6bb99e7fa8",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Portal da Transparencia, servidores, Reserva_Reforma_Militares, 202401",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/servidores/202401_Reserva_Reforma_Militares",
+   "final_url": "https://dadosabertos-download.cgu.gov.br/PortalDaTransparencia/saida/servidores/202401_Reserva_Reforma_Militares.zip",
+   "last_modified": "Fri, 09 Oct 2026 17:17:43 GMT",
+   "bytes": 12093252,
+   "sha256": "0d783a15d1603bad185f2a99e1c1a3b3da80e246be830cf3919159fdccab1dfe",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Portal da Transparencia, servidores, Aposentados_SIAPE, 202401",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/servidores/202401_Aposentados_SIAPE",
+   "final_url": "https://dadosabertos-download.cgu.gov.br/PortalDaTransparencia/saida/servidores/202401_Aposentados_SIAPE.zip",
+   "last_modified": "Fri, 09 Oct 2026 17:17:41 GMT",
+   "bytes": 35702601,
+   "sha256": "d53eaa9943f6fd59dcfe867a347015bb75cba2647bb31fa1e1d6b76c0e431ea4",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Portal da Transparencia, servidores, Aposentados_BACEN, 202401",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/servidores/202401_Aposentados_BACEN",
+   "final_url": "https://dadosabertos-download.cgu.gov.br/PortalDaTransparencia/saida/servidores/202401_Aposentados_BACEN.zip",
+   "last_modified": "Fri, 09 Oct 2026 17:17:41 GMT",
+   "bytes": 356767,
+   "sha256": "3fd4e00ea9c3248bb48844cb189153177a12c8bd594b94e0cd7e7c2f6ac6d2bd",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Portal da Transparencia, servidores, Pensionistas_SIAPE, 202401",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/servidores/202401_Pensionistas_SIAPE",
+   "final_url": "https://dadosabertos-download.cgu.gov.br/PortalDaTransparencia/saida/servidores/202401_Pensionistas_SIAPE.zip",
+   "last_modified": "Fri, 09 Oct 2026 17:17:42 GMT",
+   "bytes": 27404346,
+   "sha256": "420c573e5573bb5647ee1a21f7b77292ff4a6c60a2914e6bdd441884d022ec2f",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Portal da Transparencia, servidores, Pensionistas_BACEN, 202401",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/servidores/202401_Pensionistas_BACEN",
+   "final_url": "https://dadosabertos-download.cgu.gov.br/PortalDaTransparencia/saida/servidores/202401_Pensionistas_BACEN.zip",
+   "last_modified": "Fri, 09 Oct 2026 17:17:41 GMT",
+   "bytes": 97462,
+   "sha256": "ffe8f7fd13f743d9a79e294d01521449d9d39cc9259fed3ac39975136afdc251",
+   "read_on": "2026-10-21"
+  },
+  {
+   "name": "Portal da Transparencia, servidores, Pensionistas_DEFESA, 202401",
+   "url": "https://portaldatransparencia.gov.br/download-de-dados/servidores/202401_Pensionistas_DEFESA",
+   "final_url": "https://dadosabertos-download.cgu.gov.br/PortalDaTransparencia/saida/servidores/202401_Pensionistas_DEFESA.zip",
+   "last_modified": "Fri, 09 Oct 2026 17:17:41 GMT",
+   "bytes": 19021423,
+   "sha256": "f0465ac34054a386d1bdbbcc41d1a638e52eaeddffe87def3dce9bb01c8cff02",
+   "read_on": "2026-10-21"
+  }
+ ],
+ "categories": [
+  {
+   "id": "civil_servants_siape",
+   "label": "Civil servants of the Executive paid through SIAPE (active staff)",
+   "origin": "Servidores_SIAPE",
+   "supplementary": false,
+   "files": "https://portaldatransparencia.gov.br/download-de-dados/servidores/<YYYYMM>_Servidores_SIAPE (zip members: 202401_Afastamentos.csv, 202401_Cadastro.csv, 202401_Observacoes.csv, 202401_Remuneracao.csv)",
+   "uf_column": "UF_EXERCICIO",
+   "uf_columns_in_cadastro_header": [
+    "UF_EXERCICIO"
+   ],
+   "months": [
+    1
+   ]
+  },
+  {
+   "id": "staff_bacen",
+   "label": "Banco Central staff (active)",
+   "origin": "Servidores_BACEN",
+   "supplementary": false,
+   "files": "https://portaldatransparencia.gov.br/download-de-dados/servidores/<YYYYMM>_Servidores_BACEN (zip members: 202401_Afastamentos.csv, 202401_Cadastro.csv, 202401_Observacoes.csv, 202401_Remuneracao.csv)",
+   "uf_column": "UF_EXERCICIO",
+   "uf_columns_in_cadastro_header": [
+    "UF_EXERCICIO"
+   ],
+   "months": [
+    1
+   ]
+  },
+  {
+   "id": "military_active",
+   "label": "Armed Forces, active military",
+   "origin": "Militares",
+   "supplementary": false,
+   "files": "https://portaldatransparencia.gov.br/download-de-dados/servidores/<YYYYMM>_Militares (zip members: 202401_Cadastro.csv, 202401_Observacoes.csv, 202401_Remuneracao.csv)",
+   "uf_column": "UF_EXERCICIO",
+   "uf_columns_in_cadastro_header": [
+    "UF_EXERCICIO"
+   ],
+   "months": [
+    1
+   ]
+  },
+  {
+   "id": "military_reserve_retired",
+   "label": "Armed Forces, reserve and retired military (reserva e reforma)",
+   "origin": "Reserva_Reforma_Militares",
+   "supplementary": false,
+   "files": "https://portaldatransparencia.gov.br/download-de-dados/servidores/<YYYYMM>_Reserva_Reforma_Militares (zip members: 202401_Cadastro.csv, 202401_Observacoes.csv, 202401_Remuneracao.csv)",
+   "uf_column": "None",
+   "uf_columns_in_cadastro_header": [],
+   "months": [
+    1
+   ]
+  },
+  {
+   "id": "retirees_siape",
+   "label": "Retired civil servants paid through SIAPE",
+   "origin": "Aposentados_SIAPE",
+   "supplementary": false,
+   "files": "https://portaldatransparencia.gov.br/download-de-dados/servidores/<YYYYMM>_Aposentados_SIAPE (zip members: 202401_Cadastro.csv, 202401_Observacoes.csv, 202401_Remuneracao.csv)",
+   "uf_column": "None",
+   "uf_columns_in_cadastro_header": [],
+   "months": [
+    1
+   ]
+  },
+  {
+   "id": "retirees_bacen",
+   "label": "Retired Banco Central staff",
+   "origin": "Aposentados_BACEN",
+   "supplementary": false,
+   "files": "https://portaldatransparencia.gov.br/download-de-dados/servidores/<YYYYMM>_Aposentados_BACEN (zip members: 202401_Cadastro.csv, 202401_Observacoes.csv, 202401_Remuneracao.csv)",
+   "uf_column": "None",
+   "uf_columns_in_cadastro_header": [],
+   "months": [
+    1
+   ]
+  },
+  {
+   "id": "pensioners_siape",
+   "label": "Pensioners of civil servants paid through SIAPE",
+   "origin": "Pensionistas_SIAPE",
+   "supplementary": false,
+   "files": "https://portaldatransparencia.gov.br/download-de-dados/servidores/<YYYYMM>_Pensionistas_SIAPE (zip members: 202401_Cadastro.csv, 202401_Observacoes.csv, 202401_Remuneracao.csv)",
+   "uf_column": "None",
+   "uf_columns_in_cadastro_header": [],
+   "months": [
+    1
+   ]
+  },
+  {
+   "id": "pensioners_bacen",
+   "label": "Pensioners of Banco Central staff",
+   "origin": "Pensionistas_BACEN",
+   "supplementary": false,
+   "files": "https://portaldatransparencia.gov.br/download-de-dados/servidores/<YYYYMM>_Pensionistas_BACEN (zip members: 202401_Cadastro.csv, 202401_Observacoes.csv, 202401_Remuneracao.csv)",
+   "uf_column": "None",
+   "uf_columns_in_cadastro_header": [],
+   "months": [
+    1
+   ]
+  },
+  {
+   "id": "pensioners_defense",
+   "label": "Pensioners of the military, Ministry of Defence",
+   "origin": "Pensionistas_DEFESA",
+   "supplementary": false,
+   "files": "https://portaldatransparencia.gov.br/download-de-dados/servidores/<YYYYMM>_Pensionistas_DEFESA (zip members: 202401_Cadastro.csv, 202401_Observacoes.csv, 202401_Remuneracao.csv)",
+   "uf_column": "None",
+   "uf_columns_in_cadastro_header": [],
+   "months": [
+    1
+   ]
+  }
+ ],
+ "summary": {
+  "civil_servants_siape": {
+   "national_gross": 6397323278.37,
+   "gross_with_uf": 4978509918.03,
+   "gross_no_uf": 1418813360.34,
+   "share_with_uf": 0.7782,
+   "df_gross": 931998198.18,
+   "months": 1
+  },
+  "staff_bacen": {
+   "national_gross": 109055851.36,
+   "gross_with_uf": 0.0,
+   "gross_no_uf": 109055851.36,
+   "share_with_uf": 0.0,
+   "df_gross": null,
+   "months": 1
+  },
+  "military_active": {
+   "national_gross": 2536596657.75,
+   "gross_with_uf": 0.0,
+   "gross_no_uf": 2536596657.75,
+   "share_with_uf": 0.0,
+   "df_gross": null,
+   "months": 1
+  },
+  "military_reserve_retired": {
+   "national_gross": 2361467511.73,
+   "gross_with_uf": 0.0,
+   "gross_no_uf": 2361467511.73,
+   "share_with_uf": 0.0,
+   "df_gross": null,
+   "months": 1
+  },
+  "retirees_siape": {
+   "national_gross": 4250097468.35,
+   "gross_with_uf": 0.0,
+   "gross_no_uf": 4250097468.35,
+   "share_with_uf": 0.0,
+   "df_gross": null,
+   "months": 1
+  },
+  "retirees_bacen": {
+   "national_gross": 139938708.15,
+   "gross_with_uf": 0.0,
+   "gross_no_uf": 139938708.15,
+   "share_with_uf": 0.0,
+   "df_gross": null,
+   "months": 1
+  },
+  "pensioners_siape": {
+   "national_gross": 1727345997.57,
+   "gross_with_uf": 0.0,
+   "gross_no_uf": 1727345997.57,
+   "share_with_uf": 0.0,
+   "df_gross": null,
+   "months": 1
+  },
+  "pensioners_bacen": {
+   "national_gross": 17188591.2,
+   "gross_with_uf": 0.0,
+   "gross_no_uf": 17188591.2,
+   "share_with_uf": 0.0,
+   "df_gross": null,
+   "months": 1
+  },
+  "pensioners_defense": {
+   "national_gross": 1999401408.12,
+   "gross_with_uf": 0.0,
+   "gross_no_uf": 1999401408.12,
+   "share_with_uf": 0.0,
+   "df_gross": null,
+   "months": 1
+  }
+ },
+ "by_uf": {
+  "AC": {
+   "civil_servants_siape": {
+    "people_avg": 2813,
+    "gross": 29476483.77,
+    "irrf": 4369372.88,
+    "pension": 2871087.42,
+    "pss": 2871087.42,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 394.5,
+    "other_deductions": 98372.16,
+    "net": 22137256.81,
+    "indemnities": 2036881.85,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 29476483.77,
+      "irrf": 4369372.88,
+      "pension": 2871087.42,
+      "pss": 2871087.42,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 394.5,
+      "other_deductions": 98372.16,
+      "net": 22137256.81,
+      "indemnities": 2036881.85,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 2813
+     }
+    }
+   }
+  },
+  "AL": {
+   "civil_servants_siape": {
+    "people_avg": 3903,
+    "gross": 46720434.08,
+    "irrf": 7470213.34,
+    "pension": 4782533.69,
+    "pss": 4782533.69,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 206975.21,
+    "net": 34260711.84,
+    "indemnities": 3273690.18,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 46720434.08,
+      "irrf": 7470213.34,
+      "pension": 4782533.69,
+      "pss": 4782533.69,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 206975.21,
+      "net": 34260711.84,
+      "indemnities": 3273690.18,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 3903
+     }
+    }
+   }
+  },
+  "AM": {
+   "civil_servants_siape": {
+    "people_avg": 7099,
+    "gross": 80844629.85,
+    "irrf": 12506783.45,
+    "pension": 7871945.87,
+    "pss": 7871945.87,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 1021.55,
+    "other_deductions": 248577.19,
+    "net": 60216301.79,
+    "indemnities": 5393181.91,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 80844629.85,
+      "irrf": 12506783.45,
+      "pension": 7871945.87,
+      "pss": 7871945.87,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 1021.55,
+      "other_deductions": 248577.19,
+      "net": 60216301.79,
+      "indemnities": 5393181.91,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 7099
+     }
+    }
+   }
+  },
+  "AP": {
+   "civil_servants_siape": {
+    "people_avg": 2837,
+    "gross": 24287922.32,
+    "irrf": 3128167.26,
+    "pension": 2213356.65,
+    "pss": 2213356.65,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 142240.48,
+    "net": 18804157.93,
+    "indemnities": 1689825.8,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 24287922.32,
+      "irrf": 3128167.26,
+      "pension": 2213356.65,
+      "pss": 2213356.65,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 142240.48,
+      "net": 18804157.93,
+      "indemnities": 1689825.8,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 2837
+     }
+    }
+   }
+  },
+  "BA": {
+   "civil_servants_siape": {
+    "people_avg": 14859,
+    "gross": 186174904.67,
+    "irrf": 29212600.72,
+    "pension": 17456919.01,
+    "pss": 17456919.01,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 3661.96,
+    "other_deductions": 1931613.78,
+    "net": 137570109.2,
+    "indemnities": 13233431.75,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 186174904.67,
+      "irrf": 29212600.72,
+      "pension": 17456919.01,
+      "pss": 17456919.01,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 3661.96,
+      "other_deductions": 1931613.78,
+      "net": 137570109.2,
+      "indemnities": 13233431.75,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 14859
+     }
+    }
+   }
+  },
+  "CE": {
+   "civil_servants_siape": {
+    "people_avg": 12982,
+    "gross": 159461588.27,
+    "irrf": 25408851.69,
+    "pension": 15630700.91,
+    "pss": 15630700.91,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 474.53,
+    "other_deductions": 621071.72,
+    "net": 117800489.42,
+    "indemnities": 10943480.73,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 159461588.27,
+      "irrf": 25408851.69,
+      "pension": 15630700.91,
+      "pss": 15630700.91,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 474.53,
+      "other_deductions": 621071.72,
+      "net": 117800489.42,
+      "indemnities": 10943480.73,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 12982
+     }
+    }
+   }
+  },
+  "DF": {
+   "civil_servants_siape": {
+    "people_avg": 71145,
+    "gross": 931998198.18,
+    "irrf": 113005674.68,
+    "pension": 56385217.58,
+    "pss": 56385217.58,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 790.65,
+    "other_deductions": 21338523.72,
+    "net": 741267991.55,
+    "indemnities": 38920285.32,
+    "usd_not_converted": {
+     "gross": 14377150.0,
+     "irrf": 1059313.92,
+     "pension": 766228.87,
+     "net": 12540160.12,
+     "indemnities": 7150280.96
+    },
+    "by_month": {
+     "1": {
+      "gross": 931998198.18,
+      "irrf": 113005674.68,
+      "pension": 56385217.58,
+      "pss": 56385217.58,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 790.65,
+      "other_deductions": 21338523.72,
+      "net": 741267991.55,
+      "indemnities": 38920285.32,
+      "usd_not_converted": {
+       "gross": 14377150.0,
+       "irrf": 1059313.92,
+       "pension": 766228.87,
+       "net": 12540160.12,
+       "indemnities": 7150280.96
+      },
+      "people": 71145
+     }
+    }
+   }
+  },
+  "ES": {
+   "civil_servants_siape": {
+    "people_avg": 7250,
+    "gross": 95539788.87,
+    "irrf": 15286081.68,
+    "pension": 9327180.44,
+    "pss": 9327180.44,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 547193.63,
+    "net": 70379333.12,
+    "indemnities": 6207308.44,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 95539788.87,
+      "irrf": 15286081.68,
+      "pension": 9327180.44,
+      "pss": 9327180.44,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 547193.63,
+      "net": 70379333.12,
+      "indemnities": 6207308.44,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 7250
+     }
+    }
+   }
+  },
+  "GO": {
+   "civil_servants_siape": {
+    "people_avg": 8752,
+    "gross": 117201230.86,
+    "irrf": 18924249.93,
+    "pension": 11154876.55,
+    "pss": 11154876.55,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 80.0,
+    "other_deductions": 516874.11,
+    "net": 86605150.27,
+    "indemnities": 7692991.09,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 117201230.86,
+      "irrf": 18924249.93,
+      "pension": 11154876.55,
+      "pss": 11154876.55,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 80.0,
+      "other_deductions": 516874.11,
+      "net": 86605150.27,
+      "indemnities": 7692991.09,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 8752
+     }
+    }
+   }
+  },
+  "MA": {
+   "civil_servants_siape": {
+    "people_avg": 5004,
+    "gross": 55424865.48,
+    "irrf": 8311491.07,
+    "pension": 5464683.56,
+    "pss": 5464683.56,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 312008.15,
+    "net": 41336682.7,
+    "indemnities": 3882504.93,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 55424865.48,
+      "irrf": 8311491.07,
+      "pension": 5464683.56,
+      "pss": 5464683.56,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 312008.15,
+      "net": 41336682.7,
+      "indemnities": 3882504.93,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 5004
+     }
+    }
+   }
+  },
+  "MG": {
+   "civil_servants_siape": {
+    "people_avg": 37889,
+    "gross": 495562831.18,
+    "irrf": 78803710.81,
+    "pension": 48053611.16,
+    "pss": 48053611.16,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 58.46,
+    "other_deductions": 4010606.16,
+    "net": 364694844.59,
+    "indemnities": 34962259.71,
+    "usd_not_converted": {
+     "gross": 6186.25,
+     "irrf": 454.22,
+     "pension": 333.28,
+     "net": 5398.75,
+     "indemnities": 3026.8
+    },
+    "by_month": {
+     "1": {
+      "gross": 495562831.18,
+      "irrf": 78803710.81,
+      "pension": 48053611.16,
+      "pss": 48053611.16,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 58.46,
+      "other_deductions": 4010606.16,
+      "net": 364694844.59,
+      "indemnities": 34962259.71,
+      "usd_not_converted": {
+       "gross": 6186.25,
+       "irrf": 454.22,
+       "pension": 333.28,
+       "net": 5398.75,
+       "indemnities": 3026.8
+      },
+      "people": 37889
+     }
+    }
+   }
+  },
+  "MS": {
+   "civil_servants_siape": {
+    "people_avg": 6607,
+    "gross": 81178146.52,
+    "irrf": 12817448.79,
+    "pension": 7588039.64,
+    "pss": 7588039.64,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 116.91,
+    "other_deductions": 437845.4,
+    "net": 60334695.78,
+    "indemnities": 5514340.19,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 81178146.52,
+      "irrf": 12817448.79,
+      "pension": 7588039.64,
+      "pss": 7588039.64,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 116.91,
+      "other_deductions": 437845.4,
+      "net": 60334695.78,
+      "indemnities": 5514340.19,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 6607
+     }
+    }
+   }
+  },
+  "MT": {
+   "civil_servants_siape": {
+    "people_avg": 6190,
+    "gross": 73655341.74,
+    "irrf": 11656367.91,
+    "pension": 7249787.2,
+    "pss": 7249787.2,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 356428.82,
+    "net": 54392757.81,
+    "indemnities": 4909497.68,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 73655341.74,
+      "irrf": 11656367.91,
+      "pension": 7249787.2,
+      "pss": 7249787.2,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 356428.82,
+      "net": 54392757.81,
+      "indemnities": 4909497.68,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 6190
+     }
+    }
+   }
+  },
+  "PA": {
+   "civil_servants_siape": {
+    "people_avg": 12971,
+    "gross": 155634145.59,
+    "irrf": 24165831.82,
+    "pension": 14998563.87,
+    "pss": 14998563.87,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 90.53,
+    "other_deductions": 829957.61,
+    "net": 115639701.76,
+    "indemnities": 10479043.19,
+    "usd_not_converted": {
+     "gross": 9321.46,
+     "irrf": 575.92,
+     "pension": 424.91,
+     "net": 8320.63,
+     "indemnities": 4670.58
+    },
+    "by_month": {
+     "1": {
+      "gross": 155634145.59,
+      "irrf": 24165831.82,
+      "pension": 14998563.87,
+      "pss": 14998563.87,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 90.53,
+      "other_deductions": 829957.61,
+      "net": 115639701.76,
+      "indemnities": 10479043.19,
+      "usd_not_converted": {
+       "gross": 9321.46,
+       "irrf": 575.92,
+       "pension": 424.91,
+       "net": 8320.63,
+       "indemnities": 4670.58
+      },
+      "people": 12971
+     }
+    }
+   }
+  },
+  "PB": {
+   "civil_servants_siape": {
+    "people_avg": 9635,
+    "gross": 123717454.41,
+    "irrf": 20133970.43,
+    "pension": 13083564.21,
+    "pss": 13083564.21,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 540794.19,
+    "net": 89959125.58,
+    "indemnities": 8100069.77,
+    "usd_not_converted": {
+     "gross": 7449.19,
+     "irrf": 456.51,
+     "pension": 809.64,
+     "net": 6183.04,
+     "indemnities": 7503.92
+    },
+    "by_month": {
+     "1": {
+      "gross": 123717454.41,
+      "irrf": 20133970.43,
+      "pension": 13083564.21,
+      "pss": 13083564.21,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 540794.19,
+      "net": 89959125.58,
+      "indemnities": 8100069.77,
+      "usd_not_converted": {
+       "gross": 7449.19,
+       "irrf": 456.51,
+       "pension": 809.64,
+       "net": 6183.04,
+       "indemnities": 7503.92
+      },
+      "people": 9635
+     }
+    }
+   }
+  },
+  "PE": {
+   "civil_servants_siape": {
+    "people_avg": 14250,
+    "gross": 183205463.11,
+    "irrf": 29569012.98,
+    "pension": 18378895.93,
+    "pss": 18378895.93,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 364.62,
+    "other_deductions": 1654341.52,
+    "net": 133602848.06,
+    "indemnities": 12709818.33,
+    "usd_not_converted": {
+     "gross": 10672.95,
+     "irrf": 737.99,
+     "pension": 769.24,
+     "net": 9165.72,
+     "indemnities": 3780.48
+    },
+    "by_month": {
+     "1": {
+      "gross": 183205463.11,
+      "irrf": 29569012.98,
+      "pension": 18378895.93,
+      "pss": 18378895.93,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 364.62,
+      "other_deductions": 1654341.52,
+      "net": 133602848.06,
+      "indemnities": 12709818.33,
+      "usd_not_converted": {
+       "gross": 10672.95,
+       "irrf": 737.99,
+       "pension": 769.24,
+       "net": 9165.72,
+       "indemnities": 3780.48
+      },
+      "people": 14250
+     }
+    }
+   }
+  },
+  "PI": {
+   "civil_servants_siape": {
+    "people_avg": 6663,
+    "gross": 79534318.86,
+    "irrf": 12524729.35,
+    "pension": 7740888.95,
+    "pss": 7740888.95,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 2040.0,
+    "other_deductions": 206348.42,
+    "net": 59060312.14,
+    "indemnities": 5581274.68,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 79534318.86,
+      "irrf": 12524729.35,
+      "pension": 7740888.95,
+      "pss": 7740888.95,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 2040.0,
+      "other_deductions": 206348.42,
+      "net": 59060312.14,
+      "indemnities": 5581274.68,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 6663
+     }
+    }
+   }
+  },
+  "PR": {
+   "civil_servants_siape": {
+    "people_avg": 15250,
+    "gross": 214577678.25,
+    "irrf": 35716352.7,
+    "pension": 20891241.35,
+    "pss": 20891241.35,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 840.0,
+    "other_deductions": 1288929.46,
+    "net": 156680314.74,
+    "indemnities": 13523655.12,
+    "usd_not_converted": {
+     "gross": 21412.36,
+     "irrf": 1045.0,
+     "pension": 1619.28,
+     "net": 16697.8,
+     "indemnities": 12341.88
+    },
+    "by_month": {
+     "1": {
+      "gross": 214577678.25,
+      "irrf": 35716352.7,
+      "pension": 20891241.35,
+      "pss": 20891241.35,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 840.0,
+      "other_deductions": 1288929.46,
+      "net": 156680314.74,
+      "indemnities": 13523655.12,
+      "usd_not_converted": {
+       "gross": 21412.36,
+       "irrf": 1045.0,
+       "pension": 1619.28,
+       "net": 16697.8,
+       "indemnities": 12341.88
+      },
+      "people": 15250
+     }
+    }
+   }
+  },
+  "RJ": {
+   "civil_servants_siape": {
+    "people_avg": 57479,
+    "gross": 704375593.84,
+    "irrf": 110722740.73,
+    "pension": 68767090.11,
+    "pss": 68767090.11,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 2322.74,
+    "other_deductions": 5920981.31,
+    "net": 518962458.95,
+    "indemnities": 51414483.89,
+    "usd_not_converted": {
+     "gross": 28152.25,
+     "irrf": 1791.88,
+     "pension": 1705.71,
+     "net": 24654.66,
+     "indemnities": 10948.52
+    },
+    "by_month": {
+     "1": {
+      "gross": 704375593.84,
+      "irrf": 110722740.73,
+      "pension": 68767090.11,
+      "pss": 68767090.11,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 2322.74,
+      "other_deductions": 5920981.31,
+      "net": 518962458.95,
+      "indemnities": 51414483.89,
+      "usd_not_converted": {
+       "gross": 28152.25,
+       "irrf": 1791.88,
+       "pension": 1705.71,
+       "net": 24654.66,
+       "indemnities": 10948.52
+      },
+      "people": 57479
+     }
+    }
+   }
+  },
+  "RN": {
+   "civil_servants_siape": {
+    "people_avg": 10494,
+    "gross": 132159715.17,
+    "irrf": 21285139.14,
+    "pension": 13326215.04,
+    "pss": 13326215.04,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 456.91,
+    "other_deductions": 987298.28,
+    "net": 96560605.8,
+    "indemnities": 9859146.39,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 132159715.17,
+      "irrf": 21285139.14,
+      "pension": 13326215.04,
+      "pss": 13326215.04,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 456.91,
+      "other_deductions": 987298.28,
+      "net": 96560605.8,
+      "indemnities": 9859146.39,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 10494
+     }
+    }
+   }
+  },
+  "RO": {
+   "civil_servants_siape": {
+    "people_avg": 1653,
+    "gross": 14897001.63,
+    "irrf": 2035760.22,
+    "pension": 1224247.41,
+    "pss": 1224247.41,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 116.91,
+    "other_deductions": 80750.15,
+    "net": 11556126.94,
+    "indemnities": 1104917.34,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 14897001.63,
+      "irrf": 2035760.22,
+      "pension": 1224247.41,
+      "pss": 1224247.41,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 116.91,
+      "other_deductions": 80750.15,
+      "net": 11556126.94,
+      "indemnities": 1104917.34,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 1653
+     }
+    }
+   }
+  },
+  "RR": {
+   "civil_servants_siape": {
+    "people_avg": 5341,
+    "gross": 42381461.14,
+    "irrf": 5039743.63,
+    "pension": 3976695.44,
+    "pss": 3976695.44,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 350319.6,
+    "net": 33014702.47,
+    "indemnities": 3122040.46,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 42381461.14,
+      "irrf": 5039743.63,
+      "pension": 3976695.44,
+      "pss": 3976695.44,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 350319.6,
+      "net": 33014702.47,
+      "indemnities": 3122040.46,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 5341
+     }
+    }
+   }
+  },
+  "RS": {
+   "civil_servants_siape": {
+    "people_avg": 22888,
+    "gross": 335073323.46,
+    "irrf": 53954471.24,
+    "pension": 31176901.58,
+    "pss": 31176901.58,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 1671.36,
+    "other_deductions": 2819955.39,
+    "net": 247120323.89,
+    "indemnities": 20880144.44,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 335073323.46,
+      "irrf": 53954471.24,
+      "pension": 31176901.58,
+      "pss": 31176901.58,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 1671.36,
+      "other_deductions": 2819955.39,
+      "net": 247120323.89,
+      "indemnities": 20880144.44,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 22888
+     }
+    }
+   }
+  },
+  "SC": {
+   "civil_servants_siape": {
+    "people_avg": 12234,
+    "gross": 164954370.1,
+    "irrf": 26767417.86,
+    "pension": 15384363.56,
+    "pss": 15384363.56,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 62.0,
+    "other_deductions": 1204816.12,
+    "net": 121597710.56,
+    "indemnities": 11259743.69,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 164954370.1,
+      "irrf": 26767417.86,
+      "pension": 15384363.56,
+      "pss": 15384363.56,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 62.0,
+      "other_deductions": 1204816.12,
+      "net": 121597710.56,
+      "indemnities": 11259743.69,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 12234
+     }
+    }
+   }
+  },
+  "SE": {
+   "civil_servants_siape": {
+    "people_avg": 4101,
+    "gross": 53250886.87,
+    "irrf": 8734365.68,
+    "pension": 5383432.41,
+    "pss": 5383432.41,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 295950.69,
+    "net": 38837138.09,
+    "indemnities": 3703902.42,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 53250886.87,
+      "irrf": 8734365.68,
+      "pension": 5383432.41,
+      "pss": 5383432.41,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 295950.69,
+      "net": 38837138.09,
+      "indemnities": 3703902.42,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 4101
+     }
+    }
+   }
+  },
+  "SP": {
+   "civil_servants_siape": {
+    "people_avg": 23052,
+    "gross": 358981181.55,
+    "irrf": 60644578.32,
+    "pension": 32396390.6,
+    "pss": 32396390.6,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 377.78,
+    "other_deductions": 5008958.39,
+    "net": 260930876.46,
+    "indemnities": 21775312.7,
+    "usd_not_converted": {
+     "gross": 33113.91,
+     "irrf": 2807.79,
+     "pension": 2662.44,
+     "net": 27643.68,
+     "indemnities": 20688.71
+    },
+    "by_month": {
+     "1": {
+      "gross": 358981181.55,
+      "irrf": 60644578.32,
+      "pension": 32396390.6,
+      "pss": 32396390.6,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 377.78,
+      "other_deductions": 5008958.39,
+      "net": 260930876.46,
+      "indemnities": 21775312.7,
+      "usd_not_converted": {
+       "gross": 33113.91,
+       "irrf": 2807.79,
+       "pension": 2662.44,
+       "net": 27643.68,
+       "indemnities": 20688.71
+      },
+      "people": 23052
+     }
+    }
+   }
+  },
+  "TO": {
+   "civil_servants_siape": {
+    "people_avg": 3361,
+    "gross": 38240958.26,
+    "irrf": 5886771.75,
+    "pension": 3749899.51,
+    "pss": 3749899.51,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 332670.79,
+    "net": 28271616.21,
+    "indemnities": 3051124.8,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 38240958.26,
+      "irrf": 5886771.75,
+      "pension": 3749899.51,
+      "pss": 3749899.51,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 332670.79,
+      "net": 28271616.21,
+      "indemnities": 3051124.8,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 3361
+     }
+    }
+   }
+  },
+  "no_uf": {
+   "civil_servants_siape": {
+    "people_avg": 112738,
+    "gross": 1418813360.34,
+    "irrf": 224530690.48,
+    "pension": 128234599.99,
+    "pss": 128234599.99,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 2711.56,
+    "other_deductions": 9305791.54,
+    "net": 1056739566.77,
+    "indemnities": 97292689.1,
+    "usd_not_converted": {
+     "gross": 258688.45,
+     "irrf": 18458.07,
+     "pension": 11586.56,
+     "net": 228643.82,
+     "indemnities": 130975.73
+    },
+    "by_month": {
+     "1": {
+      "gross": 1418813360.34,
+      "irrf": 224530690.48,
+      "pension": 128234599.99,
+      "pss": 128234599.99,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 2711.56,
+      "other_deductions": 9305791.54,
+      "net": 1056739566.77,
+      "indemnities": 97292689.1,
+      "usd_not_converted": {
+       "gross": 258688.45,
+       "irrf": 18458.07,
+       "pension": 11586.56,
+       "net": 228643.82,
+       "indemnities": 130975.73
+      },
+      "people": 112738
+     }
+    },
+    "reasons": {
+     "conflicting_uf": {
+      "people_avg": 357,
+      "gross": 4357177.65,
+      "irrf": 600723.98,
+      "pension": 307133.86,
+      "pss": 307133.86,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 56165.19,
+      "net": 3393154.62,
+      "indemnities": 218115.78,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      }
+     },
+     "missing_uf": {
+      "people_avg": 112381,
+      "gross": 1414456182.69,
+      "irrf": 223929966.5,
+      "pension": 127927466.13,
+      "pss": 127927466.13,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 2711.56,
+      "other_deductions": 9249626.35,
+      "net": 1053346412.15,
+      "indemnities": 97074573.32,
+      "usd_not_converted": {
+       "gross": 258688.45,
+       "irrf": 18458.07,
+       "pension": 11586.56,
+       "net": 228643.82,
+       "indemnities": 130975.73
+      }
+     },
+     "not_in_cadastro": {
+      "people_avg": 0,
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "pss": 0.0,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      }
+     }
+    }
+   },
+   "staff_bacen": {
+    "people_avg": 3251,
+    "gross": 109055851.36,
+    "irrf": 20557297.14,
+    "pension": 6278212.51,
+    "pss": 6278212.51,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 1027258.68,
+    "net": 81193083.03,
+    "indemnities": 2510818.17,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 109055851.36,
+      "irrf": 20557297.14,
+      "pension": 6278212.51,
+      "pss": 6278212.51,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 1027258.68,
+      "net": 81193083.03,
+      "indemnities": 2510818.17,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 3251
+     }
+    },
+    "reasons": {
+     "missing_uf": {
+      "people_avg": 3251,
+      "gross": 109055851.36,
+      "irrf": 20557297.14,
+      "pension": 6278212.51,
+      "pss": 6278212.51,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 1027258.68,
+      "net": 81193083.03,
+      "indemnities": 2510818.17,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      }
+     },
+     "not_in_cadastro": {
+      "people_avg": 0,
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "pss": 0.0,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      }
+     }
+    }
+   },
+   "military_active": {
+    "people_avg": 345208,
+    "gross": 2536596657.75,
+    "irrf": 286943283.68,
+    "pension": 231133695.39,
+    "pss": 0.0,
+    "military_pension": 231133695.39,
+    "health_fund": 56368028.24,
+    "housing_fee": 0.0,
+    "other_deductions": 154680780.01,
+    "net": 1807470870.43,
+    "indemnities": 313288888.96,
+    "usd_not_converted": {
+     "gross": 9618863.7,
+     "irrf": 195456.34,
+     "pension": 512338.8,
+     "net": 7167436.06,
+     "indemnities": 6436774.32
+    },
+    "by_month": {
+     "1": {
+      "gross": 2536596657.75,
+      "irrf": 286943283.68,
+      "pension": 231133695.39,
+      "pss": 0.0,
+      "military_pension": 231133695.39,
+      "health_fund": 56368028.24,
+      "housing_fee": 0.0,
+      "other_deductions": 154680780.01,
+      "net": 1807470870.43,
+      "indemnities": 313288888.96,
+      "usd_not_converted": {
+       "gross": 9618863.7,
+       "irrf": 195456.34,
+       "pension": 512338.8,
+       "net": 7167436.06,
+       "indemnities": 6436774.32
+      },
+      "people": 345208
+     }
+    },
+    "reasons": {
+     "missing_uf": {
+      "people_avg": 345208,
+      "gross": 2536596657.75,
+      "irrf": 286943283.68,
+      "pension": 231133695.39,
+      "pss": 0.0,
+      "military_pension": 231133695.39,
+      "health_fund": 56368028.24,
+      "housing_fee": 0.0,
+      "other_deductions": 154680780.01,
+      "net": 1807470870.43,
+      "indemnities": 313288888.96,
+      "usd_not_converted": {
+       "gross": 9618863.7,
+       "irrf": 195456.34,
+       "pension": 512338.8,
+       "net": 7167436.06,
+       "indemnities": 6436774.32
+      }
+     },
+     "not_in_cadastro": {
+      "people_avg": 0,
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "pss": 0.0,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      }
+     }
+    }
+   },
+   "military_reserve_retired": {
+    "people_avg": 169191,
+    "gross": 2361467511.73,
+    "irrf": 285182904.89,
+    "pension": 269157306.64,
+    "pss": 0.0,
+    "military_pension": 269157306.64,
+    "health_fund": 61078346.39,
+    "housing_fee": 0.0,
+    "other_deductions": 0.0,
+    "net": 1746048953.81,
+    "indemnities": 29484875.85,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 2361467511.73,
+      "irrf": 285182904.89,
+      "pension": 269157306.64,
+      "pss": 0.0,
+      "military_pension": 269157306.64,
+      "health_fund": 61078346.39,
+      "housing_fee": 0.0,
+      "other_deductions": 0.0,
+      "net": 1746048953.81,
+      "indemnities": 29484875.85,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 169191
+     }
+    },
+    "reasons": {
+     "no_uf_column": {
+      "people_avg": 169191,
+      "gross": 2361467511.73,
+      "irrf": 285182904.89,
+      "pension": 269157306.64,
+      "pss": 0.0,
+      "military_pension": 269157306.64,
+      "health_fund": 61078346.39,
+      "housing_fee": 0.0,
+      "other_deductions": 0.0,
+      "net": 1746048953.81,
+      "indemnities": 29484875.85,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      }
+     }
+    }
+   },
+   "retirees_siape": {
+    "people_avg": 409550,
+    "gross": 4250097468.35,
+    "irrf": 454603765.91,
+    "pension": 241406077.1,
+    "pss": 241406077.1,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 12613576.96,
+    "net": 3541474048.38,
+    "indemnities": 100108470.29,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 4250097468.35,
+      "irrf": 454603765.91,
+      "pension": 241406077.1,
+      "pss": 241406077.1,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 12613576.96,
+      "net": 3541474048.38,
+      "indemnities": 100108470.29,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 409550
+     }
+    },
+    "reasons": {
+     "no_uf_column": {
+      "people_avg": 409550,
+      "gross": 4250097468.35,
+      "irrf": 454603765.91,
+      "pension": 241406077.1,
+      "pss": 241406077.1,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 12613576.96,
+      "net": 3541474048.38,
+      "indemnities": 100108470.29,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      }
+     }
+    }
+   },
+   "retirees_bacen": {
+    "people_avg": 5417,
+    "gross": 139938708.15,
+    "irrf": 19758974.58,
+    "pension": 15705223.86,
+    "pss": 15705223.86,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 0.0,
+    "net": 104474509.71,
+    "indemnities": 0.0,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 139938708.15,
+      "irrf": 19758974.58,
+      "pension": 15705223.86,
+      "pss": 15705223.86,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 0.0,
+      "net": 104474509.71,
+      "indemnities": 0.0,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 5417
+     }
+    },
+    "reasons": {
+     "no_uf_column": {
+      "people_avg": 5417,
+      "gross": 139938708.15,
+      "irrf": 19758974.58,
+      "pension": 15705223.86,
+      "pss": 15705223.86,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 0.0,
+      "net": 104474509.71,
+      "indemnities": 0.0,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      }
+     }
+    }
+   },
+   "pensioners_siape": {
+    "people_avg": 274973,
+    "gross": 1727345997.57,
+    "irrf": 159913489.03,
+    "pension": 65424550.5,
+    "pss": 65424550.5,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 8417670.9,
+    "net": 1493590287.14,
+    "indemnities": 35199659.33,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 1727345997.57,
+      "irrf": 159913489.03,
+      "pension": 65424550.5,
+      "pss": 65424550.5,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 8417670.9,
+      "net": 1493590287.14,
+      "indemnities": 35199659.33,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 274973
+     }
+    },
+    "reasons": {
+     "no_uf_column": {
+      "people_avg": 274973,
+      "gross": 1727345997.57,
+      "irrf": 159913489.03,
+      "pension": 65424550.5,
+      "pss": 65424550.5,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 8417670.9,
+      "net": 1493590287.14,
+      "indemnities": 35199659.33,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      }
+     }
+    }
+   },
+   "pensioners_bacen": {
+    "people_avg": 988,
+    "gross": 17188591.2,
+    "irrf": 2627490.74,
+    "pension": 1671017.5,
+    "pss": 1671017.5,
+    "military_pension": 0.0,
+    "health_fund": 0.0,
+    "housing_fee": 0.0,
+    "other_deductions": 0.0,
+    "net": 12890082.96,
+    "indemnities": 0.0,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 17188591.2,
+      "irrf": 2627490.74,
+      "pension": 1671017.5,
+      "pss": 1671017.5,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 0.0,
+      "net": 12890082.96,
+      "indemnities": 0.0,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 988
+     }
+    },
+    "reasons": {
+     "no_uf_column": {
+      "people_avg": 988,
+      "gross": 17188591.2,
+      "irrf": 2627490.74,
+      "pension": 1671017.5,
+      "pss": 1671017.5,
+      "military_pension": 0.0,
+      "health_fund": 0.0,
+      "housing_fee": 0.0,
+      "other_deductions": 0.0,
+      "net": 12890082.96,
+      "indemnities": 0.0,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      }
+     }
+    }
+   },
+   "pensioners_defense": {
+    "people_avg": 234814,
+    "gross": 1999401408.12,
+    "irrf": 206707341.93,
+    "pension": 243936136.55,
+    "pss": 0.0,
+    "military_pension": 243936136.55,
+    "health_fund": 32888442.07,
+    "housing_fee": 0.0,
+    "other_deductions": 0.0,
+    "net": 1515869487.57,
+    "indemnities": 3516363.39,
+    "usd_not_converted": {
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0
+    },
+    "by_month": {
+     "1": {
+      "gross": 1999401408.12,
+      "irrf": 206707341.93,
+      "pension": 243936136.55,
+      "pss": 0.0,
+      "military_pension": 243936136.55,
+      "health_fund": 32888442.07,
+      "housing_fee": 0.0,
+      "other_deductions": 0.0,
+      "net": 1515869487.57,
+      "indemnities": 3516363.39,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      },
+      "people": 234814
+     }
+    },
+    "reasons": {
+     "no_uf_column": {
+      "people_avg": 234814,
+      "gross": 1999401408.12,
+      "irrf": 206707341.93,
+      "pension": 243936136.55,
+      "pss": 0.0,
+      "military_pension": 243936136.55,
+      "health_fund": 32888442.07,
+      "housing_fee": 0.0,
+      "other_deductions": 0.0,
+      "net": 1515869487.57,
+      "indemnities": 3516363.39,
+      "usd_not_converted": {
+       "gross": 0.0,
+       "irrf": 0.0,
+       "pension": 0.0,
+       "net": 0.0,
+       "indemnities": 0.0
+      }
+     }
+    }
+   }
+  }
+ },
+ "national": {
+  "civil_servants_siape": {
+   "people_avg": 499440,
+   "gross": 6397323278.37,
+   "irrf": 982612590.54,
+   "pension": 574762929.64,
+   "pss": 574762929.64,
+   "military_pension": 0.0,
+   "health_fund": 0.0,
+   "housing_fee": 17652.97,
+   "other_deductions": 61596193.99,
+   "net": 4778333911.23,
+   "indemnities": 412517045.9,
+   "usd_not_converted": {
+    "gross": 14752146.82,
+    "irrf": 1085641.3,
+    "pension": 786139.93,
+    "net": 12866868.22,
+    "indemnities": 7344217.58
+   },
+   "by_month": {
+    "1": {
+     "gross": 6397323278.37,
+     "irrf": 982612590.54,
+     "pension": 574762929.64,
+     "pss": 574762929.64,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 17652.97,
+     "other_deductions": 61596193.99,
+     "net": 4778333911.23,
+     "indemnities": 412517045.9,
+     "usd_not_converted": {
+      "gross": 14752146.82,
+      "irrf": 1085641.3,
+      "pension": 786139.93,
+      "net": 12866868.22,
+      "indemnities": 7344217.58
+     },
+     "people": 499440
+    }
+   }
+  },
+  "staff_bacen": {
+   "people_avg": 3251,
+   "gross": 109055851.36,
+   "irrf": 20557297.14,
+   "pension": 6278212.51,
+   "pss": 6278212.51,
+   "military_pension": 0.0,
+   "health_fund": 0.0,
+   "housing_fee": 0.0,
+   "other_deductions": 1027258.68,
+   "net": 81193083.03,
+   "indemnities": 2510818.17,
+   "usd_not_converted": {
+    "gross": 0.0,
+    "irrf": 0.0,
+    "pension": 0.0,
+    "net": 0.0,
+    "indemnities": 0.0
+   },
+   "by_month": {
+    "1": {
+     "gross": 109055851.36,
+     "irrf": 20557297.14,
+     "pension": 6278212.51,
+     "pss": 6278212.51,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 1027258.68,
+     "net": 81193083.03,
+     "indemnities": 2510818.17,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     },
+     "people": 3251
+    }
+   }
+  },
+  "military_active": {
+   "people_avg": 345208,
+   "gross": 2536596657.75,
+   "irrf": 286943283.68,
+   "pension": 231133695.39,
+   "pss": 0.0,
+   "military_pension": 231133695.39,
+   "health_fund": 56368028.24,
+   "housing_fee": 0.0,
+   "other_deductions": 154680780.01,
+   "net": 1807470870.43,
+   "indemnities": 313288888.96,
+   "usd_not_converted": {
+    "gross": 9618863.7,
+    "irrf": 195456.34,
+    "pension": 512338.8,
+    "net": 7167436.06,
+    "indemnities": 6436774.32
+   },
+   "by_month": {
+    "1": {
+     "gross": 2536596657.75,
+     "irrf": 286943283.68,
+     "pension": 231133695.39,
+     "pss": 0.0,
+     "military_pension": 231133695.39,
+     "health_fund": 56368028.24,
+     "housing_fee": 0.0,
+     "other_deductions": 154680780.01,
+     "net": 1807470870.43,
+     "indemnities": 313288888.96,
+     "usd_not_converted": {
+      "gross": 9618863.7,
+      "irrf": 195456.34,
+      "pension": 512338.8,
+      "net": 7167436.06,
+      "indemnities": 6436774.32
+     },
+     "people": 345208
+    }
+   }
+  },
+  "military_reserve_retired": {
+   "people_avg": 169191,
+   "gross": 2361467511.73,
+   "irrf": 285182904.89,
+   "pension": 269157306.64,
+   "pss": 0.0,
+   "military_pension": 269157306.64,
+   "health_fund": 61078346.39,
+   "housing_fee": 0.0,
+   "other_deductions": 0.0,
+   "net": 1746048953.81,
+   "indemnities": 29484875.85,
+   "usd_not_converted": {
+    "gross": 0.0,
+    "irrf": 0.0,
+    "pension": 0.0,
+    "net": 0.0,
+    "indemnities": 0.0
+   },
+   "by_month": {
+    "1": {
+     "gross": 2361467511.73,
+     "irrf": 285182904.89,
+     "pension": 269157306.64,
+     "pss": 0.0,
+     "military_pension": 269157306.64,
+     "health_fund": 61078346.39,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 1746048953.81,
+     "indemnities": 29484875.85,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     },
+     "people": 169191
+    }
+   }
+  },
+  "retirees_siape": {
+   "people_avg": 409550,
+   "gross": 4250097468.35,
+   "irrf": 454603765.91,
+   "pension": 241406077.1,
+   "pss": 241406077.1,
+   "military_pension": 0.0,
+   "health_fund": 0.0,
+   "housing_fee": 0.0,
+   "other_deductions": 12613576.96,
+   "net": 3541474048.38,
+   "indemnities": 100108470.29,
+   "usd_not_converted": {
+    "gross": 0.0,
+    "irrf": 0.0,
+    "pension": 0.0,
+    "net": 0.0,
+    "indemnities": 0.0
+   },
+   "by_month": {
+    "1": {
+     "gross": 4250097468.35,
+     "irrf": 454603765.91,
+     "pension": 241406077.1,
+     "pss": 241406077.1,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 12613576.96,
+     "net": 3541474048.38,
+     "indemnities": 100108470.29,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     },
+     "people": 409550
+    }
+   }
+  },
+  "retirees_bacen": {
+   "people_avg": 5417,
+   "gross": 139938708.15,
+   "irrf": 19758974.58,
+   "pension": 15705223.86,
+   "pss": 15705223.86,
+   "military_pension": 0.0,
+   "health_fund": 0.0,
+   "housing_fee": 0.0,
+   "other_deductions": 0.0,
+   "net": 104474509.71,
+   "indemnities": 0.0,
+   "usd_not_converted": {
+    "gross": 0.0,
+    "irrf": 0.0,
+    "pension": 0.0,
+    "net": 0.0,
+    "indemnities": 0.0
+   },
+   "by_month": {
+    "1": {
+     "gross": 139938708.15,
+     "irrf": 19758974.58,
+     "pension": 15705223.86,
+     "pss": 15705223.86,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 104474509.71,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     },
+     "people": 5417
+    }
+   }
+  },
+  "pensioners_siape": {
+   "people_avg": 274973,
+   "gross": 1727345997.57,
+   "irrf": 159913489.03,
+   "pension": 65424550.5,
+   "pss": 65424550.5,
+   "military_pension": 0.0,
+   "health_fund": 0.0,
+   "housing_fee": 0.0,
+   "other_deductions": 8417670.9,
+   "net": 1493590287.14,
+   "indemnities": 35199659.33,
+   "usd_not_converted": {
+    "gross": 0.0,
+    "irrf": 0.0,
+    "pension": 0.0,
+    "net": 0.0,
+    "indemnities": 0.0
+   },
+   "by_month": {
+    "1": {
+     "gross": 1727345997.57,
+     "irrf": 159913489.03,
+     "pension": 65424550.5,
+     "pss": 65424550.5,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 8417670.9,
+     "net": 1493590287.14,
+     "indemnities": 35199659.33,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     },
+     "people": 274973
+    }
+   }
+  },
+  "pensioners_bacen": {
+   "people_avg": 988,
+   "gross": 17188591.2,
+   "irrf": 2627490.74,
+   "pension": 1671017.5,
+   "pss": 1671017.5,
+   "military_pension": 0.0,
+   "health_fund": 0.0,
+   "housing_fee": 0.0,
+   "other_deductions": 0.0,
+   "net": 12890082.96,
+   "indemnities": 0.0,
+   "usd_not_converted": {
+    "gross": 0.0,
+    "irrf": 0.0,
+    "pension": 0.0,
+    "net": 0.0,
+    "indemnities": 0.0
+   },
+   "by_month": {
+    "1": {
+     "gross": 17188591.2,
+     "irrf": 2627490.74,
+     "pension": 1671017.5,
+     "pss": 1671017.5,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 12890082.96,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     },
+     "people": 988
+    }
+   }
+  },
+  "pensioners_defense": {
+   "people_avg": 234814,
+   "gross": 1999401408.12,
+   "irrf": 206707341.93,
+   "pension": 243936136.55,
+   "pss": 0.0,
+   "military_pension": 243936136.55,
+   "health_fund": 32888442.07,
+   "housing_fee": 0.0,
+   "other_deductions": 0.0,
+   "net": 1515869487.57,
+   "indemnities": 3516363.39,
+   "usd_not_converted": {
+    "gross": 0.0,
+    "irrf": 0.0,
+    "pension": 0.0,
+    "net": 0.0,
+    "indemnities": 0.0
+   },
+   "by_month": {
+    "1": {
+     "gross": 1999401408.12,
+     "irrf": 206707341.93,
+     "pension": 243936136.55,
+     "pss": 0.0,
+     "military_pension": 243936136.55,
+     "health_fund": 32888442.07,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 1515869487.57,
+     "indemnities": 3516363.39,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     },
+     "people": 234814
+    }
+   }
+  }
+ },
+ "check": {
+  "uf_plus_no_uf_equals_national": false,
+  "details": "306 comparisons (every money column of every category and month: sum of the UF buckets plus the no_uf buckets, integer cents from the per-row pass, against an independent Decimal pass over the whole Remuneracao file with no UF logic): 0 misses. Planted control: 1 cent added to DF civil_servants_siape 202401 REMUNERACAOBASICABRUTAR gave 1 miss (civil_servants_siape 202401 REMUNERACAOBASICABRUTAR: buckets 584997464812 vs national 584997464811 cents). Months not collected: civil_servants_siape 202402, civil_servants_siape 202403, civil_servants_siape 202404, civil_servants_siape 202405, civil_servants_siape 202406, civil_servants_siape 202407, civil_servants_siape 202408, civil_servants_siape 202409, civil_servants_siape 202410, civil_servants_siape 202411, civil_servants_siape 202412, staff_bacen 202402, staff_bacen 202403, staff_bacen 202404, staff_bacen 202405, staff_bacen 202406, staff_bacen 202407, staff_bacen 202408, staff_bacen 202409, staff_bacen 202410, staff_bacen 202411, staff_bacen 202412, military_active 202402, military_active 202403, military_active 202404, military_active 202405, military_active 202406, military_active 202407, military_active 202408, military_active 202409, military_active 202410, military_active 202411, military_active 202412, military_reserve_retired 202402, military_reserve_retired 202403, military_reserve_retired 202404, military_reserve_retired 202405, military_reserve_retired 202406, military_reserve_retired 202407, military_reserve_retired 202408, military_reserve_retired 202409, military_reserve_retired 202410, military_reserve_retired 202411, military_reserve_retired 202412, retirees_siape 202402, retirees_siape 202403, retirees_siape 202404, retirees_siape 202405, retirees_siape 202406, retirees_siape 202407, retirees_siape 202408, retirees_siape 202409, retirees_siape 202410, retirees_siape 202411, retirees_siape 202412, retirees_bacen 202402, retirees_bacen 202403, retirees_bacen 202404, retirees_bacen 202405, retirees_bacen 202406, retirees_bacen 202407, retirees_bacen 202408, retirees_bacen 202409, retirees_bacen 202410, retirees_bacen 202411, retirees_bacen 202412, pensioners_siape 202402, pensioners_siape 202403, pensioners_siape 202404, pensioners_siape 202405, pensioners_siape 202406, pensioners_siape 202407, pensioners_siape 202408, pensioners_siape 202409, pensioners_siape 202410, pensioners_siape 202411, pensioners_siape 202412, pensioners_bacen 202402, pensioners_bacen 202403, pensioners_bacen 202404, pensioners_bacen 202405, pensioners_bacen 202406, pensioners_bacen 202407, pensioners_bacen 202408, pensioners_bacen 202409, pensioners_bacen 202410, pensioners_bacen 202411, pensioners_bacen 202412, pensioners_defense 202402, pensioners_defense 202403, pensioners_defense 202404, pensioners_defense 202405, pensioners_defense 202406, pensioners_defense 202407, pensioners_defense 202408, pensioners_defense 202409, pensioners_defense 202410, pensioners_defense 202411, pensioners_defense 202412, attorney_fees 202401, attorney_fees 202402, attorney_fees 202403, attorney_fees 202404, attorney_fees 202405, attorney_fees 202406, attorney_fees 202407, attorney_fees 202408, attorney_fees 202409, attorney_fees 202410, attorney_fees 202411, attorney_fees 202412, board_fees 202401, board_fees 202402, board_fees 202403, board_fees 202404, board_fees 202405, board_fees 202406, board_fees 202407, board_fees 202408, board_fees 202409, board_fees 202410, board_fees 202411, board_fees 202412.",
+  "misses": [],
+  "net_identity_by_month": {
+   "civil_servants_siape": {
+    "1": {
+     "rows_gross_minus_deductions_not_net": 0,
+     "sum_diff_cents": 0
+    }
+   },
+   "staff_bacen": {
+    "1": {
+     "rows_gross_minus_deductions_not_net": 0,
+     "sum_diff_cents": 0
+    }
+   },
+   "military_active": {
+    "1": {
+     "rows_gross_minus_deductions_not_net": 0,
+     "sum_diff_cents": 0
+    }
+   },
+   "military_reserve_retired": {
+    "1": {
+     "rows_gross_minus_deductions_not_net": 0,
+     "sum_diff_cents": 0
+    }
+   },
+   "retirees_siape": {
+    "1": {
+     "rows_gross_minus_deductions_not_net": 0,
+     "sum_diff_cents": 0
+    }
+   },
+   "retirees_bacen": {
+    "1": {
+     "rows_gross_minus_deductions_not_net": 0,
+     "sum_diff_cents": 0
+    }
+   },
+   "pensioners_siape": {
+    "1": {
+     "rows_gross_minus_deductions_not_net": 0,
+     "sum_diff_cents": 0
+    }
+   },
+   "pensioners_bacen": {
+    "1": {
+     "rows_gross_minus_deductions_not_net": 0,
+     "sum_diff_cents": 0
+    }
+   },
+   "pensioners_defense": {
+    "1": {
+     "rows_gross_minus_deductions_not_net": 0,
+     "sum_diff_cents": 0
+    }
+   }
+  }
+ },
+ "df_detail": {
+  "civil_servants_siape": {
+   "by_org_exercicio": {
+    "25000 Ministério da Saúde": {
+     "people_avg": 21677,
+     "gross": 267236368.78,
+     "irrf": 2178002.79,
+     "pension": 1086722.33,
+     "pss": 1086722.33,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 17606376.33,
+     "net": 246365267.33,
+     "indemnities": 1155061.24,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26271 Fundação Universidade de Brasília": {
+     "people_avg": 5085,
+     "gross": 76715514.15,
+     "irrf": 12826532.98,
+     "pension": 7748276.69,
+     "pss": 7748276.69,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 383304.15,
+     "net": 55757400.33,
+     "indemnities": 4412566.05,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17600 MINISTERIO DA FAZENDA": {
+     "people_avg": 2439,
+     "gross": 60058111.7,
+     "irrf": 11743801.8,
+     "pension": 3920844.88,
+     "pss": 3920844.88,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 189794.91,
+     "net": 44203670.11,
+     "indemnities": 2174994.58,
+     "usd_not_converted": {
+      "gross": 49446.24,
+      "irrf": 1962.99,
+      "pension": 4295.59,
+      "net": 42572.93,
+      "indemnities": 34250.24
+     }
+    },
+    "40801 Governo do Ex-Território Federal do Amapá": {
+     "people_avg": 5758,
+     "gross": 54798471.73,
+     "irrf": 7717880.86,
+     "pension": 5969264.26,
+     "pss": 5969264.26,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 244686.86,
+     "net": 40866639.75,
+     "indemnities": 3787744.88,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40803 Governo do Ex-Território Federal de Rondônia": {
+     "people_avg": 4355,
+     "gross": 27529974.64,
+     "irrf": 3013064.06,
+     "pension": 2811287.5,
+     "pss": 2811287.5,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 130849.64,
+     "net": 21574773.44,
+     "indemnities": 3052692.59,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "59000 Controladoria-Geral da União": {
+     "people_avg": 890,
+     "gross": 23128419.88,
+     "irrf": 4499815.21,
+     "pension": 1507227.18,
+     "pss": 1507227.18,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 71021.76,
+     "net": 17050355.73,
+     "indemnities": 777417.62,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17500 MIN GESTAO E INOV EM SERV PUBLICOS": {
+     "people_avg": 1605,
+     "gross": 22806587.65,
+     "irrf": 3751063.26,
+     "pension": 1554718.68,
+     "pss": 1554718.68,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 161393.39,
+     "net": 17339412.32,
+     "indemnities": 1339072.67,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "20101 Presidência da República": {
+     "people_avg": 1864,
+     "gross": 22428134.69,
+     "irrf": 3687633.58,
+     "pension": 1444331.45,
+     "pss": 1444331.45,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 241859.29,
+     "net": 17054310.37,
+     "indemnities": 1099525.61,
+     "usd_not_converted": {
+      "gross": 4420.42,
+      "irrf": 268.18,
+      "pension": 311.37,
+      "net": 3840.87,
+      "indemnities": 2086.56
+     }
+    },
+    "36207 Agência Nacional de Vigilância Sanitária": {
+     "people_avg": 937,
+     "gross": 19774380.37,
+     "irrf": 3684612.27,
+     "pension": 1547095.97,
+     "pss": 1547095.97,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 36838.68,
+     "net": 14505833.45,
+     "indemnities": 888539.75,
+     "usd_not_converted": {
+      "gross": 3850.14,
+      "irrf": 223.31,
+      "pension": 0.0,
+      "net": 3626.83,
+      "indemnities": 2004.12
+     }
+    },
+    "35000 Ministério das Relações Exteriores": {
+     "people_avg": 2615,
+     "gross": 19072817.24,
+     "irrf": 3720670.23,
+     "pension": 1787993.47,
+     "pss": 1787993.47,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 96523.22,
+     "net": 13467630.32,
+     "indemnities": 602472.14,
+     "usd_not_converted": {
+      "gross": 14319433.2,
+      "irrf": 1056859.44,
+      "pension": 761621.91,
+      "net": 12490119.49,
+      "indemnities": 7111940.04
+     }
+    },
+    "26402 Instituto Federal de Alagoas": {
+     "people_avg": 1350,
+     "gross": 15195236.16,
+     "irrf": 2326263.53,
+     "pension": 1476813.05,
+     "pss": 1476813.05,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 230421.79,
+     "net": 11161737.79,
+     "indemnities": 1487388.45,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26428 Instituto Federal de Brasília": {
+     "people_avg": 1313,
+     "gross": 14778463.33,
+     "irrf": 2287342.27,
+     "pension": 1376295.6,
+     "pss": 1376295.6,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 67603.77,
+     "net": 11047221.69,
+     "indemnities": 1110807.42,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "41231 Agência Nacional de Telecomunicações": {
+     "people_avg": 602,
+     "gross": 14617469.03,
+     "irrf": 2701394.95,
+     "pension": 952123.15,
+     "pss": 952123.15,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 60296.33,
+     "net": 10903654.6,
+     "indemnities": 532004.46,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26421 Instituto Federal de Rondônia": {
+     "people_avg": 1284,
+     "gross": 13849783.97,
+     "irrf": 2071018.56,
+     "pension": 1265962.51,
+     "pss": 1265962.51,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 55854.38,
+     "net": 10456948.52,
+     "indemnities": 1066066.42,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40116 ADVOCACIA-GERAL DA UNIAO": {
+     "people_avg": 656,
+     "gross": 13213282.86,
+     "irrf": 2370739.3,
+     "pension": 890112.75,
+     "pss": 890112.75,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 27393.09,
+     "net": 9925037.72,
+     "indemnities": 577847.42,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40115 MINISTERIO DA DEFESA": {
+     "people_avg": 2148,
+     "gross": 12854463.74,
+     "irrf": 1472764.11,
+     "pension": 1002604.33,
+     "pss": 1002604.33,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 116912.86,
+     "net": 10262182.44,
+     "indemnities": 1347766.63,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17400 MIN DESENVOLV IND COMERCIO E SERVICOS": {
+     "people_avg": 469,
+     "gross": 12826546.01,
+     "irrf": 2525860.41,
+     "pension": 851425.66,
+     "pss": 851425.66,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 14296.25,
+     "net": 9434963.69,
+     "indemnities": 403230.9,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "57202 Instituto Nacional do Seguro Social": {
+     "people_avg": 902,
+     "gross": 12258529.16,
+     "irrf": 1919754.14,
+     "pension": 1120745.99,
+     "pss": 1120745.99,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 85932.38,
+     "net": 9132096.65,
+     "indemnities": 805887.92,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "52201 Agência Nacional de Aviação Civil": {
+     "people_avg": 499,
+     "gross": 10975684.87,
+     "irrf": 2033266.55,
+     "pension": 690221.15,
+     "pss": 690221.15,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 72295.42,
+     "net": 8179901.75,
+     "indemnities": 429709.45,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "13300 MINISTERIO DA AGRICULTURA E PECUARIA": {
+     "people_avg": 777,
+     "gross": 10902218.28,
+     "irrf": 1796339.1,
+     "pension": 872756.4,
+     "pss": 872756.4,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 18.71,
+     "other_deductions": 79471.65,
+     "net": 8153632.42,
+     "indemnities": 587627.44,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "39250 Agência Nacional de Transportes Terrestres": {
+     "people_avg": 553,
+     "gross": 9908423.82,
+     "irrf": 1725803.23,
+     "pension": 825086.11,
+     "pss": 825086.11,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 11360.59,
+     "net": 7346173.89,
+     "indemnities": 469010.98,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40701 Instituto Brasileiro do Meio Ambiente e Recursos Naturais Renováveis": {
+     "people_avg": 707,
+     "gross": 9371962.83,
+     "irrf": 1525766.02,
+     "pension": 828829.47,
+     "pss": 828829.47,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 13208.59,
+     "net": 7004158.75,
+     "indemnities": 553176.77,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "45203 Comissão de Valores Mobiliários": {
+     "people_avg": 352,
+     "gross": 9200389.57,
+     "irrf": 1766923.13,
+     "pension": 754824.83,
+     "pss": 754824.83,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 25487.02,
+     "net": 6653154.59,
+     "indemnities": 321720.07,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26267 Universidade Federal da Integração Latino-Americana": {
+     "people_avg": 817,
+     "gross": 8884023.34,
+     "irrf": 1324986.13,
+     "pension": 788891.83,
+     "pss": 788891.83,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 23118.89,
+     "net": 6747026.49,
+     "indemnities": 693671.11,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "55100 MIN DESENV ASSIS SOCI FAMIL COMBATE FOME": {
+     "people_avg": 542,
+     "gross": 8350398.02,
+     "irrf": 1402176.8,
+     "pension": 551664.94,
+     "pss": 551664.94,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 107263.45,
+     "net": 6289292.83,
+     "indemnities": 450908.02,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40804 Governo do Ex-Território Federal de Roraima": {
+     "people_avg": 885,
+     "gross": 7933889.48,
+     "irrf": 1080630.5,
+     "pension": 823319.8,
+     "pss": 823319.8,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 22793.86,
+     "net": 6007145.32,
+     "indemnities": 521450.93,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "39252 Departamento Nacional de Infraestrutura de Transportes": {
+     "people_avg": 441,
+     "gross": 7909592.03,
+     "irrf": 1382733.48,
+     "pension": 643115.17,
+     "pss": 643115.17,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 97243.87,
+     "net": 5786499.51,
+     "indemnities": 395238.9,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17300 MINISTERIO DO PLANEJAMENTO E ORCAMENTO": {
+     "people_avg": 234,
+     "gross": 6746494.54,
+     "irrf": 1301078.21,
+     "pension": 470210.51,
+     "pss": 470210.51,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 47695.78,
+     "net": 4927510.04,
+     "indemnities": 209804.22,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "44205 Agência Nacional de Águas": {
+     "people_avg": 248,
+     "gross": 5822141.52,
+     "irrf": 1108828.1,
+     "pension": 481953.36,
+     "pss": 481953.36,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 33247.27,
+     "net": 4198112.79,
+     "indemnities": 211566.83,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "32200 Agência Nacional de Energia Elétrica": {
+     "people_avg": 236,
+     "gross": 5644021.6,
+     "irrf": 1046059.09,
+     "pension": 353775.15,
+     "pss": 353775.15,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 82805.37,
+     "net": 4161381.99,
+     "indemnities": 217080.97,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "45206 Instituto de Pesquisa Econômica Aplicada": {
+     "people_avg": 193,
+     "gross": 5594789.35,
+     "irrf": 1081573.52,
+     "pension": 533632.75,
+     "pss": 533632.75,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 23115.21,
+     "net": 3956467.87,
+     "indemnities": 160043.86,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "32000 Ministério de Minas e Energia": {
+     "people_avg": 306,
+     "gross": 5257838.68,
+     "irrf": 936812.88,
+     "pension": 334861.54,
+     "pss": 334861.54,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 25346.05,
+     "net": 3960818.21,
+     "indemnities": 260967.9,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "38000 Conselho Administrativo de Defesa Econômica": {
+     "people_avg": 272,
+     "gross": 5128691.74,
+     "irrf": 938999.78,
+     "pension": 390686.6,
+     "pss": 390686.6,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 8705.16,
+     "net": 3790300.2,
+     "indemnities": 230286.96,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40603 Superintendência da Zona Franca de Manaus": {
+     "people_avg": 354,
+     "gross": 5077696.1,
+     "irrf": 846230.22,
+     "pension": 469241.34,
+     "pss": 469241.34,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 11226.03,
+     "net": 3750998.51,
+     "indemnities": 294619.88,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "20000 Ministério da Justiça e Segurança Pública": {
+     "people_avg": 372,
+     "gross": 4937786.19,
+     "irrf": 770657.96,
+     "pension": 356883.37,
+     "pss": 356883.37,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 21140.46,
+     "net": 3789104.4,
+     "indemnities": 284036.01,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "49200 MINISTERIO DOS TRANSPORTES": {
+     "people_avg": 480,
+     "gross": 4755387.38,
+     "irrf": 672671.39,
+     "pension": 364245.4,
+     "pss": 364245.4,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 50812.86,
+     "net": 3667657.73,
+     "indemnities": 213210.29,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40501 Conselho Nacional de Desenvolvimento Científico e Tecnológico": {
+     "people_avg": 276,
+     "gross": 4709989.15,
+     "irrf": 810453.27,
+     "pension": 434209.66,
+     "pss": 434209.66,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 25642.28,
+     "net": 3439683.94,
+     "indemnities": 243214.56,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40200 MINISTERIO DAS CIDADES": {
+     "people_avg": 272,
+     "gross": 4541136.02,
+     "irrf": 789351.31,
+     "pension": 342556.85,
+     "pss": 342556.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 31926.54,
+     "net": 3377301.32,
+     "indemnities": 235146.29,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40100 MIN DA INTEG E DO DESENV REGIONAL": {
+     "people_avg": 289,
+     "gross": 4488682.0,
+     "irrf": 745945.09,
+     "pension": 320006.51,
+     "pss": 320006.51,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 64934.59,
+     "net": 3357795.81,
+     "indemnities": 242957.73,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "41100 MINISTERIO DAS COMUNICACOES": {
+     "people_avg": 374,
+     "gross": 4255563.3,
+     "irrf": 638224.98,
+     "pension": 299300.6,
+     "pss": 299300.6,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 29382.54,
+     "net": 3288655.18,
+     "indemnities": 241888.64,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26298 Fundação Coordenação de Aperfeiçoamento de Pessoal de Nível Superior": {
+     "people_avg": 251,
+     "gross": 4193458.64,
+     "irrf": 728940.42,
+     "pension": 339787.8,
+     "pss": 339787.8,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 15284.61,
+     "net": 3109445.81,
+     "indemnities": 228355.87,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40202 Função Escola Nacional de Administração Pública": {
+     "people_avg": 266,
+     "gross": 3987015.22,
+     "irrf": 670576.48,
+     "pension": 246385.79,
+     "pss": 246385.79,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 55626.49,
+     "net": 3014426.46,
+     "indemnities": 229709.31,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26106 Fundo Nacional de Desenvolvimento da Educação": {
+     "people_avg": 251,
+     "gross": 3810218.28,
+     "irrf": 619838.26,
+     "pension": 308191.67,
+     "pss": 308191.67,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 22837.76,
+     "net": 2859350.59,
+     "indemnities": 222623.87,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "15000 Ministério da Educação": {
+     "people_avg": 260,
+     "gross": 3808798.77,
+     "irrf": 645240.79,
+     "pension": 245535.44,
+     "pss": 245535.44,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 8024.23,
+     "net": 2909998.31,
+     "indemnities": 213689.07,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "30202 Fundação Nacional do Índio": {
+     "people_avg": 293,
+     "gross": 3784589.73,
+     "irrf": 575759.56,
+     "pension": 335049.2,
+     "pss": 335049.2,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 45882.73,
+     "net": 2827898.24,
+     "indemnities": 245081.6,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "37000 Defensoria Pública da União": {
+     "people_avg": 309,
+     "gross": 3386528.36,
+     "irrf": 457805.93,
+     "pension": 297480.54,
+     "pss": 297480.54,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 9877.03,
+     "net": 2621364.86,
+     "indemnities": 407271.03,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "81100 MIN DOS DIR HUM E DA CIDADANIA": {
+     "people_avg": 220,
+     "gross": 3355023.24,
+     "irrf": 565712.31,
+     "pension": 241578.49,
+     "pss": 241578.49,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 30378.57,
+     "net": 2517353.87,
+     "indemnities": 198784.13,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "16000 Comando do Exército": {
+     "people_avg": 308,
+     "gross": 3318177.59,
+     "irrf": 501988.98,
+     "pension": 344735.88,
+     "pss": 344735.88,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 771.94,
+     "other_deductions": 23545.39,
+     "net": 2447135.4,
+     "indemnities": 296873.48,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "39251 Agência Nacional de Transportes Aquaviários": {
+     "people_avg": 125,
+     "gross": 2951851.91,
+     "irrf": 554484.88,
+     "pension": 182092.01,
+     "pss": 182092.01,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 21050.87,
+     "net": 2194224.15,
+     "indemnities": 101040.58,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "44207 Instituto Chico Mendes de Conservação da Biodiversidade": {
+     "people_avg": 238,
+     "gross": 2940001.2,
+     "irrf": 482511.5,
+     "pension": 253502.38,
+     "pss": 253502.38,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 31155.69,
+     "net": 2172831.63,
+     "indemnities": 160266.83,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "54100 MINISTERIO DA CULTURA": {
+     "people_avg": 223,
+     "gross": 2816960.7,
+     "irrf": 432339.38,
+     "pension": 196312.27,
+     "pss": 196312.27,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 21314.84,
+     "net": 2166994.21,
+     "indemnities": 180527.46,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "13100 MIN DO DESENV AGR E AGRIC FAMILIAR": {
+     "people_avg": 158,
+     "gross": 2650888.15,
+     "irrf": 464457.69,
+     "pension": 188292.1,
+     "pss": 188292.1,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 852.51,
+     "net": 1997285.85,
+     "indemnities": 121730.38,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26107 Instituto Nacional de Estudos e Pesquisas Educacionais": {
+     "people_avg": 149,
+     "gross": 2425393.19,
+     "irrf": 416849.35,
+     "pension": 208487.49,
+     "pss": 208487.49,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 6872.2,
+     "net": 1793184.15,
+     "indemnities": 140690.94,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "21000 Comando da Aeronáutica": {
+     "people_avg": 312,
+     "gross": 2330857.14,
+     "irrf": 248939.52,
+     "pension": 206106.76,
+     "pss": 206106.76,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 8076.17,
+     "net": 1867734.69,
+     "indemnities": 254421.4,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26416 Instituto Federal do Pará": {
+     "people_avg": 135,
+     "gross": 1946561.74,
+     "irrf": 333661.13,
+     "pension": 210352.91,
+     "pss": 210352.91,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 11721.93,
+     "net": 1390825.77,
+     "indemnities": 122739.38,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "33206 Superintendência Nacional de Previdência Complementar": {
+     "people_avg": 83,
+     "gross": 1944804.79,
+     "irrf": 374850.31,
+     "pension": 118061.82,
+     "pss": 118061.82,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 12539.91,
+     "net": 1439352.75,
+     "indemnities": 75532.22,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "33100 MINISTERIO DA PREVIDENCIA SOCIAL": {
+     "people_avg": 107,
+     "gross": 1858600.42,
+     "irrf": 323033.73,
+     "pension": 125749.53,
+     "pss": 125749.53,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 15356.89,
+     "net": 1394460.27,
+     "indemnities": 91653.95,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17200 MINISTERIO DOS POVOS INDIGENAS": {
+     "people_avg": 121,
+     "gross": 1758890.83,
+     "irrf": 285676.67,
+     "pension": 117518.71,
+     "pss": 117518.71,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 15170.45,
+     "net": 1340525.0,
+     "indemnities": 98599.34,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "24204 Instituto do Patrimônio Histórico e Artístico Nacional": {
+     "people_avg": 116,
+     "gross": 1609447.17,
+     "irrf": 263511.56,
+     "pension": 136255.31,
+     "pss": 136255.31,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 2153.99,
+     "net": 1207526.31,
+     "indemnities": 100615.32,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "13200 MINISTERIO DA PESCA E AQUICULTURA": {
+     "people_avg": 120,
+     "gross": 1594146.97,
+     "irrf": 256416.38,
+     "pension": 121874.23,
+     "pss": 121874.23,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 9068.8,
+     "net": 1206787.56,
+     "indemnities": 91522.39,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "55200 MINISTERIO DO ESPORTE": {
+     "people_avg": 100,
+     "gross": 1588285.41,
+     "irrf": 267318.13,
+     "pension": 89199.13,
+     "pss": 89199.13,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 36271.44,
+     "net": 1195496.71,
+     "indemnities": 79073.1,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "45205 Fundação Instituto Brasileiro de Geografia e Estatística": {
+     "people_avg": 247,
+     "gross": 1553825.01,
+     "irrf": 172108.78,
+     "pension": 142003.7,
+     "pss": 142003.7,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 15552.38,
+     "net": 1224160.15,
+     "indemnities": 77890.34,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "54000 Ministério do Turismo": {
+     "people_avg": 101,
+     "gross": 1255072.06,
+     "irrf": 201240.1,
+     "pension": 92743.79,
+     "pss": 92743.79,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 4345.61,
+     "net": 956742.56,
+     "indemnities": 94366.56,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "32396 Agência Nacional de Mineração": {
+     "people_avg": 68,
+     "gross": 1210394.31,
+     "irrf": 215305.88,
+     "pension": 117186.35,
+     "pss": 117186.35,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 1521.06,
+     "net": 876381.02,
+     "indemnities": 61112.43,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "81300 MINISTERIO DA IGUALDADE RACIAL": {
+     "people_avg": 50,
+     "gross": 1024023.46,
+     "irrf": 180474.27,
+     "pension": 52208.16,
+     "pss": 52208.16,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 40471.3,
+     "net": 750869.73,
+     "indemnities": 55271.44,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "36201 Fundação Oswaldo Cruz": {
+     "people_avg": 56,
+     "gross": 1018753.14,
+     "irrf": 188231.98,
+     "pension": 97959.05,
+     "pss": 97959.05,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 4.83,
+     "net": 732557.28,
+     "indemnities": 51418.95,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "20102 Vice Presidência da República": {
+     "people_avg": 76,
+     "gross": 884200.9,
+     "irrf": 142221.59,
+     "pension": 52841.34,
+     "pss": 52841.34,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 29905.86,
+     "net": 659232.11,
+     "indemnities": 33589.3,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40108 Ministério da Ciência, Tecnologia, Inovações e Comunicações": {
+     "people_avg": 53,
+     "gross": 860417.5,
+     "irrf": 158559.31,
+     "pension": 83747.18,
+     "pss": 83747.18,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 207.42,
+     "net": 617903.59,
+     "indemnities": 43568.15,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "21300 Agência Espacial Brasileira": {
+     "people_avg": 58,
+     "gross": 846127.6,
+     "irrf": 142772.04,
+     "pension": 58628.73,
+     "pss": 58628.73,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 5681.46,
+     "net": 639045.37,
+     "indemnities": 50663.62,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "42201 Instituto Nacional de Colonização e Reforma Agrária": {
+     "people_avg": 66,
+     "gross": 837312.26,
+     "irrf": 125483.31,
+     "pension": 69377.81,
+     "pss": 69377.81,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 2885.92,
+     "net": 639565.22,
+     "indemnities": 58535.94,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "81200 MINISTERIO DAS MULHERES": {
+     "people_avg": 49,
+     "gross": 802391.89,
+     "irrf": 134421.56,
+     "pension": 39591.92,
+     "pss": 39591.92,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 41602.05,
+     "net": 586776.36,
+     "indemnities": 44862.04,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "42207 Instituto Brasileiro de Museus": {
+     "people_avg": 59,
+     "gross": 723230.59,
+     "irrf": 119537.48,
+     "pension": 54376.67,
+     "pss": 54376.67,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 1608.06,
+     "net": 547708.38,
+     "indemnities": 45116.37,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17700 MIN EMPREEND MICROEMP EMP PEQUENO PORTE": {
+     "people_avg": 40,
+     "gross": 691293.61,
+     "irrf": 127029.53,
+     "pension": 44449.31,
+     "pss": 44449.31,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 1194.16,
+     "net": 518620.61,
+     "indemnities": 30662.04,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "53297 Superintendência do Desenvolvimento do Centro-Oeste": {
+     "people_avg": 62,
+     "gross": 689338.93,
+     "irrf": 99044.92,
+     "pension": 48520.43,
+     "pss": 48520.43,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 6624.74,
+     "net": 535148.84,
+     "indemnities": 51977.64,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "49100 MINISTERIO DE PORTOS E AEROPORTOS": {
+     "people_avg": 37,
+     "gross": 668180.58,
+     "irrf": 122600.23,
+     "pension": 39384.98,
+     "pss": 39384.98,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 1517.13,
+     "net": 504678.24,
+     "indemnities": 30722.22,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40211 MINISTERIO DO MEIO AMBIENTE": {
+     "people_avg": 35,
+     "gross": 631069.1,
+     "irrf": 115465.94,
+     "pension": 48286.22,
+     "pss": 48286.22,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 6817.66,
+     "net": 460499.28,
+     "indemnities": 30243.8,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40408 Fundação Cultural Palmares": {
+     "people_avg": 48,
+     "gross": 586300.94,
+     "irrf": 90325.26,
+     "pension": 44971.4,
+     "pss": 44971.4,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 623.93,
+     "net": 450380.35,
+     "indemnities": 42933.41,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "35201 Fundação Alexandre Gusmão": {
+     "people_avg": 32,
+     "gross": 519102.79,
+     "irrf": 92864.36,
+     "pension": 42078.84,
+     "pss": 42078.84,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 469.92,
+     "net": 383689.67,
+     "indemnities": 28773.03,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26406 Instituto Federal do Espírito Santo": {
+     "people_avg": 26,
+     "gross": 406036.29,
+     "irrf": 67422.43,
+     "pension": 48442.42,
+     "pss": 48442.42,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 1766.4,
+     "net": 288405.04,
+     "indemnities": 28868.46,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26258 Universidade Tecnológica Federal do Paraná": {
+     "people_avg": 22,
+     "gross": 401202.17,
+     "irrf": 75084.54,
+     "pension": 48436.11,
+     "pss": 48436.11,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 277681.52,
+     "indemnities": 18170.11,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "30203 Instituto Nacional de Metrologia, Qualidade e Tecnologia": {
+     "people_avg": 24,
+     "gross": 374969.39,
+     "irrf": 58445.75,
+     "pension": 37113.29,
+     "pss": 37113.29,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 778.36,
+     "net": 278631.99,
+     "indemnities": 17932.64,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "36205 Fundação Nacional de Saúde": {
+     "people_avg": 30,
+     "gross": 321781.29,
+     "irrf": 39134.94,
+     "pension": 24925.82,
+     "pss": 24925.82,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 6919.29,
+     "net": 250801.24,
+     "indemnities": 29736.38,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "36208 Agência Nacional de Saúde Suplementar": {
+     "people_avg": 15,
+     "gross": 286142.42,
+     "irrf": 54458.44,
+     "pension": 35109.84,
+     "pss": 35109.84,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 196574.14,
+     "indemnities": 11956.02,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26438 Instituto Federal de Santa Catarina": {
+     "people_avg": 20,
+     "gross": 224785.05,
+     "irrf": 35429.2,
+     "pension": 23394.67,
+     "pss": 23394.67,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 6378.54,
+     "net": 159582.64,
+     "indemnities": 21904.87,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "20415 Empresa Brasil de Comunicação": {
+     "people_avg": 27,
+     "gross": 215263.3,
+     "irrf": 26698.09,
+     "pension": 22099.27,
+     "pss": 22099.27,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 1222.36,
+     "net": 165243.58,
+     "indemnities": 6026.67,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "24100 TELEBRAS - TELECOM. BRASILEIRAS S.A.": {
+     "people_avg": 6,
+     "gross": 201327.23,
+     "irrf": 42635.05,
+     "pension": 7211.91,
+     "pss": 7211.91,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 151480.27,
+     "indemnities": 768.73,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26285 Fundação Universidade Federal de São João del-Rei": {
+     "people_avg": 20,
+     "gross": 197717.93,
+     "irrf": 27748.6,
+     "pension": 20566.7,
+     "pss": 20566.7,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 675.55,
+     "net": 148727.08,
+     "indemnities": 18006.72,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26286 Fundação Universidade Federal do Amapá": {
+     "people_avg": 21,
+     "gross": 189104.56,
+     "irrf": 26052.65,
+     "pension": 17767.86,
+     "pss": 17767.86,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 145284.05,
+     "indemnities": 18791.69,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26424 Instituto Federal do Tocantins": {
+     "people_avg": 10,
+     "gross": 148086.47,
+     "irrf": 22100.89,
+     "pension": 14998.17,
+     "pss": 14998.17,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 5.68,
+     "net": 110981.73,
+     "indemnities": 9315.81,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17600 MINISTERIO DA FAZENDA | 24100 TELEBRAS - TELECOM. BRASILEIRAS S.A.": {
+     "people_avg": 3,
+     "gross": 146473.95,
+     "irrf": 24912.81,
+     "pension": 6598.18,
+     "pss": 6598.18,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 114962.96,
+     "indemnities": 3520.05,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17600 MINISTERIO DA FAZENDA | 49300 VALEC Engenharia, Construções e Ferrovias S.A.": {
+     "people_avg": 4,
+     "gross": 144196.83,
+     "irrf": 26833.7,
+     "pension": 6332.49,
+     "pss": 6332.49,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 111030.64,
+     "indemnities": 2652.38,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "32300 Agência Nacional do Petróleo, Gás Natural e Biocombustíveis": {
+     "people_avg": 5,
+     "gross": 123054.85,
+     "irrf": 22259.59,
+     "pension": 9319.77,
+     "pss": 9319.77,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 91475.49,
+     "indemnities": 3962.2,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26417 Instituto Federal da Paraíba": {
+     "people_avg": 14,
+     "gross": 121253.08,
+     "irrf": 14571.66,
+     "pension": 12491.75,
+     "pss": 12491.75,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 762.54,
+     "net": 93427.13,
+     "indemnities": 13234.12,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "20224 Agência Nacional do Cinema": {
+     "people_avg": 4,
+     "gross": 104031.63,
+     "irrf": 21285.82,
+     "pension": 8410.92,
+     "pss": 8410.92,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 74334.89,
+     "indemnities": 3343.25,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "13000 Ministério da Agricultura, Pecuária e Abastecimento": {
+     "people_avg": 6,
+     "gross": 102856.6,
+     "irrf": 18968.79,
+     "pension": 8990.78,
+     "pss": 8990.78,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 74897.03,
+     "indemnities": 3867.99,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17000 Ministério da Economia": {
+     "people_avg": 24,
+     "gross": 99068.76,
+     "irrf": 2563.2,
+     "pension": 7887.0,
+     "pss": 7887.0,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 35.48,
+     "net": 88583.08,
+     "indemnities": 2079.6,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17500 MIN GESTAO E INOV EM SERV PUBLICOS | 25000 Ministério da Saúde": {
+     "people_avg": 10,
+     "gross": 89580.0,
+     "irrf": 11366.23,
+     "pension": 9088.5,
+     "pss": 9088.5,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 69125.27,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "24100 TELEBRAS - TELECOM. BRASILEIRAS S.A. | 41100 MINISTERIO DAS COMUNICACOES": {
+     "people_avg": 3,
+     "gross": 84640.23,
+     "irrf": 21686.64,
+     "pension": 6784.71,
+     "pss": 6784.71,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 56168.88,
+     "indemnities": 2517.7,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17500 MIN GESTAO E INOV EM SERV PUBLICOS | 36207 Agência Nacional de Vigilância Sanitária": {
+     "people_avg": 7,
+     "gross": 76118.98,
+     "irrf": 7434.48,
+     "pension": 6361.95,
+     "pss": 6361.95,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 62322.55,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "49000 Ministério da Infraestrutura": {
+     "people_avg": 4,
+     "gross": 66684.38,
+     "irrf": 11607.71,
+     "pension": 1817.7,
+     "pss": 1817.7,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 2237.97,
+     "net": 51021.0,
+     "indemnities": 2286.67,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26422 Instituto Federal Catarinense": {
+     "people_avg": 3,
+     "gross": 65276.73,
+     "irrf": 10527.25,
+     "pension": 4687.56,
+     "pss": 4687.56,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 4762.7,
+     "net": 45299.22,
+     "indemnities": 5380.83,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26430 Instituto Federal do Sertão Pernambucano": {
+     "people_avg": 12,
+     "gross": 64480.78,
+     "irrf": 5100.7,
+     "pension": 6156.34,
+     "pss": 6156.34,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 113.22,
+     "net": 53110.52,
+     "indemnities": 12838.07,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26250 Universidade Federal de Roraima": {
+     "people_avg": 3,
+     "gross": 63887.9,
+     "irrf": 11966.88,
+     "pension": 7319.89,
+     "pss": 7319.89,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 79.24,
+     "net": 44521.89,
+     "indemnities": 2798.1,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "22200 Companhia Nacional de Abastecimento": {
+     "people_avg": 3,
+     "gross": 61911.88,
+     "irrf": 12617.48,
+     "pension": 2289.88,
+     "pss": 2289.88,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 48.5,
+     "net": 46956.02,
+     "indemnities": 2449.26,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26443 Empresa Brasileira de Serviços Hospitalares": {
+     "people_avg": 2,
+     "gross": 53592.14,
+     "irrf": 11890.1,
+     "pension": 1817.7,
+     "pss": 1817.7,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 39884.34,
+     "indemnities": 1316.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26236 Universidade Federal Fluminense - RJ": {
+     "people_avg": 6,
+     "gross": 50322.94,
+     "irrf": 5284.69,
+     "pension": 4289.75,
+     "pss": 4289.75,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 440.96,
+     "net": 40307.54,
+     "indemnities": 7095.8,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "49300 VALEC Engenharia, Construções e Ferrovias S.A.": {
+     "people_avg": 2,
+     "gross": 45447.8,
+     "irrf": 8698.23,
+     "pension": 5423.64,
+     "pss": 5423.64,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 31325.93,
+     "indemnities": 1435.28,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "33000 MINISTERIO DO TRABALHO E PREVIDENCIA": {
+     "people_avg": 3,
+     "gross": 45231.21,
+     "irrf": 6938.39,
+     "pension": 4799.77,
+     "pss": 4799.77,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 7253.69,
+     "net": 26239.36,
+     "indemnities": 20445.09,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "42204 Departamento Nacional de Obras Contra as Secas": {
+     "people_avg": 5,
+     "gross": 44958.21,
+     "irrf": 6113.41,
+     "pension": 4881.54,
+     "pss": 4881.54,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 84.15,
+     "net": 33879.11,
+     "indemnities": 3830.64,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "49200 MINISTERIO DOS TRANSPORTES | 49300 VALEC Engenharia, Construções e Ferrovias S.A.": {
+     "people_avg": 2,
+     "gross": 40667.14,
+     "irrf": 9029.77,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 30728.52,
+     "indemnities": 658.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17000 Ministério da Economia | 17500 MIN GESTAO E INOV EM SERV PUBLICOS": {
+     "people_avg": 3,
+     "gross": 40401.84,
+     "irrf": 6017.2,
+     "pension": 4970.48,
+     "pss": 4970.48,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 29414.16,
+     "indemnities": 779.14,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26253 Universidade Federal Rural da Amazônia": {
+     "people_avg": 4,
+     "gross": 39760.06,
+     "irrf": 6070.94,
+     "pension": 4288.26,
+     "pss": 4288.26,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 311.14,
+     "net": 29089.72,
+     "indemnities": 4109.96,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26270 Fundação Universidade Federal do Amazonas": {
+     "people_avg": 3,
+     "gross": 38689.03,
+     "irrf": 5825.39,
+     "pension": 3285.51,
+     "pss": 3285.51,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 29578.13,
+     "indemnities": 2210.5,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26405 Instituto Federal do Ceará": {
+     "people_avg": 5,
+     "gross": 38645.63,
+     "irrf": 4894.44,
+     "pension": 3201.27,
+     "pss": 3201.27,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 155.21,
+     "net": 30394.71,
+     "indemnities": 4140.1,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26411 Instituto Federal do Sudeste de Minas Gerais": {
+     "people_avg": 3,
+     "gross": 37565.25,
+     "irrf": 6307.3,
+     "pension": 4596.28,
+     "pss": 4596.28,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 26661.67,
+     "indemnities": 2656.7,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17500 MIN GESTAO E INOV EM SERV PUBLICOS | 55100 MIN DESENV ASSIS SOCI FAMIL COMBATE FOME": {
+     "people_avg": 4,
+     "gross": 36153.0,
+     "irrf": 4590.4,
+     "pension": 3635.4,
+     "pss": 3635.4,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 27927.2,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26271 Fundação Universidade de Brasília | 40115 MINISTERIO DA DEFESA": {
+     "people_avg": 2,
+     "gross": 33322.17,
+     "irrf": 4921.61,
+     "pension": 2912.8,
+     "pss": 2912.8,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 25487.76,
+     "indemnities": 2824.87,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "13300 MINISTERIO DA AGRICULTURA E PECUARIA | 22200 Companhia Nacional de Abastecimento": {
+     "people_avg": 2,
+     "gross": 32751.64,
+     "irrf": 7405.22,
+     "pension": 1435.57,
+     "pss": 1435.57,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 23910.85,
+     "indemnities": 782.33,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "13100 MIN DO DESENV AGR E AGRIC FAMILIAR | 22200 Companhia Nacional de Abastecimento": {
+     "people_avg": 1,
+     "gross": 29505.32,
+     "irrf": 5956.69,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 22639.78,
+     "indemnities": 658.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26272 Fundação Universidade Federal do Maranhão": {
+     "people_avg": 2,
+     "gross": 29308.33,
+     "irrf": 5371.21,
+     "pension": 3393.03,
+     "pss": 3393.03,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 436.2,
+     "net": 20107.89,
+     "indemnities": 1511.56,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "15000 Ministério da Educação | 26443 Empresa Brasileira de Serviços Hospitalares": {
+     "people_avg": 1,
+     "gross": 27841.88,
+     "irrf": 5466.57,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 3199.13,
+     "net": 18267.33,
+     "indemnities": 774.38,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26432 Instituto Federal do Paraná": {
+     "people_avg": 3,
+     "gross": 25183.66,
+     "irrf": 2431.85,
+     "pension": 1907.46,
+     "pss": 1907.46,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 20844.35,
+     "indemnities": 3262.13,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "20101 Presidência da República | 24100 TELEBRAS - TELECOM. BRASILEIRAS S.A.": {
+     "people_avg": 1,
+     "gross": 24626.58,
+     "irrf": 5593.53,
+     "pension": 1375.56,
+     "pss": 1375.56,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 17657.49,
+     "indemnities": 658.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "53202 Superintendência do Desenvolvimento da Amazônia": {
+     "people_avg": 2,
+     "gross": 23939.49,
+     "irrf": 3564.64,
+     "pension": 1721.59,
+     "pss": 1721.59,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 18653.26,
+     "indemnities": 1667.24,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17600 MINISTERIO DA FAZENDA | 33206 Superintendência Nacional de Previdência Complementar": {
+     "people_avg": 1,
+     "gross": 22830.61,
+     "irrf": 5131.31,
+     "pension": 953.2,
+     "pss": 953.2,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 16746.1,
+     "indemnities": 1345.9,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "29214 Companhia Brasileira de Trens Urbanos | 40200 MINISTERIO DAS CIDADES": {
+     "people_avg": 1,
+     "gross": 22706.17,
+     "irrf": 4066.1,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 17731.22,
+     "indemnities": 658.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "25000 Ministério da Saúde | 36207 Agência Nacional de Vigilância Sanitária": {
+     "people_avg": 1,
+     "gross": 22227.76,
+     "irrf": 1471.27,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 856.46,
+     "net": 18991.18,
+     "indemnities": 763.79,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26437 Instituto Federal de Roraima": {
+     "people_avg": 3,
+     "gross": 21961.1,
+     "irrf": 2735.29,
+     "pension": 1754.35,
+     "pss": 1754.35,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 87.42,
+     "net": 17384.04,
+     "indemnities": 2920.73,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17500 MIN GESTAO E INOV EM SERV PUBLICOS | 26271 Fundação Universidade de Brasília": {
+     "people_avg": 1,
+     "gross": 21482.99,
+     "irrf": 4149.31,
+     "pension": 2786.54,
+     "pss": 2786.54,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 14547.14,
+     "indemnities": 1730.23,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26426 Instituto Federal do Amapá": {
+     "people_avg": 3,
+     "gross": 20620.79,
+     "irrf": 2572.64,
+     "pension": 1533.73,
+     "pss": 1533.73,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 16514.42,
+     "indemnities": 3107.82,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "16000 Comando do Exército | 42201 Instituto Nacional de Colonização e Reforma Agrária": {
+     "people_avg": 1,
+     "gross": 20384.78,
+     "irrf": 4038.02,
+     "pension": 2293.38,
+     "pss": 2293.38,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 14053.38,
+     "indemnities": 906.66,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26431 Instituto Federal do Piauí": {
+     "people_avg": 2,
+     "gross": 19830.8,
+     "irrf": 2967.23,
+     "pension": 1817.7,
+     "pss": 1817.7,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 15045.87,
+     "indemnities": 2695.72,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26404 Instituto Federal Baiano": {
+     "people_avg": 2,
+     "gross": 19830.63,
+     "irrf": 3138.54,
+     "pension": 1361.56,
+     "pss": 1361.56,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 73.44,
+     "net": 15257.09,
+     "indemnities": 1738.21,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26000 Ministério do Trabalho e Emprego": {
+     "people_avg": 5,
+     "gross": 18398.6,
+     "irrf": 347.88,
+     "pension": 1417.07,
+     "pss": 1417.07,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 16633.65,
+     "indemnities": 451.78,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "53203 Superintendência do Desenvolvimento do Nordeste": {
+     "people_avg": 2,
+     "gross": 17829.04,
+     "irrf": 2670.49,
+     "pension": 1476.04,
+     "pss": 1476.04,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 13682.51,
+     "indemnities": 1316.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17500 MIN GESTAO E INOV EM SERV PUBLICOS | 22200 Companhia Nacional de Abastecimento": {
+     "people_avg": 1,
+     "gross": 17789.87,
+     "irrf": 3844.37,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 13036.65,
+     "indemnities": 768.73,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17500 MIN GESTAO E INOV EM SERV PUBLICOS | 38000 Conselho Administrativo de Defesa Econômica": {
+     "people_avg": 1,
+     "gross": 16037.22,
+     "irrf": 2476.08,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 2186.0,
+     "net": 10466.29,
+     "indemnities": 777.28,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26439 Instituto Federal de São Paulo": {
+     "people_avg": 3,
+     "gross": 15877.08,
+     "irrf": 1276.1,
+     "pension": 1557.89,
+     "pss": 1557.89,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 655.16,
+     "net": 12387.93,
+     "indemnities": 2952.31,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26263 Universidade Federal de Lavras - MG": {
+     "people_avg": 1,
+     "gross": 14983.36,
+     "irrf": 2842.34,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 11232.17,
+     "indemnities": 768.73,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40111 Ministério do Meio Ambiente": {
+     "people_avg": 1,
+     "gross": 13376.61,
+     "irrf": 2387.26,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 10080.5,
+     "indemnities": 658.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "57201 Fundação Jorge Duprat Figueiredo, de Segurança e Medicina do Trabalho": {
+     "people_avg": 1,
+     "gross": 13268.35,
+     "irrf": 1833.01,
+     "pension": 1703.78,
+     "pss": 1703.78,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 9731.56,
+     "indemnities": 1001.31,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "42000 Ministério do Desenvolvimento Agrário": {
+     "people_avg": 1,
+     "gross": 12862.13,
+     "irrf": 2283.54,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 9669.74,
+     "indemnities": 768.73,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "25000 Ministério da Saúde | 40115 MINISTERIO DA DEFESA": {
+     "people_avg": 1,
+     "gross": 12386.5,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "pss": 0.0,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 856.46,
+     "net": 11530.04,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26242 Universidade Federal de Pernambuco": {
+     "people_avg": 1,
+     "gross": 12038.44,
+     "irrf": 1527.36,
+     "pension": 1370.05,
+     "pss": 1370.05,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 9141.03,
+     "indemnities": 658.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26351 Universidade Federal do Recôncavo da Bahia": {
+     "people_avg": 2,
+     "gross": 11259.85,
+     "irrf": 929.34,
+     "pension": 1065.14,
+     "pss": 1065.14,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 116.67,
+     "net": 9148.7,
+     "indemnities": 1626.54,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26453 UNIVERSIDADE FEDERAL DE JATAI": {
+     "people_avg": 1,
+     "gross": 10622.57,
+     "irrf": 1089.98,
+     "pension": 785.32,
+     "pss": 785.32,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 8747.27,
+     "indemnities": 658.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17000 Ministério da Economia | 20101 Presidência da República": {
+     "people_avg": 1,
+     "gross": 10193.6,
+     "irrf": 1376.15,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 7908.6,
+     "indemnities": 658.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26256 Centro Federal de Educação Tecnológica Celso Suckow da Fonseca": {
+     "people_avg": 1,
+     "gross": 10044.44,
+     "irrf": 1627.32,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 7508.27,
+     "indemnities": 775.42,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "55000 Ministério do Desenvolvimento Social": {
+     "people_avg": 1,
+     "gross": 9914.12,
+     "irrf": 0.0,
+     "pension": 35.84,
+     "pss": 35.84,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 2062.8,
+     "net": 7815.48,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "25000 Ministério da Saúde | 26443 Empresa Brasileira de Serviços Hospitalares": {
+     "people_avg": 1,
+     "gross": 9264.62,
+     "irrf": 583.92,
+     "pension": 0.0,
+     "pss": 0.0,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 8680.7,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17500 MIN GESTAO E INOV EM SERV PUBLICOS | 49200 MINISTERIO DOS TRANSPORTES": {
+     "people_avg": 1,
+     "gross": 8958.0,
+     "irrf": 1147.6,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 6901.55,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26414 Instituto Federal de Mato Grosso": {
+     "people_avg": 1,
+     "gross": 7942.57,
+     "irrf": 1154.04,
+     "pension": 347.98,
+     "pss": 347.98,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 6440.55,
+     "indemnities": 962.89,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "13300 MINISTERIO DA AGRICULTURA E PECUARIA | 37000 Defensoria Pública da União": {
+     "people_avg": 1,
+     "gross": 7408.78,
+     "irrf": 917.04,
+     "pension": 856.04,
+     "pss": 856.04,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 5635.7,
+     "indemnities": 1168.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26247 Universidade Federal de Santa Maria - RS": {
+     "people_avg": 1,
+     "gross": 6783.86,
+     "irrf": 758.04,
+     "pension": 619.69,
+     "pss": 619.69,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 5406.13,
+     "indemnities": 979.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26255 Universidade Federal dos Vales do Jequitinhonha e Mucuri": {
+     "people_avg": 1,
+     "gross": 6146.7,
+     "irrf": 607.36,
+     "pension": 530.49,
+     "pss": 530.49,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 5008.85,
+     "indemnities": 783.56,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17000 Ministério da Economia | 17400 MIN DESENVOLV IND COMERCIO E SERVICOS": {
+     "people_avg": 1,
+     "gross": 5682.9,
+     "irrf": 393.74,
+     "pension": 576.6,
+     "pss": 576.6,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 4712.56,
+     "indemnities": 658.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26239 Universidade Federal do Pará": {
+     "people_avg": 1,
+     "gross": 5261.62,
+     "irrf": 416.78,
+     "pension": 406.57,
+     "pss": 406.57,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 4438.27,
+     "indemnities": 691.9,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "17600 MINISTERIO DA FAZENDA | 40115 MINISTERIO DA DEFESA": {
+     "people_avg": 1,
+     "gross": 4446.24,
+     "irrf": 229.87,
+     "pension": 0.0,
+     "pss": 0.0,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 4216.37,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "22202 Empresa Brasileira de Pesquisa Agropecuária": {
+     "people_avg": 1,
+     "gross": 3644.17,
+     "irrf": 0.0,
+     "pension": 257.15,
+     "pss": 257.15,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 146.71,
+     "net": 3240.31,
+     "indemnities": 436.04,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "26244 Universidade Federal do Rio Grande do Sul": {
+     "people_avg": 1,
+     "gross": 3502.13,
+     "irrf": 75.71,
+     "pension": 292.7,
+     "pss": 292.7,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 67.44,
+     "net": 3066.28,
+     "indemnities": 742.51,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "40805 Antigos Estados da Guanabara e Distrito Federal": {
+     "people_avg": 2,
+     "gross": 1374.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "pss": 0.0,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 1374.0,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "20101 Presidência da República | 40116 ADVOCACIA-GERAL DA UNIAO": {
+     "people_avg": 1,
+     "gross": 290.16,
+     "irrf": 0.0,
+     "pension": 40.5,
+     "pss": 40.5,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 70.3,
+     "net": 179.36,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    }
+   },
+   "by_situacao_vinculo": {
+    "ATIVO PERMANENTE": {
+     "people_avg": 38175,
+     "gross": 519614083.52,
+     "irrf": 86852278.91,
+     "pension": 45075472.77,
+     "pss": 45075472.77,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 790.65,
+     "other_deductions": 2573156.54,
+     "net": 385112384.65,
+     "indemnities": 31262573.49,
+     "usd_not_converted": {
+      "gross": 11862804.74,
+      "irrf": 850488.36,
+      "pension": 597356.25,
+      "net": 10407450.4,
+      "indemnities": 5773707.82
+     }
+    },
+    "RESIDENCIA E PMM": {
+     "people_avg": 20348,
+     "gross": 252564162.03,
+     "irrf": 26450.6,
+     "pension": 16268.25,
+     "pss": 16268.25,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 17490466.53,
+     "net": 235030976.65,
+     "indemnities": 8902.11,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CEDIDO/REQUISITADO": {
+     "people_avg": 2379,
+     "gross": 51546530.56,
+     "irrf": 9628786.79,
+     "pension": 3114360.71,
+     "pss": 3114360.71,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 482757.92,
+     "net": 38320625.14,
+     "indemnities": 2007057.09,
+     "usd_not_converted": {
+      "gross": 8270.56,
+      "irrf": 491.49,
+      "pension": 311.37,
+      "net": 7467.7,
+      "indemnities": 4090.68
+     }
+    },
+    "NOMEADO CARGO COMIS.": {
+     "people_avg": 2641,
+     "gross": 25013599.02,
+     "irrf": 3406335.42,
+     "pension": 1791739.89,
+     "pss": 1791739.89,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 210252.16,
+     "net": 19605271.55,
+     "indemnities": 2105906.56,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO EM OUTRO ORGAO | CEDIDO/REQUISITADO": {
+     "people_avg": 1510,
+     "gross": 21797908.16,
+     "irrf": 3503364.77,
+     "pension": 1782583.58,
+     "pss": 1782583.58,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 200679.74,
+     "net": 16311280.07,
+     "indemnities": 1424295.23,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EXERC DESCENT CARREI": {
+     "people_avg": 627,
+     "gross": 18501971.77,
+     "irrf": 3597952.72,
+     "pension": 1218772.77,
+     "pss": 1218772.77,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 89481.64,
+     "net": 13595764.64,
+     "indemnities": 570312.06,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO PERMANENTE | EXERC DESCENT CARREI": {
+     "people_avg": 448,
+     "gross": 12493170.68,
+     "irrf": 2418521.72,
+     "pension": 1158665.66,
+     "pss": 1158665.66,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 5364.64,
+     "net": 8910618.66,
+     "indemnities": 368954.87,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EMPREGO PCC/EX-TERRI": {
+     "people_avg": 853,
+     "gross": 4442779.81,
+     "irrf": 264143.14,
+     "pension": 326282.69,
+     "pss": 326282.69,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 2577.45,
+     "net": 3849776.53,
+     "indemnities": 9480.47,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CONTRATO TEMPORARIO": {
+     "people_avg": 601,
+     "gross": 3075739.95,
+     "irrf": 222326.89,
+     "pension": 253332.08,
+     "pss": 253332.08,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 48056.3,
+     "net": 2552024.68,
+     "indemnities": 97846.23,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CONT.PROF.SUBSTITUTO": {
+     "people_avg": 472,
+     "gross": 2647714.45,
+     "irrf": 184086.89,
+     "pension": 234491.67,
+     "pss": 234491.67,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 52193.65,
+     "net": 2176942.24,
+     "indemnities": 338689.86,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CLT ANS -DEC 6657/08": {
+     "people_avg": 392,
+     "gross": 2350401.98,
+     "irrf": 163164.45,
+     "pension": 189790.54,
+     "pss": 189790.54,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 28462.77,
+     "net": 1968984.22,
+     "indemnities": 45012.6,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO PERMANENTE | EXERC. 7 ART93 8112": {
+     "people_avg": 180,
+     "gross": 2154751.41,
+     "irrf": 331403.28,
+     "pension": 190950.8,
+     "pss": 190950.8,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 15240.03,
+     "net": 1617157.3,
+     "indemnities": 164902.26,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "REQ.DE OUTROS ORGAOS": {
+     "people_avg": 370,
+     "gross": 1488255.35,
+     "irrf": 163292.5,
+     "pension": 32948.68,
+     "pss": 32948.68,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 12930.51,
+     "net": 1279083.66,
+     "indemnities": 26482.87,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "QUADRO ESPEC.-QE/MRE": {
+     "people_avg": 241,
+     "gross": 1412449.88,
+     "irrf": 288263.8,
+     "pension": 168976.59,
+     "pss": 168976.59,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 636.06,
+     "net": 954573.43,
+     "indemnities": 27299.0,
+     "usd_not_converted": {
+      "gross": 2422889.15,
+      "irrf": 202820.37,
+      "pension": 165830.84,
+      "net": 2050300.58,
+      "indemnities": 1339921.98
+     }
+    },
+    "REQ. MILITAR F. ARM": {
+     "people_avg": 907,
+     "gross": 1262262.15,
+     "irrf": 97132.21,
+     "pension": 0.0,
+     "pss": 0.0,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 14947.9,
+     "net": 1150182.04,
+     "indemnities": 11795.41,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO PERMANENTE | EXERCICIO PROVISORIO": {
+     "people_avg": 98,
+     "gross": 1243004.35,
+     "irrf": 207383.43,
+     "pension": 128941.45,
+     "pss": 128941.45,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 1523.41,
+     "net": 905156.06,
+     "indemnities": 80398.53,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "NATUREZA ESPECIAL": {
+     "people_avg": 24,
+     "gross": 1173268.97,
+     "irrf": 240246.29,
+     "pension": 26732.2,
+     "pss": 26732.2,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 62914.78,
+     "net": 843375.7,
+     "indemnities": 13847.93,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CONSELHEIRO DO CARF": {
+     "people_avg": 75,
+     "gross": 1115108.33,
+     "irrf": 221748.96,
+     "pension": 62612.59,
+     "pss": 62612.59,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 830746.78,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EXERC. 7 ART93 8112": {
+     "people_avg": 84,
+     "gross": 1073890.83,
+     "irrf": 177665.69,
+     "pension": 74582.76,
+     "pss": 74582.76,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 5405.24,
+     "net": 816237.14,
+     "indemnities": 53760.14,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CONTR.PROF.VISITANTE": {
+     "people_avg": 70,
+     "gross": 1022423.16,
+     "irrf": 187617.48,
+     "pension": 62843.85,
+     "pss": 62843.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 771961.83,
+     "indemnities": 10047.33,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EMPREGO PUBLICO": {
+     "people_avg": 136,
+     "gross": 970640.14,
+     "irrf": 97910.35,
+     "pension": 91813.39,
+     "pss": 91813.39,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 16401.56,
+     "net": 764514.84,
+     "indemnities": 57666.71,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CLT ANS -DEC 6657/08 | EXERC. 7 ART93 8112": {
+     "people_avg": 128,
+     "gross": 825229.07,
+     "irrf": 76168.05,
+     "pension": 69751.21,
+     "pss": 69751.21,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 2251.11,
+     "net": 677058.7,
+     "indemnities": 90158.52,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EXCEDENTE A LOTACAO": {
+     "people_avg": 52,
+     "gross": 700012.31,
+     "irrf": 115829.2,
+     "pension": 71059.17,
+     "pss": 71059.17,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 2861.64,
+     "net": 510262.3,
+     "indemnities": 39240.44,
+     "usd_not_converted": {
+      "gross": 12861.3,
+      "irrf": 773.03,
+      "pension": 234.35,
+      "net": 11853.92,
+      "indemnities": 6286.7
+     }
+    },
+    "CELETISTA DEC.JUDIC.": {
+     "people_avg": 24,
+     "gross": 431431.3,
+     "irrf": 80916.35,
+     "pension": 18179.75,
+     "pss": 18179.75,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 332335.2,
+     "indemnities": 298.9,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO EM OUTRO ORGAO": {
+     "people_avg": 30,
+     "gross": 429500.12,
+     "irrf": 76007.71,
+     "pension": 44419.21,
+     "pss": 44419.21,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 11128.2,
+     "net": 297945.0,
+     "indemnities": 34868.21,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CARGO ASSES. EX-TERR": {
+     "people_avg": 84,
+     "gross": 317163.02,
+     "irrf": 2395.09,
+     "pension": 20784.91,
+     "pss": 20784.91,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 293983.02,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO PERMANENTE | SEM VINCULO": {
+     "people_avg": 7,
+     "gross": 307257.72,
+     "irrf": 55924.01,
+     "pension": 14366.24,
+     "pss": 14366.24,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 236967.47,
+     "indemnities": 6954.76,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "SEM VINCULO": {
+     "people_avg": 13,
+     "gross": 281504.39,
+     "irrf": 56068.8,
+     "pension": 15030.21,
+     "pss": 15030.21,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 48.5,
+     "net": 210356.88,
+     "indemnities": 5969.27,
+     "usd_not_converted": {
+      "gross": 823.14,
+      "irrf": 418.82,
+      "pension": 178.32,
+      "net": 226.0,
+      "indemnities": 8662.5
+     }
+    },
+    "CLT ANS DEC JUDICIAL": {
+     "people_avg": 37,
+     "gross": 253282.18,
+     "irrf": 23895.61,
+     "pension": 21258.98,
+     "pss": 21258.98,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 34.0,
+     "net": 208093.59,
+     "indemnities": 4438.22,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO PERMANENTE | COLAB PCCTAE E MAGIS": {
+     "people_avg": 18,
+     "gross": 230109.51,
+     "irrf": 37127.53,
+     "pension": 22605.16,
+     "pss": 22605.16,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 107.69,
+     "net": 170269.13,
+     "indemnities": 13715.1,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CONTRATO TEMPORARIO | EXERC. DESCEN. CDT": {
+     "people_avg": 22,
+     "gross": 210809.98,
+     "irrf": 24538.71,
+     "pension": 19994.7,
+     "pss": 19994.7,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 166276.57,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EXERC. DESCENT. PGFN": {
+     "people_avg": 19,
+     "gross": 197759.01,
+     "irrf": 28650.78,
+     "pension": 14776.8,
+     "pss": 14776.8,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 2910.87,
+     "net": 151420.56,
+     "indemnities": 17167.21,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CEDIDO/REQUISITADO | SEM VINCULO": {
+     "people_avg": 8,
+     "gross": 171767.96,
+     "irrf": 36683.93,
+     "pension": 8602.41,
+     "pss": 8602.41,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 3199.13,
+     "net": 123282.49,
+     "indemnities": 3739.81,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CELETISTA/EMPREGADO": {
+     "people_avg": 2,
+     "gross": 83214.12,
+     "irrf": 19772.06,
+     "pension": 1712.92,
+     "pss": 1712.92,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 61729.14,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EMPREGO PCC/EX-TERRI | EXERC. LEI 13681/18": {
+     "people_avg": 13,
+     "gross": 65754.93,
+     "irrf": 3904.01,
+     "pension": 5470.27,
+     "pss": 5470.27,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 56380.65,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "NOMEADO CARGO COMIS. | SEM VINCULO": {
+     "people_avg": 3,
+     "gross": 62182.25,
+     "irrf": 13775.11,
+     "pension": 3193.26,
+     "pss": 3193.26,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 45213.88,
+     "indemnities": 2295.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO PERMANENTE | CONT.PROF.SUBSTITUTO": {
+     "people_avg": 3,
+     "gross": 61390.82,
+     "irrf": 8588.32,
+     "pension": 5088.99,
+     "pss": 5088.99,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 33.66,
+     "net": 47679.85,
+     "indemnities": 2960.27,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO PERMANENTE | EMPREGO PUBLICO": {
+     "people_avg": 4,
+     "gross": 55004.4,
+     "irrf": 8922.46,
+     "pension": 5384.67,
+     "pss": 5384.67,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 299.0,
+     "net": 40398.27,
+     "indemnities": 3484.82,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CELETISTA DEC.JUDIC. | EXERC. 7 ART93 8112": {
+     "people_avg": 2,
+     "gross": 47087.67,
+     "irrf": 10317.41,
+     "pension": 1817.7,
+     "pss": 1817.7,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 34952.56,
+     "indemnities": 124.33,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "REQUIS. MILITAR GDF": {
+     "people_avg": 15,
+     "gross": 44674.82,
+     "irrf": 7222.37,
+     "pension": 0.0,
+     "pss": 0.0,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 276.39,
+     "net": 37176.06,
+     "indemnities": 404.25,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO PERMANENTE | RESIDENCIA E PMM": {
+     "people_avg": 2,
+     "gross": 34614.26,
+     "irrf": 1471.27,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 1712.92,
+     "net": 30521.22,
+     "indemnities": 763.79,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EXERCICIO PROVISORIO": {
+     "people_avg": 3,
+     "gross": 33842.39,
+     "irrf": 5495.1,
+     "pension": 3988.03,
+     "pss": 3988.03,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 74.4,
+     "net": 24284.86,
+     "indemnities": 2123.06,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO EM OUTRO ORGAO | ATIVO PERMANENTE | CEDIDO/REQUISITADO": {
+     "people_avg": 1,
+     "gross": 31519.13,
+     "irrf": 5778.67,
+     "pension": 4259.87,
+     "pss": 4259.87,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 21480.59,
+     "indemnities": 779.14,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CEDIDO/REQUISITADO | EXCEDENTE A LOTACAO": {
+     "people_avg": 2,
+     "gross": 30637.69,
+     "irrf": 5024.68,
+     "pension": 2268.86,
+     "pss": 2268.86,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 23344.15,
+     "indemnities": 1522.94,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EXERC DESCENT CARREI | SEM VINCULO": {
+     "people_avg": 1,
+     "gross": 29585.18,
+     "irrf": 6788.54,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 21887.79,
+     "indemnities": 658.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO PERMANENTE | CEDIDO/REQUISITADO": {
+     "people_avg": 1,
+     "gross": 22830.61,
+     "irrf": 5131.31,
+     "pension": 953.2,
+     "pss": 953.2,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 16746.1,
+     "indemnities": 1345.9,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO PERMANENTE | CONT.PROF.SUBSTITUTO | EXERC. 7 ART93 8112": {
+     "people_avg": 1,
+     "gross": 21482.99,
+     "irrf": 4149.31,
+     "pension": 2786.54,
+     "pss": 2786.54,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 14547.14,
+     "indemnities": 1730.23,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "ATIVO EM OUTRO ORGAO | REQ.DE OUTROS ORGAOS": {
+     "people_avg": 1,
+     "gross": 9795.17,
+     "irrf": 1129.23,
+     "pension": 908.85,
+     "pss": 908.85,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 7757.09,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "REQ.DE OUTROS ORGAOS | SEM VINCULO": {
+     "people_avg": 1,
+     "gross": 9671.12,
+     "irrf": 2207.73,
+     "pension": 0.0,
+     "pss": 0.0,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 7463.39,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "COLAB PCCTAE E MAGIS": {
+     "people_avg": 1,
+     "gross": 8461.03,
+     "irrf": 1164.97,
+     "pension": 1006.72,
+     "pss": 1006.72,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 6289.34,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CDT PROF/TUT.MMEDICO": {
+     "people_avg": 2,
+     "gross": 5982.92,
+     "irrf": 0.0,
+     "pension": 441.16,
+     "pss": 441.16,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 5541.76,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CEDIDO/REQUISITADO | CLT ANS JUD. CEDIDO": {
+     "people_avg": 1,
+     "gross": 5436.33,
+     "irrf": 190.64,
+     "pension": 416.38,
+     "pss": 416.38,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 4829.31,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EXERC. 7 ART93 8112 | REQ.DE OUTROS ORGAOS": {
+     "people_avg": 1,
+     "gross": 4446.24,
+     "irrf": 229.87,
+     "pension": 0.0,
+     "pss": 0.0,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 4216.37,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CLT ANS DEC JUDICIAL | EXERC. 7 ART93 8112": {
+     "people_avg": 1,
+     "gross": 4220.57,
+     "irrf": 84.78,
+     "pension": 326.32,
+     "pss": 326.32,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 3809.47,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EXERC. LEI 13681/18": {
+     "people_avg": 1,
+     "gross": 3895.07,
+     "irrf": 44.78,
+     "pension": 287.26,
+     "pss": 287.26,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 67.08,
+     "net": 3495.95,
+     "indemnities": 77.56,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "MIL/DIARIA ASILADO": {
+     "people_avg": 2,
+     "gross": 1374.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "pss": 0.0,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 1374.0,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "CEDIDO/REQUISITADO | REQ.DE OUTROS ORGAOS": {
+     "people_avg": 2,
+     "gross": 1151.4,
+     "irrf": 0.0,
+     "pension": 97.21,
+     "pss": 97.21,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 70.3,
+     "net": 983.89,
+     "indemnities": 234.84,
+     "usd_not_converted": {
+      "gross": 0.0,
+      "irrf": 0.0,
+      "pension": 0.0,
+      "net": 0.0,
+      "indemnities": 0.0
+     }
+    },
+    "EXCEDENTE A LOT/MRE": {
+     "people_avg": 6,
+     "gross": 0.0,
+     "irrf": 0.0,
+     "pension": 0.0,
+     "pss": 0.0,
+     "military_pension": 0.0,
+     "health_fund": 0.0,
+     "housing_fee": 0.0,
+     "other_deductions": 0.0,
+     "net": 0.0,
+     "indemnities": 0.0,
+     "usd_not_converted": {
+      "gross": 69501.11,
+      "irrf": 4321.85,
+      "pension": 2317.74,
+      "net": 62861.52,
+      "indemnities": 17611.28
+     }
+    }
+   },
+   "note": "annual sums of the people placed in DF; people_avg over the 12 months (0 in months absent)"
+  }
+ },
+ "not_found": [
+  {
+   "what": "UF of active military (Militares)",
+   "why": "the cadastro has a UF_EXERCICIO column but every row carries -1 (345.468 of 345.468 rows in 2024-01, same check every month in the summaries)",
+   "tried": "Portal Militares monthly zips 2024-01 to 2024-12, cadastro column UF_EXERCICIO; prior research: SIAFI pays them through three national units"
+  },
+  {
+   "what": "UF of reserve and retired military, civil retirees, and all pensioners (Reserva_Reforma_Militares, Aposentados_SIAPE, Aposentados_BACEN, Pensionistas_SIAPE, Pensionistas_BACEN, Pensionistas_DEFESA)",
+   "why": "their cadastro has no UF column at all (no residence, no UF of a unit); only the name of the last organisation of lotacao (of the instituidor, for pensions), which says nothing about where the person lives",
+   "tried": "every column of the cadastro headers of the 2024 zips (listed in categories[].uf_columns_in_cadastro_header)"
+  },
+  {
+   "what": "UF of Banco Central staff (Servidores_BACEN)",
+   "why": "UF_EXERCICIO is -1 in every cadastro row (4.560 of 4.560 in 2024-01)",
+   "tried": "Portal Servidores_BACEN monthly zips 2024"
+  },
+  {
+   "what": "UF of the SIAPE civil servants whose cadastro rows carry UF_EXERCICIO -1 (no_uf.civil_servants_siape, reason missing_uf)",
+   "why": "the file gives no UF for them (186.916 of 598.999 ids in 2024-01; mostly Ministerio da Educacao universities and institutes, \"Sem informacao\", Presidencia); their ORG_EXERCICIO names often name a state, but placing people by an organisation name is an inference and was not done",
+   "tried": "UF_EXERCICIO of every cadastro row of the person; a future step could join COD_ORG_EXERCICIO to an official register of organisations with their UF (SIORG), stated as a rule before use"
+  },
+  {
+   "what": "Legislative, Judiciary, MPU, DPU payrolls and the FCDF personnel (PCDF, PMDF, CBMDF)",
+   "why": "not in the Portal servidores files, which cover the Executive (SIAPE), the Banco Central and the Armed Forces; no PCDF, PMDF or CBMDF organisation appears among the DF organisations of exercise in SIAPE 2024-01",
+   "tried": "download page origins (11 for 2024) and the DF ORG_EXERCICIO list of SIAPE 2024-01"
+  }
+ ]
+}
