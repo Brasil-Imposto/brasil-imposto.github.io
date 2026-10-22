@@ -19,7 +19,7 @@ Status: **fase 1 construída, conferida e publicada no armazém; o site não mud
 ### O que esta fase entrega
 O esqueleto do livro (spec, seções 4 a 7) e o nó `gov:uniao` de jan/2019 a ago/2026, batendo com o RTN linha por linha e
 com o Banco Central, com os juros pelos dois critérios lado a lado (D121, D122). Plano: `docs/superpowers/plans/BRASIL-IMPOSTO_PLAN_money-flow-ledger-phase-1_2026-10-08.md`.
-Código: `data/scripts/ledger/` (29 testes passam). Relatório da máquina: `data/ledger/build-report.json`.
+Código: `pipelines/ledger/` (29 testes passam). Relatório da máquina: `data/ledger/build-report.json`.
 
 ## 1. As garantias
 
@@ -145,10 +145,10 @@ O arquivo do RTN baixado tem o mesmo SHA-256 da cópia que já estava no disco d
 ## 8. Como rodar
 
 ```bash
-.venv/bin/python -m unittest discover -s data/scripts/ledger/tests   # 29 testes
-.venv/bin/python data/scripts/ledger/build.py                        # busca tudo, confere, publica (cerca de 7 min)
-.venv/bin/python data/scripts/ledger/build.py --skip-load            # só confere e publica o que já está no armazém
-.venv/bin/python data/scripts/ledger/build.py --skip-load --control  # tem de parar com exit 1
+.venv/bin/python -m unittest discover -s pipelines/ledger/tests   # 29 testes
+.venv/bin/python pipelines/ledger/build.py                        # busca tudo, confere, publica (cerca de 7 min)
+.venv/bin/python pipelines/ledger/build.py --skip-load            # só confere e publica o que já está no armazém
+.venv/bin/python pipelines/ledger/build.py --skip-load --control  # tem de parar com exit 1
 ```
 
 ## 9. Próximo passo

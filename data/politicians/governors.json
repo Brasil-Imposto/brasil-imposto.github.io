@@ -25,7 +25,7 @@
   }
  ],
  "photo_policy": "URL remota do Wikimedia Commons; licença, autor e página do arquivo como o Commons registra; null com motivo quando não há.",
- "build_script": "data/scripts/politicians/build_governors.py",
+ "build_script": "pipelines/politicians/build_governors.py",
  "counts": {
   "ufs": 27,
   "ufs_curated": 22,

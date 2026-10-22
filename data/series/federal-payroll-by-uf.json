@@ -129,7 +129,7 @@
    "2024"
   ],
   "rule": "total_located e as categorias executivo_* e militares_* só existem nos meses com o arquivo do Portal; legislativo, judiciario, mpu, dpu e o bloco fcdf existem nos meses com a base do Tesouro. Fora disso, null.",
-  "missing_reason": "Coleta de 2026-10-01 interrompida no limite de tempo: o Portal passou a bloquear downloads (AWS WAF) depois de 2025-10, e cada arquivo anual do Tesouro de 2019 a 2021 levava cerca de 16 minutos. Os scripts retomam de onde pararam (data/scripts/series/agg_payroll_monthly.py e agg_union_expense_base.py)."
+  "missing_reason": "Coleta de 2026-10-01 interrompida no limite de tempo: o Portal passou a bloquear downloads (AWS WAF) depois de 2025-10, e cada arquivo anual do Tesouro de 2019 a 2021 levava cerca de 16 minutos. Os scripts retomam de onde pararam (pipelines/series/agg_payroll_monthly.py e agg_union_expense_base.py)."
  },
  "uf": {
   "AC": {

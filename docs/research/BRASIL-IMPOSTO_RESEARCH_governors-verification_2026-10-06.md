@@ -1,6 +1,6 @@
 # Governadores e vices: conferência dos mandatos marcados "a conferir"
 
-Coleta: 06/10/2026. Serve à decisão D100 (nada de "a conferir" na tela), a D39 e a D50 (quem governava em cada período) e responde Q31. Dados: `data/politicians/governors.json`, gerado por `data/scripts/politicians/build_governors.py` a partir de `data/scripts/politicians/governors_curated/<UF>.json`.
+Coleta: 06/10/2026. Serve à decisão D100 (nada de "a conferir" na tela), a D39 e a D50 (quem governava em cada período) e responde Q31. Dados: `data/politicians/governors.json`, gerado por `pipelines/politicians/build_governors.py` a partir de `pipelines/politicians/governors_curated/<UF>.json`.
 
 Regra: só fonte oficial e primária (Diário Oficial, Assembleia Legislativa, governo do estado, TSE, STF, STJ), com a data lida no texto da página. Imprensa só como pista. Mesmo tratamento para todas as pessoas e partidos (D39, D51). Nada sobre candidaturas ou resultados das eleições de 2026 (D54).
 

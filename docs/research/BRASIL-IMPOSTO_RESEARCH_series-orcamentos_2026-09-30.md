@@ -4,7 +4,7 @@
 
 **Data da coleta:** 2026-09-30
 **Arquivos gerados:** `data/series/union.json`, `data/series/state-budgets.json`, `data/series/sc-municipal-budgets.json`
-**Scripts (em `data/scripts/series/`):** `siconfi_client.py`, `siconfi_parse.py`, `fetch_state_series.py`, `build_state_series.py`, `fetch_sc_municipal_series.py`, `build_sc_municipal_series.py`, `build_union_series.py`, `checks_series.py`. O cache bruto fica em `data/scripts/series/cache/`, fora do git. A mesma pasta tem scripts de outra frente de trabalho (transferências federais, INSS, população), que este relatório não cobre.
+**Scripts (em `pipelines/series/`):** `siconfi_client.py`, `siconfi_parse.py`, `fetch_state_series.py`, `build_state_series.py`, `fetch_sc_municipal_series.py`, `build_sc_municipal_series.py`, `build_union_series.py`, `checks_series.py`. O cache bruto fica em `pipelines/series/cache/`, fora do git. A mesma pasta tem scripts de outra frente de trabalho (transferências federais, INSS, população), que este relatório não cobre.
 **Para que serve:** o site mostrar, para o Brasil, cada estado e cada município de SC, de onde veio o dinheiro, para onde foi, se sobrou ou faltou e quanto o governo deve, escolhendo um mês, um ano ou um mandato (2019 a 2022, 2023 a 2026).
 
 Regra seguida do começo ao fim: nenhum valor é estimado. Cada número vem de uma linha de um relatório oficial, e o arquivo diz qual. Quando o relatório não traz o número, ou traz um número que contradiz o próprio relatório, o campo fica nulo e o motivo fica escrito ao lado.
@@ -167,7 +167,7 @@ Quantas prefeituras fecharam o ano com sobra ou falta (uma linha por prefeitura;
 
 ## 6. Checagens
 
-Cada checagem roda primeiro contra um controle quebrado de propósito (um valor alterado, uma função removida, o analisador antigo) e precisa falhar nele; só depois roda nos dados reais. Script: `data/scripts/series/checks_series.py`. Saída da última execução:
+Cada checagem roda primeiro contra um controle quebrado de propósito (um valor alterado, uma função removida, o analisador antigo) e precisa falhar nele; só depois roda nos dados reais. Script: `pipelines/series/checks_series.py`. Saída da última execução:
 
 ```
 == 1. data/state-budgets-2024.json reproduced by the 2024-B6 period
@@ -216,7 +216,7 @@ Leitura:
 
 ## 7. Ressalvas
 
-1. **Achado no arquivo de 2024.** O script `data/scripts/siconfi/build_state_budgets.py` deixa as duas linhas que vêm depois da última função ("DESPESAS (INTRA-ORÇAMENTÁRIAS) (II)" e "TOTAL (III) = (I + II)") caírem dentro das subfunções de "Encargos Especiais". São 54 linhas, 2 por estado; em SC, a maior "subfunção" de Encargos Especiais aparece como "TOTAL (III)", R$ 47,9 bi. Os totais das funções estão certos, por isso a checagem antiga passava. O arquivo não foi alterado nesta tarefa; a série nova não tem o erro.
+1. **Achado no arquivo de 2024.** O script `pipelines/siconfi/build_state_budgets.py` deixa as duas linhas que vêm depois da última função ("DESPESAS (INTRA-ORÇAMENTÁRIAS) (II)" e "TOTAL (III) = (I + II)") caírem dentro das subfunções de "Encargos Especiais". São 54 linhas, 2 por estado; em SC, a maior "subfunção" de Encargos Especiais aparece como "TOTAL (III)", R$ 47,9 bi. Os totais das funções estão certos, por isso a checagem antiga passava. O arquivo não foi alterado nesta tarefa; a série nova não tem o erro.
 2. **Dados declarados.** O SICONFI publica o que cada governo envia. Há relatórios com linhas vazias ou que contradizem o próprio anexo: a linha de SUPERÁVIT ou DÉFICIT do Anexo 01 ficou nula em 69 relatórios estaduais dos bimestres 1 a 5, em 12 do 6º bimestre e em 70 dos 1.789 períodos municipais (43 sem a linha, 27 com valor que não bate). O motivo está em `nulls` de cada período.
 3. **Quebra de série no resultado nominal em 2023.** Até 2022, o nominal acima da linha inclui a previdência dos servidores; desde 2023, o anexo só traz o nominal acima da linha sem ela. O primário não tem essa quebra (usa sempre o "com RPPS"). O site não deve comparar o nominal de 2022 com o de 2023 sem avisar.
 4. **Acima e abaixo da linha dão números diferentes** (em SC, 2022: nominal acima da linha, R$ -0,95 bi; abaixo da linha, R$ +0,24 bi). O arquivo usa o acima da linha e guarda os outros em `results_reported`.
@@ -251,7 +251,7 @@ Leitura:
 ## 9. Como reproduzir
 
 ```bash
-cd ~/Documents/Brasil-Imposto/data/scripts/series
+cd ~/Documents/Brasil-Imposto/pipelines/series
 python3 fetch_state_series.py          # cerca de 13 min na primeira vez; retoma do cache
 python3 build_state_series.py
 python3 fetch_sc_municipal_series.py   # cerca de 20 min na primeira vez; retoma do cache
@@ -260,7 +260,7 @@ python3 build_union_series.py          # precisa de openpyxl
 python3 checks_series.py               # a checagem 9 precisa de openpyxl
 ```
 
-O cache fica em `data/scripts/series/cache/`, com um `.gitignore` próprio (o `.gitignore` da raiz não foi alterado). Uma nova coleta pode dar números um pouco diferentes se os governos reenviarem relatórios.
+O cache fica em `pipelines/series/cache/`, com um `.gitignore` próprio (o `.gitignore` da raiz não foi alterado). Uma nova coleta pode dar números um pouco diferentes se os governos reenviarem relatórios.
 
 ## 10. Pendências
 

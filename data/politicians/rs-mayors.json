@@ -36,7 +36,7 @@
    "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
   }
  ],
- "build_script": "data/scripts/politicians/build_mayors.py",
+ "build_script": "pipelines/politicians/build_mayors.py",
  "counts": {
   "municipalities": 497,
   "by_year": {

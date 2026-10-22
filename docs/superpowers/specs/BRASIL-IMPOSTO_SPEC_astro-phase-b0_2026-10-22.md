@@ -7,7 +7,7 @@ Status: **proposta, aguardando a aprovação do mantenedor.** Nenhum código des
 
 Phase B0 lays the ground for the Astro site without changing anything a visitor sees: the GitHub Pages workflow keeps
 publishing today's pages until phase B5. It adds an Astro 7 skeleton in `site/` (strict TypeScript, pinned versions), moves the
-Python scripts of `data/scripts/` to `pipelines/` with every reference rewritten, adds JSON Schemas in `schemas/` and an export
+Python scripts of `pipelines/` to `pipelines/` with every reference rewritten, adds JSON Schemas in `schemas/` and an export
 step that writes the per-entity JSON files the site will read, with English keys and official labels as values, and adds a CI
 workflow that blocks a pull request on any red check. Done when: the Astro build is green, the new JSON files pass their
 schemas, every pipeline output is equal in value to today's, and today's pages show the same visible text in every probe
@@ -20,7 +20,7 @@ combination. Seven questions for the maintainer close the section.
    documentação do Astro ao montar o esqueleto; o npm já tem a 7.0.2), `package-lock.json` e `.nvmrc` com a versão do Node.
    Uma página só, que lê um JSON de entidade e mostra o nome e um número, para provar a cadeia inteira (dado, esquema, tipo,
    página). **Essa página não vai ao ar:** o Pages continua publicando as prévias de hoje até a fase B5.
-2. **`pipelines/`:** os scripts de `data/scripts/` passam para `pipelines/` com `git mv`, e toda referência é reescrita no
+2. **`pipelines/`:** os scripts de `pipelines/` passam para `pipelines/` com `git mv`, e toda referência é reescrita no
    mesmo pull request (scripts, `README.md`, `CONTRIBUTING.md`, `.claude/CLAUDE.md`, docs, formulários de issue). Os
    construtores de `docs/superpowers/tools/` **ficam onde estão** até a fase B5, porque o `pages.yml` os chama e saem junto com
    as prévias; assim esta fase não mexe no workflow de publicação.
@@ -49,7 +49,7 @@ combination. Seven questions for the maintainer close the section.
 | Esquemas | Todo JSON de entidade passa no seu esquema | Um número sem o objeto de fonte; uma chave em português |
 | Tipos gerados | `tsc --noEmit` passa com os tipos gerados dos esquemas | Um campo renomeado no esquema e não na página |
 | Prévias intactas | `visible-text-probe.cjs --compare`: o texto visível das prévias igual antes e depois da fase, nas 100 combinações (home em 19 períodos, 27 estados em 3 períodos) | Uma palavra trocada num construtor |
-| Referências | Nenhum caminho antigo (`data/scripts/`) sobra em código ou documento; maiúsculas e minúsculas exatas | Um caminho antigo plantado num documento |
+| Referências | Nenhum caminho antigo (`pipelines/`) sobra em código ou documento; maiúsculas e minúsculas exatas | Um caminho antigo plantado num documento |
 | Build | `astro build` gera a página de prova, que lê um JSON de entidade | Um JSON de entidade apagado |
 
 ## 3. Pronto quando

@@ -1,7 +1,7 @@
 # ETE Insular (Florianópolis): contratos, empresas, responsáveis, achados e comparação
 
 **Data da coleta:** 2026-09-30 (todas as consultas nesta data, salvo indicação)
-**Dados:** `data/works/ete-insular.json` (gerado por `data/scripts/works/build_ete_insular.py`)
+**Dados:** `data/works/ete-insular.json` (gerado por `pipelines/works/build_ete_insular.py`)
 **Fotos:** `docs/superpowers/previews/assets/cases/ete-insular/` com `credits.json`
 **Pergunta:** para a ampliação da Estação de Tratamento de Esgoto (ETE) Insular, quais contratos existem, com quem, quanto já foi gasto, quem assinou, quem governava, o que os órgãos de controle disseram e se o custo é razoável perto de obras parecidas.
 **Onde a pesquisa foi feita:** computador nos EUA (IP norte-americano), como nas pesquisas anteriores.
@@ -67,7 +67,7 @@ Linha do tempo (datas de documentos oficiais):
 
 ## 3. Contratos
 
-Fonte: Portal da Transparência da Casan. O portal é um aplicativo Angular; os dados vêm de endpoints JSON sem login, achados lendo o código da página e usados pelo script `data/scripts/works/casan_fetch.py`: `/data/contrato?ano=&objeto=` (vista PNTP, com aditivos e PDFs), `/data/contratos?empresafiltro[]=` (vista SAP, com valor consumido e saldo) e a tabela "Obras de expansão" (CSV).
+Fonte: Portal da Transparência da Casan. O portal é um aplicativo Angular; os dados vêm de endpoints JSON sem login, achados lendo o código da página e usados pelo script `pipelines/works/casan_fetch.py`: `/data/contrato?ano=&objeto=` (vista PNTP, com aditivos e PDFs), `/data/contratos?empresafiltro[]=` (vista SAP, com valor consumido e saldo) e a tabela "Obras de expansão" (CSV).
 
 | Contrato | Licitação | Contratada | CNPJ | Início | Valor original | Valor atual | Situação |
 |---|---|---|---|---|---|---|---|
@@ -184,7 +184,7 @@ Nomes nos achados: os textos oficiais citados em 7.1 a 7.3 nomeiam só empresas;
 
 ## 8. Comparação
 
-**Unidade:** reais de dezembro de 2024 por litro por segundo (L/s) de capacidade de tratamento ao fim da obra. Método igual ao de `data/scripts/bridges/build.py`: valores em reais corrigidos pelo IPCA do mês-base de preço até dez/2024; valores em dólar convertidos pelo câmbio médio do ano (Banco Mundial, PA.NUS.FCRF) e, à parte, pela PPP (PA.NUS.PPP), mais o IPCA. Código em `data/scripts/works/convert.py`.
+**Unidade:** reais de dezembro de 2024 por litro por segundo (L/s) de capacidade de tratamento ao fim da obra. Método igual ao de `pipelines/bridges/build.py`: valores em reais corrigidos pelo IPCA do mês-base de preço até dez/2024; valores em dólar convertidos pelo câmbio médio do ano (Banco Mundial, PA.NUS.FCRF) e, à parte, pela PPP (PA.NUS.PPP), mais o IPCA. Código em `pipelines/works/convert.py`.
 
 | Obra | Capacidade final | Custo informado | Base | R$ de dez/2024 | R$ por L/s final | R$ por L/s acrescentado |
 |---|---|---|---|---|---|---|

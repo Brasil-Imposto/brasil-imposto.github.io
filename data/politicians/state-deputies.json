@@ -16,7 +16,7 @@
    "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
   }
  ],
- "build_script": "data/scripts/politicians/build_state_deputies.py",
+ "build_script": "pipelines/politicians/build_state_deputies.py",
  "counts": {
   "total": {
    "2018": {

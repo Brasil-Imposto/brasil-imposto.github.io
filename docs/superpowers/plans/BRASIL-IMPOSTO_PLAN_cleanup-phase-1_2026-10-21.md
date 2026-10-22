@@ -28,7 +28,7 @@ checagens que podem falhar, chaves em inglês.
   registro de fontes.
 - Notas ao autor e a marca "Só na prévia" na página (F-12, primeira parte): saem quando houver a versão pública e a de
   revisão, com o construtor único da fase 2. Nesta fase saem só as citações dos comentários.
-- Ficam onde estão, como trabalho pendente: `data/works/alcantara.json` (item 6 da V1), `data/scripts/works/build_ufsc_cfm_admin.py`
+- Ficam onde estão, como trabalho pendente: `data/works/alcantara.json` (item 6 da V1), `pipelines/works/build_ufsc_cfm_admin.py`
   (item 7 da V1), `data/cases/inss-deductions.json` e `data/cases/pre-salt-onerous-assignment.json` (casos futuros: o autor
   quer a lista de escândalos crescendo, D139).
 - Os scripts de pesquisa avulsa de `data/df/` (P1-19) e os relatórios de 2024 da raiz (P1-22): reproduzem pesquisas publicadas,
@@ -50,13 +50,13 @@ checagens que podem falhar, chaves em inglês.
 2. **Arquivos gerados:** os quatro construtores da página (`build-cases.py`, `build-standalone-data.py`, `build-simulation.py`,
    `build-platform-preview.py`) refazem em 2026-10-21 os dez arquivos da página byte a byte (cópias no rascunho da sessão).
    Depois de cada tarefa: rodar os quatro e comparar; o que mudar tem de ser só o que a tarefa diz.
-3. **Testes do livro:** `.venv/bin/python -B -m unittest discover -s data/scripts/ledger/tests` (29 testes, OK em 2026-10-21).
+3. **Testes do livro:** `.venv/bin/python -B -m unittest discover -s pipelines/ledger/tests` (29 testes, OK em 2026-10-21).
 
 ---
 
 ### Tarefa 0: um ambiente Python (B5: P1-6, P2-11)
-**Arquivos:** criar `requirements.txt`; apagar `data/scripts/ledger/requirements.txt`; mudar `.gitignore`, `CLAUDE.md` (Comandos),
-`data/scripts/series/estimate_uf_revenue.py:108`, as docstrings que citam `/usr/local/bin/python3`.
+**Arquivos:** criar `requirements.txt`; apagar `pipelines/ledger/requirements.txt`; mudar `.gitignore`, `CLAUDE.md` (Comandos),
+`pipelines/series/estimate_uf_revenue.py:108`, as docstrings que citam `/usr/local/bin/python3`.
 - [ ] `requirements.txt` na raiz com `duckdb==1.5.6`, `openpyxl==3.1.5`, `xlrd==2.0.1` (os três únicos pacotes de fora que os 147
   scripts importam, contados com `ast`) e a nota "Python 3.12 ou mais novo".
 - [ ] `.venv/` e `__pycache__/` no `.gitignore` (P2-20).

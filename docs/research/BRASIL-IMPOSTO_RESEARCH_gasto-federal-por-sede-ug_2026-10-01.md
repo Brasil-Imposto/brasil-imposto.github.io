@@ -1,6 +1,6 @@
 # Gasto federal pela sede da unidade gestora que paga (2024)
 
-**Data da coleta:** 2026-10-01. **Scripts:** `data/scripts/ug/`. **Dados baixados e agregados:** `data/ug/`.
+**Data da coleta:** 2026-10-01. **Scripts:** `pipelines/ug/`. **Dados baixados e agregados:** `data/ug/`.
 **Pergunta:** se o gasto da União passar a contar na UF da unidade gestora (UG) que paga, a mesma regra que a Receita usa para o imposto (sede de quem recolhe), qual fica o saldo das 27 UFs em 2024, e onde fica o DF?
 **Regra seguida:** só fonte oficial, com link; o que é conta feita aqui está marcado como cálculo; o que não deu para abrir está em "Não consegui confirmar". Nada aqui é decisão: é o resultado da regra em teste, com as distorções que ela cria.
 
@@ -31,7 +31,7 @@
 | Tesouro Nacional, "Despesas e Transferências Totais da União", 2024 (critério valor pago): https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais , arquivo `limite-gastos-lc200dez24.xlsx` | Todos os Poderes, por órgão, unidade orçamentária, grupo, modalidade e ação. **Não tem UG nem UF** | Legislativo, Judiciário, MPU e DPU pela sede da unidade; total do Executivo no mesmo recorte para a checagem |
 | Cadastro de UGs do SIAFI (seção 1) | UF de cada UG | Local |
 
-Os agregados guardados (`data/ug/cache/`) já foram feitos de novo nesta coleta, porque os de `data/df/cache/` não guardavam o código da UG e os de `data/scripts/series/cache/payroll/` só guardavam o grupo 1 (pessoal). Os ZIPs foram baixados um a cada 90 s e apagados depois de somados. Scripts: `data/scripts/ug/agg_desp_ug.py` (Portal), `data/scripts/ug/agg_dtt_full.py` (Tesouro), `private/archive/data/scripts/ug/build_ug_balance.py` (contas). Saída: `private/archive/data/ug/ug-balance-2024.json`.
+Os agregados guardados (`data/ug/cache/`) já foram feitos de novo nesta coleta, porque os de `data/df/cache/` não guardavam o código da UG e os de `pipelines/series/cache/payroll/` só guardavam o grupo 1 (pessoal). Os ZIPs foram baixados um a cada 90 s e apagados depois de somados. Scripts: `pipelines/ug/agg_desp_ug.py` (Portal), `pipelines/ug/agg_dtt_full.py` (Tesouro), `private/archive/pipelines/ug/build_ug_balance.py` (contas). Saída: `private/archive/data/ug/ug-balance-2024.json`.
 
 ### 2.2 Recorte (o que entra no "voltou" pela regra)
 
@@ -184,7 +184,7 @@ Ponte até o total publicado do Executivo no mesmo recorte (base do Tesouro, a m
 
 Fecha assim: 669,59 (publicado) = 607,60 (27 UFs) + 41,28 (sentenças) + 19,82 (unidades nacionais) + 0,41 (UG inválida) + 0,47 (resíduo, 0,08% do recorte).
 
-**Erro de controle:** `python3 private/archive/data/scripts/ug/build_ug_balance.py --control` tira R$ 1 bi do custeio de SP depois da montagem. Resultado: soma das 27 UFs do Executivo 547.126.359.410,68, **diferença 1.000.000.000,00, "passou": false, "CHECAGEM FALHOU", código de saída 1**; o arquivo salvo não é tocado (`control_run: false` no JSON). A checagem pega o erro.
+**Erro de controle:** `python3 private/archive/pipelines/ug/build_ug_balance.py --control` tira R$ 1 bi do custeio de SP depois da montagem. Resultado: soma das 27 UFs do Executivo 547.126.359.410,68, **diferença 1.000.000.000,00, "passou": false, "CHECAGEM FALHOU", código de saída 1**; o arquivo salvo não é tocado (`control_run: false` no JSON). A checagem pega o erro.
 
 ## 6. Distorções da regra (com o tamanho, quando o dado permite)
 
@@ -252,14 +252,14 @@ Na pasta do projeto:
 # cadastro de UGs do SIAFI (Tesouro Transparente)
 curl -sS -A Mozilla/5.0 -o data/ug/siafi_unidades_gestoras_2025-06.csv 'https://www.tesourotransparente.gov.br/ckan/dataset/54a699f4-55e3-41cc-a900-27c123545472/resource/7b83145e-6dc5-4ad2-9730-77132188eb2f/download/siafirelatoriounidadesgestoras.csv'
 # execução da despesa do Portal, com a UG: um mês a cada 90 s (WAF); retoma de onde parou e apaga cada ZIP
-python3 data/scripts/ug/agg_desp_ug.py data/ug 202401,202402,202403,202404,202405,202406,202407,202408,202409,202410,202411,202412 90
+python3 pipelines/ug/agg_desp_ug.py data/ug 202401,202402,202403,202404,202405,202406,202407,202408,202409,202410,202411,202412 90
 # base do Tesouro de 2024 (precisa de openpyxl, instalado no `.venv`)
-.venv/bin/python data/scripts/ug/agg_dtt_full.py data/ug 2024
+.venv/bin/python pipelines/ug/agg_dtt_full.py data/ug 2024
 # contas, checagem e erro de controle
-python3 private/archive/data/scripts/ug/build_ug_balance.py            # grava private/archive/data/ug/ug-balance-2024.json
-python3 private/archive/data/scripts/ug/build_ug_balance.py --control  # tem de falhar
-python3 private/archive/data/scripts/ug/bridge_portal_tesouro.py       # ponte Portal contra Tesouro
-python3 private/archive/data/scripts/ug/report_ug_tables.py            # tabelas deste relatório
+python3 private/archive/pipelines/ug/build_ug_balance.py            # grava private/archive/data/ug/ug-balance-2024.json
+python3 private/archive/pipelines/ug/build_ug_balance.py --control  # tem de falhar
+python3 private/archive/pipelines/ug/bridge_portal_tesouro.py       # ponte Portal contra Tesouro
+python3 private/archive/pipelines/ug/report_ug_tables.py            # tabelas deste relatório
 ```
 
 
@@ -270,7 +270,7 @@ UF; senão, a UF da unidade gestora que pagou. Seguro-desemprego e abono salaria
 amortização da dívida ficam fora; repasses e benefícios seguem contados pelo destino, como em D41.
 
 O agente que fez este cálculo parou antes de escrever esta seção. O agente principal escreveu a seção a partir de
-`private/archive/data/ug/ug-balance-2024_hybrid.json`, depois de rodar de novo `private/archive/data/scripts/ug/build_ug_balance_hybrid.py` (o JSON se reproduz
+`private/archive/data/ug/ug-balance-2024_hybrid.json`, depois de rodar de novo `private/archive/pipelines/ug/build_ug_balance_hybrid.py` (o JSON se reproduz
 igual, menos a data da coleta) e o controle `--control` (tira R$ 1 bi de SP; o script para com "CHECAGEM FALHOU").
 
 ### Seguro-desemprego e abono por UF

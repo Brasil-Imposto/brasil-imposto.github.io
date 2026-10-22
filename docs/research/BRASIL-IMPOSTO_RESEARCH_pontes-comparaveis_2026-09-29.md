@@ -3,7 +3,7 @@
 - **Data da coleta:** 2026-09-29.
 - **Pergunta:** para o botão "Comparar com um projeto parecido", quanto custou, por metro quadrado de tabuleiro, restaurar a Ponte Hercílio Luz, e quanto custaram obras parecidas no mundo, tudo convertido para reais de dezembro de 2024 por dois métodos (câmbio de mercado e paridade de poder de compra).
 - **Dados:** `data/bridge-comparables.json` (chaves em inglês, todos os fatores e fontes dentro do arquivo).
-- **Scripts:** `data/scripts/bridges/download.sh` e `data/scripts/bridges/build.py` (reproduzem o JSON; ver seção 6).
+- **Scripts:** `pipelines/bridges/download.sh` e `pipelines/bridges/build.py` (reproduzem o JSON; ver seção 6).
 - **Regra desta pesquisa:** nenhum número sem fórmula e fonte. Onde a fonte é de engenharia ou de imprensa, isso está escrito ao lado do número.
 
 ---
@@ -220,7 +220,7 @@ Segundo a ficha da contratada e o artigo técnico da UFMG apresentado no Constru
 ## 6. Como reproduzir
 
 ```bash
-SCRIPTS=~/Documents/Brasil-Imposto/data/scripts/bridges
+SCRIPTS=~/Documents/Brasil-Imposto/pipelines/bridges
 mkdir -p /tmp/bridges && cd /tmp/bridges
 bash $SCRIPTS/download.sh      # IPCA (SIDRA), câmbio e PPP (Banco Mundial), contratos de SC (~73 MB)
 python3 $SCRIPTS/build.py      # grava data/bridge-comparables.json e imprime as tabelas

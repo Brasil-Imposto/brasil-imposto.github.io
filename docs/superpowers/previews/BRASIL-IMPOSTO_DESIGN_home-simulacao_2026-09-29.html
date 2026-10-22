@@ -952,7 +952,7 @@ return { createModals };
   const tri = (v) => `R$ ${(v / 1e12).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} tri`;
   // D115: the União block for the map's months. Sent: the Receita national total minus the 27 states. Paid: RTN line 2
   // plus line 4 minus what returned to the 27 states, with its parts (data/series/federal-spending-two-step-by-uf.json,
-  // built by data/scripts/ug/build_two_step_balance.py, which checks 27 states + União = total to the cent).
+  // built by pipelines/ug/build_two_step_balance.py, which checks 27 states + União = total to the cent).
   const unionAt = (rows) => {
     const S = window.BI.series || {}, TS = S.federal_spending_two_step_by_uf;
     if (!currentR || !TS || !TS.union || !rows.length || !rows.every((s) => s.ok && s.months === rows[0].months)) return null;

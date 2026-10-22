@@ -111,7 +111,7 @@ Levar as páginas publicadas para o Astro **sem mudar o que o autor aprovou**. A
 
 ```
 site/        o site em Astro (TypeScript)
-pipelines/   os scripts Python de hoje (data/scripts e os construtores de docs/superpowers/tools)
+pipelines/   os scripts Python de hoje (pipelines e os construtores de docs/superpowers/tools)
 data/        os dados publicados (a fonte única) e o manifesto dos brutos; os JSON por entidade são gerados no build (D151)
 schemas/     JSON Schema de cada tipo de arquivo
 docs/        documentação em português

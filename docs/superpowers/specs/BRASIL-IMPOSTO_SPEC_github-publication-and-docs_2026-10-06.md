@@ -69,7 +69,7 @@ Regra: **versionado** é tudo o que foi escrito à mão e tudo o que precisa de 
 | `CLAUDE.md` | Regras do projeto para quem contribui com agentes, sem citações e sem as regras da máquina do autor |
 | `.github/` | Formulários, modelo de PR, `CODEOWNERS` e workflows (seção 9) |
 | `data/` | Os JSON publicados |
-| `data/scripts/` | Os pipelines de coleta e montagem |
+| `pipelines/` | Os pipelines de coleta e montagem |
 | `docs/data-sources.md`, `docs/pipelines/`, `docs/decisions/`, `docs/future-work.md`, `docs/credits-and-licenses.md` | Fontes, guias dos pipelines, decisões sem citações, trabalho futuro (D57), créditos |
 | `docs/research/` | As pesquisas, menos o que fica fora (seção 4) |
 | `docs/superpowers/previews/`, `docs/superpowers/tools/` | A prévia mais recente com os módulos (`assets/`) e os construtores |
@@ -87,7 +87,7 @@ Tudo o que sai vai para `private/`, dentro da pasta do projeto (D1) e fora do gi
 |---|---|---|
 | Tudo o que deriva da conversa do Gemini | A conversa, a auditoria e a verificação de Florianópolis, em `docs/research/` | Arquivos inteiros para `private/`; os valores oficiais de Florianópolis continuam em `data/florianopolis.json` |
 | Candidaturas de 2026 | Feito em 2026-10-06 (D98): saíram de dois casos, de dois scripts e de duas pesquisas | Guardadas em `private/election-2026-flags.json`, para a revisão jurídica |
-| Quem só foi citado em investigação | A conferir, arquivo por arquivo: pesquisas da ponte (responsáveis), escândalos, INSS, pré-sal e DF; `data/hercilio-luz.json`, `data/cases/inss-deductions.json`, `data/home/scandals-status.json`, `data/scripts/ponte/build_json.py` | Fica só quem tem papel num documento oficial, com o ato e o link (D48). O resto vai para `private/` com a indicação de onde estava |
+| Quem só foi citado em investigação | A conferir, arquivo por arquivo: pesquisas da ponte (responsáveis), escândalos, INSS, pré-sal e DF; `data/hercilio-luz.json`, `data/cases/inss-deductions.json`, `data/home/scandals-status.json`, `pipelines/ponte/build_json.py` | Fica só quem tem papel num documento oficial, com o ato e o link (D48). O resto vai para `private/` com a indicação de onde estava |
 | As citações do autor (D97) | `README.md` (tabela D), grill, `CLAUDE.md`, `docs/ai/learned-patterns.md`, `previews/src/*-notes.html` | Versões públicas sem citações; os originais em `private/` |
 | As prévias anteriores (D97) | `docs/superpowers/previews/` | Para `private/previews/` |
 
@@ -97,10 +97,10 @@ Tudo o que sai vai para `private/`, dentro da pasta do projeto (D1) e fora do gi
 |---|---|---|---|
 | `docs/superpowers/previews/assets/bi-data.js` | 85 MB | Pacote de dados da prévia | `build-standalone-data.py` |
 | `bi-geo*.js`, `bi-post-grill.js`, `cases.json` (mesma pasta) | 2 MB | Pacotes da prévia | `build-cases.py`, `build-post-grill-data.py`, `build-standalone-data.py` |
-| `data/scripts/series/cache/` | 210 MB | Downloads do SICONFI, do Portal e do Tesouro | Os scripts `fetch_*` e `download_*.sh` do pipeline, que retomam de onde pararam |
+| `pipelines/series/cache/` | 210 MB | Downloads do SICONFI, do Portal e do Tesouro | Os scripts `fetch_*` e `download_*.sh` do pipeline, que retomam de onde pararam |
 | `data/ug/cache/` | 94 MB | Base de despesas do Tesouro | Pipeline da regra em duas etapas |
 | `data/df/cache/` | 16 MB | Portal da Transparência do DF | Pipeline do DF por Região Administrativa |
-| `data/scripts/siconfi/cache/` | (já ignorado hoje) | Relatórios do SICONFI | Pipeline dos orçamentos de 2024 |
+| `pipelines/siconfi/cache/` | (já ignorado hoje) | Relatórios do SICONFI | Pipeline dos orçamentos de 2024 |
 | `data/federal/raw/` | 38 MB | ZIPs e CSVs da Câmara, do Senado e das emendas (D98) | Pipeline da seção federal |
 | `data/ug/*.csv`, `data/ug/*.pdf` | 29 MB | Cadastro de unidades gestoras do SIAFI e dois PDFs (D98) | Pipeline da regra em duas etapas |
 | `data/df/*.csv`, `data/df/*.xlsx` | 5 MB | Arquivos baixados para a pesquisa do DF (D98) | Pipeline do DF |
@@ -174,7 +174,7 @@ Documentos em português, nomes de arquivo em inglês, prosa sem travessões (co
 | `SECURITY.md` | Como relatar falha sem expor: o relato privado do GitHub e o contato da decisão 8. |
 | `LICENSE`, `LICENSE-DATA` | Textos integrais da AGPL-3.0 e da CC BY 4.0. |
 | `docs/data-sources.md` | Para cada fonte: órgão, base, link, frequência, última divulgação, termos de uso e armadilhas conhecidas (a tabela de fontes dos padrões aprendidos). As datas vêm de `data/release-dates.json` por script, para nunca divergirem do dado. |
-| `docs/pipelines/` | Um guia por pipeline: balanço por estado de 2024 (o `data/scripts/README.md` de hoje), séries federais e dos estados, municípios de um estado (`--uf`), regra em duas etapas, seção federal, DF por Região Administrativa, políticos e fotos, obras e casos, total pago da ponte, bolo da União, malhas e a própria prévia. Cada guia: entradas com link, comandos na ordem, saídas, checagem ao centavo, o `--control` que tem de falhar, tempo e disco esperados, e o ritmo dos servidores do governo (Portal: um arquivo a cada 90 segundos, script que retoma). Mais uma página de regras de coleta: um arquivo por vez, apagar o bruto, ler só o necessário. |
+| `docs/pipelines/` | Um guia por pipeline: balanço por estado de 2024 (o `pipelines/README.md` de hoje), séries federais e dos estados, municípios de um estado (`--uf`), regra em duas etapas, seção federal, DF por Região Administrativa, políticos e fotos, obras e casos, total pago da ponte, bolo da União, malhas e a própria prévia. Cada guia: entradas com link, comandos na ordem, saídas, checagem ao centavo, o `--control` que tem de falhar, tempo e disco esperados, e o ritmo dos servidores do governo (Portal: um arquivo a cada 90 segundos, script que retoma). Mais uma página de regras de coleta: um arquivo por vez, apagar o bruto, ler só o necessário. |
 | `docs/decisions/` | `README.md` com a tabela D1 em diante, sem citações (D97), e as perguntas em aberto; daqui em diante, uma decisão por arquivo (`0099-<assunto>.md`), com o link do PR. |
 | `docs/future-work.md` | As notas dos usuários (GD41) com o passo a passo do Worker e do D1 (D56); os pedidos pela Lei de Acesso (GD42); os outros estados (D52); o asfalto pelos contratos; a folha federal de 2019 a 2023 (Q32); o INSS por município (Q25). |
 | `docs/credits-and-licenses.md` | Fotos, bandeiras, bibliotecas, fontes e malhas, cada um com a licença (seções 6 e 7). |

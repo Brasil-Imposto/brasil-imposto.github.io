@@ -15,7 +15,7 @@ def _photo(p):
 
 
 def _collected(entry):
-    """A photo collected by data/scripts/politicians/collect_photos.py (D61): a local file under previews/assets/photos."""
+    """A photo collected by pipelines/politicians/collect_photos.py (D61): a local file under previews/assets/photos."""
     if not entry or not (entry.get("file") or entry.get("url")):
         return None
     url = entry["file"].replace("docs/superpowers/previews/", "") if entry.get("file") else entry["url"]

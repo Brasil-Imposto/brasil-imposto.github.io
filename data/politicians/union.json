@@ -29,7 +29,7 @@
   }
  ],
  "photo_policy": "URL remota do Wikimedia Commons; licença, autor e página do arquivo em cada foto, como o Commons registra.",
- "build_script": "data/scripts/politicians/build_union.py",
+ "build_script": "pipelines/politicians/build_union.py",
  "offices": [
   {
    "office": "Presidente da República",

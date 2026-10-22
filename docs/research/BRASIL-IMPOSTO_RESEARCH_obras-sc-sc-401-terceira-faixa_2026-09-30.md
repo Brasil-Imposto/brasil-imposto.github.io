@@ -3,7 +3,7 @@
 **Data da coleta:** 2026-09-30 (todas as consultas nesta data, salvo indicação)
 **Pergunta:** para a obra de aumento de capacidade da SC-401 em Florianópolis, quais contratos existem, quem foi contratado, quem assinou, quem governava, quanto foi pago, o que os órgãos de controle disseram e quanto custa por km em comparação com obras parecidas.
 **Onde a pesquisa foi feita:** computador nos EUA (IP norte-americano). Isso afeta alguns servidores; ver o diário (seção 10).
-**Dados:** `data/works/sc-401-terceira-faixa.json`. **Scripts:** `data/scripts/works/` (seção 11).
+**Dados:** `data/works/sc-401-terceira-faixa.json`. **Scripts:** `pipelines/works/` (seção 11).
 
 ## Regras desta pesquisa (valem para o uso no site)
 
@@ -137,7 +137,7 @@ Decisão Singular GAC/WWD 451/2026, DOTC-e nº 4387, 27/08/2026 (https://consult
 
 ## 7. Comparação de custo
 
-**Unidade:** R$ por km de extensão contratada, em reais de dezembro de 2024. **Método:** valor do contrato a preços iniciais com aditivos de valor, corrigido pelo IPCA do mês de assinatura até dez/2024 (IBGE/SIDRA, tabela 1737, número-índice; dez/2024 = 7.100,50). Todos os valores estão em reais, então não há câmbio (o fator de câmbio do método das pontes vale 1). Mesmo método de `data/scripts/bridges/build.py` para valores em reais.
+**Unidade:** R$ por km de extensão contratada, em reais de dezembro de 2024. **Método:** valor do contrato a preços iniciais com aditivos de valor, corrigido pelo IPCA do mês de assinatura até dez/2024 (IBGE/SIDRA, tabela 1737, número-índice; dez/2024 = 7.100,50). Todos os valores estão em reais, então não há câmbio (o fator de câmbio do método das pontes vale 1). Mesmo método de `pipelines/bridges/build.py` para valores em reais.
 
 | Obra | Tipo | Extensão | Valor do contrato | Mês-base (IPCA) | Fator | Total em dez/2024 | Por km (dez/2024) |
 |---|---|---|---|---|---|---|---|
@@ -202,7 +202,7 @@ Todas as consultas em 2026-09-30, de um IP nos EUA.
 ## 11. Como reproduzir
 
 ```bash
-W=$(mktemp -d); S=~/Documents/Brasil-Imposto/data/scripts/works
+W=$(mktemp -d); S=~/Documents/Brasil-Imposto/pipelines/works
 bash $S/roads_download.sh $W          # entradas oficiais (inclui o CSV de 73 MB)
 python3 $S/roads_media.py             # fotos e credits.json
 python3 $S/build_sc401.py $W          # grava data/works/sc-401-terceira-faixa.json

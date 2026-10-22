@@ -1,7 +1,7 @@
 {
  "collected_on": "2026-10-06",
  "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_complete-totals_2026-10-06.md",
- "rules": "Official primary sources only, read on the source page; sums checked to the cent with a planted-error control (data/scripts/complete_totals/).",
+ "rules": "Official primary sources only, read on the source page; sums checked to the cent with a planted-error control (pipelines/complete_totals/).",
  "gaps": {
   "ponte_supervision_2006_2010": {
    "value_brl": 8982441.11,
@@ -23,7 +23,7 @@
    "source_quote": "Columns 'DATA DO PAGAMENTO' and 'VALOR DO PAGAMENTO'; 'TOTAL 9.160.234,16' (Prosul) and 'TOTAL 6.106.108,71' (Concremat)",
    "collected_on": "2026-10-06",
    "how_checked": "ponte_supervision_cpi.py: parsed payments == printed TOTAL and == sum of 'PGTOS NO MÊS' column, to the cent, per contract; 2011-2013 equal to the SC Portal SICOP vlpago of both lines to the cent (2011 split differs by R$ 110.869,79 between the two lines, explained: the extract books a Prosul payment under the Concremat line); 2014 Concremat equal to the Portal creditor view (R$ 479.649,53); --control (+R$ 0,01) fails",
-   "script": "data/scripts/complete_totals/ponte_supervision_cpi.py",
+   "script": "pipelines/complete_totals/ponte_supervision_cpi.py",
    "tce_sc_19_4_note": "TCE-SC news of 19/10/2015 says R$ 19,4 milhões were paid to the supervision consortium; that equals the contract value with the 2010 and 2012 amendments (R$ 19.436.343,14), not the payments (R$ 15.266.342,87 in total). Not used."
   },
   "ponte_total_13_contracts": {
@@ -45,7 +45,7 @@
    "source_quote": "CPI Apêndice A totals: PJ 170/2006 Prosul 9.160.234,16; Concremat 6.106.108,71; PJ 264/2008 63008872,09; the other ten contracts from data/hercilio-luz-paid-by-contract.json (Portal SICOP extracts); PJ 015/2006 TEC 11.957.532,70 (VALOR TOTAL) and Roca 11.957.530,83 (TOTAL), Apêndice A",
    "collected_on": "2026-10-07",
    "how_checked": "build_paid_by_contract.py: pass 1 Decimal contract by contract (Portal payment lines, CPI payment lines, PJ 015/2006 VALOR MEDIDO column), pass 2 integer cents (Portal vlpago grand total with the three pre-2011 contracts swapped for the CPI PGTOS NO MÊS columns, plus the same column of PJ 015/2006); equal to the cent; every CPI table equals its own TOTAL line; --control fails.",
-   "script": "data/scripts/ponte/build_paid_by_contract.py (total_paid_2006_2020_brl in data/hercilio-luz-paid-by-contract.json)",
+   "script": "pipelines/ponte/build_paid_by_contract.py (total_paid_2006_2020_brl in data/hercilio-luz-paid-by-contract.json)",
    "not_included": [
     "DL-00001/2618-2019 (RMG, R$ 1.451.313,01 pagos em 2019, supervisão fora do escopo do PJ-00093/2016): registro à parte (related_records), fora desta soma até decisão do autor.",
     "Pagamentos que não estão ligados ao contrato no extrato (PJ-00060/2019, R$ 16.002,61) e obras da ponte antes de 2006 ou depois de 2019: fora do escopo."
@@ -57,7 +57,7 @@
     "added_detail": "R$ 8.982.441,11 paid on PJ-170/2006 in 2006 to 2010, plus R$ 767.983,56 paid on PJ-170/2006 in July and September 2014 (Prosul R$ 288.334,03, Concremat R$ 479.649,53) that the contract extract on the SC Portal lacks",
     "period": "2006-12-20 to 2020-11-23",
     "how_checked": "bridge_complete_total.py: pass 1 Decimal contract by contract, pass 2 integer cents from the Portal grand total swapping the three pre-2011 contracts; equal to the cent; --control fails. CPI totals for PJ 204/2014, PJ 012/2015, PJ 143/2015 and PJ 093/2016 equal the Portal to the cent.",
-    "script": "data/scripts/complete_totals/bridge_complete_total.py",
+    "script": "pipelines/complete_totals/bridge_complete_total.py",
     "collected_on": "2026-10-06"
    }
   },
@@ -87,7 +87,7 @@
     "principal_as_of": "2026-09-30",
     "principal_url": "https://transparencia.casan.com.br/data/download/4981/2"
    },
-   "script": "data/scripts/complete_totals/casan_insular_check.py"
+   "script": "pipelines/complete_totals/casan_insular_check.py"
   },
   "sc401_paid": {
    "value_brl": 41694715.23,
@@ -109,7 +109,7 @@
     "CT-00315/2022_supervision_paid_brl": 1832974.12,
     "note": "Supervision object covers restoration of SC-401 and SC-404 in three stretches, so it is not added (D95). Works + project = R$ 42.135.822,41."
    },
-   "script": "data/scripts/complete_totals/sicop_paid.py"
+   "script": "pipelines/complete_totals/sicop_paid.py"
   },
   "release_receita_2024": {
    "date": "2025-01-28",
@@ -129,7 +129,7 @@
    "source_quote": "Page today: 'Publicado em 03/07/2026 19h23', 'Atualizado em 07/07/2026 13h02' (same on every bulletin from 2024 to jan/2026 and on AEPS 2024)",
    "collected_on": "2026-10-06",
    "how_checked": "ole_saved_date.py reads the OLE2 SummaryInformation. Calibration: bulletins of mai/2026 and jun/2026 republished with page date 'Publicado em 31/08/2026 17h09' were saved 31/08/2026 19:51 and 19:52 UTC (17 minutes earlier). No Internet Archive copy of the Dec 2024 file or page exists; the 13/03/2025 archive of 'BEPS anteriores' listed bulletins only up to out/2024.",
-   "script": "data/scripts/complete_totals/ole_saved_date.py"
+   "script": "pipelines/complete_totals/ole_saved_date.py"
   },
   "metro_line17_invested": {
    "value_brl": 5543066000,
@@ -170,7 +170,7 @@
    "source_quote": "Relatório Integrado 2025: 'Investimentos realizados (caixa e aportes) - Expansão da Rede (milhões)', 'Linha 17 286,00 206,02 208,68 722,25 1.148,30'; Acompanhamento ago/2026: '2282 LINHA 17-OURO ... 996.573 74.786 702.716 71%'",
    "collected_on": "2026-10-06",
    "how_checked": "metro_line17_total.py: each year's transcribed lines add up to the printed total within one printed unit; a second Metrô document agrees for 2013 to 2025 (2020 differs by R$ 22 mil; 2022 Acompanhamento dez/2022 shows 173.416, superseded by two later reports with 206,02); two-pass sum; --control (+R$ 11 mil in 2018) fails",
-   "script": "data/scripts/complete_totals/metro_line17_total.py"
+   "script": "pipelines/complete_totals/metro_line17_total.py"
   },
   "banco_master_public_money": {
    "value_brl": 15000000000,
@@ -229,7 +229,7 @@
     "value_brl_press": 1867000000,
     "why": "Ministry page now answers 'Conteúdo Restrito'; no Internet Archive copy; Rioprevidência note answers 'Acesso negado'"
    },
-   "script": "data/scripts/complete_totals/master_public_money.py"
+   "script": "pipelines/complete_totals/master_public_money.py"
   }
  }
 }

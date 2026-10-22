@@ -10,7 +10,7 @@ você abriu a fonte). Quem acrescenta um número prova o número.
 ## Pull requests
 
 - Tudo entra por pull request, inclusive o que o mantenedor faz; um assunto por pull request.
-- Se mudar dados: o script que monta o arquivo em `data/scripts/` ou `docs/superpowers/tools/` tem de refazê-lo, com a fonte
+- Se mudar dados: o script que monta o arquivo em `pipelines/` ou `docs/superpowers/tools/` tem de refazê-lo, com a fonte
   oficial e a data da coleta. Totais têm de bater com o total oficial da fonte, ao centavo.
 - Depois de mudar dados ou páginas, rode os quatro construtores do `README.md` e confira a página na largura do computador e do
   celular.
@@ -21,5 +21,5 @@ você abriu a fonte). Quem acrescenta um número prova o número.
 ## Novos estados e municípios
 
 Os municípios de SC e RS e as Regiões Administrativas do DF já estão cobertos; o caminho para outro estado é o mesmo dos scripts
-`--uf` em `data/scripts/series/` e `data/scripts/politicians/`. Deputados estaduais ainda não estão no projeto: contribuições são
+`--uf` em `pipelines/series/` e `pipelines/politicians/`. Deputados estaduais ainda não estão no projeto: contribuições são
 bem-vindas, no mesmo formato das fichas dos deputados federais.

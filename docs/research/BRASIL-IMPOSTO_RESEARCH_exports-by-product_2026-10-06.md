@@ -58,7 +58,7 @@ Regra deste trabalho: só fonte oficial primária; o número é lido na fonte; o
 
 ### 2. Conjunto 1: exportações por produto (feito)
 
-Script `data/scripts/trade/build_exports_by_product.py` -> `data/trade/exports-by-product.json` (519 KB).
+Script `pipelines/trade/build_exports_by_product.py` -> `data/trade/exports-by-product.json` (519 KB).
 - 21 consultas por NCM, uma por mês (2025-01 a 2026-09), mais total mensal, nomes SH4 e SH2, e países dos 50 maiores.
 - Checagens que passaram: NCM somam o total mensal da API ao dólar e ao kg em todos os meses; cada período bate com o arquivo
   oficial de conferência (2025: US$ 348.278.462.500 e 859.827.661.441 kg; 2026 jan a set: US$ 284.654.368.793); os países de
@@ -74,7 +74,7 @@ Script `data/scripts/trade/build_exports_by_product.py` -> `data/trade/exports-b
 
 ### 3. Conjunto 2: exportações por estado (feito)
 
-Script `data/scripts/trade/build_exports_by_uf.py` -> `data/trade/exports-by-uf.json` (60 KB). Consultas: `details:["state"]`,
+Script `pipelines/trade/build_exports_by_uf.py` -> `data/trade/exports-by-uf.json` (60 KB). Consultas: `details:["state"]`,
 `["state","ncm"]` e `["state"]` mensal, por período.
 - Checagens que passaram: os 27 estados mais "Não Declarada" somam o total do Brasil ao dólar e ao kg nos dois períodos; os NCM de
   cada estado somam o estado; os estados somam cada mês. `--control` (tira um estado) falhou, como devia.
@@ -84,7 +84,7 @@ Script `data/scripts/trade/build_exports_by_uf.py` -> `data/trade/exports-by-uf.
 
 ### 4. Conjunto 3: importações por produto e saldo (feito)
 
-Script `data/scripts/trade/build_imports_by_product.py` -> `data/trade/imports-by-product.json` (215 KB, linhas compactas).
+Script `pipelines/trade/build_imports_by_product.py` -> `data/trade/imports-by-product.json` (215 KB, linhas compactas).
 - Checagens que passaram: NCM importados somam o total da API ao dólar e ao kg; exportação e importação de cada período batem
   com os arquivos oficiais de conferência; os meses somam o período. `--control` falhou, como devia.
 - 2025: importações US$ 280,21 bi FOB (280.208.433.825); saldo US$ 68,07 bi. 2026 (jan a set): importações US$ 222,26 bi; saldo
@@ -96,7 +96,7 @@ Script `data/scripts/trade/build_imports_by_product.py` -> `data/trade/imports-b
 
 ### 5. Conjunto 5: preço de exportação contra preço de referência (feito)
 
-Script `data/scripts/trade/build_export_prices.py` -> `data/trade/export-prices.json` (26 KB). Os 10 maiores produtos de 2025 mais
+Script `pipelines/trade/build_export_prices.py` -> `data/trade/export-prices.json` (26 KB). Os 10 maiores produtos de 2025 mais
 farelo de soja (2304), algodão (5201) e banana (0803, citada pelo autor).
 - Brasil: valor unitário = US$ FOB / kg líquido por ano (Comex Stat, consulta `details:["heading"]` de 2015-01 a 2025-12).
   Petróleo bruto por barril: NCM 27090010, US$ FOB / (m³ declarados / 0,158987294928).
@@ -127,7 +127,7 @@ farelo de soja (2304), algodão (5201) e banana (0803, citada pelo autor).
 
 ### 6. Conjunto 6: contexto, exportações no PIB e tipo de produto (feito)
 
-Script `data/scripts/trade/build_trade_context.py` -> `data/trade/trade-context.json` (24 KB).
+Script `pipelines/trade/build_trade_context.py` -> `data/trade/trade-context.json` (24 KB).
 - PIB e exportação de bens e serviços: IBGE, Contas Nacionais Trimestrais, SIDRA 1846, R$ milhões correntes, soma dos 4 trimestres:
   `https://apisidra.ibge.gov.br/values/t/1846/n1/all/v/585/p/200001-202504/c11255/90707,93404,93405,93406,102880,93407,93408`.
   Conferência anual: SIDRA 6784 (PIB anual, até 2023).
@@ -150,7 +150,7 @@ Script `data/scripts/trade/build_trade_context.py` -> `data/trade/trade-context.
 
 ### 7. Conjunto 4: quanto da produção vai para fora (feito)
 
-Script `data/scripts/trade/build_export_share.py` -> `data/trade/export-share-of-production.json` (19 KB).
+Script `pipelines/trade/build_export_share.py` -> `data/trade/export-share-of-production.json` (19 KB).
 
 **Armadilha grave da API do Comex Stat achada aqui:** o período é lido como uma grade, anos de..até vezes meses de..até.
 `2024-02` a `2025-03` devolve só fevereiro e março de cada ano; `2025-02` a `2026-01` devolve nada. Um período que cruza o ano
@@ -254,15 +254,15 @@ vacinas, defensivos agrícolas, circuitos integrados e adubos.
 
 ## Arquivos e como rodar
 
-Todos em `data/scripts/trade/`, cada um com checagem e `--control` que tem de falhar (todos conferidos em 2026-10-06/07):
+Todos em `pipelines/trade/`, cada um com checagem e `--control` que tem de falhar (todos conferidos em 2026-10-06/07):
 
 ```bash
-python3 data/scripts/trade/build_exports_by_product.py [--control]   # -> data/trade/exports-by-product.json
-python3 data/scripts/trade/build_exports_by_uf.py [--control]        # -> data/trade/exports-by-uf.json
-python3 data/scripts/trade/build_imports_by_product.py [--control]   # -> data/trade/imports-by-product.json
-python3 data/scripts/trade/build_export_prices.py [--control]        # -> data/trade/export-prices.json (depois do primeiro)
-python3 data/scripts/trade/build_trade_context.py [--control]        # -> data/trade/trade-context.json
-python3 data/scripts/trade/build_export_share.py [--control]         # -> data/trade/export-share-of-production.json
+python3 pipelines/trade/build_exports_by_product.py [--control]   # -> data/trade/exports-by-product.json
+python3 pipelines/trade/build_exports_by_uf.py [--control]        # -> data/trade/exports-by-uf.json
+python3 pipelines/trade/build_imports_by_product.py [--control]   # -> data/trade/imports-by-product.json
+python3 pipelines/trade/build_export_prices.py [--control]        # -> data/trade/export-prices.json (depois do primeiro)
+python3 pipelines/trade/build_trade_context.py [--control]        # -> data/trade/trade-context.json
+python3 pipelines/trade/build_export_share.py [--control]         # -> data/trade/export-share-of-production.json
 ```
 
 `trade_common.py` tem a chamada à API (espera e repete no 429), a PTAX conferida, leitores de .xlsx e .ods sem pacote externo e

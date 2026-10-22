@@ -1,0 +1,29 @@
+# Checks every pull request and every push to main (phase B0 of the Astro site). A red check blocks the merge once the
+# maintainer makes `ci` a required check. Read-only token; actions pinned by commit; never pull_request_target.
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  ci:
+    name: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Install the pinned Python packages
+        run: python -m pip install --disable-pip-version-check -r requirements.txt
+      - name: Repository layout (no reference to data/scripts, every path from __file__ inside the repository)
+        run: python -m unittest discover -s pipelines/tests -v
+      - name: Ledger tests
+        run: python -m unittest discover -s pipelines/ledger/tests -v

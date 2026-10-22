@@ -601,7 +601,7 @@ cases = [c for c in (bridge_case(), *((road_case if s in ROAD else work_case)(DA
 def head_stats(cid):
     W = lambda s: json.loads((DATA / "works" / f"{s}.json").read_text(encoding="utf-8"))
     # D100: the first number is the complete total actually spent, with its source. The totals that
-    # closed the last gaps are in data/complete-totals-2026-10-06.json (data/scripts/complete_totals/, cent checks and controls).
+    # closed the last gaps are in data/complete-totals-2026-10-06.json (pipelines/complete_totals/, cent checks and controls).
     T = json.loads((DATA / "complete-totals-2026-10-06.json").read_text(encoding="utf-8"))["gaps"]
     if cid == "ponte-hercilio-luz":
         # Audit 2026-10-06 (cases, Ponte): the paid total now includes the 2006 first stage (PJ 015/2006), and the initial

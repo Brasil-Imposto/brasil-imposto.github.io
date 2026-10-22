@@ -31,7 +31,7 @@
   "verified_on": "2026-10-01",
   "note": "A API nao informa o fotografo de cada retrato oficial; o credito exigido e a fonte 'Câmara dos Deputados'. Nao foi encontrada licenca Creative Commons declarada para estas fotos."
  },
- "build_script": "data/scripts/politicians/build_federal_deputies.py",
+ "build_script": "pipelines/politicians/build_federal_deputies.py",
  "counts": {
   "persons": 929,
   "terms": 1261,

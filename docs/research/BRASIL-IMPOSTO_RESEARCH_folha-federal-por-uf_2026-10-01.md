@@ -1,6 +1,6 @@
 # Folha de pessoal da União por UF
 
-**Data da coleta:** 2026-10-01. **Arquivo:** `data/series/federal-payroll-by-uf.json`. **Scripts:** `data/scripts/series/agg_payroll_monthly.py`, `agg_union_expense_base.py`, `build_federal_payroll_by_uf.py`.
+**Data da coleta:** 2026-10-01. **Arquivo:** `data/series/federal-payroll-by-uf.json`. **Scripts:** `pipelines/series/agg_payroll_monthly.py`, `agg_union_expense_base.py`, `build_federal_payroll_by_uf.py`.
 
 **Pergunta:** quanto a União paga em pessoal (ativos, aposentados e pensionistas; civis e militares; Executivo, Legislativo, Judiciário, MPU e DPU) a pessoas em cada UF, para preencher `direct_spending.federal_payroll`, hoje `null` em `data/uf-balance-2024.json`.
 
@@ -18,7 +18,7 @@
 |---|---|---|---|
 | Portal da Transparência, Execução da Despesa: https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/AAAAMM | Pagamentos do Poder Executivo por mês, com órgão, unidade gestora, unidade orçamentária, ação, grupo, modalidade, elemento e a UF do localizador | ZIP mensal (5 a 11 MB) | Executivo por UF |
 | Tesouro Nacional, Despesas e Transferências Totais da União (critério valor pago): https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais | Todos os Poderes, por mês, órgão, unidade orçamentária, grupo, modalidade, ação e categoria do RTN. Sem UF | XLSX anual (23 a 38 MB) | Outros Poderes por UF, FCDF, checagem nacional |
-| Tesouro Nacional, RTN, série histórica, tabela 1.5: https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326 (publicada em 2026-09-29, já em `data/scripts/series/cache/union/`) | Pessoal e Encargos Sociais por mês e por tipo (ativo civil, ativo militar, aposentadorias e pensões civis, reformas e pensões militares, sentenças) | XLSX | Total nacional |
+| Tesouro Nacional, RTN, série histórica, tabela 1.5: https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326 (publicada em 2026-09-29, já em `pipelines/series/cache/union/`) | Pessoal e Encargos Sociais por mês e por tipo (ativo civil, ativo militar, aposentadorias e pensões civis, reformas e pensões militares, sentenças) | XLSX | Total nacional |
 | Portal da Transparência, servidores e militares: https://portaldatransparencia.gov.br/download-de-dados/servidores | Microdado por pessoa e por mês (cadastro e remuneração) | ZIP mensal (SIAPE cerca de 79 MB) | Testado; ver seção 7 |
 
 ## 3. Método
@@ -74,7 +74,7 @@ Ano completo com tudo: só 2024. 2025 aparece em `partial_years` (janeiro a outu
 - **2025, janeiro a outubro:** RTN 321,73; diretos sem FCDF 318,14; FCDF 16,84; localizado 122,92 (38,64%); não localizado 195,23.
 - **FCDF de 2024 contra o mapa:** base do Tesouro R$ 23.606.092.115,56; `uf-balance-2024.json` (Portal) R$ 23.606.312.156,44. Diferença de R$ 220.040,88 (0,001%).
 - **FCDF, custeio e capital contra o RTN:** grupos 3 e 4 da base somam R$ 2,41 bi (2022), R$ 4,28 bi (2023) e R$ 4,82 bi (2024), iguais à linha 2.3.11 do RTN.
-- **Reprodução:** o JSON gerado a partir dos caches copiados para `data/scripts/series/cache/payroll/` é idêntico byte a byte ao gerado na pasta de trabalho.
+- **Reprodução:** o JSON gerado a partir dos caches copiados para `pipelines/series/cache/payroll/` é idêntico byte a byte ao gerado na pasta de trabalho.
 
 ## 6. 2024: folha localizada em DF, RJ, SC e SP (R$ bi, sem FCDF)
 
@@ -162,10 +162,10 @@ Consequência: pelo microdado só os servidores civis ativos do Executivo poderi
 
 ## 11. Como reproduzir
 
-Os caches agregados (14 MB, fora do git) ficam em `data/scripts/series/cache/payroll/cache/`. Na pasta do projeto:
+Os caches agregados (14 MB, fora do git) ficam em `pipelines/series/cache/payroll/cache/`. Na pasta do projeto:
 
-1. `python3 data/scripts/series/agg_payroll_monthly.py data/scripts/series/cache/payroll 201901-202608 20`: baixa e agrega os meses que faltam do Portal, apagando cada ZIP.
-2. `python3 data/scripts/series/agg_union_expense_base.py data/scripts/series/cache/payroll 2019,2020,2021,2022,2023,2024,2025,2026`: o mesmo para a base do Tesouro (precisa de openpyxl).
-3. `python3 data/scripts/series/build_federal_payroll_by_uf.py data/scripts/series/cache/payroll`: gera `data/series/federal-payroll-by-uf.json` (precisa de openpyxl e do RTN em `data/scripts/series/cache/union/`).
+1. `python3 pipelines/series/agg_payroll_monthly.py pipelines/series/cache/payroll 201901-202608 20`: baixa e agrega os meses que faltam do Portal, apagando cada ZIP.
+2. `python3 pipelines/series/agg_union_expense_base.py pipelines/series/cache/payroll 2019,2020,2021,2022,2023,2024,2025,2026`: o mesmo para a base do Tesouro (precisa de openpyxl).
+3. `python3 pipelines/series/build_federal_payroll_by_uf.py pipelines/series/cache/payroll`: gera `data/series/federal-payroll-by-uf.json` (precisa de openpyxl e do RTN em `pipelines/series/cache/union/`).
 
 Com os caches atuais, o passo 3 gera o mesmo arquivo byte a byte.

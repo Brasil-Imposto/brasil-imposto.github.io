@@ -11,7 +11,7 @@ Os tributos pagos no território do estado em 2024, nas três esferas:
 |---|---|---|
 | União | INSS, imposto de renda (IRPF, IRPJ, IRRF), COFINS e PIS, CSLL, IPI, imposto de importação, IOF, previdência dos servidores federais (PSS), outros (ITR, imposto de exportação, CIDE, demais receitas da Receita) | Receita Federal, arrecadação por estado (`data/uf-balance-2024.json`, campo `federal_revenue.by_tax`) |
 | Estado | ICMS, IPVA, ITCD, imposto de renda retido na folha dos servidores estaduais, outros impostos e taxas | Tesouro Nacional, SICONFI, RREO Anexo 3 do governo estadual (`data/state-budgets-2024.json`) |
-| Prefeituras | ISS, IPTU, ITBI, imposto de renda retido na folha dos servidores municipais, outras taxas | Tesouro Nacional, SICONFI, RREO Anexo 3 de cada uma das 5.570 prefeituras, somado por estado (`data/municipal-taxes-2024.json`, script `data/scripts/siconfi/build_municipal_taxes.py`) |
+| Prefeituras | ISS, IPTU, ITBI, imposto de renda retido na folha dos servidores municipais, outras taxas | Tesouro Nacional, SICONFI, RREO Anexo 3 de cada uma das 5.570 prefeituras, somado por estado (`data/municipal-taxes-2024.json`, script `pipelines/siconfi/build_municipal_taxes.py`) |
 
 Todos os valores são brutos, do ano inteiro (coluna "TOTAL (ÚLTIMOS 12 MESES)" do 6º bimestre), nominais.
 

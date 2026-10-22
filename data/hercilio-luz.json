@@ -905,7 +905,7 @@
    "url": "https://www.transparencia.sc.gov.br/fornecedores",
    "api": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api",
    "collected_on": "2026-09-29",
-   "script": "data/scripts/ponte/payments.py"
+   "script": "pipelines/ponte/payments.py"
   },
   "coverage": "2011 em diante (2008 a 2010 vazios no Portal)",
   "fields": {

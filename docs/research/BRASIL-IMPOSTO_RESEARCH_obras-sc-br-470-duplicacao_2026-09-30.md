@@ -3,7 +3,7 @@
 **Data da coleta:** 2026-09-30 (todas as consultas nesta data, salvo indicação)
 **Pergunta:** para a duplicação dos 73,18 km da BR-470 entre Navegantes e Indaial, quais contratos existem, quem foi contratado, quem assinou, quem governava, quanto a União e o Estado pagaram, o que os órgãos de controle disseram e quanto custa por km em comparação com duplicações parecidas.
 **Onde a pesquisa foi feita:** computador nos EUA (IP norte-americano); ver o diário (seção 10).
-**Dados:** `data/works/br-470-duplicacao.json`. **Scripts:** `data/scripts/works/` (seção 11).
+**Dados:** `data/works/br-470-duplicacao.json`. **Scripts:** `pipelines/works/` (seção 11).
 
 ## Regras desta pesquisa (valem para o uso no site)
 
@@ -170,7 +170,7 @@ Quadro do Acórdão 2205/2024 (repetido no 2718/2025): "Duplicação da BR-470/S
 
 ## 7. Comparação de custo
 
-**Unidade:** R$ por km de rodovia duplicada (de 2 para 4 faixas), em reais de dezembro de 2024. **Método:** contratos a preços iniciais com os aditivos de quantidade, sem reajustamento, corrigidos pelo IPCA do mês-base até dez/2024 (IBGE/SIDRA 1737; dez/2024 = 7.100,50). Mês-base: a data-base oficial quando o documento a informa (lote 2 da BR-470: maio/2013; lote 1 da BR-280: março/2014); senão, o mês de assinatura. Tudo em reais, sem câmbio. Mesmo método de `data/scripts/bridges/build.py` para valores em reais.
+**Unidade:** R$ por km de rodovia duplicada (de 2 para 4 faixas), em reais de dezembro de 2024. **Método:** contratos a preços iniciais com os aditivos de quantidade, sem reajustamento, corrigidos pelo IPCA do mês-base até dez/2024 (IBGE/SIDRA 1737; dez/2024 = 7.100,50). Mês-base: a data-base oficial quando o documento a informa (lote 2 da BR-470: maio/2013; lote 1 da BR-280: março/2014); senão, o mês de assinatura. Tudo em reais, sem câmbio. Mesmo método de `pipelines/bridges/build.py` para valores em reais.
 
 | Obra | Tipo | Extensão | Valor dos contratos | Total em dez/2024 | Por km (dez/2024) |
 |---|---|---|---|---|---|
@@ -233,7 +233,7 @@ Todas as consultas em 2026-09-30, de um IP nos EUA.
 ## 11. Como reproduzir
 
 ```bash
-W=$(mktemp -d); S=~/Documents/Brasil-Imposto/data/scripts/works
+W=$(mktemp -d); S=~/Documents/Brasil-Imposto/pipelines/works
 bash $S/roads_download.sh $W                                          # entradas oficiais
 python3 $S/br470_payments.py $W/br470/desp $W/br470/br470_payments.json 2014 2026   # ~150 arquivos mensais
 python3 $S/roads_media.py                                             # fotos e credits.json

@@ -40,19 +40,19 @@ DATA = ASSETS.parents[3] / "data"
 data["federal"] = {s["uf"]: {"by_tax": s["federal_revenue"]["by_tax"], "total": s["federal_revenue"]["total"],
                              "rfb": s["federal_revenue"]["rfb_administered"]}
                    for s in json.loads((DATA / "uf-balance-2024.json").read_text(encoding="utf-8"))}
-data["municipal"] = read(DATA / "municipal-taxes-2024.json", "data/scripts/siconfi/build_municipal_taxes.py")["by_uf"]
+data["municipal"] = read(DATA / "municipal-taxes-2024.json", "pipelines/siconfi/build_municipal_taxes.py")["by_uf"]
 # Santa Catarina, one level down: the municipal balance and the municipal map (round 9).
-data["sc"] = read(DATA / "sc-municipal-balance-2024.json", "data/scripts/municipios/build_municipal_balance.py")
+data["sc"] = read(DATA / "sc-municipal-balance-2024.json", "pipelines/municipios/build_municipal_balance.py")
 # Time series (round 10), each with the script that writes it.
 SERIES = DATA / "series"
 SERIES_WRITERS = {
-    "union": "data/scripts/series/build_union_series.py", "union-spending-slices": "data/scripts/federal/build_spending_slices.py",
-    "population": "data/scripts/series/build_population.py", "federal-by-uf-monthly": "data/scripts/series/build_federal_by_uf_monthly.py",
-    "state-budgets": "data/scripts/series/build_state_series.py", "sc-municipal-federal": "data/scripts/series/build_municipal_federal.py",
-    "sc-municipal-budgets": "data/scripts/series/build_municipal_series.py", "rs-municipal-federal": "data/scripts/series/build_municipal_federal.py",
-    "rs-municipal-budgets": "data/scripts/series/build_municipal_series.py", "federal-revenue-uf-estimated": "data/scripts/series/estimate_uf_revenue.py",
-    "federal-payroll-by-uf": "data/scripts/series/build_federal_payroll_by_uf.py", "federal-spending-two-step-by-uf": "data/scripts/ug/build_two_step_series.py",
-    "public-sector-primary": "data/scripts/series/fetch_public_sector_primary.py"}
+    "union": "pipelines/series/build_union_series.py", "union-spending-slices": "pipelines/federal/build_spending_slices.py",
+    "population": "pipelines/series/build_population.py", "federal-by-uf-monthly": "pipelines/series/build_federal_by_uf_monthly.py",
+    "state-budgets": "pipelines/series/build_state_series.py", "sc-municipal-federal": "pipelines/series/build_municipal_federal.py",
+    "sc-municipal-budgets": "pipelines/series/build_municipal_series.py", "rs-municipal-federal": "pipelines/series/build_municipal_federal.py",
+    "rs-municipal-budgets": "pipelines/series/build_municipal_series.py", "federal-revenue-uf-estimated": "pipelines/series/estimate_uf_revenue.py",
+    "federal-payroll-by-uf": "pipelines/series/build_federal_payroll_by_uf.py", "federal-spending-two-step-by-uf": "pipelines/ug/build_two_step_series.py",
+    "public-sector-primary": "pipelines/series/fetch_public_sector_primary.py"}
 data["series"] = {name.replace("-", "_"): read(SERIES / f"{name}.json", writer) for name, writer in SERIES_WRITERS.items()}
 # D71: RS has no 2024 balance file; its map list (code, name, latest population) comes from its own series. The map reads
 # every number through the period layer, as SC's does.
@@ -61,13 +61,13 @@ data["rs"] = {"uf": "RS", "municipalities": [{"code": c, "name": m["name"], "pop
                                             for c, m in sorted(data["series"]["rs_municipal_federal"]["municipalities"].items())]}
 # Post-grill rounds: the date each source last published (GD33) and the federal section below the map (D44).
 data["releases"] = json.loads((DATA / "release-dates.json").read_text(encoding="utf-8"))["sources"]
-data["federal_section"] = read(DATA / "federal" / "federal-section.json", "data/scripts/federal/build_federal_section.py")
+data["federal_section"] = read(DATA / "federal" / "federal-section.json", "pipelines/federal/build_federal_section.py")
 # D72: headcount and average pay per branch (RPPS and military actuarial bases) and the CNJ all-in cost per magistrate.
 data["federal_servants"] = read(DATA / "federal" / "servants-by-branch.json", "a hand-transcribed record (no script; its sources are inside it)")
 # D71: the GDF money per Região Administrativa (administration budgets, spending that names a region, administrators, works).
-data["df_money"] = read(DATA / "df" / "region-money.json", "data/scripts/df/build_region_money.py")
+data["df_money"] = read(DATA / "df" / "region-money.json", "pipelines/df/build_region_money.py")
 # The DF estimate on the map (D146): the DF's share of Brazil's GDP caps each tax the Receita registers in the DF.
-data["df_gdp_share"] = read(DATA / "df" / "gdp-share.json", "data/scripts/df/fetch_gdp_share.py")
+data["df_gdp_share"] = read(DATA / "df" / "gdp-share.json", "pipelines/df/fetch_gdp_share.py")
 # Home side panels (D64, D65): recent big decisions and the largest cases of the period, when the research is in.
 home = DATA / "home"
 data["home"] = {k: read(home / f"{k}.json", "a research record curated by hand (no script)") for k in ("recent", "scandals")}
@@ -165,7 +165,7 @@ if U:
     check(abs(-sum(U["nominal_result"][i] for i in ix) / 1e6 - v("central_nominal_deficit_2026ytd")) < 0.05, "shortfall: the result equals the União account (jan to aug 2026)")
 data["shortfall"] = {"collected_on": SF["collected_on"], "facts": facts}
 TRADE = DATA / "trade"
-need(TRADE / "exports-by-product.json", "the scripts in data/scripts/trade/")
+need(TRADE / "exports-by-product.json", "the scripts in pipelines/trade/")
 rd = lambda n: json.loads((TRADE / f"{n}.json").read_text(encoding="utf-8"))
 EP, EU, PR, SH, CX, IM = (rd(n) for n in ("exports-by-product", "exports-by-uf", "export-prices", "export-share-of-production", "trade-context", "imports-by-product"))
 YEARS = ("2025", "2026")
@@ -267,7 +267,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from politicians_view import build as build_politicians
 POL = DATA / "politicians"
-data["politicians_view"] = build_politicians(need(POL, "the scripts in data/scripts/politicians/"))
+data["politicians_view"] = build_politicians(need(POL, "the scripts in pipelines/politicians/"))
 if data["politicians_view"] and data["home"].get("recent"):
     import unicodedata
     key = lambda s: "".join(c for c in unicodedata.normalize("NFD", s.lower()) if c.isalpha())
@@ -283,7 +283,7 @@ if data["politicians_view"] and data["home"].get("recent"):
 # D66: the DF map by Região Administrativa and its population (PDAD-A 2024).
 geo_df = need(ASSETS / "geo-df.json", "docs/superpowers/tools/build-geo-df.cjs")
 (ASSETS / "bi-geo-df.js").write_text("window.BI_GEO_DF = " + geo_df.read_text(encoding="utf-8") + ";\n", encoding="utf-8")
-data["df_regions"] = read(DATA / "df" / "regions.json", "data/scripts/df/build_regions.py")
+data["df_regions"] = read(DATA / "df" / "regions.json", "pipelines/df/build_regions.py")
 for uf in ("sc", "rs"):
     state_geo = need(ASSETS / f"geo-{uf}.json", "docs/superpowers/tools/build-geo-state.cjs")
     (ASSETS / f"bi-geo-{uf}.js").write_text(f"window.BI_GEO_{uf.upper()} = " + state_geo.read_text(encoding="utf-8") + ";\n", encoding="utf-8")

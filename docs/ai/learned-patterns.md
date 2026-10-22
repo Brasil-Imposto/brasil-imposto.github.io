@@ -10,7 +10,7 @@ Registro do que as sessões de 2026-09-25 a 2026-10-01 (rounds 1 a 11 das prévi
 |---|---|---|---|
 | Arrecadação federal por estado | Receita Federal | mensal | De fev/2025 a jan/2026 a Receita lançou no DF de 14,8% a 25,2% da arrecadação do país (antes, no máximo 10,8%), em quase todos os tributos ao mesmo tempo. Meses com 2% a 4% sem estado em 2024-09 e 2026. Ver D37 e D40. |
 | Arrecadação federal por município | Receita Federal | **anual** (2005 a 2025) | Não há versão mensal aberta encontrada; por isso o saldo da cidade não fecha num mês do ano corrente. O arquivo de 2025 tem a mesma quebra do DF (Brasília com R$ 603 bi). |
-| Repasses da União | Portal da Transparência (CGU) | mensal | O servidor de downloads tem um WAF da AWS que bloqueia rajadas (HTTP 405 com página de desafio no lugar do ZIP). Ritmo que funcionou: um arquivo a cada 90 s, com espera crescente; o script retoma de onde parou (`data/scripts/series/agg_transfers_monthly.py`). |
+| Repasses da União | Portal da Transparência (CGU) | mensal | O servidor de downloads tem um WAF da AWS que bloqueia rajadas (HTTP 405 com página de desafio no lugar do ZIP). Ritmo que funcionou: um arquivo a cada 90 s, com espera crescente; o script retoma de onde parou (`pipelines/series/agg_transfers_monthly.py`). |
 | Bolsa Família, BPC | MDS (MI Social) | mensal | O programa mudou de nome (Auxílio Brasil de nov/2021 a fev/2023). |
 | INSS | Previdência (BEPS) | mensal por estado | Por município existe microdado aberto do INSS (jul/2021 em diante), sem login; ainda não carregado. Nunca escrever "não há dado aberto" sem procurar. |
 | Orçamentos de estados e prefeituras | Tesouro, SICONFI | a cada 2 meses (RREO) e 4 meses (RGF) | Buscar o RREO **e** o RREO Simplificado: só o primeiro faz 2.329 municípios parecerem "sem relatório". Os relatórios são acumulados no ano: o bimestre isolado é a diferença entre dois. |
@@ -34,7 +34,7 @@ Registro do que as sessões de 2026-09-25 a 2026-10-01 (rounds 1 a 11 das prévi
   pagar) e o controle acusou R$ 29,7 bi a mais do que o centavo esperado. Quando o controle falha por mais do que o erro
   plantado, o defeito está na checagem.
 - O script só grava o JSON depois de a checagem passar; antes, uma rodada que falhava deixava o arquivo no disco.
-- A base do Tesouro somada sem mês (`data/scripts/ug/agg_dtt_full.py`) não serve para um período parcial; `data/scripts/ug/agg_dtt_monthly.py` guarda o mês.
+- A base do Tesouro somada sem mês (`pipelines/ug/agg_dtt_full.py`) não serve para um período parcial; `pipelines/ug/agg_dtt_monthly.py` guarda o mês.
   O FCDF (unidade 73901) fica sob o órgão 25000 (Fazenda) nessa base, não sob o 73000.
 
 - **A checagem ao centavo não pega um erro de recorte.** Em 2019 o fundo do INSS tinha outro código de unidade (25917;
@@ -172,7 +172,7 @@ Registro do que as sessões de 2026-09-25 a 2026-10-01 (rounds 1 a 11 das prévi
   dois. O console foi provado com uma página quebrada de propósito (2 erros achados) antes de confiar no zero.
 
 ### Agentes de pesquisa
-- Dar a cada agente um prefixo de arquivo próprio. Dois agentes escreveram `data/scripts/works/download.sh` e um apagou o do outro; recuperado do registro do agente.
+- Dar a cada agente um prefixo de arquivo próprio. Dois agentes escreveram `pipelines/works/download.sh` e um apagou o do outro; recuperado do registro do agente.
 - Um agente que morre no limite de uso pode deixar o próprio download rodando até o fim. Depois, conferir o log do job e rodar o passo de montagem que o agente não alcançou (assim foram recuperados os repasses de 2025 e 2026).
 - Agentes com "verifique na fonte" passam do prazo (a folha levou 5h30 contra 90 min pedidos). Escopo pela decisão, não pelo tema.
 - Fotos de pessoas: URLs remotas do Wikimedia Commons, da Câmara e do Senado, com autor e licença; os termos de uso da Câmara e do Senado permitem reproduzir citando a fonte.

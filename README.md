@@ -38,7 +38,7 @@ ao git nem ao site.
 Receita Federal (arrecadação por estado), Tesouro Nacional (Resultado do Tesouro Nacional e SICONFI), Portal da Transparência
 (gastos, repasses, folha, cartões e viagens), INSS, MDS, IBGE (população e PIB), Câmara dos Deputados, Senado Federal, CNJ e os
 tribunais superiores, TSE, Planalto (leis e Constituição) e os portais dos estados e municípios cobertos. Os scripts que buscam e
-montam cada base estão em `data/scripts/` e `docs/superpowers/tools/`; as pesquisas que explicam cada escolha estão em
+montam cada base estão em `pipelines/` e `docs/superpowers/tools/`; as pesquisas que explicam cada escolha estão em
 `docs/research/`, e as decisões do projeto em `docs/decisions/README.md`.
 
 Regras de método que aparecem na tela:
