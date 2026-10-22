@@ -1,7 +1,6 @@
 """The repository layout after phase B0: the Python pipelines live in pipelines/ and nothing points at the old data/scripts/.
 
-- No tracked text file names the old folder, except docs/decisions/README.md, which is generated from the maintainer's
-  private record and is updated there.
+- No tracked text file names the old folder, except the files in ALLOWED.
 - In every pipeline file, each ROOT or REPO built from __file__ is the repository root, every path built from __file__ stays
   inside the repository, and every folder put on sys.path exists.
 Run: python3 -m unittest discover -s pipelines/tests
@@ -16,7 +15,9 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 OLD = re.compile(r"""data/scripts|(['"])data\1\s*[/,]\s*(['"])scripts\2""")
-GENERATED = {"docs/decisions/README.md"}
+# Files allowed to name the old folder: the decisions record is generated from the maintainer's private record; this test
+# and the one-time move proof name it because checking for it is their job.
+ALLOWED = {"docs/decisions/README.md", "pipelines/tests/test_layout.py", "docs/superpowers/tools/prove-pipelines-move.py"}
 
 
 def tracked_text_files():
@@ -77,7 +78,7 @@ def file_paths(path):
 
 class LayoutTest(unittest.TestCase):
     def test_no_reference_to_the_old_folder(self):
-        hits = [f"{rel}:{i}" for rel, text in tracked_text_files() if rel not in GENERATED
+        hits = [f"{rel}:{i}" for rel, text in tracked_text_files() if rel not in ALLOWED
                 for i, line in enumerate(text.splitlines(), 1) if OLD.search(line)]
         self.assertEqual(hits, [], "files still name data/scripts")
 
