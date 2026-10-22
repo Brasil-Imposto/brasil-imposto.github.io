@@ -1,0 +1,44 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://brasil-imposto.github.io/schemas/common.schema.json",
+ "title": "Shared parts of the entity files",
+ "$defs": {
+  "source": {
+   "description": "Where every number of a series comes from: the agency, its dataset, the official link, the day it was collected and the source's own note.",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["agency", "dataset", "url", "collected_at"],
+   "properties": {
+    "agency": {"type": "string", "minLength": 2},
+    "dataset": {"type": "string", "minLength": 2},
+    "url": {"type": "string", "pattern": "^https?://"},
+    "collected_at": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+    "note": {"type": "string"}
+   }
+  },
+  "monthly_series": {
+   "description": "One value per month, aligned with months; null where the source has no value for that month.",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["unit", "months", "values", "source"],
+   "properties": {
+    "unit": {"const": "BRL"},
+    "months": {"type": "array", "items": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$"}, "minItems": 1},
+    "values": {"type": "array", "items": {"type": ["number", "null"]}},
+    "source": {"$ref": "#/$defs/source"}
+   }
+  },
+  "yearly_series": {
+   "description": "One value per year, aligned with years; null where the source has no value for that year.",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["unit", "years", "values", "source"],
+   "properties": {
+    "unit": {"const": "people"},
+    "years": {"type": "array", "items": {"type": "integer"}, "minItems": 1},
+    "values": {"type": "array", "items": {"type": ["integer", "null"]}},
+    "source": {"$ref": "#/$defs/source"}
+   }
+  }
+ }
+}

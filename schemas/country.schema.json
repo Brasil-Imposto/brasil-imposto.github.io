@@ -1,0 +1,19 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://brasil-imposto.github.io/schemas/country.schema.json",
+ "title": "Country",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["type", "id", "name", "series"],
+ "properties": {
+  "type": {"const": "country"},
+  "id": {"const": "BR"},
+  "name": {"type": "string"},
+  "series": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["federal_revenue"],
+   "properties": {"federal_revenue": {"$ref": "common.schema.json#/$defs/monthly_series"}}
+  }
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://brasil-imposto.github.io/schemas/person.schema.json",
+ "title": "Person",
+ "description": "Someone shown only with the role an official record gives them, each term with its official link.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["type", "id", "name", "full_name", "terms"],
+ "properties": {
+  "type": {"const": "person"},
+  "id": {"type": "string", "pattern": "^(camara|senado):[0-9]+$"},
+  "name": {"type": "string"},
+  "full_name": {"type": "string"},
+  "terms": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["house", "role", "uf", "start", "end", "kind", "source"],
+    "properties": {
+     "house": {"enum": ["camara", "senado"]},
+     "role": {"type": "string", "description": "As the official record writes it"},
+     "uf": {"type": "string", "pattern": "^[A-Z]{2}$"},
+     "start": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+     "end": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+     "kind": {"type": "string", "description": "titular or suplente, as the official record writes it"},
+     "source": {"type": "string", "pattern": "^https?://"}
+    }
+   }
+  }
+ }
+}

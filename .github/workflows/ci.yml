@@ -28,6 +28,8 @@ jobs:
           uv sync --locked
       - name: Repository layout and Python environment
         run: uv run --locked python -m unittest discover -s pipelines/tests -v
+      - name: Entity files (exported from data/, each validated against its schema before it is written)
+        run: uv run --locked python pipelines/export/build_entities.py
       - name: Ledger tests
         run: uv run --locked python -m unittest discover -s pipelines/ledger/tests -v
       - name: The committed pages are what their builders make (header, footer and map loader from one source, D152)

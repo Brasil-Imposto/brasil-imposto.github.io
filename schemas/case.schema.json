@@ -1,0 +1,15 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://brasil-imposto.github.io/schemas/case.schema.json",
+ "title": "Case",
+ "description": "A case. Phase B0 carries its identity; its numbers come with phase B3, each with its source.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["type", "id", "title", "collected_at"],
+ "properties": {
+  "type": {"const": "case"},
+  "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+  "title": {"type": "string"},
+  "collected_at": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"}
+ }
+}
