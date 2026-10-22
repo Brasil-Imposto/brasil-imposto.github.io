@@ -208,12 +208,6 @@
   .bars-max { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); font-weight:700; margin-top:8px; }
   .others { list-style:none; margin:4px 0 0; padding:0; font-size:13px; } .others li { display:flex; justify-content:space-between; gap:10px; padding:6px 0; border-bottom:1px solid #EEF1F4; }
   .others li b { white-space:nowrap; }
-  .fixform { margin-top:14px; border:1px dashed #E0B44A; background:#FFFBEF; border-radius:14px; padding:12px 14px; display:grid; gap:8px; }
-  .fixform[hidden] { display:none; }
-  .fixform label { display:grid; gap:4px; font-size:12px; font-weight:800; color:var(--ink2); }
-  .fixform textarea, .fixform input { border:1px solid var(--line); border-radius:10px; padding:8px 10px; font-size:13.5px; background:#fff; font-weight:500; }
-  .fixform textarea { min-height:70px; resize:vertical; }
-  .fixform p { margin:0; font-size:11.5px; color:#6B5310; }
   .srcs { margin:14px 0 0; font-size:11.5px; color:var(--faint); line-height:1.5; }
   .srcs a { color:inherit; }
   .cmp-grid { display:grid; gap:12px; overflow-x:auto; }
@@ -738,7 +732,10 @@
 
   // ---------- the sheet: one parliamentarian in full, or the comparison
   const back = document.querySelector('[data-back]'), sheet = document.querySelector('[data-sheet]');
-  const fixFormHTML = `<form class="fixform" data-fixform hidden><label>O que está errado nesta ficha?<textarea name="what" placeholder="Por exemplo: o auxílio-moradia mudou em setembro (com o link da fonte)"></textarea></label><label>E-mail para resposta (opcional)<input name="email" type="email"></label><p>Nesta prévia o envio não está ligado; na plataforma vai para o mesmo canal do "Fale com a gente", com o nome e o link da ficha.</p><div><button class="btn dark" type="button">Enviar</button></div></form>`;
+  // "Pedir correção" opens the data-correction issue form, prefilled with the sheet's link and the person's name.
+  const FIX_FORM = 'https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/new';
+  const fixUrl = (x) => `${FIX_FORM}?${new URLSearchParams({ template: 'data-correction.yml', title: `Correção: ${x.name}`,
+    page: `${location.origin}${location.pathname}#p=${encodeURIComponent(x.id)}`, item: `Ficha de ${x.name}` })}`;
   function bars(by, last, label) {
     const vals = Object.entries(by || {}).map(([m, v]) => [+m, v]), max = Math.max(1, ...vals.map(([, v]) => v));
     const get = (m) => (vals.find(([k]) => k === m) || [m, null])[1];
@@ -754,8 +751,7 @@
     const srcs = [...new Set(x.items.map((it) => it.source).filter(Boolean))];
     return `<div class="crumb">Os 3 Poderes › ${HOUSE_FULL[x.house]}${x.court ? ' › ' + esc(x.court) : ''} › <b>${esc(x.name)}</b></div>`
       + `<div class="p-head">${ph(x)}<div><h2>${esc(x.name)}</h2><div class="meta">${metaHTML(x)}</div>`
-      + `<div class="links">${x.page ? `<a href="${esc(x.page)}" target="_blank" rel="noopener">Página oficial ↗</a>` : ''}<button type="button" data-copy>Copiar link</button><button type="button" class="fix" data-fix>Pedir correção</button></div></div></div>`
-      + fixFormHTML
+      + `<div class="links">${x.page ? `<a href="${esc(x.page)}" target="_blank" rel="noopener">Página oficial ↗</a>` : ''}<button type="button" data-copy>Copiar link</button><a class="fix" href="${esc(fixUrl(x))}" target="_blank" rel="noopener">Pedir correção</a></div></div></div>`
       + `<div class="p-cols"><div class="box"><h4>Salário e cada componente pago em 2026</h4><div class="rows">${M.rows.map((r) => rowHTML(r)).join('')}</div>`
       + `<div class="big"><span>Total por mês</span><b>${brl(M.total)}</b></div>${M.partial ? '<div class="tnote"><span class="chip">parcial</span> parte do dado não é publicada; nunca uma estimativa</div>' : ''}${splitHTML(M)}</div>`
       + `<div style="display:grid;gap:14px;align-content:start"><div class="box"><h4>Outros</h4><ul class="others">`
@@ -805,8 +801,7 @@
     sheet.innerHTML = `<button class="x" type="button" data-close aria-label="Fechar">✕</button>`
       + `<div class="crumb">Os 3 Poderes › ${HOUSE_FULL[x.house]} › <b>${esc(x.name)}</b></div>`
       + `<div class="p-head">${ph(x)}<div><h2>${esc(x.name)}</h2><div class="meta"><span class="party">${esc(x.party)}</span>${flag(x.uf)}<span>${cam ? 'Deputado(a) federal' : 'Senador(a)'}</span></div>`
-      + `<div class="links"><a href="${esc(x.page)}" target="_blank" rel="noopener">Página oficial ↗</a><button type="button" data-copy>Copiar link</button><button type="button" class="fix" data-fix>Pedir correção</button></div></div></div>`
-      + fixFormHTML
+      + `<div class="links"><a href="${esc(x.page)}" target="_blank" rel="noopener">Página oficial ↗</a><button type="button" data-copy>Copiar link</button><a class="fix" href="${esc(fixUrl(x))}" target="_blank" rel="noopener">Pedir correção</a></div></div></div>`
       + `<div class="p-cols"><div class="box"><h4>Salário e auxílios</h4><div class="rows">${M.rows.map((r) => rowHTML(r)).join('')}</div>`
       + `<div class="big"><span>Total por mês</span><b>${brl(M.total)}</b></div>${M.partial ? '<div class="tnote"><span class="chip">parcial</span> falta parte do dado; nunca uma estimativa</div>' : ''}${splitHTML(M)}</div>`
       + `<div style="display:grid;gap:14px;align-content:start"><div class="box soft"><h4>${cam ? 'Cota parlamentar' : 'Cota (CEAPS)'}, mês a mês em 2026</h4>${x.ceap ? bars(x.ceap.by_month, AVG[x.house], 'Cota') + `<div class="bars-note">Total em 2026: <b>${brl(x.ceap.used)}</b>${x.ceap.pct != null ? `, ${nf(x.ceap.pct, 1)}% do que podia usar no ano` : ''}.</div>` : '<div class="bars-note"><span class="chip">sem lançamento</span> nenhum lançamento no arquivo de 2026</div>'}</div>`
@@ -835,7 +830,6 @@
     const g = e.target.closest('[data-goto]'); if (g) { F.house = g.dataset.goto; shown = 24; housesEl.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.house === F.house))); drawList(); document.getElementById('parlamentares').scrollIntoView({ behavior: 'smooth' }); return; }
     if (e.target.closest('[data-close]') || e.target === back) { close(); return; }
     if (e.target.closest('[data-cmp-open]') && cmp.length >= 2) { openCompare(); return; }
-    if (e.target.closest('[data-fix]')) { const f = sheet.querySelector('[data-fixform]'); f.hidden = !f.hidden; if (!f.hidden) f.querySelector('textarea').focus(); return; }
     const c = e.target.closest('[data-copy]'); if (c) { const u = location.href; (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(() => { c.textContent = 'Link copiado'; }, () => { c.textContent = u; }); }
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !back.hidden) close(); });
