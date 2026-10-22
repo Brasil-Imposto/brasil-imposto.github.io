@@ -102,6 +102,7 @@ Levar as páginas publicadas para o Astro **sem mudar o que o autor aprovou**. A
 ### B3. Contrato de dados
 
 - Um JSON por entidade (Brasil, estado, município, caso, pessoa), com todos os meses de 2019 a 2026 dentro, no lugar do pacote único `bi-data.js` de 85 MB. Pesos medidos na pesquisa de stack (seção 3): cerca de 32 KB na home, 110 KB num estado, 16 KB num município.
+- Gerados no build a partir de `data/`, sem versionar (D151): o repositório não guarda uma segunda cópia dos dados.
 - Chaves em inglês (D97, item 9); rótulos oficiais usados como valor ficam como a fonte escreve.
 - Um JSON Schema por tipo de arquivo em `schemas/`, conferido pelo Python ao gravar e pelo CI a cada PR; os tipos do TypeScript são gerados dos mesmos schemas, para os dois lados nunca divergirem.
 - Cada número carrega a fonte (órgão, base, link, data de coleta) no próprio arquivo.
@@ -111,7 +112,7 @@ Levar as páginas publicadas para o Astro **sem mudar o que o autor aprovou**. A
 ```
 site/        o site em Astro (TypeScript)
 pipelines/   os scripts Python de hoje (data/scripts e os construtores de docs/superpowers/tools)
-data/        os JSON publicados, um por entidade, e o manifesto dos brutos
+data/        os dados publicados (a fonte única) e o manifesto dos brutos; os JSON por entidade são gerados no build (D151)
 schemas/     JSON Schema de cada tipo de arquivo
 docs/        documentação em português
 .github/     workflows, formulários, CODEOWNERS
