@@ -22,6 +22,7 @@ node_modules/
 .DS_Store
 # the author's working notes, kept local: agent notes, the grill, the session tracker, internal audits
 CLAUDE.md
+!.claude/CLAUDE.md
 docs/BRASIL-IMPOSTO_GRILL_*
 docs/BRASIL-IMPOSTO_STATUS_*
 docs/research/audit/

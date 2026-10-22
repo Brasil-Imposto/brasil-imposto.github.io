@@ -1,0 +1,81 @@
+# Brasil-Imposto: guia para quem contribui com agentes
+
+Este arquivo vale para qualquer pessoa que trabalhe no repositório com um agente de código. Ele resume as regras do projeto;
+as decisões completas estão em `docs/decisions/README.md` e os padrões aprendidos em `docs/ai/learned-patterns.md`.
+
+## O projeto
+
+Mapa cívico e apartidário que mostra, com dados oficiais, quanto cada estado envia à União e quanto recebe de volta, quem ocupa
+cada cargo dos três Poderes e quanto recebe, e para onde vai o dinheiro do imposto. Cada número tem a fonte oficial ao lado.
+Site: <https://brasil-imposto.github.io>.
+
+## Stack e estrutura
+
+- **Hoje:** páginas HTML estáticas em `docs/superpowers/previews/`, montadas por Python 3 a partir de `data/` pelos construtores
+  de `docs/superpowers/tools/` (comandos no `README.md`). O workflow `.github/workflows/pages.yml` refaz e publica a cada push na
+  `main`. Os pacotes `assets/bi-data.js` e `assets/bi-geo*.js` não ficam no git: os construtores os refazem.
+- **Em construção:** o site em Astro 7 com TypeScript estrito, three.js e um mapa SVG gerado no build, um JSON por entidade com
+  JSON Schema, Python nos pipelines (Parte B de
+  `docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_v1-release-and-site-build_2026-10-22.md`, uma issue por fase).
+- `data/`: os dados publicados e os scripts que buscam e montam cada base (`data/scripts/`).
+- `docs/`: documentação em português, pesquisas (`docs/research/`), specs e planos (`docs/superpowers/`).
+
+## Regras do projeto
+
+- **Interface em português do Brasil; identificadores, nomes de arquivo, chaves de JSON e mensagens de commit em inglês.**
+  Documentação em português, com resumo em inglês.
+- **Texto neutro.** O site mostra dados e mecanismos, nunca chama ao voto. Saldo de um estado: "envia mais do que recebe" e
+  "recebe mais do que envia". Nada de linguagem carregada.
+- **Nenhum número sem fonte oficial**, com link, ano de referência e data da coleta. Sem fonte, não aparece.
+- **Toda soma fecha à mão** com os valores como aparecem na tela, e os totais batem com o total oficial ao centavo.
+- **Todo período funciona:** mês, ano e mandato, de 2019 ao último mês publicado. Um mês sem dado mostra o motivo.
+- **DF por estimativa marcada:** a tela diz "estimativa" onde o DF é estimado, com o método ao lado.
+- **Quem governava tem o mesmo tratamento para todos:** qualquer governo e qualquer partido aparecem do mesmo jeito.
+- **Pessoas aparecem só com o papel que têm num documento oficial**, com o ato e o link.
+- **Nada de afirmação que o dado não sustenta.** Quando os números não fecham, escreva "diferença sem explicação", nunca
+  "desvio" sem decisão oficial.
+- **Um item que o projeto não tem é "não publicado"**, nunca "a coletar".
+- Prosa sem travessões.
+
+## Fluxo de trabalho
+
+1. Uma spec aprovada pela pessoa mantenedora antes de qualquer código (`docs/superpowers/specs/`).
+2. O plano, com uma tarefa por vez.
+3. Testes primeiro.
+4. Revisão, um assunto por pull request, commits assinados (`git commit -s`, DCO).
+
+## Como conferir
+
+- **Olhe a tela.** Capturas em 1440 e 420 px de largura, olhadas antes de entregar; nunca diga que algo foi conferido na tela sem
+  ter olhado.
+- **Toda checagem é provada com um controle que tem de falhar:** um erro plantado (um real a mais, um ponto sem ligação, uma nota
+  plantada) que a checagem precisa pegar. Uma checagem que nunca falhou não foi testada.
+- **O código de saída é o do comando real**, nunca o do último comando de uma cadeia com `|` ou `;`.
+- Ferramentas prontas em `docs/superpowers/tools/`: `visible-text-probe.cjs` (texto visível da home em 19 períodos e dos 27
+  estados, com `--audit` e o controle `--plant`), `site-check.cjs` (pedidos, erros, `body[data-ready="1"]`, rolagem horizontal
+  e capturas, com `--control`) e `tres-poderes-unknown-probe.cjs` (com `--control`).
+- A checagem ao centavo pega erro de valor, não erro de recorte: compare o que o recorte deixa de fora com a série que conta
+  aquilo pelo destino (veja `docs/ai/learned-patterns.md`).
+
+## Onde estão as decisões
+
+- `docs/decisions/README.md`: as decisões (D1 em diante) e as perguntas em aberto (Q).
+- `docs/ai/learned-patterns.md`: as armadilhas das fontes oficiais e as receitas que funcionaram.
+- `GOVERNANCE.md`: quem decide, as regras de neutralidade e a mudança de método.
+
+## O que perguntar em vez de decidir
+
+Pergunte à pessoa mantenedora, numa issue ou no pull request, antes de:
+
+- mudar uma decisão registrada em `docs/decisions/README.md`, ou o texto que o site mostra;
+- mudar um método de cálculo (isso é uma proposta de método, com janela de comentário);
+- usar uma fonte que não é oficial, ou estimar um número;
+- acrescentar um serviço de terceiros, um custo ou uma dependência nova;
+- mexer em workflows, permissões ou configurações do repositório.
+
+## In English
+
+Agent guide: Portuguese UI, English identifiers and commits; neutral text; no number without an official source; every sum
+closes by hand; every period works; every check is proven against a planted failure; look at screenshots at 1440 and 420 px.
+Specs are approved by the maintainer before code. Ask before changing a recorded decision, a method, sources, dependencies or
+repository settings.
