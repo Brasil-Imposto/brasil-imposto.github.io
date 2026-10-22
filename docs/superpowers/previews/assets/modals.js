@@ -47,11 +47,18 @@ export function createModals(root, { states, budgets, cases, geo, colorOf, onClo
     btn.onclick = () => { metric = btn.dataset.metric; render(); };
   });
 
+  let opener = null; // focus returns here when the last level closes
   const render = () => {
     if (cleanup) { cleanup(); cleanup = null; }
     const top = stack[stack.length - 1];
-    if (!top) { root.classList.remove('modal-open'); onClose(); return; }
-    root.classList.add('modal-open');
+    if (!top) {
+      const was = root.classList.contains('modal-open');
+      root.classList.remove('modal-open'); document.documentElement.classList.remove('bi-locked'); onClose();
+      if (was && opener && opener.isConnected) opener.focus({ preventScroll: true });
+      opener = null; return;
+    }
+    if (!root.classList.contains('modal-open')) opener = document.activeElement;
+    root.classList.add('modal-open'); document.documentElement.classList.add('bi-locked');
     const crumbs = ['Brasil', ...stack.map((l) => l.crumb)];
     panel.innerHTML = `
       <header class="modal-head">
@@ -66,6 +73,7 @@ export function createModals(root, { states, budgets, cases, geo, colorOf, onClo
       <div class="modal-body">${typeof top.html === 'function' ? top.html() : top.html}</div>`;
     panel.scrollTop = 0;
     panel.querySelector('.close').onclick = () => { stack.length = 0; render(); };
+    panel.querySelector('.close').focus({ preventScroll: true });
     const back = panel.querySelector('.back');
     if (back) back.onclick = () => { stack.pop(); render(); };
     panel.querySelectorAll('.crumbs button').forEach((b) => { b.onclick = () => { stack.length = +b.dataset.depth; render(); }; });

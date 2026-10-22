@@ -53,8 +53,9 @@ Site: <https://brasil-imposto.github.io>.
 - **O código de saída é o do comando real**, nunca o do último comando de uma cadeia com `|` ou `;`.
 - Ferramentas prontas em `docs/superpowers/tools/`: `visible-text-probe.cjs` (texto visível da home em 19 períodos e dos 27
   estados, com `--audit` e o controle `--plant`), `site-check.cjs` (pedidos, erros, `body[data-ready="1"]`, rolagem horizontal
-  e capturas, com `--control`), `tres-poderes-unknown-probe.cjs` (com `--control`) e `tres-poderes-judiciary-check.cjs`
-  (o STF na tela depois de D154, com `--control`).
+  e capturas, com `--control`), `tres-poderes-unknown-probe.cjs` (com `--control`), `tres-poderes-judiciary-check.cjs`
+  (o STF na tela depois de D154, com `--control`), `overlay-check.cjs` (modais, fichas e saltos acima e abaixo do cabeçalho),
+  `ui-sweep.cjs` (rolagem horizontal, controle coberto, texto cortado) e `sheet-width-check.cjs`, os três com `--control`.
 - A checagem ao centavo pega erro de valor, não erro de recorte: compare o que o recorte deixa de fora com a série que conta
   aquilo pelo destino (veja `docs/ai/learned-patterns.md`).
 

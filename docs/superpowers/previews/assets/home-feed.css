@@ -34,7 +34,7 @@
 .hf-amt { font-size: 13px; font-weight: 800; white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
 .hf-amt small { display: block; font-size: 9.5px; font-weight: 600; color: var(--faint); }
 .hf-amt.in { color: #12803F; } .hf-amt.out { color: #B41E25; }
-.hf-sheet { position: fixed; inset: 0; z-index: 60; }
+.hf-sheet { position: fixed; inset: 0; z-index: 1100; } /* above the site header (z-index 1000) */
 .hf-sheet[hidden] { display: none; }
 .hf-back { position: absolute; inset: 0; background: rgba(238,242,245,.62); backdrop-filter: blur(3px); }
 .hf-panel { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(620px, calc(100% - 32px)); max-height: calc(100% - 48px); overflow: auto;

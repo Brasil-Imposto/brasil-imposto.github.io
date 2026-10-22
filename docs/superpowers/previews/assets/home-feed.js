@@ -439,15 +439,28 @@
       sheet = document.createElement('div'); sheet.className = 'hf-sheet'; sheet.hidden = true;
       sheet.innerHTML = '<div class="hf-back" data-hf-close></div><div class="hf-panel" role="dialog" aria-modal="true"><button type="button" class="hf-x" data-hf-close aria-label="Fechar">✕</button><div class="hf-content"></div></div>';
       document.body.appendChild(sheet);
-      sheet.querySelectorAll('[data-hf-close]').forEach((b) => (b.onclick = () => (sheet.hidden = true)));
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') sheet.hidden = true; });
+      // the page behind does not scroll while the sheet is open; focus goes to its close button and back to what opened it
+      sheet.show = (html) => {
+        sheet.querySelector('.hf-content').innerHTML = html;
+        if (sheet.hidden) sheet.opener = document.activeElement;
+        sheet.hidden = false; document.documentElement.classList.add('bi-locked');
+        sheet.querySelector('.hf-x').focus({ preventScroll: true });
+      };
+      sheet.hide = () => {
+        if (sheet.hidden) return;
+        sheet.hidden = true; document.documentElement.classList.remove('bi-locked');
+        if (sheet.opener && sheet.opener.isConnected) sheet.opener.focus({ preventScroll: true });
+        sheet.opener = null;
+      };
+      sheet.querySelectorAll('[data-hf-close]').forEach((b) => (b.onclick = () => sheet.hide()));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') sheet.hide(); });
     }
     root.querySelectorAll('[data-hf]').forEach((b) => (b.onclick = () => {
       const [k, i] = b.dataset.hf.split(/:(.*)/); const it = k === 'move' ? M.find((x) => x.id === i) : S[+i];
-      sheet.querySelector('.hf-content').innerHTML = detail(k, it); sheet.hidden = false;
+      sheet.show(detail(k, it));
     }));
     if (ck) {
-      ck.querySelectorAll('[data-slice]').forEach((b) => (b.onclick = () => { sheet.querySelector('.hf-content').innerHTML = sliceDetail(b.dataset.slice); sheet.hidden = false; }));
+      ck.querySelectorAll('[data-slice]').forEach((b) => (b.onclick = () => sheet.show(sliceDetail(b.dataset.slice))));
       const more = ck.querySelector('[data-slice-more]');
       if (more) more.onclick = () => { cakeOpen = !cakeOpen; ck.innerHTML = cake(r); render(root, r); };
     }
