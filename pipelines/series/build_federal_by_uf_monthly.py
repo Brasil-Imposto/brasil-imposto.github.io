@@ -41,7 +41,8 @@ rows = list(csv.reader(open(W / "arrecadacao-estado.csv", encoding="latin1"), de
 H = rows[0]
 col2key = {c: k for k, cs in TAXMAP.items() for c in cs}
 unmapped = [c for c in H[3:] if c not in col2key]
-assert not unmapped, unmapped
+if not (not unmapped):
+    raise SystemExit(unmapped)
 rev = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(float)))  # month -> uf -> key -> value
 for r in rows[1:]:
     if r[0] < FIRST[:4]: continue

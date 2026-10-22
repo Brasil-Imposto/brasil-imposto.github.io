@@ -108,11 +108,13 @@ def hold(tag):
     attrs, body = m.group(1) or "", m.group(2)
     src = re.search(r' src="([^"]+)"', attrs)
     if src:
-        assert body == "" and attrs.strip() == f'src="{src.group(1)}"', tag[:80]
+        if not (body == "" and attrs.strip() == f'src="{src.group(1)}"'):
+            raise SystemExit(tag[:80])
         return f'<script type="text/x-bi-deferred" data-src="{src.group(1)}"></script>'
     if attrs.strip() == 'type="module"':
         return f'<script type="text/x-bi-deferred" data-module>{body}</script>'
-    assert attrs == "", tag[:80]
+    if not (attrs == ""):
+        raise SystemExit(tag[:80])
     return f'<script type="text/x-bi-deferred">{body}</script>'
 
 
@@ -120,7 +122,8 @@ def apply(page, data_file):
     """The page with the loader; data_file is assets/bi-data.js, whose size goes into the page (absent: no number)."""
     data_file = Path(data_file)
     size = data_file.stat().st_size if data_file.exists() else 0
-    assert page.count(DATA_TAG) == 1 and page.count('<div class="hero-map"></div>') == 1
+    if not (page.count(DATA_TAG) == 1 and page.count('<div class="hero-map"></div>') == 1):
+        raise SystemExit('check failed: page.count(DATA_TAG) == 1 and page.count(\'<div class="hero-map"></div>\') == 1')
     head, tail = page.split(DATA_TAG)
     keep = re.compile(r'<script id="bi-chrome-js">')
     out, n = [], 0

@@ -55,7 +55,8 @@ def build():
     mourao22 = tse_any(2022, mourao)
     alckmin18 = tse_any(2018, alckmin)
     haddad22 = tse_any(2022, "FERNANDO HADDAD")
-    assert bolso22 and mourao22 and alckmin18 and haddad22, "candidaturas de conferencia nao encontradas"
+    if not (bolso22 and mourao22 and alckmin18 and haddad22):
+        raise SystemExit("candidaturas de conferencia nao encontradas")
 
     people = {
         "jair-bolsonaro": {"name": "Jair Bolsonaro", "full_name": bolso, "photo_query": "Jair Bolsonaro",

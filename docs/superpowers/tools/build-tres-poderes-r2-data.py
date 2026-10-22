@@ -72,7 +72,8 @@ OFFICE_DEP = brl(need(posse, r"O valor da verba de gabinete é de R\$ ([\d.]+,\d
 STAFF_PAY = [brl(x) for x in need(posse, r"é R\$ ([\d.]+,\d{2}); e o maior, R\$ ([\d.]+,\d{2})", "secretaries pay").groups()]
 ceap_block = posse[posse.index("Valor da cota (R$)"):]
 CEAP_DEP = {uf: brl(v) for uf, v in re.findall(r"\b([A-Z]{2}) ([\d.]+,\d{2})", ceap_block[:600])}
-assert len(CEAP_DEP) == 27, CEAP_DEP
+if not (len(CEAP_DEP) == 27):
+    raise SystemExit(CEAP_DEP)
 
 # ---------- Senado rules
 HOUSING_SEN = brl(need(page_text("senado-moradia.html"), r"é de R\$ ([\d.]+,\d{2})", "Senado housing").group(1))
@@ -80,7 +81,8 @@ CEAPS = {}
 for line in (RAW / "ceaps.txt").read_text(encoding="utf-8").splitlines():
     m = re.match(r"\s*\d+\s+(.+?)\s+R\$ ([\d.]+,\d{2})", line)
     if m: CEAPS[STATE[m.group(1).strip()]] = brl(m.group(2))
-assert len(CEAPS) == 27, CEAPS
+if not (len(CEAPS) == 27):
+    raise SystemExit(CEAPS)
 
 # ---------- people: the Mesa of each house
 mesa_c = json.loads((RAW / "mesa-camara-m.json").read_text())["dados"]
@@ -124,7 +126,8 @@ def deputy(member):
 seen_ids = set()
 mesa_c = [m for m in mesa_c if (RAW / f"dep-{m['id']}.html").exists() and not (m["id"] in seen_ids or seen_ids.add(m["id"]))]
 deputies = [deputy(m) for m in mesa_c]
-assert len(deputies) == 6, len(deputies)
+if not (len(deputies) == 6):
+    raise SystemExit(len(deputies))
 
 def senado_mesa():
     out = []

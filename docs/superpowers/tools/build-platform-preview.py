@@ -26,7 +26,8 @@ SRC = PREVIEWS / "src"
 
 
 def insert(page, anchor, new, before=True):
-    assert page.count(anchor) == 1, f"anchor not unique: {anchor[:60]}"
+    if not (page.count(anchor) == 1):
+        raise SystemExit(f"anchor not unique: {anchor[:60]}")
     return page.replace(anchor, new + anchor if before else anchor + new)
 
 
@@ -36,16 +37,19 @@ def build(author_notes):
     page = insert(page, '<link rel="stylesheet" href="assets/home-feed.css">', '\n<link rel="stylesheet" href="assets/platform.css">', before=False)
     # D152: the hero's own header leaves; the site header shared by the three pages (site_chrome) takes its place.
     old, n = re.subn(r'\n  <header class="hero-nav">\n.*?\n  </header>', '', page, count=1, flags=re.S)
-    assert n == 1 and 'class="hero-nav"' not in old, "hero header not found"
+    if not (n == 1 and 'class="hero-nav"' not in old):
+        raise SystemExit("hero header not found")
     page = site_chrome.inject(old, "inicio")
     # The home renders at 90% from 1063 px (D96, html { zoom: .9 }); the site header cancels it to keep its size on every page.
     zoom = "    html { zoom: .9; }\n"
-    assert page.count(zoom) == 1, "the D96 zoom rule moved"
+    if not (page.count(zoom) == 1):
+        raise SystemExit("the D96 zoom rule moved")
     page = page.replace(zoom, zoom + "    .bi-header, .bi-sheet, .bi-footer { zoom: 1.11111; } /* D152: the site header and footer keep their size */\n")
     # Tablets and phones reserved room at the top of the hero for its own header, now gone: keep only that header's margin.
     for old_pad, new_pad in (('column-gap: 16px; padding: 70px 24px 24px; }', 'column-gap: 16px; padding: 22px 24px 24px; }'),
                              ('flex-direction: column; padding-top: 58px; }', 'flex-direction: column; padding-top: 16px; }')):
-        assert page.count(old_pad) == 1, old_pad
+        if not (page.count(old_pad) == 1):
+            raise SystemExit(old_pad)
         page = page.replace(old_pad, new_pad)
     if author_notes:
         sections = src("platform-sections.html") + "\n" + src("platform-support.html") + "\n" + src("platform-notes.html") + "\n"
@@ -58,11 +62,14 @@ def build(author_notes):
     page = insert(page, "</body>", script)
     # D152, L1: the map's data arrives through the loader, with the true percentage; every script after it waits for it.
     page, held, size = map_loader.apply(page, PREVIEWS / "assets" / "bi-data.js")
-    assert held >= 15, f"only {held} scripts held back"
-    assert chr(0x2014) not in page and chr(0x2013) not in page, "dash found"
+    if not (held >= 15):
+        raise SystemExit(f"only {held} scripts held back")
+    if not (chr(0x2014) not in page and chr(0x2013) not in page):
+        raise SystemExit("dash found")
     if not author_notes:
         for banned in ('id="apoie"', 'id="fale"', 'Só na prévia', 'class="doc"', 'data-contact'):
-            assert banned not in page, f"author material in the published page: {banned}"
+            if not (banned not in page):
+                raise SystemExit(f"author material in the published page: {banned}")
     return page
 
 

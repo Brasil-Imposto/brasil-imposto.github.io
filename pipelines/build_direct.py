@@ -34,7 +34,8 @@ pbf=collections.defaultdict(float)
 for r in csv.DictReader(open('pbf_2024.csv')):
     if r['valor_repassado_bolsa_familia_f']: pbf[r['sigla_uf']]+=float(r['valor_repassado_bolsa_familia_f'])
 fcdf=sum(json.load(open('fcdf_2024.json')).values())
-assert len(inss)==27 and len(bpc)==27 and len(pbf)==27
+if not (len(inss)==27 and len(bpc)==27 and len(pbf)==27):
+    raise SystemExit('check failed: len(inss) == 27 and len(bpc) == 27 and (len(pbf) == 27)')
 print('INSS sum UF',sum(inss.values()),'BR',inss_br,'| BPC sum',sum(bpc.values()),'BR',bpc_br,'| PBF',sum(pbf.values()),'| FCDF',fcdf)
 D={}
 for uf in inss:

@@ -386,7 +386,8 @@ def build_stage():
             if r['secret']:
                 otherc[OTHER_UGS[r['ug']]] += r['value']
     unknown = sorted({(r['ug'], r['ug_name']) for r in cp if r['ug'] not in OTHER_UGS and r['ug'] not in PRESIDENT_UGS})
-    assert not unknown, unknown
+    if not (not unknown):
+        raise SystemExit(unknown)
     other_units = [{'unit': k, 'year_total': round(v, 2),
                     'note': f'Cartão corporativo jan a ago 2026, {brl(round(otherc[k], 2))} sob sigilo. Unidade da Presidência sem ligação declarada com a atividade do Presidente; listada à parte.'}
                    for k, v in sorted(other.items(), key=lambda kv: -kv[1])]

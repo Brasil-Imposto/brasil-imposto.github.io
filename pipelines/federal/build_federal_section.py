@@ -26,7 +26,8 @@ P = lambda *a: os.path.join(ROOT, *a)
 args = [a for a in sys.argv[1:] if not a.startswith("--")]
 YEAR, M0, M1 = int(args[0]), int(args[1]), int(args[2])
 CONTROL = next(((a.split("=", 1)[1] if "=" in a else "output") for a in sys.argv[1:] if a.startswith("--control")), None)
-assert CONTROL in (None, "output", "input-branch"), CONTROL
+if not (CONTROL in (None, "output", "input-branch")):
+    raise SystemExit(CONTROL)
 MONTHS = [f"{YEAR}-{m:02d}" for m in range(M0, M1 + 1)]
 c = lambda v: int(round(v * 100))
 R = lambda cents: round(cents / 100, 2)

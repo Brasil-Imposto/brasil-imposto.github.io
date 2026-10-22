@@ -37,7 +37,8 @@ for ed, fn in EDITIONS.items():
     ws = openpyxl.load_workbook(io.BytesIO(z.read(found)), read_only=True, data_only=True).worksheets[0]
     rows = list(ws.iter_rows(values_only=True))
     title = " ".join(str(c) for r in rows[:3] for c in r if c)
-    assert "B.15" in title and "emitidos" in title.lower(), title
+    if not ("B.15" in title and "emitidos" in title.lower()):
+        raise SystemExit(title)
     yr_row = next(r for r in rows if r and any(isinstance(c, (int, float)) and 2000 < c < 2100 or (isinstance(c, str) and c.strip().isdigit() and 2000 < int(c) < 2100) for c in r[1:4]))
     years = [int(c) for c in yr_row[1:4]]
     vals = {}

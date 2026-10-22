@@ -96,7 +96,8 @@ for L in LOTS:
     q(L['contractor_quote'], L['dou'][0], f"DOU lote {L['lot']}")
     q(L['pi_quote'], hist_text(L['cid']), f"histórico lote {L['lot']}")
     if L['pir']:
-        assert C.num_br(rec['valor_global']) == L['pir'], (L['lot'], rec['valor_global'])
+        if not (C.num_br(rec['valor_global']) == L['pir']):
+            raise SystemExit((L['lot'], rec['valor_global']))
     ad = aditivos(L['cid'])
     contracts.append({
         'group': 'obra', 'lot': L['lot'], 'number': L['number'], 'km_from': L['km'][0], 'km_to': L['km'][1], 'length_km': round(L['km'][1] - L['km'][0], 2),
@@ -167,7 +168,8 @@ for y in sorted(by):
                      'total_brl': round(v['paid_in_year_brl'] + v['prior_year_commitments_paid_brl'], 2),
                      'siop_paid_in_year_brl': siop.get(y), 'diff_vs_siop_brl': round(v['paid_in_year_brl'] - siop.get(y, 0), 2)})
     if y <= 2025:
-        assert abs(v['paid_in_year_brl'] - siop.get(y, 0)) < 1.0, (y, v, siop.get(y))
+        if not (abs(v['paid_in_year_brl'] - siop.get(y, 0)) < 1.0):
+            raise SystemExit((y, v, siop.get(y)))
 fed_total = round(sum(r['total_brl'] for r in fed_rows), 2)
 
 tc = json.load(open(p('br470', 'sc_tc470.json')))
@@ -282,7 +284,8 @@ f4 = q('BR-470/SC - Adequação - Navegantes - Rio do Sul 8% 207%', t2207, 'TCU 
 terms = {}
 for lab, t in (('1704/2019', t1704), ('1886/2022', t1886)):
     terms[lab] = sorted(set(m.lower() for m in re.findall(r'(?i)superfatur\w*|sobrepre\w*|desvio\w*', t)))
-assert re.findall(r'(?i)superfatur\w*|sobrepre\w*', 'houve sobrepreço e superfaturamento')
+if not (re.findall(r'(?i)superfatur\w*|sobrepre\w*', 'houve sobrepreço e superfaturamento')):
+    raise SystemExit("check failed: re.findall('(?i)superfatur\\\\w*|sobrepre\\\\w*', 'houve sobrepreço e superfaturamento')")
 
 findings = [
     {'body': 'TCU', 'process': 'TC 016.019/2017-2', 'decision': 'Acórdão 1704/2019-Plenário (relator Bruno Dantas)', 'date': '2019-07-24',

@@ -217,7 +217,8 @@ for r in rows:
             for dt, v in zip(hdr[1:], r[1:]):
                 if hasattr(dt, "year") and f"{dt.year}-{dt.month:02d}" in MI and isinstance(v, (int, float)):
                     rtn[key][f"{dt.year}-{dt.month:02d}"] = v * 1e6
-assert set(rtn) == set(want.values()), set(want.values()) - set(rtn)
+if not (set(rtn) == set(want.values())):
+    raise SystemExit(set(want.values()) - set(rtn))
 
 # ---------- FCDF block (Tesouro base: all groups; Portal used as cross-check)
 fcdf_tot, fcdf_by_group, fcdf_personnel_by_rtn = series(), {g: series() for g in ("1", "3", "4", "5")}, {}

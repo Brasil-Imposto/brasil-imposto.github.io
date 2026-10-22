@@ -81,7 +81,8 @@ current_party = lambda pid: next((h["party"] for h in reversed(hist[pid].get("pa
 in_office = json.loads((RAW / "deputies-in-office.json").read_text())
 complement = json.loads((RAW / "camara-ceap" / "housing-complement-2026.json").read_text())["by_deputy"]
 rows = [json.loads(l) for l in (RAW / "deputies-pay-2026.jsonl").read_text().splitlines()]
-assert len({r["id"] for r in rows}) == len(rows) == in_office["count"], (len(rows), in_office["count"])
+if not (len({r["id"] for r in rows}) == len(rows) == in_office["count"]):
+    raise SystemExit((len(rows), in_office["count"]))
 deputies = []
 for r in rows:
     yes = lambda s, word: None if s is None else s.startswith(word)
@@ -176,7 +177,8 @@ def normalize(x):
         it["info"] = it["key"] in INFO
         bm = it.get("by_month")
         if bm:
-            assert abs(sum(bm.values()) - (it.get("year_total") or 0)) < 0.05, (x["name"], it["key"])
+            if not (abs(sum(bm.values()) - (it.get("year_total") or 0)) < 0.05):
+                raise SystemExit((x["name"], it["key"]))
         n = n_post or (len(bm) if bm else None)
         if it.get("year_total") is not None and n:
             it["monthly"] = round(it["year_total"] / n, 2)
@@ -294,7 +296,8 @@ for pos in POS["positions"]:
             h.pop("items", None)
 left = [(pos["id"], h.get("name")) for pos in POS["positions"] for h in pos.get("people", [])
         for v in (h.get("items") or {}).values() if isinstance(v, dict) and v.get("status") == "unknown"]
-assert not left, f"tree holders still marked unknown: {left}"
+if not (not left):
+    raise SystemExit(f"tree holders still marked unknown: {left}")
 
 out = {"built_on": "2026-10-21", "salary": SALARY, "positions": POS["positions"], "urls": POS["urls"],
        "rules": {"housing_camara": item_value["deputado"]["housing"]["value"], "housing_senado": item_value["senador"]["housing"]["value"],

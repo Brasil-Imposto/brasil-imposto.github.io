@@ -88,13 +88,16 @@ def main(work):
     readj = sum(Decimal(str(a.get("valorAditivado") or 0)) for a in r20["aditivos"] if a["aditivo"].startswith("REAJUSTE"))
     current_pntp = Decimal(str(r20["valor"])) + add_sum - sup_sum
     principal_pntp = current_pntp - readj
-    assert abs(float(principal_pntp) - ins_principal) < 0.01, (principal_pntp, ins_principal)
+    if not (abs(float(principal_pntp) - ins_principal) < 0.01):
+        raise SystemExit((principal_pntp, ins_principal))
 
     sap_2020 = [x for x in sap["2000009269"]["rows"] if x["numeroContrato"] == "EOC001246/2020"][0]
     sap_2018 = [x for s in ("2000004715", "2000005225") for x in sap[s]["rows"] if x["numeroContrato"].startswith("EOC001151/2018")]
-    assert len(sap_2018) == 2 and all(x["valorConsumido"] == 0.0 for x in sap_2018)
+    if not (len(sap_2018) == 2 and all(x["valorConsumido"] == 0.0 for x in sap_2018)):
+        raise SystemExit("check failed: len(sap_2018) == 2 and all((x['valorConsumido'] == 0.0 for x in sap_2018))")
     r18 = pntp["EOC1151/2018/MAT"]["record"]
-    assert abs(sum(x["valorContrato"] for x in sap_2018) - r18["valor"]) < 0.01
+    if not (abs(sum(x["valorContrato"] for x in sap_2018) - r18["valor"]) < 0.01):
+        raise SystemExit("check failed: abs(sum((x['valorContrato'] for x in sap_2018)) - r18['valor']) < 0.01")
     r26 = pntp["EOC1534/2026/MAT"]["record"]
     r17 = pntp["EOC1119/2017/MAT"]["record"]
 
@@ -358,7 +361,8 @@ def main(work):
         c.update({"contract": num, "company": rec["empresa"], "price_base_note": "mês-base dos reajustes do próprio contrato",
                   "object": " ".join(rec["objeto"].split())[:200], "source": pntp[num]["query_url"]})
         pot_parts.append(c)
-    assert abs(sum(p["amount_brl_nominal"] for p in pot_parts) - pot_principal) < 0.02, (sum(p["amount_brl_nominal"] for p in pot_parts), pot_principal)
+    if not (abs(sum(p["amount_brl_nominal"] for p in pot_parts) - pot_principal) < 0.02):
+        raise SystemExit((sum(p["amount_brl_nominal"] for p in pot_parts), pot_principal))
     pot_2024 = sum(p["amount_brl_2024"] for p in pot_parts)
     belem = conv.brl_month(140_000_000.0, "202204")
     mgd = 1_000_000 * 3.785411784 / 86400.0

@@ -49,7 +49,8 @@ for line in text(42).splitlines():
     k, v = m.group(1).strip(), num(m.group(2))
     if k.lower().startswith("n"): nc = v
     elif k in NAME_UF: sd[NAME_UF[k]] = v
-assert sorted(sd) == UFS and nc is not None, (sorted(sd), nc)
+if not (sorted(sd) == UFS and nc is not None):
+    raise SystemExit((sorted(sd), nc))
 
 # Gráfico 14, p. 43: siglas; "UF IGNORADA" vem com o rótulo 348 numa linha própria
 ab, ign, t43 = {}, None, text(43).splitlines()
@@ -60,22 +61,29 @@ for i, line in enumerate(t43):
         for nxt in t43[i:i + 4]:
             n = re.search(r"\b(\d{3})\b\s*$", nxt.strip())
             if n: ign = float(n.group(1)); break
-assert sorted(ab) == UFS and ign is not None, (sorted(ab), ign)
+if not (sorted(ab) == UFS and ign is not None):
+    raise SystemExit((sorted(ab), ign))
 
 for key, vals, unk, figure in (("seguro_desemprego", sd, nc, "Gráfico 13, p. 42"), ("abono_salarial", ab, ign, "Gráfico 14, p. 43")):
     regions = {r: round(sum(vals[u] for u in us), 2) for r, us in REGION.items()}
     diff = {r: round(regions[r] - PIE[key][r], 2) for r in REGION}
     total = sum(vals.values()) + unk
     if key == "abono_salarial":
-        assert all(abs(d) <= 0.2 for d in diff.values()), (key, diff)  # pizza arredonda a uma casa
-        assert abs(total - 28133.7) < 5, total  # Quadro 12: R$ 28.133,7 milhões empenhados
-        assert all(abs(vals[u] / total * 100 - s) < 0.05 for u, s in {"SP": 24.3, "MG": 11.5, "RJ": 8.3, "PR": 6.2, "BA": 5.7}.items())  # parágrafo 140
+        if not (all(abs(d) <= 0.2 for d in diff.values())):
+            raise SystemExit((key, diff))  # pizza arredonda a uma casa
+        if not (abs(total - 28133.7) < 5):
+            raise SystemExit(total)  # Quadro 12: R$ 28.133,7 milhões empenhados
+        if not (all(abs(vals[u] / total * 100 - s) < 0.05 for u, s in {"SP": 24.3, "MG": 11.5, "RJ": 8.3, "PR": 6.2, "BA": 5.7}.items())):
+            raise SystemExit("check failed: all((abs(vals[u] / total * 100 - s) < 0.05 for u, s in {'SP': 24.3, 'MG': 11.5, 'RJ': 8.3, 'PR': 6.2, 'BA': 5.7}.items()))")  # parágrafo 140
     else:
         # no seguro-desemprego a pizza por região NÃO bate com a soma das barras por UF (diferenças de até R$ 585 mi por região),
         # embora os totais batam; as barras batem com o texto do próprio relatório (parágrafos 133 a 135), conferido aqui
-        assert abs(total - 52000) < 50, total  # parágrafo 133: R$ 52,0 bilhões
-        assert all(abs(vals[u] / total * 100 - s) < 0.05 for u, s in {"SP": 25.0, "MG": 10.2, "RJ": 6.1, "RS": 6.1}.items())  # parágrafo 134
-        assert abs(regions["Sudeste"] / total * 100 - 43.1) < 0.05  # parágrafo 135: Sudeste R$ 22,4 bi, 43,1%
+        if not (abs(total - 52000) < 50):
+            raise SystemExit(total)  # parágrafo 133: R$ 52,0 bilhões
+        if not (all(abs(vals[u] / total * 100 - s) < 0.05 for u, s in {"SP": 25.0, "MG": 10.2, "RJ": 6.1, "RS": 6.1}.items())):
+            raise SystemExit("check failed: all((abs(vals[u] / total * 100 - s) < 0.05 for u, s in {'SP': 25.0, 'MG': 10.2, 'RJ': 6.1, 'RS': 6.1}.items()))")  # parágrafo 134
+        if not (abs(regions["Sudeste"] / total * 100 - 43.1) < 0.05):
+            raise SystemExit("check failed: abs(regions['Sudeste'] / total * 100 - 43.1) < 0.05")  # parágrafo 135: Sudeste R$ 22,4 bi, 43,1%
     out["series"][key] = {"figure": figure, "uf_millions": vals, "nao_classificado_millions": unk,
                           "uf": {u: round(vals[u] * 1e6, 2) for u in UFS}, "nao_classificado": round(unk * 1e6, 2),
                           "soma_27_ufs": round(sum(vals.values()) * 1e6, 2),

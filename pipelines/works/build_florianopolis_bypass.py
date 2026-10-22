@@ -198,7 +198,8 @@ def main(W, control=False):
     ta = A['ta002']
     blk = ta[ta.index('Quadro 1'): ta.index('(1) Valores em reais')]
     v = [money(x) for x in re.findall(MONEY, blk)]
-    assert len(v) == 15, f'Quadro 1: esperava 15 valores, li {len(v)}'
+    if not (len(v) == 15):
+        raise SystemExit(f'Quadro 1: esperava 15 valores, li {len(v)}')
     works, works_y = v[0], v[1:5]
     adm, adm_y = v[5], v[6:10]
     total, total_y = v[10], v[11:15]

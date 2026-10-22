@@ -6,7 +6,8 @@ from parse_rfb import agg, h
 from taxmap import TAXMAP, NATMAP
 wb=openpyxl.load_workbook('serie-1994-2025.xlsx',data_only=True)
 used=set(c for v in TAXMAP.values() for c in v)
-assert used==set(h[3:]), set(h[3:])-used
+if not (used==set(h[3:])):
+    raise SystemExit(set(h[3:])-used)
 out={}
 for y in ['2024','2025']:
     nat={row[0]:row[-1] for row in wb[y].iter_rows(values_only=True) if row[0]}

@@ -112,7 +112,8 @@ def download(url, dest, tries=6):
 
 def member(z, part):
     names = [n for n in z.namelist() if part in n]
-    assert len(names) == 1, (part, z.namelist())
+    if not (len(names) == 1):
+        raise SystemExit((part, z.namelist()))
     return io.TextIOWrapper(z.open(names[0]), encoding='latin-1', newline='')
 
 
@@ -158,7 +159,8 @@ def filter_cpgf(zpath, ym):
     r = csv.reader(member(z, 'CPGF'), delimiter=';')
     header = next(r)
     col = [i for i, h in enumerate(header) if 'DIGO' in h.upper() and 'SUPERIOR' in h.upper()]
-    assert len(col) == 1, header
+    if not (len(col) == 1):
+        raise SystemExit(header)
     rows = [row for row in r if row[col[0]].strip() == '20000']
     write_rows(os.path.join(FILT, f'cpgf-{ym}-presidencia.csv'), header, rows)
     return {'rows_presidencia': len(rows)}

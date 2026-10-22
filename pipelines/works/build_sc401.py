@@ -35,19 +35,23 @@ PORTAL_PJ = 'https://portaldatransparencia.gov.br/pessoa-juridica/{}'
 csv.field_size_limit(10**9)
 rows = {r['NUCONTRATO']: r for r in csv.DictReader(open(p('contratos.csv'), encoding='utf-8', errors='ignore'), delimiter=';')
         if r['NUCONTRATO'] in ('CT-00014/2025', 'CT-00018/2021', 'CT-00315/2022') and r['CDUNIDADEGESTORA'] == '530001'}
-assert len(rows) == 3, rows.keys()
+if not (len(rows) == 3):
+    raise SystemExit(rows.keys())
 sicop = {t: json.load(open(p('sc401', f'sicop_{t}.json'))) for t in ('104411', '101659', '103057')}
 main = rows['CT-00014/2025']
 ex = sicop['104411']
-assert float(main['VLORIGINAL']) == 55983533.75 and ex['contrato']['contrato'] == 'CT-00014/2025'
+if not (float(main['VLORIGINAL']) == 55983533.75 and ex['contrato']['contrato'] == 'CT-00014/2025'):
+    raise SystemExit("check failed: float(main['VLORIGINAL']) == 55983533.75 and ex['contrato']['contrato'] == 'CT-00014/2025'")
 aditivo_valor = float(ex['contrato']['valoraditado'])
 reajuste = float(ex['contrato']['valorreajustado'])
-assert round(float(main['VLORIGINAL']) + aditivo_valor + reajuste, 2) == float(main['VLATUAL'])
+if not (round(float(main['VLORIGINAL']) + aditivo_valor + reajuste, 2) == float(main['VLATUAL'])):
+    raise SystemExit("check failed: round(float(main['VLORIGINAL']) + aditivo_valor + reajuste, 2) == float(main['VLATUAL'])")
 
 pncp_ct = json.load(open(p('sc401', 'contrato.json')))
 pncp_compra = json.load(open(p('sc401', 'compra.json')))
 pncp_res = json.load(open(p('sc401', 'resultados.json')))[0]
-assert pncp_ct['niFornecedor'] == '84689066000392' and pncp_compra['valorTotalHomologado'] == 55983533.75
+if not (pncp_ct['niFornecedor'] == '84689066000392' and pncp_compra['valorTotalHomologado'] == 55983533.75):
+    raise SystemExit("check failed: pncp_ct['niFornecedor'] == '84689066000392' and pncp_compra['valorTotalHomologado'] == 55983533.75")
 
 # ------------------------------------------------------------------ textos oficiais
 doe_ct = C.pdf_text(p('doe', 'doe_20250311_22468.pdf'))
@@ -238,7 +242,8 @@ for d, span in (('2025-04-25', (f1[:40], 'PROCESSO Nº: @PPA')), ('2026-04-24', 
     j = t.find(span[1], i + 10)
     seg = t[i:j if j > 0 else None]
     term_check[d] = sorted(set(m.lower() for m in _re.findall(r'(?i)superfatur\w*|sobrepre\w*|desvio\w*', seg)))
-assert _re.findall(r'(?i)superfatur\w*|sobrepre\w*', 'houve sobrepreço e superfaturamento')  # controle
+if not (_re.findall(r'(?i)superfatur\w*|sobrepre\w*', 'houve sobrepreço e superfaturamento')):
+    raise SystemExit("check failed: _re.findall('(?i)superfatur\\\\w*|sobrepre\\\\w*', 'houve sobrepreço e superfaturamento')") # controle
 
 findings = [
     {'body': 'TCE-SC', 'process': '@PAF 25/80004143, convertido em auditoria RLA 25/80004143', 'decision': 'Decisão Singular GAC/AMF 216/2025 (relator Adircélio de Moraes Ferreira Júnior)',
@@ -282,10 +287,14 @@ mg = json.load(open(p('comp', 'mg230.json')))
 _h = lambda i: ' '.join((x.get('observacao') or '') for x in json.load(open(p('comp', f'h_{i}.json'))))
 q('PASSA PARA R$ 50.708.357,79', _h(99884), 'Petrolina')
 _ug = lambda ug: {c['id']: c for c in json.load(open(p('comp', f'cgov_{ug}.json')))}
-assert C.num_br(_ug('393013')[352579]['valor_global']) == 28572115.68 and _ug('393013')[352579]['data_assinatura'] == '2024-12-02'
-assert C.num_br(_ug('393027')[568641]['valor_global']) == 179422844.66 and _ug('393027')[568641]['data_assinatura'] == '2025-06-05'
-assert _ug('393029')[99884]['data_assinatura'] == '2020-12-30'
-assert mg['valorGlobal'] == 34487308.95
+if not (C.num_br(_ug('393013')[352579]['valor_global']) == 28572115.68 and _ug('393013')[352579]['data_assinatura'] == '2024-12-02'):
+    raise SystemExit("check failed: C.num_br(_ug('393013')[352579]['valor_global']) == 28572115.68 and _ug('393013')[352579]['data_assinatura'] == '2024-12-02'")
+if not (C.num_br(_ug('393027')[568641]['valor_global']) == 179422844.66 and _ug('393027')[568641]['data_assinatura'] == '2025-06-05'):
+    raise SystemExit("check failed: C.num_br(_ug('393027')[568641]['valor_global']) == 179422844.66 and _ug('393027')[568641]['data_assinatura'] == '2025-06-05'")
+if not (_ug('393029')[99884]['data_assinatura'] == '2020-12-30'):
+    raise SystemExit("check failed: _ug('393029')[99884]['data_assinatura'] == '2020-12-30'")
+if not (mg['valorGlobal'] == 34487308.95):
+    raise SystemExit("check failed: mg['valorGlobal'] == 34487308.95")
 comparison = {
     'unit': 'R$ por km de extensão contratada, em reais de dezembro de 2024',
     'method': 'Valor do contrato a preços iniciais (sem reajuste) com aditivos de valor, corrigido pelo IPCA do mês de assinatura até dez/2024 (IBGE/SIDRA 1737). Todos os valores já estão em reais: não há conversão de câmbio. Fator = IPCA dez/2024 / IPCA do mês-base.',

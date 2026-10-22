@@ -24,7 +24,8 @@ pos = json.loads((ROOT / "data" / "federal" / "positions-2026.json").read_text(e
 offices = judiciary_view.offices(pos["positions"])
 fresh = {x["id"]: judiciary_view.record(x, offices, apply="--as-before" not in sys.argv) for x in src["people"]}
 old = [p["id"] for p in out["people"] if p["house"] == "judiciario"]
-assert sorted(old) == sorted(fresh), "the Judiciary's people differ from the last full build: run build-tres-poderes-r3-data.py"
+if not (sorted(old) == sorted(fresh)):
+    raise SystemExit("the Judiciary's people differ from the last full build: run build-tres-poderes-r3-data.py")
 out["people"] = [fresh[p["id"]] if p["house"] == "judiciario" else p for p in out["people"]]
 OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 JS.write_text("window.TP3 = " + json.dumps(out, ensure_ascii=False) + ";\n", encoding="utf-8")

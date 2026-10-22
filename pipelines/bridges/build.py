@@ -68,11 +68,15 @@ for r in csv.DictReader(open('contratos.csv', encoding='utf-8', errors='ignore')
     txt = norm(' '.join(r.get(k) or '' for k in ('OBJETO', 'RESUMO', 'NMBEMPUBLICO', 'BEMPUBLICO')))
     if 'PONTE' in txt and 'HERCILIO' in txt:
         matched.append(r)
-assert len(matched) == 26, len(matched)
+if not (len(matched) == 26):
+    raise SystemExit(len(matched))
 hl = sorted([r for r in matched if r['NUCONTRATO'] in RESTORATION], key=lambda r: r['DTASSINATURA'])
-assert len(hl) == 13, len(hl)
-assert sum(Decimal(r['VLATUAL']) for r in hl) == Decimal('484645236.82')
-assert sum(Decimal(r['VLORIGINAL']) for r in hl) == Decimal('465106951.83')
+if not (len(hl) == 13):
+    raise SystemExit(len(hl))
+if not (sum(Decimal(r['VLATUAL']) for r in hl) == Decimal('484645236.82')):
+    raise SystemExit("check failed: sum((Decimal(r['VLATUAL']) for r in hl)) == Decimal('484645236.82')")
+if not (sum(Decimal(r['VLORIGINAL']) for r in hl) == Decimal('465106951.83')):
+    raise SystemExit("check failed: sum((Decimal(r['VLORIGINAL']) for r in hl)) == Decimal('465106951.83')")
 
 contracts = []
 tot_cur = tot_low = 0.0

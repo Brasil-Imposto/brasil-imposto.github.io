@@ -103,7 +103,8 @@ def load_crosswalk(uf):
     rows = [r for r in tse_csv(fetch(CROSSWALK_URL)) if r["SG_UF"] == uf]
     tse_to_ibge = {r["CD_MUNICIPIO_TSE"]: str(r["CD_MUNICIPIO_IBGE"]) for r in rows}
     ibge_to_tse = {v: k for k, v in tse_to_ibge.items()}
-    assert len(rows) == len(tse_to_ibge) == len(ibge_to_tse), f"tabela TSE-IBGE não é um para um em {uf}"
+    if not (len(rows) == len(tse_to_ibge) == len(ibge_to_tse)):
+        raise SystemExit(f"tabela TSE-IBGE não é um para um em {uf}")
     generated = rows[0]["DT_GERACAO"] if rows else None
     return tse_to_ibge, generated
 
@@ -205,8 +206,10 @@ def main():
     checks = {}
 
     # Cruzamento 1:1 nos dois sentidos, contra a API do IBGE.
-    assert len(tse_to_ibge) == N, len(tse_to_ibge)
-    assert set(tse_to_ibge.values()) == set(ibge_names), "códigos IBGE da tabela do TSE diferem da API do IBGE"
+    if not (len(tse_to_ibge) == N):
+        raise SystemExit(len(tse_to_ibge))
+    if not (set(tse_to_ibge.values()) == set(ibge_names)):
+        raise SystemExit("códigos IBGE da tabela do TSE diferem da API do IBGE")
 
     # Chave da eleição: (sg_ue, ano, tipo, descrição). O 2º turno tem CD_ELEICAO próprio no TSE,
     # então os códigos e as datas ficam guardados por turno dentro da mesma eleição.
@@ -228,8 +231,10 @@ def main():
         plant(args.control, elections, elected, cand_rows)
 
     unmapped = sorted(set(tse_names) - set(tse_to_ibge))
-    assert not unmapped, f"SG_UE sem código IBGE: {unmapped}"
-    assert set(tse_names) == set(tse_to_ibge), "municípios do cadastro diferem da tabela TSE-IBGE"
+    if not (not unmapped):
+        raise SystemExit(f"SG_UE sem código IBGE: {unmapped}")
+    if not (set(tse_names) == set(tse_to_ibge)):
+        raise SystemExit("municípios do cadastro diferem da tabela TSE-IBGE")
 
     # Nomes TSE x IBGE: só conferência, o nome publicado é o do IBGE.
     name_diffs = sorted(
@@ -253,12 +258,14 @@ def main():
         for key in sorted(k for k in elections if k[0] == sg_ue):
             _, year, type_tse, description = key
             rounds = elections[key]["rounds"]
-            assert set(rounds) in ({1}, {1, 2}), f"turnos inesperados em {key}"
+            if not (set(rounds) in ({1}, {1, 2})):
+                raise SystemExit(f"turnos inesperados em {key}")
             kind = TYPE_LABEL[type_tse]
             people = {}
             for cargo, field in CARGOS.items():
                 rows = elected[key].get(cargo, [])
-                assert len(rows) <= 1, f"mais de um {cargo} ELEITO em {key}"
+                if not (len(rows) <= 1):
+                    raise SystemExit(f"mais de um {cargo} ELEITO em {key}")
                 people[field] = person(rows[0], year, mandate_for(year, kind)) if rows else None
             notes = []
             if people["mayor"] is None:
@@ -329,12 +336,15 @@ def main():
         per_muni = defaultdict(int)
         for m, _ in ords:
             per_muni[m["tse_code"]] += 1
-        assert len(per_muni) == N and set(per_muni.values()) == {1}, f"{year}: eleição ordinária não é única por município"
+        if not (len(per_muni) == N and set(per_muni.values()) == {1}):
+            raise SystemExit(f"{year}: eleição ordinária não é única por município")
         found_suppl = {(m["tse_code"], r["election_code_tse"]) for m, r in sups}
-        assert suppl_listed[year] <= found_suppl, f"{year}: suplementar da listagem do TSE ausente do cadastro"
+        if not (suppl_listed[year] <= found_suppl):
+            raise SystemExit(f"{year}: suplementar da listagem do TSE ausente do cadastro")
         for m, r in sups:
             if (m["tse_code"], year, r["election_code_tse"]) in unlisted:
-                assert r["mayor"] is None, f"{year}: suplementar com eleito fora da listagem do TSE: {m['name']}"
+                if not (r["mayor"] is None):
+                    raise SystemExit(f"{year}: suplementar com eleito fora da listagem do TSE: {m['name']}")
         counts["by_year"][str(year)] = {
             "ordinary_elections": len(ords),
             "ordinary_mayors_elected": sum(1 for _, r in ords if r["mayor"]),

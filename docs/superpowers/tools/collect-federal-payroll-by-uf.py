@@ -254,7 +254,8 @@ def summarize(zpath, cat, ym, supp):
     else:
         gross_j = [pos[n] for n in GROSS_R if n in pos]
         gross_uj = [pos[usd(n)] for n in GROSS_R if usd(n) in pos]
-        assert pos.get('REMUNERACAOBASICABRUTAR') is not None, names
+        if not (pos.get('REMUNERACAOBASICABRUTAR') is not None):
+            raise SystemExit(names)
     ded_j = [pos[n] for n in DED_R.values() if n in pos]
     net_j = pos.get(NET_R)
     buckets = {}
@@ -312,7 +313,8 @@ def summarize(zpath, cat, ym, supp):
     national = {}
     for n, d in zip(names, tot):
         c = d * 100
-        assert c == c.to_integral_value(), (n, d)
+        if not (c == c.to_integral_value()):
+            raise SystemExit((n, d))
         national[n] = int(c)
     summary['remuneracao'] = {'member': rname, 'header': h, 'money_columns': names, 'rows': rows, 'rows_second_pass': rows2,
                               'gross_columns': [names[j] for j in gross_j + gross_uj],
@@ -441,7 +443,8 @@ def build():
     n0 = next(iter(ctrl[k0]['buckets'][b0]['sums']))
     ctrl[k0]['buckets'][b0]['sums'][n0] += 1
     _, cmiss = run_check(ctrl)
-    assert len(cmiss) == 1, cmiss
+    if not (len(cmiss) == 1):
+        raise SystemExit(cmiss)
     sources, categories, by_uf, national, df_detail, identity, summary = [], [], {}, {}, {}, {}, {}
     for cat, origin, label in allcats:
         months = {ym: summ[(cat, ym)] for ym in MONTHS if (cat, ym) in summ}

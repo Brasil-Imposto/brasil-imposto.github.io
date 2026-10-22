@@ -93,7 +93,8 @@ def record(x, office_by_name=None, apply=True):
     own = f"{sal['months']}, {sal['months_count']} meses"
     if tse:
         t = tse[0]
-        assert all(i["months"] == t["months"] for i in tse), x["name"]
+        if not (all(i["months"] == t["months"] for i in tse)):
+            raise SystemExit(x["name"])
         rec["total_note"] = f"soma da média do {c} ({own}) com a do TSE ({t['months']}, {t['months_count']} meses)"
         rec["tse_months"] = f"{t['months']}, {t['months_count']} meses"
     else:

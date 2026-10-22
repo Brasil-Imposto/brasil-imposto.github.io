@@ -70,17 +70,22 @@ def main():
         status = Counter()
         elections = Counter()
         for row in iter_rows(year, cargos=CARGOS, elected_only=True):
-            assert row["DS_SIT_TOT_TURNO"] in ELECTED
+            if not (row["DS_SIT_TOT_TURNO"] in ELECTED):
+                raise SystemExit("check failed: row['DS_SIT_TOT_TURNO'] in ELECTED")
             people[row["SG_UF"]].append(person(row, year))
             status[row["DS_SIT_TOT_TURNO"]] += 1
             elections[(row["NM_TIPO_ELEICAO"], row["DS_ELEICAO"], br_date(row["DT_ELEICAO"]))] += 1
-        assert len(elections) == 1, f"{year}: mais de uma eleição no recorte: {elections}"
+        if not (len(elections) == 1):
+            raise SystemExit(f"{year}: mais de uma eleição no recorte: {elections}")
         ids = [p["id"] for ps in people.values() for p in ps]
-        assert len(ids) == len(set(ids)), f"{year}: SQ_CANDIDATO repetido"
+        if not (len(ids) == len(set(ids))):
+            raise SystemExit(f"{year}: SQ_CANDIDATO repetido")
         mismatches = {uf: len(people.get(uf, [])) for uf in EXPECTED_SEATS if len(people.get(uf, [])) != EXPECTED_SEATS[uf]}
-        assert not mismatches, f"{year}: contagem por UF difere do tamanho da assembleia: {mismatches}"
+        if not (not mismatches):
+            raise SystemExit(f"{year}: contagem por UF difere do tamanho da assembleia: {mismatches}")
         roles = {(uf, p["role"]) for uf, ps in people.items() for p in ps}
-        assert all((r == "DEPUTADO DISTRITAL") == (uf == "DF") for uf, r in roles), "cargo incompatível com a UF"
+        if not (all((r == "DEPUTADO DISTRITAL") == (uf == "DF") for uf, r in roles)):
+            raise SystemExit("cargo incompatível com a UF")
         for uf, ps in people.items():
             by_uf[uf][str(year)] = sorted(ps, key=lambda p: (p["name"], p["id"]))
             counts["by_uf"][uf][str(year)] = len(ps)
