@@ -226,6 +226,7 @@
      side layout begins (a 1158 px window got the stacked tablet layout at 100% and the side layout at 90%). */
   @media (min-width: 1063px) {
     html { zoom: .9; }
+    .bi-header, .bi-sheet { zoom: 1.11111; } /* D152: the site header keeps its size */
     .hero { height: calc(100vh / .9); min-height: 860px; }
     .hero-copy { width: min(380px, calc(27vw / .9)); }
     .hero-copy h1 { font-size: clamp(22px, calc(2.3vw / .9), 34px); }
@@ -234,7 +235,7 @@
     .fed-top h2 { font-size: clamp(26px, calc(3vw / .9), 36px); }
   }
   @media (min-width: 761px) and (max-width: 1062px) {
-    .hero { height: auto; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "copy copy" "map map" "contas legend"; column-gap: 16px; padding: 70px 24px 24px; }
+    .hero { height: auto; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-areas: "copy copy" "map map" "contas legend"; column-gap: 16px; padding: 22px 24px 24px; }
     .hero-copy { position: static; grid-area: copy; width: auto; max-width: 720px; }
     .hero-map { position: relative; inset: auto; grid-area: map; height: 74vh; min-height: 520px; }
     .hero-contas { position: static; grid-area: contas; width: auto; align-self: start; }
@@ -242,7 +243,7 @@
     .hint { display: none; }
   }
   @media (max-width: 760px) {
-    .hero { height: auto; min-height: 0; display: flex; flex-direction: column; padding-top: 58px; }
+    .hero { height: auto; min-height: 0; display: flex; flex-direction: column; padding-top: 16px; }
     .hero-nav { padding: 16px; } .hero-nav nav { display: none; }
     .hero-copy { position: static; width: auto; padding: 6px 16px 0; background: none; box-shadow: none; border: 0; backdrop-filter: none; }
     .hero-copy h1 { font-size: 25px; }
@@ -258,13 +259,36 @@
     .checks { grid-template-columns: 1fr; }
   }
 </style>
+<!-- site-chrome:css -->
+<style id="bi-chrome-css">
+.bi-header { position: sticky; top: 0; z-index: 1000; height: 62px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; background: rgba(255,255,255,.94); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid #E3E7EC; font-family: Manrope, system-ui, sans-serif; }
+.bi-brand { display: inline-flex; align-items: center; gap: 9px; color: #14202B; text-decoration: none; font-weight: 800; font-size: 15px; letter-spacing: -.01em; white-space: nowrap; }
+.bi-brand img { width: 26px; height: 19px; border-radius: 4px; object-fit: cover; box-shadow: 0 0 0 1px rgba(20,32,43,.14); }
+.bi-brand i { font-style: normal; color: #12803F; }
+.bi-links { display: flex; align-items: center; gap: 18px; }
+.bi-links a { font-weight: 700; font-size: 13px; color: #5B6773; text-decoration: none; padding-bottom: 3px; }
+.bi-links a:hover { color: #14202B; }
+.bi-links a[aria-current="page"] { color: #14202B; box-shadow: 0 2px 0 #14202B; }
+.bi-menu-btn { display: none; align-items: center; gap: 8px; height: 34px; padding: 0 14px; border: 1px solid #E3E7EC; border-radius: 99px; background: #fff; color: #14202B; font: 700 13px Manrope, system-ui, sans-serif; cursor: pointer; }
+.bi-menu-btn svg { width: 16px; height: 16px; }
+.bi-sheet { position: fixed; left: 0; right: 0; top: 62px; z-index: 999; padding: 6px 14px 16px; background: rgba(255,255,255,.98); border-bottom: 1px solid #E3E7EC; box-shadow: 0 10px 30px rgba(20,32,43,.08); font-family: Manrope, system-ui, sans-serif; }
+.bi-sheet[hidden] { display: none; }
+.bi-sheet a { display: block; padding: 11px 0; border-bottom: 1px solid #E3E7EC; font-weight: 700; font-size: 17px; color: #14202B; text-decoration: none; }
+.bi-sheet a[aria-current="page"] { color: #12803F; }
+.bi-sheet p { margin: 12px 0 0; font-size: 12.5px; color: #5B6773; }
+@media (max-width: 820px) {
+  .bi-header { padding: 0 14px; }
+  .bi-header .bi-links { display: none; }
+  .bi-menu-btn { display: inline-flex; }
+}
+</style>
+<!-- /site-chrome:css -->
 </head>
 <body>
+<!-- site-chrome:header -->
+<header class="bi-header"><a class="bi-brand" href="BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html"><img src="assets/flags/br.svg" alt="Bandeira do Brasil"><span>Brasil<i>·</i>Imposto</span></a><nav class="bi-links" aria-label="Páginas"><a href="BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html" aria-current="page">Início</a><a href="BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html">Os 3 Poderes</a><a href="BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html">Como o dinheiro anda</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io">Código aberto</a></nav><button type="button" class="bi-menu-btn" aria-expanded="false" aria-controls="bi-sheet"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg><span>Menu</span></button></header><nav class="bi-sheet" id="bi-sheet" aria-label="Páginas" hidden><a href="BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html" aria-current="page">Início</a><a href="BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html">Os 3 Poderes</a><a href="BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html">Como o dinheiro anda</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io">Código aberto</a><p>Rede do dinheiro (prévia), decisões e licenças ficam no rodapé.</p></nav>
+<!-- /site-chrome:header -->
 <section class="hero">
-  <header class="hero-nav">
-    <div class="wordmark"><img class="wm-flag" src="assets/flags/br.svg" alt="Bandeira do Brasil"><span>Brasil<i>·</i>Imposto</span></div>
-    <nav><a href="BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html">Os 3 Poderes</a><a href="BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html">Como o dinheiro anda</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io">Código aberto</a><a href="#rede">Rede (prévia)</a></nav>
-  </header>
   <div class="hero-copy">
     <div class="eyebrow">Dados oficiais, com fonte em cada número</div>
     <h1>Entenda a <em>economia</em> do Brasil</h1>
@@ -1190,6 +1214,24 @@ return { createModals };
   if (params.get('area')) modals.openFunction(params.get('open'), params.get('area'));
   document.body.dataset.ready = '1';
 </script>
+<!-- site-chrome:js -->
+<script id="bi-chrome-js">
+// The header's Menu on phones: opens the sheet under the bar, closes with Esc, a tap outside or a link.
+(function () {
+  const btn = document.querySelector('.bi-menu-btn'), sheet = document.getElementById('bi-sheet');
+  if (!btn || !sheet) return;
+  const label = btn.querySelector('span');
+  const set = (open, focusBack) => {
+    sheet.hidden = !open; btn.setAttribute('aria-expanded', String(open)); label.textContent = open ? 'Fechar' : 'Menu';
+    if (open) sheet.querySelector('a').focus(); else if (focusBack) btn.focus();
+  };
+  btn.addEventListener('click', () => set(sheet.hidden, true));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !sheet.hidden) set(false, true); });
+  document.addEventListener('click', (e) => { if (!sheet.hidden && !sheet.contains(e.target) && !btn.contains(e.target)) set(false, false); });
+  window.matchMedia('(min-width: 821px)').addEventListener('change', (m) => { if (m.matches && !sheet.hidden) set(false, false); });
+})();
+</script>
+<!-- /site-chrome:js -->
 <script src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.80.0/dist/3d-force-graph.min.js"></script>
 <script src="assets/bi-ledger-interest.js"></script>
 <script src="assets/ledger-graph-model.js"></script>

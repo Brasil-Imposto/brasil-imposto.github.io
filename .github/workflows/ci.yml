@@ -30,3 +30,9 @@ jobs:
         run: uv run --locked python -m unittest discover -s pipelines/tests -v
       - name: Ledger tests
         run: uv run --locked python -m unittest discover -s pipelines/ledger/tests -v
+      - name: The committed pages are what their builders make (site header from one source, D152)
+        run: |
+          python docs/superpowers/tools/build-simulation.py
+          python docs/superpowers/tools/build-platform-preview.py
+          python docs/superpowers/tools/build-site-chrome.py
+          git diff --exit-code -- docs/superpowers/previews/
