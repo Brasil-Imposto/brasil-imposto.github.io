@@ -1,5 +1,59 @@
 {
- "_about": "English names for the identifier keys of data/ (phase B0, D151, issue #8). Keys are per file; 'key@parent' renames the key only inside the list or object named parent. Official labels used as keys, proper names, official field names and the search terms of the works checks keep their names (see the inventory in the pull request).",
+ "_about": "English names for the identifier keys of data/ (phase B0, D151, issue #8): the complete inventory, checked by hand. Keys are per file; 'key@parent' renames the key only inside the list or object named parent; '_values' lists codes that are also string values in the same file and must change with the keys. Not applied yet: see '_status'.",
+ "_status": "Not applied. Every writer of these files downloads government data and cannot run in the cloud session, and in data/series/federal-payroll-by-uf.json the names are keys, enum lists, enum values and prose at once; the maintainer decides whether the renames land now or with each pipeline (D151, answer 7). rename-json-keys.py applies and proves them.",
+ "_kept": {
+  "official labels used as keys (D151, answer 7)": [
+   "Agricultura",
+   "Cultura",
+   "Energia",
+   "Legislativa",
+   "Saneamento",
+   "Trabalho",
+   "Transporte",
+   "Urbanismo",
+   "Arquivada",
+   "anexo01..anexo06 (RREO annexes)"
+  ],
+  "official field names of the source": [
+   "vlbruto",
+   "vlestorno",
+   "vlliquido",
+   "vlretido (Portal de SC)",
+   "nutitulo",
+   "nutitulo_from"
+  ],
+  "proper names": [
+   "consorcio_fenix_*",
+   "bolsa_familia_auxilio_emergencial",
+   "salario_educacao_quotas",
+   "abono_salarial",
+   "seguro_desemprego",
+   "special_transfers_emendas_pix",
+   "banco_master_*",
+   "conab_*",
+   "gov_br_fazenda",
+   "portal_transparencia_federal",
+   "tbp_increment_contorno*"
+  ],
+  "search terms of the works checks (the Portuguese words looked up in the documents)": [
+   "corrupcao",
+   "fraude",
+   "sobrepreco",
+   "superfaturamento",
+   "superfaturado",
+   "desvio"
+  ],
+  "official labels used as values": [
+   "kind: titular / suplente (data/politicians/senators.json, the Senate's participation field)"
+  ],
+  "left for phase B4 (their writers and the Os 3 Poderes page need inputs outside the repository)": [
+   "data/federal/positions-2026.json: posse, sen_moradia, sen_moradia_api, sen_verbas, aux",
+   "data/federal/officeholders-2026.json: posse, sen_moradia, sen_moradia_api, sen_verbas, ministros, presidente"
+  ],
+  "file names kept": [
+   "data/works/sc-401-terceira-faixa.json, br-470-duplicacao.json, sp-monotrilho-linha-17.json: case ids shown in the site's links"
+  ]
+ },
  "data/complete-totals-2026-10-06.json": {
   "ponte_supervision_2006_2010": "hercilio_luz_supervision_2006_2010",
   "ponte_total_13_contracts": "hercilio_luz_total_13_contracts"
@@ -110,7 +164,11 @@
   "siape_uf_exercicio": "siape_uf_of_exercise",
   "tesouro_base_rtn_pessoal": "tesouro_base_rtn_personnel",
   "trt_de_duas_ufs": "trt_spanning_two_ufs",
-  "unidade_de_atuacao_nacional": "national_scope_unit"
+  "unidade_de_atuacao_nacional": "national_scope_unit",
+  "_values": [
+   "unidade_de_atuacao_nacional",
+   "trt_de_duas_ufs"
+  ]
  },
  "data/ug/mte-seguro-abono-uf-2024_hybrid.json": {
   "conferencia_regioes_contra_pizza_millions": "regions_vs_pie_check_millions",

@@ -16,8 +16,10 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[3]
-MAP = json.loads((Path(__file__).with_name("english-keys-map.json")).read_text(encoding="utf-8"))
-MAP.pop("_about")
+MAP = {k: v for k, v in json.loads((Path(__file__).with_name("english-keys-map.json")).read_text(encoding="utf-8")).items()
+       if not k.startswith("_")}
+# '_values': codes that are also string values in the same file (an enum and its keys), renamed with the keys
+VALUES = {f: {v: m[v] for v in m.pop("_values", [])} for f, m in MAP.items()}
 
 
 def split(spec):
@@ -25,10 +27,12 @@ def split(spec):
     return key, parent or None
 
 
-def rename_obj(o, renames, parent=None, used=None):
-    """The data with the mapped keys renamed; `used` collects the specs that matched."""
+def rename_obj(o, renames, parent=None, used=None, values=None):
+    """The data with the mapped keys (and the listed string values) renamed; `used` collects the specs that matched."""
     if isinstance(o, list):
-        return [rename_obj(v, renames, parent, used) for v in o]
+        return [rename_obj(v, renames, parent, used, values) for v in o]
+    if isinstance(o, str):
+        return (values or {}).get(o, o)
     if not isinstance(o, dict):
         return o
     out = {}
@@ -41,8 +45,15 @@ def rename_obj(o, renames, parent=None, used=None):
                 used.add(spec)
         if new in out or (new != k and new in o):
             raise ValueError(f"renaming {k} to {new} collides with an existing key")
-        out[new] = rename_obj(v, renames, k, used)
+        out[new] = rename_obj(v, renames, k, used, values)
     return out
+
+
+def rename_values(text, values):
+    """The listed codes where they are string values (a token not followed by a colon)."""
+    for old, new in values.items():
+        text = re.sub(rf'"{re.escape(old)}"(?!\s*:)', f'"{new}"', text)
+    return text
 
 
 def rename_text(text, data, renames):
@@ -82,7 +93,7 @@ def apply():
         missing = set(renames) - used
         if missing:
             raise SystemExit(f"{rel}: the map names keys the file does not have: {sorted(missing)}")
-        p.write_text(rename_text(text, data, renames), encoding="utf-8")
+        p.write_text(rename_values(rename_text(text, data, renames), VALUES[rel]), encoding="utf-8")
         print(f"{rel}: {len(renames)} keys renamed")
 
 
@@ -95,10 +106,10 @@ def check(base):
             print(f"{rel}: not in {base}"); bad += 1; continue
         new_text = (REPO / rel).read_text(encoding="utf-8")
         old_data, used = json.loads(old.stdout), set()
-        expected_data = rename_obj(old_data, renames, used=used)
+        expected_data = rename_obj(old_data, renames, used=used, values=VALUES[rel])
         new_data = json.loads(new_text)
         same_values = json.dumps(new_data, ensure_ascii=False) == json.dumps(expected_data, ensure_ascii=False)
-        same_text = new_text == rename_text(old.stdout, old_data, renames)
+        same_text = new_text == rename_values(rename_text(old.stdout, old_data, renames), VALUES[rel])
         missing = set(renames) - used
         ok = same_values and same_text and not missing
         bad += not ok
