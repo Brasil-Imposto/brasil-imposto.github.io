@@ -1,25 +1,16 @@
 # Como contribuir
 
-Obrigado por ajudar. O Brasil-Imposto só mostra dado oficial, então toda contribuição precisa da fonte.
+Obrigado por ajudar. As regras para contribuir com o Brasil-Imposto estão na página da organização:
+**<https://github.com/Brasil-Imposto>**. Lá estão o caminho de uma contribuição, como virar colaborador, como preparar um pull
+request, o que todo pull request leva (título, descrição, issue, capturas de tela, fontes e conferências) e como funcionam a
+revisão e o merge.
 
-## Corrigir um número
+Para começar agora:
 
-Abra uma issue com: a página e o número, o período, o que está errado e o link da fonte oficial com o valor certo (e a data em que
-você abriu a fonte). Quem acrescenta um número prova o número.
+- **Um número errado:** o formulário [Pedir correção](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/new?template=data-correction.yml),
+  com o link da fonte oficial com o valor certo.
+- **Qualquer outra ideia:** um dos [formulários de issue](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/new/choose)
+  ou [Discussions](https://github.com/Brasil-Imposto/brasil-imposto.github.io/discussions).
+- **Um pull request:** o formulário do pull request já traz as seções que ele precisa ter.
 
-## Pull requests
-
-- Tudo entra por pull request, inclusive o que o mantenedor faz; um assunto por pull request.
-- Se mudar dados: o script que monta o arquivo em `pipelines/` ou `docs/superpowers/tools/` tem de refazê-lo, com a fonte
-  oficial e a data da coleta. Totais têm de bater com o total oficial da fonte, ao centavo.
-- Depois de mudar dados ou páginas, rode os quatro construtores do `README.md` e confira a página na largura do computador e do
-  celular.
-- Nomes de código e chaves de JSON em inglês; o texto que aparece na tela em português.
-- Nenhum texto toma partido; pessoas aparecem só com o papel que têm num documento oficial.
-- Assine os commits (`git commit -s`, DCO).
-
-## Novos estados e municípios
-
-Os municípios de SC e RS e as Regiões Administrativas do DF já estão cobertos; o caminho para outro estado é o mesmo dos scripts
-`--uf` em `pipelines/series/` e `pipelines/politicians/`. Deputados estaduais ainda não estão no projeto: contribuições são
-bem-vindas, no mesmo formato das fichas dos deputados federais.
+O Brasil-Imposto só mostra dado oficial: toda contribuição traz a fonte.
