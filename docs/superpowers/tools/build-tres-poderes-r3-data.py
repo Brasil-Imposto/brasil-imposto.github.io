@@ -23,6 +23,7 @@ Usage: .venv/bin/python docs/superpowers/tools/build-tres-poderes-r3-data.py
 Writes data/federal/officeholders-2026.json and docs/superpowers/previews/assets/tres-poderes-r3-data.js
 """
 import csv, json, re, unicodedata
+import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -33,6 +34,9 @@ JS = ROOT / "docs" / "superpowers" / "previews" / "assets" / "tres-poderes-r3-da
 brl = lambda s: float(s.replace(".", "").replace(",", "."))
 plain = lambda s: unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().upper().strip()
 POS = json.loads((ROOT / "data" / "federal" / "positions-2026.json").read_text())
+sys.path.insert(0, str(ROOT / "pipelines" / "politicians"))
+import judiciary_view  # noqa: E402  (the Judiciary's records, shared with build-tres-poderes-r3-judiciary.py)
+OFFICES = judiciary_view.offices(POS["positions"])
 SALARY = POS["salary_2026"]
 item_value = {p["id"]: {it["key"]: it for it in p.get("items", [])} for p in POS["positions"]}
 # Monthly averages use the months both houses have settled: January to July. The Câmara publishes the office budget only up
@@ -208,6 +212,9 @@ for house, name in (("executivo", "executive-2026.json"), ("judiciario", "judici
     for pos in src.get("positions", []):
         other_positions[pos["id"]] = pos
     for x in src["people"]:
+        if house == "judiciario":
+            others.append(judiciary_view.record(x, OFFICES))
+            continue
         if house == "executivo":
             x = normalize(x)
         if PRES and x.get("position") == "presidente":

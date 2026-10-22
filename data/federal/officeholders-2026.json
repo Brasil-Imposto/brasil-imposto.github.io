@@ -3014,7 +3014,6 @@
    "tse_role": null,
    "party": null,
    "uf": null,
-   "since": "2017-03-22",
    "photo": "https://www.stf.jus.br/arquivo/cms/bibliotecaConsultaProdutoBibliotecaPastaMinistro/imagem/foto_adm_th.jpg",
    "photo_credit": "STF",
    "page": "https://portal.stf.jus.br/textos/verTexto.asp?servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro&pagina=ComposicaoAtual",
@@ -3030,7 +3029,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "personal_advantages",
@@ -3041,7 +3042,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "eventual_advantages",
@@ -3052,7 +3055,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "commission",
@@ -3063,7 +3068,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "permanence_bonus",
@@ -3074,18 +3081,22 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "vacation",
      "label": "Férias",
      "uses": true,
-     "monthly": 1931.92,
+     "monthly": 1931.93,
      "year_total": 15455.4,
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "christmas_bonus",
@@ -3096,7 +3107,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "benefits",
@@ -3107,7 +3120,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "indemnities",
@@ -3118,7 +3133,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "back_pay",
@@ -3129,7 +3146,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "housing",
@@ -3140,9 +3159,15 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     }
-   ]
+   ],
+   "court_since": "2017-03-22",
+   "office": null,
+   "total_label": "Média por mês",
+   "total_note": "jan a ago 2026, os 8 meses que o STF publicou"
   },
   {
    "id": "tst:alexandre-souza-agra-belmonte",
@@ -6229,7 +6254,6 @@
    "tse_role": "Vice-Presidente do TSE (efetivo, origem STF, de 25.6.2026 a 25.6.2028, 2º biênio)",
    "party": null,
    "uf": null,
-   "since": "2021-12-16",
    "photo": "https://www.stf.jus.br/arquivo/cms/bibliotecaConsultaProdutoBibliotecaPastaMinistro/imagem/foto_alm2.jpg",
    "photo_credit": "STF",
    "page": "https://portal.stf.jus.br/textos/verTexto.asp?servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro&pagina=ComposicaoAtual",
@@ -6245,7 +6269,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "personal_advantages",
@@ -6256,7 +6282,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "eventual_advantages",
@@ -6267,7 +6295,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "commission",
@@ -6278,7 +6308,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "permanence_bonus",
@@ -6289,18 +6321,22 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "vacation",
      "label": "Férias",
      "uses": true,
-     "monthly": 1931.92,
+     "monthly": 1931.93,
      "year_total": 15455.4,
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "christmas_bonus",
@@ -6311,7 +6347,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "benefits",
@@ -6322,7 +6360,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "indemnities",
@@ -6333,7 +6373,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "back_pay",
@@ -6344,7 +6386,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "housing",
@@ -6355,7 +6399,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "tse_jeton",
@@ -6363,10 +6409,13 @@
      "uses": true,
      "monthly": 8743.37,
      "year_total": 61203.56,
-     "months": "jan, mar, abr, mai, jun, jul, ago 2026",
+     "months": "jan e mar a ago 2026",
      "note": "Soma dos meses publicados; média = total / 7 meses publicados pelo tribunal. Pagamento do TSE (arquivo TSE no painel do CNJ). A pessoa aparece em 6 dos 7 meses.",
      "source": "https://paineis.cnj.jus.br/QvAJAXZfc/opendoc.htm?document=qvw_l%2FPainelCNJ.qvw&host=QVS%40neodimio03&anonymous=true&sheet=shPORT63Relatorios",
-     "own": true
+     "own": true,
+     "months_count": 7,
+     "state": "paid",
+     "block": "tse"
     },
     {
      "key": "tse_eventual_other",
@@ -6374,12 +6423,20 @@
      "uses": true,
      "monthly": 908.64,
      "year_total": 6360.51,
-     "months": "jan, mar, abr, mai, jun, jul, ago 2026",
+     "months": "jan e mar a ago 2026",
      "note": "Soma dos meses publicados; média = total / 7 meses publicados pelo tribunal. Detalhe informado: GRATIFICAÇÃO ELEITORAL - RPPS. Pagamento do TSE (arquivo TSE no painel do CNJ). A pessoa aparece em 6 dos 7 meses.",
      "source": "https://paineis.cnj.jus.br/QvAJAXZfc/opendoc.htm?document=qvw_l%2FPainelCNJ.qvw&host=QVS%40neodimio03&anonymous=true&sheet=shPORT63Relatorios",
-     "own": true
+     "own": true,
+     "months_count": 7,
+     "state": "paid",
+     "block": "tse"
     }
-   ]
+   ],
+   "court_since": "2021-12-16",
+   "office": null,
+   "total_label": "Média por mês",
+   "total_note": "soma da média do STF (jan a ago 2026, 8 meses) com a do TSE (jan e mar a ago 2026, 7 meses)",
+   "tse_months": "jan e mar a ago 2026, 7 meses"
   },
   {
    "id": "camara:220676",
@@ -13919,7 +13976,6 @@
    "tse_role": null,
    "party": null,
    "uf": null,
-   "since": "2006-06-21",
    "photo": "https://www.stf.jus.br/arquivo/cms/bibliotecaConsultaProdutoBibliotecaPastaMinistro/imagem/foto_cl.jpg",
    "photo_credit": "STF",
    "page": "https://portal.stf.jus.br/textos/verTexto.asp?servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro&pagina=ComposicaoAtual",
@@ -13935,7 +13991,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "personal_advantages",
@@ -13946,7 +14004,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "eventual_advantages",
@@ -13957,7 +14017,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "commission",
@@ -13968,7 +14030,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "permanence_bonus",
@@ -13979,18 +14043,22 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "vacation",
      "label": "Férias",
      "uses": true,
-     "monthly": 1931.92,
+     "monthly": 1931.93,
      "year_total": 15455.4,
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "christmas_bonus",
@@ -14001,7 +14069,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "benefits",
@@ -14012,7 +14082,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "indemnities",
@@ -14023,7 +14095,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "back_pay",
@@ -14034,7 +14108,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "housing",
@@ -14045,9 +14121,15 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     }
-   ]
+   ],
+   "court_since": "2006-06-21",
+   "office": null,
+   "total_label": "Média por mês",
+   "total_note": "jan a ago 2026, os 8 meses que o STF publicou"
   },
   {
    "id": "camara:220704",
@@ -17227,7 +17309,6 @@
    "tse_role": null,
    "party": null,
    "uf": null,
-   "since": "2023-08-03",
    "photo": "https://www.stf.jus.br/arquivo/cms/bibliotecaConsultaProdutoBibliotecaPastaMinistro/imagem/foto_cz.jpg",
    "photo_credit": "STF",
    "page": "https://portal.stf.jus.br/textos/verTexto.asp?servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro&pagina=ComposicaoAtual",
@@ -17243,7 +17324,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "personal_advantages",
@@ -17254,7 +17337,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "eventual_advantages",
@@ -17265,7 +17350,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "commission",
@@ -17276,7 +17363,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "permanence_bonus",
@@ -17287,18 +17376,22 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "vacation",
      "label": "Férias",
      "uses": true,
-     "monthly": 1931.92,
+     "monthly": 1931.93,
      "year_total": 15455.4,
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "christmas_bonus",
@@ -17309,7 +17402,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "benefits",
@@ -17320,7 +17415,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "indemnities",
@@ -17331,7 +17428,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "back_pay",
@@ -17342,7 +17441,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "housing",
@@ -17353,9 +17454,15 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     }
-   ]
+   ],
+   "court_since": "2023-08-03",
+   "office": null,
+   "total_label": "Média por mês",
+   "total_note": "jan a ago 2026, os 8 meses que o STF publicou"
   },
   {
    "id": "camara:204355",
@@ -20899,7 +21006,6 @@
    "tse_role": "Ministro efetivo do TSE (efetivo, origem STF, de 9.6.2026 a 9.6.2028, 1º biênio)",
    "party": null,
    "uf": null,
-   "since": "2009-10-23",
    "photo": "https://www.stf.jus.br/arquivo/cms/bibliotecaConsultaProdutoBibliotecaPastaMinistro/imagem/foto_dt_th.jpg",
    "photo_credit": "STF",
    "page": "https://portal.stf.jus.br/textos/verTexto.asp?servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro&pagina=ComposicaoAtual",
@@ -20915,7 +21021,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "personal_advantages",
@@ -20926,7 +21034,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "eventual_advantages",
@@ -20937,7 +21047,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "commission",
@@ -20948,7 +21060,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "permanence_bonus",
@@ -20959,7 +21073,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "vacation",
@@ -20970,7 +21086,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "christmas_bonus",
@@ -20981,7 +21099,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "benefits",
@@ -20992,7 +21112,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "indemnities",
@@ -21003,7 +21125,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "back_pay",
@@ -21014,7 +21138,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "housing",
@@ -21025,7 +21151,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "tse_per_diem",
@@ -21033,10 +21161,13 @@
      "uses": true,
      "monthly": 3481.8,
      "year_total": 24372.6,
-     "months": "jan, mar, abr, mai, jun, jul, ago 2026",
+     "months": "jan e mar a ago 2026",
      "note": "Soma dos meses publicados; média = total / 7 meses publicados pelo tribunal. Pagamento do TSE (arquivo TSE no painel do CNJ). A pessoa aparece em 5 dos 7 meses.",
      "source": "https://paineis.cnj.jus.br/QvAJAXZfc/opendoc.htm?document=qvw_l%2FPainelCNJ.qvw&host=QVS%40neodimio03&anonymous=true&sheet=shPORT63Relatorios",
-     "own": false
+     "own": false,
+     "months_count": 7,
+     "state": "paid",
+     "block": "tse"
     },
     {
      "key": "tse_jeton",
@@ -21044,12 +21175,20 @@
      "uses": true,
      "monthly": 6160.1,
      "year_total": 43120.69,
-     "months": "jan, mar, abr, mai, jun, jul, ago 2026",
+     "months": "jan e mar a ago 2026",
      "note": "Soma dos meses publicados; média = total / 7 meses publicados pelo tribunal. Pagamento do TSE (arquivo TSE no painel do CNJ). A pessoa aparece em 5 dos 7 meses.",
      "source": "https://paineis.cnj.jus.br/QvAJAXZfc/opendoc.htm?document=qvw_l%2FPainelCNJ.qvw&host=QVS%40neodimio03&anonymous=true&sheet=shPORT63Relatorios",
-     "own": true
+     "own": true,
+     "months_count": 7,
+     "state": "paid",
+     "block": "tse"
     }
-   ]
+   ],
+   "court_since": "2009-10-23",
+   "office": null,
+   "total_label": "Média por mês",
+   "total_note": "soma da média do STF (jan a ago 2026, 8 meses) com a do TSE (jan e mar a ago 2026, 7 meses)",
+   "tse_months": "jan e mar a ago 2026, 7 meses"
   },
   {
    "id": "camara:160588",
@@ -23529,7 +23668,6 @@
    "tse_role": null,
    "party": null,
    "uf": null,
-   "since": "2015-06-16",
    "photo": "https://www.stf.jus.br/arquivo/cms/bibliotecaConsultaProdutoBibliotecaPastaMinistro/imagem/foto_ef_th.jpg",
    "photo_credit": "STF",
    "page": "https://portal.stf.jus.br/textos/verTexto.asp?servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro&pagina=ComposicaoAtual",
@@ -23545,7 +23683,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "personal_advantages",
@@ -23556,7 +23696,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "eventual_advantages",
@@ -23567,7 +23709,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "commission",
@@ -23578,7 +23722,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "permanence_bonus",
@@ -23589,18 +23735,22 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "vacation",
      "label": "Férias",
      "uses": true,
-     "monthly": 1931.92,
+     "monthly": 1931.93,
      "year_total": 15455.4,
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "christmas_bonus",
@@ -23611,7 +23761,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "benefits",
@@ -23622,7 +23774,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "indemnities",
@@ -23633,7 +23787,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "back_pay",
@@ -23644,7 +23800,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "housing",
@@ -23655,9 +23813,19 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     }
-   ]
+   ],
+   "court_since": "2015-06-16",
+   "office": {
+    "label": "Presidente do STF",
+    "since": "2025-09-29",
+    "source": "https://noticias.stf.jus.br/postsnoticias/ministro-edson-fachin-assume-hoje-29-a-presidencia-do-stf/"
+   },
+   "total_label": "Média por mês",
+   "total_note": "jan a ago 2026, os 8 meses que o STF publicou"
   },
   {
    "id": "camara:204541",
@@ -28354,7 +28522,6 @@
    "tse_role": "Ministro substituto do TSE (substituto, origem STF, de 11.6.2026 a 11.6.2028, 1º biênio)",
    "party": null,
    "uf": null,
-   "since": "2024-02-22",
    "photo": "https://www.stf.jus.br/arquivo/cms/bibliotecaConsultaProdutoBibliotecaPastaMinistro/imagem/foto_fd2.jpg",
    "photo_credit": "STF",
    "page": "https://portal.stf.jus.br/textos/verTexto.asp?servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro&pagina=ComposicaoAtual",
@@ -28370,7 +28537,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "personal_advantages",
@@ -28381,7 +28550,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "eventual_advantages",
@@ -28392,7 +28563,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "commission",
@@ -28403,7 +28576,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "permanence_bonus",
@@ -28414,18 +28589,22 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "vacation",
      "label": "Férias",
      "uses": true,
-     "monthly": 1931.92,
+     "monthly": 1931.93,
      "year_total": 15455.4,
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "christmas_bonus",
@@ -28436,7 +28615,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "benefits",
@@ -28447,7 +28628,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "indemnities",
@@ -28458,7 +28641,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "back_pay",
@@ -28469,7 +28654,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "housing",
@@ -28480,9 +28667,15 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     }
-   ]
+   ],
+   "court_since": "2024-02-22",
+   "office": null,
+   "total_label": "Média por mês",
+   "total_note": "jan a ago 2026, os 8 meses que o STF publicou"
   },
   {
    "id": "stm:flavio-marcus-lancia-barbosa",
@@ -31383,7 +31576,6 @@
    "tse_role": "Ministro substituto do TSE (substituto, origem STF, de 13.6.2025 a 13.6.2027, 2º biênio)",
    "party": null,
    "uf": null,
-   "since": "2002-06-20",
    "photo": "https://www.stf.jus.br/arquivo/cms/bibliotecaConsultaProdutoBibliotecaPastaMinistro/imagem/foto_gm_th.jpg",
    "photo_credit": "STF",
    "page": "https://portal.stf.jus.br/textos/verTexto.asp?servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro&pagina=ComposicaoAtual",
@@ -31399,7 +31591,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "personal_advantages",
@@ -31410,7 +31604,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "eventual_advantages",
@@ -31421,7 +31617,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "commission",
@@ -31432,7 +31630,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "permanence_bonus",
@@ -31443,7 +31643,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "vacation",
@@ -31454,7 +31656,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "christmas_bonus",
@@ -31465,7 +31669,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "benefits",
@@ -31476,7 +31682,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "indemnities",
@@ -31487,7 +31695,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "back_pay",
@@ -31498,7 +31708,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "housing",
@@ -31509,7 +31721,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "tse_jeton",
@@ -31517,12 +31731,20 @@
      "uses": true,
      "monthly": 596.14,
      "year_total": 4172.97,
-     "months": "jan, mar, abr, mai, jun, jul, ago 2026",
+     "months": "jan e mar a ago 2026",
      "note": "Soma dos meses publicados; média = total / 7 meses publicados pelo tribunal. Pagamento do TSE (arquivo TSE no painel do CNJ). A pessoa aparece em 2 dos 7 meses.",
      "source": "https://paineis.cnj.jus.br/QvAJAXZfc/opendoc.htm?document=qvw_l%2FPainelCNJ.qvw&host=QVS%40neodimio03&anonymous=true&sheet=shPORT63Relatorios",
-     "own": true
+     "own": true,
+     "months_count": 7,
+     "state": "paid",
+     "block": "tse"
     }
-   ]
+   ],
+   "court_since": "2002-06-20",
+   "office": null,
+   "total_label": "Média por mês",
+   "total_note": "soma da média do STF (jan a ago 2026, 8 meses) com a do TSE (jan e mar a ago 2026, 7 meses)",
+   "tse_months": "jan e mar a ago 2026, 7 meses"
   },
   {
    "id": "camara:220529",
@@ -46767,7 +46989,6 @@
    "tse_role": null,
    "party": null,
    "uf": null,
-   "since": "2011-03-03",
    "photo": "https://www.stf.jus.br/arquivo/cms/bibliotecaConsultaProdutoBibliotecaPastaMinistro/imagem/foto_lf_th.jpg",
    "photo_credit": "STF",
    "page": "https://portal.stf.jus.br/textos/verTexto.asp?servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro&pagina=ComposicaoAtual",
@@ -46783,7 +47004,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "personal_advantages",
@@ -46794,7 +47017,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "eventual_advantages",
@@ -46805,7 +47030,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "commission",
@@ -46816,7 +47043,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "permanence_bonus",
@@ -46827,18 +47056,22 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "vacation",
      "label": "Férias",
      "uses": true,
-     "monthly": 1931.92,
+     "monthly": 1931.93,
      "year_total": 15455.4,
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "christmas_bonus",
@@ -46849,7 +47082,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "benefits",
@@ -46860,7 +47095,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "indemnities",
@@ -46871,7 +47108,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "back_pay",
@@ -46882,7 +47121,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "housing",
@@ -46893,9 +47134,15 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     }
-   ]
+   ],
+   "court_since": "2011-03-03",
+   "office": null,
+   "total_label": "Média por mês",
+   "total_note": "jan a ago 2026, os 8 meses que o STF publicou"
   },
   {
    "id": "camara:220658",
@@ -61308,7 +61555,6 @@
    "tse_role": "Presidente do TSE (efetivo, origem STF, de 25.5.2025 a 25.5.2027, 2º biênio)",
    "party": null,
    "uf": null,
-   "since": "2020-11-05",
    "photo": "https://www.stf.jus.br/arquivo/cms/bibliotecaConsultaProdutoBibliotecaPastaMinistro/imagem/foto_nm5.jpg",
    "photo_credit": "STF",
    "page": "https://portal.stf.jus.br/textos/verTexto.asp?servico=bibliotecaConsultaProdutoBibliotecaPastaMinistro&pagina=ComposicaoAtual",
@@ -61324,7 +61570,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "personal_advantages",
@@ -61335,7 +61583,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "eventual_advantages",
@@ -61346,7 +61596,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "commission",
@@ -61357,7 +61609,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "permanence_bonus",
@@ -61368,18 +61622,22 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "vacation",
      "label": "Férias",
      "uses": true,
-     "monthly": 1931.92,
+     "monthly": 1931.93,
      "year_total": 15455.4,
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "christmas_bonus",
@@ -61390,7 +61648,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "paid"
     },
     {
      "key": "benefits",
@@ -61401,7 +61661,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "indemnities",
@@ -61412,7 +61674,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "back_pay",
@@ -61423,7 +61687,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "housing",
@@ -61434,7 +61700,9 @@
      "months": "jan a ago 2026",
      "note": "Soma dos meses publicados; média = total / 8 meses publicados pelo tribunal. O STF publica Auxílios e benefícios e Indenizações em uma linha cada, sem detalhar.",
      "source": "https://egesp-portal.stf.jus.br/transparencia/rendimento_folha",
-     "own": true
+     "own": true,
+     "months_count": 8,
+     "state": "zero_payroll"
     },
     {
      "key": "tse_per_diem",
@@ -61442,10 +61710,13 @@
      "uses": true,
      "monthly": 1029.8,
      "year_total": 7208.59,
-     "months": "jan, mar, abr, mai, jun, jul, ago 2026",
+     "months": "jan e mar a ago 2026",
      "note": "Soma dos meses publicados; média = total / 7 meses publicados pelo tribunal. Pagamento do TSE (arquivo TSE no painel do CNJ). A pessoa aparece em 6 dos 7 meses.",
      "source": "https://paineis.cnj.jus.br/QvAJAXZfc/opendoc.htm?document=qvw_l%2FPainelCNJ.qvw&host=QVS%40neodimio03&anonymous=true&sheet=shPORT63Relatorios",
-     "own": false
+     "own": false,
+     "months_count": 7,
+     "state": "paid",
+     "block": "tse"
     },
     {
      "key": "tse_jeton",
@@ -61453,10 +61724,13 @@
      "uses": true,
      "monthly": 8743.37,
      "year_total": 61203.56,
-     "months": "jan, mar, abr, mai, jun, jul, ago 2026",
+     "months": "jan e mar a ago 2026",
      "note": "Soma dos meses publicados; média = total / 7 meses publicados pelo tribunal. Pagamento do TSE (arquivo TSE no painel do CNJ). A pessoa aparece em 6 dos 7 meses.",
      "source": "https://paineis.cnj.jus.br/QvAJAXZfc/opendoc.htm?document=qvw_l%2FPainelCNJ.qvw&host=QVS%40neodimio03&anonymous=true&sheet=shPORT63Relatorios",
-     "own": true
+     "own": true,
+     "months_count": 7,
+     "state": "paid",
+     "block": "tse"
     },
     {
      "key": "tse_eventual_other",
@@ -61464,12 +61738,20 @@
      "uses": true,
      "monthly": 908.64,
      "year_total": 6360.51,
-     "months": "jan, mar, abr, mai, jun, jul, ago 2026",
+     "months": "jan e mar a ago 2026",
      "note": "Soma dos meses publicados; média = total / 7 meses publicados pelo tribunal. Detalhe informado: GRATIFICAÇÃO ELEITORAL - RPPS. Pagamento do TSE (arquivo TSE no painel do CNJ). A pessoa aparece em 6 dos 7 meses.",
      "source": "https://paineis.cnj.jus.br/QvAJAXZfc/opendoc.htm?document=qvw_l%2FPainelCNJ.qvw&host=QVS%40neodimio03&anonymous=true&sheet=shPORT63Relatorios",
-     "own": true
+     "own": true,
+     "months_count": 7,
+     "state": "paid",
+     "block": "tse"
     }
-   ]
+   ],
+   "court_since": "2020-11-05",
+   "office": null,
+   "total_label": "Média por mês",
+   "total_note": "soma da média do STF (jan a ago 2026, 8 meses) com a do TSE (jan e mar a ago 2026, 7 meses)",
+   "tse_months": "jan e mar a ago 2026, 7 meses"
   },
   {
    "id": "camara:204498",
