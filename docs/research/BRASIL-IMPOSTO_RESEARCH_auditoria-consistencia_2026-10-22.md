@@ -6,10 +6,9 @@ appear in more than one tracked place, each brought to the newest ruling, with t
 delete, KEEP, or ASK), with the evidence; deletions wait for the maintainer's yes, group by group; (3) the repository kept free
 of anything outside this project. Written section by section as the work goes; the state of each part is in its heading.
 
-Status: **partes 1, 2 e 3 feitas; a lista de apagar espera o sim do mantenedor.** Base: `main` em `8d27196`, 6.496 arquivos no git (1.148 de texto), 56 commits no GitHub. Arquivos que o
-pull request #43 (correções de interface, aberto) muda ficam fora desta auditoria até ele ser resolvido: `.claude/CLAUDE.md`,
-`docs/superpowers/tools/site_chrome.py`, as cinco páginas de `docs/superpowers/previews/*.html`, `assets/home-feed.css`,
-`assets/home-feed.js`, `assets/modals.js` e os quatro arquivos novos dele.
+Status: **partes 1, 2 e 3 feitas; a lista de apagar espera o sim do mantenedor.** Base: `main` em `8d27196`, 6.496 arquivos no git (1.148 de texto), 56 commits no GitHub. O pull request #43 (correções de interface) e o #44 (README e regras na página da
+organização) entraram na `main` durante a auditoria; o ramo foi refeito sobre `131c8fc`, e os itens que esperavam o #43 foram
+feitos depois disso.
 
 ## Parte 3. Só Brasil-Imposto (feita)
 
@@ -61,6 +60,10 @@ as specs.
 | Configuração e o site em Astro (`.gitignore`, `.python-version`, `pyproject.toml`, `uv.lock`, os 9 arquivos de `site/`) | 13 | git, uv, npm, Astro |
 | `docs/ai/learned-patterns.md` | 1 | `CLAUDE.md` aponta para ele |
 | O plano da limpeza, fase 1 | 1 | aberto: tarefas 6 a 8 |
+
+**Os arquivos que o #43 e o #44 trouxeram** (vistos depois que entraram): KEEP. As três sondas novas (`overlay-check.cjs`,
+`sheet-width-check.cjs`, `ui-sweep.cjs`) são a prova da spec de interface, a spec é registro, e as cinco imagens de
+`docs/images/readme/` são lidas pelo `README.md`.
 
 ### SAFE (a lista de apagar, por grupo; espera o sim)
 
@@ -117,19 +120,22 @@ de execução que descrevem o que rodou naquele dia.
 | Spec de cabeçalho, rodapé e carregamento | "o carregamento falta" | carregamento feito (#31) | D152; #31 |
 | Plano de limpeza, situação e "Para quem executa" | "execução nesta sessão"; "Sem git (D54)" | tarefas 0 a 5 feitas; 6 a 8 nesta auditoria, por pull request; anexos fora do git | D147; esta auditoria |
 | Registro de decisões, Fase, "Estado em 2026-10-22" e "Se a sessão cair" | "brainstorming com prévias (D3)"; próximo passo já feito | v1 publicada (D149); feitos desde então: logo e prévia social (#37, #42), cabeçalho, rodapé e carregamento (#27, #28, #31), Judiciário (#40, #41); próximo: Q78, o resto da B0, tarefas 6 a 8 e a fase 2 do livro | D149, D152, D153, D154 |
-| `CONTRIBUTING.md` | "os quatro construtores"; "deputados estaduais ainda não estão no projeto" | os cinco construtores que o `ci` confere; os deputados estaduais aparecem só como eleitos em 2018 e 2022 (`state-deputies.json`) | `.github/workflows/ci.yml`; os dados |
+| `CONTRIBUTING.md` | "os quatro construtores"; "deputados estaduais ainda não estão no projeto" | a versão do #44, mais nova, levou essas regras para a página da organização; o arquivo fica como a `main` o deixou | #44 |
 | `docs/ai/learned-patterns.md` | ponteiro para um arquivo de decisões fora do git; regras da máquina do autor | `docs/decisions/README.md`; regras gerais, sem caminho de máquina | D147; plano, tarefa 7 (E2) |
 | Comentários e docstrings de 46 scripts (193 trechos) | em português | em inglês; nomes oficiais e campos de fonte como estão | regra do projeto (`.claude/CLAUDE.md`); plano, tarefa 6 |
-| Chaves de 13 arquivos de `data/` e dos seus escritores (lista no plano, registro da tarefa 6) | em português (`pessoal`, `by_natureza`, `numero`, `creditor_vlbruto_brl`...) | em inglês, cada arquivo igual ao antigo com o mapa aplicado | regra do projeto; plano, tarefa 6 |
+| Chaves de 19 arquivos de `data/` e dos seus escritores e leitores (lista no plano, registro da tarefa 6) | em português (`pessoal`, `by_natureza`, `numero`, `posse`, `pessoal_e_encargos`, `deputado_estadual`...) | em inglês, cada arquivo igual ao antigo com o mapa aplicado | regra do projeto; plano, tarefa 6 |
+| Códigos de `governors_curated/*.json`, `governors.json` e `union.json` | `eleito`, `interino`, `vago`, `governador`, `oficial`... | `elected`, `acting`, `vacant`, `governor`, `official`...; a tela mostra os mesmos rótulos | plano, tarefa 6 |
 | Garantias do livro de fluxos | identificadas pela frase em português | id em inglês (`g1_unique_ids`...) com a frase como rótulo | plano, tarefa 6 |
 | `pipelines/ledger/registry.py` | uma fonte que volta a um arquivo antigo não volta a valer | a divulgação antiga volta a ser a atual (teste A, B, A) | plano, tarefa 7 (P2-14) |
 | `pipelines/build.py` | entrada faltando virava `None`; gravava direto no arquivo publicado | para e diz o script que escreve a entrada; grava num temporário | plano, tarefa 7 (P1-12) |
 | `data/municipal-taxes-2024.json` | nada dizia que faltam municípios | `complete: false` em 11 estados | plano, tarefa 7 (P1-24) |
 | `build-cases.py`, fotos de signatário | por parte do nome | só por nome exato, com tabela de apelidos | plano, tarefa 7 (P2-8) |
-| 119 `assert` em 41 arquivos | somem com `python -O` | `raise SystemExit` | plano, tarefa 7 (P2-20) |
+| 124 `assert` em 42 arquivos | somem com `python -O` | `raise SystemExit` | plano, tarefa 7 (P2-20) |
 
-**Provas.** 41 testes de `pipelines/tests` e 30 do livro passam; os cinco construtores que o `ci` confere refazem as páginas
-byte a byte e o pacote `bi-data.js` é igual ao da `main`; a exportação das entidades valida contra os esquemas. Cada teste novo
+**Provas.** 41 testes de `pipelines/tests` e 30 do livro passam; os cinco construtores que o `ci` confere refazem as páginas, e
+só mudam o que as chaves pedem: o tamanho do pacote no carregamento da home, os dois leitores de Os 3 Poderes e o de
+`serieslayer.js`; o pacote `bi-data.js` difere do da `main` só na série da folha federal, igual a ela com o mapa aplicado; a
+exportação das entidades valida contra os esquemas. Cada teste novo
 falhou no código antigo; o teste de chaves pega o controle `nome_controle` e o arquivo antigo do SC-401. Texto visível e
 verificação do site: na descrição do pull request.
 
@@ -138,11 +144,6 @@ verificação do site: na descrição do pull request.
 - **O registro de decisões é gerado.** `docs/decisions/README.md` sai de `private/decisions-original.md` (fora do git) por
   `publish-decisions.py`; as três linhas mudadas aqui (Fase, Estado em 2026-10-22, Se a sessão cair) precisam ir para o
   original, ou a próxima publicação as desfaz.
-- **Chaves que esperam o #43**, porque o leitor é uma página que ele muda: `officeholders-2026.json` e `positions-2026.json`
-  (`posse`, `sen_moradia`, `sen_moradia_api`, `sen_verbas`, `aux`; Os 3 Poderes lê `U.sen_moradia`) e as do pacote da home
-  (`series/federal-payroll-by-uf.json` com `serieslayer.js`, `state-deputies.json`, os suplentes de deputados e senadores, os
-  valores de `governors_curated/*.json`). Mudar o pacote muda o tamanho que as páginas do #43 carregam. A lista exata está em
-  `pipelines/tests/test_english_keys.py`.
 - **SC-401 "líquido" e Linha 17 `provenance`** (tarefa 7): dependem do texto do anexo P2-19, fora do git. O total calculado
   (`total_paid_ct_00014_2025_brl_computed`, R$ 40.728.766,00) é o pago líquido; a tela usa o pago com os retidos
   (R$ 41.694.715,23, `complete-totals`). Falta a frase do anexo para o rótulo.

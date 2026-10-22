@@ -138,12 +138,12 @@ Cada checagem nova ou refeita só conta depois de falhar num controle plantado p
 - [ ] Provas: cada controle falha pelo motivo plantado; o que roda de verdade passa (ou a falha real é anunciada); texto visível igual.
 
 ### Tarefa 6: chaves de JSON e textos de código em inglês (B14: N-13, P1-21, P2-12)
-- [ ] Chaves em português trocadas no escritor e no leitor ao mesmo tempo: `federal-payroll-by-uf.json` (e `serieslayer.js`,
+- [x] Chaves em português trocadas no escritor e no leitor ao mesmo tempo: `federal-payroll-by-uf.json` (e `serieslayer.js`,
   `fcdf.by_group.pessoal_e_encargos`), `mte-seguro-abono-uf-2024_hybrid.json`, `sc-401-terceira-faixa.json`, `ibge-estados.json`,
   `br-470-duplicacao.json`, as chaves de checagem de `two-step-balance-*.json`, a saída de `br470_payments.py`, `state-deputies.json`,
   os valores de `governors_curated/*.json`; as garantias do livro ganham um id em inglês (`g1_unique_ids`) com a frase como rótulo.
 - [x] Docstrings e comentários em português traduzidos nos scripts listados em P1-21 e P2-12.
-- [ ] Provas: a busca de chaves em português (com o controle `nome_controle` plantado) dá só nomes próprios e campos de fonte;
+- [x] Provas: a busca de chaves em português (com o controle `nome_controle` plantado) dá só nomes próprios e campos de fonte;
   texto visível igual; arquivos regenerados iguais aos antigos com o mapa de chaves aplicado.
 
 ### Tarefa 7: o mesmo fato com valores diferentes, e armadilhas pequenas (C5: N-11; B15 parte)
@@ -240,15 +240,15 @@ Cada checagem nova ou refeita só conta depois de falhar num controle plantado p
   docstring lida em execução (`federal_spending_by_uf.py`, o campo `definition`) mudou junto com os dois arquivos que ela grava.
   Chaves trocadas no escritor e nos dados ao mesmo tempo, cada arquivo igual ao antigo com o mapa aplicado: `atlas_public_jobs_by_uf`,
   `federal_spending_by_uf` (2024 e 2025), `rfb_legal_nature_2024`, `payroll-by-uf-2024`, `complete-totals`, `hercilio-luz` e o
-  pago por contrato, o arquivo híbrido do MTE, BR-470 e SC-401; as garantias do livro ganharam o id em inglês com a frase como
-  rótulo. Esperam o pull request de interface (#43), porque o leitor é uma página que ele muda: `officeholders-2026` e
-  `positions-2026` (Os 3 Poderes), `federal-payroll-by-uf`, `state-deputies`, os suplentes de deputados e senadores e os valores de
-  `governors_curated` (o pacote da home, cujo tamanho as páginas dele carregam). O teste `test_english_keys.py` lista essas chaves
-  com o motivo e pega o controle `nome_controle`; o SC-401 antigo também falha nele. Os escritores destas chaves não rodam aqui
-  (as entradas vêm de sites que a rede desta sessão não alcança). Páginas iguais byte a byte; 41 testes e 30 do livro.
+  pago por contrato, o arquivo híbrido do MTE, BR-470 e SC-401, e, depois que o #43 entrou, Os 3 Poderes (`posse`, `sen_moradia`,
+  `aux`), a folha federal por UF (34 chaves, com `serieslayer.js`), os resumos de deputados e senadores e os códigos de
+  `governors_curated`, `governors.json` e `union.json`; as garantias do livro ganharam o id em inglês com a frase como rótulo.
+  `test_english_keys.py` não espera mais nenhuma chave e pega o controle `nome_controle`; o SC-401 antigo também falha nele.
+  Os escritores que baixam as entradas não rodam aqui (sites fora do alcance da rede desta sessão); a troca foi provada nos
+  dados. O pacote da home difere do da `main` só na série da folha, igual a ela com o mapa; 41 testes e 30 do livro.
 - **Tarefa 7 (2026-10-22, mesmo pull request):** registro de fontes A, B, A (teste), `build.py` da raiz (entrada faltando e
   temporário, teste), `complete` nos impostos municipais (11 estados falsos; o pacote deixa a chave de fora e fica igual byte a
-  byte), fotos por nome exato com tabela de apelidos (teste; `cases.json` igual), 119 `assert` em 41 arquivos viram
-  `raise SystemExit` (teste; `site_chrome.py` espera o #43), `shot.sh` abre a página da plataforma; caminhos da máquina fora dos
+  byte), fotos por nome exato com tabela de apelidos (teste; `cases.json` igual), 124 `assert` em 42 arquivos viram
+  `raise SystemExit` (teste), `shot.sh` abre a página da plataforma; caminhos da máquina fora dos
   documentos. Cada teste falhou no código antigo. Fica com o mantenedor: o rótulo "líquido" do SC-401 e o `provenance` da Linha 17
   dependem do texto do anexo P2-19, que está fora do git.
