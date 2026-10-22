@@ -1,6 +1,6 @@
 """Numbers for the federal section below the map (D44, GD24), for one run of months of one year.
 
-Usage: .venv/bin/python pipelines/federal/build_federal_section.py 2026 1 7 [--control | --control=input-branch]
+Usage: uv run python pipelines/federal/build_federal_section.py 2026 1 7 [--control | --control=input-branch]
 Inputs (already in the project):
   data/series/union.json                     Union accounts (Tesouro RTN, BCB)
   data/ug/cache/dtt_monthly_YYYY.json.gz     Tesouro base "Despesas e Transferências Totais da União" (agg_dtt_monthly.py)

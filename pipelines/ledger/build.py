@@ -1,7 +1,7 @@
 """Build the money-flow ledger, phase 1: load every source, check the guarantees, prove the planted errors fail, and
 only then publish the flows. When any step fails, nothing is published and `flow` keeps the last good build.
 
-Usage: .venv/bin/python pipelines/ledger/build.py [--skip-load] [--control]
+Usage: uv run python pipelines/ledger/build.py [--skip-load] [--control]
   --skip-load  use the releases already in the warehouse (no download)
   --control    flip the sign of one real flow before the checks. A control run never publishes: it exits 0 when the
                guarantees stopped it and 1 when they missed the flip

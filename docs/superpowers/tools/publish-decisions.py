@@ -4,7 +4,7 @@ The original, with the author's words, is private/decisions-original.md (local, 
 This script writes docs/decisions/README.md from it, removing every quotation of the author: the "(*"..."*)" parentheticals
 and the inline *"..."* quotes. Run it after every change to the original.
 
-Usage: .venv/bin/python -B docs/superpowers/tools/publish-decisions.py
+Usage: uv run python -B docs/superpowers/tools/publish-decisions.py
 """
 import re
 from pathlib import Path

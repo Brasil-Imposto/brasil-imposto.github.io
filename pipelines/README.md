@@ -26,7 +26,7 @@ python3 $SCRIPTS/tables.py
 python3 $SCRIPTS/checks.py
 ```
 
-(`python3` com `openpyxl` instalado; com o ambiente do `uv`, troque por `.venv/bin/python`.)
+(`python3` com `openpyxl` instalado; com o ambiente do `uv`, troque `python3` por `uv run python`.)
 
 ## Ordem, entradas e saídas
 

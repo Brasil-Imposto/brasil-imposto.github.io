@@ -3,7 +3,7 @@
 
 Sources: Portal da Transparencia bulk downloads (viagens 2026, cpgf monthly extracts already filtered by
 collect-executive-2026.py). Stages: filter (zip -> filtered CSVs), build (filtered CSVs -> presidency-2026.json).
-Run from the project root: .venv/bin/python -B docs/superpowers/tools/collect-presidency-2026.py filter|build
+Run from the project root: uv run python -B docs/superpowers/tools/collect-presidency-2026.py filter|build
 """
 import csv, io, json, re, sys, unicodedata, zipfile
 from pathlib import Path

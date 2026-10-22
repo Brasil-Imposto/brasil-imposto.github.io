@@ -1,6 +1,6 @@
 """Monthly lines of the Tesouro's RTN (Tabela 1.1) that the Union block of the map needs (D115), as one small JSON.
 
-Usage: .venv/bin/python pipelines/ug/extract_rtn_lines.py [--control]   (needs openpyxl)
+Usage: uv run python pipelines/ug/extract_rtn_lines.py [--control]   (needs openpyxl)
 Input: pipelines/series/cache/union/serie_historica_ago26.xlsx, the same RTN file data/series/union.json is built from
        (https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326, published 2026-09-29). Nothing is downloaded.
 Output: data/ug/rtn-lines-monthly.json, money in reais with cents (R$ milhões x 1.000.000, rounded to the cent, the same

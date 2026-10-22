@@ -1,6 +1,6 @@
 """Tesouro base "Despesas e Transferências Totais da União" (valor pago), one year, every row, keeping the month.
 
-Usage: .venv/bin/python agg_dtt_monthly.py <workdir> <year>   (needs openpyxl)
+Usage: uv run python agg_dtt_monthly.py <workdir> <year>   (needs openpyxl)
 Dataset: https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais
 Writes <workdir>/cache/dtt_monthly_<year>.json.gz with PAGAMENTOS_TOTAIS summed by
 [month, orgao, unidade orcamentaria, grupo, modalidade, acao, Categoria_RTN], plus the CKAN resource metadata

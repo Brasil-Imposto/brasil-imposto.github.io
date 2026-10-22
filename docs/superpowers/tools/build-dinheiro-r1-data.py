@@ -8,7 +8,7 @@ art. 60), each with its article. The "follow R$ 100" splits are computed here fr
 States' spending leaves out the "Transferências" subfunction of "Encargos Especiais": in some states it holds the share passed
 to the municipalities, which the page already shows as its own flow.
 
-Usage: .venv/bin/python -B docs/superpowers/tools/build-dinheiro-r1-data.py
+Usage: uv run python -B docs/superpowers/tools/build-dinheiro-r1-data.py
 Writes docs/superpowers/previews/assets/dinheiro-r1-data.js
 """
 import json

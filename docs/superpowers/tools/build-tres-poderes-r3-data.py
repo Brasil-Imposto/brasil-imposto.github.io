@@ -19,7 +19,7 @@ Inputs (data/federal/raw-pay/, collected on 2026-10-21):
 Party of a deputy: the deputy's own history in data/politicians/federal-deputies.json when it has one (the Câmara list cuts
 long acronyms), otherwise the Câmara list. Nothing is estimated: what no source says is "unknown".
 
-Usage: .venv/bin/python docs/superpowers/tools/build-tres-poderes-r3-data.py
+Usage: uv run python docs/superpowers/tools/build-tres-poderes-r3-data.py
 Writes data/federal/officeholders-2026.json and docs/superpowers/previews/assets/tres-poderes-r3-data.js
 """
 import csv, json, re, unicodedata

@@ -1,7 +1,7 @@
 # Brasil-Imposto: padrões aprendidos
 
-Registro do que as sessões de 2026-09-25 a 2026-10-01 (rounds 1 a 11 das prévias) e de 2026-10-01 a 02 (grill de alinhamento) ensinaram. As decisões do autor ficam no
-`README.md` (tabela D, perguntas Q); aqui ficam os padrões de trabalho, as armadilhas dos dados e as receitas que funcionaram.
+Registro do que as sessões de 2026-09-25 a 2026-10-01 (rounds 1 a 11 das prévias) e de 2026-10-01 a 02 (grill de alinhamento) ensinaram. As decisões do autor ficam em
+`docs/decisions/README.md` (tabela D, perguntas Q); aqui ficam os padrões de trabalho, as armadilhas dos dados e as receitas que funcionaram.
 
 ## Learned patterns
 
@@ -135,7 +135,7 @@ Registro do que as sessões de 2026-09-25 a 2026-10-01 (rounds 1 a 11 das prévi
   responderam; a "Consulta Dinâmica" dá "Erro SQL".
 - Só 3,5% a 8,7% do gasto do GDF cita uma região, e parte disso é sede de órgão (Plano Piloto: folha do TCDF, do DER e do
   Hemocentro). Nenhuma das duas medidas por região serve para colorir o mapa sem enganar; isso tem de ir ao autor antes (ver
-  CLAUDE.md), não depois.
+  `.claude/CLAUDE.md`, "O que perguntar em vez de decidir"), não depois.
 
 ### Custo por pessoa no setor público federal (2026-10-03)
 - Quantidades e médias por Poder: avaliações atuariais do PLDO (Anexo IV.11, regime próprio dos civis; Anexo IV.12, militares),
@@ -144,9 +144,9 @@ Registro do que as sessões de 2026-09-25 a 2026-10-01 (rounds 1 a 11 das prévi
   "média mensal de R$ X mil por magistrado(a)" estão no texto, por ramo; incluem o que se paga a aposentados.
 
 ### Disco (2026-10-02)
-- O disco do autor encheu (ENOSPC) com cinco agentes de coleta em paralelo; a ferramenta de comandos parou de funcionar e
-  nem o diagnóstico rodava. Com o disco cheio só o autor pode liberar espaço. Regra no CLAUDE.md: um arquivo por vez,
-  apagar o bruto, ler por HTTP Range, temporário apagado no fim, parar com menos de 5 GB, no máximo dois agentes de coleta.
+- O disco encheu (ENOSPC) com cinco agentes de coleta em paralelo; a ferramenta de comandos parou de funcionar e nem o
+  diagnóstico rodava. Regra das coletas grandes: um arquivo por vez, apagar o bruto, ler por HTTP Range, temporário apagado no
+  fim, parar com menos de 5 GB livres, no máximo dois agentes de coleta.
 - Um agente parado pode deixar processo órfão (um `http.server` ficou servindo a pasta temporária): conferir `pgrep` e
   o diretório do processo antes de matar.
 - Pasta temporária de sessão antiga guardava 2,9 GB de brutos já processados (obras, ponte, séries): apagar o bruto assim
@@ -295,8 +295,8 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
   o aceso mais perto primeiro; folga de 6 px só quando nada é atingido (a folga competindo em profundidade deu 12 de 20
   cidades certas); o destaque espera o ponteiro parar 0,2 s (recolorir a cada cidade cruzada travava a página).
 - **Interação se confere com eventos reais de mouse, não com captura de tela** (o autor achou três defeitos seguidos: arrastar,
-  clicar, selecionar no cacho). Receita da máquina no CLAUDE.md global. A janela de automação do Chrome do autor pode ficar
-  escondida: a captura sai branca e a cena não anda. No Chrome sem tela, o desenho por software é lento: depois de um voo de
+  clicar, selecionar no cacho). Uma janela de automação do Chrome que fica escondida dá captura branca e a cena não
+  anda. No Chrome sem tela, o desenho por software é lento: depois de um voo de
   câmera de 1,4 s, esperar 3 s antes de apontar para um ponto.
 - **A sonda não pode usar o mesmo cálculo que testa.** A de seleção calcula a linha de visão por conta própria e, em cada erro,
   imprime o que a geometria atinge; foi isso que mostrou o defeito da folga em uma rodada. Controle: a mesma sonda 25 px fora do

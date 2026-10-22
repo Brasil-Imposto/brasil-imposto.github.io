@@ -15,7 +15,7 @@ Status: **plano da fase 1, executado em 2026-10-08 e emendado em 2026-10-09 (D12
 ### Para quem executa
 Executar as tarefas na ordem, marcando as caixas. Sem git (D54): onde um plano comum mandaria fazer commit, aqui o
 passo é rodar os testes e seguir. Execução nesta mesma sessão, sem subagentes, com atualizações curtas ao autor.
-Todo comando roda na pasta `~/Documents/Brasil-Imposto`.
+Todo comando roda na raiz do repositório.
 
 ### Objetivo
 O esqueleto do livro de fluxos e o nó `gov:uniao` de jan/2019 a ago/2026, batendo com o RTN linha por linha e com o

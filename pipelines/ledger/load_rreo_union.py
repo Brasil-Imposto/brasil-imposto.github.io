@@ -1,7 +1,7 @@
 """Load the União's RREO Anexo 1 from SICONFI: 'Juros e Encargos da Dívida', despesas pagas até o bimestre.
 It is the independent total the cash interest of the DTT base must match, to the cent (guarantee 3).
 
-Usage: .venv/bin/python pipelines/ledger/load_rreo_union.py"""
+Usage: uv run python pipelines/ledger/load_rreo_union.py"""
 import json
 import time
 from datetime import date

@@ -17,7 +17,7 @@ with the same unit rules as the first unit-based balance (D41). Transfers, Bolsa
 destination, as in D41; the FCDF counts in the DF, read from the Tesouro base (all rows of unit 73901) so that 2019 to 2021
 have it too. Debt interest and amortization stay out.
 
-Usage: .venv/bin/python pipelines/ug/build_two_step_balance.py 2026 1 7 [--control | --control=input-row | --control=input-revenue]
+Usage: uv run python pipelines/ug/build_two_step_balance.py 2026 1 7 [--control | --control=input-row | --control=input-revenue]
 Inputs (all already in the project; nothing is downloaded):
   data/ug/cache/despug_YYYYMM.json.gz        Portal da Transparência, expense execution, Executive (agg_spending_ug.py)
   data/ug/cache/dtt_monthly_YYYY.json.gz     Tesouro base "Despesas e Transferências Totais da União" (agg_dtt_monthly.py)

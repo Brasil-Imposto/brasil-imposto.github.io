@@ -8,7 +8,7 @@ Two builds from the same sources:
   header is the site header shared by the three pages (site_chrome.py, D152).
 - the author's preview (--author-notes): everything above included, written to its own file, which git ignores.
 
-Run: .venv/bin/python docs/superpowers/tools/build-platform-preview.py [--author-notes]
+Run: uv run python docs/superpowers/tools/build-platform-preview.py [--author-notes]
      (after build-ledger-interest-asset.py; check the periods first with ledger-graph-periods-check.cjs)
 """
 import re

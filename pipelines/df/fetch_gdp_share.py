@@ -1,7 +1,7 @@
 """The DF's share of Brazil's GDP, for the DF estimate on the map (D146): IBGE, SIDRA table 5938 (PIB dos Municípios),
 variable 37 (PIB a preços correntes), latest year, Brasil and the DF.
 
-Usage: .venv/bin/python -B pipelines/df/fetch_gdp_share.py
+Usage: uv run python -B pipelines/df/fetch_gdp_share.py
 Writes data/df/gdp-share.json
 """
 import json, subprocess

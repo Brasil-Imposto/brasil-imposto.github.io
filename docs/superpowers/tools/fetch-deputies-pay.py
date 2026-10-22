@@ -2,7 +2,7 @@
 official flat, housing allowance, diplomatic passport, missions abroad, and the quota (Ceap) and office budget used, month by
 month. One request per deputy, about one per second; resumable: deputies already in the output are skipped.
 
-Usage: .venv/bin/python docs/superpowers/tools/fetch-deputies-pay.py [YEAR]
+Usage: uv run python docs/superpowers/tools/fetch-deputies-pay.py [YEAR]
 Writes data/federal/raw-pay/deputies-pay-YEAR.jsonl (one parsed deputy per line, with the page's SHA-256; the HTML is not kept)
 and data/federal/raw-pay/deputies-in-office.json (the Câmara's list of deputies in office, from its open data API).
 """

@@ -1,6 +1,6 @@
 """Base do Tesouro "Despesas e Transferências Totais da União" (critério valor pago), um ano, todas as linhas.
 
-Uso: .venv/bin/python agg_dtt_full.py <workdir> <ano>   (precisa de openpyxl)
+Uso: uv run python agg_dtt_full.py <workdir> <ano>   (precisa de openpyxl)
 Conjunto: https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais
 Grava <workdir>/cache/dtt_full_<ano>.json.gz com PAGAMENTOS_TOTAIS somado por
 [órgão, unidade orçamentária, grupo, modalidade, ação, categoria do RTN]. Apaga o XLSX ao terminar.

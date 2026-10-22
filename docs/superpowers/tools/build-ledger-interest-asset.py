@@ -2,7 +2,7 @@
 (data/ledger/ledger.duckdb, phase 1): accrual (RTN, the interest that ran) and cash (DTT group 2, the interest paid),
 each month in reais, with the source releases behind them (title, publisher, url, SHA-256).
 
-Usage: .venv/bin/python docs/superpowers/tools/build-ledger-interest-asset.py
+Usage: uv run python docs/superpowers/tools/build-ledger-interest-asset.py
 Writes docs/superpowers/previews/assets/bi-ledger-interest.js (window.BI_LEDGER_INTEREST). Stops unless every month from
 the first to the last has both bases and the yearly sums equal the ledger's own sums to the cent."""
 import json

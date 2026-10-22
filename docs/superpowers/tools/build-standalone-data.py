@@ -2,7 +2,7 @@
 
 Chrome blocks fetch() and local ES-module imports on file:// pages, but classic <script src> works. Flags used as
 WebGL textures are inlined as data URIs, because an image loaded from file:// would taint the canvas.
-Run: .venv/bin/python docs/superpowers/tools/build-standalone-data.py
+Run: uv run python docs/superpowers/tools/build-standalone-data.py
 Every input the page reads is required: a missing file stops the build with the name of the script that writes it.
 """
 import base64

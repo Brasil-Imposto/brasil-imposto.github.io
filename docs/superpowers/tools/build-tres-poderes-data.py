@@ -9,7 +9,7 @@ Constitucional do DF (unit 73901) and the court orders paid for personnel (unit 
 People: data/federal/servants-by-branch.json (each count with its own date and source) and the Congress quotas from
 data/federal/federal-section.json. Anything the project has not collected is listed per node in "to_collect", never filled.
 
-Usage: .venv/bin/python docs/superpowers/tools/build-tres-poderes-data.py [YEAR] [LAST_MONTH]
+Usage: uv run python docs/superpowers/tools/build-tres-poderes-data.py [YEAR] [LAST_MONTH]
 Writes docs/superpowers/previews/assets/tres-poderes-data.js
 """
 import collections, gzip, json, sys

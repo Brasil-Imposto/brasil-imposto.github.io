@@ -21,7 +21,7 @@ Como rodar (nenhuma chave, nenhum login; os downloads ficam fora do repositório
 
 ```bash
 export POLITICIANS_WORK=/tmp/politicians-work
-cd ~/Documents/Brasil-Imposto/pipelines/politicians
+cd "$(git rev-parse --show-toplevel)/pipelines/politicians"
 python3 build_union.py
 python3 build_governors.py
 python3 build_senators.py

@@ -1,9 +1,9 @@
 """Build data/bridge-comparables.json: cost per m2 of deck, in BRL of Dec 2024, for the
 Ponte Hercilio Luz restoration and comparable bridges, by two conversion methods.
 
-Run inside the working directory where download.sh saved its files:
-    bash ~/Documents/Brasil-Imposto/pipelines/bridges/download.sh
-    python3 ~/Documents/Brasil-Imposto/pipelines/bridges/build.py
+Run inside the working directory where download.sh saved its files (REPO is the repository's root):
+    bash $REPO/pipelines/bridges/download.sh
+    python3 $REPO/pipelines/bridges/build.py
 
 Method (i)  FX:  amount_LCU * (BRL per USD / LCU per USD)[year] * IPCA[Dec 2024] / IPCA[year average]
 Method (ii) PPP: amount_LCU * (BRL per intl $ / LCU per intl $)[year] * IPCA[Dec 2024] / IPCA[year average]

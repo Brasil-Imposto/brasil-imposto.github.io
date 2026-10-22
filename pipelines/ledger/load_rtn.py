@@ -1,7 +1,7 @@
 """Load the RTN Tabela 1.2 (Governo Central, monthly, R$ milhões) into the ledger: every printed line as a
 published_line, the money lines as flows (rtn_map.py), the União's payments to itself as internal_flow.
 
-Usage: .venv/bin/python pipelines/ledger/load_rtn.py
+Usage: uv run python pipelines/ledger/load_rtn.py
 The file is read once from the Tesouro, hashed while it streams and deleted at the end (registry.fetch)."""
 import hashlib
 import re

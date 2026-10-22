@@ -7,13 +7,13 @@ check able to fail (each with a control that does fail), stops the ledger contro
 Portuguese JSON keys. Two instruments prove "no visible change": the visible text of the page in 100 states and periods,
 identical before and after, and the page's generated files rebuilt from source.
 
-Situação: **plano escrito em 2026-10-21; execução nesta sessão, tarefa por tarefa, cada uma anunciada ao autor.**
+Situação: **tarefas 0 a 5 feitas em 2026-10-21; 6 a 8 na auditoria de consistência de 2026-10-22, por pull request.**
 
 ### Para quem executa
-Executar na ordem, marcando as caixas. Sem git (D54): no lugar do commit, cada tarefa termina com as provas e com uma linha no
-registro (seção "Registro da execução" no fim). Execução pelo mesmo agente, sem subagentes. O código de cada passo é escrito
-contra o arquivo lido na hora; cada achado está descrito, com arquivo e linha, nos anexos da auditoria
-(`docs/research/audit/BRASIL-IMPOSTO_AUDIT_cleanup-*_2026-10-14.md`). Todo comando roda em `~/Documents/Brasil-Imposto`.
+Executar na ordem, marcando as caixas. Cada tarefa entra por pull request, com as provas na descrição, e ganha uma linha no
+registro (seção "Registro da execução" no fim); as tarefas 0 a 5 foram feitas antes de o projeto ir ao git (D54, D147). Execução pelo mesmo agente, sem subagentes. O código de cada passo é escrito
+contra o arquivo lido na hora; cada achado está descrito, com arquivo e linha, nos anexos da auditoria de 2026-10-14, que ficam
+fora do git com as notas de trabalho do autor (D147). Todo comando roda na raiz do repositório.
 Cópia do projeto de antes da fase 1: `private/snapshots/brasil-imposto-before-cleanup-phase-1_2026-10-21.tar.gz`.
 
 ### Objetivo
@@ -50,7 +50,7 @@ checagens que podem falhar, chaves em inglês.
 2. **Arquivos gerados:** os quatro construtores da página (`build-cases.py`, `build-standalone-data.py`, `build-simulation.py`,
    `build-platform-preview.py`) refazem em 2026-10-21 os dez arquivos da página byte a byte (cópias no rascunho da sessão).
    Depois de cada tarefa: rodar os quatro e comparar; o que mudar tem de ser só o que a tarefa diz.
-3. **Testes do livro:** `.venv/bin/python -B -m unittest discover -s pipelines/ledger/tests` (29 testes, OK em 2026-10-21).
+3. **Testes do livro:** `uv run python -B -m unittest discover -s pipelines/ledger/tests` (29 testes, OK em 2026-10-21).
 
 ---
 

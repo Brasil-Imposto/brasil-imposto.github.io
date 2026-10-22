@@ -220,7 +220,7 @@ Segundo a ficha da contratada e o artigo técnico da UFMG apresentado no Constru
 ## 6. Como reproduzir
 
 ```bash
-SCRIPTS=~/Documents/Brasil-Imposto/pipelines/bridges
+SCRIPTS=$(git rev-parse --show-toplevel)/pipelines/bridges
 mkdir -p /tmp/bridges && cd /tmp/bridges
 bash $SCRIPTS/download.sh      # IPCA (SIDRA), câmbio e PPP (Banco Mundial), contratos de SC (~73 MB)
 python3 $SCRIPTS/build.py      # grava data/bridge-comparables.json e imprime as tabelas

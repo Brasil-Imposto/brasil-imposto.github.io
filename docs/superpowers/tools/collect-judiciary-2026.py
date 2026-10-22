@@ -6,8 +6,8 @@ Raw files live in data/federal/raw-pay/judiciary/ (see NOTES.md there for how ea
   tst/tst-2026-<mm>.csv    TST own remuneration CSV (used for names, roles and a cross-check)
   comp/*.html              composition pages (STF, STJ, TSE via Web Archive)
 If cnj/*.xlsx are missing, run the CNJ panel export first:
-  .venv/bin/python -B docs/superpowers/tools/collect-judiciary-cnj-download.py
-Run: .venv/bin/python -B docs/superpowers/tools/collect-judiciary-2026.py
+  uv run python -B docs/superpowers/tools/collect-judiciary-cnj-download.py
+Run: uv run python -B docs/superpowers/tools/collect-judiciary-2026.py
 """
 import collections, glob, html, json, re, subprocess, unicodedata
 from urllib.parse import quote

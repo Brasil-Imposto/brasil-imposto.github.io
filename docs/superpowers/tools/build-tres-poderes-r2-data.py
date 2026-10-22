@@ -13,7 +13,7 @@ Every value comes from an official page or file kept in data/federal/raw-pay/ (f
 Counts and averages of servants, military and judges come from data/federal/servants-by-branch.json.
 A value the project has not collected is "a coletar", never filled in.
 
-Usage: .venv/bin/python docs/superpowers/tools/build-tres-poderes-r2-data.py
+Usage: uv run python docs/superpowers/tools/build-tres-poderes-r2-data.py
 Writes data/federal/positions-2026.json and docs/superpowers/previews/assets/tres-poderes-r2-data.js
 """
 import csv, hashlib, html, json, re

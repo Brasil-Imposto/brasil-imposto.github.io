@@ -18,7 +18,7 @@ Check: for each house, the distinct (person, bill) authorships in the source fil
 The same run also checks a control copy with one bill dropped, which must fail (a re-run would re-download 30 years).
 Nothing is written when the check fails or the control passes.
 
-Usage: .venv/bin/python -B docs/superpowers/tools/build-tres-poderes-bills.py
+Usage: uv run python -B docs/superpowers/tools/build-tres-poderes-bills.py
 """
 import collections, csv, json, os, re, subprocess, sys, unicodedata
 from pathlib import Path

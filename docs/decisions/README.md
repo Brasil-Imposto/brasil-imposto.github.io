@@ -9,7 +9,7 @@ Mapa interativo e apartidário que mostra, com dados oficiais, como o imposto pa
 
 ## Status
 
-- **Fase:** brainstorming com prévias (D3). Grill concluído (D42); rodadas de prévias de 2026-10-02 a 2026-10-09 (D59 a D136), cada uma registrada nas decisões. A página atual é `docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html` (home aprovada, rede em espera como "Prévia", D136). Livro de fluxos: fase 1 feita (D121, D122). Foco: a v1 para publicar no GitHub (tabela "V1 para publicar no GitHub" do acompanhamento da rodada 11) e a auditoria de limpeza de 2026-10-14 (D137). Nenhum código de produção ainda; nada publicado (D54).
+- **Fase:** v1 publicada em `https://brasil-imposto.github.io` (D149), a cada mudança na `main`. Grill concluído (D42); rodadas de prévias registradas nas decisões; livro de fluxos, fase 1 feita (D121, D122). Em andamento: o site em Astro, fase B0 (D151); os dados do Judiciário (D154); a fase 1 da auditoria de limpeza, tarefas 6 a 8 (D137, D139).
 - **Início:** 2026-09-25.
 - **Datas que importam:** 1º turno das eleições em 2026-10-04 (domingo); 2º turno em 2026-10-25.
 
@@ -368,7 +368,7 @@ Mapa interativo e apartidário que mostra, com dados oficiais, como o imposto pa
 
 ## Próximo passo
 
-**Estado em 2026-10-22:** a v1 está publicada em `https://brasil-imposto.github.io` (D149), com os documentos de comunidade, os formulários de issue e o check do DCO (D148). Próximo: (0) os dados do Judiciário pela spec aprovada em D154, primeiro o que os dados do repositório permitem; (1) o logo está decidido e no site (D153), falta a imagem de prévia social; (2) o site em Astro pela sessão na nuvem, com a fase B0 aprovada (D151), e o carregamento do mapa (D152); (3) as tarefas 6 a 8 da fase 1 da auditoria de limpeza e a fase 2 do livro de fluxos, quando o autor mandar. Perguntas abertas: a seção "Perguntas em aberto" acima.
+**Estado em 2026-10-22:** a v1 está publicada em `https://brasil-imposto.github.io` (D149), com os documentos de comunidade, os formulários de issue e o check do DCO (D148). Feito desde então: o logo e a imagem de prévia social (D153, #37 e #42); o cabeçalho, o rodapé e o carregamento do mapa (D152, #27, #28 e #31); no Judiciário, o que os dados do repositório permitem (D154, #40 e #41). Próximo: (0) a coleta nova do Judiciário, que espera os sites dos tribunais (Q78); (1) o resto da fase B0 do site em Astro (D151); (2) as tarefas 6 a 8 da fase 1 da auditoria de limpeza e a fase 2 do livro de fluxos, quando o autor mandar. Perguntas abertas: a seção "Perguntas em aberto" acima.
 
-**Se a sessão cair:** este README (decisões e perguntas), o arquivo do grill e os arquivos em `docs/research/` e `data/` são o
-estado completo.
+**Se a sessão cair:** este README (decisões e perguntas) e os arquivos em `docs/research/`, `docs/superpowers/` e `data/` são o
+estado completo no repositório.

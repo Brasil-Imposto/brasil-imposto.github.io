@@ -1,6 +1,6 @@
 # Brasil-Imposto: cabeçalho único, rodapé e carregamento do mapa
 
-Status: **aprovada (D152, 2026-10-22); cabeçalho feito (PR #27), rodapé feito (PR #28), o carregamento falta.** Escolhas do mantenedor: cabeçalho A (barra fixa), carregamento L1 (progresso real) e o rodapé como desenhado. Vale para as três páginas publicadas: Início, Os 3 Poderes e Como o dinheiro anda.
+Status: **aprovada (D152, 2026-10-22); cabeçalho feito (PR #27), rodapé feito (PR #28), carregamento feito (PR #31).** Escolhas do mantenedor: cabeçalho A (barra fixa), carregamento L1 (progresso real) e o rodapé como desenhado. Vale para as três páginas publicadas: Início, Os 3 Poderes e Como o dinheiro anda.
 
 ### Summary (English)
 

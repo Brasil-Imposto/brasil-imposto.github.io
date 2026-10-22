@@ -273,7 +273,7 @@ Todas as consultas em 2026-10-06, de um computador fora do Brasil.
 ## 13. Como reproduzir
 
 ```bash
-W=$(mktemp -d); S=~/Documents/Brasil-Imposto/pipelines/works
+W=$(mktemp -d); S=$(git rev-parse --show-toplevel)/pipelines/works
 python3 $S/build_florianopolis_bypass.py $W --fetch     # TCU, ANTT, DFP, SIOP, IBGE, CVM, CNPJ.ws, TSE, Commons (cerca de 5 MB depois de converter os PDFs em texto)
 python3 $S/build_florianopolis_bypass.py $W             # 18 checagens; grava data/works/florianopolis-bypass.json
 python3 $S/build_florianopolis_bypass.py $W --control   # planta R$ 500 no Quadro 1 do TA 002/2020: tem de falhar e não gravar
