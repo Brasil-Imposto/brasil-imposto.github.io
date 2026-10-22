@@ -1,0 +1,140 @@
+{
+ "_about": "English names for the identifier keys of data/ (phase B0, D151, issue #8). Keys are per file; 'key@parent' renames the key only inside the list or object named parent. Official labels used as keys, proper names, official field names and the search terms of the works checks keep their names (see the inventory in the pull request).",
+ "data/complete-totals-2026-10-06.json": {
+  "ponte_supervision_2006_2010": "hercilio_luz_supervision_2006_2010",
+  "ponte_total_13_contracts": "hercilio_luz_total_13_contracts"
+ },
+ "data/df/atlas_public_jobs_by_uf.json": {
+  "estadual": "state",
+  "executivo_estadual": "executive_state",
+  "executivo_federal": "executive_federal",
+  "executivo_municipal": "executive_municipal",
+  "judiciario_estadual": "judiciary_state",
+  "judiciario_federal": "judiciary_federal",
+  "judiciario_municipal": "judiciary_municipal",
+  "legislativo_estadual": "legislative_state",
+  "legislativo_federal": "legislative_federal",
+  "legislativo_municipal": "legislative_municipal"
+ },
+ "data/df/federal_spending_by_uf_2024.json": {
+  "custeio_e_beneficios": "operating_costs_and_benefits",
+  "df_by_funcao": "df_by_function",
+  "df_by_orgao": "df_by_body",
+  "df_orgao_73000": "df_body_73000",
+  "inversoes": "financial_investments",
+  "investimento": "investments",
+  "not_located_by_funcao": "not_located_by_function",
+  "not_located_by_localizador": "not_located_by_locator",
+  "pessoal": "personnel"
+ },
+ "data/df/federal_spending_by_uf_2025.json": {
+  "custeio_e_beneficios": "operating_costs_and_benefits",
+  "df_by_funcao": "df_by_function",
+  "df_by_orgao": "df_by_body",
+  "df_orgao_73000": "df_body_73000",
+  "inversoes": "financial_investments",
+  "investimento": "investments",
+  "not_located_by_funcao": "not_located_by_function",
+  "not_located_by_localizador": "not_located_by_locator",
+  "pessoal": "personnel"
+ },
+ "data/df/rfb_legal_nature_2024.json": {
+  "by_natureza": "by_legal_nature"
+ },
+ "data/federal/payroll-by-uf-2024.json": {
+  "by_org_exercicio": "by_exercise_body",
+  "by_situacao_vinculo": "by_employment_status",
+  "not_in_cadastro": "not_in_registry",
+  "uf_columns_in_cadastro_header": "uf_columns_in_registry_header"
+ },
+ "data/hercilio-luz-paid-by-contract.json": {
+  "creditor_vlbruto_brl": "creditor_gross_brl"
+ },
+ "data/hercilio-luz.json": {
+  "portal_credor_ids": "portal_creditor_ids",
+  "portal_credor_names": "portal_creditor_names",
+  "total_vlbruto_all_units_computed": "total_gross_all_units_computed",
+  "total_vlestorno_all_units_computed": "total_reversed_all_units_computed"
+ },
+ "data/politicians/federal-deputies.json": {
+  "persons_with_suplente_term": "persons_with_substitute_term",
+  "suplente_terms_by_legislature": "substitute_terms_by_legislature"
+ },
+ "data/politicians/photos.json": {
+  "tse_cargo": "tse_office"
+ },
+ "data/politicians/senators.json": {
+  "persons_titular_only": "persons_holder_only",
+  "persons_with_suplente_exercise": "persons_with_substitute_exercise",
+  "titular": "holder"
+ },
+ "data/politicians/state-deputies.json": {
+  "deputado_distrital": "district_deputy",
+  "deputado_estadual": "state_deputy"
+ },
+ "data/release-dates.json": {
+  "portal_transf": "portal_transfers",
+  "portal_transf_2024": "portal_transfers_2024",
+  "emendas": "amendments"
+ },
+ "data/series/federal-payroll-by-uf.json": {
+  "aposentadorias_e_pensoes_civis": "civil_retirements_and_pensions",
+  "aposentados_e_pensionistas_2024_12": "retirees_and_pensioners_2024_12",
+  "ativo_civil": "active_civil",
+  "ativo_militar": "active_military",
+  "executivo": "executive",
+  "executivo_civil_aposentados": "executive_civil_retirees",
+  "executivo_civil_ativos": "executive_civil_active",
+  "executivo_civil_pensionistas": "executive_civil_pensioners",
+  "executivo_civil_sem_uf": "executive_civil_no_uf",
+  "executivo_civil_sentencas_e_exercicios_anteriores": "executive_civil_judgments_and_prior_years",
+  "executivo_sem_uf_by_orgao_superior_annual": "executive_no_uf_by_parent_body_annual",
+  "intra_budget_modalidade_91_excluded": "intra_budget_modality_91_excluded",
+  "investimentos": "investments",
+  "judiciario": "judiciary",
+  "legislativo": "legislative",
+  "militares_2024_01": "military_2024_01",
+  "militares_ativos": "military_active",
+  "militares_folha_central": "military_central_payroll",
+  "militares_inativos": "military_inactive",
+  "militares_pensionistas": "military_pensioners",
+  "outras_despesas_correntes": "other_current_expenses",
+  "outras_modalidades": "other_modalities",
+  "outros_poderes": "other_branches",
+  "pessoal_e_encargos": "personnel_and_charges",
+  "reformas_e_pensoes_militares": "military_retirements_and_pensions",
+  "rtn_table_1_5_pessoal_e_encargos_sociais": "rtn_table_1_5_personnel_and_social_charges",
+  "sentencas_e_precatorios": "judgments_and_court_orders",
+  "sentencas_e_precatorios_outros_poderes": "judgments_and_court_orders_other_branches",
+  "servidores_siape_2024_01": "siape_servants_2024_01",
+  "siape_uf_exercicio": "siape_uf_of_exercise",
+  "tesouro_base_rtn_pessoal": "tesouro_base_rtn_personnel",
+  "trt_de_duas_ufs": "trt_spanning_two_ufs",
+  "unidade_de_atuacao_nacional": "national_scope_unit"
+ },
+ "data/ug/mte-seguro-abono-uf-2024_hybrid.json": {
+  "conferencia_regioes_contra_pizza_millions": "regions_vs_pie_check_millions",
+  "diferenca": "difference",
+  "nao_classificado": "unclassified",
+  "nao_classificado_millions": "unclassified_millions",
+  "soma_27_ufs": "sum_27_ufs",
+  "soma_dos_rotulos": "sum_of_labels"
+ },
+ "data/works/br-470-duplicacao.json": {
+  "termos_aditivos": "amendment_terms",
+  "ultimo_ato": "last_act",
+  "apostilamentos": "annotations"
+ },
+ "data/works/sc-401-terceira-faixa.json": {
+  "dias": "days",
+  "dias_aditados": "days_added",
+  "inicio": "start",
+  "justificativa": "justification",
+  "numero": "number",
+  "observacao": "note",
+  "percentual_no_registro": "percent_in_record",
+  "reinicio": "restart",
+  "valor_aditado_brl": "amended_value_brl",
+  "data@amendments": "date"
+ }
+}
