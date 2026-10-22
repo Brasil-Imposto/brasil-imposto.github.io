@@ -63,6 +63,9 @@
   .st.no { background:#FCE9EA; color:var(--red); box-shadow:inset 0 0 0 1px #F3C6C9; }
   .st.unknown { background:#FFF4DA; color:#7A5200; box-shadow:inset 0 0 0 1px #F1DFA8; }
   .st.info { background:#EEF1F4; color:var(--muted); box-shadow:inset 0 0 0 1px #DCE2E8; font-style:normal; }
+  .st.zero { background:#F3F5F7; color:var(--faint); box-shadow:inset 0 0 0 1px #E3E7EC; font-style:normal; }
+  .blk { font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); padding:12px 0 2px; }
+  .blk span { text-transform:none; letter-spacing:0; font-weight:600; }
   .chip { display:inline-block; font-size:10.5px; font-weight:800; border-radius:6px; padding:0 6px; background:#FFF4DA; color:#7A5200; white-space:nowrap; }
   .chip.grp { background:#EEF1F4; color:var(--ink2); }
   .party { display:inline-block; font-size:11px; font-weight:800; color:#fff; background:var(--ink); border-radius:6px; padding:1px 6px; white-space:nowrap; }
@@ -207,7 +210,7 @@
   .bars-note { font-size:11.5px; color:var(--faint); margin-top:6px; line-height:1.4; }
   .bars-max { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); font-weight:700; margin-top:8px; }
   .others { list-style:none; margin:4px 0 0; padding:0; font-size:13px; } .others li { display:flex; justify-content:space-between; gap:10px; padding:6px 0; border-bottom:1px solid #EEF1F4; }
-  .others li b { white-space:nowrap; }
+  .others li span { flex:none; } .others li b { text-align:right; min-width:0; overflow-wrap:anywhere; }
   .srcs { margin:14px 0 0; font-size:11.5px; color:var(--faint); line-height:1.5; }
   .srcs a { color:inherit; }
   .cmp-grid { display:grid; gap:12px; overflow-x:auto; }
@@ -416,7 +419,7 @@
   const SIL = '<svg viewBox="0 0 40 46" aria-hidden="true"><circle cx="20" cy="15" r="9" fill="#5B6773"/><path d="M2 46c0-11 8-17 18-17s18 6 18 17z" fill="#5B6773"/></svg>';
   const ph = (x, lazy) => `<span class="ph">${SIL}${x && x.photo ? `<img src="${esc(x.photo)}" alt="" ${lazy ? 'loading="lazy"' : ''} onerror="this.remove()">` : ''}</span>`;
   const flag = (uf) => `<span class="uf"><img src="assets/state-flags/${esc(uf)}.svg" alt="">${esc(uf)}</span>`;
-  const mark = (s) => `<i class="st ${s}" aria-label="${s === 'yes' ? 'usa' : s === 'no' ? 'não usa' : s === 'info' ? 'informação' : 'não publicado'}">${s === 'yes' ? '✓' : s === 'no' ? '✗' : s === 'info' ? 'i' : '?'}</i>`;
+  const mark = (s) => `<i class="st ${s}" aria-label="${s === 'yes' ? 'usa' : s === 'no' ? 'não usa' : s === 'info' ? 'informação' : s === 'zero' ? 'sem valor na folha publicada' : 'não publicado'}">${s === 'yes' ? '✓' : s === 'no' ? '✗' : s === 'info' ? 'i' : s === 'zero' ? '0' : '?'}</i>`;
   const status = (v) => (v === true ? 'yes' : v === false ? 'no' : 'unknown');
 
   // ---------- a minister or judge: each component the institution publishes, as published (a negative is a discount)
@@ -427,14 +430,14 @@
         return { k: it.key, label: it.label, s: 'info', v: has ? `<span>${brl(it.monthly)}</span><small>por mês</small>` : '', m: 0, own: it.own,
                  nt: [(it.note || '').split('. ')[0], has ? 'não entra no total' : ''].filter(Boolean).join('; '), src: it.source };
       }
-      const s = it.uses === true || (it.monthly || 0) < 0 ? (it.monthly < 0 ? 'no' : 'yes') : it.uses === false ? 'no' : 'unknown';
-      const v = it.monthly ? `<span>${it.monthly < 0 ? '−' : ''}${brl(Math.abs(it.monthly))}</span><small>por mês</small>` : s === 'no' ? 'não recebe' : s === 'yes' ? 'sem valor publicado' : '';
+      const s = it.state === 'zero_payroll' ? 'zero' : it.uses === true || (it.monthly || 0) < 0 ? (it.monthly < 0 ? 'no' : 'yes') : it.uses === false ? 'no' : 'unknown';
+      const v = it.monthly ? `<span>${it.monthly < 0 ? '−' : ''}${brl(Math.abs(it.monthly))}</span><small>por mês</small>` : s === 'zero' ? 'sem valor na folha publicada' : s === 'no' ? 'não recebe' : s === 'yes' ? 'sem valor publicado' : '';
       const nt = it.monthly ? [it.year_total != null ? `${brl(it.year_total)} em 2026` : '', it.months ? `média de ${it.months}` : ''].filter(Boolean).join(', ')
         : s === 'unknown' ? (it.note || '').split('. ')[0] : '';
-      return { k: it.key, label: it.label, s, v, m: it.monthly || 0, own: it.own, nt, chip: 'não publicado', src: it.source };
+      return { k: it.key, label: it.label, s, v, m: it.monthly || 0, own: it.own, nt, chip: 'não publicado', src: it.source, block: it.block || null };
     });
     const total = rows.reduce((a, r) => a + r.m, 0), own = rows.filter((r) => r.own).reduce((a, r) => a + r.m, 0);
-    return { rows, total, own, partial: rows.some((r) => r.s === 'unknown'), generic: true };
+    return { rows, total, own, partial: rows.some((r) => r.s === 'unknown'), generic: true, totalLabel: x.total_label || null, totalNote: x.total_note || null, tseMonths: x.tse_months || null };
   }
 
   // ---------- one parliamentarian: salary and each allowance, with what is used and the monthly total
@@ -477,14 +480,14 @@
     return { rows, total, own, partial: rows.some((r) => (r.s === 'unknown' && r.k !== 'flat') || r.noavg) };
   }
   function dmy(d) { return d ? d.split('-').reverse().join('/') : ''; }
-  const rowHTML = (r, notes = true) => `<div class="r person${r.s === 'no' ? ' off' : ''}"><span class="lb">${esc(r.label)}</span><span class="vl">${r.s === 'unknown' ? `<span class="chip">${esc(r.chip || 'não publicado')}</span>` : r.v}</span>${mark(r.s)}${notes && r.nt ? `<span class="nt">${esc(r.nt)}</span>` : ''}</div>`;
+  const rowHTML = (r, notes = true) => `<div class="r person${r.s === 'no' || r.s === 'zero' ? ' off' : ''}"><span class="lb">${esc(r.label)}</span><span class="vl">${r.s === 'unknown' ? `<span class="chip">${esc(r.chip || 'não publicado')}</span>` : r.v}</span>${mark(r.s)}${notes && r.nt ? `<span class="nt">${esc(r.nt)}</span>` : ''}</div>`;
   const splitHTML = (M) => {
     if (M.total - M.own < 0.005) return '';  // nothing pays an office: the whole total goes to the person
     const a = M.total ? (M.own / M.total) * 100 : 100;
     return `<div class="split" aria-hidden="true"><i class="own" style="width:${a}%"></i><i class="mand" style="width:${100 - a}%"></i></div>`
       + `<div class="split-lg"><span><i class="own"></i>para a pessoa <b>${brl(M.own)}</b></span><span><i class="mand"></i>mandato e equipe <b>${brl(M.total - M.own)}</b></span></div>`;
   };
-  const totHTML = (M, label = 'Total por mês') => `<div class="tot"><span>${label}</span><b>${brl(M.total)}</b></div>${M.partial ? '<div class="tnote"><span class="chip">parcial</span> falta parte do dado; nunca uma estimativa</div>' : ''}${splitHTML(M)}`;
+  const totHTML = (M, label = 'Total por mês') => `<div class="tot"><span>${M.totalLabel || label}</span><b>${brl(M.total)}</b></div>${M.totalNote ? `<div class="tnote">${esc(M.totalNote)}</div>` : ''}${M.partial ? '<div class="tnote"><span class="chip">parcial</span> falta parte do dado; nunca uma estimativa</div>' : ''}${splitHTML(M)}`;
 
   // ---------- bills: the outcome of each one, as the shared rules classify it (bill_outcomes.py)
   const OUTC = { law: ['Virou lei', 'law'], approved: ['Aprovado, ainda sem lei', 'ok'], approved_with_another_bill: ['Aprovado junto com outro projeto', 'ok'],
@@ -637,7 +640,7 @@
     const paired = p.id === 'presidente';
     let h = `<div class="node${head ? ' head' : ''}" data-node="${p.id}" style="${paired ? `--pc:${POWER[p.power]}` : col}"><div class="hd">${ph(who)}<div style="min-width:0">`
       + `<div class="pw">${esc(p.power)}</div><div class="ttl">${esc(p.title)}</div>`;
-    if (who) h += `<div class="sub"><b>${esc(who.name)}</b>${who.party ? ` <span class="party">${esc(who.party)}</span>` : ''}${who.uf ? ' ' + esc(who.uf) : ''}${(who.role || first.role) && !p.title.toLowerCase().includes((who.role || first.role).toLowerCase()) ? ` · ${esc(who.role || first.role)}` : ''}${(who.since || first.since) ? ` · desde ${dmy(who.since || first.since)}` : ''}</div>`;
+    if (who) h += `<div class="sub"><b>${esc(who.name)}</b>${who.party ? ` <span class="party">${esc(who.party)}</span>` : ''}${who.uf ? ' ' + esc(who.uf) : ''}${(who.role || first.role) && !p.title.toLowerCase().includes((who.role || first.role).toLowerCase()) ? ` · ${esc(who.role || first.role)}` : ''}${((who.office && who.office.since) || who.since || first.since) ? ` · desde ${dmy((who.office && who.office.since) || who.since || first.since)}` : ''}</div>`;
     else if (p.count) h += `<div class="sub">${int(p.count)} ${p.count === 1 ? 'pessoa' : 'pessoas'}${p.count_note ? ' · ' + esc(p.count_note) : ''}</div>`;
     h += '</div></div>';
     if (p.group) h += `<div class="rows">${p.averages.map(([l, v]) => `<div class="r"><span class="lb">${esc(l)}</span><span class="vl">${brl(v)}</span></div>`).join('')}</div>`
@@ -776,10 +779,12 @@
     return `<div class="crumb">Os 3 Poderes › ${HOUSE_FULL[x.house]}${x.court ? ' › ' + esc(x.court) : ''} › <b>${esc(x.name)}</b></div>`
       + `<div class="p-head">${ph(x)}<div><h2>${esc(x.name)}</h2><div class="meta">${metaHTML(x)}</div>`
       + `<div class="links">${x.page ? `<a href="${esc(x.page)}" target="_blank" rel="noopener">Página oficial ↗</a>` : ''}<button type="button" data-copy>Copiar link</button><a class="fix" href="${esc(fixUrl(x))}" target="_blank" rel="noopener">Pedir correção</a></div></div></div>`
-      + `<div class="p-cols"><div class="box"><h4>Salário e cada componente pago em 2026</h4><div class="rows">${M.rows.map((r) => rowHTML(r)).join('')}</div>`
-      + `<div class="big"><span>Total por mês</span><b>${brl(M.total)}</b></div>${M.partial ? '<div class="tnote"><span class="chip">parcial</span> parte do dado não é publicada; nunca uma estimativa</div>' : ''}${splitHTML(M)}</div>`
+      + `<div class="p-cols"><div class="box"><h4>Salário e cada componente pago em 2026</h4><div class="rows">${M.rows.filter((r) => r.block !== 'tse').map((r) => rowHTML(r)).join('')}</div>`
+      + (M.rows.some((r) => r.block === 'tse') ? `<div class="blk">Pago pelo TSE <span>· média de ${esc(M.tseMonths)}</span></div><div class="rows">${M.rows.filter((r) => r.block === 'tse').map((r) => rowHTML(Object.assign({}, r, { label: r.label.replace(/^TSE: /, '') }))).join('')}</div>` : '')
+      + `<div class="big"><span>${M.totalLabel || 'Total por mês'}</span><b>${brl(M.total)}</b></div>${M.totalNote ? `<div class="tnote">${esc(M.totalNote)}</div>` : ''}${M.partial ? '<div class="tnote"><span class="chip">parcial</span> parte do dado não é publicada; nunca uma estimativa</div>' : ''}${splitHTML(M)}</div>`
       + `<div style="display:grid;gap:14px;align-content:start"><div class="box"><h4>Outros</h4><ul class="others">`
       + `${x.role ? `<li><span>Cargo</span><b>${esc(x.role)}</b></li>` : ''}${x.tse_role ? `<li><span>No TSE</span><b>${esc(x.tse_role)}</b></li>` : ''}`
+      + `${x.court_since ? `<li><span>No ${esc(x.court)} desde</span><b>${dmy(x.court_since)}</b></li>` : ''}${x.office ? `<li><span>${esc(x.office.label)} desde</span><b><a href="${esc(x.office.source)}" target="_blank" rel="noopener">${dmy(x.office.since)}</a></b></li>` : ''}`
       + `${x.since ? `<li><span>No cargo desde</span><b>${dmy(x.since)}</b></li>` : ''}${x.data_as_of ? `<li><span>Último mês publicado</span><b>${esc(x.data_as_of.split('-').reverse().join('/'))}</b></li>` : ''}</ul>`
       + `${x.note ? `<p class="bars-note">${esc(x.note)}</p>` : ''}</div></div></div>`
       + (x.office_costs ? costsSection(x) : '')
