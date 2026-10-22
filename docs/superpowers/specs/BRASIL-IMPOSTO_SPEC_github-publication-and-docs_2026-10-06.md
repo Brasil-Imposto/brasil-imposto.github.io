@@ -87,7 +87,7 @@ Tudo o que sai vai para `private/`, dentro da pasta do projeto (D1) e fora do gi
 |---|---|---|
 | Tudo o que deriva da conversa do Gemini | A conversa, a auditoria e a verificação de Florianópolis, em `docs/research/` | Arquivos inteiros para `private/`; os valores oficiais de Florianópolis continuam em `data/florianopolis.json` |
 | Candidaturas de 2026 | Feito em 2026-10-06 (D98): saíram de dois casos, de dois scripts e de duas pesquisas | Guardadas em `private/election-2026-flags.json`, para a revisão jurídica |
-| Quem só foi citado em investigação | A conferir, arquivo por arquivo: pesquisas da ponte (responsáveis), escândalos, INSS, pré-sal e DF; `data/hercilio-luz.json`, `data/cases/inss-deductions.json`, `data/home/scandals-status.json`, `pipelines/ponte/build_json.py` | Fica só quem tem papel num documento oficial, com o ato e o link (D48). O resto vai para `private/` com a indicação de onde estava |
+| Quem só foi citado em investigação | A conferir, arquivo por arquivo: pesquisas da ponte (responsáveis), escândalos, INSS, pré-sal e DF; `data/hercilio-luz.json`, `data/cases/inss-deductions.json`, `data/home/scandals-status.json`, `pipelines/hercilio_luz/build_json.py` | Fica só quem tem papel num documento oficial, com o ato e o link (D48). O resto vai para `private/` com a indicação de onde estava |
 | As citações do autor (D97) | `README.md` (tabela D), grill, `CLAUDE.md`, `docs/ai/learned-patterns.md`, `previews/src/*-notes.html` | Versões públicas sem citações; os originais em `private/` |
 | As prévias anteriores (D97) | `docs/superpowers/previews/` | Para `private/previews/` |
 

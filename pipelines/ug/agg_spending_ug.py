@@ -1,6 +1,6 @@
 """Execução da despesa do Portal da Transparência (Poder Executivo), somada com o código da unidade gestora (UG).
 
-Uso: agg_desp_ug.py <workdir> <YYYYMM>[,<YYYYMM>...] [segundos entre downloads, padrão 90]
+Uso: agg_spending_ug.py <workdir> <YYYYMM>[,<YYYYMM>...] [segundos entre downloads, padrão 90]
 Para cada mês grava <workdir>/cache/despug_YYYYMM.json.gz com a soma de valor pago, restos a pagar pagos e valor
 liquidado por [UF do localizador, código do localizador, grupo, modalidade, órgão superior, órgão subordinado, UG,
 unidade orçamentária, função, subfunção, ação, elemento]. Guarda o cabeçalho do CSV e os nomes dos códigos.

@@ -22,8 +22,8 @@
    "source_doc": "Alesc, CPI da Ponte Hercílio Luz (RQC/0016.6/2019), relatório final do relator, Apêndice A 'Atualização dos valores contratuais', tables 'Contrato PJ 170/2006 - Prosul' (pp. 1754 to 1763) and 'Contrato PJ 170/2006 - Concremat' (pp. 1763 to 1773); document of 19/12/2019; the winning vote (anexo 10772) adopts the rapporteur's report changing only pp. 1718 and 1719",
    "source_quote": "Columns 'DATA DO PAGAMENTO' and 'VALOR DO PAGAMENTO'; 'TOTAL 9.160.234,16' (Prosul) and 'TOTAL 6.106.108,71' (Concremat)",
    "collected_on": "2026-10-06",
-   "how_checked": "ponte_supervision_cpi.py: parsed payments == printed TOTAL and == sum of 'PGTOS NO MÊS' column, to the cent, per contract; 2011-2013 equal to the SC Portal SICOP vlpago of both lines to the cent (2011 split differs by R$ 110.869,79 between the two lines, explained: the extract books a Prosul payment under the Concremat line); 2014 Concremat equal to the Portal creditor view (R$ 479.649,53); --control (+R$ 0,01) fails",
-   "script": "pipelines/complete_totals/ponte_supervision_cpi.py",
+   "how_checked": "hercilio_luz_supervision_cpi.py: parsed payments == printed TOTAL and == sum of 'PGTOS NO MÊS' column, to the cent, per contract; 2011-2013 equal to the SC Portal SICOP vlpago of both lines to the cent (2011 split differs by R$ 110.869,79 between the two lines, explained: the extract books a Prosul payment under the Concremat line); 2014 Concremat equal to the Portal creditor view (R$ 479.649,53); --control (+R$ 0,01) fails",
+   "script": "pipelines/complete_totals/hercilio_luz_supervision_cpi.py",
    "tce_sc_19_4_note": "TCE-SC news of 19/10/2015 says R$ 19,4 milhões were paid to the supervision consortium; that equals the contract value with the 2010 and 2012 amendments (R$ 19.436.343,14), not the payments (R$ 15.266.342,87 in total). Not used."
   },
   "ponte_total_13_contracts": {
@@ -45,7 +45,7 @@
    "source_quote": "CPI Apêndice A totals: PJ 170/2006 Prosul 9.160.234,16; Concremat 6.106.108,71; PJ 264/2008 63008872,09; the other ten contracts from data/hercilio-luz-paid-by-contract.json (Portal SICOP extracts); PJ 015/2006 TEC 11.957.532,70 (VALOR TOTAL) and Roca 11.957.530,83 (TOTAL), Apêndice A",
    "collected_on": "2026-10-07",
    "how_checked": "build_paid_by_contract.py: pass 1 Decimal contract by contract (Portal payment lines, CPI payment lines, PJ 015/2006 VALOR MEDIDO column), pass 2 integer cents (Portal vlpago grand total with the three pre-2011 contracts swapped for the CPI PGTOS NO MÊS columns, plus the same column of PJ 015/2006); equal to the cent; every CPI table equals its own TOTAL line; --control fails.",
-   "script": "pipelines/ponte/build_paid_by_contract.py (total_paid_2006_2020_brl in data/hercilio-luz-paid-by-contract.json)",
+   "script": "pipelines/hercilio_luz/build_paid_by_contract.py (total_paid_2006_2020_brl in data/hercilio-luz-paid-by-contract.json)",
    "not_included": [
     "DL-00001/2618-2019 (RMG, R$ 1.451.313,01 pagos em 2019, supervisão fora do escopo do PJ-00093/2016): registro à parte (related_records), fora desta soma até decisão do autor.",
     "Pagamentos que não estão ligados ao contrato no extrato (PJ-00060/2019, R$ 16.002,61) e obras da ponte antes de 2006 ou depois de 2019: fora do escopo."

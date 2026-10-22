@@ -198,6 +198,6 @@ Ressalvas:
 | 2 | Aposentados e pensionistas do Judiciário por ramo | Não encontrado em fonte consolidada; cada tribunal publica o Anexo I (ex.: TRF3, por seção judiciária), seria preciso juntar cerca de 90 arquivos |
 | 3 | MPU por ramo | Não pesquisado |
 | 4 | Por que o Executivo perdeu 25.406 aposentados de julho de 2024 para julho de 2025 no RPPS | Não explicado nas páginas lidas |
-| 5 | Por que o Executivo tem 663.308 ativos no RPPS e o SIAPE de agosto de 2026 tem 471.127 servidores em exercício (`data/df/segrt_servidores_uf_202608.json`) | Não conciliado; o RPPS inclui BCB, ABIN, DPU, ex-territórios e órgãos fora do SIAPE, mas a diferença é grande demais para fechar sem a base |
+| 5 | Por que o Executivo tem 663.308 ativos no RPPS e o SIAPE de agosto de 2026 tem 471.127 servidores em exercício (`data/df/segrt_servants_uf_202608.json`) | Não conciliado; o RPPS inclui BCB, ABIN, DPU, ex-territórios e órgãos fora do SIAPE, mas a diferença é grande demais para fechar sem a base |
 | 6 | Policiais e bombeiros do DF pagos pelo FCDF | Sem quantidade de pessoas nas fontes lidas (só valores atuariais) |
 | 7 | Deputados e senadores aposentados: de que plano vêm (o extinto IPC e o PSSC, Lei 9.506/1997) | Não conferido na fonte nesta pesquisa |

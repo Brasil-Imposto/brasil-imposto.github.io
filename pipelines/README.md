@@ -16,8 +16,8 @@ Os downloads brutos somam cerca de 150 MB compactados e **não** ficam no reposi
 SCRIPTS="$(git rev-parse --show-toplevel)/pipelines"   # rode este comando de dentro do repositório
 mkdir -p /tmp/uf-data && cd /tmp/uf-data
 bash $SCRIPTS/download.sh
-python3 $SCRIPTS/agg_transf.py 2024
-python3 $SCRIPTS/agg_desp.py 2024
+python3 $SCRIPTS/agg_transfers.py 2024
+python3 $SCRIPTS/agg_spending.py 2024
 python3 $SCRIPTS/agg_fcdf.py
 python3 $SCRIPTS/build_direct.py
 python3 $SCRIPTS/build.py
@@ -33,8 +33,8 @@ python3 $SCRIPTS/checks.py
 | # | Script | Entradas (no diretório de trabalho) | Saídas |
 |---|---|---|---|
 | 1 | `download.sh` | nenhuma | `arrecadacao-estado.csv`, `serie-1994-2025.xlsx`, `transf/2024MM.zip`, `desp/2024MM.zip`, `tt/*.csv`, `aeps_2024.zip` e `aeps/`, `pbf_2024.csv`, `ibge_pop.json`, `ibge_pib.json` |
-| 2 | `agg_transf.py 2024` | `transf/2024MM.zip` | `transf_agg_2024.json` (soma por UF, tipo, favorecido, função, ação, modalidade) |
-| 3 | `agg_desp.py 2024` | `desp/2024MM.zip` | `desp_agg_2024.json` (valor pago e restos a pagar pagos por UF, órgão, grupo, modalidade, ação, localizador) |
+| 2 | `agg_transfers.py 2024` | `transf/2024MM.zip` | `transf_agg_2024.json` (soma por UF, tipo, favorecido, função, ação, modalidade) |
+| 3 | `agg_spending.py 2024` | `desp/2024MM.zip` | `desp_agg_2024.json` (valor pago e restos a pagar pagos por UF, órgão, grupo, modalidade, ação, localizador) |
 | 4 | `agg_fcdf.py` | `desp/2024MM.zip` | `fcdf_2024.json` (Fundo Constitucional do DF, UO 73901) |
 | 5 | `build_direct.py` | `aeps/`, `pbf_2024.csv`, `fcdf_2024.json` | `sources.json`, `direct_2024.json` |
 | 6 | `build.py` | `arrecadacao-estado.csv`, `ibge_pop.json`, `transf_agg_2024.json`, `tt/lc176*.csv`, `direct_2024.json`, `sources.json` | `data/uf-balance-2024.json` (no repo), `transf_excluded_2024.json` |

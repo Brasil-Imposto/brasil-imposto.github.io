@@ -2,7 +2,7 @@
 and the 2014 payments of the supervision contract PJ-170/2006 read from the ALESC CPI final report.
 
 Inputs (read only): data/hercilio-luz-paid-by-contract.json (Portal SICOP net paid per contract, 2011-2020) and the
-output of ponte_supervision_cpi.py (run here). Pass 1: Decimal sum contract by contract, using the CPI table total for
+output of hercilio_luz_supervision_cpi.py (run here). Pass 1: Decimal sum contract by contract, using the CPI table total for
 the three contracts that started before 2011. Pass 2: integer cents, starting from the Portal grand total and swapping
 the Portal amounts of those three contracts for the CPI totals. Both passes must agree to the cent.
 --control adds R$ 0,01 to one contract in pass 1; the check must then fail (exit 1).
@@ -21,7 +21,7 @@ CPI_NAMES = {"PJ-00170/2006": "Concremat", "PJ-00170/2006/PROSUL": "Prosul", "PJ
 def main():
     control = "--control" in sys.argv
     portal = json.loads((ROOT / "data" / "hercilio-luz-paid-by-contract.json").read_text(encoding="utf-8"))
-    run = subprocess.run([sys.executable, str(HERE / "ponte_supervision_cpi.py")], capture_output=True, text=True)
+    run = subprocess.run([sys.executable, str(HERE / "hercilio_luz_supervision_cpi.py")], capture_output=True, text=True)
     if run.returncode != 0:
         print("CPI check failed:", run.stdout[-500:], run.stderr[-500:])
         sys.exit(1)

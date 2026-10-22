@@ -1,6 +1,6 @@
 """Gasto direto da União por UF do localizador (Portal da Transparência, Execução da Despesa).
 
-Uso: agg_desp_uf.py <workdir> <YYYYMM>[,<YYYYMM>...] [segundos entre downloads, padrão 90]
+Uso: agg_spending_uf.py <workdir> <YYYYMM>[,<YYYYMM>...] [segundos entre downloads, padrão 90]
 Para cada mês grava <workdir>/cache/despuf_YYYYMM.json com a soma de valor pago, restos a pagar pagos e liquidado por
 [UF, código do localizador (só quando a UF está vazia), grupo de despesa, modalidade, órgão superior, função].
 O ZIP bruto é apagado assim que o mês é somado. Meses já somados são pulados (retoma de onde parou).

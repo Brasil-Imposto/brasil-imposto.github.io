@@ -11,13 +11,13 @@ Audit of 2026-10-06 (cases, A1 and A2): the first stage of the restoration, cont
 2006 to 2009), is in neither the Portal nor the SIGEF register, but the ALESC CPI final report prints its payment tables
 (Apêndice A, one per member of the consortium) and its signed value (item 6.11). The total paid 2006 to 2020 is read
 contract by contract (D95): the ten contracts that start in 2011 or later from the Portal extracts, PJ-170/2006 (two
-lines) and PJ-264/2008 from their CPI tables (read with the parser of pipelines/complete_totals/ponte_supervision_cpi.py),
+lines) and PJ-264/2008 from their CPI tables (read with the parser of pipelines/complete_totals/hercilio_luz_supervision_cpi.py),
 and PJ 015/2006 from its two CPI tables. Pass 1 sums payment lines in Decimal; pass 2 starts from the Portal "vlpago"
 summaries in integer cents and swaps in the CPI "PGTOS NO MÊS" columns; both must agree, and each CPI table must equal its
 printed TOTAL. The initial contract of the work is the signed value of the first contracts (2006 to 2008), never the
 sum of a rescinded contract and the one that replaced it. --control also adds R$ 0,01 to the first PJ 015/2006 line.
 The CPI PDF (9 MB) is read in a temporary folder deleted at once, unless --cpi-pdf points to a local copy.
-Usage: python3 pipelines/ponte/build_paid_by_contract.py [--from-dir DIR] [--cpi-pdf FILE] [--control]
+Usage: python3 pipelines/hercilio_luz/build_paid_by_contract.py [--from-dir DIR] [--cpi-pdf FILE] [--control]
 """
 import json, re, shutil, subprocess, sys, tempfile, urllib.request
 from collections import defaultdict
@@ -245,7 +245,7 @@ def main():
     text = cpi_text(cpi_pdf)
     flat = ' '.join(text.split())
     sys.path.insert(0, str(ROOT / 'pipelines' / 'complete_totals'))
-    from ponte_supervision_cpi import parse as cpi_parse, SECTIONS as CPI_SECTIONS
+    from hercilio_luz_supervision_cpi import parse as cpi_parse, SECTIONS as CPI_SECTIONS
     cpi_problems = []
 
     def quote(q):
@@ -330,7 +330,7 @@ def main():
         'source': {'doc': 'Extrato SICOP de cada contrato ("contratoResumoFinanceiro" e "contratoPagamento"), Portal da Transparência do Poder Executivo de SC',
                    'api': API + '<NUTITULO>',
                    'nutitulo_from': {'doc': 'Registro de contratos SIGEF/SICOP, CGE-SC, coluna NUTITULO', 'url': REGISTER, 'read_on': COLLECTED},
-                   'script': 'pipelines/ponte/build_paid_by_contract.py'},
+                   'script': 'pipelines/hercilio_luz/build_paid_by_contract.py'},
         'method': [
             'Pago por contrato = soma de todas as linhas de "contratoPagamento" do extrato (despesa paga, retenções de ISS, IRRF, INSS e caução, e estornos com sinal negativo). Em cada contrato e cada ano, essa soma é igual ao "vlpago" do "contratoResumoFinanceiro", ao centavo.',
             'paid_brl = soma das linhas positivas; reversed_brl = soma das linhas negativas (estornos), em valor absoluto; net_paid_brl = paid_brl - reversed_brl = soma do "vlpago" anual.',

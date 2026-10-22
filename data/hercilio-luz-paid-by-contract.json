@@ -8,7 +8,7 @@
    "url": "https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv",
    "read_on": "2026-10-05"
   },
-  "script": "pipelines/ponte/build_paid_by_contract.py"
+  "script": "pipelines/hercilio_luz/build_paid_by_contract.py"
  },
  "method": [
   "Pago por contrato = soma de todas as linhas de \"contratoPagamento\" do extrato (despesa paga, retenções de ISS, IRRF, INSS e caução, e estornos com sinal negativo). Em cada contrato e cada ano, essa soma é igual ao \"vlpago\" do \"contratoResumoFinanceiro\", ao centavo.",

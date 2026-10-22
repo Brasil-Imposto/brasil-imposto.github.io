@@ -182,7 +182,7 @@ def main(rows_path, cnpj_dir, pay_path, out, csv_path=None):
     payments = {
         "source": {"doc": "Portal da Transparência do Poder Executivo de SC, consulta Fornecedores (SIGEF, Secretaria de Estado da Fazenda)",
                    "url": "https://www.transparencia.sc.gov.br/fornecedores", "api": pay["api"], "collected_on": COLLECTED,
-                   "script": "pipelines/ponte/payments.py"},
+                   "script": "pipelines/hercilio_luz/payments.py"},
         "coverage": "2011 em diante (2008 a 2010 vazios no Portal)",
         "fields": {"vlbruto": "Valor bruto recebido pelo credor", "vlretido": "Valor retido", "vlliquido": "valor líquido (campo do Portal)",
                    "vlestorno": "Valor estornado (valor devolvido)"},

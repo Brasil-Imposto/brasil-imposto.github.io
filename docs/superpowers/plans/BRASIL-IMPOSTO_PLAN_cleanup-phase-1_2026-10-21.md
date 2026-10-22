@@ -82,9 +82,9 @@ checagens que podem falhar, chaves em inglês.
   `federal-section-2026-01-07.json` (o único leitor é `build-post-grill-data.py`, que vai junto); `ug-balance-2024.json` e
   `_hybrid.json` com os seus construtores (`build_ug_balance.py`, `build_ug_balance_hybrid.py`, `report_ug_tables.py`,
   `bridge_portal_tesouro.py`, P1-11); `data/criciuma-fleet.json` com `fleet_case()` de `build-cases.py` (P2-19).
-- [ ] (movido para a fase 2, ver "Fora desta fase") Pesquisa avulsa em `data/df/` (P1-19): os seis scripts (`q2_gasto_por_uf.py`, `q4_local.py`, `rfb_df_breakdown.py`,
-  `rfb_natureza.py`, `atlas_vinculos_uf.py`, `agg_desp_uf.py`) e as suas saídas; os relatórios de 2024 da raiz (`recon.py`,
-  `tables.py`, `checks.py`, `agg_desp.py`, P1-22) se a busca der zero; `series/agg_uorg_uf.py` e a sua saída (P1-10).
+- [ ] (movido para a fase 2, ver "Fora desta fase") Pesquisa avulsa em `data/df/` (P1-19): os seis scripts (`federal_spending_by_uf.py`, `q4_local.py`, `rfb_df_breakdown.py`,
+  `rfb_legal_nature.py`, `atlas_public_jobs_by_uf.py`, `agg_spending_uf.py`) e as suas saídas; os relatórios de 2024 da raiz (`recon.py`,
+  `tables.py`, `checks.py`, `agg_spending.py`, P1-22) se a busca der zero; `series/agg_uorg_uf.py` e a sua saída (P1-10).
 - [ ] Gemini (E1, D97 item 4): os três documentos de `docs/research/` que derivam da conversa vão para `private/`.
 - [ ] Ponteiros: todo caminho de arquivo movido citado em `README.md`, `CLAUDE.md`, `docs/**/*.md` é reescrito para o caminho novo;
   prova: busca dos caminhos antigos dá zero.

@@ -4,7 +4,7 @@ Usage: .venv/bin/python pipelines/federal/build_federal_section.py 2026 1 7 [--c
 Inputs (already in the project):
   data/series/union.json                     Union accounts (Tesouro RTN, BCB)
   data/ug/cache/dtt_monthly_YYYY.json.gz     Tesouro base "Despesas e Transferências Totais da União" (agg_dtt_monthly.py)
-  data/df/segrt_servidores_uf_202608.json    Executive civil servants in exercise by state (Ministério da Gestão, SIAPE)
+  data/df/segrt_servants_uf_202608.json    Executive civil servants in exercise by state (Ministério da Gestão, SIAPE)
   data/federal/raw/camara-ceap-YYYY.csv.zip  Câmara, Cota para o Exercício da Atividade Parlamentar (CEAP)
   data/federal/raw/senado-ceaps-YYYY.csv     Senado, Cota para o Exercício da Atividade Parlamentar dos Senadores (CEAPS)
   data/federal/raw/EmendasParlamentares.zip  Portal da Transparência, emendas parlamentares (all years)
@@ -77,7 +77,7 @@ congress = {h: {"total": R(sum(p.values())), "by_group": {k: R(v) for k, v in p.
                 "per_member_month": round(sum(p.values()) / 100 / seats[h] / len(MONTHS), 2)} for h, p in house.items()}
 
 # ---------- executive civil servants in exercise (count)
-sv = json.load(open(P("data/df/segrt_servidores_uf_202608.json")))
+sv = json.load(open(P("data/df/segrt_servants_uf_202608.json")))
 servants = {"month": sv["month"], "total": sum(sv["by_uf"].values()), "df": sv["by_uf"]["DF"], "source": sv["source"]}
 
 # ---------- parliamentary quotas

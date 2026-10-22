@@ -1,6 +1,6 @@
 # Ponte Hercílio Luz: quanto foi pago, contrato por contrato
 
-Coleta: 05/10/2026. Serve à decisão D91, D92 e D93 (primeiro número do cartão do caso: "Total gasto", lido por contrato e não por empresa). Dados: `data/hercilio-luz-paid-by-contract.json`. Script: `pipelines/ponte/build_paid_by_contract.py` (checagem ao centavo; `--control` tem de falhar).
+Coleta: 05/10/2026. Serve à decisão D91, D92 e D93 (primeiro número do cartão do caso: "Total gasto", lido por contrato e não por empresa). Dados: `data/hercilio-luz-paid-by-contract.json`. Script: `pipelines/hercilio_luz/build_paid_by_contract.py` (checagem ao centavo; `--control` tem de falhar).
 
 ## Resposta
 
