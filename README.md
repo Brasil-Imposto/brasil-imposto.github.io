@@ -28,6 +28,9 @@ python3 docs/superpowers/tools/build-simulation.py
 python3 docs/superpowers/tools/build-platform-preview.py
 ```
 
+Os pipelines de `pipelines/` e os testes usam Python 3.12 com as versões fixadas em `uv.lock`: instale o
+[uv](https://docs.astral.sh/uv/) e rode `uv sync --locked`, depois `uv run python -m unittest discover -s pipelines/tests`.
+
 Depois, abra os arquivos das páginas acima no navegador pelo caminho do arquivo. Os pacotes `assets/bi-data.js` e
 `assets/bi-geo*.js` não ficam no repositório: são refeitos por esses comandos a partir de `data/`. O último comando monta a
 página como ela vai ao site; com `--author-notes`, monta também as notas de trabalho da prévia num arquivo à parte, que não vai

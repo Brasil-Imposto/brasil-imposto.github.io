@@ -5,7 +5,7 @@ Reproduzem `data/uf-balance-2024.json` e as tabelas do relatório `docs/research
 ## Pré-requisitos
 
 - `bash`, `curl`, `unzip`, Python 3.
-- `openpyxl` (só para `build_direct.py`, `recon.py` e a seção 4 de `checks.py`): `python3 -m venv .venv && .venv/bin/pip install openpyxl`.
+- Python 3.12 com as versões fixadas em `uv.lock` (`openpyxl` é usado por `build_direct.py`, `recon.py` e a seção 4 de `checks.py`): na raiz do repositório, `uv sync --locked`, que cria `.venv/`.
 - Nenhuma chave de API, nenhum login.
 
 ## Como rodar
@@ -26,7 +26,7 @@ python3 $SCRIPTS/tables.py
 python3 $SCRIPTS/checks.py
 ```
 
-(`python3` com `openpyxl` instalado; se usar o venv, troque por `.venv/bin/python`.)
+(`python3` com `openpyxl` instalado; com o ambiente do `uv`, troque por `.venv/bin/python`.)
 
 ## Ordem, entradas e saídas
 

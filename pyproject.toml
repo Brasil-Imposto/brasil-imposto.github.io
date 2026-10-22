@@ -1,0 +1,17 @@
+# The Python side of Brasil-Imposto: the pipelines, the preview builders and their tests. Not a package; uv installs the
+# pinned dependencies from uv.lock (`uv sync --locked`).
+[project]
+name = "brasil-imposto"
+version = "1.0.0"
+description = "Quanto cada estado envia e recebe da União, com dados oficiais e código aberto."
+license = "AGPL-3.0-only"
+requires-python = "==3.12.*"
+dependencies = [
+    "duckdb==1.5.6",
+    "jsonschema==4.26.0",
+    "openpyxl==3.1.5",
+    "xlrd==2.0.1",
+]
+
+[tool.uv]
+package = false
