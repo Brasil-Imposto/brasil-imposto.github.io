@@ -75,6 +75,8 @@ Qualquer página portada para o Astro (fases B1 a B4), o three.js, o mapa SVG, a
 
 ## 6. Perguntas para o mantenedor
 
+**Respondidas em 2026-10-22 (D151): o mantenedor aceitou a recomendação das sete.** A fase B0 está aprovada.
+
 1. **Versão do Node.** Recomendo a 24 (LTS), que cumpre o mínimo do Astro 7.4.2 (22.23.4) e fica em suporte por mais tempo.
 2. **Gerenciador de pacotes.** Recomendo o npm, que já vem com o Node: uma ferramenta a menos para quem contribui.
 3. **Onde ficam os JSON de entidade.** Recomendo gerá-los no build, a partir de `data/`, sem versionar: o repositório não cresce
