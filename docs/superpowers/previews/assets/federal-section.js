@@ -74,7 +74,7 @@
         body: `<h4 class="fsub">Quem trabalha hoje (servidores e militares na ativa)</h4>` + bars(kindItems('active'), 0, '#5B3A9E')
           + `<h4 class="fsub">Aposentados e pensionistas</h4><p class="fnote">Pagos pela União no regime próprio dos servidores, não pelo INSS. Nos militares: reserva, reforma e pensões.</p>` + bars(kindItems('retired_and_pensioners'), 0, '#8A6BB8')
           + `<p class="fnote">Mais ${bi(PKT.court_orders)} em sentenças judiciais de pessoal (Executivo).</p>`
-          + `<div class="fstats"><div><span>Servidores civis do Executivo</span><b>${nf(F.executive_civil_servants.total)}</b><small>em exercício em ${dt(F.executive_civil_servants.month)}; ${nf(F.executive_civil_servants.df)} no DF</small></div><div><span>Acima do teto</span><div class="missing">Dado a coletar: remuneração mensal dos servidores, Portal da Transparência.</div></div></div>`
+          + `<div class="fstats"><div><span>Servidores civis do Executivo</span><b>${nf(F.executive_civil_servants.total)}</b><small>em exercício em ${dt(F.executive_civil_servants.month)}; ${nf(F.executive_civil_servants.df)} no DF</small></div><div><span>Acima do teto</span><div class="missing">Não publicado: remuneração mensal dos servidores, Portal da Transparência.</div></div></div>`
           + (SB.executive_civil ? `<p class="fnote">Os dois números de servidores civis do Executivo vêm de fontes diferentes: ${nf(SB.executive_civil.active)} na ativa é a contagem do regime próprio de previdência em ${monthFull(SB.executive_civil.as_of)}, que inclui órgãos fora do SIAPE (DPU, ABIN e Banco Central); ${nf(F.executive_civil_servants.total)} é o SIAPE do Ministério da Gestão, servidores em exercício em ${monthFull(F.executive_civil_servants.month)}.</p>` : ''),
         src: [['tesouro_base', 'Tesouro'], ['siape', 'Ministério da Gestão']].concat(SV ? [['rpps_actuarial', 'quantidades: Previdência e Defesa']] : []) },
       pessoa: { title: 'Quanto ganha cada pessoa', sub: 'por mês, em média, em cada Poder', icon: IC.serv, wide: true, tab: top ? `${brl(top[2])}, ${top[0]}` : '',
@@ -110,7 +110,7 @@
         ${row('', '=', 'Ficou com a União', '', bi(U.revenue_net))}
         ${row('', '−', 'Gastou', 'despesa primária', bi(U.primary_spending))}
         ${inner('Dentro do que gastou, entre outros:', '', '')}
-        ${inner('Salários de quem trabalha hoje, todos os Poderes', `${nf(F.executive_civil_servants.total)} servidores civis do Executivo em exercício (${dt(F.executive_civil_servants.month)}); acima do teto: dado a coletar`, bi(PKT.active))}
+        ${inner('Salários de quem trabalha hoje, todos os Poderes', `${nf(F.executive_civil_servants.total)} servidores civis do Executivo em exercício (${dt(F.executive_civil_servants.month)}); acima do teto: não publicado`, bi(PKT.active))}
         ${kindItems('active').sort((a, b) => b[2] - a[2]).map(([l, , v]) => inner(l, '', bi(v), 'inner2')).join('')}
         ${inner('Aposentadorias e pensões de servidores e militares', 'regime próprio dos servidores, não é o INSS', bi(PKT.retired_and_pensioners))}
         ${kindItems('retired_and_pensioners').sort((a, b) => b[2] - a[2]).map(([l, , v]) => inner(l, '', bi(v), 'inner2')).join('')}

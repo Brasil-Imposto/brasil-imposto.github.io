@@ -1111,10 +1111,10 @@ return { createModals };
     heroEl.querySelector('.data-chip').classList.toggle('warn', broken || gap || pending || est || !!sda);
     const notes = [];
     if (est && note) notes.push(note.text);
-    if (sda) notes.push(`Benefícios pagos a pessoas do país inteiro por uma unidade central (seguro-desemprego, abono e, em 2020 e 2021, auxílio emergencial e BEm) contam no estado quando o arquivo diz qual é; seguro-desemprego e abono, também no ano inteiro em que o Ministério do Trabalho publica por estado (hoje, 2024). Neste período, ${bi(sda.centralWithoutState)} ficam com a União (GD16, D115).`);
+    if (sda) notes.push(`Benefícios pagos a pessoas do país inteiro por uma unidade central (seguro-desemprego, abono e, em 2020 e 2021, auxílio emergencial e BEm) contam no estado quando o arquivo diz qual é; seguro-desemprego e abono, também no ano inteiro em que o Ministério do Trabalho publica por estado (hoje, 2024). Neste período, ${bi(sda.centralWithoutState)} ficam com a União.`);
     if (U) {
       const P = U.ret.parts.slice().sort((a, b) => b.value - a.value); const pt = tenths(P.map((x) => x.value), rU * 1e8);
-      notes.push(`União, ${U.label}: o que não tem estado é da União (D115). Entrou sem estado ${biT(sU)}: arrecadação federal que o arquivo da Receita não põe em nenhum estado. Pago sem estado ${biT(rU)} = ${P.map((x, i) => `${x.label} ${biT(pt[i])}`).join(' + ')}. Somados aos 27 estados, os dois lados dão o total oficial: a arrecadação da Receita Federal e a despesa mais os repasses do Tesouro (RTN, o mesmo de "As contas do Brasil").`);
+      notes.push(`União, ${U.label}: o que não tem estado é da União. Entrou sem estado ${biT(sU)}: arrecadação federal que o arquivo da Receita não põe em nenhum estado. Pago sem estado ${biT(rU)} = ${P.map((x, i) => `${x.label} ${biT(pt[i])}`).join(' + ')}. Somados aos 27 estados, os dois lados dão o total oficial: a arrecadação da Receita Federal e a despesa mais os repasses do Tesouro (RTN, o mesmo de "As contas do Brasil").`);
     }
     if (scaleNow.dfOut) notes.push('A escala de cor é feita com os outros 26 estados. O DF fica muito além de todos eles e aparece na cor mais escura, com o próprio número na legenda.');
     if (dfFacts.length) notes.push(`DF, ${dfRow.label}: ${dfFacts.join('; ')}.`);
@@ -1123,7 +1123,7 @@ return { createModals };
     const dropped = (rowsNow.find((s) => s.droppedMonths && s.droppedMonths.length) || {}).droppedMonths;
     if (dropped) notes.push(`O arquivo do Portal da Transparência de ${dropped.map((m) => window.BIT.fmtMonth(m)).join(', ')} veio com todos os valores zerados (gerado pela CGU em 01/10/2026). O período é calculado sem esse mês, na arrecadação e no que voltou.`);
     notes.push('"Voltou" soma os repasses da União, INSS, BPC, Bolsa Família, o Fundo Constitucional do DF e o gasto federal no estado pela regra em duas etapas: vale o estado onde o dinheiro foi aplicado; quando o arquivo não diz, o gasto é da União, e não do estado da unidade que pagou (só a folha dos ex-territórios do Amapá, de Rondônia e de Roraima conta no estado, pela divisão de pessoal de cada um).');
-    notes.push('Por essa regra (D114), a folha militar paga pelas pagadorias centrais (Exército no DF, Marinha e Aeronáutica no RJ), as compras do Ministério da Saúde e os outros programas nacionais que o arquivo não põe em nenhum estado são da União; até 06/10/2026 contavam no DF e no RJ.');
+    notes.push('Por essa regra, a folha militar paga pelas pagadorias centrais (Exército no DF, Marinha e Aeronáutica no RJ), as compras do Ministério da Saúde e os outros programas nacionais que o arquivo não põe em nenhum estado são da União; até 06/10/2026 contavam no DF e no RJ.');
     notes.push('A Receita registra o imposto onde fica a sede de quem paga: a arrecadação do DF, de SP e do RJ inclui impostos de empresas e órgãos com sede ali.');
     document.querySelector('[data-map-notes]').innerHTML = notes.map((x) => `<li>${esc(x)}</li>`).join('');
   };
