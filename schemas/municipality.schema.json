@@ -1,0 +1,15 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://brasil-imposto.github.io/schemas/municipality.schema.json",
+ "title": "Municipality",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["type", "id", "name", "uf", "population"],
+ "properties": {
+  "type": {"const": "municipality"},
+  "id": {"type": "string", "pattern": "^[0-9]{7}$", "description": "IBGE code"},
+  "name": {"type": "string"},
+  "uf": {"type": "string", "pattern": "^[A-Z]{2}$"},
+  "population": {"$ref": "common.schema.json#/$defs/yearly_series"}
+ }
+}
