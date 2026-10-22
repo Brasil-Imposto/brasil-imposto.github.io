@@ -1,0 +1,18 @@
+  // Support buttons are not live in the preview (D126).
+  document.querySelectorAll('[data-preview-btn]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
+  // "Fale com a gente" (D124): validated here, sent nowhere. The hosted service (Q40) will read the same fields, the
+  // honeypot and the minimum time before sending.
+  const form = document.querySelector('[data-contact]');
+  if (form) {
+    const opened = Date.now(), msg = form.querySelector('[data-contact-msg]');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const d = Object.fromEntries(new FormData(form));
+      const show = (cls, text) => { msg.hidden = false; msg.className = `pf-form-msg ${cls}`; msg.textContent = text; };
+      if (d.website) return show('err', 'Mensagem bloqueada como spam.');
+      if (!d.name.trim() || !d.message.trim()) return show('err', 'Preencha o nome e a mensagem.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim())) return show('err', 'Confira o e-mail: é por ele que respondemos.');
+      if (Date.now() - opened < 3000) return show('err', 'Espere um instante e envie de novo.');
+      show('ok', 'Prévia: nada foi enviado. Quando o formulário for ao ar, a mensagem chega no e-mail do projeto, que não aparece na página.');
+    });
+  }
