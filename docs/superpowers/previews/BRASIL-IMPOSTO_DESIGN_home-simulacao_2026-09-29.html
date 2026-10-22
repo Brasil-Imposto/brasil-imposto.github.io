@@ -123,7 +123,8 @@
   .hero-tooltip .click { margin-top: 6px; font-size: 11.5px; color: var(--faint); }
 
   /* ---------- modal stack ---------- */
-  .modal-layer { position: absolute; inset: 0; z-index: 30; display: none; }
+  /* above the site header (z-index 1000) and over the whole window, at every width */
+  .modal-layer { position: fixed; inset: 0; z-index: 1100; display: none; }
   .modal-open .modal-layer { display: block; }
   .modal-backdrop { position: absolute; inset: 0; background: rgba(238,242,245,.62); backdrop-filter: blur(3px); }
   .modal-panel { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(1080px, calc(100% - 48px)); max-height: calc(100% - 56px);
@@ -248,7 +249,6 @@
     .hero-map { position: relative; inset: auto; aspect-ratio: 20 / 23; }
     .hero-legend { position: static; width: auto; padding: 0 16px 18px; background: none; box-shadow: none; border: 0; backdrop-filter: none; }
     .hint { display: none; } .hero-contas { position: static; width: auto; padding: 0 16px 12px; }
-    .modal-layer { position: fixed; }
     .modal-panel { width: 100%; max-height: 100%; height: 100%; border-radius: 0; }
     .federal-strip, .cols { grid-template-columns: 1fr; }
     .modal-body { padding: 16px; }
@@ -779,11 +779,18 @@ function createModals(root, { states, budgets, cases, geo, colorOf, onClose }) {
     btn.onclick = () => { metric = btn.dataset.metric; render(); };
   });
 
+  let opener = null; // focus returns here when the last level closes
   const render = () => {
     if (cleanup) { cleanup(); cleanup = null; }
     const top = stack[stack.length - 1];
-    if (!top) { root.classList.remove('modal-open'); onClose(); return; }
-    root.classList.add('modal-open');
+    if (!top) {
+      const was = root.classList.contains('modal-open');
+      root.classList.remove('modal-open'); document.documentElement.classList.remove('bi-locked'); onClose();
+      if (was && opener && opener.isConnected) opener.focus({ preventScroll: true });
+      opener = null; return;
+    }
+    if (!root.classList.contains('modal-open')) opener = document.activeElement;
+    root.classList.add('modal-open'); document.documentElement.classList.add('bi-locked');
     const crumbs = ['Brasil', ...stack.map((l) => l.crumb)];
     panel.innerHTML = `
       <header class="modal-head">
@@ -798,6 +805,7 @@ function createModals(root, { states, budgets, cases, geo, colorOf, onClose }) {
       <div class="modal-body">${typeof top.html === 'function' ? top.html() : top.html}</div>`;
     panel.scrollTop = 0;
     panel.querySelector('.close').onclick = () => { stack.length = 0; render(); };
+    panel.querySelector('.close').focus({ preventScroll: true });
     const back = panel.querySelector('.back');
     if (back) back.onclick = () => { stack.pop(); render(); };
     panel.querySelectorAll('.crumbs button').forEach((b) => { b.onclick = () => { stack.length = +b.dataset.depth; render(); }; });

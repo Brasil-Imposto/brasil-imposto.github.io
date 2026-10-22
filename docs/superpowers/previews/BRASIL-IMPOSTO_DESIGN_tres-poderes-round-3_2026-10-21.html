@@ -179,7 +179,7 @@
   .tray .open { background:#fff; color:var(--ink); } .tray .clear { background:transparent; color:#C3CFDB; }
 
   /* ---------- the modal (same sheet as the state modal) ---------- */
-  .back { position:fixed; inset:0; z-index:40; background:rgba(20,32,43,.42); display:flex; justify-content:center; align-items:flex-start; padding:4vh 16px; overflow-y:auto; }
+  .back { position:fixed; inset:0; z-index:1100; background:rgba(20,32,43,.42); display:flex; justify-content:center; align-items:flex-start; padding:4vh 16px; overflow-y:auto; }
   .back[hidden] { display:none; }
   .sheet { position:relative; width:min(880px, 100%); background:#fff; border-radius:22px; box-shadow:0 30px 70px -30px rgba(20,32,43,.6); padding:18px 22px 22px; }
   .sheet.wide { width:min(1120px, 100%); }
@@ -295,6 +295,9 @@
 .bi-menu-btn svg { width: 16px; height: 16px; }
 .bi-sheet { position: fixed; left: 0; right: 0; top: 62px; z-index: 999; padding: 6px 14px 16px; background: rgba(255,255,255,.98); border-bottom: 1px solid #E3E7EC; box-shadow: 0 10px 30px rgba(20,32,43,.08); font-family: Manrope, system-ui, sans-serif; }
 .bi-sheet[hidden] { display: none; }
+/* every in-page jump lands below the header (62 px) with a gap; a page's overlays sit above it (z-index 1100) and lock the page */
+:where([id]) { scroll-margin-top: 80px; }
+html.bi-locked, html.bi-locked body { overflow: hidden; }
 .bi-sheet a { display: block; padding: 11px 0; border-bottom: 1px solid #E3E7EC; font-weight: 700; font-size: 17px; color: #14202B; text-decoration: none; }
 .bi-sheet a[aria-current="page"] { color: #12803F; }
 .bi-sheet p { margin: 12px 0 0; font-size: 12.5px; color: #5B6773; }
@@ -829,7 +832,7 @@
     const x = person[id]; if (!x) return; const M = model(x), cam = x.house === 'camara';
     if (!PARL(x)) {
       sheet.className = 'sheet'; sheet.innerHTML = `<button class="x" type="button" data-close aria-label="Fechar">✕</button>` + openGeneric(x, M);
-      back.hidden = false; document.body.style.overflow = 'hidden';
+      opener = opener || document.activeElement; back.hidden = false; document.body.style.overflow = 'hidden'; focusClose();
       if (push) history.replaceState(null, '', '#p=' + encodeURIComponent(id));
       return;
     }
@@ -849,7 +852,7 @@
       + `<div data-bills-slot></div>`
       + `<p class="srcs">Fontes: ${cam ? `<a href="${esc(x.page)}">a página do deputado na Câmara</a> (salário, imóvel funcional, auxílio-moradia, cota, verba de gabinete, passaporte, missões)` : `<a href="${esc(D.urls.sen_moradia)}">Senado, auxílio-moradia e imóveis funcionais</a> e o arquivo de despesas da cota do Senado (atualizado em ${esc(x.updated)})`}; valores dos auxílios: ${cam ? `<a href="${esc(D.urls.posse)}">Câmara, exercício do mandato</a>` : `<a href="${esc(D.urls.sen_verbas)}">Senado, verbas além do subsídio</a>`}; salário: <a href="${esc(D.urls.dl172)}">Decreto Legislativo 172/2022</a>.</p>`;
     sheet.querySelector('[data-bills-slot]').appendChild(billsSection(x));
-    back.hidden = false; document.body.style.overflow = 'hidden';
+    opener = opener || document.activeElement; back.hidden = false; document.body.style.overflow = 'hidden'; focusClose();
     if (push) history.replaceState(null, '', '#p=' + encodeURIComponent(id));
   }
   function openCompare() {
@@ -858,9 +861,12 @@
     sheet.innerHTML = `<button class="x" type="button" data-close aria-label="Fechar">✕</button><div class="crumb">Os 3 Poderes › Parlamentares federais › <b>Comparação</b></div>`
       + `<div class="cmp-grid" style="grid-template-columns:repeat(${xs.length}, minmax(250px, 1fr))">${xs.map((x, i) => `<div class="cmp-col box"><div class="who">${ph(x)}<div><strong>${esc(x.name)}</strong><div class="meta">${metaHTML(x)}</div></div></div>`
       + `<div class="rows">${Ms[i].rows.map((r) => rowHTML(r)).join('')}</div>${totHTML(Ms[i])}</div>`).join('')}</div>`;
-    back.hidden = false; document.body.style.overflow = 'hidden';
+    opener = opener || document.activeElement; back.hidden = false; document.body.style.overflow = 'hidden'; focusClose();
   }
-  function close() { back.hidden = true; document.body.style.overflow = ''; if (location.hash) history.replaceState(null, '', location.pathname); }
+  // focus goes to the sheet's close button when it opens and back to what opened it when it closes
+  let opener = null;
+  const focusClose = () => { if (back.hidden || !opener) opener = document.activeElement; const x = sheet.querySelector('[data-close]'); if (x) x.focus({ preventScroll: true }); };
+  function close() { back.hidden = true; document.body.style.overflow = ''; if (location.hash) history.replaceState(null, '', location.pathname); if (opener && opener.isConnected) opener.focus({ preventScroll: true }); opener = null; }
   document.addEventListener('click', (e) => {
     const o = e.target.closest('[data-open]'); if (o) { openPerson(o.dataset.open); return; }
     const gg = e.target.closest('[data-goto-group]'); if (gg) { const h = gg.dataset.gotoGroup === 'ministros' ? 'executivo' : 'judiciario'; F.house = h; F.q = gg.dataset.gotoGroup === 'ministros-stf' ? 'STF' : '';

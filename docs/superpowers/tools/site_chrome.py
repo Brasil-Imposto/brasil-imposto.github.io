@@ -28,6 +28,9 @@ CSS = """<style id="bi-chrome-css">
 .bi-menu-btn svg { width: 16px; height: 16px; }
 .bi-sheet { position: fixed; left: 0; right: 0; top: 62px; z-index: 999; padding: 6px 14px 16px; background: rgba(255,255,255,.98); border-bottom: 1px solid #E3E7EC; box-shadow: 0 10px 30px rgba(20,32,43,.08); font-family: Manrope, system-ui, sans-serif; }
 .bi-sheet[hidden] { display: none; }
+/* every in-page jump lands below the header (62 px) with a gap; a page's overlays sit above it (z-index 1100) and lock the page */
+:where([id]) { scroll-margin-top: 80px; }
+html.bi-locked, html.bi-locked body { overflow: hidden; }
 .bi-sheet a { display: block; padding: 11px 0; border-bottom: 1px solid #E3E7EC; font-weight: 700; font-size: 17px; color: #14202B; text-decoration: none; }
 .bi-sheet a[aria-current="page"] { color: #12803F; }
 .bi-sheet p { margin: 12px 0 0; font-size: 12.5px; color: #5B6773; }
