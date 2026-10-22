@@ -274,6 +274,21 @@ for p in people:
         bills_missing.append(p["id"]); continue
     bills = json.loads(f.read_text(encoding="utf-8").split("] = ", 1)[1].rstrip().rstrip(";"))
     p["bills"] = {role: {"counts": dict(Counter("law" if b["law"] else b["o"] for b in bills if b["r"] == r))} for role, r in (("main", "m"), ("co", "c"))}
+# ---------- the tree's sample holders (written in round 2, before the directory existed): the page reads each one from the
+# directory when it has a record, so their own statuses are dropped instead of contradicting it (Alcolumbre's office cost,
+# for example, is in the directory and was "unknown" in the sample)
+ids = {p["id"] for p in people}
+HAS_RECORD = {"presidente": lambda x: x["position"] == "presidente", "vice": lambda x: x["position"] == "vice",
+              "presidente-stf": lambda x: x.get("court") == "STF" and x.get("role") == "Presidente",
+              "ministros": lambda x: x["position"] == "ministros"}
+for pos in POS["positions"]:
+    for h in pos.get("people", []):
+        if h.get("id") in ids or (pos["id"] in HAS_RECORD and any(HAS_RECORD[pos["id"]](x) for x in others)):
+            h.pop("items", None)
+left = [(pos["id"], h.get("name")) for pos in POS["positions"] for h in pos.get("people", [])
+        for v in (h.get("items") or {}).values() if isinstance(v, dict) and v.get("status") == "unknown"]
+assert not left, f"tree holders still marked unknown: {left}"
+
 out = {"built_on": "2026-10-21", "salary": SALARY, "positions": POS["positions"], "urls": POS["urls"],
        "rules": {"housing_camara": item_value["deputado"]["housing"]["value"], "housing_senado": item_value["senador"]["housing"]["value"],
                  "office_camara": item_value["deputado"]["office"]["value"], "ceap_by_uf": POS["rules"]["ceap_by_uf"], "ceaps_by_uf": CEAPS,

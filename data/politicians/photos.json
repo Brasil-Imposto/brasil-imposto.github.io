@@ -364,17 +364,17 @@
   },
   "dario-durigan": {
    "file": "docs/superpowers/previews/assets/photos/union/dario-durigan.jpg",
-   "url": null,
+   "url": "https://web.archive.org/web/20260319180720id_/https://www.gov.br/fazenda/pt-br/composicao/secretaria-executiva/dario-carnevalli-durigan/@@images/image",
    "source": "https://www.gov.br/fazenda/pt-br/composicao/secretaria-executiva/dario-carnevalli-durigan/@@images/image",
    "author": "Washington Costa / Ministério da Fazenda (metadados XMP do arquivo oficial: dc:creator 'Washington Costa', dc:rights 'Ministerio da Fazenda'; a página não traz crédito, e o Wikimedia Commons atribui a Diogo Zacarias)",
    "license_or_terms": "CC BY-ND 3.0, conforme o rodapé do site gov.br/fazenda; crédito: Washington Costa / Ministério da Fazenda",
    "page": "https://web.archive.org/web/20260319180720/https://www.gov.br/fazenda/pt-br/composicao/secretaria-executiva/dario-carnevalli-durigan",
    "office": "union",
    "size_px": [
-    133,
-    200
+    1000,
+    1500
    ],
-   "note": "Foto oficial da página de Secretário-Executivo do Ministério da Fazenda (cópia do Internet Archive de 2026-03-19; a página saiu do ar quando ele assumiu o ministério, e a página atual do ministro, que o lista como Ministro da Fazenda, não traz foto). O arquivo do Commons com a mesma foto está marcado como PD-USGov, licença de obra do governo dos EUA que não se aplica; por isso não foi usado."
+   "note": "Foto oficial da página de Secretário-Executivo do Ministério da Fazenda (cópia do Internet Archive de 2026-03-19; a página saiu do ar). Arquivo oficial sem alteração, escalado só pelo navegador, porque a licença CC BY-ND 3.0 não permite obra derivada (D148)."
   },
   "frutuoso-lins-cavalcante-neto-rr": {
    "file": "docs/superpowers/previews/assets/photos/governors/frutuoso-lins-cavalcante-neto-rr.jpg",

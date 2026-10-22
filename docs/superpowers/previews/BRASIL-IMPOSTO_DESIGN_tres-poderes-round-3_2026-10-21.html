@@ -304,7 +304,7 @@
           <button type="button" data-mode="cargo" aria-pressed="true"><span class="ico" data-ico-cargo></span>Cargos</button>
           <button type="button" data-mode="pessoa" aria-pressed="false"><span class="ico" data-ico-pessoa></span>Quem ocupa em 2026</button>
         </div>
-        <div class="legend"><span><i class="st yes">✓</i>usa</span><span><i class="st no">✗</i>não usa</span><span><i class="st unknown">?</i>a coletar</span></div>
+        <div class="legend"><span><i class="st yes">✓</i>usa</span><span><i class="st no">✗</i>não usa</span><span><i class="st unknown">?</i>não publicado</span></div>
       </div>
     </div>
     <div class="stage" data-stage>
@@ -398,7 +398,7 @@
   const SIL = '<svg viewBox="0 0 40 46" aria-hidden="true"><circle cx="20" cy="15" r="9" fill="#5B6773"/><path d="M2 46c0-11 8-17 18-17s18 6 18 17z" fill="#5B6773"/></svg>';
   const ph = (x, lazy) => `<span class="ph">${SIL}${x && x.photo ? `<img src="${esc(x.photo)}" alt="" ${lazy ? 'loading="lazy"' : ''} onerror="this.remove()">` : ''}</span>`;
   const flag = (uf) => `<span class="uf"><img src="assets/state-flags/${esc(uf)}.svg" alt="">${esc(uf)}</span>`;
-  const mark = (s) => `<i class="st ${s}" aria-label="${s === 'yes' ? 'usa' : s === 'no' ? 'não usa' : s === 'info' ? 'informação' : 'a coletar'}">${s === 'yes' ? '✓' : s === 'no' ? '✗' : s === 'info' ? 'i' : '?'}</i>`;
+  const mark = (s) => `<i class="st ${s}" aria-label="${s === 'yes' ? 'usa' : s === 'no' ? 'não usa' : s === 'info' ? 'informação' : 'não publicado'}">${s === 'yes' ? '✓' : s === 'no' ? '✗' : s === 'info' ? 'i' : '?'}</i>`;
   const status = (v) => (v === true ? 'yes' : v === false ? 'no' : 'unknown');
 
   // ---------- a minister or judge: each component the institution publishes, as published (a negative is a discount)
@@ -448,18 +448,18 @@
     if (o && o.kind === 'staff') {
       if (o.avg != null) rows.push({ k: 'office', label: 'Equipe do gabinete', s: 'yes', v: `<span>${brl(o.avg)}</span><small>por mês</small>`, m: o.avg, own: false,
                 nt: `salários brutos de ${int(o.staff)} pessoas do gabinete e dos escritórios, média de ${o.months_label}; inclui servidores de carreira (na Câmara, a verba de gabinete paga só os secretários parlamentares)` });
-      else rows.push({ k: 'office', label: 'Equipe do gabinete', s: 'unknown', chip: 'sem mês inteiro', v: '', m: 0, nt: `${int(o.staff)} pessoas na equipe; ${o.none_reason}` });
+      else rows.push({ k: 'office', label: 'Equipe do gabinete', s: 'info', chip: 'sem mês inteiro', v: '', m: 0, noavg: true, nt: `${int(o.staff)} pessoas na equipe; ${o.none_reason}` });
     } else if (o && o.used > 0 && o.avg == null) rows.push({ k: 'office', label: 'Verba de gabinete', s: 'yes', v: `<span>${brl(o.used)}</span><small>em 2026</small>`, m: 0, own: false, noavg: true,
                 nt: `sem média por mês: os registros começam depois de ${MONTHS[last]}` });
     else if (o && o.used > 0) rows.push({ k: 'office', label: 'Verba de gabinete', s: 'yes', v: `<span>${brl(o.avg)}</span><small>por mês</small>`, m: o.avg, own: false,
                 nt: `usou ${brl(o.used)} em 2026 (${nf(o.pct, 1)}% do que podia) para pagar a equipe; ${period}` });
     else rows.push({ k: 'office', label: 'Verba de gabinete', s: o && o.used === 0 ? 'no' : 'unknown', v: o && o.used === 0 ? 'não usou' : '', m: 0,
-                nt: o ? `nenhum gasto registrado em 2026 até ${MONTHS[last]}` : 'a coletar no Senado' });
+                nt: o ? `nenhum gasto registrado em 2026 até ${MONTHS[last]}` : 'sem registro no arquivo do Senado' });
     const total = rows.reduce((a, r) => a + r.m, 0), own = rows.filter((r) => r.own).reduce((a, r) => a + r.m, 0);
     return { rows, total, own, partial: rows.some((r) => (r.s === 'unknown' && r.k !== 'flat') || r.noavg) };
   }
   function dmy(d) { return d ? d.split('-').reverse().join('/') : ''; }
-  const rowHTML = (r, notes = true) => `<div class="r person${r.s === 'no' ? ' off' : ''}"><span class="lb">${esc(r.label)}</span><span class="vl">${r.s === 'unknown' ? `<span class="chip">${esc(r.chip || 'a coletar')}</span>` : r.v}</span>${mark(r.s)}${notes && r.nt ? `<span class="nt">${esc(r.nt)}</span>` : ''}</div>`;
+  const rowHTML = (r, notes = true) => `<div class="r person${r.s === 'no' ? ' off' : ''}"><span class="lb">${esc(r.label)}</span><span class="vl">${r.s === 'unknown' ? `<span class="chip">${esc(r.chip || 'não publicado')}</span>` : r.v}</span>${mark(r.s)}${notes && r.nt ? `<span class="nt">${esc(r.nt)}</span>` : ''}</div>`;
   const splitHTML = (M) => {
     if (M.total - M.own < 0.005) return '';  // nothing pays an office: the whole total goes to the person
     const a = M.total ? (M.own / M.total) * 100 : 100;
@@ -522,7 +522,7 @@
       });
       box.addEventListener('input', (e) => { if (e.target.matches('[data-blq]')) { st.q = e.target.value; st.shown = 20; const pos = e.target.selectionStart; draw(); const i = box.querySelector('[data-blq]'); i.focus(); i.setSelectionRange(pos, pos); } });
       draw();
-    }, () => { box.querySelector('[data-bl]').innerHTML = '<div class="bl-note"><span class="chip">a coletar</span> os projetos desta pessoa ainda não foram montados</div>'; });
+    }, () => { box.querySelector('[data-bl]').innerHTML = '<div class="bl-note"><span class="chip">indisponível</span> os projetos desta pessoa não abriram; recarregue a página</div>'; });
     return box;
   }
 
@@ -535,7 +535,7 @@
       if (it.value != null) {
         v = it.value_min != null ? `<span>${brl(it.value_min)}</span><span>a ${brl(it.value)}</span>` : brl(it.value);
         if (it.monthly !== false) total += it.value;
-      } else if (it.todo) { v = '<span class="chip">a coletar</span>'; partial = true; }
+      } else if (it.todo) { v = '<span class="chip">não publicado</span>'; partial = true; }
       else v = '<span style="color:var(--faint);font-weight:600">sem valor</span>';
       const note = [it.note, it.law].filter(Boolean).join(' · ');
       return `<div class="r"><span class="lb">${esc(it.label)}</span><span class="vl">${v}</span>${note ? `<span class="nt">${esc(note)}</span>` : ''}</div>`;
@@ -630,7 +630,7 @@
     else if (who) h += otherPersonRows(p, who);
     else {
       h += cargoRows(p);
-      if (mode === 'pessoa') h += '<div class="tnote"><span class="chip">a coletar</span> quem ocupa e o que usa</div>';
+      if (mode === 'pessoa') h += '<div class="tnote"><span class="chip">não publicado</span> quem ocupa e o que usa</div>';
       if (house && mode === 'cargo') h += `<button class="go" type="button" data-goto="${house}">Ver cada um dos ${int(p.count)} ↓</button>`;
     }
     h += '</div>';
@@ -800,7 +800,7 @@
       return;
     }
     sheet.className = 'sheet';
-    const others = cam ? `<ul class="others"><li><span>Passaporte diplomático</span><b>${x.passport.uses ? 'possui' : 'não possui'}</b></li><li><span>Viagens em missão oficial em 2026</span><b>${x.missions != null ? int(x.missions) : 'a coletar'}</b></li><li><span>Página da Câmara atualizada em</span><b>${esc(x.updated)}</b></li></ul>`
+    const others = cam ? `<ul class="others"><li><span>Passaporte diplomático</span><b>${x.passport.uses ? 'possui' : 'não possui'}</b></li><li><span>Viagens em missão oficial em 2026</span><b>${x.missions != null ? int(x.missions) : 'não publicado'}</b></li><li><span>Página da Câmara atualizada em</span><b>${esc(x.updated)}</b></li></ul>`
       : `<ul class="others"><li><span>Passaporte diplomático</span><b>não publicado</b></li><li><span>Em exercício desde</span><b>${dmy(x.exercise_since)}</b></li><li><span>Arquivo da cota atualizado em</span><b>${esc(x.updated)}</b></li></ul><p class="bars-note">O direito ao passaporte diplomático está no Decreto 5.978/2006, mas nem o Senado nem o Itamaraty publicam a lista de quem tem.</p>`;
     sheet.innerHTML = `<button class="x" type="button" data-close aria-label="Fechar">✕</button>`
       + `<div class="crumb">Os 3 Poderes › ${HOUSE_FULL[x.house]} › <b>${esc(x.name)}</b></div>`
@@ -809,7 +809,7 @@
       + fixFormHTML
       + `<div class="p-cols"><div class="box"><h4>Salário e auxílios</h4><div class="rows">${M.rows.map((r) => rowHTML(r)).join('')}</div>`
       + `<div class="big"><span>Total por mês</span><b>${brl(M.total)}</b></div>${M.partial ? '<div class="tnote"><span class="chip">parcial</span> falta parte do dado; nunca uma estimativa</div>' : ''}${splitHTML(M)}</div>`
-      + `<div style="display:grid;gap:14px;align-content:start"><div class="box soft"><h4>${cam ? 'Cota parlamentar' : 'Cota (CEAPS)'}, mês a mês em 2026</h4>${x.ceap ? bars(x.ceap.by_month, AVG[x.house], 'Cota') + `<div class="bars-note">Total em 2026: <b>${brl(x.ceap.used)}</b>${x.ceap.pct != null ? `, ${nf(x.ceap.pct, 1)}% do que podia usar no ano` : ''}.</div>` : '<div class="bars-note"><span class="chip">a coletar</span> nenhum lançamento no arquivo de 2026</div>'}</div>`
+      + `<div style="display:grid;gap:14px;align-content:start"><div class="box soft"><h4>${cam ? 'Cota parlamentar' : 'Cota (CEAPS)'}, mês a mês em 2026</h4>${x.ceap ? bars(x.ceap.by_month, AVG[x.house], 'Cota') + `<div class="bars-note">Total em 2026: <b>${brl(x.ceap.used)}</b>${x.ceap.pct != null ? `, ${nf(x.ceap.pct, 1)}% do que podia usar no ano` : ''}.</div>` : '<div class="bars-note"><span class="chip">sem lançamento</span> nenhum lançamento no arquivo de 2026</div>'}</div>`
       + (cam && x.office ? `<div class="box soft"><h4>Verba de gabinete, mês a mês em 2026</h4>${bars(x.office.by_month, AVG.camara, 'Verba de gabinete')}<div class="bars-note">Total em 2026: <b>${brl(x.office.used)}</b>, ${nf(x.office.pct, 1)}% do que podia usar.</div></div>` : '')
       + (!cam && x.office && x.office.avg != null ? `<div class="box soft"><h4>Equipe do gabinete, mês a mês em 2026</h4>${bars(x.office.by_month, 12, 'Equipe do gabinete')}<div class="bars-note">Total em 2026: <b>${brl(x.office.used)}</b>, salários brutos de ${int(x.office.staff)} pessoas (sem diárias, auxílios e encargos, que o Senado não publica por gabinete).</div></div>` : '')
       + `<div class="box"><h4>Outros</h4>${others}</div></div></div>`

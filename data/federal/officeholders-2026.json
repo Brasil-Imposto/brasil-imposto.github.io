@@ -54,19 +54,7 @@
      "party": "PT",
      "since": "2023-01-01",
      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%28estreita%29.jpg/500px-Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%28estreita%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-     "photo_credit": "Wikimedia Commons",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "residence": {
-       "status": "yes"
-      },
-      "other": {
-       "status": "unknown"
-      }
-     }
+     "photo_credit": "Wikimedia Commons"
     }
    ]
   },
@@ -91,28 +79,7 @@
      "role": "Presidente",
      "photo": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador3830.jpg",
      "photo_credit": "Senado Federal",
-     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no"
-      },
-      "flat": {
-       "status": "yes"
-      },
-      "ceaps": {
-       "status": "yes",
-       "used_year": 232000.0,
-       "months": 9,
-       "limit_month": 42855.2
-      },
-      "office": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json"
     }
    ],
    "items": [
@@ -195,16 +162,7 @@
      "name": "Edson Fachin",
      "since": "2025-09-29",
      "photo": null,
-     "source": "https://noticias.stf.jus.br/postsnoticias/ministro-edson-fachin-assume-hoje-29-a-presidencia-do-stf/",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "aux": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://noticias.stf.jus.br/postsnoticias/ministro-edson-fachin-assume-hoje-29-a-presidencia-do-stf/"
     }
    ]
   },
@@ -244,16 +202,7 @@
      "party": "PSB",
      "since": "2023-01-01",
      "photo": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/08.08.2026_-_FOTOS_OFICIAIS_-_55450293534.jpg/500px-08.08.2026_-_FOTOS_OFICIAIS_-_55450293534.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-     "photo_credit": "Wikimedia Commons",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "residence": {
-       "status": "unknown"
-      }
-     }
+     "photo_credit": "Wikimedia Commons"
     }
    ]
   },
@@ -310,18 +259,6 @@
      "since": "2026-03-20",
      "photo": "assets/photos/union/dario-durigan.jpg",
      "photo_credit": null,
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "unknown"
-      },
-      "boards": {
-       "status": "unknown"
-      }
-     },
      "role": "Ministro da Fazenda"
     }
    ]
@@ -399,28 +336,7 @@
      "role": "1º vice-presidente",
      "photo": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador3777.jpg",
      "photo_credit": "Senado Federal",
-     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no"
-      },
-      "flat": {
-       "status": "yes"
-      },
-      "ceaps": {
-       "status": "yes",
-       "used_year": 183915.44,
-       "months": 9,
-       "limit_month": 25215.2
-      },
-      "office": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json"
     },
     {
      "id": "senado:5008",
@@ -430,28 +346,7 @@
      "role": "2º vice-presidente",
      "photo": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador5008.jpg",
      "photo_credit": "Senado Federal",
-     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no"
-      },
-      "flat": {
-       "status": "yes"
-      },
-      "ceaps": {
-       "status": "yes",
-       "used_year": 426879.0,
-       "months": 9,
-       "limit_month": 36266.6
-      },
-      "office": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json"
     },
     {
      "id": "senado:5998",
@@ -461,28 +356,7 @@
      "role": "1ª secretária",
      "photo": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador5998.jpg",
      "photo_credit": "Senado Federal",
-     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no"
-      },
-      "flat": {
-       "status": "yes"
-      },
-      "ceaps": {
-       "status": "yes",
-       "used_year": 350653.39,
-       "months": 9,
-       "limit_month": 35555.2
-      },
-      "office": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json"
     },
     {
      "id": "senado:475",
@@ -492,28 +366,7 @@
      "role": "2º secretário",
      "photo": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador475.jpg",
      "photo_credit": "Senado Federal",
-     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no"
-      },
-      "flat": {
-       "status": "no"
-      },
-      "ceaps": {
-       "status": "yes",
-       "used_year": 240205.69,
-       "months": 9,
-       "limit_month": 34615.2
-      },
-      "office": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json"
     },
     {
      "id": "senado:6358",
@@ -523,28 +376,7 @@
      "role": "3ª secretária",
      "photo": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador6358.jpg",
      "photo_credit": "Senado Federal",
-     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no"
-      },
-      "flat": {
-       "status": "yes"
-      },
-      "ceaps": {
-       "status": "yes",
-       "used_year": 397883.62,
-       "months": 9,
-       "limit_month": 37396.6
-      },
-      "office": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json"
     },
     {
      "id": "senado:4811",
@@ -554,28 +386,7 @@
      "role": "4º secretário",
      "photo": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador4811.jpg",
      "photo_credit": "Senado Federal",
-     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no"
-      },
-      "flat": {
-       "status": "yes"
-      },
-      "ceaps": {
-       "status": "yes",
-       "used_year": 441836.87,
-       "months": 9,
-       "limit_month": 41844.45
-      },
-      "office": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json"
     },
     {
      "id": "senado:470",
@@ -585,28 +396,7 @@
      "role": "1º suplente",
      "photo": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador470.jpg",
      "photo_credit": "Senado Federal",
-     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no"
-      },
-      "flat": {
-       "status": "yes"
-      },
-      "ceaps": {
-       "status": "yes",
-       "used_year": 235135.46,
-       "months": 9,
-       "limit_month": 40724.45
-      },
-      "office": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json"
     },
     {
      "id": "senado:6025",
@@ -616,28 +406,7 @@
      "role": "2ª suplente",
      "photo": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador6025.jpg",
      "photo_credit": "Senado Federal",
-     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no"
-      },
-      "flat": {
-       "status": "yes"
-      },
-      "ceaps": {
-       "status": "yes",
-       "used_year": 249116.81,
-       "months": 9,
-       "limit_month": 40724.45
-      },
-      "office": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json"
     },
     {
      "id": "senado:5959",
@@ -647,28 +416,7 @@
      "role": "3º suplente",
      "photo": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador5959.jpg",
      "photo_credit": "Senado Federal",
-     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no"
-      },
-      "flat": {
-       "status": "yes"
-      },
-      "ceaps": {
-       "status": "yes",
-       "used_year": 300173.79,
-       "months": 9,
-       "limit_month": 35976.2
-      },
-      "office": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json"
     },
     {
      "id": "senado:5988",
@@ -678,28 +426,7 @@
      "role": "4ª suplente",
      "photo": "https://www.senado.leg.br/senadores/img/fotos-oficiais/senador5988.jpg",
      "photo_credit": "Senado Federal",
-     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no"
-      },
-      "flat": {
-       "status": "yes"
-      },
-      "ceaps": {
-       "status": "yes",
-       "used_year": 397833.34,
-       "months": 9,
-       "limit_month": 32905.2
-      },
-      "office": {
-       "status": "unknown"
-      }
-     }
+     "source": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json"
     }
    ]
   },
@@ -725,38 +452,7 @@
      "photo": "https://www.camara.leg.br/internet/deputado/bandep/160674.jpg",
      "photo_credit": "Câmara dos Deputados",
      "updated": "21/10/2026",
-     "source": "https://www.camara.leg.br/deputados/160674?ano=2026",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no",
-       "text": "Não recebe o auxílio"
-      },
-      "flat": {
-       "status": "yes",
-       "text": "Faz uso desde 01/06/2016"
-      },
-      "ceap": {
-       "status": "yes",
-       "used_year": 286199.24,
-       "used_pct": 53.91,
-       "months": 10,
-       "limit_month": 54402.48
-      },
-      "office": {
-       "status": "yes",
-       "used_year": 1089888.33,
-       "used_pct": 98.35,
-       "months": 7
-      },
-      "passport": {
-       "status": "yes",
-       "text": "Possui"
-      }
-     }
+     "source": "https://www.camara.leg.br/deputados/160674?ano=2026"
     }
    ],
    "items": [
@@ -1013,38 +709,7 @@
      "photo": "https://www.camara.leg.br/internet/deputado/bandep/178937.jpg",
      "photo_credit": "Câmara dos Deputados",
      "updated": "21/10/2026",
-     "source": "https://www.camara.leg.br/deputados/178937?ano=2026",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no",
-       "text": "Não recebe o auxílio"
-      },
-      "flat": {
-       "status": "yes",
-       "text": "Faz uso desde 15/10/2020"
-      },
-      "ceap": {
-       "status": "yes",
-       "used_year": 217494.4,
-       "used_pct": 47.15,
-       "months": 10,
-       "limit_month": 47267.41
-      },
-      "office": {
-       "status": "yes",
-       "used_year": 871543.95,
-       "used_pct": 78.65,
-       "months": 7
-      },
-      "passport": {
-       "status": "yes",
-       "text": "Possui"
-      }
-     }
+     "source": "https://www.camara.leg.br/deputados/178937?ano=2026"
     },
     {
      "id": "camara:178854",
@@ -1055,38 +720,7 @@
      "photo": "https://www.camara.leg.br/internet/deputado/bandep/178854.jpg",
      "photo_credit": "Câmara dos Deputados",
      "updated": "21/10/2026",
-     "source": "https://www.camara.leg.br/deputados/178854?ano=2026",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no",
-       "text": "Não recebe o auxílio"
-      },
-      "flat": {
-       "status": "yes",
-       "text": "Faz uso desde 03/03/2015"
-      },
-      "ceap": {
-       "status": "yes",
-       "used_year": 396523.85,
-       "used_pct": 79.73,
-       "months": 10,
-       "limit_month": 50965.29
-      },
-      "office": {
-       "status": "yes",
-       "used_year": 862770.56,
-       "used_pct": 77.85,
-       "months": 7
-      },
-      "passport": {
-       "status": "yes",
-       "text": "Possui"
-      }
-     }
+     "source": "https://www.camara.leg.br/deputados/178854?ano=2026"
     },
     {
      "id": "camara:204426",
@@ -1097,38 +731,7 @@
      "photo": "https://www.camara.leg.br/internet/deputado/bandep/204426.jpg",
      "photo_credit": "Câmara dos Deputados",
      "updated": "21/10/2026",
-     "source": "https://www.camara.leg.br/deputados/204426?ano=2026",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no",
-       "text": "Não recebe o auxílio"
-      },
-      "flat": {
-       "status": "yes",
-       "text": "Faz uso desde 17/12/2021"
-      },
-      "ceap": {
-       "status": "yes",
-       "used_year": 485749.24,
-       "used_pct": 92.19,
-       "months": 10,
-       "limit_month": 53997.81
-      },
-      "office": {
-       "status": "yes",
-       "used_year": 936952.1,
-       "used_pct": 84.55,
-       "months": 7
-      },
-      "passport": {
-       "status": "yes",
-       "text": "Possui"
-      }
-     }
+     "source": "https://www.camara.leg.br/deputados/204426?ano=2026"
     },
     {
      "id": "camara:220669",
@@ -1139,38 +742,7 @@
      "photo": "https://www.camara.leg.br/internet/deputado/bandep/220669.jpg",
      "photo_credit": "Câmara dos Deputados",
      "updated": "21/10/2026",
-     "source": "https://www.camara.leg.br/deputados/220669?ano=2026",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no",
-       "text": "Não recebe o auxílio"
-      },
-      "flat": {
-       "status": "no",
-       "text": "Não faz uso"
-      },
-      "ceap": {
-       "status": "yes",
-       "used_year": 484903.5,
-       "used_pct": 92.03,
-       "months": 10,
-       "limit_month": 53997.81
-      },
-      "office": {
-       "status": "yes",
-       "used_year": 1014519.36,
-       "used_pct": 91.55,
-       "months": 7
-      },
-      "passport": {
-       "status": "yes",
-       "text": "Possui"
-      }
-     }
+     "source": "https://www.camara.leg.br/deputados/220669?ano=2026"
     },
     {
      "id": "camara:220561",
@@ -1181,38 +753,7 @@
      "photo": "https://www.camara.leg.br/internet/deputado/bandep/220561.jpg",
      "photo_credit": "Câmara dos Deputados",
      "updated": "21/10/2026",
-     "source": "https://www.camara.leg.br/deputados/220561?ano=2026",
-     "items": {
-      "salary": {
-       "status": "yes",
-       "value": 46366.19
-      },
-      "housing": {
-       "status": "no",
-       "text": "Não recebe o auxílio"
-      },
-      "flat": {
-       "status": "yes",
-       "text": "Faz uso desde 27/01/2023"
-      },
-      "ceap": {
-       "status": "yes",
-       "used_year": 460785.53,
-       "used_pct": 90.38,
-       "months": 10,
-       "limit_month": 52248.86
-      },
-      "office": {
-       "status": "yes",
-       "used_year": 1072150.28,
-       "used_pct": 96.75,
-       "months": 7
-      },
-      "passport": {
-       "status": "yes",
-       "text": "Possui"
-      }
-     }
+     "source": "https://www.camara.leg.br/deputados/220561?ano=2026"
     }
    ]
   },
