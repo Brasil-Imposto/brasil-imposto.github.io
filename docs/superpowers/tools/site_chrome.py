@@ -1,4 +1,5 @@
-"""The site header shared by the three published pages (D152, spec header-footer-loader, section 1), from one source.
+"""The site header and footer shared by the three published pages (D152, spec header-footer-loader, sections 1 and 2),
+from one source.
 
 build-platform-preview.py puts it into the Início page at build time; build-site-chrome.py writes it into Os 3 Poderes and
 Como o dinheiro anda, between markers, so no page carries a copy edited by hand. tests in pipelines/tests/test_site_chrome.py
@@ -30,6 +31,18 @@ CSS = """<style id="bi-chrome-css">
 .bi-sheet a { display: block; padding: 11px 0; border-bottom: 1px solid #E3E7EC; font-weight: 700; font-size: 17px; color: #14202B; text-decoration: none; }
 .bi-sheet a[aria-current="page"] { color: #12803F; }
 .bi-sheet p { margin: 12px 0 0; font-size: 12.5px; color: #5B6773; }
+.bi-footer { background: #fff; border-top: 1px solid #E3E7EC; font-family: Manrope, system-ui, sans-serif; }
+.bi-footer-in { box-sizing: border-box; max-width: 1180px; margin: 0 auto; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 18px 28px; flex-wrap: wrap; }
+.bi-footer-id { flex: 1 1 280px; min-width: 0; }
+.bi-footer-id p { margin: 6px 0 0; font-size: 12.5px; color: #5B6773; text-wrap: balance; }
+.bi-footer-links { display: flex; flex-wrap: wrap; gap: 10px 18px; flex: 0 1 auto; }
+.bi-footer-links a { font-weight: 700; font-size: 13.5px; color: #5B6773; text-decoration: none; }
+.bi-footer-links a:hover { color: #14202B; }
+@media (max-width: 820px) {
+  .bi-footer-in { flex-direction: column; align-items: flex-start; padding: 22px 14px; }
+  .bi-footer-id, .bi-footer-links { flex: none; }
+  .bi-footer-links { flex-direction: column; gap: 12px; }
+}
 @media (max-width: 820px) {
   .bi-header { padding: 0 14px; }
   .bi-header .bi-links { display: none; }
@@ -53,6 +66,11 @@ SCRIPT = """<script id="bi-chrome-js">
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !sheet.hidden) set(false, true); });
   document.addEventListener('click', (e) => { if (!sheet.hidden && !sheet.contains(e.target) && !btn.contains(e.target)) set(false, false); });
   window.matchMedia('(min-width: 821px)').addEventListener('change', (m) => { if (m.matches && !sheet.hidden) set(false, false); });
+})();
+// The footer's "Rede do dinheiro (prévia)": on Início the card is on this page, so the link only scrolls to it.
+(function () {
+  const a = document.querySelector('.bi-footer a[data-here]'), target = document.getElementById('rede');
+  if (a && target) a.addEventListener('click', (e) => { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#rede'); });
 })();
 </script>"""
 
@@ -78,13 +96,26 @@ def header(current):
             '<p>Rede do dinheiro (prévia), decisões e licenças ficam no rodapé.</p></nav>')
 
 
+def footer():
+    """The footer, the same on every page."""
+    links = [(f"{HOME}#rede", "Rede do dinheiro (prévia)", ' data-here'), (REPO_URL, "Código aberto no GitHub", ""),
+             (f"{REPO_URL}/blob/main/docs/decisions/README.md", "Decisões do projeto", ""),
+             (f"{REPO_URL}/blob/main/CONTRIBUTING.md", "Como ajudar", ""), (f"{REPO_URL}#licenças", "Licenças", "")]
+    return ('<footer class="bi-footer"><div class="bi-footer-in"><div class="bi-footer-id">'
+            f'<a class="bi-brand" href="{HOME}"><img src="assets/flags/br.svg" alt="Bandeira do Brasil"><span>Brasil<i>·</i>Imposto</span></a>'
+            '<p>Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0.</p></div>'
+            '<nav class="bi-footer-links" aria-label="Mais sobre o projeto">'
+            + "".join(f'<a href="{h}"{x}>{t}</a>' for h, t, x in links) + '</nav></div></footer>')
+
+
 MARK = {"css": ("<!-- site-chrome:css -->", "<!-- /site-chrome:css -->"),
         "header": ("<!-- site-chrome:header -->", "<!-- /site-chrome:header -->"),
+        "footer": ("<!-- site-chrome:footer -->", "<!-- /site-chrome:footer -->"),
         "js": ("<!-- site-chrome:js -->", "<!-- /site-chrome:js -->")}
 
 
 def parts(current):
-    return {"css": CSS, "header": header(current), "js": SCRIPT}
+    return {"css": CSS, "header": header(current), "footer": footer(), "js": SCRIPT}
 
 
 def block(name, body):
@@ -94,7 +125,7 @@ def block(name, body):
 
 def inject(page, current):
     """Writes the parts between their markers; a page without markers gets them inserted once: the css before </head>, the
-    header right after <body>, the script before the last </body>."""
+    header right after <body>, the footer and then the script before the last </body>."""
     for name, body in parts(current).items():
         a, b = MARK[name]
         if page.count(a) == 1 and page.count(b) == 1:

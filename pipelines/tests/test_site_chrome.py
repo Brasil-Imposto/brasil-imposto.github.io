@@ -41,5 +41,25 @@ class SiteHeaderTest(unittest.TestCase):
             self.assertNotIn("Apoie", text)
 
 
+
+class SiteFooterTest(unittest.TestCase):
+    def test_each_page_carries_the_same_footer(self):
+        blocks = set()
+        for key in site_chrome.PAGES:
+            with self.subTest(page=key):
+                p = page(key)
+                self.assertEqual(site_chrome.extract(p, "footer"), site_chrome.footer())
+                self.assertEqual(p.count('class="bi-footer"'), 1)
+                blocks.add(site_chrome.extract(p, "footer"))
+        self.assertEqual(len(blocks), 1, "the footers differ")
+
+    def test_footer_links(self):
+        text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", site_chrome.footer()))
+        self.assertEqual(len(re.findall(r"Rede do dinheiro \(prévia\)", text)), 1)
+        for label in ("Código aberto no GitHub", "Decisões do projeto", "Como ajudar", "Licenças"):
+            self.assertEqual(text.count(label), 1, label)
+        self.assertIn("Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0.", text)
+
+
 if __name__ == "__main__":
     unittest.main()

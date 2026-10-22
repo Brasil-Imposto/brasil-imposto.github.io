@@ -40,7 +40,7 @@ def build(author_notes):
     # The home renders at 90% from 1063 px (D96, html { zoom: .9 }); the site header cancels it to keep its size on every page.
     zoom = "    html { zoom: .9; }\n"
     assert page.count(zoom) == 1, "the D96 zoom rule moved"
-    page = page.replace(zoom, zoom + "    .bi-header, .bi-sheet { zoom: 1.11111; } /* D152: the site header keeps its size */\n")
+    page = page.replace(zoom, zoom + "    .bi-header, .bi-sheet, .bi-footer { zoom: 1.11111; } /* D152: the site header and footer keep their size */\n")
     # Tablets and phones reserved room at the top of the hero for its own header, now gone: keep only that header's margin.
     for old_pad, new_pad in (('column-gap: 16px; padding: 70px 24px 24px; }', 'column-gap: 16px; padding: 22px 24px 24px; }'),
                              ('flex-direction: column; padding-top: 58px; }', 'flex-direction: column; padding-top: 16px; }')):
