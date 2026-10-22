@@ -41,24 +41,24 @@ def stale(page, fresh):
 
 
 def sums(page):
-    """STF totals: each monthly figure is its total over the months, rounded half up, and the lines add up to the expected total."""
+    """Every court: each monthly figure is its total over the months, rounded half up. STF: the lines add up to the expected total."""
     bad = []
     for p in page:
-        if p.get("court") != "STF":
+        if p["house"] != "judiciario":
             continue
         for it in p["items"]:
             if it["monthly"] != judiciary_view.average(it["year_total"], judiciary_view.months_count(it["note"])):
                 bad.append(f"{p['id']} {it['key']}")
-        if abs(round(sum(it["monthly"] for it in p["items"]), 2) - EXPECTED[p["id"]]) > 0.001:
+        if p.get("court") == "STF" and abs(round(sum(it["monthly"] for it in p["items"]), 2) - EXPECTED[p["id"]]) > 0.001:
             bad.append(f"{p['id']} total")
     return bad
 
 
 def states(page):
-    """STF items carry a state; a zero is "zero_payroll", never shown as not received; TSE items are their own block."""
+    """Every court's items carry a state; a zero is "zero_payroll", never shown as not received; TSE items are their own block."""
     bad = []
     for p in page:
-        if p.get("court") != "STF":
+        if p["house"] != "judiciario" or not p["items"]:
             continue
         for it in p["items"]:
             want = "paid" if it["year_total"] else "zero_payroll"
@@ -71,7 +71,8 @@ def states(page):
 
 def dates(page):
     """Every STF record says when the person joined the court; the president also says since when he presides, with the source."""
-    bad = [p["id"] for p in page if p.get("court") == "STF" and ("since" in p or not p.get("court_since"))]
+    bad = [p["id"] for p in page if p["house"] == "judiciario" and p["items"] and "since" in p]
+    bad += [p["id"] for p in page if p.get("court") in ("STF", "STJ") and not p.get("court_since")]  # the two courts that publish it
     fachin = next(p for p in page if p["id"] == "stf:edson-fachin")
     if fachin.get("court_since") != "2015-06-16" or (fachin.get("office") or {}) != {"label": "Presidente do STF", "since": "2025-09-29", "source": PRESIDENCY_SOURCE}:
         bad.append("stf:edson-fachin office")
@@ -126,9 +127,13 @@ class JudiciaryViewTest(unittest.TestCase):
         next(p for p in planted if p["id"] == "stf:edson-fachin")["office"] = None
         self.assertEqual(dates(planted), ["stf:edson-fachin office"])
 
-    def test_other_courts_unchanged_until_their_turn(self):
+    def test_other_courts_follow_the_same_rules(self):
         page = page_people()
-        self.assertTrue(all("state" not in it for p in page if p["house"] == "judiciario" and p["court"] != "STF" for it in p["items"]))
+        planted = copy.deepcopy(page)  # control: one STJ line rounded the old way (float)
+        it = next(i for p in planted if p.get("court") == "STJ" for i in p["items"] if i["monthly"] != round(i["year_total"] / judiciary_view.months_count(i["note"]), 2))
+        it["monthly"] = round(it["year_total"] / judiciary_view.months_count(it["note"]), 2)
+        self.assertEqual(len(sums(planted)), 1)
+        self.assertEqual(sums(page), [])
 
 
 if __name__ == "__main__":

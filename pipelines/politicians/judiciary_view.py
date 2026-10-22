@@ -2,7 +2,7 @@
 D154). Used by build-tres-poderes-r3-data.py (the whole page's data) and by build-tres-poderes-r3-judiciary.py (only the
 Judiciary's part, from files in git).
 
-What the repository's data already allows, for the STF:
+What the repository's data already allows, for every court (the STF first, the others next, Q79):
   - money in decimal, rounded to the cent half up (Q73): each monthly figure is the 2026 total over the months published;
   - each item says its state: "paid", or "zero_payroll" when the published payroll column is zero for 2026 (Q74; never
     "não recebe", which needs an act or a page that says so);
@@ -10,7 +10,6 @@ What the repository's data already allows, for the STF:
   - "court_since" (admission to the court) and "office" (the post inside the court, with its own date and source) replace
     "since", which mixed the two;
   - the total says it is an average, over which months, and that it adds two averages when the TSE pays too (Q72, Q76).
-The other courts keep their records as before until their turn (Q79).
 """
 import re
 from decimal import ROUND_HALF_UP, Decimal
@@ -67,7 +66,7 @@ def record(x, office_by_name=None, apply=True):
            "name": x["name"], "role": x.get("role"), "tse_role": x.get("tse_role"), "party": x.get("party"), "uf": None,
            "since": x.get("since"), "photo": x.get("photo"), "photo_credit": x.get("photo_credit"), "page": x.get("page"),
            "data_as_of": x.get("data_as_of"), "note": x.get("note"), "items": items}
-    if not apply or x.get("court") != "STF":
+    if not apply or not items:
         return rec
     court, tse = [], []
     for it in items:
@@ -83,17 +82,21 @@ def record(x, office_by_name=None, apply=True):
             court.append(it)
     if any(it["state"] == "zero_payroll" for it in tse):
         raise ValueError(f"{x['name']}: a TSE item with no value; the collector keeps only the TSE items paid")
-    sal = next(it for it in court if it["key"] == "salary")
+    sal = next((it for it in court if it["key"] == "salary"), court[0])
+    for it in court:
+        it["months"] = months_label(it["months"])
     rec.pop("since")
     rec["court_since"] = x.get("since")
     rec["office"] = (office_by_name or {}).get(x["name"])
     rec["total_label"] = "Média por mês"
-    stf = f"{sal['months']}, {sal['months_count']} meses"
+    c = x["court"]
+    own = f"{sal['months']}, {sal['months_count']} meses"
     if tse:
         t = tse[0]
         assert all(i["months"] == t["months"] for i in tse), x["name"]
-        rec["total_note"] = f"soma da média do STF ({stf}) com a do TSE ({t['months']}, {t['months_count']} meses)"
+        rec["total_note"] = f"soma da média do {c} ({own}) com a do TSE ({t['months']}, {t['months_count']} meses)"
         rec["tse_months"] = f"{t['months']}, {t['months_count']} meses"
     else:
-        rec["total_note"] = f"{sal['months']}, os {sal['months_count']} meses que o STF publicou"
+        who = "o STF publicou" if c == "STF" else f"o {c} enviou ao painel do CNJ"
+        rec["total_note"] = f"{sal['months']}, os {sal['months_count']} meses que {who}"
     return rec
