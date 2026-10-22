@@ -4,24 +4,24 @@ exactly once.
 
 Two builds from the same sources:
 - the published page (default), what GitHub Pages serves: no author notes and nothing that does nothing. The support
-  block, its nav buttons and "Fale com a gente" stay out until D125's bar is met (D123, D124), and so do the notes for
-  the author and the nav items with no destination.
+  block and "Fale com a gente" stay out until D125's bar is met (D123, D124), and so do the notes for the author. The
+  header is the site header shared by the three pages (site_chrome.py, D152).
 - the author's preview (--author-notes): everything above included, written to its own file, which git ignores.
 
 Run: .venv/bin/python docs/superpowers/tools/build-platform-preview.py [--author-notes]
      (after build-ledger-interest-asset.py; check the periods first with ledger-graph-periods-check.cjs)
 """
+import re
 import sys
 from pathlib import Path
+
+import site_chrome
 
 PREVIEWS = Path(__file__).resolve().parents[1] / "previews"
 SIM = PREVIEWS / "BRASIL-IMPOSTO_DESIGN_home-simulacao_2026-09-29.html"
 OUT = PREVIEWS / "BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html"
 OUT_AUTHOR = PREVIEWS / "BRASIL-IMPOSTO_AUTHOR_platform-preview_2026-10-09.html"
 SRC = PREVIEWS / "src"
-REPO = "https://github.com/Brasil-Imposto/brasil-imposto.github.io"
-PAGES = ('<a href="BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html">Os 3 Poderes</a>'
-         '<a href="BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html">Como o dinheiro anda</a>')
 
 
 def insert(page, anchor, new, before=True):
@@ -33,16 +33,23 @@ def build(author_notes):
     src = lambda name: (SRC / name).read_text(encoding="utf-8")
     page = SIM.read_text(encoding="utf-8")
     page = insert(page, '<link rel="stylesheet" href="assets/home-feed.css">', '\n<link rel="stylesheet" href="assets/platform.css">', before=False)
-    nav = '<nav><span>Como funciona</span><span>Fontes</span><span>Código aberto</span></nav>'
-    assert page.count(nav) == 1
+    # D152: the hero's own header leaves; the site header shared by the three pages (site_chrome) takes its place.
+    old, n = re.subn(r'\n  <header class="hero-nav">\n.*?\n  </header>', '', page, count=1, flags=re.S)
+    assert n == 1 and 'class="hero-nav"' not in old, "hero header not found"
+    page = site_chrome.inject(old, "inicio")
+    # The home renders at 90% from 1063 px (D96, html { zoom: .9 }); the site header cancels it to keep its size on every page.
+    zoom = "    html { zoom: .9; }\n"
+    assert page.count(zoom) == 1, "the D96 zoom rule moved"
+    page = page.replace(zoom, zoom + "    .bi-header, .bi-sheet { zoom: 1.11111; } /* D152: the site header keeps its size */\n")
+    # Tablets and phones reserved room at the top of the hero for its own header, now gone: keep only that header's margin.
+    for old_pad, new_pad in (('column-gap: 16px; padding: 70px 24px 24px; }', 'column-gap: 16px; padding: 22px 24px 24px; }'),
+                             ('flex-direction: column; padding-top: 58px; }', 'flex-direction: column; padding-top: 16px; }')):
+        assert page.count(old_pad) == 1, old_pad
+        page = page.replace(old_pad, new_pad)
     if author_notes:
-        new_nav = (f'<nav>{PAGES}<span>Fontes</span><span>Código aberto</span><a href="#rede">Rede (prévia)</a>'
-                   '<a href="#fale">Fale com a gente</a><a class="pf-cta" href="#apoie">Apoie</a></nav>')
         sections = src("platform-sections.html") + "\n" + src("platform-support.html") + "\n" + src("platform-notes.html") + "\n"
     else:
-        new_nav = f'<nav>{PAGES}<a href="{REPO}">Código aberto</a><a href="#rede">Rede (prévia)</a></nav>'
         sections = src("platform-sections.html") + "\n"
-    page = page.replace(nav, new_nav)
     page = insert(page, '<script src="assets/bi-data.js"></script>', sections)
     script = src("platform-script.html")
     if author_notes:  # the support block's handlers go in before the script's closing lines
