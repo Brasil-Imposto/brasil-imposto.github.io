@@ -1,6 +1,6 @@
 # Brasil-Imposto: publicação no GitHub e documentação
 
-Status: **Em publicação (D148, 2026-10-22)**, revisão 3. As respostas de 2026-10-06 (D97, D98) e a rodada de 2026-10-22 (D148, que muda D147: os documentos de comunidade, os formulários e o check do DCO entram na v1) estão aplicadas. Todas as decisões da seção 2 estão fechadas. O que fica para depois da v1 vira issue pública no repositório.
+Status: **Publicada (D149, 2026-10-22)**, revisão 3. As respostas de 2026-10-06 (D97, D98) e a rodada de 2026-10-22 (D148, que muda D147: os documentos de comunidade, os formulários e o check do DCO entram na v1) estão aplicadas. Todas as decisões da seção 2 estão fechadas. O que fica para depois da v1 vira issue pública no repositório.
 
 ### Summary (English)
 
