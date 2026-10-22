@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Perguntas e ideias
+    url: https://github.com/Brasil-Imposto/brasil-imposto.github.io/discussions
+    about: Dúvidas sobre os números, ideias e conversa geral ficam em Discussions.
+  - name: Falha de segurança
+    url: https://github.com/Brasil-Imposto/brasil-imposto.github.io/security/advisories/new
+    about: Relate em privado, nunca numa issue pública (veja SECURITY.md).

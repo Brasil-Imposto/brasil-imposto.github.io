@@ -1,0 +1,47 @@
+name: Propor um caso (obra)
+description: Uma obra pública com custo, contrato e resultado que os documentos oficiais permitem mostrar.
+title: "Caso: "
+labels: [new-case, needs-source]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Um caso mostra o que os documentos oficiais dizem. Escreva "diferença sem explicação" quando os números não fecham;
+        nunca "desvio" sem decisão oficial. Pessoas aparecem só com o papel que têm num documento oficial, com o ato e o link.
+  - type: input
+    id: work
+    attributes:
+      label: Obra e local
+    validations:
+      required: true
+  - type: textarea
+    id: documents
+    attributes:
+      label: Documentos oficiais, com link
+      description: Contrato, aditivos, pagamentos.
+    validations:
+      required: true
+  - type: textarea
+    id: companies
+    attributes:
+      label: Empresas, com CNPJ
+  - type: textarea
+    id: people
+    attributes:
+      label: Quem assinou pelo governo e quem governava
+      description: Só com o papel que cada pessoa tem num documento oficial, com o link do ato.
+  - type: textarea
+    id: audits
+    attributes:
+      label: Achados de órgãos de controle
+      description: Com a situação jurídica de cada um (em análise, julgado, arquivado).
+  - type: textarea
+    id: photos
+    attributes:
+      label: Fotos com licença livre
+      description: Link de cada foto e a licença.
+  - type: textarea
+    id: comparable
+    attributes:
+      label: Projeto comparável
+      description: A obra mais parecida e a fonte do custo dela.

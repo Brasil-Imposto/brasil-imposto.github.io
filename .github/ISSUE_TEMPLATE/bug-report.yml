@@ -1,0 +1,35 @@
+name: Defeito na página ou no código
+description: Algo não abre, não funciona ou aparece quebrado.
+title: "Defeito: "
+labels: [bug]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Página
+      placeholder: https://brasil-imposto.github.io/...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para reproduzir
+      placeholder: "1. Abri ...\n2. Escolhi ...\n3. Cliquei em ..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: O que você esperava e o que aconteceu
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Aparelho e navegador
+      placeholder: "Ex.: celular Android, Chrome 141"
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Captura de tela
+      description: Arraste a imagem para cá, se tiver.

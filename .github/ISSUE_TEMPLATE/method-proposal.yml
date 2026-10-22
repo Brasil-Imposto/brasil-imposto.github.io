@@ -1,0 +1,33 @@
+name: Proposta de método
+description: Mudar como um número é calculado, de onde vem ou como aparece. Abre a janela de comentário.
+title: "Método: "
+labels: [method-change]
+body:
+  - type: markdown
+    attributes:
+      value: A proposta é anunciada em Discussions e fica de 7 a 10 dias aberta para comentário antes do merge (veja GOVERNANCE.md).
+  - type: textarea
+    id: what
+    attributes:
+      label: O que muda
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Por quê
+    validations:
+      required: true
+  - type: textarea
+    id: effect
+    attributes:
+      label: Efeito nos números
+      description: Quais números mudam, e quanto, em pelo menos um período.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Fontes oficiais
+    validations:
+      required: true

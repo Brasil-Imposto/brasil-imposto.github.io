@@ -1,0 +1,32 @@
+name: Cobrir os municípios de um estado
+description: Trazer os municípios de mais um estado, pelo caminho já feito em SC e no RS.
+title: "Municípios: "
+labels: [new-state]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        O caminho é o mesmo de SC e do RS, um passo por vez, cada um com a checagem ao centavo e o controle que tem de falhar:
+        `fetch_municipal_series.py --uf`, `build_municipal_series.py --uf`, `build_municipal_federal.py --uf`,
+        `build_mayors.py --uf` e `build-geo-state.cjs`. Prefeitos desde 2020; fotos só com licença livre e crédito.
+        A pessoa mantenedora acrescenta o rótulo `uf:xx` do estado.
+  - type: dropdown
+    id: uf
+    attributes:
+      label: Estado
+      options: [AC, AL, AM, AP, BA, CE, ES, GO, MA, MG, MS, MT, PA, PB, PE, PI, PR, RJ, RN, RO, RR, SE, SP, TO]
+    validations:
+      required: true
+  - type: checkboxes
+    id: steps
+    attributes:
+      label: Passos que você pretende fazer
+      options:
+        - label: Séries dos municípios (`fetch_municipal_series.py --uf`, `build_municipal_series.py --uf`)
+        - label: Repasses e gasto federal por município (`build_municipal_federal.py --uf`)
+        - label: Prefeitos desde 2020 (`build_mayors.py --uf`)
+        - label: Malha do estado (`build-geo-state.cjs`)
+  - type: textarea
+    id: notes
+    attributes:
+      label: O que você já sabe sobre as fontes desse estado
