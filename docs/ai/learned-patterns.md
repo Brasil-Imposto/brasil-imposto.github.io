@@ -336,3 +336,26 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
   a forma larga cortava títulos em negrito como `**"..."**`. O script para se sobrar alguma citação.
 - **Primeiro commit público.** O email nos commits é o noreply do GitHub (D97 item 8), configurado no repositório local antes
   do commit e conferido com `git log -1 --format=%ae`; o email pessoal ficaria em todo commit público.
+
+### Publicação no GitHub e sessão na nuvem (2026-10-22, D148 a D153)
+
+- **Endereço:** um site de organização mora num repositório `<org>.github.io` e abre em `https://<org>.github.io` (documentação do GitHub, "What is
+  GitHub Pages"). O Pages respondeu o endereço da raiz mesmo com o nome da organização em maiúsculas (`Brasil-Imposto`).
+- **Ordem que funcionou:** criar o repositório, ligar o Pages com a fonte "GitHub Actions", ligar a segurança, fazer o push e só então o ruleset da
+  `main` (sem exceção, nem para o dono: criado antes, recusaria o próprio push). Depois disso, toda mudança, mesmo de documento, entra por PR com o check
+  `dco` verde e squash merge, que o GitHub assina.
+- **Peso medido no ar:** `bi-data.js` tem 87 MB e chega com cerca de 20 MB pela rede (gzip do Pages); o mapa espera esse arquivo inteiro, por isso o
+  cartão de carregamento com o progresso real (D152). A divisão por entidade vem com o site em Astro (fases B0 a B2).
+- **Conferir o site publicado:** `visible-text-probe.cjs <URL> <saída> --audit` (com `--plant` como controle, que tem de pegar a nota plantada) e
+  `tres-poderes-unknown-probe.cjs <URL> [--control]` aceitam a URL publicada; o perfil de comunidade sai em `GET repos/<org>/<repo>/community/profile`.
+- **Contar o que a página mostra, não o que o dado diz:** os 16 "unknown" da árvore de Os 3 Poderes eram dado morto (a página lê o registro de cada
+  pessoa); a sonda que abre a página e as 722 fichas achou os sinais que apareciam de verdade, e o controle provou que ela enxerga.
+- **Sessão do Claude Code na nuvem:** lê o `CLAUDE.md` e o `.claude/` do repositório e as skills ativadas na conta do claude.ai, nada da máquina de quem
+  mantém. O GitHub passa por um proxy que recusa GraphQL (`gh pr`, `gh issue`, Projects), tags, releases e apagar branch: usar REST (`gh api`). O app do
+  Claude no GitHub tem de estar instalado na organização, senão todo push volta 403. A rede padrão do ambiente não alcança o site publicado (lista de
+  domínios do ambiente). Ruleset, Pages, segurança, release, quadro e categorias de Discussions ficam com a sessão local.
+- **Documentação do GitHub como fonte primária barata:** `https://docs.github.com/api/article/body?pathname=/en/<caminho>` devolve a página em markdown.
+- **Categorias de Discussions** não têm API: foram editadas no navegador.
+- **Logo (D153):** nada da marca de um governo, nenhuma bandeira alterada (Lei 5.700/1971, art. 31, II); verde, amarelo, azul e branco livres
+  (arts. 28 e 29). As 27 estrelas das rodadas estão nas posições oficiais, lidas em `docs/superpowers/previews/assets/flags/br.svg`; o gerador das rodadas
+  fica fora do git.

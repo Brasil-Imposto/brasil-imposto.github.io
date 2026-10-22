@@ -28,12 +28,14 @@ Part A publishes v1 on GitHub under the `brasil-imposto` organization: the fixes
 | # | O quê | Feito quando |
 |---|---|---|
 | A1.1 | **Os 3 Poderes sem "a coletar" (D143).** A legenda passa de "? a coletar" para "? não publicado", e o rótulo do sinal também; os 6 textos de reserva no código deixam de dizer "a coletar"; os 2 senadores sem mês inteiro de folha mostram "i" com a explicação; o construtor tira dos 21 ocupantes de exemplo da árvore os estados antigos da rodada 2 (16 "unknown"), que a página não mostra mas o JSON público carregava contra o registro de cada pessoa. **Feito em 2026-10-22.** | A sonda `tres-poderes-unknown-probe.cjs` (entra no repositório) conta 0 "a coletar" na árvore e nas 722 fichas; o controle, que apaga o dado de um senador, aparece como um sinal a mais |
-| A1.2 | **A home pública sem notas do autor.** O bloco "Apoie" fica fora do site publicado (D125; hoje diz "Só na prévia" e "os botões não levam a lugar nenhum"), e o texto visível perde os códigos internos (D123, D125, Q33 e outros, 14 códigos hoje). A prévia local continua com tudo | A sonda de texto visível da home (a home em 19 períodos e a janela dos 27 estados em ano, mandato e mês): 0 códigos D, Q ou GD e 0 "Só na prévia" no site publicado; a sonda também roda com uma nota plantada, que tem de ser pega |
+| A1.2 | **A home pública sem notas do autor.** O bloco "Apoie" fica fora do site publicado (D125; hoje diz "Só na prévia" e "os botões não levam a lugar nenhum"), e o texto visível perde os códigos internos (D123, D125, Q33 e outros, 14 códigos hoje). A prévia local continua com tudo | A sonda de texto visível da home (a home em 19 períodos e a janela dos 27 estados em ano, mandato e mês): 0 códigos D, Q ou GD e 0 "Só na prévia" no site publicado; a sonda também roda com uma nota plantada, que tem de ser pega. **Feito em 2026-10-22** (PRs #1 e #20, conferido no ar) |
 | A1.3 | **Foto de Dario Durigan:** o arquivo oficial sem alteração, com crédito (D148, item 11). **Feito em 2026-10-22** (1000 x 1500 px, da cópia do Internet Archive da página oficial) | `photos.json` com o tamanho real e a nota; o arquivo igual, byte a byte, ao baixado da fonte |
-| A1.4 | **README verdadeiro.** Hoje diz "Cada página tem Pedir correção", e só Os 3 Poderes tem. Passa a dizer onde há e que o botão nas outras páginas é uma issue aberta. Ganha a seção "Estado do projeto": o que está pronto, o que vem (o site em Astro, Parte B), com link para as issues e o quadro | Leitura do texto contra as páginas |
+| A1.4 | **Feito em 2026-10-22 (PR #17).** **README verdadeiro.** Hoje diz "Cada página tem Pedir correção", e só Os 3 Poderes tem. Passa a dizer onde há e que o botão nas outras páginas é uma issue aberta. Ganha a seção "Estado do projeto": o que está pronto, o que vem (o site em Astro, Parte B), com link para as issues e o quadro | Leitura do texto contra as páginas |
 | A1.5 | **Mensagens dos 4 commits em inglês** (D54), sem o escopo interno `learn`; as linhas do DCO ficam. **Feito em 2026-10-22** | `git log` com as 4 mensagens novas e `Signed-off-by` em todas |
 
 ### A2. Arquivos novos no repositório
+
+**Feito em 2026-10-22** (PRs #15 e #16; a declaração do mantenedor no PR #19, D150; perfil de comunidade em 100%).
 
 | Arquivo | Conteúdo |
 |---|---|
@@ -54,6 +56,8 @@ Cada uma provada antes com um caso plantado que tem de ser pego: segredos (mostr
 
 ### A4. Configuração no GitHub
 
+**Feito em 2026-10-22**, menos o que depende do autor: exigir 2FA e as permissões da organização.
+
 Pelo `gh`, depois da organização criada pelo autor:
 
 1. **Organização:** nome de exibição "Brasil-Imposto", descrição "Quanto cada estado envia e recebe da União, com dados oficiais e código aberto.", sem email público (D148); permissão base Read; membros não criam repositórios; Actions só da organização e do GitHub; `GITHUB_TOKEN` só leitura por padrão; Actions não cria nem aprova PR. 2FA obrigatório: clique do autor (sem API).
@@ -69,6 +73,8 @@ Pelo `gh`, depois da organização criada pelo autor:
 Cliques do autor no fim: as quatro categorias de Discussions (Perguntas, Ideias, Propostas de método, Anúncios); avatar e imagem de prévia social, escolhidos numa página de opções.
 
 ### A5. Issues abertas no dia 1
+
+**Feito em 2026-10-22:** rótulos, issues, o quadro público "Cobertura" (27 cartões) e a release `v1.0.0`.
 
 | Issue | Rótulos |
 |---|---|
