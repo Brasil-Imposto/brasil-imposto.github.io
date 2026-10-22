@@ -42,7 +42,7 @@ data["federal"] = {s["uf"]: {"by_tax": s["federal_revenue"]["by_tax"], "total": 
                    for s in json.loads((DATA / "uf-balance-2024.json").read_text(encoding="utf-8"))}
 data["municipal"] = read(DATA / "municipal-taxes-2024.json", "pipelines/siconfi/build_municipal_taxes.py")["by_uf"]
 # Santa Catarina, one level down: the municipal balance and the municipal map (round 9).
-data["sc"] = read(DATA / "sc-municipal-balance-2024.json", "pipelines/municipios/build_municipal_balance.py")
+data["sc"] = read(DATA / "sc-municipal-balance-2024.json", "pipelines/municipalities/build_municipal_balance.py")
 # Time series (round 10), each with the script that writes it.
 SERIES = DATA / "series"
 SERIES_WRITERS = {

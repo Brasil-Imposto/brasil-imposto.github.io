@@ -28,7 +28,7 @@ O número da Q30 é reproduzível com os arquivos do projeto (2024, R$ bi, popul
 - Base do Atlas (página de metodologia, https://www.ipea.gov.br/atlasestado/quem/12/metodologia): RAIS, vínculos formais ativos, contados por CPF; "público" = CNPJ de natureza jurídica pública (administração direta, autarquias, fundações; empresas públicas e de economia mista ficam fora). **Inclui militares, policiais e bombeiros** a partir de 2011 (a RAIS passou a reportá-los). O vínculo fica na UF do estabelecimento que declara a RAIS, não necessariamente onde a pessoa trabalha.
 - No DF não há municípios: o "estadual" do DF é o GDF, que também faz o papel de prefeitura. A União organiza e mantém o Judiciário e o Ministério Público do DF (CF, art. 21, XIII) e as polícias Civil, Penal e Militar e o Corpo de Bombeiros do DF, com o FCDF (art. 21, XIV): https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm . A contagem pequena de "judiciário estadual" no DF no Atlas (2.034 vínculos em 2021) indica que o TJDFT entra como federal; a metodologia do Atlas não diz isso com essas palavras. Não foi verificado em que esfera o Atlas conta as polícias e os bombeiros do DF, pagos pela União com o FCDF.
 - População: estimativas do IBGE do mesmo ano (`data/series/population.json`; as de 2019 e 2021 ainda partem do Censo 2010).
-- Script: `pipelines/df/atlas_vinculos_uf.py`; dado agregado: `data/df/atlas_vinculos_uf.json`.
+- Script: `pipelines/df/atlas_public_jobs_by_uf.py`; dado agregado: `data/df/atlas_public_jobs_by_uf.json`.
 
 ### 1.2 Vínculos públicos por mil habitantes, 2021 (cálculo sobre o Atlas)
 
@@ -56,7 +56,7 @@ Leitura:
 
 ### 1.3 Servidores federais civis do Executivo, agosto de 2026 (o dado mais recente)
 
-- Fonte: Ministério da Gestão e da Inovação (SEGRT), repositório aberto, "Servidores por município de exercício", agosto de 2026: https://repositorio.dados.gov.br/segrt/Serv_por_municipio/2026/Serv_por_mun_exerc_202608.csv (servidores civis ativos do SIAPE, pelo município da unidade de exercício; sem militares, sem Legislativo e Judiciário). Script: `pipelines/df/segrt_servidores_uf.py`.
+- Fonte: Ministério da Gestão e da Inovação (SEGRT), repositório aberto, "Servidores por município de exercício", agosto de 2026: https://repositorio.dados.gov.br/segrt/Serv_por_municipio/2026/Serv_por_mun_exerc_202608.csv (servidores civis ativos do SIAPE, pelo município da unidade de exercício; sem militares, sem Legislativo e Judiciário). Script: `pipelines/df/segrt_servants_uf.py`.
 
 | # | UF | Servidores ativos | Por mil hab (IBGE 2026) | % do total |
 |---:|---|---:|---:|---:|
@@ -77,7 +77,7 @@ AP, RR e RO aparecem logo atrás por causa do pessoal dos ex-territórios, pago 
 
 ### 2.1 Fonte e definição
 
-- Portal da Transparência (CGU), Execução da Despesa, 12 arquivos mensais de 2024: https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 (até 202412), baixados de novo em 2026-10-01, um a cada 90 s. Script: `pipelines/df/agg_desp_uf.py` (soma por UF, localizador, grupo, modalidade, órgão superior e função; apaga cada ZIP) e `pipelines/df/q2_gasto_por_uf.py`; saída `data/df/q2_gasto_por_uf_2024.json`.
+- Portal da Transparência (CGU), Execução da Despesa, 12 arquivos mensais de 2024: https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/202401 (até 202412), baixados de novo em 2026-10-01, um a cada 90 s. Script: `pipelines/df/agg_spending_uf.py` (soma por UF, localizador, grupo, modalidade, órgão superior e função; apaga cada ZIP) e `pipelines/df/federal_spending_by_uf.py`; saída `data/df/federal_spending_by_uf_2024.json`.
 - Definição, a mesma do relatório de 2024 (`BRASIL-IMPOSTO_RESEARCH_dados-por-uf_2026-09-25.md`, seção 3.3): valor pago + restos a pagar pagos, aplicação direta (modalidades 90 e 91), grupos pessoal (1), outras despesas correntes (3, custeio e benefícios), investimentos (4) e inversões (5); juros e amortização fora. A UF é a do **localizador orçamentário** que o SIAFI registra, não a de quem recebe.
 - O arquivo do Portal é do **Poder Executivo** (`BRASIL-IMPOSTO_RESEARCH_folha-federal-por-uf_2026-10-01.md`, seção 2). Legislativo, Judiciário e MPU estão na seção 4.2 (folha) e não aqui.
 - Conferência: o total (R$ 1.916,04 bi) e a parte com UF (R$ 192,16 bi) são iguais, até o centavo de bilhão, aos do relatório de 2024. 2025 também foi baixado (seção 2.4).
@@ -116,7 +116,7 @@ Sem UF, por função: Previdência social R$ 990,65 bi, Assistência social 279,
 
 ### 2.4 2025 (o ano completo mais recente), com um aviso
 
-Mesmos scripts, 12 arquivos de 2025 (`data/df/q2_gasto_por_uf_2025.json`; população IBGE 2025). **O arquivo de junho de 2025 do Portal está fora do padrão:** soma R$ 385,0 bi de gasto direto primário (os outros meses ficam entre R$ 145,5 bi e 212,6 bi) e R$ 54,4 bi de pessoal (outros meses: R$ 24,4 bi a 40,5 bi). É a mesma anomalia já registrada na pesquisa da folha (o Portal traz R$ 47,67 bi de pessoal do Executivo em 2025-06, contra R$ 23,99 bi na base do Tesouro). Por isso há duas colunas:
+Mesmos scripts, 12 arquivos de 2025 (`data/df/federal_spending_by_uf_2025.json`; população IBGE 2025). **O arquivo de junho de 2025 do Portal está fora do padrão:** soma R$ 385,0 bi de gasto direto primário (os outros meses ficam entre R$ 145,5 bi e 212,6 bi) e R$ 54,4 bi de pessoal (outros meses: R$ 24,4 bi a 40,5 bi). É a mesma anomalia já registrada na pesquisa da folha (o Portal traz R$ 47,67 bi de pessoal do Executivo em 2025-06, contra R$ 23,99 bi na base do Tesouro). Por isso há duas colunas:
 
 | 2025 | Ano inteiro (com junho) | 11 meses (sem junho) |
 |---|---:|---:|
@@ -138,7 +138,7 @@ Tirando Previdência e Assistência, ficam sem UF R$ 644,42 bi em 2025 (28,2%), 
 ### 3.1 Fontes
 
 - Receita Federal, **arrecadação por estado**, mensal, por tributo: https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv (baixado de novo em 2026-10-01). Script: `pipelines/df/rfb_df_breakdown.py`; saída `data/df/rfb_breakdown_2024.json`.
-- Receita Federal, **arrecadação por natureza jurídica do contribuinte**, mensal, nacional (sem UF): https://www.gov.br/receitafederal/dados/arrecadacao-natureza.csv (listada em "Dados abertos > Receitadata > Arrecadação", https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-1). Script: `pipelines/df/rfb_natureza.py`; saída `data/df/rfb_natureza_2024.json`. O total desse arquivo em 2024 (R$ 2.608,84 bi) é um pouco menor que o do arquivo por UF (R$ 2.651,34 bi); os dois têm recortes diferentes e não foram conciliados.
+- Receita Federal, **arrecadação por natureza jurídica do contribuinte**, mensal, nacional (sem UF): https://www.gov.br/receitafederal/dados/arrecadacao-natureza.csv (listada em "Dados abertos > Receitadata > Arrecadação", https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/dados-abertos/receitadata/arrecadacao/arrecadacao-1). Script: `pipelines/df/rfb_legal_nature.py`; saída `data/df/rfb_legal_nature_2024.json`. O total desse arquivo em 2024 (R$ 2.608,84 bi) é um pouco menor que o do arquivo por UF (R$ 2.651,34 bi); os dois têm recortes diferentes e não foram conciliados.
 - Lei nº 9.779/1999, art. 15: https://www.planalto.gov.br/ccivil_03/leis/l9779.htm
 - Regulamento do Imposto de Renda, Decreto nº 9.580/2018, arts. 202, 932 e 933: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/decreto/d9580.htm
 
@@ -318,13 +318,13 @@ curl -sSL -A Mozilla/5.0 -o data/df/arrecadacao-natureza.csv https://www.gov.br/
 curl -sSL -A Mozilla/5.0 -o data/df/atlas_091.xlsx https://www.ipea.gov.br/atlasestado/arquivos/downloads/9113-091arquivounico.xlsx
 curl -sSL -A Mozilla/5.0 -o data/df/segrt_serv_por_mun_exerc_202608.csv https://repositorio.dados.gov.br/segrt/Serv_por_municipio/2026/Serv_por_mun_exerc_202608.csv
 python3 pipelines/df/rfb_df_breakdown.py . 2024     # seção 3.3
-python3 pipelines/df/rfb_natureza.py . 2024         # seção 3.4
-python3 pipelines/df/atlas_vinculos_uf.py .         # seção 1.2 (openpyxl)
-python3 pipelines/df/segrt_servidores_uf.py .       # seção 1.3
+python3 pipelines/df/rfb_legal_nature.py . 2024         # seção 3.4
+python3 pipelines/df/atlas_public_jobs_by_uf.py .         # seção 1.2 (openpyxl)
+python3 pipelines/df/segrt_servants_uf.py .       # seção 1.3
 python3 pipelines/df/q4_local.py .                  # seção 4
 # execução da despesa do Portal: um mês a cada 90 s (WAF); retoma de onde parou e apaga cada ZIP
-python3 pipelines/df/agg_desp_uf.py data/df 202401,202402,...,202512 90
-python3 pipelines/df/q2_gasto_por_uf.py . 2024      # seção 2
-python3 pipelines/df/q2_gasto_por_uf.py . 2025      # seção 2.4
+python3 pipelines/df/agg_spending_uf.py data/df 202401,202402,...,202512 90
+python3 pipelines/df/federal_spending_by_uf.py . 2024      # seção 2
+python3 pipelines/df/federal_spending_by_uf.py . 2025      # seção 2.4
 ```
 

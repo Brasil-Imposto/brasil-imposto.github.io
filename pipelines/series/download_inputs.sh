@@ -9,7 +9,7 @@
 #   6. build_population.py [--uf SC,RS] -> data/series/population.json
 #   7. build_federal_by_uf_monthly.py -> data/series/federal-by-uf-monthly.json
 #   8. build_municipal_federal.py [--uf RS] -> data/series/{uf}-municipal-federal.json
-# Optional: inss_emitidos_municipio.py streams one month of the INSS benefit microdata (0.55 to 1 GB) to test INSS by municipality.
+# Optional: inss_issued_by_municipality.py streams one month of the INSS benefit microdata (0.55 to 1 GB) to test INSS by municipality.
 set -euo pipefail
 cd "${1:?workdir}" && mkdir -p rfbpdf rfbmun tt
 get() { curl -sS -L -g -A "Mozilla/5.0" -m 600 -o "$1" "$2" -w "$1 %{http_code} %{size_download}\n"; }

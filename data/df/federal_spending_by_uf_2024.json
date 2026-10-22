@@ -14,7 +14,7 @@
   "202411",
   "202412"
  ],
- "definition": "(a mesma de BRASIL-IMPOSTO_RESEARCH_dados-por-uf_2026-09-25.md, seção 3.3): valor pago + restos a pagar pagos,\nmodalidades 90 e 91 (aplicação direta), grupos 1 (pessoal), 3 (outras despesas correntes), 4 (investimentos) e\n5 (inversões financeiras). Juros (2) e amortização (6) ficam fora. Saída: data/df/q2_gasto_por_uf_<ano>.json.",
+ "definition": "(a mesma de BRASIL-IMPOSTO_RESEARCH_dados-por-uf_2026-09-25.md, seção 3.3): valor pago + restos a pagar pagos,\nmodalidades 90 e 91 (aplicação direta), grupos 1 (pessoal), 3 (outras despesas correntes), 4 (investimentos) e\n5 (inversões financeiras). Juros (2) e amortização (6) ficam fora. Saída: data/df/federal_spending_by_uf_<ano>.json.",
  "total_direct_primary": 1916044418156.644,
  "located": 192162547698.97998,
  "not_located": 1723881870457.664,

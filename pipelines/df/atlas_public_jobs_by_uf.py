@@ -1,6 +1,6 @@
 """Vínculos públicos por UF e nível federativo (Atlas do Estado Brasileiro, Ipea, série 91, a partir da RAIS).
 Entrada: data/df/atlas_091.xlsx (https://www.ipea.gov.br/atlasestado/arquivos/downloads/9113-091arquivounico.xlsx).
-Saída: data/df/atlas_vinculos_uf.json e tabela por mil habitantes (população do IBGE em data/series/population.json)."""
+Saída: data/df/atlas_public_jobs_by_uf.json e tabela por mil habitantes (população do IBGE em data/series/population.json)."""
 import json, sys, openpyxl
 BASE = sys.argv[1] if len(sys.argv) > 1 else "."
 wb = openpyxl.load_workbook(f"{BASE}/data/df/atlas_091.xlsx", read_only=True)
@@ -17,7 +17,7 @@ for r in rows[1:]:
             rec[f"{pod}_{lvl}"] = sum((d.get(f"vinculos_{pod}_{lvl}_nivel_{n}") or 0) for n in range(1, 6))
     out.setdefault(y, {})[uf] = rec
 json.dump({"source": "https://www.ipea.gov.br/atlasestado/consulta/91", "file": "9113-091arquivounico.xlsx, aba Uf",
-           "years": years, "data": out}, open(f"{BASE}/data/df/atlas_vinculos_uf.json", "w"), ensure_ascii=False, indent=1)
+           "years": years, "data": out}, open(f"{BASE}/data/df/atlas_public_jobs_by_uf.json", "w"), ensure_ascii=False, indent=1)
 print("anos", years[0], "a", years[-1])
 pop = json.load(open(f"{BASE}/data/series/population.json"))["uf"]
 for y in [str(years[-1]), "2019"]:

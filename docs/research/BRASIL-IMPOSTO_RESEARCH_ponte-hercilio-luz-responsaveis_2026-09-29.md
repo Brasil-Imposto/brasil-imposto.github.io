@@ -32,7 +32,7 @@
 Portal de Dados Abertos de SC, conjunto "Contratos", organização Controladoria-Geral do Estado (CGE-SC), origem SIGEF e SICOP (Sistema Integrado de Controle de Obras Públicas):
 - Arquivo: https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/ff7c3cac-3e38-4801-9fd8-e4ccb69ca31d/download/contratos.csv (73.749.080 bytes; SHA-256 `839d2ab72acdd7a088e3563a0281250ddf5f151b6f74d7bb4bd918e025a35860`; recurso atualizado pelo portal em 2026-09-29 10:02).
 - Dicionário de dados v1.1: https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/resource/7e5a6853-70c4-4282-b866-2c37856bdefc/download/dicionario-de-dados-contratos-v1.1.xlsx
-- Script que refaz o filtro: `pipelines/ponte/filter_contracts.py` (filtro "PONTE" e "HERCILIO", sem acento, em objeto, resumo ou bem público). Resultado: os mesmos 26 registros da coleta de 2026-09-25; os 13 abaixo são o grupo "restauração, supervisão e projetos, 2006 a 2019" daquela pesquisa. A soma bate com a de 2026-09-25 ao centavo.
+- Script que refaz o filtro: `pipelines/hercilio_luz/filter_contracts.py` (filtro "PONTE" e "HERCILIO", sem acento, em objeto, resumo ou bem público). Resultado: os mesmos 26 registros da coleta de 2026-09-25; os 13 abaixo são o grupo "restauração, supervisão e projetos, 2006 a 2019" daquela pesquisa. A soma bate com a de 2026-09-25 ao centavo.
 
 ### 1.2 Tabela
 
@@ -164,7 +164,7 @@ Notas:
 | Dados abertos: "Fornecedores" | só 2022 | Não |
 | **Portal da Transparência do Poder Executivo de SC, consulta "Fornecedores"** (fonte SIGEF, gestor Secretaria de Estado da Fazenda) | **de 2011 em diante** (2008, 2009 e 2010 voltam vazios; 2011 tem dados) | **Sim, a partir de 2011**, por credor, ano e unidade gestora |
 
-A consulta "Fornecedores" do Portal (https://www.transparencia.sc.gov.br/fornecedores) é servida por uma API pública, sem login, que o próprio site usa: `https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor` (credor localizado por CNPJ em `.../api/busca/documento`). O script `pipelines/ponte/payments.py` refaz todas as consultas. Parâmetro `tipopagamentocredorfiltro=1`: é o valor que a página do Portal envia por padrão. Situação da carga no próprio Portal (`.../api/processo-carga`): base "Carga fato pagto fornecedores" atualizada em 2026-09-29, até 09/2026.
+A consulta "Fornecedores" do Portal (https://www.transparencia.sc.gov.br/fornecedores) é servida por uma API pública, sem login, que o próprio site usa: `https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor` (credor localizado por CNPJ em `.../api/busca/documento`). O script `pipelines/hercilio_luz/payments.py` refaz todas as consultas. Parâmetro `tipopagamentocredorfiltro=1`: é o valor que a página do Portal envia por padrão. Situação da carga no próprio Portal (`.../api/processo-carga`): base "Carga fato pagto fornecedores" atualizada em 2026-09-29, até 09/2026.
 
 Campos, segundo o dicionário de dados "Fornecedores" v1.0 (https://dados.sc.gov.br/dataset/6b72a588-3f47-4af0-baa9-f92d8bb0928e/resource/339d73d6-4b98-4fdd-8b94-3e1ee7d70030/download/dicionario-de-dados-fornecedores-v1.0.xlsx): `vlbruto` "Valor bruto recebido pelo credor"; `vlretido` "Valor retido"; `vlestorno` "Valor estornado" ("Valor devolvido"). O Portal descreve o total como "o valor pago a fornecedores, incluindo retenções". O dicionário não diz se `vlbruto` já desconta os estornos; por isso os dois aparecem separados abaixo, sem somar um no outro.
 

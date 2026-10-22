@@ -19,7 +19,7 @@ have it too. Debt interest and amortization stay out.
 
 Usage: .venv/bin/python pipelines/ug/build_two_step_balance.py 2026 1 7 [--control | --control=input-row | --control=input-revenue]
 Inputs (all already in the project; nothing is downloaded):
-  data/ug/cache/despug_YYYYMM.json.gz        Portal da Transparência, expense execution, Executive (agg_desp_ug.py)
+  data/ug/cache/despug_YYYYMM.json.gz        Portal da Transparência, expense execution, Executive (agg_spending_ug.py)
   data/ug/cache/dtt_monthly_YYYY.json.gz     Tesouro base "Despesas e Transferências Totais da União" (agg_dtt_monthly.py)
   data/ug/siafi_unidades_gestoras_2025-06.csv  SIAFI register of paying units, UF column
   data/series/federal-by-uf-monthly.json, federal-revenue-uf-estimated.json, population.json

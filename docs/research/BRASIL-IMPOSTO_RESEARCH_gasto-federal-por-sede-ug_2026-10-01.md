@@ -31,7 +31,7 @@
 | Tesouro Nacional, "Despesas e Transferências Totais da União", 2024 (critério valor pago): https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais , arquivo `limite-gastos-lc200dez24.xlsx` | Todos os Poderes, por órgão, unidade orçamentária, grupo, modalidade e ação. **Não tem UG nem UF** | Legislativo, Judiciário, MPU e DPU pela sede da unidade; total do Executivo no mesmo recorte para a checagem |
 | Cadastro de UGs do SIAFI (seção 1) | UF de cada UG | Local |
 
-Os agregados guardados (`data/ug/cache/`) já foram feitos de novo nesta coleta, porque os de `data/df/cache/` não guardavam o código da UG e os de `pipelines/series/cache/payroll/` só guardavam o grupo 1 (pessoal). Os ZIPs foram baixados um a cada 90 s e apagados depois de somados. Scripts: `pipelines/ug/agg_desp_ug.py` (Portal), `pipelines/ug/agg_dtt_full.py` (Tesouro), `private/archive/pipelines/ug/build_ug_balance.py` (contas). Saída: `private/archive/data/ug/ug-balance-2024.json`.
+Os agregados guardados (`data/ug/cache/`) já foram feitos de novo nesta coleta, porque os de `data/df/cache/` não guardavam o código da UG e os de `pipelines/series/cache/payroll/` só guardavam o grupo 1 (pessoal). Os ZIPs foram baixados um a cada 90 s e apagados depois de somados. Scripts: `pipelines/ug/agg_spending_ug.py` (Portal), `pipelines/ug/agg_dtt_full.py` (Tesouro), `private/archive/pipelines/ug/build_ug_balance.py` (contas). Saída: `private/archive/data/ug/ug-balance-2024.json`.
 
 ### 2.2 Recorte (o que entra no "voltou" pela regra)
 
@@ -252,7 +252,7 @@ Na pasta do projeto:
 # cadastro de UGs do SIAFI (Tesouro Transparente)
 curl -sS -A Mozilla/5.0 -o data/ug/siafi_unidades_gestoras_2025-06.csv 'https://www.tesourotransparente.gov.br/ckan/dataset/54a699f4-55e3-41cc-a900-27c123545472/resource/7b83145e-6dc5-4ad2-9730-77132188eb2f/download/siafirelatoriounidadesgestoras.csv'
 # execução da despesa do Portal, com a UG: um mês a cada 90 s (WAF); retoma de onde parou e apaga cada ZIP
-python3 pipelines/ug/agg_desp_ug.py data/ug 202401,202402,202403,202404,202405,202406,202407,202408,202409,202410,202411,202412 90
+python3 pipelines/ug/agg_spending_ug.py data/ug 202401,202402,202403,202404,202405,202406,202407,202408,202409,202410,202411,202412 90
 # base do Tesouro de 2024 (precisa de openpyxl, instalado no `.venv`)
 .venv/bin/python pipelines/ug/agg_dtt_full.py data/ug 2024
 # contas, checagem e erro de controle

@@ -1,6 +1,6 @@
 """Stream one month of the INSS "Beneficios emitidos" microdata and total the net value by UF and by municipality of residence.
 
-Usage: curl -s <zip url> | tar -xOf - | python3 inss_emitidos_municipio.py <out.json> [UF name filter, e.g. "Santa Catarina"]
+Usage: curl -s <zip url> | tar -xOf - | python3 inss_issued_by_municipality.py <out.json> [UF name filter, e.g. "Santa Catarina"]
 Source: INSS open data (CKAN https://dadosabertos.inss.gov.br/, dataset beneficios-emitidos-plano-de-dados-abertos-jun-2023-a-jun-2025),
 files on S3 without login, 0.55 to 1 GB zipped per month. Nothing is written to disk except the small output JSON.
 Columns: Especie;Despacho;Sexo;Clientela;Tipo Beneficio;UF;Meio pagamento;Banco;Mun Pagto;Mun Resid;Vl Liquido;Ramo Atividade;Dt inicio validade

@@ -8,7 +8,7 @@ are NOT in this balance (they are in the state balance); the preview says so on 
 Inputs: the small downloads of ./download.sh <workdir> <UF> (names, population, Receita file, Bolsa Família) and the 12
 monthly Portal caches of 2024 written by pipelines/series/agg_transfers_monthly.py --ufs <UF> (one raw file at a time);
 run from any folder:
-    python3 pipelines/municipios/build_municipal_balance.py <workdir> [--uf RS] [--transfers DIR] [--out PATH]
+    python3 pipelines/municipalities/build_municipal_balance.py <workdir> [--uf RS] [--transfers DIR] [--out PATH]
                                                                [--collected-at YYYY-MM-DD]
   --transfers: folder with transf_2024MM.json (default <workdir>/cache)
 Needs openpyxl (a local venv is enough).

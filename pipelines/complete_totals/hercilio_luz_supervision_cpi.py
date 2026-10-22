@@ -11,7 +11,7 @@ Checks:
     contract extract) are reported, not failed: see the report.
 --control adds R$ 0,01 to one parsed payment; check 1 must then fail (exit 1).
 
-Usage: python3 ponte_supervision_cpi.py [--control]
+Usage: python3 hercilio_luz_supervision_cpi.py [--control]
 The PDF (9 MB) and its text live only in a temporary folder deleted at the end.
 """
 import json

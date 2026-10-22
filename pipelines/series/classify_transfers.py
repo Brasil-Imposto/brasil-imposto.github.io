@@ -45,5 +45,5 @@ def classify(uf, fav, func, acao, modal, mun):
     return sphere, c
 
 def municipal_government(fav, modal):
-    """Transfers to the municipal government (rule of the 2024 municipal balance, pipelines/municipios/build_municipal_balance.py)."""
+    """Transfers to the municipal government (rule of the 2024 municipal balance, pipelines/municipalities/build_municipal_balance.py)."""
     return fav == 'Administração Pública Municipal' or (fav == 'Administração Pública' and modal in ('40', '41'))

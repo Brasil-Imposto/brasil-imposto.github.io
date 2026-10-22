@@ -64,7 +64,7 @@ Regra: só fonte oficial e primária, com a frase do órgão (nas citações, o 
 
 **Sobre os "R$ 19,4 milhões" do TCE-SC.** A notícia do TCE-SC de 19/10/2015 sobre o processo RLA-12/00285490 (https://www.tcesc.tc.br/tcesc-inicia-julgamento-do-processo-que-trata-de-contratos-para-restauracao-e-supervisao-das-0) diz que "ao consórcio responsável pela supervisão da obra haviam sido pagos R$ 19,4 milhões". Esse número não bate com os pagamentos (R$ 15,27 milhões no total, pela CPI e pelo Portal); bate com o valor do contrato com os aditivos de 2010 e 2012 (R$ 9.811.282,66 + R$ 5.158.436,86 + R$ 4.466.623,62 = R$ 19.436.343,14, extrato SICOP). Fica fora da conta.
 
-Checagens: `pipelines/complete_totals/ponte_supervision_cpi.py` (lê as tabelas da CPI, confere total e coluna do mês ao centavo, compara com o Portal; `--control` soma R$ 0,01 a um pagamento e falha: "Prosul: payments 9160234.17 != TOTAL 9160234.16") e `pipelines/complete_totals/bridge_complete_total.py` (total dos 13 contratos em duas passadas, Decimal e centavos inteiros; `--control` falha: "pass 1 483404916.68 != pass 2 483404916.67").
+Checagens: `pipelines/complete_totals/hercilio_luz_supervision_cpi.py` (lê as tabelas da CPI, confere total e coluna do mês ao centavo, compara com o Portal; `--control` soma R$ 0,01 a um pagamento e falha: "Prosul: payments 9160234.17 != TOTAL 9160234.16") e `pipelines/complete_totals/bridge_complete_total.py` (total dos 13 contratos em duas passadas, Decimal e centavos inteiros; `--control` falha: "pass 1 483404916.68 != pass 2 483404916.67").
 
 ## 2. Linha 17-Ouro: total pago ou investido até hoje
 

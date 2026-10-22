@@ -1,9 +1,9 @@
 """Pergunta 2: gasto direto da União por UF do localizador (Portal da Transparência, Execução da Despesa).
-Entrada: data/df/cache/despuf_YYYYMM.json (gerados por agg_desp_uf.py).
-Uso: q2_gasto_por_uf.py <base> <ano>
+Entrada: data/df/cache/despuf_YYYYMM.json (gerados por agg_spending_uf.py).
+Uso: federal_spending_by_uf.py <base> <ano>
 Definição (a mesma de BRASIL-IMPOSTO_RESEARCH_dados-por-uf_2026-09-25.md, seção 3.3): valor pago + restos a pagar pagos,
 modalidades 90 e 91 (aplicação direta), grupos 1 (pessoal), 3 (outras despesas correntes), 4 (investimentos) e
-5 (inversões financeiras). Juros (2) e amortização (6) ficam fora. Saída: data/df/q2_gasto_por_uf_<ano>.json."""
+5 (inversões financeiras). Juros (2) e amortização (6) ficam fora. Saída: data/df/federal_spending_by_uf_<ano>.json."""
 import collections, glob, json, sys
 BASE, YEAR = sys.argv[1], sys.argv[2]
 files = sorted(glob.glob(f"{BASE}/data/df/cache/despuf_{YEAR}??.json"))
@@ -58,4 +58,4 @@ json.dump({"year": YEAR, "months": months, "definition": __doc__.split("Definiç
                              "population": r[7], "per_capita": r[0]} for r in rows},
            "df_orgao_73000": fc, "df_by_orgao": {names["orgao"].get(k, k): v for k, v in df_org.items()},
            "df_by_funcao": {names["funcao"].get(k, k): v for k, v in df_fun.items()}},
-          open(f"{BASE}/data/df/q2_gasto_por_uf_{YEAR}.json", "w"), ensure_ascii=False, indent=1)
+          open(f"{BASE}/data/df/federal_spending_by_uf_{YEAR}.json", "w"), ensure_ascii=False, indent=1)

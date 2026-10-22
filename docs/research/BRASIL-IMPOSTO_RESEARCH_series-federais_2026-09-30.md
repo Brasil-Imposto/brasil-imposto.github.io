@@ -243,7 +243,7 @@ Resultado: **o dado existe sem login, em duas fontes, e uma delas já está nos 
 | 6 | dados.gov.br | espelho dos conjuntos acima | | API responde 401 sem login | Desnecessário: o CKAN do INSS está aberto |
 | 7 | Portal da Transparência, download "BPC" por beneficiário | BPC por pessoa e município | | mesmo servidor com bloqueio automático (seção 7) | **Não testado** nesta sessão, para não disparar o bloqueio durante a coleta das transferências |
 
-**Validação do microdado (fonte 2), agosto de 2024.** O arquivo foi lido em streaming (`curl | tar -xOf - | python`, nada gravado em disco), com `pipelines/series/inss_emitidos_municipio.py`: 40.425.357 benefícios, R$ 67,71 bi líquidos no país, 27 UFs, zero linhas inválidas. Filtrando a coluna UF = Santa Catarina: 1.757.954 benefícios, R$ 3.099,4 mi, dos quais R$ 130,9 mi nas espécies de amparo (BPC da pessoa com deficiência R$ 83,7 mi, BPC do idoso R$ 46,6 mi, amparos previdenciários R$ 0,5 mi). Sem elas sobram R$ 2.968,6 mi, contra **R$ 2.967,1 mi na tabela 19 do BEPS** para SC no mesmo mês: diferença de 0,05%. O valor do microdado é, portanto, o mesmo conceito da série `inss`.
+**Validação do microdado (fonte 2), agosto de 2024.** O arquivo foi lido em streaming (`curl | tar -xOf - | python`, nada gravado em disco), com `pipelines/series/inss_issued_by_municipality.py`: 40.425.357 benefícios, R$ 67,71 bi líquidos no país, 27 UFs, zero linhas inválidas. Filtrando a coluna UF = Santa Catarina: 1.757.954 benefícios, R$ 3.099,4 mi, dos quais R$ 130,9 mi nas espécies de amparo (BPC da pessoa com deficiência R$ 83,7 mi, BPC do idoso R$ 46,6 mi, amparos previdenciários R$ 0,5 mi). Sem elas sobram R$ 2.968,6 mi, contra **R$ 2.967,1 mi na tabela 19 do BEPS** para SC no mesmo mês: diferença de 0,05%. O valor do microdado é, portanto, o mesmo conceito da série `inss`.
 
 Três cuidados para quem for montar a série municipal com a fonte 2:
 
@@ -338,7 +338,7 @@ Opcional, microdado do INSS de um mês (0,55 a 1 GB lido em streaming, nada grav
 
 ```bash
 curl -s "https://armazenamento-dadosabertos.s3.sa-east-1.amazonaws.com/PDA_2023_2025/Grupos_de_dados/Benef%C3%ADcios+emitidos/D.SDA.PDA.003.EMI.202408.CSV.ZIP" \
-  | tar -xOf - | python3 $SERIES/inss_emitidos_municipio.py saida.json "Santa Catarina"
+  | tar -xOf - | python3 $SERIES/inss_issued_by_municipality.py saida.json "Santa Catarina"
 ```
 
 Módulo auxiliar: `classify_transfers.py` (regras de destinatário, esfera e categoria das transferências, compartilhadas pelos dois construtores). Os scripts reaproveitam `pipelines/taxmap.py` e `pipelines/parse_tt.py`. O pico de disco da coleta foi de cerca de 100 MB (o maior arquivo guardado ao mesmo tempo é um ZIP mensal de até 7 MB; os caches mensais somam cerca de 60 MB).
