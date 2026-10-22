@@ -15,6 +15,7 @@ import re
 import sys
 from pathlib import Path
 
+import map_loader
 import site_chrome
 
 PREVIEWS = Path(__file__).resolve().parents[1] / "previews"
@@ -55,6 +56,9 @@ def build(author_notes):
     if author_notes:  # the support block's handlers go in before the script's closing lines
         script = insert(script, "})();\n</script>", src("platform-support-script.html"))
     page = insert(page, "</body>", script)
+    # D152, L1: the map's data arrives through the loader, with the true percentage; every script after it waits for it.
+    page, held, size = map_loader.apply(page, PREVIEWS / "assets" / "bi-data.js")
+    assert held >= 15, f"only {held} scripts held back"
     assert chr(0x2014) not in page and chr(0x2013) not in page, "dash found"
     if not author_notes:
         for banned in ('id="apoie"', 'id="fale"', 'Só na prévia', 'class="doc"', 'data-contact'):
