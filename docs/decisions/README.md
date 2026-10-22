@@ -358,7 +358,7 @@ Mapa interativo e apartidário que mostra, com dados oficiais, como o imposto pa
 
 ## Próximo passo
 
-**Estado em 2026-10-14:** a página atual é `docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html` (D134 a D136). Próximo: (1) o autor aprova o plano da auditoria de limpeza (`docs/research/audit/BRASIL-IMPOSTO_AUDIT_project-cleanup_2026-10-14.md`, D137) e responde as decisões da seção 9 dela; (2) a tabela "V1 para publicar no GitHub" de `docs/BRASIL-IMPOSTO_STATUS_round-11-tracker_2026-10-06.md`; (3) a spec da publicação, ainda à espera da aprovação. Perguntas abertas: Q3, Q18, Q19, Q22 a Q25, Q28, Q29 (em partes), Q31 a Q52. **Adiado pelo autor em 2026-10-14 (D137):** a próxima sessão começa lembrando o plano da auditoria e refazendo Q42 a Q52, e só trabalha com a ordem dele.
+**Estado em 2026-10-22:** a v1 está publicada em `https://brasil-imposto.github.io` (D149), com os documentos de comunidade, os formulários de issue e o check do DCO (D148). Próximo: (1) o logo, a partir da rodada 2 (D153); (2) o site em Astro pela sessão na nuvem, com a fase B0 aprovada (D151), e o carregamento do mapa (D152); (3) as tarefas 6 a 8 da fase 1 da auditoria de limpeza e a fase 2 do livro de fluxos, quando o autor mandar. Perguntas abertas: a seção "Perguntas em aberto" acima.
 
 **Se a sessão cair:** este README (decisões e perguntas), o arquivo do grill e os arquivos em `docs/research/` e `data/` são o
 estado completo.
