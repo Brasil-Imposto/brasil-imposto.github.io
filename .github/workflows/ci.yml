@@ -30,6 +30,19 @@ jobs:
         run: uv run --locked python -m unittest discover -s pipelines/tests -v
       - name: Entity files (exported from data/, each validated against its schema before it is written)
         run: uv run --locked python pipelines/export/build_entities.py
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: "Site (Astro): install, types from the schemas, astro check and tsc, Vitest, build"
+        working-directory: site
+        run: |
+          npm ci --no-audit --no-fund
+          npm run types
+          npm run check
+          npm test
+          npm run build
       - name: Ledger tests
         run: uv run --locked python -m unittest discover -s pipelines/ledger/tests -v
       - name: The committed pages are what their builders make (header, footer and map loader from one source, D152)

@@ -36,6 +36,18 @@ Depois, abra os arquivos das páginas acima no navegador pelo caminho do arquivo
 página como ela vai ao site; com `--author-notes`, monta também as notas de trabalho da prévia num arquivo à parte, que não vai
 ao git nem ao site.
 
+## O site em Astro (em construção)
+
+A pasta `site/` tem o esqueleto do site definitivo (fase B0): Astro 7, TypeScript estrito e uma página de prova que lê os
+arquivos de cada entidade. Esses arquivos (`site/src/generated/entities/`) são gerados a partir de `data/` e conferidos com os
+esquemas de `schemas/`, nunca versionados. Com Node 24 e o uv:
+
+```
+cd site && npm ci && npm run entities && npm run types && npm run check && npm test && npm run build
+```
+
+O site no ar continua sendo o das páginas acima até a fase B5.
+
 ## De onde vêm os números
 
 Receita Federal (arrecadação por estado), Tesouro Nacional (Resultado do Tesouro Nacional e SICONFI), Portal da Transparência
