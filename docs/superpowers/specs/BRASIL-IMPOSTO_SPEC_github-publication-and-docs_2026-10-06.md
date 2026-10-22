@@ -1,10 +1,10 @@
 # Brasil-Imposto: publicação no GitHub e documentação
 
-Status: **Aplicada em versão enxuta (D147, 2026-10-21)**, revisão 2. As respostas do autor de 2026-10-06 estão aplicadas (D97, D98). Repositório local e commit da v1 feitos; ficam para depois da v1 os itens que D147 lista. Criar o repositório e fazer o push são ações públicas e só acontecem com a ordem explícita do autor (D54).
+Status: **Em publicação (D148, 2026-10-22)**, revisão 3. As respostas de 2026-10-06 (D97, D98) e a rodada de 2026-10-22 (D148, que muda D147: os documentos de comunidade, os formulários e o check do DCO entram na v1) estão aplicadas. Todas as decisões da seção 2 estão fechadas. O que fica para depois da v1 vira issue pública no repositório.
 
 ### Summary (English)
 
-This spec prepares the first public release of Brasil-Imposto on GitHub: what goes in now (the latest home preview, its shared modules and builders, the published data JSON and the data pipelines), what stays out (everything derived from the Gemini conversation, 2026 candidacies, people only cited in investigations, the author's verbatim quotes and older previews), and what is never versioned (generated bundles, caches and every raw download). It defines the documentation set (README in Portuguese with an English summary, CONTRIBUTING, CODE_OF_CONDUCT based on Contributor Covenant 2.1 in Portuguese, GOVERNANCE with the four neutrality rules of D51 and a four-phase path from a single owner to an elected council, SECURITY, AGPL-3.0 for code and CC BY 4.0 for data and texts, data sources with release dates, one guide per pipeline with its cent check and failing control, issue and PR templates for new states and new cases) and the GitHub Pages deployment of the preview (D56). The author answered seven of the nine decisions on 2026-10-06; three points remain open (section 2).
+This spec prepares the first public release of Brasil-Imposto on GitHub: what goes in now (the latest home preview, its shared modules and builders, the published data JSON and the data pipelines), what stays out (everything derived from the Gemini conversation, 2026 candidacies, people only cited in investigations, the author's verbatim quotes and older previews), and what is never versioned (generated bundles, caches and every raw download). It defines the documentation set (README in Portuguese with an English summary, CONTRIBUTING, CODE_OF_CONDUCT based on Contributor Covenant 2.1 in Portuguese, GOVERNANCE with the four neutrality rules of D51 and a four-phase path from a single owner to an elected council, SECURITY, AGPL-3.0 for code and CC BY 4.0 for data and texts, data sources with release dates, one guide per pipeline with its cent check and failing control, issue and PR templates for new states and new cases) and the GitHub Pages deployment of the preview (D56). The author answered seven of the nine decisions on 2026-10-06 and delegated the rest to the recommendations on 2026-10-22 (D148); every decision in section 2 is now closed.
 
 ## 1. O que o registro já decidiu
 
@@ -34,16 +34,16 @@ This spec prepares the first public release of Brasil-Imposto on GitHub: what go
 
 | # | Decisão | Estado |
 |---|---|---|
-| 1 | Organização e nome do repositório | **Em aberto.** O autor perguntou como os grandes projetos começam com controle total e descentralizam depois; a resposta e a proposta estão logo abaixo. Nome recomendado: `brasil-imposto/brasil-imposto.github.io`, para o site abrir sem subpasta. |
+| 1 | Organização e nome do repositório | Decidido (D148): `brasil-imposto/brasil-imposto.github.io`, site em `https://brasil-imposto.github.io`; o `GOVERNANCE.md` da v1 leva as quatro fases abaixo com os números sugeridos. |
 | 2 | Citações do autor nos registros | Decidido (D97): as decisões vão a público sem as citações literais; os originais ficam em `private/`. |
 | 3 | Prévias no repositório | Decidido (D97): só a mais recente. |
 | 4 | Material derivado da conversa do Gemini | Decidido (D97): fora, inclusive a auditoria e a verificação de Florianópolis. |
-| 5 | Candidaturas de 2026 depois do 2º turno (25 de outubro) | **Em aberto.** São os registros do TSE de candidatura em 2026 de quatro pessoas que aparecem em dois casos (CEI Comasa e ETE Insular). Já saíram dos dados (D98). Recomendação: ficam fora de vez. |
+| 5 | Candidaturas de 2026 depois do 2º turno (25 de outubro) | Decidido (D148): ficam fora de vez. |
 | 6 | Fotos (57 MB) | Decidido (D97): versionadas no repositório. |
 | 7 | Proveniência sem o bruto no repositório | Decidido (D97): o CI confere o esquema, os totais oficiais e o tamanho dos arquivos; cada pipeline grava um manifesto dos brutos com SHA-256. |
 | 8 | Email público | Decidido (D97), pela recomendação: "noreply" do GitHub nos commits; endereço gratuito do projeto para conduta e segurança, criado pelo autor. |
 | 9 | Nomes de arquivo | Decidido (D97): todos em inglês, inclusive os dos documentos, e todo o código em inglês. |
-| 10 | Foto da Fazenda sob CC BY-ND 3.0 (item à parte 3) | **Em aberto.** Não existe substituta com licença livre que dê para usar (seção 13). |
+| 10 | Foto da Fazenda sob CC BY-ND 3.0 (item à parte 3) | Decidido (D148): o arquivo oficial sem alteração, com crédito, escalado só pelo navegador. |
 
 ### Organização: controle total agora, descentralização depois
 
@@ -234,7 +234,7 @@ A compressão do Pages não está confirmada; só a primeira publicação mostra
 | 1 | Brutos fora dos caches listados | Decidido (D98): fora do git, na seção 5. |
 | 2 | Bandeiras sem registro de fonte e licença | Feito em 2026-10-06 (D98): as 27 dos estados já eram idênticas às do Wikimedia Commons; as 30 dos países foram trocadas pelas oficiais (a de Honduras estava desatualizada), todas em domínio público, com `credits.json`; o mapa usa a proporção real de cada bandeira. |
 | 2b | RR, AC e PA não abriam | Feito em 2026-10-06 (D98): o painel quebrava no vice-governador vago (o vice tinha assumido o governo). Agora aparece "Cargo vago", com a data e o motivo oficial. Os 27 estados abrem em 2026, e os seis estados com vaga em 2022 (AL, CE, MA, PA, PI e TO) abrem em 2022. |
-| 3 | Foto da Fazenda sob CC BY-ND 3.0, reduzida para 200 px | Em aberto (decisão 10). A cópia do Wikimedia Commons marcada como domínio público usa uma marca do governo dos Estados Unidos, que não vale para foto do governo brasileiro; as fotos CC BY-SA disponíveis são de grupo e não dizem quem é quem. |
+| 3 | Foto da Fazenda sob CC BY-ND 3.0, reduzida para 200 px | Decidido (D148): o arquivo oficial sem alteração (decisão 10). A cópia do Wikimedia Commons marcada como domínio público usa uma marca do governo dos Estados Unidos, que não vale para foto do governo brasileiro; as fotos CC BY-SA disponíveis são de grupo e não dizem quem é quem. |
 | 4 | Referências a outros projetos | Feito em 2026-10-06 (D98): removidas de todos os arquivos. |
 | 5 | Candidaturas de 2026 no dado | Feito em 2026-10-06 (D98). Achado no caminho: a nota da ETE Insular mostrava essas candidaturas na tela, contra D36; corrigida. |
 
