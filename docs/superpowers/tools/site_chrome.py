@@ -54,7 +54,20 @@ CSS = """<style id="bi-chrome-css">
 # with the CSS, between the site-chrome:css markers.
 ICONS = ('<link rel="icon" href="assets/brand/favicon.ico" sizes="16x16 32x32">\n'
          '<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">')
-HEAD = ICONS + "\n" + CSS
+# The social preview (D153, spec social-preview): the image and the description a shared link shows; each page's <title> stays its title.
+DESCRIPTION = "Para onde vai o imposto, com dados oficiais e a fonte de cada número."
+SOCIAL = "\n".join([
+    '<meta property="og:site_name" content="Brasil-Imposto">',
+    '<meta property="og:type" content="website">',
+    '<meta property="og:locale" content="pt_BR">',
+    f'<meta property="og:description" content="{DESCRIPTION}">',
+    '<meta property="og:image" content="https://brasil-imposto.github.io/assets/brand/og-image.png">',
+    '<meta property="og:image:width" content="1200">',
+    '<meta property="og:image:height" content="630">',
+    f'<meta property="og:image:alt" content="A marca do Brasil-Imposto, o nome e a frase: {DESCRIPTION}">',
+    '<meta name="twitter:card" content="summary_large_image">',
+])
+HEAD = ICONS + "\n" + SOCIAL + "\n" + CSS
 LOGO = '<img src="assets/brand/brasil-imposto-logo.svg" alt="">'  # the name follows in text, so the mark needs no alt of its own
 
 ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>'

@@ -75,6 +75,44 @@ class SiteBrandTest(unittest.TestCase):
         self.assertIn("header: no logo", self.problems(broken))
 
 
+class SiteSocialPreviewTest(unittest.TestCase):
+    """The social preview (D153, spec social-preview): the Open Graph and Twitter tags in every page's head, and the 1200 x 630 image."""
+    IMAGE = "assets/brand/og-image.png"
+    TAGS = {
+        'property="og:site_name"': "Brasil-Imposto",
+        'property="og:type"': "website",
+        'property="og:locale"': "pt_BR",
+        'property="og:description"': "Para onde vai o imposto, com dados oficiais e a fonte de cada número.",
+        'property="og:image"': "https://brasil-imposto.github.io/" + IMAGE,
+        'property="og:image:width"': "1200",
+        'property="og:image:height"': "630",
+        'name="twitter:card"': "summary_large_image",
+    }
+
+    def problems(self, p):
+        head = site_chrome.extract(p, "css")
+        out = [f"head: {attr} is not {value}" for attr, value in self.TAGS.items() if f'<meta {attr} content="{value}">' not in head]
+        if 'property="og:image:alt" content="' not in head:
+            out.append("head: no og:image:alt")
+        return out
+
+    def test_every_page_carries_the_tags(self):
+        for key in site_chrome.PAGES:
+            with self.subTest(page=key):
+                self.assertEqual(self.problems(page(key)), [])
+
+    def test_the_image_is_1200_by_630(self):
+        data = (PREVIEWS / self.IMAGE).read_bytes()
+        self.assertEqual(data[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertEqual((int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")), (1200, 630))
+
+    def test_control_a_page_without_the_image_fails(self):
+        tag = f'<meta property="og:image" content="https://brasil-imposto.github.io/{self.IMAGE}">'
+        broken = page("inicio").replace(tag, "", 1)
+        self.assertNotEqual(broken, page("inicio"), "the plant did not land")
+        self.assertTrue(any("og:image" in x for x in self.problems(broken)))
+
+
 class SiteFooterTest(unittest.TestCase):
     def test_each_page_carries_the_same_footer(self):
         blocks = set()
