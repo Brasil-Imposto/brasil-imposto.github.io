@@ -1,15 +1,15 @@
-"""Pergunta 2: gasto direto da União por UF do localizador (Portal da Transparência, Execução da Despesa).
-Entrada: data/df/cache/despuf_YYYYMM.json (gerados por agg_spending_uf.py).
-Uso: federal_spending_by_uf.py <base> <ano>
-Definição (a mesma de BRASIL-IMPOSTO_RESEARCH_dados-por-uf_2026-09-25.md, seção 3.3): valor pago + restos a pagar pagos,
-modalidades 90 e 91 (aplicação direta), grupos 1 (pessoal), 3 (outras despesas correntes), 4 (investimentos) e
-5 (inversões financeiras). Juros (2) e amortização (6) ficam fora. Saída: data/df/federal_spending_by_uf_<ano>.json."""
+"""Question 2: direct spending of the União by the state of the location code (Portal da Transparência, Execução da Despesa).
+Input: data/df/cache/despuf_YYYYMM.json (written by agg_spending_uf.py).
+Usage: federal_spending_by_uf.py <base> <year>
+Definition (the same as BRASIL-IMPOSTO_RESEARCH_dados-por-uf_2026-09-25.md, section 3.3): amount paid + restos a pagar paid,
+modalities 90 and 91 (direct application), groups 1 (personnel), 3 (other current expenses), 4 (investments) and
+5 (financial investments). Interest (2) and amortization (6) stay out. Output: data/df/federal_spending_by_uf_<year>.json."""
 import collections, glob, json, sys
 BASE, YEAR = sys.argv[1], sys.argv[2]
 files = sorted(glob.glob(f"{BASE}/data/df/cache/despuf_{YEAR}??.json"))
 months = [json.load(open(f))["month"] for f in files]
 pop = json.load(open(f"{BASE}/data/series/population.json"))["uf"]
-G = {"1": "pessoal", "3": "custeio_e_beneficios", "4": "investimento", "5": "inversoes"}
+G = {"1": "personnel", "3": "operating_costs_and_benefits", "4": "investments", "5": "financial_investments"}
 byuf = collections.defaultdict(lambda: collections.defaultdict(float))
 df_org = collections.defaultdict(float); df_fun = collections.defaultdict(float)
 noloc = collections.defaultdict(float); noloc_fun = collections.defaultdict(float)
@@ -40,7 +40,7 @@ rows = []
 for uf, x in byuf.items():
     if uf not in pop: print("UF desconhecida", uf, dict(x)); continue
     t = sum(v for k, v in x.items() if k in G.values()); P = pop[uf]["population"][py]
-    rows.append((t / P, uf, t, x["pessoal"], x["custeio_e_beneficios"], x["investimento"], x["inversoes"], P))
+    rows.append((t / P, uf, t, x["personnel"], x["operating_costs_and_benefits"], x["investments"], x["financial_investments"], P))
 rows.sort(reverse=True)
 print(f"por UF (população IBGE {py}), R$ bi e R$ por pessoa:")
 for i, (pc, uf, t, pe, cu, inv, ifi, P) in enumerate(rows, 1):
@@ -51,11 +51,11 @@ rest = [r for r in rows if r[1] != "DF"]; rt = sum(r[2] for r in rest); rp_ = su
 print(f"DF: total {dft/1e9:.2f} bi ({dft/P:.0f}/hab); dos quais órgão 73000 (FCDF e outras transferências registradas como aplicação direta) {fc/1e9:.2f} bi; sem ele {(dft-fc)/1e9:.2f} bi ({(dft-fc)/P:.0f}/hab). Resto do país: {rt/rp_:.0f}/hab")
 print("DF por órgão superior:", [(names["orgao"].get(k, k)[:45], round(v / 1e9, 2)) for k, v in sorted(df_org.items(), key=lambda t: -t[1])[:12]])
 print("DF por função:", [(names["funcao"].get(k, k), round(v / 1e9, 2)) for k, v in sorted(df_fun.items(), key=lambda t: -t[1])[:10]])
-json.dump({"year": YEAR, "months": months, "definition": __doc__.split("Definição")[1].strip(), "total_direct_primary": total,
-           "located": loc_tot, "not_located": total - loc_tot, "not_located_by_localizador": noloc,
-           "not_located_by_funcao": {names["funcao"].get(k, k): v for k, v in noloc_fun.items()},
-           "by_uf": {r[1]: {"total": r[2], "pessoal": r[3], "custeio_e_beneficios": r[4], "investimento": r[5], "inversoes": r[6],
+json.dump({"year": YEAR, "months": months, "definition": __doc__.split("Definition")[1].strip(), "total_direct_primary": total,
+           "located": loc_tot, "not_located": total - loc_tot, "not_located_by_locator": noloc,
+           "not_located_by_function": {names["funcao"].get(k, k): v for k, v in noloc_fun.items()},
+           "by_uf": {r[1]: {"total": r[2], "personnel": r[3], "operating_costs_and_benefits": r[4], "investments": r[5], "financial_investments": r[6],
                              "population": r[7], "per_capita": r[0]} for r in rows},
-           "df_orgao_73000": fc, "df_by_orgao": {names["orgao"].get(k, k): v for k, v in df_org.items()},
-           "df_by_funcao": {names["funcao"].get(k, k): v for k, v in df_fun.items()}},
+           "df_body_73000": fc, "df_by_body": {names["orgao"].get(k, k): v for k, v in df_org.items()},
+           "df_by_function": {names["funcao"].get(k, k): v for k, v in df_fun.items()}},
           open(f"{BASE}/data/df/federal_spending_by_uf_{YEAR}.json", "w"), ensure_ascii=False, indent=1)

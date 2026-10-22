@@ -1,5 +1,5 @@
-# Conciliação: soma das 27 UFs (arrecadacao-estado.csv) contra a série histórica nacional, 2024 e 2025.
-# Entradas: arrecadacao-estado.csv, serie-1994-2025.xlsx. Saídas: recon.json, tableRecon.md. Requer openpyxl.
+# Reconciliation: the sum of the 27 UFs (arrecadacao-estado.csv) against the national historical series, 2024 and 2025.
+# Inputs: arrecadacao-estado.csv, serie-1994-2025.xlsx. Outputs: recon.json, tableRecon.md. Needs openpyxl.
 import sys, os, json, openpyxl
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from parse_rfb import agg, h

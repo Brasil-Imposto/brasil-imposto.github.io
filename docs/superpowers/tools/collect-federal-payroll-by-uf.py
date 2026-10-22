@@ -59,7 +59,7 @@ DED_R = {'irrf': 'IRRFR', 'pss': 'PSSRPGSR', 'other_deductions': 'DEMAISDEDUCOES
          'health_fund': 'FUNDODESAUDER', 'housing_fee': 'TAXADEOCUPACAOIMOVELFUNCIONALR'}
 NET_R = 'REMUNERACAOAPOSDEDUCOESOBRIGATORIASR'
 INDEM_R = 'TOTALDEVERBASINDENIZATORIASR'
-NO_UF_KEYS = {'_missing_uf': 'missing_uf', '_conflicting_uf': 'conflicting_uf', '_not_in_cadastro': 'not_in_cadastro',
+NO_UF_KEYS = {'_missing_uf': 'missing_uf', '_conflicting_uf': 'conflicting_uf', '_not_in_cadastro': 'not_in_registry',
               '_no_uf_column': 'no_uf_column'}
 
 _last_start = [0.0]
@@ -322,8 +322,8 @@ def summarize(zpath, cat, ym, supp):
     summary['buckets'] = {k: {'sums': dict(zip(names, v)), 'people': len(people[k]), 'rows': row_count[k]} for k, v in buckets.items()}
     summary['national_independent'] = national
     summary['identity'] = {'rows_gross_minus_deductions_not_net': ident_fail, 'sum_diff_cents': ident_diff}
-    summary['df_by_org_exercicio'] = {k: {'sums': dict(zip(names, v)), 'people': len(df_org_people[k])} for k, v in df_org_acc.items()}
-    summary['df_by_situacao_vinculo'] = {k: {'sums': dict(zip(names, v)), 'people': len(df_sit_people[k])} for k, v in df_sit_acc.items()}
+    summary['df_by_exercise_body'] = {k: {'sums': dict(zip(names, v)), 'people': len(df_org_people[k])} for k, v in df_org_acc.items()}
+    summary['df_by_employment_status'] = {k: {'sums': dict(zip(names, v)), 'people': len(df_sit_people[k])} for k, v in df_sit_acc.items()}
     return summary
 
 
@@ -461,7 +461,7 @@ def build():
         categories.append({'id': cat, 'label': label, 'origin': origin, 'supplementary': supp,
                            'files': f'{PAGE}/<YYYYMM>_{origin} (zip members: ' + ', '.join(first['members']) + ')',
                            'uf_column': ufcols[0] if len(ufcols) == 1 else ufcols,
-                           'uf_columns_in_cadastro_header': first['cadastro'].get('uf_columns_in_header'),
+                           'uf_columns_in_registry_header': first['cadastro'].get('uf_columns_in_header'),
                            'months': [int(ym[4:]) for ym in months]})
         identity[cat] = {str(int(ym[4:])): s['identity'] for ym, s in months.items()}
         # per bucket
@@ -517,7 +517,7 @@ def build():
         # DF detail
         org, sit = {}, {}
         for ym, s in months.items():
-            for src, dst in ((s['df_by_org_exercicio'], org), (s['df_by_situacao_vinculo'], sit)):
+            for src, dst in ((s['df_by_exercise_body'], org), (s['df_by_employment_status'], sit)):
                 for k, v in src.items():
                     d = dst.setdefault(k, {'cols': {}, 'people': {}})
                     add(d['cols'], v['sums'])
@@ -527,7 +527,7 @@ def build():
                 rows = {k: dict(render(fields(v['cols'], supp), {ym: v['people'].get(ym, 0) for ym in months}))
                         for k, v in dct.items()}
                 return dict(sorted(rows.items(), key=lambda kv: -(kv[1]['gross'] or 0)))
-            df_detail[cat] = {'by_org_exercicio': fmt(org), 'by_situacao_vinculo': fmt(sit),
+            df_detail[cat] = {'by_exercise_body': fmt(org), 'by_employment_status': fmt(sit),
                               'note': 'annual sums of the people placed in DF; people_avg over the 12 months (0 in months absent)'}
     uf_order = sorted(k for k in by_uf if k != 'no_uf') + (['no_uf'] if 'no_uf' in by_uf else [])
     by_uf = {k: by_uf[k] for k in uf_order}
@@ -551,7 +551,7 @@ def build():
             'usd_not_converted': 'the U$ columns summed in US dollars, never converted',
             'uf': 'distinct valid UF codes of the person\'s cadastro rows in the same zip: one UF places the person there; none or '
                   'two or more go to no_uf (reasons missing_uf, conflicting_uf); a Remuneracao Id absent from the cadastro goes to '
-                  'no_uf (not_in_cadastro); a file with no UF column goes to no_uf (no_uf_column). Nothing is allocated.',
+                  'no_uf (not_in_registry); a file with no UF column goes to no_uf (no_uf_column). Nothing is allocated.',
             'people': 'distinct Id_SERVIDOR_PORTAL with gross R$ or U$ above zero in the month; people_avg = mean of the months',
         },
         'sources': [{'name': 'Portal da Transparencia, download de dados, servidores (page listing the files)', 'url': PAGE,
@@ -580,7 +580,7 @@ NOT_FOUND = [
              'Aposentados_BACEN, Pensionistas_SIAPE, Pensionistas_BACEN, Pensionistas_DEFESA)',
      'why': 'their cadastro has no UF column at all (no residence, no UF of a unit); only the name of the last organisation of lotacao '
             '(of the instituidor, for pensions), which says nothing about where the person lives',
-     'tried': 'every column of the cadastro headers of the 2024 zips (listed in categories[].uf_columns_in_cadastro_header)'},
+     'tried': 'every column of the cadastro headers of the 2024 zips (listed in categories[].uf_columns_in_registry_header)'},
     {'what': 'UF of Banco Central staff (Servidores_BACEN)',
      'why': 'UF_EXERCICIO is -1 in every cadastro row (4.560 of 4.560 in 2024-01)',
      'tried': 'Portal Servidores_BACEN monthly zips 2024'},

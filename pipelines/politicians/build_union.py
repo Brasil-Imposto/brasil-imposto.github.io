@@ -1,8 +1,10 @@
-"""Gera data/politicians/union.json: Presidente, Vice-Presidente e ministro da area economica, 2019-01-01 ate hoje.
+"""Builds data/politicians/union.json: President, Vice-President and the minister of the economic area,
+2019-01-01 to today.
 
-Os fatos (datas, atos, partidos) foram conferidos a mao nas fontes citadas em cada registro; o script
-confere os eleitos e o partido na eleicao contra o cadastro do TSE e busca a foto no Wikimedia Commons.
-Rodar: POLITICIANS_WORK=/tmp/politicians-work python3 build_union.py
+The facts (dates, acts, parties) were checked by hand against the sources cited in each record; the script
+checks those elected and the party at the election against the TSE register and fetches the photo from
+Wikimedia Commons.
+Run: POLITICIANS_WORK=/tmp/politicians-work python3 build_union.py
 """
 import json
 import pathlib
@@ -37,7 +39,7 @@ def tse_party(year, cargo, urna_name):
 
 
 def tse_any(year, name_full):
-    """Partido numa candidatura (eleito ou nao) de qualquer UF, pelo nome completo."""
+    """Party in a candidacy (elected or not) from any UF, by full name."""
     import unicodedata
     norm = lambda s: unicodedata.normalize("NFKD", s.upper()).encode("ascii", "ignore").decode()
     for r in tse_common.iter_rows(year, elected_only=False):

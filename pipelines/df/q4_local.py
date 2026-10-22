@@ -1,8 +1,8 @@
-"""Pergunta 4, só com os dados locais do projeto (2024):
-(a) despesa própria liquidada de cada governo estadual por pessoa (SICONFI, RREO Anexo 01, exceto intraorçamentárias);
-    no DF, também GDF + FCDF (pago pela União); e SC estado + 295 prefeituras como exemplo de "estado + municípios";
-(b) folha federal localizada por pessoa (sem FCDF).
-Saída: data/df/q4_local_2024.json e tabelas na tela."""
+"""Question 4, with the project's local data only (2024):
+(a) each state government's own liquidated spending per person (SICONFI, RREO Annex 01, intra-budget items excluded);
+    in the DF also GDF + FCDF (paid by the União); and SC state + 295 municipalities as an example of "state + municipalities";
+(b) federal payroll with a known state, per person (FCDF excluded).
+Output: data/df/q4_local_2024.json and tables on screen."""
 import json, sys
 BASE = sys.argv[1] if len(sys.argv) > 1 else "."
 s = json.load(open(f"{BASE}/data/series/state-budgets.json"))
@@ -14,8 +14,8 @@ P = {u: pop[u]["population"]["2024"] for u in s["uf"]}
 rows = []
 for u, d in s["uf"].items():
     p = d["periods"]["2024-B6"]
-    # Alguns estados lançam a cota-parte dos municípios como despesa (Encargos Especiais > Transferências), outros como
-    # dedução da receita. Para comparar, tira-se essa subfunção da despesa.
+    # Some states book the municipalities' share as spending (Encargos Especiais > Transferências), others as a
+    # revenue deduction. To compare them, that subfunction is taken out of spending.
     tr = sum(sb["value"] for f in p["spending_by_function"] if f["label"] == "Encargos Especiais" for sb in (f.get("sub") or []) if sb["label"] == "Transferências")
     rows.append({"uf": u, "pop": P[u], "spending_liquidated": p["spending_liquidated"], "spending_committed": p["spending_committed"],
                  "transfers_subfunction": tr, "per_capita_ex_transfers": (p["spending_liquidated"] - tr) / P[u],
@@ -34,7 +34,7 @@ df_plus = (df["spending_liquidated"] + fcdf) / df["pop"]
 print(f"DF GDF + FCDF: R$ {(df['spending_liquidated']+fcdf)/1e9:.2f} bi, R$ {df_plus:.0f}/hab")
 br_states = sum(r["spending_liquidated"] for r in rows if r["uf"] != "DF"); br_pop = sum(r["pop"] for r in rows if r["uf"] != "DF")
 print(f"26 estados (sem DF), média ponderada: R$ {br_states/br_pop:.0f}/hab")
-# SC estado + prefeituras
+# SC state + municipalities
 m = json.load(open(f"{BASE}/data/series/sc-municipal-budgets.json"))["municipalities"]
 sc_mun = 0.0; n = 0; miss = []
 for code, md in m.items():
@@ -44,7 +44,7 @@ for code, md in m.items():
 sc = next(r for r in rows if r["uf"] == "SC")
 sc_to_mun = sc["to_municipalities"] or 0
 print(f"SC: estado {sc['spending_liquidated']/1e9:.2f} bi + prefeituras {sc_mun/1e9:.2f} bi ({n} de {len(m)} com 2024-B6) = {(sc['spending_liquidated']+sc_mun)/1e9:.2f} bi, R$ {(sc['spending_liquidated']+sc_mun)/sc['pop']:.0f}/hab; sem prefeitura: {miss[:5]}")
-# (b) folha federal localizada
+# (b) federal payroll with a known state
 fr = []
 for u in s["uf"]:
     v = fp["uf"][u]["annual"]["total_located"]["2024"]

@@ -236,7 +236,7 @@ def main():
                 continue
             k = (comp['cnpj'], y['year'])
             if k in by_cnpj_year:
-                creditor.append({'cnpj': comp['cnpj'], 'year': y['year'], 'creditor_vlbruto_brl': round(vb, 2),
+                creditor.append({'cnpj': comp['cnpj'], 'year': y['year'], 'creditor_gross_brl': round(vb, 2),
                                  'contracts_net_paid_brl': brl(by_cnpj_year[k]), 'equal': round(vb * 100) == by_cnpj_year[k]})
 
     total_c = pass1_total + pre_c

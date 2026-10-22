@@ -1,6 +1,6 @@
-# Conferências e diagnósticos citados no relatório (não gera o JSON).
-# Entradas: arrecadacao-estado.csv, serie-1994-2025.xlsx, tt/*.csv, transf_agg_2024.json, desp_agg_2024.json.
-# Requer openpyxl (seção de setembro de 2024).
+# Checks and diagnostics cited in the report (it does not write the JSON).
+# Inputs: arrecadacao-estado.csv, serie-1994-2025.xlsx, tt/*.csv, transf_agg_2024.json, desp_agg_2024.json.
+# Needs openpyxl (the September 2024 section).
 import sys, os, re, json, collections
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from parse_rfb import rows, h, f, agg

@@ -1,8 +1,8 @@
-"""Gera data/politicians/state-deputies.json: deputados estaduais (e distritais, no DF) ELEITOS em 2018 e 2022,
-por UF, a partir do cadastro de candidaturas do TSE (consulta_cand).
+"""Builds data/politicians/state-deputies.json: state deputies (and district deputies, in the DF) ELECTED in 2018
+and 2022, by UF, from the TSE candidacy register (consulta_cand).
 
-Uso: POLITICIANS_WORK=/caminho/de/trabalho python3 build_state_deputies.py
-Só biblioteca padrão do Python 3.
+Usage: POLITICIANS_WORK=/path/to/workdir python3 build_state_deputies.py
+Python 3 standard library only.
 """
 import json
 import pathlib
@@ -20,9 +20,9 @@ CARGOS = {"DEPUTADO ESTADUAL", "DEPUTADO DISTRITAL"}
 CF_URL = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
 RECORD_BASIS = "eleito: resultado da eleição no cadastro do TSE, não indica exercício do mandato"
 
-# Tamanho das assembleias, usado só como conferência: art. 27, caput, da CF (o triplo da bancada federal
-# até 36; acima disso, mais um por deputado federal além de 12) aplicado às bancadas federais em vigor em
-# 2018 e 2022; a Câmara Legislativa do DF segue a mesma regra (art. 32, par. 3).
+# Size of the assemblies, used only as a check: art. 27, caput, of the CF (three times the federal delegation
+# up to 36; above that, one more per federal deputy beyond 12) applied to the federal delegations in force in
+# 2018 and 2022; the Câmara Legislativa of the DF follows the same rule (art. 32, par. 3).
 EXPECTED_SEATS = {
     "SP": 94, "MG": 77, "RJ": 70, "BA": 63, "RS": 55, "PR": 54, "PE": 49, "CE": 46, "MA": 42,
     "GO": 41, "PA": 41, "SC": 40, "PB": 36, "ES": 30, "PI": 30, "AL": 27,
@@ -31,7 +31,7 @@ EXPECTED_SEATS = {
 
 
 def null_if_tse_blank(v):
-    """O TSE usa #NULO / #NULO# / #NE para campo vazio."""
+    """The TSE uses #NULO / #NULO# / #NE for an empty field."""
     return None if not v or v.startswith("#") else v
 
 

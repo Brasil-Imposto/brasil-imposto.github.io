@@ -1,8 +1,8 @@
-"""Monta data/works/br-470-duplicacao.json a partir das entradas baixadas por roads_download.sh.
+"""Builds data/works/br-470-duplicacao.json from the inputs downloaded by roads_download.sh.
 
-Uso: python3 build_br470.py <workdir>
-Números vêm dos arquivos oficiais do <workdir>; citações literais são conferidas contra o texto
-do documento (common.require_quote) e o script para se alguma não bater.
+Usage: python3 build_br470.py <workdir>
+Numbers come from the official files in <workdir>; literal quotes are checked against the text
+of the document (common.require_quote), and the script stops if any of them does not match.
 """
 import csv, io, json, os, re, sys, zipfile, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -31,7 +31,7 @@ URL_CSV = 'https://dados.sc.gov.br/dataset/93dab950-e805-4388-8418-cfb3b73f1623/
 TSE = 'https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_{}.zip'
 PORTAL_PJ = 'https://portaldatransparencia.gov.br/pessoa-juridica/{}'
 
-# ------------------------------------------------------------------ fontes
+# ------------------------------------------------------------------ sources
 ug13 = {c['id']: c for c in json.load(open(p('br470', 'cgov_393013.json')))}
 ug03 = {c['id']: c for c in json.load(open(p('br470', 'cgov_393003.json')))}
 hist = lambda i: json.load(open(p('br470', 'cgov', f'{i}_historico.json')))
@@ -46,13 +46,13 @@ t2205 = C.tcu_text(p('br470', 'd_2683534.json'))
 t2718 = C.tcu_text(p('br470', 'd_2733019.json'))
 t2207 = C.tcu_text(p('br470', 'd_2632499.json'))
 
-# ------------------------------------------------------------------ contratos dos 4 lotes
-def aditivos(i):
+# ------------------------------------------------------------------ contracts of the 4 lots
+def amendment_summary(i):
     h = hist(i)
     ta = sorted({x['numero'] for x in h if x['tipo'] == 'Termo Aditivo'})
     ap = sorted({x['numero'] for x in h if x['tipo'] == 'Termo de Apostilamento'})
     last = max((x['data_assinatura'] for x in h if x['tipo'] != 'Contrato'), default=None)
-    return {'termos_aditivos': len(ta), 'apostilamentos': len(ap), 'ultimo_ato': last,
+    return {'amendment_terms': len(ta), 'apostille_terms': len(ap), 'last_act': last,
             'value_changes': [{'date': x['data_assinatura'], 'number': x['numero'], 'type': x['tipo'],
                                'qualification': ', '.join(t['descricao'] for t in (x.get('qualificacao_termo') or [])),
                                'text': ' '.join((x['observacao'] or '').split())[:600]}
@@ -98,7 +98,7 @@ for L in LOTS:
     if L['pir']:
         if not (C.num_br(rec['valor_global']) == L['pir']):
             raise SystemExit((L['lot'], rec['valor_global']))
-    ad = aditivos(L['cid'])
+    ad = amendment_summary(L['cid'])
     contracts.append({
         'group': 'obra', 'lot': L['lot'], 'number': L['number'], 'km_from': L['km'][0], 'km_to': L['km'][1], 'length_km': round(L['km'][1] - L['km'][0], 2),
         'object': ' '.join((compras.get(L['number'], {}).get('objeto') or rec['objeto']).split()),
@@ -151,7 +151,7 @@ totals = {
     'note': 'Somas calculadas. O total "como registrado" mistura o lote 1 (só preços iniciais) com os lotes 2 a 4 (preços iniciais + reajustamento).',
 }
 
-# ------------------------------------------------------------------ pagamentos (União + Estado)
+# ------------------------------------------------------------------ payments (União + state)
 pay = C.require_complete_months(json.load(open(p('br470', 'br470_payments.json'))), 'br470_payments.json')
 siop = {y['year']: sum(float(r.get('pagoT') or 0) for r in y['rows']) for y in json.load(open(p('br470', 'siop_br470.json')))['years']}
 by = collections.defaultdict(lambda: {'paid_in_year_brl': 0.0, 'prior_year_commitments_paid_brl': 0.0})
@@ -205,7 +205,7 @@ payments = {
     'tcu_execution_quote': q('Duplicação da BR-470/SC (Navegantes - Rio do Sul) (04 lotes) 1.669.899.804,20 1.896.069.990,08 79% 1,14', t2205, 'TCU 2205/2024'),
 }
 
-# ------------------------------------------------------------------ empresas
+# ------------------------------------------------------------------ companies
 def receita(cnpj):
     for f, base in ((p('rf', f'{cnpj}.json'), 'https://minhareceita.org/'), (p('rf', f'ba_{cnpj}.json'), 'https://brasilapi.com.br/api/cnpj/v1/')):
         try:
@@ -241,7 +241,7 @@ for cnpj, contracts_of in role.items():
                   {'doc': 'Cadastro da Receita não lido (espelhos indisponíveis, HTTP 503, em 2026-09-30); nome conforme o registro de contratos', 'url': None},
     })
 
-# ------------------------------------------------------------------ pessoas
+# ------------------------------------------------------------------ people
 def tse(year, uf, name, office):
     z = zipfile.ZipFile(p('tse', f'consulta_cand_{year}.zip'))
     r = csv.reader(io.TextIOWrapper(z.open(f'consulta_cand_{year}_{uf}.csv'), encoding='latin1'), delimiter=';')
@@ -273,7 +273,7 @@ people_gaps = ['Superintendente Regional do DNIT em SC nas assinaturas de 2013 (
                'Diretor-Geral do DNIT nas datas das assinaturas: não verificado.',
                'Governadores de SC não entram: a obra é federal. O Estado aportou recursos a partir de 2021 (ver pagamentos).']
 
-# ------------------------------------------------------------------ achados
+# ------------------------------------------------------------------ findings
 f1 = q('determinar ao Dnit que, no prazo de 60 (sessenta) dias, apresente a este Tribunal documento probatório da obtenção das autorizações de proprietários para uso dos terrenos privados ao longo da faixa de domínio, em especial, daqueles em que já houverem sido executadas intervenções no âmbito do Contrato 355/2014', t1704, 'TCU 1704/2019')
 f2 = q('sobrepreço no orçamento de referência decorrente da previsão em duplicidade de equipamentos para a fabricação de concreto', t1886, 'TCU 1886/2022')
 f2b = q('emissão da ordem de serviço das obras sem a prévia publicação da Declaração de Utilidade Pública dos imóveis abrangidos pelo empreendimento', t1886, 'TCU 1886/2022')
@@ -307,7 +307,7 @@ findings = [
      'status': 'Nenhum relatório da CGU, ação do MPF ou decisão judicial sobre a duplicação localizada nesta coleta (uma busca na web; sistemas da CGU, do MPF e do TRF4 não consultados por número).', 'url': None},
 ]
 
-# ------------------------------------------------------------------ comparação
+# ------------------------------------------------------------------ comparison
 ug27 = {c['id']: c for c in json.load(open(p('comp', 'cgov_393027.json')))}
 ug17 = {c['id']: c for c in json.load(open(p('comp', 'cgov_393017.json')))}
 ug13c = {c['id']: c for c in json.load(open(p('comp', 'cgov_393013.json')))}
@@ -373,7 +373,7 @@ comparison = {
                 'Duplicações rurais em relevo plano (BR-101/BA) custam menos por km; a BR-470 atravessa áreas urbanas, com ruas laterais e muitos viadutos.'],
 }
 
-# ------------------------------------------------------------------ montagem
+# ------------------------------------------------------------------ assembly
 credits = json.load(open(os.path.join(ROOT, 'docs', 'superpowers', 'previews', 'assets', 'cases', 'br-470-duplicacao', 'credits.json')))
 captions = {'road-indaial-2011.jpg': '2011: BR-470 em Indaial, ainda em pista simples',
             'urban-indaial-2011.jpg': '2011: trecho urbano da BR-470 em Indaial, antes da duplicação',

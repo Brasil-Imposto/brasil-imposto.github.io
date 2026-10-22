@@ -923,10 +923,10 @@
   "companies": [
    {
     "cnpj": "24447770000145",
-    "portal_credor_ids": [
+    "portal_creditor_ids": [
      "466549"
     ],
-    "portal_credor_names": [
+    "portal_creditor_names": [
      "TEIXEIRA DUARTE - ENGENHARIA E CONSTRUCOES  S A"
     ],
     "by_year": [
@@ -1021,15 +1021,15 @@
       "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202001&anomesfimfiltro=202012&credorfiltro%5B%5D=466549&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
      }
     ],
-    "total_vlbruto_all_units_computed": 373694994.99,
-    "total_vlestorno_all_units_computed": -8738183.49
+    "total_gross_all_units_computed": 373694994.99,
+    "total_reversed_all_units_computed": -8738183.49
    },
    {
     "cnpj": "17159856000107",
-    "portal_credor_ids": [
+    "portal_creditor_ids": [
      "424866"
     ],
-    "portal_credor_names": [
+    "portal_creditor_names": [
      "EMPA S A SERVICOS DE ENGENHARIA"
     ],
     "by_year": [
@@ -1068,15 +1068,15 @@
       "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201601&anomesfimfiltro=201612&credorfiltro%5B%5D=424866&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
      }
     ],
-    "total_vlbruto_all_units_computed": 24025575.59,
-    "total_vlestorno_all_units_computed": 0.0
+    "total_gross_all_units_computed": 24025575.59,
+    "total_reversed_all_units_computed": 0.0
    },
    {
     "cnpj": "10769406000197",
-    "portal_credor_ids": [
+    "portal_creditor_ids": [
      "174769"
     ],
-    "portal_credor_names": [
+    "portal_creditor_names": [
      "CONSORCIO FLORIANOPOLIS MONUMENTO"
     ],
     "by_year": [
@@ -1149,15 +1149,15 @@
       "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=201401&anomesfimfiltro=201412&credorfiltro%5B%5D=174769&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
      }
     ],
-    "total_vlbruto_all_units_computed": 33887355.69,
-    "total_vlestorno_all_units_computed": -17772.75
+    "total_gross_all_units_computed": 33887355.69,
+    "total_reversed_all_units_computed": -17772.75
    },
    {
     "cnpj": "38738381000183",
-    "portal_credor_ids": [
+    "portal_creditor_ids": [
      "423600"
     ],
-    "portal_credor_names": [
+    "portal_creditor_names": [
      "RMG - ENGENHARIA S C LTDA"
     ],
     "by_year": [
@@ -1286,15 +1286,15 @@
       "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202101&anomesfimfiltro=202112&credorfiltro%5B%5D=423600&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
      }
     ],
-    "total_vlbruto_all_units_computed": 16221892.76,
-    "total_vlestorno_all_units_computed": -37903.7
+    "total_gross_all_units_computed": 16221892.76,
+    "total_reversed_all_units_computed": -37903.7
    },
    {
     "cnpj": "80996861000100",
-    "portal_credor_ids": [
+    "portal_creditor_ids": [
      "951"
     ],
-    "portal_credor_names": [
+    "portal_creditor_names": [
      "PROSUL PROJETOS SUPERVISAO E PLANEJAMENTO LTDA"
     ],
     "by_year": [
@@ -1611,15 +1611,15 @@
       "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202601&anomesfimfiltro=202612&credorfiltro%5B%5D=951&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
      }
     ],
-    "total_vlbruto_all_units_computed": 250227173.08,
-    "total_vlestorno_all_units_computed": -704338.17
+    "total_gross_all_units_computed": 250227173.08,
+    "total_reversed_all_units_computed": -704338.17
    },
    {
     "cnpj": "33146648000391",
-    "portal_credor_ids": [
+    "portal_creditor_ids": [
      "20913"
     ],
-    "portal_credor_names": [
+    "portal_creditor_names": [
      "CONCREMAT ENGENHARIA E TECNOLOGIA S A"
     ],
     "by_year": [
@@ -1794,15 +1794,15 @@
       "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202401&anomesfimfiltro=202412&credorfiltro%5B%5D=20913&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
      }
     ],
-    "total_vlbruto_all_units_computed": 6104816.0,
-    "total_vlestorno_all_units_computed": -13678.3
+    "total_gross_all_units_computed": 6104816.0,
+    "total_reversed_all_units_computed": -13678.3
    },
    {
     "cnpj": "52573623000157",
-    "portal_credor_ids": [
+    "portal_creditor_ids": [
      "473472"
     ],
-    "portal_credor_names": [
+    "portal_creditor_names": [
      "FARES   ASSOCIADOS ENGENHARIA LTDA"
     ],
     "by_year": [
@@ -1875,15 +1875,15 @@
       "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202301&anomesfimfiltro=202312&credorfiltro%5B%5D=473472&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
      }
     ],
-    "total_vlbruto_all_units_computed": 1039387.85,
-    "total_vlestorno_all_units_computed": 0.0
+    "total_gross_all_units_computed": 1039387.85,
+    "total_reversed_all_units_computed": 0.0
    },
    {
     "cnpj": "01956161000116",
-    "portal_credor_ids": [
+    "portal_creditor_ids": [
      "583240"
     ],
-    "portal_credor_names": [
+    "portal_creditor_names": [
      "GEOARQUEOLOGIA PESQUISA CIENTIFICA LTDA"
     ],
     "by_year": [
@@ -1927,15 +1927,15 @@
       "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202001&anomesfimfiltro=202012&credorfiltro%5B%5D=583240&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
      }
     ],
-    "total_vlbruto_all_units_computed": 95862.85,
-    "total_vlestorno_all_units_computed": -400.07
+    "total_gross_all_units_computed": 95862.85,
+    "total_reversed_all_units_computed": -400.07
    },
    {
     "cnpj": "24055348000144",
-    "portal_credor_ids": [
+    "portal_creditor_ids": [
      "592803"
     ],
-    "portal_credor_names": [
+    "portal_creditor_names": [
      "SDF ENGENHARIA EIRELI"
     ],
     "by_year": [
@@ -1957,8 +1957,8 @@
       "query_url_all_units": "https://api-portal-transparencia.apps.sm.okd4.ciasc.sc.gov.br/api/pgtocredor?anomesinifiltro=202001&anomesfimfiltro=202012&credorfiltro%5B%5D=592803&tipopagamentocredorfiltro=1&totais=1&page=1&indicador=0"
      }
     ],
-    "total_vlbruto_all_units_computed": 35000.0,
-    "total_vlestorno_all_units_computed": 0.0
+    "total_gross_all_units_computed": 35000.0,
+    "total_reversed_all_units_computed": 0.0
    }
   ],
   "official_pre2011_figure": {

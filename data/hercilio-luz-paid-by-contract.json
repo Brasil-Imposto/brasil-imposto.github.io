@@ -685,210 +685,210 @@
    {
     "cnpj": "24447770000145",
     "year": 2016,
-    "creditor_vlbruto_brl": 61363201.36,
+    "creditor_gross_brl": 61363201.36,
     "contracts_net_paid_brl": 61363201.36,
     "equal": true
    },
    {
     "cnpj": "24447770000145",
     "year": 2017,
-    "creditor_vlbruto_brl": 93659794.67,
+    "creditor_gross_brl": 93659794.67,
     "contracts_net_paid_brl": 93659794.67,
     "equal": true
    },
    {
     "cnpj": "24447770000145",
     "year": 2018,
-    "creditor_vlbruto_brl": 86470181.26,
+    "creditor_gross_brl": 86470181.26,
     "contracts_net_paid_brl": 86470181.26,
     "equal": true
    },
    {
     "cnpj": "24447770000145",
     "year": 2019,
-    "creditor_vlbruto_brl": 89019342.39,
+    "creditor_gross_brl": 89019342.39,
     "contracts_net_paid_brl": 89019342.39,
     "equal": true
    },
    {
     "cnpj": "24447770000145",
     "year": 2020,
-    "creditor_vlbruto_brl": 43182475.31,
+    "creditor_gross_brl": 43182475.31,
     "contracts_net_paid_brl": 36198328.44,
     "equal": false
    },
    {
     "cnpj": "17159856000107",
     "year": 2015,
-    "creditor_vlbruto_brl": 18987728.69,
+    "creditor_gross_brl": 18987728.69,
     "contracts_net_paid_brl": 18987728.69,
     "equal": true
    },
    {
     "cnpj": "17159856000107",
     "year": 2016,
-    "creditor_vlbruto_brl": 5037846.9,
+    "creditor_gross_brl": 5037846.9,
     "contracts_net_paid_brl": 5037846.9,
     "equal": true
    },
    {
     "cnpj": "10769406000197",
     "year": 2011,
-    "creditor_vlbruto_brl": 6520883.68,
+    "creditor_gross_brl": 6520883.68,
     "contracts_net_paid_brl": 6520883.68,
     "equal": true
    },
    {
     "cnpj": "10769406000197",
     "year": 2012,
-    "creditor_vlbruto_brl": 5299956.75,
+    "creditor_gross_brl": 5299956.75,
     "contracts_net_paid_brl": 5299956.75,
     "equal": true
    },
    {
     "cnpj": "10769406000197",
     "year": 2013,
-    "creditor_vlbruto_brl": 16878580.18,
+    "creditor_gross_brl": 16878580.18,
     "contracts_net_paid_brl": 16878580.18,
     "equal": true
    },
    {
     "cnpj": "10769406000197",
     "year": 2014,
-    "creditor_vlbruto_brl": 5187935.08,
+    "creditor_gross_brl": 5187935.08,
     "contracts_net_paid_brl": 5187935.08,
     "equal": true
    },
    {
     "cnpj": "38738381000183",
     "year": 2015,
-    "creditor_vlbruto_brl": 1951820.02,
+    "creditor_gross_brl": 1951820.02,
     "contracts_net_paid_brl": 1951820.02,
     "equal": true
    },
    {
     "cnpj": "38738381000183",
     "year": 2016,
-    "creditor_vlbruto_brl": 2373842.62,
+    "creditor_gross_brl": 2373842.62,
     "contracts_net_paid_brl": 2373842.62,
     "equal": true
    },
    {
     "cnpj": "38738381000183",
     "year": 2017,
-    "creditor_vlbruto_brl": 4185844.16,
+    "creditor_gross_brl": 4185844.16,
     "contracts_net_paid_brl": 4185844.16,
     "equal": true
    },
    {
     "cnpj": "38738381000183",
     "year": 2018,
-    "creditor_vlbruto_brl": 2798194.28,
+    "creditor_gross_brl": 2798194.28,
     "contracts_net_paid_brl": 2798194.28,
     "equal": true
    },
    {
     "cnpj": "38738381000183",
     "year": 2019,
-    "creditor_vlbruto_brl": 3542863.87,
+    "creditor_gross_brl": 3542863.87,
     "contracts_net_paid_brl": 3542863.87,
     "equal": true
    },
    {
     "cnpj": "38738381000183",
     "year": 2020,
-    "creditor_vlbruto_brl": 1269225.34,
+    "creditor_gross_brl": 1269225.34,
     "contracts_net_paid_brl": 739682.87,
     "equal": false
    },
    {
     "cnpj": "38738381000183",
     "year": 2021,
-    "creditor_vlbruto_brl": 100102.47,
+    "creditor_gross_brl": 100102.47,
     "contracts_net_paid_brl": 0.0,
     "equal": false
    },
    {
     "cnpj": "80996861000100",
     "year": 2011,
-    "creditor_vlbruto_brl": 15312416.04,
+    "creditor_gross_brl": 15312416.04,
     "contracts_net_paid_brl": 1379740.11,
     "equal": false
    },
    {
     "cnpj": "80996861000100",
     "year": 2012,
-    "creditor_vlbruto_brl": 17893394.44,
+    "creditor_gross_brl": 17893394.44,
     "contracts_net_paid_brl": 671111.24,
     "equal": false
    },
    {
     "cnpj": "80996861000100",
     "year": 2013,
-    "creditor_vlbruto_brl": 20962507.55,
+    "creditor_gross_brl": 20962507.55,
     "contracts_net_paid_brl": 833377.53,
     "equal": false
    },
    {
     "cnpj": "80996861000100",
     "year": 2014,
-    "creditor_vlbruto_brl": 43256230.84,
+    "creditor_gross_brl": 43256230.84,
     "contracts_net_paid_brl": 487078.96,
     "equal": false
    },
    {
     "cnpj": "33146648000391",
     "year": 2011,
-    "creditor_vlbruto_brl": 993730.38,
+    "creditor_gross_brl": 993730.38,
     "contracts_net_paid_brl": 1104600.17,
     "equal": false
    },
    {
     "cnpj": "33146648000391",
     "year": 2012,
-    "creditor_vlbruto_brl": 447450.94,
+    "creditor_gross_brl": 447450.94,
     "contracts_net_paid_brl": 447450.94,
     "equal": true
    },
    {
     "cnpj": "33146648000391",
     "year": 2013,
-    "creditor_vlbruto_brl": 555277.39,
+    "creditor_gross_brl": 555277.39,
     "contracts_net_paid_brl": 555277.39,
     "equal": true
    },
    {
     "cnpj": "33146648000391",
     "year": 2016,
-    "creditor_vlbruto_brl": 769547.02,
+    "creditor_gross_brl": 769547.02,
     "contracts_net_paid_brl": 37281.86,
     "equal": false
    },
    {
     "cnpj": "52573623000157",
     "year": 2016,
-    "creditor_vlbruto_brl": 137482.95,
+    "creditor_gross_brl": 137482.95,
     "contracts_net_paid_brl": 137482.95,
     "equal": true
    },
    {
     "cnpj": "01956161000116",
     "year": 2019,
-    "creditor_vlbruto_brl": 16402.68,
+    "creditor_gross_brl": 16402.68,
     "contracts_net_paid_brl": 400.07,
     "equal": false
    },
    {
     "cnpj": "01956161000116",
     "year": 2020,
-    "creditor_vlbruto_brl": 79460.17,
+    "creditor_gross_brl": 79460.17,
     "contracts_net_paid_brl": 79460.17,
     "equal": true
    },
    {
     "cnpj": "24055348000144",
     "year": 2020,
-    "creditor_vlbruto_brl": 35000,
+    "creditor_gross_brl": 35000,
     "contracts_net_paid_brl": 35000.0,
     "equal": true
    }

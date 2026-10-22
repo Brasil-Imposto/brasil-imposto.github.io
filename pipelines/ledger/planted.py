@@ -61,13 +61,13 @@ def run(con, check, src="cand_flow"):
     out = {}
     for kind in TARGETS:
         target = plant(con, kind, src, "planted")
-        out[kind] = {"target": target, "caught_by": [r.name for r in check(con, "planted") if not r.ok]}
+        out[kind] = {"target": target, "caught_by": [r.id for r in check(con, "planted") if not r.ok]}
     con.execute("DROP TABLE IF EXISTS planted")
     for kind in CROSS_SOURCE:
         con.begin()
         try:
             target = plant_cross(con, kind, src, "planted")
-            out[kind] = {"target": target, "caught_by": [r.name for r in check(con, "planted") if not r.ok]}
+            out[kind] = {"target": target, "caught_by": [r.id for r in check(con, "planted") if not r.ok]}
         finally:
             con.rollback()
     return out

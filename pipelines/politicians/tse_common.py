@@ -1,10 +1,10 @@
-"""Leitura do cadastro de candidaturas do TSE (consulta_cand), compartilhada pelos scripts de politicos.
+"""Reading of the TSE candidacy register (consulta_cand), shared by the politicians scripts.
 
-Os zips ficam num diretorio de trabalho fora do repositorio (variavel POLITICIANS_WORK,
-padrao /tmp/politicians-work). Cada zip traz um CSV por UF, em latin-1, separado por ';'.
+The zips are kept in a working folder outside the repository (variable POLITICIANS_WORK,
+default /tmp/politicians-work). Each zip holds one CSV per UF, in latin-1, separated by ';'.
 
-RemoteZip le um zip do CDN do TSE por HTTP Range, sem grava-lo em disco: o indice e depois so os membros pedidos
-(usado por build_mayors.py e collect_photos.py).
+RemoteZip reads a zip from the TSE CDN by HTTP Range, without writing it to disk: the index, then only the requested
+members (used by build_mayors.py and collect_photos.py).
 """
 import csv
 import io
@@ -22,7 +22,7 @@ UA = "BrasilImposto/0.1 (pesquisa civica; dados abertos do TSE)"
 
 
 def cand_zip(year):
-    """Baixa (uma vez) e devolve o caminho do zip do ano."""
+    """Downloads (once) and returns the path of the year's zip."""
     WORK.mkdir(parents=True, exist_ok=True)
     path = WORK / "tse" / f"consulta_cand_{year}.zip"
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -32,7 +32,7 @@ def cand_zip(year):
 
 
 def iter_rows(year, ufs=None, cargos=None, elected_only=True):
-    """Linhas do consulta_cand do ano, filtradas por UF, cargo e situacao final."""
+    """Rows of the year's consulta_cand, filtered by UF, office and final status."""
     z = zipfile.ZipFile(cand_zip(year))
     for name in sorted(z.namelist()):
         if not name.endswith(".csv") or name.endswith("_BRASIL.csv"):
@@ -50,14 +50,14 @@ def iter_rows(year, ufs=None, cargos=None, elected_only=True):
 
 
 def br_date(s):
-    """'dd/mm/aaaa' para 'aaaa-mm-dd'; None se vazio ou nulo."""
+    """'dd/mm/yyyy' to 'yyyy-mm-dd'; None if empty or null."""
     if not s or s.startswith("#"):
         return None
     d, m, y = s.split("/")
     return f"{y}-{m}-{d}"
 
 
-# ---------------------------------------------------------------- HTTP com Range
+# ---------------------------------------------------------------- HTTP with Range
 
 def http_open(url, headers=None, tries=6):
     for attempt in range(tries):
@@ -65,7 +65,7 @@ def http_open(url, headers=None, tries=6):
             req = urllib.request.Request(url, headers={"User-Agent": UA, **(headers or {})})
             with urllib.request.urlopen(req, timeout=90) as r:
                 return r.status, dict(r.headers), r.read()
-        except Exception as e:  # rede instavel: tenta de novo com espera crescente
+        except Exception as e:  # unstable network: retries with a growing wait
             if attempt == tries - 1:
                 raise RuntimeError(f"{url}: {e}") from e
             time.sleep(2 * (attempt + 1))
@@ -87,7 +87,7 @@ def http_range(url, start, end):
 
 
 class RangeFile(io.RawIOBase):
-    """Arquivo remoto somente leitura, com leitura antecipada de 256 KB, para o zipfile ler o indice."""
+    """Read-only remote file, with a 256 KB read-ahead, so that zipfile can read the index."""
 
     def __init__(self, url, size):
         self.url, self.size, self.pos, self.buf_start, self.buf = url, size, 0, -1, b""
@@ -127,7 +127,7 @@ class RemoteZip:
         self.infos = zipfile.ZipFile(RangeFile(url, self.size)).infolist()
 
     def read(self, info):
-        """Uma requisicao por membro: cabecalho local + dados; confere o CRC."""
+        """One request per member: local header + data; checks the CRC."""
         start = info.header_offset
         end = min(start + 30 + len(info.filename.encode()) + 2048 + info.compress_size, self.size)
         b = http_range(self.url, start, end)
@@ -146,14 +146,14 @@ class RemoteZip:
         return data
 
     def member(self, name):
-        """Bytes de um membro pelo nome exato."""
+        """Bytes of a member by its exact name."""
         return self.read(next(i for i in self.infos if i.filename == name))
 
 
 def uf_rows(year, uf, cargos=None, elected_only=False):
-    """Linhas do consulta_cand do ano so para a UF, lidas por HTTP Range (nada gravado em disco)."""
+    """Rows of the year's consulta_cand for the UF only, read by HTTP Range (nothing written to disk)."""
     data = RemoteZip(TSE_CAND_URL.format(year=year)).member(f"consulta_cand_{year}_{uf}.csv")
-    # Mesma decodificacao de iter_rows (TextIOWrapper em latin-1), para as linhas sairem iguais as do zip inteiro.
+    # Same decoding as iter_rows (TextIOWrapper in latin-1), so that the rows come out the same as those of the whole zip.
     for row in csv.DictReader(io.TextIOWrapper(io.BytesIO(data), encoding="latin-1"), delimiter=";"):
         if cargos and row["DS_CARGO"] not in cargos:
             continue

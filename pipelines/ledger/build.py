@@ -98,7 +98,7 @@ def main(argv):
         "releases": [dict(zip(("dataset", "source_id", "sha256", "bytes", "published_on", "published_note"), r)) for r in
                      con.execute("SELECT dataset, source_id, sha256, bytes, published_on, published_note "
                                  "FROM current_release ORDER BY dataset").fetchall()],
-        "guarantees": [{"name": r.name, "ok": r.ok, "failures": r.failures, "sample": r.sample, "detail": r.detail}
+        "guarantees": [{"id": r.id, "label": r.label, "ok": r.ok, "failures": r.failures, "sample": r.sample, "detail": r.detail}
                        for r in results],
         "planted_errors": plants,
         "flows_by_type": dict(con.execute(f"SELECT flow_type, count(*) FROM {table} GROUP BY 1 ORDER BY 1").fetchall()),
@@ -115,7 +115,7 @@ def main(argv):
     report["db_bytes"] = db.DB_PATH.stat().st_size
     REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     for r in results:
-        print(("ok    " if r.ok else "FAIL  ") + r.name, "" if r.ok else r.sample[:2])
+        print(("ok    " if r.ok else "FAIL  ") + r.label, "" if r.ok else r.sample[:2])
     for kind, p in plants.items():
         print(("caught" if p["caught_by"] else "MISSED"), kind, p["target"], "by", [n.split(" ")[0] for n in p["caught_by"]])
     print(report["status"], "| flows", report["flow_after"]["rows"], "| db", report["db_bytes"], "bytes |",

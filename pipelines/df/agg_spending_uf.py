@@ -1,10 +1,10 @@
-"""Gasto direto da União por UF do localizador (Portal da Transparência, Execução da Despesa).
+"""Direct spending of the União by the state of the location code (Portal da Transparência, Execução da Despesa).
 
-Uso: agg_spending_uf.py <workdir> <YYYYMM>[,<YYYYMM>...] [segundos entre downloads, padrão 90]
-Para cada mês grava <workdir>/cache/despuf_YYYYMM.json com a soma de valor pago, restos a pagar pagos e liquidado por
-[UF, código do localizador (só quando a UF está vazia), grupo de despesa, modalidade, órgão superior, função].
-O ZIP bruto é apagado assim que o mês é somado. Meses já somados são pulados (retoma de onde parou).
-O servidor da CGU tem um WAF da AWS que bloqueia rajadas: um download a cada 90 s, com espera crescente.
+Usage: agg_spending_uf.py <workdir> <YYYYMM>[,<YYYYMM>...] [seconds between downloads, default 90]
+For each month it writes <workdir>/cache/despuf_YYYYMM.json with the sum of amount paid, restos a pagar paid and liquidated by
+[state, location code (only when the state is empty), expense group, modality, top-level body, function].
+The raw ZIP is deleted as soon as the month is summed. Months already summed are skipped (it resumes where it stopped).
+The CGU server has an AWS WAF that blocks bursts: one download every 90 s, with a growing wait.
 """
 import collections, csv, io, json, os, subprocess, sys, time, zipfile
 

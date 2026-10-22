@@ -60,20 +60,20 @@
    },
    "amendments": [
     {
-     "numero": "1",
-     "data": "2026-03-31",
-     "justificativa": "Aditivo 01",
-     "dias_aditados": 0,
-     "valor_aditado_brl": 6732194.7,
-     "percentual_no_registro": 12.03
+     "number": "1",
+     "date": "2026-03-31",
+     "justification": "Aditivo 01",
+     "days_added": 0,
+     "amended_value_brl": 6732194.7,
+     "percent_in_record": 12.03
     },
     {
-     "numero": "3",
-     "data": "2026-08-21",
-     "justificativa": "Conforme processo SIE 32927/2026",
-     "dias_aditados": 173,
-     "valor_aditado_brl": 0.0,
-     "percentual_no_registro": 0.0
+     "number": "3",
+     "date": "2026-08-21",
+     "justification": "Conforme processo SIE 32927/2026",
+     "days_added": 173,
+     "amended_value_brl": 0.0,
+     "percent_in_record": 0.0
     }
    ],
    "stoppages": [],
@@ -148,72 +148,72 @@
    },
    "amendments": [
     {
-     "numero": "1",
-     "data": "2022-02-22",
-     "justificativa": "Aditivo de Valor ao contrato de supressão no valor de R$82.107,09.",
-     "dias_aditados": 0,
-     "valor_aditado_brl": -82107.09,
-     "percentual_no_registro": -19.68
+     "number": "1",
+     "date": "2022-02-22",
+     "justification": "Aditivo de Valor ao contrato de supressão no valor de R$82.107,09.",
+     "days_added": 0,
+     "amended_value_brl": -82107.09,
+     "percent_in_record": -19.68
     },
     {
-     "numero": "2",
-     "data": "2022-07-15",
-     "justificativa": "Aditivo de Prazo de 90 dias ao contrato. SIE 24965/2022",
-     "dias_aditados": 90,
-     "valor_aditado_brl": 0.0,
-     "percentual_no_registro": 0.0
+     "number": "2",
+     "date": "2022-07-15",
+     "justification": "Aditivo de Prazo de 90 dias ao contrato. SIE 24965/2022",
+     "days_added": 90,
+     "amended_value_brl": 0.0,
+     "percent_in_record": 0.0
     },
     {
-     "numero": "3",
-     "data": "2022-10-14",
-     "justificativa": "Aditivo de prazo de 120 dias ao contrato. SIE 34679/2022",
-     "dias_aditados": 120,
-     "valor_aditado_brl": 0.0,
-     "percentual_no_registro": 0.0
+     "number": "3",
+     "date": "2022-10-14",
+     "justification": "Aditivo de prazo de 120 dias ao contrato. SIE 34679/2022",
+     "days_added": 120,
+     "amended_value_brl": 0.0,
+     "percent_in_record": 0.0
     },
     {
-     "numero": "7",
-     "data": "2023-09-12",
-     "justificativa": "acréscimo  de  mais  90  dias  ao  prazo  contratual  para finalização dos  trabalhos, referentes ao CT-018/2021. SIE 00014103/2023",
-     "dias_aditados": 90,
-     "valor_aditado_brl": 0.0,
-     "percentual_no_registro": 0.0
+     "number": "7",
+     "date": "2023-09-12",
+     "justification": "acréscimo  de  mais  90  dias  ao  prazo  contratual  para finalização dos  trabalhos, referentes ao CT-018/2021. SIE 00014103/2023",
+     "days_added": 90,
+     "amended_value_brl": 0.0,
+     "percent_in_record": 0.0
     },
     {
-     "numero": "8",
-     "data": "2023-11-06",
-     "justificativa": "Aditivo de valor ao contrato. SIE 4034/2023",
-     "dias_aditados": 0,
-     "valor_aditado_brl": 82107.09,
-     "percentual_no_registro": 19.68
+     "number": "8",
+     "date": "2023-11-06",
+     "justification": "Aditivo de valor ao contrato. SIE 4034/2023",
+     "days_added": 0,
+     "amended_value_brl": 82107.09,
+     "percent_in_record": 19.68
     },
     {
-     "numero": "9",
-     "data": "2024-11-26",
-     "justificativa": "Justificativa no processo SIE 37159/2024",
-     "dias_aditados": 90,
-     "valor_aditado_brl": 0.0,
-     "percentual_no_registro": 0.0
+     "number": "9",
+     "date": "2024-11-26",
+     "justification": "Justificativa no processo SIE 37159/2024",
+     "days_added": 90,
+     "amended_value_brl": 0.0,
+     "percent_in_record": 0.0
     }
    ],
    "stoppages": [
     {
-     "inicio": "2023-01-07",
-     "reinicio": "2024-01-02",
-     "dias": 360,
-     "observacao": "Justificativa no processo SIE 1084/2023."
+     "start": "2023-01-07",
+     "restart": "2024-01-02",
+     "days": 360,
+     "note": "Justificativa no processo SIE 1084/2023."
     },
     {
-     "inicio": "2024-04-01",
-     "reinicio": "2024-11-01",
-     "dias": 214,
-     "observacao": "Ordem Técnica conforme consta no processo SIE-12144/2024."
+     "start": "2024-04-01",
+     "restart": "2024-11-01",
+     "days": 214,
+     "note": "Ordem Técnica conforme consta no processo SIE-12144/2024."
     },
     {
-     "inicio": "2025-02-20",
-     "reinicio": null,
-     "dias": 586,
-     "observacao": "Processo SIE 6636/2025."
+     "start": "2025-02-20",
+     "restart": null,
+     "days": 586,
+     "note": "Processo SIE 6636/2025."
     }
    ],
    "inspector_field_raw": "AILTON PAULINO ROSA; LUCAS REBELLO HORTA VALADARES GONTIJO; LUIZ ERNESTO PANTOJA TELLES DE MENEZES; THAÍS APARECIDA DOS SANTOS LOPES; WILSON TADEU BESEN",
@@ -254,20 +254,20 @@
    },
    "amendments": [
     {
-     "numero": "1",
-     "data": "2025-01-07",
-     "justificativa": "Prorrogação de Vigencia conforme processo SIE 28227/2024",
-     "dias_aditados": 0,
-     "valor_aditado_brl": 0.0,
-     "percentual_no_registro": 0.0
+     "number": "1",
+     "date": "2025-01-07",
+     "justification": "Prorrogação de Vigencia conforme processo SIE 28227/2024",
+     "days_added": 0,
+     "amended_value_brl": 0.0,
+     "percent_in_record": 0.0
     },
     {
-     "numero": "5",
-     "data": "2025-05-14",
-     "justificativa": "Conforme processo SIE 17822/2026",
-     "dias_aditados": 150,
-     "valor_aditado_brl": 0.0,
-     "percentual_no_registro": 0.0
+     "number": "5",
+     "date": "2025-05-14",
+     "justification": "Conforme processo SIE 17822/2026",
+     "days_added": 150,
+     "amended_value_brl": 0.0,
+     "percent_in_record": 0.0
     }
    ],
    "stoppages": [],

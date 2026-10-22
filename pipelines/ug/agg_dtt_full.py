@@ -1,11 +1,11 @@
-"""Base do Tesouro "Despesas e Transferências Totais da União" (critério valor pago), um ano, todas as linhas.
+"""Tesouro base "Despesas e Transferências Totais da União" (valor pago basis), one year, every row.
 
-Uso: uv run python agg_dtt_full.py <workdir> <ano>   (precisa de openpyxl)
-Conjunto: https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais
-Grava <workdir>/cache/dtt_full_<ano>.json.gz com PAGAMENTOS_TOTAIS somado por
-[órgão, unidade orçamentária, grupo, modalidade, ação, categoria do RTN]. Apaga o XLSX ao terminar.
-Serve para dois fins: a folha e o custeio dos outros Poderes por unidade (sem UG nesta base) e o total nacional do
-Executivo no mesmo recorte do Portal, para a checagem.
+Usage: uv run python agg_dtt_full.py <workdir> <year>   (needs openpyxl)
+Dataset: https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais
+Writes <workdir>/cache/dtt_full_<year>.json.gz with PAGAMENTOS_TOTAIS summed by
+[órgão, unidade orçamentária, grupo, modalidade, ação, categoria do RTN]. Deletes the XLSX when done.
+It serves two purposes: the payroll and running costs of the other branches (Poderes) by unit (this base has no UG),
+and the Executive's national total with the same scope as the Portal da Transparência, for the check.
 """
 import collections, gzip, json, os, subprocess, sys, zipfile
 import openpyxl

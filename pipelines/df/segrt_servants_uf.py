@@ -1,7 +1,7 @@
-"""Servidores civis ativos do Poder Executivo federal (SIAPE) por UF do município da unidade de exercício (SEGRT/MGI).
-Entrada: data/df/segrt_serv_por_mun_exerc_202608.csv
+"""Active civil servants of the federal Executive (SIAPE) by the state of the municipality where they work (SEGRT/MGI).
+Input: data/df/segrt_serv_por_mun_exerc_202608.csv
 (https://repositorio.dados.gov.br/segrt/Serv_por_municipio/2026/Serv_por_mun_exerc_202608.csv).
-Saída: data/df/segrt_servants_uf_202608.json e tabela por mil habitantes (população IBGE 2026)."""
+Output: data/df/segrt_servants_uf_202608.json and a table per thousand inhabitants (IBGE population 2026)."""
 import csv, json, sys
 BASE = sys.argv[1] if len(sys.argv) > 1 else "."
 f = f"{BASE}/data/df/segrt_serv_por_mun_exerc_202608.csv"

@@ -1,8 +1,8 @@
-"""Monta data/works/sc-401-terceira-faixa.json a partir das entradas baixadas por roads_download.sh.
+"""Builds data/works/sc-401-terceira-faixa.json from the inputs downloaded by roads_download.sh.
 
-Uso: python3 build_sc401.py <workdir>
-Tudo o que é número vem dos arquivos oficiais do <workdir>; as citações literais são conferidas
-contra o texto do documento (common.require_quote) e o script para se alguma não bater.
+Usage: python3 build_sc401.py <workdir>
+Every number comes from the official files in <workdir>; the literal quotes are checked
+against the text of the document (common.require_quote), and the script stops if any of them does not match.
 """
 import csv, json, os, sys, zipfile, io
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -31,7 +31,7 @@ TSE = 'https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_can
 PORTAL_SC = 'https://www.transparencia.sc.gov.br/fornecedores'
 PORTAL_PJ = 'https://portaldatransparencia.gov.br/pessoa-juridica/{}'
 
-# ------------------------------------------------------------------ registro de contratos (SIGEF/SICOP)
+# ------------------------------------------------------------------ contract register (SIGEF/SICOP)
 csv.field_size_limit(10**9)
 rows = {r['NUCONTRATO']: r for r in csv.DictReader(open(p('contratos.csv'), encoding='utf-8', errors='ignore'), delimiter=';')
         if r['NUCONTRATO'] in ('CT-00014/2025', 'CT-00018/2021', 'CT-00315/2022') and r['CDUNIDADEGESTORA'] == '530001'}
@@ -53,7 +53,7 @@ pncp_res = json.load(open(p('sc401', 'resultados.json')))[0]
 if not (pncp_ct['niFornecedor'] == '84689066000392' and pncp_compra['valorTotalHomologado'] == 55983533.75):
     raise SystemExit("check failed: pncp_ct['niFornecedor'] == '84689066000392' and pncp_compra['valorTotalHomologado'] == 55983533.75")
 
-# ------------------------------------------------------------------ textos oficiais
+# ------------------------------------------------------------------ official texts
 doe_ct = C.pdf_text(p('doe', 'doe_20250311_22468.pdf'))
 doe_port = C.pdf_text(p('doe', 'doe_20250401_22483.pdf'))
 edital = C.pdf_text(p('sc401', 'arq1.pdf'))
@@ -69,15 +69,15 @@ q('Jerry Edson Comper Secretário de Estado da Infraestrutura e Mobilidade', edi
 q('As Obras de Arte Especiais Inicialmente previstas em projetos serão licitadas posteriormente.', etp, 'ETP')
 q('O projeto geométrico contemplou tres faixas de tráfego no dois sentidos', proj, 'relatório do projeto executivo')
 
-# ------------------------------------------------------------------ contratos
-def extrato_sicop(t):
+# ------------------------------------------------------------------ contracts
+def sicop_extract(t):
     e = sicop[t]
     return {
-        'aditivos': [{'numero': a['numero'], 'data': a['data'][:10], 'justificativa': a['justificativa'],
-                      'dias_aditados': int(a['diasaditados']), 'valor_aditado_brl': float(a['valoraditado']),
-                      'percentual_no_registro': float(a['percentual'])} for a in e['contratoAditivos']],
-        'paralisacoes': [{'inicio': x['dataparalisacao'][:10], 'reinicio': (x['datareinicio'] or '')[:10] or None,
-                          'dias': int(x['diasparalisado']), 'observacao': x['observacao']} for x in e['contratoParalisacoes']],
+        'amendments': [{'number': a['numero'], 'date': a['data'][:10], 'justification': a['justificativa'],
+                        'days_added': int(a['diasaditados']), 'amended_value_brl': float(a['valoraditado']),
+                        'percent_in_record': float(a['percentual'])} for a in e['contratoAditivos']],
+        'stoppages': [{'start': x['dataparalisacao'][:10], 'restart': (x['datareinicio'] or '')[:10] or None,
+                       'days': int(x['diasparalisado']), 'note': x['observacao']} for x in e['contratoParalisacoes']],
     }
 
 def contract_row(r, t, extra):
@@ -91,7 +91,7 @@ def contract_row(r, t, extra):
         'value_amendments_brl': float(e['valoraditado']), 'value_price_adjustment_brl': float(e['valorreajustado']),
         'status_in_record': r['SITUACAO'], 'process_sgpe': f"SIE {r['NUPROCESSO']}",
         'managing_unit': {'code': r['CDUNIDADEGESTORA'], 'name': r['NMUNIDADEGESTORA']},
-        'amendments': extrato_sicop(t)['aditivos'], 'stoppages': extrato_sicop(t)['paralisacoes'],
+        'amendments': sicop_extract(t)['amendments'], 'stoppages': sicop_extract(t)['stoppages'],
         'inspector_field_raw': r['NMFISCAL'],
         'inspector_field_warning': 'Campo NMFISCAL do registro; o próprio SICOP classifica esses nomes como engenheiro fiscal, engenheiro da consultoria ou engenheiro da contratada (lista "contratoFiscais"). Não é lista de servidores.',
         'sources': [{'doc': 'Registro de contratos SIGEF/SICOP, CGE-SC (dados.sc.gov.br)', 'url': URL_CSV, 'collected_on': COLLECTED},
@@ -126,7 +126,7 @@ contracts = [
         'link_note': 'O objeto fala em "restauração" da SC-401 e SC-404 (3 trechos). A ligação com a terceira faixa vem do SICOP: os três "engenheiros da consultoria" listados no CT-00014/2025 são os "engenheiros da contratada" deste contrato, e o mesmo fiscal foi designado para os dois a partir de 17/03/2025 (Portarias 324 e 325/2025, DOE-SC nº 22.483).'}),
 ]
 
-# ------------------------------------------------------------------ pagamentos
+# ------------------------------------------------------------------ payments
 def resumo(t):
     return [{'year': int(r['ano']), 'committed_brl': float(r['vlempenhado']), 'liquidated_brl': float(r['vlliquidado']), 'paid_brl': float(r['vlpago'])}
             for r in sicop[t]['contratoResumoFinanceiro']]
@@ -140,7 +140,7 @@ payments = {
     'coverage': 'Até a carga do Portal em 2026-09-30; 2026 é parcial.',
 }
 
-# ------------------------------------------------------------------ empresas
+# ------------------------------------------------------------------ companies
 def receita(cnpj):
     for f in (p('rf', f'{cnpj}.json'), p('rf', f'ba_{cnpj}.json')):
         try:
@@ -165,7 +165,7 @@ for cnpj, contracts_of in (('84689066000392', ['CT-00014/2025']), ('036164090001
                   {'doc': 'Cadastro não lido: espelhos da Receita indisponíveis (HTTP 503) em 2026-09-30', 'url': None},
     })
 
-# ------------------------------------------------------------------ pessoas
+# ------------------------------------------------------------------ people
 def tse_party(year, name, office):
     z = zipfile.ZipFile(p('tse', f'consulta_cand_{year}.zip'))
     r = csv.reader(io.TextIOWrapper(z.open(f'consulta_cand_{year}_SC.csv'), encoding='latin1'), delimiter=';')
@@ -219,7 +219,7 @@ people = [
                 {'doc': 'TSE, candidaturas 2022 (SC)', 'url': TSE.format(2022)}]},
 ]
 
-# ------------------------------------------------------------------ achados oficiais
+# ------------------------------------------------------------------ official findings
 f1 = q('a demanda surgiu em decorrência da ausência de atenção ao Plano de Mobilidade Urbana Sustentável da Grande Florianópolis (PLAMUS) e da falta de interlocução entre a Secretaria de Estado da Infraestrutura e Mobilidade (SIE) e a Prefeitura de Florianópolis', dt['2025-04-25'], 'GAC/AMF 216/2025')
 f1b = q('onde se lê “para a realização de Acompanhamento (ACO)”, leia-se “para a realização de Auditoria (RLA)”', dt['2025-05-02'], 'despacho 2025-05-02')
 f2 = q('que se abstenha da liberação de novos trechos da terceira faixa da rodovia SC-401, sem a necessária e cogente segurança viária', t0426, 'GAC/WWD 190/2026')
@@ -243,7 +243,7 @@ for d, span in (('2025-04-25', (f1[:40], 'PROCESSO Nº: @PPA')), ('2026-04-24', 
     seg = t[i:j if j > 0 else None]
     term_check[d] = sorted(set(m.lower() for m in _re.findall(r'(?i)superfatur\w*|sobrepre\w*|desvio\w*', seg)))
 if not (_re.findall(r'(?i)superfatur\w*|sobrepre\w*', 'houve sobrepreço e superfaturamento')):
-    raise SystemExit("check failed: _re.findall('(?i)superfatur\\\\w*|sobrepre\\\\w*', 'houve sobrepreço e superfaturamento')") # controle
+    raise SystemExit("check failed: _re.findall('(?i)superfatur\\\\w*|sobrepre\\\\w*', 'houve sobrepreço e superfaturamento')") # control
 
 findings = [
     {'body': 'TCE-SC', 'process': '@PAF 25/80004143, convertido em auditoria RLA 25/80004143', 'decision': 'Decisão Singular GAC/AMF 216/2025 (relator Adircélio de Moraes Ferreira Júnior)',
@@ -269,7 +269,7 @@ findings = [
      'status': 'Nenhum procedimento localizado nesta coleta (uma busca na web; os sistemas do MPSC e do TJSC não foram consultados por número).', 'url': None},
 ]
 
-# ------------------------------------------------------------------ comparação (custo por km, reais de dez/2024)
+# ------------------------------------------------------------------ comparison (cost per km, in reais of Dec 2024)
 def comp(name, value, ym, km, scope, lanes, source, value_basis, category, alt_km=None):
     f = C.ipca_factor(IPCA, ym)
     d = {'name': name, 'category': category, 'scope': scope, 'lanes': lanes, 'length_km': km,
@@ -334,7 +334,7 @@ comparison['caveats'] = [
     'Extensões diferentes medem coisas diferentes: os 10,07 km da SC-401 somam eixo e vias marginais.',
 ]
 
-# ------------------------------------------------------------------ montagem
+# ------------------------------------------------------------------ assembly
 credits = json.load(open(os.path.join(ROOT, 'docs', 'superpowers', 'previews', 'assets', 'cases', 'sc-401-terceira-faixa', 'credits.json')))
 captions = {'centro-administrativo-2014.jpg': '2014: Centro Administrativo do Governo de SC, na SC-401 (km 15, Saco Grande), dentro do trecho da obra',
             'saco-grande-2023.jpg': '2023: bairro Saco Grande, cortado pela SC-401, visto do Floripa Shopping',

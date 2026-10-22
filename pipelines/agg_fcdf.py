@@ -1,5 +1,5 @@
-# Soma o Fundo Constitucional do DF (UO 73901) em 2024: valor pago + restos a pagar pagos.
-# Entrada: desp/2024MM.zip. Saída: fcdf_2024.json
+# Sums the Fundo Constitucional do DF (UO 73901) in 2024: amount paid + unpaid commitments of earlier years paid (restos a pagar pagos).
+# Input: desp/2024MM.zip. Output: fcdf_2024.json
 import zipfile, csv, io, collections, glob, json
 agg=collections.defaultdict(float)
 def f(x): return float(x.replace('.','').replace(',','.')) if x else 0.0

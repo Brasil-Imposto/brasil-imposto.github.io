@@ -201,11 +201,11 @@ def main(rows_path, cnpj_dir, pay_path, out, csv_path=None):
     }
     for c in pay["companies"]:
         payments["companies"].append({
-            "cnpj": c["cnpj"], "portal_credor_ids": c["credor_ids"], "portal_credor_names": c["credor_names"],
+            "cnpj": c["cnpj"], "portal_creditor_ids": c["credor_ids"], "portal_creditor_names": c["credor_names"],
             "by_year": [{"year": r["year"], "all_units": r["all_units"], "unit_530025_DEINFRA": r["ug_530025_DEINFRA"] or {},
                          "unit_530001_SIE": r["ug_530001_SIE"] or {}, "query_url_all_units": r["url_all_units"]} for r in c["by_year"]],
-            "total_vlbruto_all_units_computed": round(sum(float(r["all_units"].get("vlbruto") or 0) for r in c["by_year"]), 2),
-            "total_vlestorno_all_units_computed": round(sum(float(r["all_units"].get("vlestorno") or 0) for r in c["by_year"]), 2),
+            "total_gross_all_units_computed": round(sum(float(r["all_units"].get("vlbruto") or 0) for r in c["by_year"]), 2),
+            "total_reversed_all_units_computed": round(sum(float(r["all_units"].get("vlestorno") or 0) for r in c["by_year"]), 2),
         })
 
     findings = [
