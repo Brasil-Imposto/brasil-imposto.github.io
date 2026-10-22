@@ -1,0 +1,35 @@
+# Checks that every commit of a pull request carries a Developer Certificate of Origin sign-off by its own author
+# (git commit -s). It reads commit metadata through the API and never runs the pull request's code.
+name: dco
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  dco:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Every commit signed off by its author
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          gh api "repos/$REPO/pulls/$PR/commits?per_page=100" --paginate --slurp > commits.json
+          python3 - <<'PY'
+          import json, re, sys
+          commits = [c for page in json.load(open("commits.json")) for c in page]
+          bad = []
+          for c in commits:
+              author = c["commit"]["author"]
+              signed = re.findall(r"^Signed-off-by: .+ <(.+)>\s*$", c["commit"]["message"], re.M)
+              if author["email"].lower() not in (e.lower() for e in signed):
+                  bad.append(f'{c["sha"][:7]} {author["name"]} <{author["email"]}>')
+          if bad:
+              print("Commits without a sign-off by their author (git commit -s):")
+              print("\n".join(bad))
+              sys.exit(1)
+          print(f"{len(commits)} commits, all signed off by their authors")
+          PY
