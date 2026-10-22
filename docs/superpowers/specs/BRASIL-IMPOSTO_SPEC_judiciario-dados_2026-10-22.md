@@ -1,7 +1,7 @@
 # Brasil-Imposto: dados do Poder Judiciário em "Os 3 Poderes", correção e melhoria
 
-Status: **proposta de 2026-10-22, aguardando a aprovação do mantenedor.** Nenhum código de coleta, construtor ou página muda
-antes disso. Base: a auditoria `docs/research/BRASIL-IMPOSTO_RESEARCH_judiciario-remuneracao-auditoria_2026-10-22.md`.
+Status: **aprovada em 2026-10-22 com todas as recomendações (D154, Q72 a Q79).** Primeiro entra o que os dados do repositório
+já permitem; a coleta nova espera os hosts dos tribunais (pergunta 7). Base: a auditoria `docs/research/BRASIL-IMPOSTO_RESEARCH_judiciario-remuneracao-auditoria_2026-10-22.md`.
 
 ### Summary (English)
 
@@ -228,7 +228,7 @@ Cada uma com a recomendação marcada; o que não for respondido segue a recomen
 8. **Ordem:** **STF primeiro, os outros tribunais no fim ★**, ou os cinco juntos. Recomendo o STF primeiro: é a pergunta aberta,
    e as regras saem testadas antes de chegar aos outros.
 
-Aprovada a spec, as respostas viram uma decisão (D) e as perguntas Q72 a Q79 no `docs/decisions/README.md`.
+As respostas estão em D154 e nas perguntas Q72 a Q79 de `docs/decisions/README.md`.
 
 ## 10. Fora desta spec
 
