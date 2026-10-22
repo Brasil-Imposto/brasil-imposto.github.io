@@ -18,7 +18,7 @@ PAGES = {
 CSS = """<style id="bi-chrome-css">
 .bi-header { position: sticky; top: 0; z-index: 1000; height: 62px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; background: rgba(255,255,255,.94); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid #E3E7EC; font-family: Manrope, system-ui, sans-serif; }
 .bi-brand { display: inline-flex; align-items: center; gap: 9px; color: #14202B; text-decoration: none; font-weight: 800; font-size: 15px; letter-spacing: -.01em; white-space: nowrap; }
-.bi-brand img { width: 26px; height: 19px; border-radius: 4px; object-fit: cover; box-shadow: 0 0 0 1px rgba(20,32,43,.14); }
+.bi-brand img { width: 30px; height: 30px; }
 .bi-brand i { font-style: normal; color: #12803F; }
 .bi-links { display: flex; align-items: center; gap: 18px; }
 .bi-links a { font-weight: 700; font-size: 13px; color: #5B6773; text-decoration: none; padding-bottom: 3px; }
@@ -49,6 +49,13 @@ CSS = """<style id="bi-chrome-css">
   .bi-menu-btn { display: inline-flex; }
 }
 </style>"""
+
+# The tab icons (D153, spec logo-no-site): drawn for 16 and 32 px in favicon.ico, and the Apple touch icon. They share the head block
+# with the CSS, between the site-chrome:css markers.
+ICONS = ('<link rel="icon" href="assets/brand/favicon.ico" sizes="16x16 32x32">\n'
+         '<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">')
+HEAD = ICONS + "\n" + CSS
+LOGO = '<img src="assets/brand/brasil-imposto-logo.svg" alt="">'  # the name follows in text, so the mark needs no alt of its own
 
 ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>'
 
@@ -88,7 +95,7 @@ def header(current):
     """The header for one page; `current` is a key of PAGES. The pages differ only in aria-current."""
     assert current in PAGES, current
     return ('<header class="bi-header">'
-            f'<a class="bi-brand" href="{HOME}"><img src="assets/flags/br.svg" alt="Bandeira do Brasil"><span>Brasil<i>·</i>Imposto</span></a>'
+            f'<a class="bi-brand" href="{HOME}">{LOGO}<span>Brasil<i>·</i>Imposto</span></a>'
             f'<nav class="bi-links" aria-label="Páginas">{_links(current)}</nav>'
             f'<button type="button" class="bi-menu-btn" aria-expanded="false" aria-controls="bi-sheet">{ICON}<span>Menu</span></button>'
             '</header>'
@@ -102,7 +109,7 @@ def footer():
              (f"{REPO_URL}/blob/main/docs/decisions/README.md", "Decisões do projeto", ""),
              (f"{REPO_URL}/blob/main/CONTRIBUTING.md", "Como ajudar", ""), (f"{REPO_URL}#licenças", "Licenças", "")]
     return ('<footer class="bi-footer"><div class="bi-footer-in"><div class="bi-footer-id">'
-            f'<a class="bi-brand" href="{HOME}"><img src="assets/flags/br.svg" alt="Bandeira do Brasil"><span>Brasil<i>·</i>Imposto</span></a>'
+            f'<a class="bi-brand" href="{HOME}">{LOGO}<span>Brasil<i>·</i>Imposto</span></a>'
             '<p>Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0.</p></div>'
             '<nav class="bi-footer-links" aria-label="Mais sobre o projeto">'
             + "".join(f'<a href="{h}"{x}>{t}</a>' for h, t, x in links) + '</nav></div></footer>')
@@ -115,7 +122,7 @@ MARK = {"css": ("<!-- site-chrome:css -->", "<!-- /site-chrome:css -->"),
 
 
 def parts(current):
-    return {"css": CSS, "header": header(current), "footer": footer(), "js": SCRIPT}
+    return {"css": HEAD, "header": header(current), "footer": footer(), "js": SCRIPT}
 
 
 def block(name, body):

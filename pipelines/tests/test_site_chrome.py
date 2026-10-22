@@ -23,7 +23,7 @@ class SiteHeaderTest(unittest.TestCase):
             with self.subTest(page=key):
                 p = page(key)
                 self.assertEqual(site_chrome.extract(p, "header"), site_chrome.header(key))
-                self.assertEqual(site_chrome.extract(p, "css"), site_chrome.CSS)
+                self.assertEqual(site_chrome.extract(p, "css"), site_chrome.HEAD)
                 self.assertEqual(site_chrome.extract(p, "js"), site_chrome.SCRIPT)
                 self.assertEqual(p.count('class="bi-header"'), 1, "one header per page")
 
@@ -40,6 +40,39 @@ class SiteHeaderTest(unittest.TestCase):
             self.assertNotRegex(text, r"Rede\s*\(prévia\)")
             self.assertNotIn("Apoie", text)
 
+
+class SiteBrandTest(unittest.TestCase):
+    """The logo (D153) in the header and footer, and the tab icons in the head, on every page (spec logo-no-site)."""
+    LOGO, ICO, TOUCH = "assets/brand/brasil-imposto-logo.svg", "assets/brand/favicon.ico", "assets/brand/apple-touch-icon.png"
+
+    def problems(self, p):
+        out = []
+        for name in ("header", "footer"):
+            block = site_chrome.extract(p, name)
+            if f'src="{self.LOGO}"' not in block:
+                out.append(f"{name}: no logo")
+            if "assets/flags/br.svg" in block:
+                out.append(f"{name}: the flag is still there")
+        head = site_chrome.extract(p, "css")
+        for rel, href in (("icon", self.ICO), ("apple-touch-icon", self.TOUCH)):
+            if f'rel="{rel}" href="{href}"' not in head:
+                out.append(f"head: no {rel}")
+        return out
+
+    def test_every_page_carries_the_logo_and_the_icons(self):
+        for key in site_chrome.PAGES:
+            with self.subTest(page=key):
+                self.assertEqual(self.problems(page(key)), [])
+
+    def test_the_files_exist(self):
+        for rel in (self.LOGO, self.ICO, self.TOUCH):
+            with self.subTest(file=rel):
+                self.assertTrue((PREVIEWS / rel).is_file(), rel)
+
+    def test_control_a_wrong_path_fails(self):
+        broken = page("inicio").replace(f'src="{self.LOGO}"', 'src="assets/brand/missing.svg"', 1)
+        self.assertNotEqual(broken, page("inicio"), "the plant did not land")
+        self.assertIn("header: no logo", self.problems(broken))
 
 
 class SiteFooterTest(unittest.TestCase):
