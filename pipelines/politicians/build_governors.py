@@ -23,7 +23,7 @@ CURATED = HERE / "governors_curated"
 UFS = "AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO RR SC SP SE TO".split()
 TSE = "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_{y}.zip"
 CF = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
-CARGO = {"governador": "GOVERNADOR", "vice-governador": "VICE-GOVERNADOR"}
+CARGO = {"governor": "GOVERNADOR", "vice_governor": "VICE-GOVERNADOR"}
 
 
 def norm(s):
@@ -80,10 +80,10 @@ def default_terms(uf, el):
     for y, start, end in ((2018, "2019-01-01", "2023-01-01"), (2022, "2023-01-01", None)):
         for role, cargo in CARGO.items():
             r = el[(uf, y, cargo)]
-            terms.append({"role": role, "name": r["NM_URNA_CANDIDATO"].title(), "full_name": r["NM_CANDIDATO"], "kind": "eleito",
+            terms.append({"role": role, "name": r["NM_URNA_CANDIDATO"].title(), "full_name": r["NM_CANDIDATO"], "kind": "elected",
                           "start": start, "end": end, "start_reason": f"posse após a eleição de {y}", "end_reason": "fim do mandato" if end else None,
                           "party_at_start": r["SG_PARTIDO"], "party_changes": [],
-                          "sources": [{"fact": "eleição e partido na eleição", "url": TSE.format(y=y), "type": "oficial"}, {"fact": "datas do mandato (CF, art. 28)", "url": CF, "type": "oficial"}],
+                          "sources": [{"fact": "eleição e partido na eleição", "url": TSE.format(y=y), "type": "official"}, {"fact": "datas do mandato (CF, art. 28)", "url": CF, "type": "official"}],
                           "verified": False, "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato."})
     return terms
 
@@ -98,7 +98,7 @@ def build():
         terms = cur["terms"] if cur else default_terms(uf, el)
         # checks those elected against the TSE and fills in the full name and party
         for t in terms:
-            if t["kind"] != "eleito":
+            if t["kind"] != "elected":
                 continue
             y = 2018 if t["start"] < "2023-01-01" else 2022
             r = el.get((uf, y, CARGO[t["role"]]))
@@ -112,13 +112,13 @@ def build():
         for y in (2018, 2022):
             for role, cargo in CARGO.items():
                 r = el[(uf, y, cargo)]
-                if not any(t["kind"] == "eleito" and t["role"] == role and (t["start"] < "2023-01-01") == (y == 2018) for t in terms):
+                if not any(t["kind"] == "elected" and t["role"] == role and (t["start"] < "2023-01-01") == (y == 2018) for t in terms):
                     problems.append(f"{uf} {role} {y}: eleito do TSE ({r['NM_CANDIDATO']}) ausente dos mandatos")
         # short name, no full name (a vice who took over, an acting governor): full name of the same winner in the UF
         for t in terms:
             if t.get("name") and not t.get("full_name"):
                 for e in terms:
-                    if e["kind"] == "eleito" and e.get("full_name") and same_person(t["name"], e["name"] + " " + e["full_name"]):
+                    if e["kind"] == "elected" and e.get("full_name") and same_person(t["name"], e["name"] + " " + e["full_name"]):
                         t["full_name"] = e["full_name"]
                         break
         # people: id, full name, party seen in the TSE data, photo

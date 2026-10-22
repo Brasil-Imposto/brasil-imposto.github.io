@@ -181,7 +181,7 @@ def build():
                 "source": murl,
             }
             if kind == "suplente" and m.get("Titular"):
-                term["titular"] = {"id": "senado:" + m["Titular"]["CodigoParlamentar"],
+                term["full_member"] = {"id": "senado:" + m["Titular"]["CodigoParlamentar"],
                                    "name": m["Titular"]["NomeParlamentar"]}
             terms.append(term)
         if not terms:
@@ -316,8 +316,8 @@ def main():
         "persons": len(persons),
         "terms": sum(len(p["terms"]) for p in persons),
         "exercise_periods": sum(len(t["exercise"]) for p in persons for t in p["terms"]),
-        "persons_with_suplente_exercise": sum(1 for p in persons if any(t["kind"] == "suplente" for t in p["terms"])),
-        "persons_titular_only": sum(1 for p in persons if all(t["kind"] == "titular" for t in p["terms"])),
+        "persons_with_substitute_exercise": sum(1 for p in persons if any(t["kind"] == "suplente" for t in p["terms"])),
+        "persons_full_member_only": sum(1 for p in persons if all(t["kind"] == "titular" for t in p["terms"])),
         "persons_in_exercise_on_collection_day": sum(1 for p in persons if in_exercise_on(p, COLLECTED_ON)),
         "persons_without_photo": sum(1 for p in persons if p["photo"] is None),
         "by_uf": {uf: len(by_uf[uf]) for uf in UFS},

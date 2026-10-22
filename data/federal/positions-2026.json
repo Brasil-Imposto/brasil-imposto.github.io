@@ -235,7 +235,7 @@
      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14520.htm"
     },
     {
-     "key": "aux",
+     "key": "allowances",
      "label": "Auxílios pagos pelo STF",
      "value": null,
      "todo": true
@@ -253,7 +253,7 @@
        "status": "yes",
        "value": 46366.19
       },
-      "aux": {
+      "allowances": {
        "status": "unknown"
       }
      }
@@ -861,7 +861,7 @@
      "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14520.htm"
     },
     {
-     "key": "aux",
+     "key": "allowances",
      "label": "Auxílios pagos pelo STF",
      "value": null,
      "todo": true
@@ -894,7 +894,7 @@
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
     },
     {
-     "key": "aux",
+     "key": "allowances",
      "label": "Auxílios pagos por cada tribunal",
      "value": null,
      "todo": true
@@ -1404,14 +1404,14 @@
   }
  },
  "urls": {
-  "posse": "https://especial.camara.leg.br/posse2027/exercicios-do-mandato/",
+  "camara_mandate": "https://especial.camara.leg.br/posse2027/exercicios-do-mandato/",
   "dl172": "https://www2.camara.leg.br/legin/fed/decleg/2022/decretolegislativo-172-21-dezembro-2022-793529-publicacaooriginal-166604-pl.html",
   "l14520": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14520.htm",
   "cf93": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-  "sen_moradia": "https://www12.senado.leg.br/transparencia/sen/coapat/auxilio-moradia-e-imoveis-funcionais",
-  "sen_moradia_api": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
+  "sen_housing": "https://www12.senado.leg.br/transparencia/sen/coapat/auxilio-moradia-e-imoveis-funcionais",
+  "sen_housing_api": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
   "sen_ceaps": "https://www12.senado.leg.br/transparencia/leg/pdf/CotaExercicioAtivParlamSenadores.pdf",
-  "sen_verbas": "https://www12.senado.leg.br/perguntas-frequentes/canais-de-atendimento/senadores/os-senadores-recebem-mais-alguma-verba-alem-do-subsidio"
+  "sen_allowances": "https://www12.senado.leg.br/perguntas-frequentes/canais-de-atendimento/senadores/os-senadores-recebem-mais-alguma-verba-alem-do-subsidio"
  },
  "periods": {
   "camara": "2026, até a atualização da Câmara",

@@ -2,10 +2,10 @@
  "uf": "SC",
  "terms": [
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Carlos Moisés",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2023-01-01",
    "start_reason": "posse após a eleição de 2018",
@@ -23,17 +23,17 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse e fim do mandato (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "mandato, afastamentos e mudança de partido",
      "url": "https://memoriapolitica.alesc.sc.gov.br/biografia/1308-Carlos_Moises",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
@@ -54,10 +54,10 @@
    ]
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Daniela Reinehr",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2023-01-01",
    "start_reason": "posse após a eleição de 2018",
@@ -68,27 +68,27 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse e fim do mandato (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "biografia",
      "url": "https://memoriapolitica.alesc.sc.gov.br/biografia/1386-Daniela_Reinehr",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": null
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Daniela Reinehr",
    "full_name": null,
-   "kind": "interino",
+   "kind": "acting",
    "start": "2020-10-26",
    "end": "2020-11-27",
    "start_reason": "afastamento do titular no processo de impeachment",
@@ -99,22 +99,22 @@
     {
      "fact": "período do afastamento",
      "url": "https://memoriapolitica.alesc.sc.gov.br/biografia/1308-Carlos_Moises",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "biografia",
      "url": "https://memoriapolitica.alesc.sc.gov.br/biografia/1386-Daniela_Reinehr",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": "Partido na época: a biografia da Alesc diz 'Atualmente sem Partido' (texto de 2020)."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Daniela Reinehr",
    "full_name": null,
-   "kind": "interino",
+   "kind": "acting",
    "start": "2021-03-30",
    "end": "2021-05-07",
    "start_reason": "afastamento do titular no processo de impeachment",
@@ -125,22 +125,22 @@
     {
      "fact": "período do afastamento",
      "url": "https://memoriapolitica.alesc.sc.gov.br/biografia/1308-Carlos_Moises",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "biografia",
      "url": "https://memoriapolitica.alesc.sc.gov.br/biografia/1386-Daniela_Reinehr",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": "Partido na época não confirmado em fonte oficial datada."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Jorginho Mello",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": null,
    "start_reason": "posse após a eleição de 2022",
@@ -151,27 +151,27 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "biografia",
      "url": "https://memoriapolitica.alesc.sc.gov.br/biografia/514-Jorginho_Mello",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": "A tabela da Alesc registra o mandato como 01/02/2023 a 31/01/2027; a posse constitucional foi em 2023-01-01."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Marilisa Boehm",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": null,
    "start_reason": "posse após a eleição de 2022",
@@ -182,12 +182,12 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,

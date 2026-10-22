@@ -1,6 +1,5 @@
 """Checks that guard data stay on under `python -O` (cleanup plan, task 7, P2-20): no `assert` statement in the pipelines and
-the page builders, only `if not (...): raise SystemExit(...)`. Tests keep `assert`, and `site_chrome.py` waits for the open
-interface pull request that changes it."""
+the page builders, only `if not (...): raise SystemExit(...)`. Tests keep `assert`."""
 import ast
 import subprocess
 import tempfile
@@ -8,7 +7,6 @@ import unittest
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-WAITING = {"docs/superpowers/tools/site_chrome.py"}
 
 
 def asserts(paths):
@@ -22,7 +20,7 @@ def asserts(paths):
 def code_files():
     files = subprocess.run(["git", "-C", str(REPO), "ls-files", "pipelines/*.py", "docs/superpowers/tools/*.py"],
                            capture_output=True, text=True, check=True).stdout.split()
-    return [REPO / f for f in files if "/tests/" not in f and f not in WAITING]
+    return [REPO / f for f in files if "/tests/" not in f]
 
 
 class NoDataAssertsTest(unittest.TestCase):

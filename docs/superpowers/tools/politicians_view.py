@@ -116,11 +116,11 @@ def build(pol_dir: Path):
                 k = "vice" if x["role"].startswith("vice") else "governor"
                 parties = [{"party": x.get("party_at_start") or "sem partido", "from": x["start"]}]
                 parties += [{"party": c["party"], "from": (c["date"] + "-01")[:10] if len(c["date"]) == 7 else c["date"]} for c in x.get("party_changes", [])]
-                role = {"governador": "Governador", "vice-governador": "Vice-governador"}[x["role"]] + (" interino" if x.get("kind") == "interino" else "")
+                role = {"governor": "Governador", "vice_governor": "Vice-governador"}[x["role"]] + (" interino" if x.get("kind") == "acting" else "")
                 person = people.get(x.get("person_id"), {})
                 view["uf"].setdefault(uf, {}).setdefault(k, []).append({
-                    "name": x["name"], "role": role, "start": x["start"], "end": x.get("end"), "parties": [] if x.get("kind") == "vago" else parties,
-                    "vacant": x.get("kind") == "vago", "reason": x.get("start_reason") if x.get("kind") == "vago" else None,
+                    "name": x["name"], "role": role, "start": x["start"], "end": x.get("end"), "parties": [] if x.get("kind") == "vacant" else parties,
+                    "vacant": x.get("kind") == "vacant", "reason": x.get("start_reason") if x.get("kind") == "vacant" else None,
                     "photo": _photo(person.get("photo")) or _collected(photos.get(x.get("person_id"))), "verified": bool(x.get("verified")),
                     "links": [{"label": s.get("fact", "fonte")[:28], "url": s["url"]} for s in x.get("sources", [])[-2:] if s.get("url")]})
     # Elected mayors of every state with a municipal map (SC, RS), keyed by IBGE code (unique across states).

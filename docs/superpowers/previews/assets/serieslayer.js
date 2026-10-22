@@ -143,7 +143,7 @@
   }
   // FCDF personnel (police, firefighters, health and education of the DF), for the note under the DF; from the payroll series.
   const fcdfPersonnel = (r) => { const P = S().federal_payroll_by_uf; if (!P || !P.fcdf || !P.fcdf.by_group) return null;
-    const pe = P.fcdf.by_group.pessoal_e_encargos; const x = pe ? window.BIT.sum(P.months, pe, r) : null; return x && x.n === x.of ? x.value : null; };
+    const pe = P.fcdf.by_group.personnel_and_charges; const x = pe ? window.BIT.sum(P.months, pe, r) : null; return x && x.n === x.of ? x.value : null; };
   // The DF estimate (D146): the Receita registers in the DF the tax that head offices and federal bodies in Brasília withhold
   // or pay for the whole country (Lei 9.779/1999, art. 15). In each tax the DF counts at most its share of Brazil's GDP
   // (IBGE) of that tax in the 27 states; the excess leaves the DF and so lands in the União block, which is the official

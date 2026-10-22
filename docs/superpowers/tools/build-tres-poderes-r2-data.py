@@ -48,14 +48,14 @@ def need(text, pattern, label):
 
 
 sources = {p.name: {"sha256": hashlib.sha256(p.read_bytes()).hexdigest(), "fetched_on": FETCHED} for p in sorted(RAW.iterdir())}
-URL = {"posse": "https://especial.camara.leg.br/posse2027/exercicios-do-mandato/",
+URL = {"camara_mandate": "https://especial.camara.leg.br/posse2027/exercicios-do-mandato/",
        "dl172": "https://www2.camara.leg.br/legin/fed/decleg/2022/decretolegislativo-172-21-dezembro-2022-793529-publicacaooriginal-166604-pl.html",
        "l14520": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14520.htm",
        "cf93": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-       "sen_moradia": "https://www12.senado.leg.br/transparencia/sen/coapat/auxilio-moradia-e-imoveis-funcionais",
-       "sen_moradia_api": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
+       "sen_housing": "https://www12.senado.leg.br/transparencia/sen/coapat/auxilio-moradia-e-imoveis-funcionais",
+       "sen_housing_api": "https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/auxilio-moradia-imoveis-funcionais?formato=json",
        "sen_ceaps": "https://www12.senado.leg.br/transparencia/leg/pdf/CotaExercicioAtivParlamSenadores.pdf",
-       "sen_verbas": "https://www12.senado.leg.br/perguntas-frequentes/canais-de-atendimento/senadores/os-senadores-recebem-mais-alguma-verba-alem-do-subsidio"}
+       "sen_allowances": "https://www12.senado.leg.br/perguntas-frequentes/canais-de-atendimento/senadores/os-senadores-recebem-mais-alguma-verba-alem-do-subsidio"}
 
 # ---------- salaries (read from the law texts, not typed)
 dl = page_text("dl172.html", "latin-1").encode("latin-1", "ignore").decode("utf-8", "ignore")
@@ -65,12 +65,12 @@ STF_SALARY = brl(need(stf, r"III - R\$ ([\d.]+,\d{2}) \(quarenta e seis mil trez
 SUPERIOR = round(STF_SALARY * 0.95, 2)  # CF art. 93, V: 95% of the STF minister's salary
 
 # ---------- Câmara rules
-posse = page_text("camara-mandato.html")
-HOUSING_DEP = brl(need(posse, r"O valor do auxílio-moradia é de R\$ ([\d.]+,\d{2})", "Câmara housing").group(1))
-HOUSING_DEP_MAX = brl(need(posse, r"o valor total do benefício poderá alcançar R\$ ([\d.]+,\d{2})", "Câmara housing max").group(1))
-OFFICE_DEP = brl(need(posse, r"O valor da verba de gabinete é de R\$ ([\d.]+,\d{2})", "Câmara office budget").group(1))
-STAFF_PAY = [brl(x) for x in need(posse, r"é R\$ ([\d.]+,\d{2}); e o maior, R\$ ([\d.]+,\d{2})", "secretaries pay").groups()]
-ceap_block = posse[posse.index("Valor da cota (R$)"):]
+mandate_page = page_text("camara-mandato.html")
+HOUSING_DEP = brl(need(mandate_page, r"O valor do auxílio-moradia é de R\$ ([\d.]+,\d{2})", "Câmara housing").group(1))
+HOUSING_DEP_MAX = brl(need(mandate_page, r"o valor total do benefício poderá alcançar R\$ ([\d.]+,\d{2})", "Câmara housing max").group(1))
+OFFICE_DEP = brl(need(mandate_page, r"O valor da verba de gabinete é de R\$ ([\d.]+,\d{2})", "Câmara office budget").group(1))
+STAFF_PAY = [brl(x) for x in need(mandate_page, r"é R\$ ([\d.]+,\d{2}); e o maior, R\$ ([\d.]+,\d{2})", "secretaries pay").groups()]
+ceap_block = mandate_page[mandate_page.index("Valor da cota (R$)"):]
 CEAP_DEP = {uf: brl(v) for uf, v in re.findall(r"\b([A-Z]{2}) ([\d.]+,\d{2})", ceap_block[:600])}
 if not (len(CEAP_DEP) == 27):
     raise SystemExit(CEAP_DEP)
@@ -160,7 +160,7 @@ def senator(o):
     h = housing_list.get(name)
     used = ceaps_used.get(name)
     return {"id": f"senado:{code}", "name": p["name"], "party": party, "uf": uf, "role": (o["Cargo"][0] if isinstance(o["Cargo"], list) else o["Cargo"]).capitalize(),
-            "photo": p["photo"]["url"], "photo_credit": p["photo"]["author"], "source": URL["sen_moradia_api"],
+            "photo": p["photo"]["url"], "photo_credit": p["photo"]["author"], "source": URL["sen_housing_api"],
             "items": {"salary": {"status": "yes", "value": SALARY},
                       "housing": {"status": ("yes" if h["auxilioMoradia"] == "S" else "no") if h else "unknown"},
                       "flat": {"status": ("yes" if h["imovelFuncional"] == "S" else "no") if h else "unknown"},
@@ -199,9 +199,9 @@ positions = [
     {"id": "presidente-senado", "parent": "root", "title": "Presidente do Senado e do Congresso Nacional", "power": "Legislativo", "count": 1, "row": 1, "col": [3, 4],
      "is_member_of": "senador", "people": [s for s in senators if s["role"].upper() == "PRESIDENTE"]},
     {"id": "presidente-stf", "parent": "root", "title": "Presidente do Supremo Tribunal Federal", "power": "Judiciário", "count": 1, "row": 1, "col": [5, 6],
-     "items": [sal_item(STF_SALARY, "Lei 14.520/2023", URL["l14520"]), {"key": "aux", "label": "Auxílios pagos pelo STF", "value": None, "todo": True}],
+     "items": [sal_item(STF_SALARY, "Lei 14.520/2023", URL["l14520"]), {"key": "allowances", "label": "Auxílios pagos pelo STF", "value": None, "todo": True}],
      "people": [{"id": "edson-fachin", "name": "Edson Fachin", "since": "2025-09-29", "photo": None, "source": "https://noticias.stf.jus.br/postsnoticias/ministro-edson-fachin-assume-hoje-29-a-presidencia-do-stf/",
-                 "items": {"salary": {"status": "yes", "value": STF_SALARY}, "aux": {"status": "unknown"}}}]},
+                 "items": {"salary": {"status": "yes", "value": STF_SALARY}, "allowances": {"status": "unknown"}}}]},
     # ---- second row
     {"id": "vice", "parent": "presidente", "title": "Vice-Presidente da República", "power": "Executivo", "count": 1, "row": 2, "col": [1, 1],
      "items": [sal_item(SALARY, "Decreto Legislativo 172/2022", URL["dl172"]), {"key": "residence", "label": "Residência oficial (Palácio do Jaburu)", "value": None, "note": "sem valor publicado"}],
@@ -212,7 +212,7 @@ positions = [
      "people": [union_holder("Ministro de Estado da Fazenda", {"salary": {"status": "yes", "value": SALARY}, "housing": {"status": "unknown"}, "boards": {"status": "unknown"}}) | {"role": "Ministro da Fazenda"}]},
     {"id": "senador", "parent": "presidente-senado", "title": "Senadores", "power": "Legislativo", "count": 81, "count_note": "três por estado (CF art. 46)", "row": 2, "col": [3, 3],
      "items": [sal_item(SALARY, "Decreto Legislativo 172/2022", URL["dl172"]),
-               {"key": "housing", "label": "Auxílio-moradia", "value": HOUSING_SEN, "note": "só para quem não usa imóvel funcional", "url": URL["sen_moradia"]},
+               {"key": "housing", "label": "Auxílio-moradia", "value": HOUSING_SEN, "note": "só para quem não usa imóvel funcional", "url": URL["sen_housing"]},
                {"key": "flat", "label": "Imóvel funcional (apartamento do Senado)", "value": None, "note": "no lugar do auxílio; sem valor publicado"},
                {"key": "ceaps", "label": "Cota parlamentar (Ceaps)", "value": max(CEAPS.values()), "value_min": min(CEAPS.values()),
                 "note": "R$ 15 mil mais cinco passagens à capital do estado; muda por estado", "url": URL["sen_ceaps"]},
@@ -222,12 +222,12 @@ positions = [
     {"id": "presidente-camara", "parent": "presidente-senado", "title": "Presidente da Câmara dos Deputados", "power": "Legislativo", "count": 1, "row": 2, "col": [4, 4],
      "is_member_of": "deputado", "people": [d for d in deputies if d["role"] == "Presidente"]},
     {"id": "ministros-stf", "parent": "presidente-stf", "title": "Ministros do STF", "power": "Judiciário", "count": CT["stf"]["magistrates"], "count_note": "com o presidente", "row": 2, "col": [5, 5],
-     "items": [sal_item(STF_SALARY, "Lei 14.520/2023", URL["l14520"]), {"key": "aux", "label": "Auxílios pagos pelo STF", "value": None, "todo": True}],
+     "items": [sal_item(STF_SALARY, "Lei 14.520/2023", URL["l14520"]), {"key": "allowances", "label": "Auxílios pagos pelo STF", "value": None, "todo": True}],
      "cost_per_person": {"value": CNJ["superior_courts"]["per_magistrate"], "what": "custo médio por mês de cada ministro de tribunal superior, com tudo o que o tribunal paga (CNJ, 2024)"}, "people": []},
     {"id": "tribunais", "parent": "presidente-stf", "title": "Ministros dos tribunais superiores (STJ, TST, TSE, STM)", "power": "Judiciário",
      "count": CT["stj"]["magistrates"] + CT["tst"]["magistrates"], "count_note": "STJ e TST; TSE e STM a coletar", "row": 2, "col": [6, 6],
      "items": [{"key": "salary", "label": "Salário (subsídio)", "value": SUPERIOR, "law": "95% do salário do STF (CF art. 93, V)", "url": URL["cf93"]},
-               {"key": "aux", "label": "Auxílios pagos por cada tribunal", "value": None, "todo": True}],
+               {"key": "allowances", "label": "Auxílios pagos por cada tribunal", "value": None, "todo": True}],
      "cost_per_person": {"value": CNJ["superior_courts"]["per_magistrate"], "what": "custo médio por mês de cada ministro de tribunal superior (CNJ, 2024)"}, "people": []},
     # ---- third row: careers (groups, one average each)
     {"id": "servidores-civis", "parent": "ministros", "title": "Servidores civis do Executivo", "power": "Executivo", "count": B["executive_civil"]["active"], "row": 3, "col": [1, 1], "group": True,
@@ -238,10 +238,10 @@ positions = [
                   ["praça temporária", B["executive_military"]["average_monthly_brl"]["active_temporary_enlisted"]]], "as_of": B["executive_military"]["as_of"]},
     {"id": "deputado", "parent": "presidente-camara", "title": "Deputados federais", "power": "Legislativo", "count": 513, "row": 3, "col": [3, 3],
      "items": [sal_item(SALARY, "Decreto Legislativo 172/2022", URL["dl172"]),
-               {"key": "housing", "label": "Auxílio-moradia", "value": HOUSING_DEP, "value_max": HOUSING_DEP_MAX, "note": f"até R$ {HOUSING_DEP_MAX:,.2f} com o complemento pela cota; só sem imóvel funcional".replace(",", "X").replace(".", ",").replace("X", "."), "url": URL["posse"]},
+               {"key": "housing", "label": "Auxílio-moradia", "value": HOUSING_DEP, "value_max": HOUSING_DEP_MAX, "note": f"até R$ {HOUSING_DEP_MAX:,.2f} com o complemento pela cota; só sem imóvel funcional".replace(",", "X").replace(".", ",").replace("X", "."), "url": URL["camara_mandate"]},
                {"key": "flat", "label": "Imóvel funcional (apartamento da Câmara)", "value": None, "note": "no lugar do auxílio; sem valor publicado"},
-               {"key": "ceap", "label": "Cota parlamentar (Ceap)", "value": max(CEAP_DEP.values()), "value_min": min(CEAP_DEP.values()), "note": "reembolso de passagens, escritório, combustível e divulgação; muda por estado", "url": URL["posse"]},
-               {"key": "office", "label": "Verba de gabinete", "value": OFFICE_DEP, "note": f"salários de até 25 secretários parlamentares", "url": URL["posse"]},
+               {"key": "ceap", "label": "Cota parlamentar (Ceap)", "value": max(CEAP_DEP.values()), "value_min": min(CEAP_DEP.values()), "note": "reembolso de passagens, escritório, combustível e divulgação; muda por estado", "url": URL["camara_mandate"]},
+               {"key": "office", "label": "Verba de gabinete", "value": OFFICE_DEP, "note": f"salários de até 25 secretários parlamentares", "url": URL["camara_mandate"]},
                {"key": "passport", "label": "Passaporte diplomático", "value": None, "note": "sem valor"},
                {"key": "start_end", "label": "Ajuda de custo no início e no fim do mandato", "value": SALARY, "note": "um salário em cada ponta; não é mensal", "monthly": False, "url": URL["dl172"]}],
      "people": [d for d in deputies if d["role"] != "Presidente"]},

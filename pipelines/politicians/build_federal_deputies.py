@@ -374,8 +374,8 @@ def main():
         "terms": len(all_terms),
         "terms_by_legislature": {str(l): sum(1 for t in all_terms if t["legislature"] == l) for l in LEGISLATURES},
         "exercise_periods": sum(len(t["exercise"]) for t in all_terms),
-        "persons_with_suplente_term": sum(1 for p in persons if any(t["kind"] == "suplente" for t in p["terms"])),
-        "suplente_terms_by_legislature": {str(l): sum(1 for t in all_terms if t["legislature"] == l
+        "persons_with_substitute_term": sum(1 for p in persons if any(t["kind"] == "suplente" for t in p["terms"])),
+        "substitute_terms_by_legislature": {str(l): sum(1 for t in all_terms if t["legislature"] == l
                                                       and t["kind"] == "suplente") for l in LEGISLATURES},
         "persons_in_exercise_on_collection_day": sum(1 for p in persons if in_exercise_on(p["terms"], COLLECTED_ON)),
         "persons_without_photo": sum(1 for p in persons if p["photo"] is None),

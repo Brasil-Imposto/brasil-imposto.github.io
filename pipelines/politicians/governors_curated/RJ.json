@@ -2,10 +2,10 @@
  "uf": "RJ",
  "terms": [
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Wilson Witzel",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2021-04-30",
    "start_reason": "posse após a eleição de 2018",
@@ -16,29 +16,29 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "afastamento do titular por decisão do STJ em 28/08/2020 (STJ, 28/08/2020; página bloqueada a acesso automatizado, lida no Internet Archive)",
      "url": "https://web.archive.org/web/20250914144559/https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/28082020-STJ-afasta-o-governador-Witzel-do-cargo-e-prende-seis-investigados-por-irregularidades-na-Saude-do-Rio.aspx",
-     "type": "oficial",
+     "type": "official",
      "quote": "28/08/2020 08:37 [...] O ministro Benedito Gonçalves, do Superior Tribunal de Justiça (STJ), determinou o afastamento de Wilson Witzel do cargo de governador do Rio de Janeiro por 180 dias"
     },
     {
      "fact": "cronologia oficial do afastamento: STJ em 28/08/2020 e Alerj em 23/09/2020 (Alerj, 30/04/2021)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/50487",
-     "type": "oficial",
+     "type": "official",
      "quote": "28/08/20 - WITZEL É AFASTADO DO CARGO: STJ afasta Witzel do governo por 180 dias [...] 23/09/20 - ALERJ APROVA RELATÓRIO E IMPEACHMENT PROSSEGUE: Relatório é votado. 69x0 pelo prosseguimento. Governador é afastado do cargo pela Alerj, prazo de 6 meses"
     },
     {
      "fact": "impeachment pelo Tribunal Especial Misto em 30/04/2021 (Alerj, 30/04/2021)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/50487",
-     "type": "oficial",
+     "type": "official",
      "quote": "30.04.2021 - 20:28 [...] Por unanimidade, o Tribunal Especial Misto (TEM) decidiu pelo impeachment do governador Wilson Witzel, nesta sexta-feira (30/04) [...] A posse do governador em exercício Cláudio Castro está marcada para este sábado, às 10h"
     }
    ],
@@ -54,10 +54,10 @@
    ]
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Claudio Castro",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2021-05-01",
    "start_reason": "posse após a eleição de 2018",
@@ -68,23 +68,23 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "afastamento do titular por decisão do STJ em 28/08/2020 (STJ, 28/08/2020; página bloqueada a acesso automatizado, lida no Internet Archive)",
      "url": "https://web.archive.org/web/20250914144559/https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/28082020-STJ-afasta-o-governador-Witzel-do-cargo-e-prende-seis-investigados-por-irregularidades-na-Saude-do-Rio.aspx",
-     "type": "oficial",
+     "type": "official",
      "quote": "28/08/2020 08:37 [...] O ministro Benedito Gonçalves, do Superior Tribunal de Justiça (STJ), determinou o afastamento de Wilson Witzel do cargo de governador do Rio de Janeiro por 180 dias"
     },
     {
      "fact": "posse como governador em 01/05/2021 (Alerj, 01/05/2021)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/50489",
-     "type": "oficial",
+     "type": "official",
      "quote": "01.05.2021 [...] A Assembleia Legislativa do Rio de Janeiro (Alerj) deu posse, neste sábado (01/05), ao governador Cláudio Castro, para exercer o mandato até dezembro de 2022 [...] Castro foi eleito vice-governador do Rio nas eleições de 2018 e atuava como interino desde o afastamento de Witzel em agosto de 2020"
     }
    ],
@@ -92,10 +92,10 @@
    "note": "No exercício do cargo de governador desde o afastamento do titular em 28/08/2020; posse como governador em 01/05/2021 (Alerj)."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Claudio Castro",
    "full_name": null,
-   "kind": "interino",
+   "kind": "acting",
    "start": "2020-08-28",
    "end": "2021-05-01",
    "start_reason": "afastamento do titular por decisão do STJ",
@@ -106,25 +106,25 @@
     {
      "fact": "afastamento do titular por decisão do STJ em 28/08/2020 (STJ, 28/08/2020; página bloqueada a acesso automatizado, lida no Internet Archive)",
      "url": "https://web.archive.org/web/20250914144559/https://www.stj.jus.br/sites/portalp/Paginas/Comunicacao/Noticias/28082020-STJ-afasta-o-governador-Witzel-do-cargo-e-prende-seis-investigados-por-irregularidades-na-Saude-do-Rio.aspx",
-     "type": "oficial",
+     "type": "official",
      "quote": "28/08/2020 08:37 [...] O ministro Benedito Gonçalves, do Superior Tribunal de Justiça (STJ), determinou o afastamento de Wilson Witzel do cargo de governador do Rio de Janeiro por 180 dias"
     },
     {
      "fact": "cronologia oficial do afastamento: STJ em 28/08/2020 e Alerj em 23/09/2020 (Alerj, 30/04/2021)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/50487",
-     "type": "oficial",
+     "type": "official",
      "quote": "28/08/20 - WITZEL É AFASTADO DO CARGO: STJ afasta Witzel do governo por 180 dias [...] 23/09/20 - ALERJ APROVA RELATÓRIO E IMPEACHMENT PROSSEGUE: Relatório é votado. 69x0 pelo prosseguimento. Governador é afastado do cargo pela Alerj, prazo de 6 meses"
     },
     {
      "fact": "posse como governador em 01/05/2021 (Alerj, 01/05/2021)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/50489",
-     "type": "oficial",
+     "type": "official",
      "quote": "01.05.2021 [...] A Assembleia Legislativa do Rio de Janeiro (Alerj) deu posse, neste sábado (01/05), ao governador Cláudio Castro, para exercer o mandato até dezembro de 2022 [...] Castro foi eleito vice-governador do Rio nas eleições de 2018 e atuava como interino desde o afastamento de Witzel em agosto de 2020"
     },
     {
      "fact": "partido na posse de 01/05/2021 (Alerj, 01/05/2021)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/50489",
-     "type": "oficial",
+     "type": "official",
      "quote": "Filiado ao PSC, o governador Cláudio Castro tem 42 anos"
     }
    ],
@@ -132,10 +132,10 @@
    "note": "Vice no exercício do cargo de governador desde o afastamento do titular pelo STJ em 28/08/2020 (a Alerj registra que 'atuava como interino desde o afastamento de Witzel em agosto de 2020'); posse definitiva em 01/05/2021. Partido: PSC, o do registro do TSE de 2018 e o que a Alerj registra em 01/05/2021."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Claudio Castro",
    "full_name": null,
-   "kind": "vice no cargo de titular",
+   "kind": "vice_in_office",
    "start": "2021-05-01",
    "end": "2023-01-01",
    "start_reason": "impeachment do titular",
@@ -146,35 +146,35 @@
     {
      "fact": "impeachment pelo Tribunal Especial Misto em 30/04/2021 (Alerj, 30/04/2021)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/50487",
-     "type": "oficial",
+     "type": "official",
      "quote": "30.04.2021 - 20:28 [...] Por unanimidade, o Tribunal Especial Misto (TEM) decidiu pelo impeachment do governador Wilson Witzel, nesta sexta-feira (30/04) [...] A posse do governador em exercício Cláudio Castro está marcada para este sábado, às 10h"
     },
     {
      "fact": "posse como governador em 01/05/2021 (Alerj, 01/05/2021)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/50489",
-     "type": "oficial",
+     "type": "official",
      "quote": "01.05.2021 [...] A Assembleia Legislativa do Rio de Janeiro (Alerj) deu posse, neste sábado (01/05), ao governador Cláudio Castro, para exercer o mandato até dezembro de 2022 [...] Castro foi eleito vice-governador do Rio nas eleições de 2018 e atuava como interino desde o afastamento de Witzel em agosto de 2020"
     },
     {
      "fact": "partido na posse de 01/05/2021 (Alerj, 01/05/2021)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/50489",
-     "type": "oficial",
+     "type": "official",
      "quote": "Filiado ao PSC, o governador Cláudio Castro tem 42 anos"
     },
     {
      "fact": "data de posse e fim do mandato (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": "Posse em 01/05/2021, no dia seguinte ao impeachment do titular (Alerj). Partido na posse: PSC ('Filiado ao PSC', Alerj, 01/05/2021); na eleição de 2022 já era do PL (TSE), sem ato oficial datado da troca lido aqui."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": null,
    "full_name": null,
-   "kind": "vago",
+   "kind": "vacant",
    "start": "2021-05-01",
    "end": "2023-01-01",
    "start_reason": "o vice-governador assumiu o cargo de governador",
@@ -185,7 +185,7 @@
     {
      "fact": "posse como governador em 01/05/2021 (Alerj, 01/05/2021)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/50489",
-     "type": "oficial",
+     "type": "official",
      "quote": "01.05.2021 [...] A Assembleia Legislativa do Rio de Janeiro (Alerj) deu posse, neste sábado (01/05), ao governador Cláudio Castro, para exercer o mandato até dezembro de 2022 [...] Castro foi eleito vice-governador do Rio nas eleições de 2018 e atuava como interino desde o afastamento de Witzel em agosto de 2020"
     }
    ],
@@ -193,10 +193,10 @@
    "note": "Sem vice desde a posse do vice como governador em 01/05/2021."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Cláudio Castro",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": "2026-03-23",
    "start_reason": "posse após a eleição de 2022",
@@ -207,29 +207,29 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "últimos decretos do titular, de 23/03/2026 (Diário Oficial do Estado do Rio de Janeiro, Parte I, nº 052-A, edição extra, 23/03/2026)",
      "url": "https://www.ioerj.com.br/portal/modules/conteudoonline/mostra_edicao.php?k=4BCE75B0-283PC-4A4F-B43C-20EE8BE79764",
-     "type": "oficial",
+     "type": "official",
      "quote": "DECRETO Nº 50.242 DE 23 DE MARÇO DE 2026 [...] Rio de Janeiro, 23 de março de 2026 CLÁUDIO CASTRO Governador"
     },
     {
      "fact": "ofício de renúncia do governador, de 23/03/2026 (Diário Oficial do Estado do Rio de Janeiro, Parte II, nº 053, 24/03/2026)",
      "url": "https://www.ioerj.com.br/portal/modules/conteudoonline/mostra_edicao.php?k=ACB8663C-AE0PF-4B43-B34D-9253A1059485",
-     "type": "oficial",
+     "type": "official",
      "quote": "OFÍCIO Nº 44/2026 Rio de Janeiro, 23 de março de 2026. DESPACHO: A imprimir. Em 23.03.2026. [...] venho manifestar a minha RENÚNCIA ao cargo de Governador do Estado do Rio de Janeiro, para o qual fui reeleito e empossado no dia 01 de janeiro de 2023"
     },
     {
      "fact": "vacância desde 23/03/2026 e presidente do TJ-RJ no cargo desde então (STF, 09/04/2026)",
      "url": "https://noticias.stf.jus.br/postsnoticias/stf-suspende-analise-sobre-formato-de-eleicoes-suplementares-para-governador-do-rio-de-janeiro/",
-     "type": "oficial",
+     "type": "official",
      "quote": "O cargo de governador do Estado do Rio está vago desde 23 de março, com a renúncia de Cláudio Castro [...] A dupla vacância no Rio de Janeiro foi configurada porque o vice-governador, Thiago Pampolha, já havia renunciado em 2025 para assumir uma vaga no Tribunal de Contas estadual. Desde então, o cargo de governador é ocupado interinamente pelo desembargador Ricardo Couto, presidente do Tribunal de Justiça do Estado do Rio de Janeiro (TJ-RJ)"
     }
    ],
@@ -237,10 +237,10 @@
    "note": "Renúncia em 23/03/2026 (ofício de 23/03/2026 publicado no Diário Oficial de 24/03/2026); os últimos decretos assinados por ele são de 23/03/2026."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Thiago Pampolha",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": "2025-05-21",
    "start_reason": "posse após a eleição de 2022",
@@ -251,17 +251,17 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "renúncia do vice-governador lida no plenário da Alerj em 21/05/2025 (Alerj, 21/05/2025)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/76016",
-     "type": "oficial",
+     "type": "official",
      "quote": "21.05.2025 [...] Logo após o fim da votação que aprovou seu nome ao TCE, Pampolha encaminhou comunicado oficializando sua renúncia ao cargo de vice-governador, que foi lido ainda em plenário pelo presidente da Alerj"
     }
    ],
@@ -269,10 +269,10 @@
    "note": "Renúncia comunicada e lida no plenário da Alerj em 21/05/2025, logo depois da aprovação do seu nome para o TCE-RJ (Alerj)."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": null,
    "full_name": null,
-   "kind": "vago",
+   "kind": "vacant",
    "start": "2025-05-21",
    "end": null,
    "start_reason": "renúncia do vice-governador",
@@ -283,13 +283,13 @@
     {
      "fact": "renúncia do vice-governador lida no plenário da Alerj em 21/05/2025 (Alerj, 21/05/2025)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/76016",
-     "type": "oficial",
+     "type": "official",
      "quote": "21.05.2025 [...] Logo após o fim da votação que aprovou seu nome ao TCE, Pampolha encaminhou comunicado oficializando sua renúncia ao cargo de vice-governador, que foi lido ainda em plenário pelo presidente da Alerj"
     },
     {
      "fact": "vacância desde 23/03/2026 e presidente do TJ-RJ no cargo desde então (STF, 09/04/2026)",
      "url": "https://noticias.stf.jus.br/postsnoticias/stf-suspende-analise-sobre-formato-de-eleicoes-suplementares-para-governador-do-rio-de-janeiro/",
-     "type": "oficial",
+     "type": "official",
      "quote": "O cargo de governador do Estado do Rio está vago desde 23 de março, com a renúncia de Cláudio Castro [...] A dupla vacância no Rio de Janeiro foi configurada porque o vice-governador, Thiago Pampolha, já havia renunciado em 2025 para assumir uma vaga no Tribunal de Contas estadual. Desde então, o cargo de governador é ocupado interinamente pelo desembargador Ricardo Couto, presidente do Tribunal de Justiça do Estado do Rio de Janeiro (TJ-RJ)"
     }
    ],
@@ -297,10 +297,10 @@
    "note": "Sem vice desde a renúncia de 21/05/2025; o STF registra a 'dupla vacância' desde a renúncia do governador em 23/03/2026."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Ricardo Couto",
    "full_name": "RICARDO COUTO DE CASTRO",
-   "kind": "interino",
+   "kind": "acting",
    "start": "2026-03-23",
    "end": null,
    "start_reason": "dupla vacância (renúncia do governador sem vice no cargo); assumiu como presidente do Tribunal de Justiça, com o presidente da Assembleia afastado",
@@ -311,31 +311,31 @@
     {
      "fact": "ofício de renúncia do governador, de 23/03/2026 (Diário Oficial do Estado do Rio de Janeiro, Parte II, nº 053, 24/03/2026)",
      "url": "https://www.ioerj.com.br/portal/modules/conteudoonline/mostra_edicao.php?k=ACB8663C-AE0PF-4B43-B34D-9253A1059485",
-     "type": "oficial",
+     "type": "official",
      "quote": "OFÍCIO Nº 44/2026 Rio de Janeiro, 23 de março de 2026. DESPACHO: A imprimir. Em 23.03.2026. [...] venho manifestar a minha RENÚNCIA ao cargo de Governador do Estado do Rio de Janeiro, para o qual fui reeleito e empossado no dia 01 de janeiro de 2023"
     },
     {
      "fact": "vacância desde 23/03/2026 e presidente do TJ-RJ no cargo desde então (STF, 09/04/2026)",
      "url": "https://noticias.stf.jus.br/postsnoticias/stf-suspende-analise-sobre-formato-de-eleicoes-suplementares-para-governador-do-rio-de-janeiro/",
-     "type": "oficial",
+     "type": "official",
      "quote": "O cargo de governador do Estado do Rio está vago desde 23 de março, com a renúncia de Cláudio Castro [...] A dupla vacância no Rio de Janeiro foi configurada porque o vice-governador, Thiago Pampolha, já havia renunciado em 2025 para assumir uma vaga no Tribunal de Contas estadual. Desde então, o cargo de governador é ocupado interinamente pelo desembargador Ricardo Couto, presidente do Tribunal de Justiça do Estado do Rio de Janeiro (TJ-RJ)"
     },
     {
      "fact": "primeiros decretos assinados por ele como governador em exercício, de 24/03/2026 (Diário Oficial do Estado do Rio de Janeiro, Parte I, nº 053-A, edição extra, 24/03/2026)",
      "url": "https://www.ioerj.com.br/portal/modules/conteudoonline/mostra_edicao.php?k=DFCBE306-E10P1-4BA0-ACFB-8582CEF75AA1",
-     "type": "oficial",
+     "type": "official",
      "quote": "ATOS DO GOVERNADOR EM EXERCÍCIO DECRETO DE 24 DE MARÇO DE 2026 O GOVERNADOR DO ESTADO DO RIO DE JANEIRO, EM EXERCÍCIO [...] Rio de Janeiro, 24 de março de 2026 RICARDO COUTO DE CASTRO Governador em exercício"
     },
     {
      "fact": "mantido no cargo pelo STF (STF, 29/05/2026)",
      "url": "https://noticias.stf.jus.br/postsnoticias/stf-nega-pedido-da-alerj-e-mantem-desembargador-como-governador-interino-do-rio-de-janeiro/",
-     "type": "oficial",
+     "type": "official",
      "quote": "29/05/2026 [...] Atualmente, o presidente do Tribunal de Justiça do Estado do Rio de Janeiro (TJ-RJ), desembargador Ricardo Couto, exerce interinamente a chefia do Executivo estadual"
     },
     {
      "fact": "projeto de orçamento de 2027 enviado por ele como governador em exercício, publicado em 30/09/2026 (Alerj, 01/10/2026)",
      "url": "https://www.alerj.rj.gov.br/Visualizar/Noticia/88272",
-     "type": "oficial",
+     "type": "official",
      "quote": "01.10.2026 [...] publicou, em edição extra do Diário Oficial da última quarta-feira (30/09), o Projeto de Lei Orçamentária Anual (PLOA) de 2027 [...] As propostas foram enviadas ao Parlamento fluminense pelo governador em exercício, desembargador Ricardo Couto"
     }
    ],

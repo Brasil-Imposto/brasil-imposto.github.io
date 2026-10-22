@@ -1,6 +1,6 @@
 """JSON keys in English (cleanup plan, task 6, B14): every key of the tracked data files is English, a proper name (a body,
-a programme, a slug) or a field named as its source names it. The keys that still wait are listed here with the reason, so
-the list can only shrink: a key that is renamed must leave WAITING too."""
+a programme, a slug) or a field named as its source names it. A key that has to wait goes into WAITING with the reason, so the
+list can only shrink: a key that is renamed must leave WAITING too."""
 import json
 import re
 import subprocess
@@ -32,16 +32,7 @@ ALLOWED = {
 SLUG = re.compile(r"^(program:|[a-z]+(-[a-z]+){2,}-[a-z]{2}$)")    # programme slugs and person ids
 
 # keys that wait, with the reason; they leave this list when they are renamed
-WAITING = {
-    # read by the Três Poderes page that the open interface pull request changes
-    "data/federal/officeholders-2026.json": {"posse", "sen_moradia", "sen_moradia_api", "sen_verbas"},
-    "data/federal/positions-2026.json": {"aux", "posse", "sen_moradia", "sen_moradia_api", "sen_verbas"},
-    # in the home bundle, whose size the pages of the open interface pull request carry
-    "data/series/federal-payroll-by-uf.json": None,
-    "data/politicians/state-deputies.json": {"deputado_distrital", "deputado_estadual"},
-    "data/politicians/federal-deputies.json": {"persons_with_suplente_term", "suplente_terms_by_legislature"},
-    "data/politicians/senators.json": {"persons_titular_only", "persons_with_suplente_exercise", "titular"},
-}
+WAITING = {}
 
 
 def portuguese_keys(obj, out):

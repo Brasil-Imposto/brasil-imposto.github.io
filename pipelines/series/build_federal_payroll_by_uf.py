@@ -39,8 +39,8 @@ MI = {m: i for i, m in enumerate(MONTHS)}
 
 FCDF_UO = "73901"
 MILITARY_ACTIONS = {"2867", "214H", "0179", "218J", "218K", "00QD"}
-POWER_OF_ORGAO = {"1000": "legislativo", "2000": "legislativo", "3000": "legislativo", "29000": "dpu", "34000": "mpu"}
-POWER_OF_ORGAO.update({str(c): "judiciario" for c in range(10000, 18000, 1000)})
+POWER_OF_ORGAO = {"1000": "legislative", "2000": "legislative", "3000": "legislative", "29000": "dpu", "34000": "mpu"}
+POWER_OF_ORGAO.update({str(c): "judiciary" for c in range(10000, 18000, 1000)})
 DF_UNITS = {"1101", "2101", "3101", "10101", "11101", "14101", "15101", "16101", "17101", "34103", "34105"}
 TRF_SEAT = {1: "DF", 2: "RJ", 3: "SP", 4: "RS", 5: "PE", 6: "MG"}
 TRT_SINGLE_UF = {1: "RJ", 2: "SP", 3: "MG", 4: "RS", 5: "BA", 6: "PE", 7: "CE", 9: "PR", 12: "SC", 13: "PB", 15: "SP",
@@ -54,25 +54,25 @@ TRE_UF = {"ACRE": "AC", "ALAGOAS": "AL", "AMAZONAS": "AM", "AMAPA": "AP", "BAHIA
           "SANTA CATARINA": "SC", "SERGIPE": "SE", "SAO PAULO": "SP", "TOCANTINS": "TO"}
 
 CATEGORIES = {
-    "executivo_civil_ativos": "Poder Executivo, pessoal civil ativo (vencimentos, vantagens, contratos temporários e encargos pagos diretamente)",
-    "executivo_civil_aposentados": "Poder Executivo, aposentadorias de servidores civis (elemento de despesa 01)",
-    "executivo_civil_pensionistas": "Poder Executivo, pensões civis (elemento de despesa 03)",
-    "executivo_civil_sentencas_e_exercicios_anteriores": "Poder Executivo, sentenças judiciais e despesas de exercícios anteriores de pessoal (elementos 91 e 92)",
-    "militares_ativos": "Militares ativos pagos pela União (Forças Armadas e ex-territórios)",
-    "militares_inativos": "Militares da reserva e reformados",
-    "militares_pensionistas": "Pensões militares",
-    "legislativo": "Câmara dos Deputados, Senado Federal e Tribunal de Contas da União (ativos, aposentados e pensionistas)",
-    "judiciario": "Poder Judiciário da União (ativos, aposentados e pensionistas)",
+    "executive_civil_active": "Poder Executivo, pessoal civil ativo (vencimentos, vantagens, contratos temporários e encargos pagos diretamente)",
+    "executive_civil_retired": "Poder Executivo, aposentadorias de servidores civis (elemento de despesa 01)",
+    "executive_civil_pensioners": "Poder Executivo, pensões civis (elemento de despesa 03)",
+    "executive_civil_court_orders_and_prior_years": "Poder Executivo, sentenças judiciais e despesas de exercícios anteriores de pessoal (elementos 91 e 92)",
+    "military_active": "Militares ativos pagos pela União (Forças Armadas e ex-territórios)",
+    "military_retired": "Militares da reserva e reformados",
+    "military_pensioners": "Pensões militares",
+    "legislative": "Câmara dos Deputados, Senado Federal e Tribunal de Contas da União (ativos, aposentados e pensionistas)",
+    "judiciary": "Poder Judiciário da União (ativos, aposentados e pensionistas)",
     "mpu": "Ministério Público da União (ativos, aposentados e pensionistas)",
     "dpu": "Defensoria Pública da União (ativos, aposentados e pensionistas)",
 }
 REASONS = {
-    "militares_folha_central": "Militares das Forças Armadas: a folha é paga por unidades centrais (Centro de Pagamento do Exército, Pagadoria de Pessoal da Marinha, Subdiretoria de Pagamento de Pessoal da Aeronáutica) com localizador Nacional, e o microdado de militares do Portal traz UF_EXERCICIO = -1 em todos os registros.",
-    "executivo_civil_sem_uf": "Poder Executivo, pessoal civil cujo localizador orçamentário é Nacional, regional ou exterior (folhas centralizadas de ministérios, autarquias nacionais, inativos de órgãos extintos e ex-territórios, servidores no exterior). O SIAFI não diz em que UF a pessoa trabalha ou mora.",
-    "unidade_de_atuacao_nacional": "Unidades dos outros Poderes com quadro em todo o país: Justiça Federal de primeiro grau, Justiça Militar, Ministério Público Federal, do Trabalho e Militar, Defensoria Pública da União.",
-    "trt_de_duas_ufs": "Tribunais Regionais do Trabalho cuja região cobre duas UFs: 8ª (PA e AP), 10ª (DF e TO), 11ª (AM e RR) e 14ª (RO e AC). A base do Tesouro não separa a despesa entre as duas.",
-    "sentencas_e_precatorios_outros_poderes": "Sentenças judiciais e precatórios de pessoal pagos pelos tribunais e demais órgãos dos outros Poderes (categoria 2.2.5 do RTN): o local de quem recebe não é o da unidade que paga.",
-    "outras_modalidades": "Grupo 1 pago por transferência (modalidades 30 a 50) e não por aplicação direta.",
+    "military_central_payroll": "Militares das Forças Armadas: a folha é paga por unidades centrais (Centro de Pagamento do Exército, Pagadoria de Pessoal da Marinha, Subdiretoria de Pagamento de Pessoal da Aeronáutica) com localizador Nacional, e o microdado de militares do Portal traz UF_EXERCICIO = -1 em todos os registros.",
+    "executive_civil_without_uf": "Poder Executivo, pessoal civil cujo localizador orçamentário é Nacional, regional ou exterior (folhas centralizadas de ministérios, autarquias nacionais, inativos de órgãos extintos e ex-territórios, servidores no exterior). O SIAFI não diz em que UF a pessoa trabalha ou mora.",
+    "national_scope_unit": "Unidades dos outros Poderes com quadro em todo o país: Justiça Federal de primeiro grau, Justiça Militar, Ministério Público Federal, do Trabalho e Militar, Defensoria Pública da União.",
+    "trt_covering_two_ufs": "Tribunais Regionais do Trabalho cuja região cobre duas UFs: 8ª (PA e AP), 10ª (DF e TO), 11ª (AM e RR) e 14ª (RO e AC). A base do Tesouro não separa a despesa entre as duas.",
+    "court_orders_other_branches": "Sentenças judiciais e precatórios de pessoal pagos pelos tribunais e demais órgãos dos outros Poderes (categoria 2.2.5 do RTN): o local de quem recebe não é o da unidade que paga.",
+    "other_modalities": "Grupo 1 pago por transferência (modalidades 30 a 50) e não por aplicação direta.",
 }
 
 
@@ -91,8 +91,8 @@ def locate_other_power(uo, name):
     if m: return TRF_SEAT[int(m.group(1))], None
     r = trt_region(name)
     if r is not None:
-        return (TRT_SINGLE_UF[r], None) if r in TRT_SINGLE_UF else (None, "trt_de_duas_ufs")
-    return None, "unidade_de_atuacao_nacional"
+        return (TRT_SINGLE_UF[r], None) if r in TRT_SINGLE_UF else (None, "trt_covering_two_ufs")
+    return None, "national_scope_unit"
 
 
 RTN_LABEL = {"2.2.1": "2.2.1 - Ativo Civil", "2.2.2": "2.2.2 - Ativo Militar", "2.2.3": "2.2.3 - Aposentadorias e pensões civis",
@@ -105,7 +105,7 @@ def norm_rtn(cat):
     code = str(cat).split(" ")[0]
     if code.startswith("II."): code = "2." + code[3:]  # roman II is RTN block 2
     if code in RTN_LABEL: return RTN_LABEL[code]
-    return "sem categoria RTN" if str(cat) in ("nan", "N/A", "", "None") else str(cat)
+    return "no RTN category" if str(cat) in ("nan", "N/A", "", "None") else str(cat)
 
 
 def series():
@@ -126,10 +126,10 @@ for f in sorted(glob.glob(os.path.join(W, "cache", "dtt_*.json"))):
 dtt_months = [m for m in MONTHS if m[:4] in dtt and int(m[5:]) in {r[0] for r in dtt[m[:4]]["gnd1"]}]
 portal_months = [m for m in MONTHS if m in portal]
 complete = [m for m in MONTHS if m in portal and m in dtt_months]
-EXEC_CATS = [c for c in CATEGORIES if c.startswith(("executivo", "militares"))]
-OTHER_CATS = ["legislativo", "judiciario", "mpu", "dpu"]
-EXEC_REASONS = ["militares_folha_central", "executivo_civil_sem_uf"]
-OTHER_REASONS = ["unidade_de_atuacao_nacional", "trt_de_duas_ufs", "sentencas_e_precatorios_outros_poderes"]
+EXEC_CATS = [c for c in CATEGORIES if c.startswith(("executive", "military"))]
+OTHER_CATS = ["legislative", "judiciary", "mpu", "dpu"]
+EXEC_REASONS = ["military_central_payroll", "executive_civil_without_uf"]
+OTHER_REASONS = ["national_scope_unit", "trt_covering_two_ufs", "court_orders_other_branches"]
 
 uf_total = {u: series() for u in UFS}
 uf_exec = {u: series() for u in UFS}
@@ -145,49 +145,49 @@ units_seen = {}
 for m in portal_months:  # Executive, Portal da Transparencia
     i = MI[m]
     fcdf_personnel[i] = 0.0
-    for r in EXEC_REASONS + ["outras_modalidades"]: nl_reason[r][i] = nl_reason[r][i] or 0.0
+    for r in EXEC_REASONS + ["other_modalities"]: nl_reason[r][i] = nl_reason[r][i] or 0.0
     for u in UFS:
         uf_exec[u][i] = 0.0
         for c in EXEC_CATS: uf_cat[u][c][i] = 0.0
     d = portal[m]; names_orgao.update(d["names"]["orgao"])
     for uf, osup, osub, ug, uo, acao, mod, elem, paid, rp, liq in d["gnd1"]:
         v = paid + rp
-        if mod == "91": check[m]["intra_budget_modalidade_91"] += v; continue
+        if mod == "91": check[m]["intra_budget_modality_91"] += v; continue
         if uo == FCDF_UO:
             fcdf_personnel[i] += v; continue
         if mod != "90":
-            nl_reason["outras_modalidades"][i] += v; continue
+            nl_reason["other_modalities"][i] += v; continue
         check[m]["portal_executive_gnd1_direct_excl_fcdf"] += v
         if acao in MILITARY_ACTIONS:
-            cat = "militares_inativos" if elem == "01" else "militares_pensionistas" if elem == "03" else "militares_ativos"
+            cat = "military_retired" if elem == "01" else "military_pensioners" if elem == "03" else "military_active"
         else:
-            cat = ("executivo_civil_aposentados" if elem == "01" else "executivo_civil_pensionistas" if elem == "03" else
-                   "executivo_civil_sentencas_e_exercicios_anteriores" if elem in ("91", "92") else "executivo_civil_ativos")
+            cat = ("executive_civil_retired" if elem == "01" else "executive_civil_pensioners" if elem == "03" else
+                   "executive_civil_court_orders_and_prior_years" if elem in ("91", "92") else "executive_civil_active")
         if uf in uf_exec:
             uf_exec[uf][i] += v; uf_cat[uf][cat][i] += v
         else:
-            nl_reason["militares_folha_central" if cat.startswith("militares") else "executivo_civil_sem_uf"][i] += v
+            nl_reason["military_central_payroll" if cat.startswith("military") else "executive_civil_without_uf"][i] += v
             nl_exec_by_orgao[m[:4]][names_orgao.get(osup, osup)] += v
 
 for m in dtt_months:  # other Powers, Tesouro base
     i = MI[m]; y, mm = m[:4], int(m[5:]); dd = dtt[y]
-    for r in OTHER_REASONS + ["outras_modalidades"]: nl_reason[r][i] = nl_reason[r][i] or 0.0
+    for r in OTHER_REASONS + ["other_modalities"]: nl_reason[r][i] = nl_reason[r][i] or 0.0
     for u in UFS:
         uf_other[u][i] = 0.0
         for c in OTHER_CATS: uf_cat[u][c][i] = 0.0
     for mo_, orgao, uo, mod, acao, cat_rtn, v in dd["gnd1"]:
         if mo_ != mm: continue
         cat_rtn = norm_rtn(cat_rtn)
-        if cat_rtn.startswith("2.2"): check[m]["tesouro_rtn_pessoal"] += v
+        if cat_rtn.startswith("2.2"): check[m]["tesouro_rtn_personnel"] += v
         if orgao not in POWER_OF_ORGAO:
             if mod == "90" and uo != FCDF_UO: check[m]["tesouro_executive_gnd1_direct_excl_fcdf"] += v
             continue
-        if mod == "91": check[m]["intra_budget_modalidade_91"] += v; continue
+        if mod == "91": check[m]["intra_budget_modality_91"] += v; continue
         if mod != "90":
-            nl_reason["outras_modalidades"][i] += v; continue
+            nl_reason["other_modalities"][i] += v; continue
         check[m]["other_powers_gnd1_direct"] += v
         if cat_rtn.startswith("2.2.5"):
-            nl_reason["sentencas_e_precatorios_outros_poderes"][i] += v; continue
+            nl_reason["court_orders_other_branches"][i] += v; continue
         name = dd["names"]["uo"][uo]
         uf, reason = locate_other_power(uo, name)
         units_seen[uo] = (name, uf, reason)
@@ -206,9 +206,9 @@ for m in complete:
 wb = openpyxl.load_workbook(RTN_FILE, read_only=True)
 rows = list(wb["1.5"].iter_rows(values_only=True))
 hdr = [r for r in rows if r[0] and str(r[0]).startswith("Discrimina")][0]
-want = {"2.2  Pessoal e Encargos Sociais": "pessoal_e_encargos_sociais", "2.2.1 Ativo Civil": "ativo_civil", "2.2.2 Ativo Militar": "ativo_militar",
-        "2.2.3 Aposentadorias e pensões civis": "aposentadorias_e_pensoes_civis", "2.2.4 Reformas e pensões militares": "reformas_e_pensoes_militares",
-        "2.2.5 Sentenças e Precatórios": "sentencas_e_precatorios", "2.3.11  Fundo Constitucional DF": "fcdf_custeio_e_capital"}
+want = {"2.2  Pessoal e Encargos Sociais": "personnel_and_charges_sociais", "2.2.1 Ativo Civil": "active_civil", "2.2.2 Ativo Militar": "active_military",
+        "2.2.3 Aposentadorias e pensões civis": "civil_retirement_and_pensions", "2.2.4 Reformas e pensões militares": "military_retirement_and_pensions",
+        "2.2.5 Sentenças e Precatórios": "court_orders", "2.3.11  Fundo Constitucional DF": "fcdf_custeio_e_capital"}
 rtn = collections.defaultdict(dict)
 for r in rows:
     lab = str(r[0]).strip() if r[0] else ""
@@ -279,22 +279,22 @@ for y in YEARS:
     s = lambda key: round(sum(check[m][key] for m in ms), 2)
     located = round(sum(uf_total[u][MI[m]] for u in UFS for m in ms), 2)
     notloc = round(sum(nl_total[MI[m]] for m in ms), 2)
-    other_mod = round(sum(nl_reason["outras_modalidades"][MI[m]] for m in ms), 2)
+    other_mod = round(sum(nl_reason["other_modalities"][MI[m]] for m in ms), 2)
     fcdfp = round(sum(fcdf_personnel[MI[m]] for m in ms), 2)
     direct = round(s("portal_executive_gnd1_direct_excl_fcdf") + s("other_powers_gnd1_direct"), 2)
-    rtn_tot = round(sum(rtn["pessoal_e_encargos_sociais"].get(m, 0.0) for m in ms), 2)
+    rtn_tot = round(sum(rtn["personnel_and_charges_sociais"].get(m, 0.0) for m in ms), 2)
     nat[y] = {
         "months": [ms[0], ms[-1]], "n_months": len(ms),
-        "rtn_table_1_5_pessoal_e_encargos_sociais": rtn_tot,
+        "rtn_table_1_5_personnel_and_social_charges": rtn_tot,
         "rtn_table_1_5_breakdown": {k: round(sum(rtn[k].get(m, 0.0) for m in ms), 2) for k in
-                                    ("ativo_civil", "ativo_militar", "aposentadorias_e_pensoes_civis", "reformas_e_pensoes_militares", "sentencas_e_precatorios")},
-        "tesouro_base_rtn_pessoal": s("tesouro_rtn_pessoal"),
+                                    ("active_civil", "active_military", "civil_retirement_and_pensions", "military_retirement_and_pensions", "court_orders")},
+        "tesouro_base_rtn_personnel": s("tesouro_rtn_personnel"),
         "siafi_gnd1_direct_payments_excl_fcdf": direct,
         "fcdf_personnel_excluded_already_counted": fcdfp,
         "sum_of_ufs_located": located,
         "not_located": notloc,
         "not_located_of_which_other_modalities": other_mod,
-        "intra_budget_modalidade_91_excluded": s("intra_budget_modalidade_91"),
+        "intra_budget_modality_91_excluded": s("intra_budget_modality_91"),
         "coverage_pct_of_payroll_excl_fcdf": round(100 * located / (located + notloc), 2) if located + notloc else None,
         "coverage_pct_of_rtn_excl_fcdf": round(100 * located / (rtn_tot - fcdfp), 2) if rtn_tot else None,
         "identity_check_located_plus_not_located_minus_direct_minus_other_modalities": round(located + notloc - direct - other_mod, 2),
@@ -319,9 +319,9 @@ located_by_exercise = {
     "what_it_would_be": "Folha bruta de um mês de referência por ano, alocada pelo campo UF_EXERCICIO do microdado de servidores do Portal da Transparência (https://portaldatransparencia.gov.br/download-de-dados/servidores/AAAAMM_Servidores_SIAPE), sem anualizar. Seria um bloco separado de total_located e nunca somado a ele.",
     "why_null": "O servidor de arquivos da CGU (dadosabertos-download.cgu.gov.br) passou a segurar as conexões e a devolver a página de verificação do AWS WAF em 2026-10-01 (downloads de 16 minutos sem nenhum byte), e o computador da coleta estava sem memória livre. O arquivo SIAPE tem cerca de 79 MB por mês; nenhum mês de referência foi baixado depois do teste de 2024-01, cujo arquivo foi apagado após a leitura.",
     "findings_from_the_files_that_were_read": {
-        "servidores_siape_2024_01": "734.571 linhas de cadastro, 598.999 pessoas. UF_EXERCICIO = -1 em 291.768 linhas (39,7%). O DF aparece como UF de exercício de pessoal de instituições de outras UFs: Instituto Federal de Alagoas 1.288 linhas no DF e 19 em AL; Universidade Federal da Integração Latino-Americana (Foz do Iguaçu, PR) 801 no DF e 12 no PR; ex-Território do Amapá 5.191 no DF e 68 no AP. 20.735 linhas do Ministério da Saúde com situação RESIDENCIA E PMM (bolsas de residência e Mais Médicos, que não são pessoal) estão no DF. Usar o campo como está aumentaria o DF.",
-        "militares_2024_01": "345.468 linhas de cadastro (Exército 204.845, Marinha 72.906, Aeronáutica 67.717): UF_EXERCICIO = -1 em todas. Não há UF de militar em nenhum arquivo aberto encontrado.",
-        "aposentados_e_pensionistas_2024_12": "Os cadastros de Aposentados_SIAPE, Aposentados_BACEN, Pensionistas_SIAPE, Pensionistas_BACEN e Pensionistas_DEFESA não têm nenhuma coluna de UF (cabeçalhos lidos em 2026-10-01). Aposentados e pensionistas não podem ser localizados pelo microdado.",
+        "siape_servants_2024_01": "734.571 linhas de cadastro, 598.999 pessoas. UF_EXERCICIO = -1 em 291.768 linhas (39,7%). O DF aparece como UF de exercício de pessoal de instituições de outras UFs: Instituto Federal de Alagoas 1.288 linhas no DF e 19 em AL; Universidade Federal da Integração Latino-Americana (Foz do Iguaçu, PR) 801 no DF e 12 no PR; ex-Território do Amapá 5.191 no DF e 68 no AP. 20.735 linhas do Ministério da Saúde com situação RESIDENCIA E PMM (bolsas de residência e Mais Médicos, que não são pessoal) estão no DF. Usar o campo como está aumentaria o DF.",
+        "military_2024_01": "345.468 linhas de cadastro (Exército 204.845, Marinha 72.906, Aeronáutica 67.717): UF_EXERCICIO = -1 em todas. Não há UF de militar em nenhum arquivo aberto encontrado.",
+        "retirees_and_pensioners_2024_12": "Os cadastros de Aposentados_SIAPE, Aposentados_BACEN, Pensionistas_SIAPE, Pensionistas_BACEN e Pensionistas_DEFESA não têm nenhuma coluna de UF (cabeçalhos lidos em 2026-10-01). Aposentados e pensionistas não podem ser localizados pelo microdado.",
     },
     "consequence": "Pelo microdado, só os servidores civis ativos do Executivo (SIAPE) poderiam ser alocados, e com o defeito do DF acima. Militares (ativos, inativos e pensionistas) e aposentados e pensionistas civis continuam sem UF em qualquer fonte aberta encontrada.",
 }
@@ -330,7 +330,7 @@ fcdf_block = {
     "description": "Fundo Constitucional do Distrito Federal (unidade orçamentária 73901): o que a União pagou no mês, todos os grupos de despesa, pago mais restos a pagar pagos.",
     "uf": "DF",
     "total": [r2(x) for x in fcdf_tot],
-    "by_group": {{"1": "pessoal_e_encargos", "3": "outras_despesas_correntes", "4": "investimentos", "5": "inversoes_financeiras"}[g]: [r2(x) for x in a]
+    "by_group": {{"1": "personnel_and_charges", "3": "other_current_expenses", "4": "investments", "5": "financial_investments"}[g]: [r2(x) for x in a]
                  for g, a in fcdf_by_group.items() if any(x for x in a if x)},
     "personnel_by_rtn_category": {k: [r2(x) for x in a] for k, a in fcdf_personnel_by_rtn.items()},
     "annual": {"total": with_ytd(fcdf_tot), **{f"group_{g}": with_ytd(a) for g, a in fcdf_by_group.items() if any(x for x in a if x)}},
@@ -350,8 +350,8 @@ doc = {
     "collected_at": COLLECTED,
     "value_definition": "Pago no mês mais restos a pagar pagos no mês, grupo de despesa 1 (Pessoal e Encargos Sociais), modalidade 90 (aplicação direta). É o critério 'valor pago' da tabela 1.5 do RTN. Valor bruto: inclui o imposto de renda retido e a contribuição do servidor (PSS), que a arrecadação federal do mapa já conta no DF e nas demais UFs.",
     "location_rules": {
-        "executivo": "UF do localizador orçamentário (coluna UF do arquivo de Execução da Despesa do Portal da Transparência). É a atribuição do próprio SIAFI, não o local de trabalho ou de moradia da pessoa.",
-        "outros_poderes": "UF da sede da unidade orçamentária, só quando a unidade trabalha numa única UF: Câmara, Senado, TCU, STF, STJ, TSE, TST, CNJ, TJDFT, MPDFT e ESMPU no DF; cada TRE na sua UF; cada TRF na UF da sede; cada TRT cuja região é uma UF. As demais unidades vão para not_located.",
+        "executive": "UF do localizador orçamentário (coluna UF do arquivo de Execução da Despesa do Portal da Transparência). É a atribuição do próprio SIAFI, não o local de trabalho ou de moradia da pessoa.",
+        "other_branches": "UF da sede da unidade orçamentária, só quando a unidade trabalha numa única UF: Câmara, Senado, TCU, STF, STJ, TSE, TST, CNJ, TJDFT, MPDFT e ESMPU no DF; cada TRE na sua UF; cada TRF na UF da sede; cada TRT cuja região é uma UF. As demais unidades vão para not_located.",
         "fcdf": "Unidade 73901 fora de tudo (ver fcdf.already_inside_payroll).",
         "never_estimated": "Nenhum valor foi distribuído por população, por número de servidores ou por qualquer proporção. O que o dado não localiza fica em not_located.",
     },
@@ -359,7 +359,7 @@ doc = {
     "coverage": {"total_located_and_executive": [complete[0], complete[-1]] if complete else None,
                  "other_powers_and_fcdf": [dtt_months[0], dtt_months[-1]] if dtt_months else None,
                  "complete_years": complete_years,
-                 "rule": "total_located e as categorias executivo_* e militares_* só existem nos meses com o arquivo do Portal; legislativo, judiciario, mpu, dpu e o bloco fcdf existem nos meses com a base do Tesouro. Fora disso, null.",
+                 "rule": "total_located e as categorias executive_* e military_* só existem nos meses com o arquivo do Portal; legislative, judiciary, mpu, dpu e o bloco fcdf existem nos meses com a base do Tesouro. Fora disso, null.",
                  "missing_reason": "Coleta de 2026-10-01 interrompida no limite de tempo: o Portal passou a bloquear downloads (AWS WAF) depois de 2025-10, e cada arquivo anual do Tesouro de 2019 a 2021 levava cerca de 16 minutos. Os scripts retomam de onde pararam (pipelines/series/agg_payroll_monthly.py e agg_union_expense_base.py)."},
     "uf": out_uf,
     "fcdf_personnel_excluded": {"uf": "DF", "monthly": [r2(x) for x in fcdf_personnel], "annual": with_ytd(fcdf_personnel),
@@ -367,17 +367,17 @@ doc = {
     "not_located": {"total": [r2(x) for x in nl_total], "by_reason": {k: [r2(x) for x in a] for k, a in nl_reason.items()},
                     "annual": {"total": with_ytd(nl_total), "by_reason": {k: with_ytd(a) for k, a in nl_reason.items()}},
                     "reasons": REASONS,
-                    "executivo_sem_uf_by_orgao_superior_annual": nl_annual_orgao},
+                    "executive_without_uf_by_top_body_annual": nl_annual_orgao},
     "national_check": {"annual": nat, "monthly": monthly_check,
                        "monthly_status_rule": f"status = portal_vs_tesouro_divergent quando o pessoal do Executivo no Portal difere da base do Tesouro em mais de {DIVERGENCE_PCT}% no mês. Nesses meses os valores do Executivo por UF vêm do Portal e devem ser lidos com cuidado.",
                        "note": "sum_of_ufs_located + not_located = pagamentos diretos de pessoal da União sem o FCDF, mais a parcela de outras modalidades. A diferença para o RTN vem do FCDF (que o RTN inclui), da parcela da modalidade 91 que o RTN classifica como pessoal e da pequena diferença entre o Portal e a base do Tesouro no Executivo (executive_portal_vs_tesouro_base_gap)."},
     "fcdf": fcdf_block,
     "units_of_other_powers": {uo: {"name": n, "uf": uf, "not_located_reason": rs} for uo, (n, uf, rs) in sorted(units_seen.items())},
     "sources": [
-        {"fields": ["uf.*: categorias executivo_* e militares_*", "not_located: militares_folha_central, executivo_civil_sem_uf"], "url": PORTAL_PAGE,
+        {"fields": ["uf.*: categorias executive_* e military_*", "not_located: military_central_payroll, executive_civil_without_uf"], "url": PORTAL_PAGE,
          "files": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/AAAAMM (um ZIP por mês, 2019-01 a 2026-08)",
          "note": "CGU, Portal da Transparência, Execução da Despesa. Só o Poder Executivo federal. Colunas usadas: UF, Código Órgão Superior, Código Unidade Orçamentária, Código Ação, Código Grupo de Despesa = 1, Código Modalidade da Despesa, Código Elemento de Despesa, Valor Pago (R$), Valor Restos a Pagar Pagos (R$).", "collected_at": COLLECTED},
-        {"fields": ["uf.*: legislativo, judiciario, mpu, dpu", "not_located: unidade_de_atuacao_nacional, trt_de_duas_ufs, sentencas_e_precatorios_outros_poderes", "fcdf", "national_check.tesouro_base_rtn_pessoal"],
+        {"fields": ["uf.*: legislative, judiciary, mpu, dpu", "not_located: national_scope_unit, trt_covering_two_ufs, court_orders_other_branches", "fcdf", "national_check.tesouro_base_rtn_personnel"],
          "url": DTT_PAGE, "files": "um XLSX por ano, URL de cada arquivo lida na API CKAN do Tesouro Transparente",
          "note": "Tesouro Nacional, Despesas e Transferências Totais da União, critério valor pago (a base da tabela 1.5 do RTN). Todos os Poderes, por mês, órgão, unidade orçamentária, grupo, modalidade, ação e categoria do RTN. Não tem UF nem localizador.", "collected_at": COLLECTED},
         {"fields": ["national_check.*.rtn_table_1_5_*"], "url": RTN_URL, "page": RTN_PAGE,
@@ -392,7 +392,7 @@ doc = {
         "retirees_location": "Aposentados e pensionistas são localizados pela unidade que paga (Executivo: localizador; outros Poderes: sede da unidade), não pelo endereço de quem recebe, que não é público.",
         "tcu_and_parliament": "O TCU tem secretarias em todas as UFs e os gabinetes parlamentares podem ter pessoal nos estados; a base do Tesouro não separa esse pessoal, e ele foi localizado no DF pela sede.",
         "portal_2025_06": "O arquivo de 2025-06 da Execução da Despesa do Portal traz R$ 47,67 bi de pessoal do Executivo (sem FCDF), contra R$ 23,99 bi na base do Tesouro para o mesmo mês; julho e agosto ficam abaixo do Tesouro (R$ 5,83 bi e R$ 1,12 bi), e de junho a agosto o Portal soma R$ 16,7 bi a mais. O excesso está espalhado por quase todas as linhas (militares, aposentadorias, ativos civis), não numa só. Causa não identificada; ver national_check.monthly.status.",
-        "siape_uf_exercicio": "Ver located_by_exercise: o campo UF_EXERCICIO do SIAPE tem 39,7% de -1 e põe no DF pessoal de outras UFs; não foi usado em total_located.",
+        "siape_uf_of_work": "Ver located_by_exercise: o campo UF_EXERCICIO do SIAPE tem 39,7% de -1 e põe no DF pessoal de outras UFs; não foi usado em total_located.",
     },
 }
 json.dump(doc, open(OUT, "w"), ensure_ascii=False, indent=1)

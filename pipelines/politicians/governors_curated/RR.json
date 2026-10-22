@@ -2,10 +2,10 @@
  "uf": "RR",
  "terms": [
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Antonio Denarium",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2023-01-01",
    "start_reason": "posse após a eleição de 2018",
@@ -16,22 +16,22 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse e fim do mandato (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": null
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Frutuoso Lins",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2023-01-01",
    "start_reason": "posse após a eleição de 2018",
@@ -42,22 +42,22 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse e fim do mandato (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": null
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Antonio Denarium",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": "2026-03-27",
    "start_reason": "posse após a eleição de 2022",
@@ -68,17 +68,17 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "renúncia do titular e posse do vice como governador em 27/03/2026 (ALE-RR, postado em 27/03/2026)",
      "url": "https://al.rr.leg.br/2026/03/27/transicao-no-executivo-alerr-oficializa-posse-de-edilson-damiao-no-governo-de-roraima-apos-renuncia-de-denarium/",
-     "type": "oficial",
+     "type": "official",
      "quote": "Postado em 27/03/2026 [...] marcou a solenidade que oficializou, nesta sexta-feira, a posse do novo chefe do Executivo estadual. A sessão [...] formalizou a ascensão do vice-governador Edilson Damião (Republicanos) ao comando do Governo de Roraima, após a renúncia de Antonio Denarium (PP)"
     }
    ],
@@ -86,10 +86,10 @@
    "note": "Renúncia do titular e posse do vice em sexta-feira, 27/03/2026 (ALE-RR)."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Edilson Damião",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": "2026-03-27",
    "start_reason": "posse após a eleição de 2022",
@@ -100,17 +100,17 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "renúncia do titular e posse do vice como governador em 27/03/2026 (ALE-RR, postado em 27/03/2026)",
      "url": "https://al.rr.leg.br/2026/03/27/transicao-no-executivo-alerr-oficializa-posse-de-edilson-damiao-no-governo-de-roraima-apos-renuncia-de-denarium/",
-     "type": "oficial",
+     "type": "official",
      "quote": "Postado em 27/03/2026 [...] marcou a solenidade que oficializou, nesta sexta-feira, a posse do novo chefe do Executivo estadual. A sessão [...] formalizou a ascensão do vice-governador Edilson Damião (Republicanos) ao comando do Governo de Roraima, após a renúncia de Antonio Denarium (PP)"
     }
    ],
@@ -118,10 +118,10 @@
    "note": "Renúncia do titular e posse do vice em sexta-feira, 27/03/2026 (ALE-RR)."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Edilson Damião",
    "full_name": null,
-   "kind": "vice no cargo de titular",
+   "kind": "vice_in_office",
    "start": "2026-03-27",
    "end": "2026-04-30",
    "start_reason": "renúncia do titular",
@@ -132,35 +132,35 @@
     {
      "fact": "renúncia do titular e posse do vice como governador em 27/03/2026 (ALE-RR, postado em 27/03/2026)",
      "url": "https://al.rr.leg.br/2026/03/27/transicao-no-executivo-alerr-oficializa-posse-de-edilson-damiao-no-governo-de-roraima-apos-renuncia-de-denarium/",
-     "type": "oficial",
+     "type": "official",
      "quote": "Postado em 27/03/2026 [...] marcou a solenidade que oficializou, nesta sexta-feira, a posse do novo chefe do Executivo estadual. A sessão [...] formalizou a ascensão do vice-governador Edilson Damião (Republicanos) ao comando do Governo de Roraima, após a renúncia de Antonio Denarium (PP)"
     },
     {
      "fact": "cassação pelo TSE em 30/04/2026, com execução imediata (TSE, 30/04/2026; página bloqueada a acesso automatizado, lida no Internet Archive)",
      "url": "https://web.archive.org/web/20260512134011/https://www.tse.jus.br/comunicacao/noticias/2026/Abril/tse-cassa-mandato-do-governador-e-determina-eleicoes-diretas-em-roraima",
-     "type": "oficial",
+     "type": "official",
      "quote": "O Tribunal Superior Eleitoral (TSE) determinou, na sessão desta quinta-feira (30), a cassação do mandato do atual governador de Roraima, Edilson Damião (União Brasil) [...] O TSE determinou, ainda, a execução imediata do julgado [...] acarretando o afastamento imediato do atual governador do cargo"
     },
     {
      "fact": "partido (União) na posse",
      "url": "https://al.rr.leg.br/2026/03/27/transicao-no-executivo-alerr-oficializa-posse-de-edilson-damiao-no-governo-de-roraima-apos-renuncia-de-denarium/",
-     "type": "oficial",
+     "type": "official",
      "quote": "O Poder Executivo estadual passa a ser conduzido pelo engenheiro civil e ex-secretário de Infraestrutura, Edilson Damião (União)"
     },
     {
      "fact": "partido na eleição de 2022 (Republicanos)",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": "Renúncia do titular e posse do vice em sexta-feira, 27/03/2026 (ALE-RR). Saída: cassação pelo TSE em 30/04/2026 com execução imediata. Partido na posse: o texto da ALE-RR de 27/03/2026 o chama de 'Republicanos' numa frase e de 'União' em outra; o TSE, em 30/04/2026, de 'União Brasil'. Fica União; na eleição de 2022 era do Republicanos."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": null,
    "full_name": null,
-   "kind": "vago",
+   "kind": "vacant",
    "start": "2026-03-27",
    "end": null,
    "start_reason": "o vice-governador assumiu o cargo de governador",
@@ -171,13 +171,13 @@
     {
      "fact": "renúncia do titular e posse do vice como governador em 27/03/2026 (ALE-RR, postado em 27/03/2026)",
      "url": "https://al.rr.leg.br/2026/03/27/transicao-no-executivo-alerr-oficializa-posse-de-edilson-damiao-no-governo-de-roraima-apos-renuncia-de-denarium/",
-     "type": "oficial",
+     "type": "official",
      "quote": "Postado em 27/03/2026 [...] marcou a solenidade que oficializou, nesta sexta-feira, a posse do novo chefe do Executivo estadual. A sessão [...] formalizou a ascensão do vice-governador Edilson Damião (Republicanos) ao comando do Governo de Roraima, após a renúncia de Antonio Denarium (PP)"
     },
     {
      "fact": "ata da sessão solene de posse do governador interino em 30/04/2026 (Diário da ALE-RR, edição 4645, 12/05/2026)",
      "url": "https://diarios.al.rr.leg.br/wp-content/uploads/2026/05/DIARIO-ALE-RR-ED.-4645-12.05.2026.pdf",
-     "type": "oficial",
+     "type": "official",
      "quote": "Às dezesseis horas e cinquenta e nove minutos do dia trinta de abril de dois mil e vinte e seis [...] deu-se a Sessão Solene de Posse do Senhor Francisco dos Santos Sampaio, no cargo de governador interino do estado de Roraima [...] decorrente da vacância dos cargos de governador e vice-governador"
     }
    ],
@@ -185,10 +185,10 @@
    "note": "Renúncia do titular e posse do vice em sexta-feira, 27/03/2026 (ALE-RR). Sem vice desde então; a ata de 30/04/2026 registra 'a vacância dos cargos de governador e vice-governador'."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Soldado Sampaio",
    "full_name": null,
-   "kind": "interino",
+   "kind": "acting",
    "start": "2026-04-30",
    "end": null,
    "start_reason": "cassação da chapa eleita; assumiu como presidente da Assembleia Legislativa",
@@ -199,31 +199,31 @@
     {
      "fact": "cassação pelo TSE em 30/04/2026, com execução imediata (TSE, 30/04/2026; página bloqueada a acesso automatizado, lida no Internet Archive)",
      "url": "https://web.archive.org/web/20260512134011/https://www.tse.jus.br/comunicacao/noticias/2026/Abril/tse-cassa-mandato-do-governador-e-determina-eleicoes-diretas-em-roraima",
-     "type": "oficial",
+     "type": "official",
      "quote": "O Tribunal Superior Eleitoral (TSE) determinou, na sessão desta quinta-feira (30), a cassação do mandato do atual governador de Roraima, Edilson Damião (União Brasil) [...] O TSE determinou, ainda, a execução imediata do julgado [...] acarretando o afastamento imediato do atual governador do cargo"
     },
     {
      "fact": "ata da sessão solene de posse do governador interino em 30/04/2026 (Diário da ALE-RR, edição 4645, 12/05/2026)",
      "url": "https://diarios.al.rr.leg.br/wp-content/uploads/2026/05/DIARIO-ALE-RR-ED.-4645-12.05.2026.pdf",
-     "type": "oficial",
+     "type": "official",
      "quote": "Às dezesseis horas e cinquenta e nove minutos do dia trinta de abril de dois mil e vinte e seis [...] deu-se a Sessão Solene de Posse do Senhor Francisco dos Santos Sampaio, no cargo de governador interino do estado de Roraima [...] decorrente da vacância dos cargos de governador e vice-governador"
     },
     {
      "fact": "decretos de 01/10/2026 assinados por ele como governador (Diário Oficial do Estado de Roraima, edição 5259, 01/10/2026)",
      "url": "https://imprensaoficial.rr.gov.br/_visualizar-mes/?ano=2026&mes=10",
-     "type": "oficial",
+     "type": "official",
      "quote": "Palácio Senador Hélio Campos/RR, 1º de outubro de 2026. FRANCISCO DOS SANTOS SAMPAIO Governador do Estado de Roraima"
     },
     {
      "fact": "expediente do Diário da ALE-RR de 02/10/2026: vice-presidente no exercício da presidência da Assembleia",
      "url": "https://diarios.al.rr.leg.br/wp-content/uploads/2026/10/DIARIO-ALE-RR-ED.-4742-02.10.2026.pdf",
-     "type": "oficial",
+     "type": "official",
      "quote": "MESA DIRETORA JORGE EVERTON PRESIDENTE EM EXERCÍCIO"
     },
     {
      "fact": "partido (Republicanos)",
      "url": "https://al.rr.leg.br/2026/03/27/transicao-no-executivo-alerr-oficializa-posse-de-edilson-damiao-no-governo-de-roraima-apos-renuncia-de-denarium/",
-     "type": "oficial",
+     "type": "official",
      "quote": "presidente da Assembleia Legislativa de Roraima (ALERR), deputado Soldado Sampaio (Republicanos)"
     }
    ],

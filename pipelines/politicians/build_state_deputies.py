@@ -90,8 +90,8 @@ def main():
             by_uf[uf][str(year)] = sorted(ps, key=lambda p: (p["name"], p["id"]))
             counts["by_uf"][uf][str(year)] = len(ps)
         counts["total"][str(year)] = {
-            "deputado_estadual": sum(len(ps) for uf, ps in people.items() if uf != "DF"),
-            "deputado_distrital": len(people.get("DF", [])),
+            "state_deputy": sum(len(ps) for uf, ps in people.items() if uf != "DF"),
+            "district_deputy": len(people.get("DF", [])),
         }
         counts["by_status"][str(year)] = dict(status)
         counts["with_federation"][str(year)] = sum(1 for ps in people.values() for p in ps if p["federation"])

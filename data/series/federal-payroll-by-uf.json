@@ -98,21 +98,21 @@
  "collected_at": "2026-10-01",
  "value_definition": "Pago no mês mais restos a pagar pagos no mês, grupo de despesa 1 (Pessoal e Encargos Sociais), modalidade 90 (aplicação direta). É o critério 'valor pago' da tabela 1.5 do RTN. Valor bruto: inclui o imposto de renda retido e a contribuição do servidor (PSS), que a arrecadação federal do mapa já conta no DF e nas demais UFs.",
  "location_rules": {
-  "executivo": "UF do localizador orçamentário (coluna UF do arquivo de Execução da Despesa do Portal da Transparência). É a atribuição do próprio SIAFI, não o local de trabalho ou de moradia da pessoa.",
-  "outros_poderes": "UF da sede da unidade orçamentária, só quando a unidade trabalha numa única UF: Câmara, Senado, TCU, STF, STJ, TSE, TST, CNJ, TJDFT, MPDFT e ESMPU no DF; cada TRE na sua UF; cada TRF na UF da sede; cada TRT cuja região é uma UF. As demais unidades vão para not_located.",
+  "executive": "UF do localizador orçamentário (coluna UF do arquivo de Execução da Despesa do Portal da Transparência). É a atribuição do próprio SIAFI, não o local de trabalho ou de moradia da pessoa.",
+  "other_branches": "UF da sede da unidade orçamentária, só quando a unidade trabalha numa única UF: Câmara, Senado, TCU, STF, STJ, TSE, TST, CNJ, TJDFT, MPDFT e ESMPU no DF; cada TRE na sua UF; cada TRF na UF da sede; cada TRT cuja região é uma UF. As demais unidades vão para not_located.",
   "fcdf": "Unidade 73901 fora de tudo (ver fcdf.already_inside_payroll).",
   "never_estimated": "Nenhum valor foi distribuído por população, por número de servidores ou por qualquer proporção. O que o dado não localiza fica em not_located."
  },
  "categories": {
-  "executivo_civil_ativos": "Poder Executivo, pessoal civil ativo (vencimentos, vantagens, contratos temporários e encargos pagos diretamente)",
-  "executivo_civil_aposentados": "Poder Executivo, aposentadorias de servidores civis (elemento de despesa 01)",
-  "executivo_civil_pensionistas": "Poder Executivo, pensões civis (elemento de despesa 03)",
-  "executivo_civil_sentencas_e_exercicios_anteriores": "Poder Executivo, sentenças judiciais e despesas de exercícios anteriores de pessoal (elementos 91 e 92)",
-  "militares_ativos": "Militares ativos pagos pela União (Forças Armadas e ex-territórios)",
-  "militares_inativos": "Militares da reserva e reformados",
-  "militares_pensionistas": "Pensões militares",
-  "legislativo": "Câmara dos Deputados, Senado Federal e Tribunal de Contas da União (ativos, aposentados e pensionistas)",
-  "judiciario": "Poder Judiciário da União (ativos, aposentados e pensionistas)",
+  "executive_civil_active": "Poder Executivo, pessoal civil ativo (vencimentos, vantagens, contratos temporários e encargos pagos diretamente)",
+  "executive_civil_retired": "Poder Executivo, aposentadorias de servidores civis (elemento de despesa 01)",
+  "executive_civil_pensioners": "Poder Executivo, pensões civis (elemento de despesa 03)",
+  "executive_civil_court_orders_and_prior_years": "Poder Executivo, sentenças judiciais e despesas de exercícios anteriores de pessoal (elementos 91 e 92)",
+  "military_active": "Militares ativos pagos pela União (Forças Armadas e ex-territórios)",
+  "military_retired": "Militares da reserva e reformados",
+  "military_pensioners": "Pensões militares",
+  "legislative": "Câmara dos Deputados, Senado Federal e Tribunal de Contas da União (ativos, aposentados e pensionistas)",
+  "judiciary": "Poder Judiciário da União (ativos, aposentados e pensionistas)",
   "mpu": "Ministério Público da União (ativos, aposentados e pensionistas)",
   "dpu": "Defensoria Pública da União (ativos, aposentados e pensionistas)"
  },
@@ -128,7 +128,7 @@
   "complete_years": [
    "2024"
   ],
-  "rule": "total_located e as categorias executivo_* e militares_* só existem nos meses com o arquivo do Portal; legislativo, judiciario, mpu, dpu e o bloco fcdf existem nos meses com a base do Tesouro. Fora disso, null.",
+  "rule": "total_located e as categorias executive_* e military_* só existem nos meses com o arquivo do Portal; legislative, judiciary, mpu, dpu e o bloco fcdf existem nos meses com a base do Tesouro. Fora disso, null.",
   "missing_reason": "Coleta de 2026-10-01 interrompida no limite de tempo: o Portal passou a bloquear downloads (AWS WAF) depois de 2025-10, e cada arquivo anual do Tesouro de 2019 a 2021 levava cerca de 16 minutos. Os scripts retomam de onde pararam (pipelines/series/agg_payroll_monthly.py e agg_union_expense_base.py)."
  },
  "uf": {
@@ -228,7 +228,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -322,7 +322,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -416,7 +416,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -510,7 +510,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -604,7 +604,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -698,7 +698,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -792,7 +792,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -886,7 +886,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -980,7 +980,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -1283,7 +1283,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -1301,7 +1301,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -1319,7 +1319,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -1337,7 +1337,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -1355,7 +1355,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -1373,7 +1373,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -1391,7 +1391,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -1409,7 +1409,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -1419,7 +1419,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -1548,7 +1548,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -1642,7 +1642,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -1736,7 +1736,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -1830,7 +1830,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -1924,7 +1924,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -2018,7 +2018,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -2112,7 +2112,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -2206,7 +2206,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -2300,7 +2300,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -2603,7 +2603,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -2621,7 +2621,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -2639,7 +2639,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -2657,7 +2657,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -2675,7 +2675,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -2693,7 +2693,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -2711,7 +2711,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -2729,7 +2729,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -2739,7 +2739,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -2868,7 +2868,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -2962,7 +2962,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -3056,7 +3056,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -3150,7 +3150,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -3244,7 +3244,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -3338,7 +3338,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -3432,7 +3432,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -3526,7 +3526,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -3620,7 +3620,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -3923,7 +3923,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -3941,7 +3941,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -3959,7 +3959,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -3977,7 +3977,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -3995,7 +3995,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -4013,7 +4013,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -4031,7 +4031,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -4049,7 +4049,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -4059,7 +4059,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -4188,7 +4188,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -4282,7 +4282,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -4376,7 +4376,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -4470,7 +4470,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -4564,7 +4564,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -4658,7 +4658,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -4752,7 +4752,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -4846,7 +4846,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -4940,7 +4940,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -5243,7 +5243,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -5261,7 +5261,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -5279,7 +5279,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -5297,7 +5297,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -5315,7 +5315,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -5333,7 +5333,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -5351,7 +5351,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -5369,7 +5369,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -5379,7 +5379,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -5508,7 +5508,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -5602,7 +5602,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -5696,7 +5696,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -5790,7 +5790,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -5884,7 +5884,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -5978,7 +5978,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -6072,7 +6072,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -6166,7 +6166,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -6260,7 +6260,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -6563,7 +6563,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -6581,7 +6581,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -6599,7 +6599,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -6617,7 +6617,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -6635,7 +6635,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -6653,7 +6653,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -6671,7 +6671,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -6689,7 +6689,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -6699,7 +6699,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -6828,7 +6828,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -6922,7 +6922,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -7016,7 +7016,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -7110,7 +7110,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -7204,7 +7204,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -7298,7 +7298,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -7392,7 +7392,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -7486,7 +7486,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -7580,7 +7580,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -7883,7 +7883,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -7901,7 +7901,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -7919,7 +7919,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -7937,7 +7937,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -7955,7 +7955,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -7973,7 +7973,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -7991,7 +7991,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -8009,7 +8009,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -8019,7 +8019,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -8148,7 +8148,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -8242,7 +8242,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -8336,7 +8336,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -8430,7 +8430,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -8524,7 +8524,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -8618,7 +8618,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -8712,7 +8712,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -8806,7 +8806,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -8900,7 +8900,7 @@
      990283320.86,
      1029364875.35
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -9203,7 +9203,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -9221,7 +9221,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -9239,7 +9239,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -9257,7 +9257,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -9275,7 +9275,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -9293,7 +9293,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -9311,7 +9311,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -9329,7 +9329,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -9339,7 +9339,7 @@
       "2025": 12164453454.78,
       "2026_jan_ago": 8441950809.33
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -9468,7 +9468,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -9562,7 +9562,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -9656,7 +9656,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -9750,7 +9750,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -9844,7 +9844,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -9938,7 +9938,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -10032,7 +10032,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -10126,7 +10126,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -10220,7 +10220,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -10523,7 +10523,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -10541,7 +10541,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -10559,7 +10559,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -10577,7 +10577,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -10595,7 +10595,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -10613,7 +10613,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -10631,7 +10631,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -10649,7 +10649,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -10659,7 +10659,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -10788,7 +10788,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -10882,7 +10882,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -10976,7 +10976,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -11070,7 +11070,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -11164,7 +11164,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -11258,7 +11258,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -11352,7 +11352,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -11446,7 +11446,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -11540,7 +11540,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -11843,7 +11843,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -11861,7 +11861,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -11879,7 +11879,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -11897,7 +11897,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -11915,7 +11915,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -11933,7 +11933,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -11951,7 +11951,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -11969,7 +11969,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -11979,7 +11979,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -12108,7 +12108,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -12202,7 +12202,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -12296,7 +12296,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -12390,7 +12390,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -12484,7 +12484,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -12578,7 +12578,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -12672,7 +12672,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -12766,7 +12766,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -12860,7 +12860,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -13163,7 +13163,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -13181,7 +13181,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -13199,7 +13199,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -13217,7 +13217,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -13235,7 +13235,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -13253,7 +13253,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -13271,7 +13271,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -13289,7 +13289,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -13299,7 +13299,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -13428,7 +13428,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -13522,7 +13522,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -13616,7 +13616,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -13710,7 +13710,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -13804,7 +13804,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -13898,7 +13898,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -13992,7 +13992,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -14086,7 +14086,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -14180,7 +14180,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -14483,7 +14483,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -14501,7 +14501,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -14519,7 +14519,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -14537,7 +14537,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -14555,7 +14555,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -14573,7 +14573,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -14591,7 +14591,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -14609,7 +14609,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -14619,7 +14619,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -14748,7 +14748,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -14842,7 +14842,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -14936,7 +14936,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -15030,7 +15030,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -15124,7 +15124,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -15218,7 +15218,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -15312,7 +15312,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -15406,7 +15406,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -15500,7 +15500,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -15803,7 +15803,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -15821,7 +15821,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -15839,7 +15839,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -15857,7 +15857,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -15875,7 +15875,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -15893,7 +15893,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -15911,7 +15911,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -15929,7 +15929,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -15939,7 +15939,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -16068,7 +16068,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -16162,7 +16162,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -16256,7 +16256,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -16350,7 +16350,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -16444,7 +16444,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -16538,7 +16538,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -16632,7 +16632,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -16726,7 +16726,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -16820,7 +16820,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -17123,7 +17123,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -17141,7 +17141,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -17159,7 +17159,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -17177,7 +17177,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -17195,7 +17195,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -17213,7 +17213,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -17231,7 +17231,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -17249,7 +17249,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -17259,7 +17259,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -17388,7 +17388,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -17482,7 +17482,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -17576,7 +17576,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -17670,7 +17670,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -17764,7 +17764,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -17858,7 +17858,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -17952,7 +17952,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -18046,7 +18046,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -18140,7 +18140,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -18443,7 +18443,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -18461,7 +18461,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -18479,7 +18479,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -18497,7 +18497,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -18515,7 +18515,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -18533,7 +18533,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -18551,7 +18551,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -18569,7 +18569,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -18579,7 +18579,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -18708,7 +18708,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -18802,7 +18802,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -18896,7 +18896,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -18990,7 +18990,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -19084,7 +19084,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -19178,7 +19178,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -19272,7 +19272,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -19366,7 +19366,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -19460,7 +19460,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -19763,7 +19763,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -19781,7 +19781,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -19799,7 +19799,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -19817,7 +19817,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -19835,7 +19835,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -19853,7 +19853,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -19871,7 +19871,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -19889,7 +19889,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -19899,7 +19899,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -20028,7 +20028,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -20122,7 +20122,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -20216,7 +20216,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -20310,7 +20310,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -20404,7 +20404,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -20498,7 +20498,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -20592,7 +20592,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -20686,7 +20686,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -20780,7 +20780,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -21083,7 +21083,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -21101,7 +21101,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -21119,7 +21119,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -21137,7 +21137,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -21155,7 +21155,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -21173,7 +21173,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -21191,7 +21191,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -21209,7 +21209,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -21219,7 +21219,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -21348,7 +21348,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -21442,7 +21442,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -21536,7 +21536,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -21630,7 +21630,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -21724,7 +21724,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -21818,7 +21818,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -21912,7 +21912,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -22006,7 +22006,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -22100,7 +22100,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -22403,7 +22403,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -22421,7 +22421,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -22439,7 +22439,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -22457,7 +22457,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -22475,7 +22475,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -22493,7 +22493,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -22511,7 +22511,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -22529,7 +22529,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -22539,7 +22539,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -22668,7 +22668,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -22762,7 +22762,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -22856,7 +22856,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -22950,7 +22950,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -23044,7 +23044,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -23138,7 +23138,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -23232,7 +23232,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -23326,7 +23326,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -23420,7 +23420,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -23723,7 +23723,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -23741,7 +23741,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -23759,7 +23759,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -23777,7 +23777,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -23795,7 +23795,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -23813,7 +23813,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -23831,7 +23831,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -23849,7 +23849,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -23859,7 +23859,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -23988,7 +23988,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -24082,7 +24082,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -24176,7 +24176,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -24270,7 +24270,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -24364,7 +24364,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -24458,7 +24458,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -24552,7 +24552,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -24646,7 +24646,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -24740,7 +24740,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -25043,7 +25043,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -25061,7 +25061,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -25079,7 +25079,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -25097,7 +25097,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -25115,7 +25115,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -25133,7 +25133,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -25151,7 +25151,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -25169,7 +25169,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -25179,7 +25179,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -25308,7 +25308,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -25402,7 +25402,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -25496,7 +25496,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -25590,7 +25590,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -25684,7 +25684,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -25778,7 +25778,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -25872,7 +25872,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -25966,7 +25966,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -26060,7 +26060,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -26363,7 +26363,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -26381,7 +26381,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -26399,7 +26399,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -26417,7 +26417,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -26435,7 +26435,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -26453,7 +26453,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -26471,7 +26471,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -26489,7 +26489,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -26499,7 +26499,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -26628,7 +26628,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -26722,7 +26722,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -26816,7 +26816,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -26910,7 +26910,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -27004,7 +27004,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -27098,7 +27098,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -27192,7 +27192,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -27286,7 +27286,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -27380,7 +27380,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -27683,7 +27683,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -27701,7 +27701,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -27719,7 +27719,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -27737,7 +27737,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -27755,7 +27755,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -27773,7 +27773,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -27791,7 +27791,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -27809,7 +27809,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -27819,7 +27819,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -27948,7 +27948,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -28042,7 +28042,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -28136,7 +28136,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -28230,7 +28230,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -28324,7 +28324,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -28418,7 +28418,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -28512,7 +28512,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -28606,7 +28606,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -28700,7 +28700,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -29003,7 +29003,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -29021,7 +29021,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -29039,7 +29039,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -29057,7 +29057,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -29075,7 +29075,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -29093,7 +29093,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -29111,7 +29111,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -29129,7 +29129,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -29139,7 +29139,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -29268,7 +29268,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -29362,7 +29362,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -29456,7 +29456,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -29550,7 +29550,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -29644,7 +29644,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -29738,7 +29738,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -29832,7 +29832,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -29926,7 +29926,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -30020,7 +30020,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -30323,7 +30323,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -30341,7 +30341,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -30359,7 +30359,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -30377,7 +30377,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -30395,7 +30395,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -30413,7 +30413,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -30431,7 +30431,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -30449,7 +30449,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -30459,7 +30459,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -30588,7 +30588,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -30682,7 +30682,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -30776,7 +30776,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -30870,7 +30870,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -30964,7 +30964,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -31058,7 +31058,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -31152,7 +31152,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -31246,7 +31246,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -31340,7 +31340,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -31643,7 +31643,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -31661,7 +31661,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -31679,7 +31679,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -31697,7 +31697,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -31715,7 +31715,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -31733,7 +31733,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -31751,7 +31751,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -31769,7 +31769,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -31779,7 +31779,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -31908,7 +31908,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -32002,7 +32002,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -32096,7 +32096,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -32190,7 +32190,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -32284,7 +32284,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -32378,7 +32378,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -32472,7 +32472,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -32566,7 +32566,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -32660,7 +32660,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -32963,7 +32963,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -32981,7 +32981,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -32999,7 +32999,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -33017,7 +33017,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -33035,7 +33035,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -33053,7 +33053,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -33071,7 +33071,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -33089,7 +33089,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -33099,7 +33099,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -33228,7 +33228,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -33322,7 +33322,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -33416,7 +33416,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -33510,7 +33510,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -33604,7 +33604,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -33698,7 +33698,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -33792,7 +33792,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -33886,7 +33886,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -33980,7 +33980,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -34283,7 +34283,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -34301,7 +34301,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -34319,7 +34319,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -34337,7 +34337,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -34355,7 +34355,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -34373,7 +34373,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -34391,7 +34391,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -34409,7 +34409,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -34419,7 +34419,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -34548,7 +34548,7 @@
     null
    ],
    "by_category": {
-    "executivo_civil_ativos": [
+    "executive_civil_active": [
      null,
      null,
      null,
@@ -34642,7 +34642,7 @@
      null,
      null
     ],
-    "executivo_civil_aposentados": [
+    "executive_civil_retired": [
      null,
      null,
      null,
@@ -34736,7 +34736,7 @@
      null,
      null
     ],
-    "executivo_civil_pensionistas": [
+    "executive_civil_pensioners": [
      null,
      null,
      null,
@@ -34830,7 +34830,7 @@
      null,
      null
     ],
-    "executivo_civil_sentencas_e_exercicios_anteriores": [
+    "executive_civil_court_orders_and_prior_years": [
      null,
      null,
      null,
@@ -34924,7 +34924,7 @@
      null,
      null
     ],
-    "militares_ativos": [
+    "military_active": [
      null,
      null,
      null,
@@ -35018,7 +35018,7 @@
      null,
      null
     ],
-    "militares_inativos": [
+    "military_retired": [
      null,
      null,
      null,
@@ -35112,7 +35112,7 @@
      null,
      null
     ],
-    "militares_pensionistas": [
+    "military_pensioners": [
      null,
      null,
      null,
@@ -35206,7 +35206,7 @@
      null,
      null
     ],
-    "legislativo": [
+    "legislative": [
      null,
      null,
      null,
@@ -35300,7 +35300,7 @@
      0.0,
      0.0
     ],
-    "judiciario": [
+    "judiciary": [
      null,
      null,
      null,
@@ -35603,7 +35603,7 @@
      }
     },
     "by_category": {
-     "executivo_civil_ativos": {
+     "executive_civil_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -35621,7 +35621,7 @@
        }
       }
      },
-     "executivo_civil_aposentados": {
+     "executive_civil_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -35639,7 +35639,7 @@
        }
       }
      },
-     "executivo_civil_pensionistas": {
+     "executive_civil_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -35657,7 +35657,7 @@
        }
       }
      },
-     "executivo_civil_sentencas_e_exercicios_anteriores": {
+     "executive_civil_court_orders_and_prior_years": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -35675,7 +35675,7 @@
        }
       }
      },
-     "militares_ativos": {
+     "military_active": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -35693,7 +35693,7 @@
        }
       }
      },
-     "militares_inativos": {
+     "military_retired": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -35711,7 +35711,7 @@
        }
       }
      },
-     "militares_pensionistas": {
+     "military_pensioners": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -35729,7 +35729,7 @@
        }
       }
      },
-     "legislativo": {
+     "legislative": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -35739,7 +35739,7 @@
       "2025": 0.0,
       "2026_jan_ago": 0.0
      },
-     "judiciario": {
+     "judiciary": {
       "2019": null,
       "2020": null,
       "2021": null,
@@ -35985,7 +35985,7 @@
    null
   ],
   "by_reason": {
-   "militares_folha_central": [
+   "military_central_payroll": [
     null,
     null,
     null,
@@ -36079,7 +36079,7 @@
     null,
     null
    ],
-   "executivo_civil_sem_uf": [
+   "executive_civil_without_uf": [
     null,
     null,
     null,
@@ -36173,7 +36173,7 @@
     null,
     null
    ],
-   "unidade_de_atuacao_nacional": [
+   "national_scope_unit": [
     null,
     null,
     null,
@@ -36267,7 +36267,7 @@
     1470722207.81,
     1271851451.94
    ],
-   "trt_de_duas_ufs": [
+   "trt_covering_two_ufs": [
     null,
     null,
     null,
@@ -36361,7 +36361,7 @@
     182604340.28,
     179001777.41
    ],
-   "sentencas_e_precatorios_outros_poderes": [
+   "court_orders_other_branches": [
     null,
     null,
     null,
@@ -36455,7 +36455,7 @@
     0.0,
     0.0
    ],
-   "outras_modalidades": [
+   "other_modalities": [
     null,
     null,
     null,
@@ -36570,7 +36570,7 @@
     }
    },
    "by_reason": {
-    "militares_folha_central": {
+    "military_central_payroll": {
      "2019": null,
      "2020": null,
      "2021": null,
@@ -36588,7 +36588,7 @@
       }
      }
     },
-    "executivo_civil_sem_uf": {
+    "executive_civil_without_uf": {
      "2019": null,
      "2020": null,
      "2021": null,
@@ -36606,7 +36606,7 @@
       }
      }
     },
-    "unidade_de_atuacao_nacional": {
+    "national_scope_unit": {
      "2019": null,
      "2020": null,
      "2021": null,
@@ -36616,7 +36616,7 @@
      "2025": 16855264194.68,
      "2026_jan_ago": 11743966596.35
     },
-    "trt_de_duas_ufs": {
+    "trt_covering_two_ufs": {
      "2019": null,
      "2020": null,
      "2021": null,
@@ -36626,7 +36626,7 @@
      "2025": 2261732343.37,
      "2026_jan_ago": 1503572180.22
     },
-    "sentencas_e_precatorios_outros_poderes": {
+    "court_orders_other_branches": {
      "2019": null,
      "2020": null,
      "2021": null,
@@ -36636,7 +36636,7 @@
      "2025": 0.0,
      "2026_jan_ago": 0.0
     },
-    "outras_modalidades": {
+    "other_modalities": {
      "2019": null,
      "2020": null,
      "2021": null,
@@ -36649,14 +36649,14 @@
    }
   },
   "reasons": {
-   "militares_folha_central": "Militares das Forças Armadas: a folha é paga por unidades centrais (Centro de Pagamento do Exército, Pagadoria de Pessoal da Marinha, Subdiretoria de Pagamento de Pessoal da Aeronáutica) com localizador Nacional, e o microdado de militares do Portal traz UF_EXERCICIO = -1 em todos os registros.",
-   "executivo_civil_sem_uf": "Poder Executivo, pessoal civil cujo localizador orçamentário é Nacional, regional ou exterior (folhas centralizadas de ministérios, autarquias nacionais, inativos de órgãos extintos e ex-territórios, servidores no exterior). O SIAFI não diz em que UF a pessoa trabalha ou mora.",
-   "unidade_de_atuacao_nacional": "Unidades dos outros Poderes com quadro em todo o país: Justiça Federal de primeiro grau, Justiça Militar, Ministério Público Federal, do Trabalho e Militar, Defensoria Pública da União.",
-   "trt_de_duas_ufs": "Tribunais Regionais do Trabalho cuja região cobre duas UFs: 8ª (PA e AP), 10ª (DF e TO), 11ª (AM e RR) e 14ª (RO e AC). A base do Tesouro não separa a despesa entre as duas.",
-   "sentencas_e_precatorios_outros_poderes": "Sentenças judiciais e precatórios de pessoal pagos pelos tribunais e demais órgãos dos outros Poderes (categoria 2.2.5 do RTN): o local de quem recebe não é o da unidade que paga.",
-   "outras_modalidades": "Grupo 1 pago por transferência (modalidades 30 a 50) e não por aplicação direta."
+   "military_central_payroll": "Militares das Forças Armadas: a folha é paga por unidades centrais (Centro de Pagamento do Exército, Pagadoria de Pessoal da Marinha, Subdiretoria de Pagamento de Pessoal da Aeronáutica) com localizador Nacional, e o microdado de militares do Portal traz UF_EXERCICIO = -1 em todos os registros.",
+   "executive_civil_without_uf": "Poder Executivo, pessoal civil cujo localizador orçamentário é Nacional, regional ou exterior (folhas centralizadas de ministérios, autarquias nacionais, inativos de órgãos extintos e ex-territórios, servidores no exterior). O SIAFI não diz em que UF a pessoa trabalha ou mora.",
+   "national_scope_unit": "Unidades dos outros Poderes com quadro em todo o país: Justiça Federal de primeiro grau, Justiça Militar, Ministério Público Federal, do Trabalho e Militar, Defensoria Pública da União.",
+   "trt_covering_two_ufs": "Tribunais Regionais do Trabalho cuja região cobre duas UFs: 8ª (PA e AP), 10ª (DF e TO), 11ª (AM e RR) e 14ª (RO e AC). A base do Tesouro não separa a despesa entre as duas.",
+   "court_orders_other_branches": "Sentenças judiciais e precatórios de pessoal pagos pelos tribunais e demais órgãos dos outros Poderes (categoria 2.2.5 do RTN): o local de quem recebe não é o da unidade que paga.",
+   "other_modalities": "Grupo 1 pago por transferência (modalidades 30 a 50) e não por aplicação direta."
   },
-  "executivo_sem_uf_by_orgao_superior_annual": {
+  "executive_without_uf_by_top_body_annual": {
    "2024": {
     "Ministério da Defesa": 96000405760.3,
     "Ministério da Gestão e da Inovação em Ser": 22642558600.81,
@@ -36726,21 +36726,21 @@
      "2024-12"
     ],
     "n_months": 12,
-    "rtn_table_1_5_pessoal_e_encargos_sociais": 366224758680.44,
+    "rtn_table_1_5_personnel_and_social_charges": 366224758680.44,
     "rtn_table_1_5_breakdown": {
-     "ativo_civil": 162236404162.23,
-     "ativo_militar": 35661284120.61,
-     "aposentadorias_e_pensoes_civis": 101004479374.32,
-     "reformas_e_pensoes_militares": 63623881423.51,
-     "sentencas_e_precatorios": 3698709599.77
+     "active_civil": 162236404162.23,
+     "active_military": 35661284120.61,
+     "civil_retirement_and_pensions": 101004479374.32,
+     "military_retirement_and_pensions": 63623881423.51,
+     "court_orders": 3698709599.77
     },
-    "tesouro_base_rtn_pessoal": 366224758680.42,
+    "tesouro_base_rtn_personnel": 366224758680.42,
     "siafi_gnd1_direct_payments_excl_fcdf": 340344530404.17,
     "fcdf_personnel_excluded_already_counted": 18540106365.66,
     "sum_of_ufs_located": 132161048493.22,
     "not_located": 208196093939.88,
     "not_located_of_which_other_modalities": 12612028.93,
-    "intra_budget_modalidade_91_excluded": 27301099927.98,
+    "intra_budget_modality_91_excluded": 27301099927.98,
     "coverage_pct_of_payroll_excl_fcdf": 38.83,
     "coverage_pct_of_rtn_excl_fcdf": 38.01,
     "identity_check_located_plus_not_located_minus_direct_minus_other_modalities": -0.0,
@@ -36753,21 +36753,21 @@
      "2025-10"
     ],
     "n_months": 10,
-    "rtn_table_1_5_pessoal_e_encargos_sociais": 321727239781.63,
+    "rtn_table_1_5_personnel_and_social_charges": 321727239781.63,
     "rtn_table_1_5_breakdown": {
-     "ativo_civil": 143619640548.16,
-     "ativo_militar": 29256224700.26,
-     "aposentadorias_e_pensoes_civis": 87289162958.29,
-     "reformas_e_pensoes_militares": 52602553603.62,
-     "sentencas_e_precatorios": 8959657971.3
+     "active_civil": 143619640548.16,
+     "active_military": 29256224700.26,
+     "civil_retirement_and_pensions": 87289162958.29,
+     "military_retirement_and_pensions": 52602553603.62,
+     "court_orders": 8959657971.3
     },
-    "tesouro_base_rtn_pessoal": 321727239781.63,
+    "tesouro_base_rtn_personnel": 321727239781.63,
     "siafi_gnd1_direct_payments_excl_fcdf": 318137235315.7,
     "fcdf_personnel_excluded_already_counted": 16839853955.33,
     "sum_of_ufs_located": 122920701336.78,
     "not_located": 195227283933.41,
     "not_located_of_which_other_modalities": 10749954.49,
-    "intra_budget_modalidade_91_excluded": 23502445420.58,
+    "intra_budget_modality_91_excluded": 23502445420.58,
     "coverage_pct_of_payroll_excl_fcdf": 38.64,
     "coverage_pct_of_rtn_excl_fcdf": 40.32,
     "identity_check_located_plus_not_located_minus_direct_minus_other_modalities": -0.0,
@@ -37160,7 +37160,7 @@
    2120049222.52
   ],
   "by_group": {
-   "pessoal_e_encargos": [
+   "personnel_and_charges": [
     null,
     null,
     null,
@@ -37254,7 +37254,7 @@
     2168813792.9,
     1660436372.13
    ],
-   "outras_despesas_correntes": [
+   "other_current_expenses": [
     null,
     null,
     null,
@@ -37348,7 +37348,7 @@
     546301931.53,
     440947380.53
    ],
-   "investimentos": [
+   "investments": [
     null,
     null,
     null,
@@ -37632,7 +37632,7 @@
     463289455.25,
     382908418.9
    ],
-   "sem categoria RTN": [
+   "no RTN category": [
     null,
     null,
     null,
@@ -38208,7 +38208,7 @@
   "12101": {
    "name": "JUSTICA FEDERAL DE PRIMEIRO GRAU",
    "uf": null,
-   "not_located_reason": "unidade_de_atuacao_nacional"
+   "not_located_reason": "national_scope_unit"
   },
   "12102": {
    "name": "TRIBUNAL REGIONAL FEDERAL DA 1A. REGIAO",
@@ -38243,7 +38243,7 @@
   "13101": {
    "name": "JUSTICA MILITAR",
    "uf": null,
-   "not_located_reason": "unidade_de_atuacao_nacional"
+   "not_located_reason": "national_scope_unit"
   },
   "14101": {
    "name": "TRIBUNAL SUPERIOR ELEITORAL",
@@ -38428,7 +38428,7 @@
   "15109": {
    "name": "TRIBUNAL REGIONAL DO TRABALHO DA 8A. REGIAO",
    "uf": null,
-   "not_located_reason": "trt_de_duas_ufs"
+   "not_located_reason": "trt_covering_two_ufs"
   },
   "15110": {
    "name": "TRIBUNAL REGIONAL DO TRABALHO DA 9A. REGIAO",
@@ -38438,12 +38438,12 @@
   "15111": {
    "name": "TRIBUNAL REGIONAL DO TRABALHO DA 10A. REGIAO",
    "uf": null,
-   "not_located_reason": "trt_de_duas_ufs"
+   "not_located_reason": "trt_covering_two_ufs"
   },
   "15112": {
    "name": "TRIBUNAL REGIONAL DO TRABALHO DA 11A. REGIAO",
    "uf": null,
-   "not_located_reason": "trt_de_duas_ufs"
+   "not_located_reason": "trt_covering_two_ufs"
   },
   "15113": {
    "name": "TRIBUNAL REGIONAL DO TRABALHO DA 12A. REGIAO",
@@ -38458,7 +38458,7 @@
   "15115": {
    "name": "TRIBUNAL REGIONAL DO TRABALHO DA 14A. REGIAO",
    "uf": null,
-   "not_located_reason": "trt_de_duas_ufs"
+   "not_located_reason": "trt_covering_two_ufs"
   },
   "15116": {
    "name": "TRIBUNAL REGIONAL DO TRABALHO DA 15A. REGIAO",
@@ -38528,7 +38528,7 @@
   "29101": {
    "name": "DEFENSORIA PUBLICA DA UNIAO - DPU",
    "uf": null,
-   "not_located_reason": "unidade_de_atuacao_nacional"
+   "not_located_reason": "national_scope_unit"
   },
   "3101": {
    "name": "TRIBUNAL DE CONTAS DA UNIAO",
@@ -38538,12 +38538,12 @@
   "34101": {
    "name": "MINISTERIO PUBLICO FEDERAL",
    "uf": null,
-   "not_located_reason": "unidade_de_atuacao_nacional"
+   "not_located_reason": "national_scope_unit"
   },
   "34102": {
    "name": "MINISTERIO PUBLICO MILITAR",
    "uf": null,
-   "not_located_reason": "unidade_de_atuacao_nacional"
+   "not_located_reason": "national_scope_unit"
   },
   "34103": {
    "name": "MINISTERIO PUB.DO DIST.FEDERAL E DOS TERRIT.",
@@ -38553,7 +38553,7 @@
   "34104": {
    "name": "MINISTERIO PUBLICO DO TRABALHO",
    "uf": null,
-   "not_located_reason": "unidade_de_atuacao_nacional"
+   "not_located_reason": "national_scope_unit"
   },
   "34105": {
    "name": "ESCOLA SUPERIOR DO MINIST. PUBLICO DA UNIAO",
@@ -38564,8 +38564,8 @@
  "sources": [
   {
    "fields": [
-    "uf.*: categorias executivo_* e militares_*",
-    "not_located: militares_folha_central, executivo_civil_sem_uf"
+    "uf.*: categorias executive_* e military_*",
+    "not_located: military_central_payroll, executive_civil_without_uf"
    ],
    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao",
    "files": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/AAAAMM (um ZIP por mês, 2019-01 a 2026-08)",
@@ -38574,10 +38574,10 @@
   },
   {
    "fields": [
-    "uf.*: legislativo, judiciario, mpu, dpu",
-    "not_located: unidade_de_atuacao_nacional, trt_de_duas_ufs, sentencas_e_precatorios_outros_poderes",
+    "uf.*: legislative, judiciary, mpu, dpu",
+    "not_located: national_scope_unit, trt_covering_two_ufs, court_orders_other_branches",
     "fcdf",
-    "national_check.tesouro_base_rtn_pessoal"
+    "national_check.tesouro_base_rtn_personnel"
    ],
    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/despesas-e-transferencias-totais",
    "files": "um XLSX por ano, URL de cada arquivo lida na API CKAN do Tesouro Transparente",
@@ -38713,9 +38713,9 @@
   "what_it_would_be": "Folha bruta de um mês de referência por ano, alocada pelo campo UF_EXERCICIO do microdado de servidores do Portal da Transparência (https://portaldatransparencia.gov.br/download-de-dados/servidores/AAAAMM_Servidores_SIAPE), sem anualizar. Seria um bloco separado de total_located e nunca somado a ele.",
   "why_null": "O servidor de arquivos da CGU (dadosabertos-download.cgu.gov.br) passou a segurar as conexões e a devolver a página de verificação do AWS WAF em 2026-10-01 (downloads de 16 minutos sem nenhum byte), e o computador da coleta estava sem memória livre. O arquivo SIAPE tem cerca de 79 MB por mês; nenhum mês de referência foi baixado depois do teste de 2024-01, cujo arquivo foi apagado após a leitura.",
   "findings_from_the_files_that_were_read": {
-   "servidores_siape_2024_01": "734.571 linhas de cadastro, 598.999 pessoas. UF_EXERCICIO = -1 em 291.768 linhas (39,7%). O DF aparece como UF de exercício de pessoal de instituições de outras UFs: Instituto Federal de Alagoas 1.288 linhas no DF e 19 em AL; Universidade Federal da Integração Latino-Americana (Foz do Iguaçu, PR) 801 no DF e 12 no PR; ex-Território do Amapá 5.191 no DF e 68 no AP. 20.735 linhas do Ministério da Saúde com situação RESIDENCIA E PMM (bolsas de residência e Mais Médicos, que não são pessoal) estão no DF. Usar o campo como está aumentaria o DF.",
-   "militares_2024_01": "345.468 linhas de cadastro (Exército 204.845, Marinha 72.906, Aeronáutica 67.717): UF_EXERCICIO = -1 em todas. Não há UF de militar em nenhum arquivo aberto encontrado.",
-   "aposentados_e_pensionistas_2024_12": "Os cadastros de Aposentados_SIAPE, Aposentados_BACEN, Pensionistas_SIAPE, Pensionistas_BACEN e Pensionistas_DEFESA não têm nenhuma coluna de UF (cabeçalhos lidos em 2026-10-01). Aposentados e pensionistas não podem ser localizados pelo microdado."
+   "siape_servants_2024_01": "734.571 linhas de cadastro, 598.999 pessoas. UF_EXERCICIO = -1 em 291.768 linhas (39,7%). O DF aparece como UF de exercício de pessoal de instituições de outras UFs: Instituto Federal de Alagoas 1.288 linhas no DF e 19 em AL; Universidade Federal da Integração Latino-Americana (Foz do Iguaçu, PR) 801 no DF e 12 no PR; ex-Território do Amapá 5.191 no DF e 68 no AP. 20.735 linhas do Ministério da Saúde com situação RESIDENCIA E PMM (bolsas de residência e Mais Médicos, que não são pessoal) estão no DF. Usar o campo como está aumentaria o DF.",
+   "military_2024_01": "345.468 linhas de cadastro (Exército 204.845, Marinha 72.906, Aeronáutica 67.717): UF_EXERCICIO = -1 em todas. Não há UF de militar em nenhum arquivo aberto encontrado.",
+   "retirees_and_pensioners_2024_12": "Os cadastros de Aposentados_SIAPE, Aposentados_BACEN, Pensionistas_SIAPE, Pensionistas_BACEN e Pensionistas_DEFESA não têm nenhuma coluna de UF (cabeçalhos lidos em 2026-10-01). Aposentados e pensionistas não podem ser localizados pelo microdado."
   },
   "consequence": "Pelo microdado, só os servidores civis ativos do Executivo (SIAPE) poderiam ser alocados, e com o defeito do DF acima. Militares (ativos, inativos e pensionistas) e aposentados e pensionistas civis continuam sem UF em qualquer fonte aberta encontrada."
  },
@@ -38724,6 +38724,6 @@
   "retirees_location": "Aposentados e pensionistas são localizados pela unidade que paga (Executivo: localizador; outros Poderes: sede da unidade), não pelo endereço de quem recebe, que não é público.",
   "tcu_and_parliament": "O TCU tem secretarias em todas as UFs e os gabinetes parlamentares podem ter pessoal nos estados; a base do Tesouro não separa esse pessoal, e ele foi localizado no DF pela sede.",
   "portal_2025_06": "O arquivo de 2025-06 da Execução da Despesa do Portal traz R$ 47,67 bi de pessoal do Executivo (sem FCDF), contra R$ 23,99 bi na base do Tesouro para o mesmo mês; julho e agosto ficam abaixo do Tesouro (R$ 5,83 bi e R$ 1,12 bi), e de junho a agosto o Portal soma R$ 16,7 bi a mais. O excesso está espalhado por quase todas as linhas (militares, aposentadorias, ativos civis), não numa só. Causa não identificada; ver national_check.monthly.status.",
-  "siape_uf_exercicio": "Ver located_by_exercise: o campo UF_EXERCICIO do SIAPE tem 39,7% de -1 e põe no DF pessoal de outras UFs; não foi usado em total_located."
+  "siape_uf_of_work": "Ver located_by_exercise: o campo UF_EXERCICIO do SIAPE tem 39,7% de -1 e põe no DF pessoal de outras UFs; não foi usado em total_located."
  }
 }

@@ -2,10 +2,10 @@
  "uf": "ES",
  "terms": [
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Renato Casagrande",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2023-01-01",
    "start_reason": "posse após a eleição de 2018",
@@ -16,22 +16,22 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse e fim do mandato (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": null
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Jacqueline Moraes",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2023-01-01",
    "start_reason": "posse após a eleição de 2018",
@@ -42,22 +42,22 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse e fim do mandato (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": null
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Renato Casagrande",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": "2026-04-02",
    "start_reason": "posse após a eleição de 2022",
@@ -68,23 +68,23 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "renúncia do titular e posse do vice como governador em 02/04/2026 (Governo do ES, 02/04/2026; página com conteúdo restrito no período eleitoral, lida no Internet Archive)",
      "url": "https://web.archive.org/web/20260406154748/https://www.es.gov.br/Noticia/ricardo-ferraco-toma-posse-como-governador-do-espirito-santo",
-     "type": "oficial",
+     "type": "official",
      "quote": "Ricardo de Rezende Ferraço tomou posse nesta quinta-feira, 02 de abril de 2026, no cargo de governador do Estado do Espírito Santo. A cerimônia de posse ocorreu na Assembleia Legislativa (Ales), seguida da solenidade de transmissão do cargo no Palácio Anchieta [...] Ferraço assume a chefia do Executivo Estadual com a renúncia de Renato Casagrande, que deixou o cargo para se habilitar à disputa das eleições deste ano"
     },
     {
      "fact": "últimos decretos do titular, de 02/04/2026 (Diário Oficial do ES, edição extra de 02/04/2026)",
      "url": "https://ioes.dio.es.gov.br/portal/edicoes/download/11031",
-     "type": "oficial",
+     "type": "official",
      "quote": "Palácio Anchieta, em Vitória, aos 02 dias do mês de abril de 2026 [...] JOSÉ RENATO CASAGRANDE Governador do Estado"
     }
    ],
@@ -92,10 +92,10 @@
    "note": "Renúncia do titular e posse do vice como governador em quinta-feira, 02/04/2026 (Governo do ES); os últimos decretos do titular são de 02/04/2026 (edição extra do Diário Oficial)."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Ricardo Ferraço",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": "2026-04-02",
    "start_reason": "posse após a eleição de 2022",
@@ -106,17 +106,17 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "renúncia do titular e posse do vice como governador em 02/04/2026 (Governo do ES, 02/04/2026; página com conteúdo restrito no período eleitoral, lida no Internet Archive)",
      "url": "https://web.archive.org/web/20260406154748/https://www.es.gov.br/Noticia/ricardo-ferraco-toma-posse-como-governador-do-espirito-santo",
-     "type": "oficial",
+     "type": "official",
      "quote": "Ricardo de Rezende Ferraço tomou posse nesta quinta-feira, 02 de abril de 2026, no cargo de governador do Estado do Espírito Santo. A cerimônia de posse ocorreu na Assembleia Legislativa (Ales), seguida da solenidade de transmissão do cargo no Palácio Anchieta [...] Ferraço assume a chefia do Executivo Estadual com a renúncia de Renato Casagrande, que deixou o cargo para se habilitar à disputa das eleições deste ano"
     }
    ],
@@ -124,10 +124,10 @@
    "note": "Renúncia do titular e posse do vice como governador em quinta-feira, 02/04/2026 (Governo do ES); os últimos decretos do titular são de 02/04/2026 (edição extra do Diário Oficial)."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Ricardo Ferraço",
    "full_name": null,
-   "kind": "vice no cargo de titular",
+   "kind": "vice_in_office",
    "start": "2026-04-02",
    "end": null,
    "start_reason": "renúncia do titular",
@@ -138,35 +138,35 @@
     {
      "fact": "renúncia do titular e posse do vice como governador em 02/04/2026 (Governo do ES, 02/04/2026; página com conteúdo restrito no período eleitoral, lida no Internet Archive)",
      "url": "https://web.archive.org/web/20260406154748/https://www.es.gov.br/Noticia/ricardo-ferraco-toma-posse-como-governador-do-espirito-santo",
-     "type": "oficial",
+     "type": "official",
      "quote": "Ricardo de Rezende Ferraço tomou posse nesta quinta-feira, 02 de abril de 2026, no cargo de governador do Estado do Espírito Santo. A cerimônia de posse ocorreu na Assembleia Legislativa (Ales), seguida da solenidade de transmissão do cargo no Palácio Anchieta [...] Ferraço assume a chefia do Executivo Estadual com a renúncia de Renato Casagrande, que deixou o cargo para se habilitar à disputa das eleições deste ano"
     },
     {
      "fact": "últimos decretos do titular, de 02/04/2026 (Diário Oficial do ES, edição extra de 02/04/2026)",
      "url": "https://ioes.dio.es.gov.br/portal/edicoes/download/11031",
-     "type": "oficial",
+     "type": "official",
      "quote": "Palácio Anchieta, em Vitória, aos 02 dias do mês de abril de 2026 [...] JOSÉ RENATO CASAGRANDE Governador do Estado"
     },
     {
      "fact": "decreto de 01/10/2026 assinado por ele (Diário Oficial do ES de 02/10/2026)",
      "url": "https://ioes.dio.es.gov.br/portal/edicoes/download/11521",
-     "type": "oficial",
+     "type": "official",
      "quote": "ao 1º dia do mês de outubro de 2026 [...] RICARDO DE REZENDE FERRAÇO Governador do Estado"
     },
     {
      "fact": "partido no registro de candidatura de 2022 (PSDB)",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": "Renúncia do titular e posse do vice como governador em quinta-feira, 02/04/2026 (Governo do ES); os últimos decretos do titular são de 02/04/2026 (edição extra do Diário Oficial). Segue no cargo: decreto de 01/10/2026 no Diário Oficial de 02/10/2026. Partido: o do registro do TSE de 2022 (PSDB), última fonte oficial datada lida; a página da posse não cita partido."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": null,
    "full_name": null,
-   "kind": "vago",
+   "kind": "vacant",
    "start": "2026-04-02",
    "end": null,
    "start_reason": "o vice-governador assumiu o cargo de governador",
@@ -177,7 +177,7 @@
     {
      "fact": "renúncia do titular e posse do vice como governador em 02/04/2026 (Governo do ES, 02/04/2026; página com conteúdo restrito no período eleitoral, lida no Internet Archive)",
      "url": "https://web.archive.org/web/20260406154748/https://www.es.gov.br/Noticia/ricardo-ferraco-toma-posse-como-governador-do-espirito-santo",
-     "type": "oficial",
+     "type": "official",
      "quote": "Ricardo de Rezende Ferraço tomou posse nesta quinta-feira, 02 de abril de 2026, no cargo de governador do Estado do Espírito Santo. A cerimônia de posse ocorreu na Assembleia Legislativa (Ales), seguida da solenidade de transmissão do cargo no Palácio Anchieta [...] Ferraço assume a chefia do Executivo Estadual com a renúncia de Renato Casagrande, que deixou o cargo para se habilitar à disputa das eleições deste ano"
     }
    ],

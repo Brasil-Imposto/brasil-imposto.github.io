@@ -20,12 +20,12 @@
  "counts": {
   "total": {
    "2018": {
-    "deputado_estadual": 1035,
-    "deputado_distrital": 24
+    "state_deputy": 1035,
+    "district_deputy": 24
    },
    "2022": {
-    "deputado_estadual": 1035,
-    "deputado_distrital": 24
+    "state_deputy": 1035,
+    "district_deputy": 24
    }
   },
   "by_uf": {
