@@ -142,19 +142,19 @@ Cada checagem nova ou refeita só conta depois de falhar num controle plantado p
   `fcdf.by_group.pessoal_e_encargos`), `mte-seguro-abono-uf-2024_hybrid.json`, `sc-401-terceira-faixa.json`, `ibge-estados.json`,
   `br-470-duplicacao.json`, as chaves de checagem de `two-step-balance-*.json`, a saída de `br470_payments.py`, `state-deputies.json`,
   os valores de `governors_curated/*.json`; as garantias do livro ganham um id em inglês (`g1_unique_ids`) com a frase como rótulo.
-- [ ] Docstrings e comentários em português traduzidos nos scripts listados em P1-21 e P2-12.
+- [x] Docstrings e comentários em português traduzidos nos scripts listados em P1-21 e P2-12.
 - [ ] Provas: a busca de chaves em português (com o controle `nome_controle` plantado) dá só nomes próprios e campos de fonte;
   texto visível igual; arquivos regenerados iguais aos antigos com o mapa de chaves aplicado.
 
 ### Tarefa 7: o mesmo fato com valores diferentes, e armadilhas pequenas (C5: N-11; B15 parte)
 - [ ] SC-401: o total calculado ganha o rótulo "líquido"; Linha 17: a nota "não localizado" sai e entra o campo `provenance` de
   registro feito à mão (P2-19).
-- [ ] Fotos de signatário só por nome exato, com uma tabela de apelidos (P2-8); o registro de fontes volta à versão antiga quando
+- [x] Fotos de signatário só por nome exato, com uma tabela de apelidos (P2-8); o registro de fontes volta à versão antiga quando
   o órgão volta atrás, com teste A, B, A (P2-14); `build.py` da raiz falha com entrada faltando e grava num temporário (P1-12);
   `municipal-taxes-2024.json` marca `complete: false` onde há município sem dado (P1-24); `build-balance.py` sai com a Tarefa 3;
   os `assert` que guardam dados viram `raise SystemExit` (P2-20); `shot.sh` abre a página da plataforma (P2-20).
-- [ ] Caminhos e regras da máquina do autor fora dos arquivos que vão a público (E2): `docs/ai/learned-patterns.md`, o acompanhamento.
-- [ ] Provas: texto visível igual; testes; cada armadilha com o seu controle.
+- [x] Caminhos e regras da máquina do autor fora dos arquivos que vão a público (E2): `docs/ai/learned-patterns.md`, o acompanhamento.
+- [x] Provas: texto visível igual; testes; cada armadilha com o seu controle.
 
 ### Tarefa 8: fecho da fase
 - [ ] Texto visível igual ao da base (100 de 100), 0 erros; arquivos gerados: só as mudanças das tarefas; 29 testes ou mais.
@@ -235,3 +235,20 @@ Cada checagem nova ou refeita só conta depois de falhar num controle plantado p
   dinheiro", "O que o Brasil vende").
 - **Parada para nova sessão (2026-10-21):** tarefas 0 a 5 feitas; 6 a 8 ficam para uma sessão nova (custo do contexto). Volume
   medido para a tarefa 6: cerca de 300 linhas de comentário e docstring em português em 77 scripts, mais as chaves de N-13 e P2-12.
+- **Tarefa 6 (2026-10-22, auditoria de consistência, pull request da auditoria):** comentários e docstrings de 46 scripts
+  traduzidos (193 trechos), cada `.py` igual pela árvore de sintaxe sem as docstrings e cada `.sh` pelas linhas de código; a única
+  docstring lida em execução (`federal_spending_by_uf.py`, o campo `definition`) mudou junto com os dois arquivos que ela grava.
+  Chaves trocadas no escritor e nos dados ao mesmo tempo, cada arquivo igual ao antigo com o mapa aplicado: `atlas_public_jobs_by_uf`,
+  `federal_spending_by_uf` (2024 e 2025), `rfb_legal_nature_2024`, `payroll-by-uf-2024`, `complete-totals`, `hercilio-luz` e o
+  pago por contrato, o arquivo híbrido do MTE, BR-470 e SC-401; as garantias do livro ganharam o id em inglês com a frase como
+  rótulo. Esperam o pull request de interface (#43), porque o leitor é uma página que ele muda: `officeholders-2026` e
+  `positions-2026` (Os 3 Poderes), `federal-payroll-by-uf`, `state-deputies`, os suplentes de deputados e senadores e os valores de
+  `governors_curated` (o pacote da home, cujo tamanho as páginas dele carregam). O teste `test_english_keys.py` lista essas chaves
+  com o motivo e pega o controle `nome_controle`; o SC-401 antigo também falha nele. Os escritores destas chaves não rodam aqui
+  (as entradas vêm de sites que a rede desta sessão não alcança). Páginas iguais byte a byte; 41 testes e 30 do livro.
+- **Tarefa 7 (2026-10-22, mesmo pull request):** registro de fontes A, B, A (teste), `build.py` da raiz (entrada faltando e
+  temporário, teste), `complete` nos impostos municipais (11 estados falsos; o pacote deixa a chave de fora e fica igual byte a
+  byte), fotos por nome exato com tabela de apelidos (teste; `cases.json` igual), 119 `assert` em 41 arquivos viram
+  `raise SystemExit` (teste; `site_chrome.py` espera o #43), `shot.sh` abre a página da plataforma; caminhos da máquina fora dos
+  documentos. Cada teste falhou no código antigo. Fica com o mantenedor: o rótulo "líquido" do SC-401 e o `provenance` da Linha 17
+  dependem do texto do anexo P2-19, que está fora do git.

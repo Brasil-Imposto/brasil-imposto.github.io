@@ -6,7 +6,7 @@ appear in more than one tracked place, each brought to the newest ruling, with t
 delete, KEEP, or ASK), with the evidence; deletions wait for the maintainer's yes, group by group; (3) the repository kept free
 of anything outside this project. Written section by section as the work goes; the state of each part is in its heading.
 
-Status: **em andamento.** Base: `main` em `8d27196`, 6.496 arquivos no git (1.148 de texto), 56 commits no GitHub. Arquivos que o
+Status: **partes 1, 2 e 3 feitas; a lista de apagar espera o sim do mantenedor.** Base: `main` em `8d27196`, 6.496 arquivos no git (1.148 de texto), 56 commits no GitHub. Arquivos que o
 pull request #43 (correções de interface, aberto) muda ficam fora desta auditoria até ele ser resolvido: `.claude/CLAUDE.md`,
 `docs/superpowers/tools/site_chrome.py`, as cinco páginas de `docs/superpowers/previews/*.html`, `assets/home-feed.css`,
 `assets/home-feed.js`, `assets/modals.js` e os quatro arquivos novos dele.
@@ -99,6 +99,61 @@ as specs.
 Os outros scripts de `pipelines/` sem leitor nem documento gravam arquivos que estão no git: `pipelines/ug/extract_fat_uf_hybrid.py`,
 `pipelines/ug/extract_rtn_lines.py` e `pipelines/works/media_fetch.py`. Por isso ficam (KEEP).
 
-## Parte 1. Inconsistências (em andamento)
+## Parte 1. Inconsistências (feita)
+
+**Como foi feito.** Um inventário dos fatos que aparecem em mais de um lugar do git (comandos, caminhos, situação de specs e
+planos, números de construtores, o que está publicado), com o espaço sem quebra (U+00A0) trocado por espaço antes de cada busca.
+Vale a decisão mais nova do registro (`docs/decisions/README.md`) ou o que o código faz hoje; o texto antigo foi atualizado no
+lugar, sem marca de "substituído". Não é inconsistência, e ficou como está: as linhas do registro de decisões que contam o que
+valia na época, `prove-pipelines-move.py` e `test_layout.py` (citam o caminho antigo de propósito), os registros de pesquisa e
+de execução que descrevem o que rodou naquele dia.
+
+| Lugar | Antes | Agora | Fonte |
+|---|---|---|---|
+| 28 linhas de docstring em `pipelines/` e `docs/superpowers/tools/`, `pipelines/README.md` (linha 29), o plano de limpeza (linha 53) | `.venv/bin/python ...` | `uv run python ...` | D151 e #25 (Python com uv); `README.md` |
+| 7 pesquisas em `docs/research/`, a docstring de `pipelines/bridges/build.py`, os dois planos | a pasta do projeto na máquina do autor | `$(git rev-parse --show-toplevel)/...`, ou "na raiz do repositório" | D147 (o projeto no git) |
+| `docs/superpowers/tools/shot.sh` | o navegador numa pasta de cache de um Mac; a página padrão `home-simulacao` | `CHROME_HEADLESS`, como as sondas; a página padrão é a da plataforma | plano, tarefa 7 (P2-20); D149 (a home publicada) |
+| Spec da fase B0 do Astro, linha de situação | "proposta, aguardando a aprovação" | aprovada (D151) e em execução; feitos #23, #25, #26, #32 e #33, #34, #35; falta a sonda de paridade no `ci` e as chaves de `data/` | D151; histórico de pull requests |
+| Spec de cabeçalho, rodapé e carregamento | "o carregamento falta" | carregamento feito (#31) | D152; #31 |
+| Plano de limpeza, situação e "Para quem executa" | "execução nesta sessão"; "Sem git (D54)" | tarefas 0 a 5 feitas; 6 a 8 nesta auditoria, por pull request; anexos fora do git | D147; esta auditoria |
+| Registro de decisões, Fase, "Estado em 2026-10-22" e "Se a sessão cair" | "brainstorming com prévias (D3)"; próximo passo já feito | v1 publicada (D149); feitos desde então: logo e prévia social (#37, #42), cabeçalho, rodapé e carregamento (#27, #28, #31), Judiciário (#40, #41); próximo: Q78, o resto da B0, tarefas 6 a 8 e a fase 2 do livro | D149, D152, D153, D154 |
+| `CONTRIBUTING.md` | "os quatro construtores"; "deputados estaduais ainda não estão no projeto" | os cinco construtores que o `ci` confere; os deputados estaduais aparecem só como eleitos em 2018 e 2022 (`state-deputies.json`) | `.github/workflows/ci.yml`; os dados |
+| `docs/ai/learned-patterns.md` | ponteiro para um arquivo de decisões fora do git; regras da máquina do autor | `docs/decisions/README.md`; regras gerais, sem caminho de máquina | D147; plano, tarefa 7 (E2) |
+| Comentários e docstrings de 46 scripts (193 trechos) | em português | em inglês; nomes oficiais e campos de fonte como estão | regra do projeto (`.claude/CLAUDE.md`); plano, tarefa 6 |
+| Chaves de 13 arquivos de `data/` e dos seus escritores (lista no plano, registro da tarefa 6) | em português (`pessoal`, `by_natureza`, `numero`, `creditor_vlbruto_brl`...) | em inglês, cada arquivo igual ao antigo com o mapa aplicado | regra do projeto; plano, tarefa 6 |
+| Garantias do livro de fluxos | identificadas pela frase em português | id em inglês (`g1_unique_ids`...) com a frase como rótulo | plano, tarefa 6 |
+| `pipelines/ledger/registry.py` | uma fonte que volta a um arquivo antigo não volta a valer | a divulgação antiga volta a ser a atual (teste A, B, A) | plano, tarefa 7 (P2-14) |
+| `pipelines/build.py` | entrada faltando virava `None`; gravava direto no arquivo publicado | para e diz o script que escreve a entrada; grava num temporário | plano, tarefa 7 (P1-12) |
+| `data/municipal-taxes-2024.json` | nada dizia que faltam municípios | `complete: false` em 11 estados | plano, tarefa 7 (P1-24) |
+| `build-cases.py`, fotos de signatário | por parte do nome | só por nome exato, com tabela de apelidos | plano, tarefa 7 (P2-8) |
+| 119 `assert` em 41 arquivos | somem com `python -O` | `raise SystemExit` | plano, tarefa 7 (P2-20) |
+
+**Provas.** 41 testes de `pipelines/tests` e 30 do livro passam; os cinco construtores que o `ci` confere refazem as páginas
+byte a byte e o pacote `bi-data.js` é igual ao da `main`; a exportação das entidades valida contra os esquemas. Cada teste novo
+falhou no código antigo; o teste de chaves pega o controle `nome_controle` e o arquivo antigo do SC-401. Texto visível e
+verificação do site: na descrição do pull request.
+
+## Para o mantenedor
+
+- **O registro de decisões é gerado.** `docs/decisions/README.md` sai de `private/decisions-original.md` (fora do git) por
+  `publish-decisions.py`; as três linhas mudadas aqui (Fase, Estado em 2026-10-22, Se a sessão cair) precisam ir para o
+  original, ou a próxima publicação as desfaz.
+- **Chaves que esperam o #43**, porque o leitor é uma página que ele muda: `officeholders-2026.json` e `positions-2026.json`
+  (`posse`, `sen_moradia`, `sen_moradia_api`, `sen_verbas`, `aux`; Os 3 Poderes lê `U.sen_moradia`) e as do pacote da home
+  (`series/federal-payroll-by-uf.json` com `serieslayer.js`, `state-deputies.json`, os suplentes de deputados e senadores, os
+  valores de `governors_curated/*.json`). Mudar o pacote muda o tamanho que as páginas do #43 carregam. A lista exata está em
+  `pipelines/tests/test_english_keys.py`.
+- **SC-401 "líquido" e Linha 17 `provenance`** (tarefa 7): dependem do texto do anexo P2-19, fora do git. O total calculado
+  (`total_paid_ct_00014_2025_brl_computed`, R$ 40.728.766,00) é o pago líquido; a tela usa o pago com os retidos
+  (R$ 41.694.715,23, `complete-totals`). Falta a frase do anexo para o rótulo.
+- **Escritores que não rodaram aqui:** os das chaves trocadas baixam as entradas de sites que a rede desta sessão não alcança;
+  a troca foi provada pelos dados (mapa aplicado) e pelo código. Uma rodada completa de cada um confirma.
+- **`pages.yml`** usa `actions/setup-python@v5` pela etiqueta, enquanto o `ci.yml` fixa por commit. Mexer em workflow é decisão
+  sua.
+- **Perguntas sem decisão mais nova:** Q56 a Q58 e Q69 a Q71 continuam abertas; nada no git as responde.
 
 ## Não conferido
+
+- `shot.sh` não rodou: pede `zsh`, que esta máquina não tem; a mudança é só o navegador e a página padrão.
+- Os escritores citados acima (entradas fora de alcance).
+- O site publicado: esta sessão não alcança `brasil-imposto.github.io`; as páginas foram conferidas servidas localmente.
