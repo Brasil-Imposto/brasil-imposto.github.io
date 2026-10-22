@@ -1,0 +1,49 @@
+name: Pedir correção
+description: Um número, nome ou texto do site está errado. Traga a fonte oficial com o valor certo.
+title: "Correção: "
+labels: [data-correction]
+body:
+  - type: markdown
+    attributes:
+      value: Quem acrescenta um número prova o número. Sem o link da fonte oficial com o valor certo, a correção não entra.
+  - type: input
+    id: page
+    attributes:
+      label: Página
+      description: O endereço da página, ou da ficha, onde está o erro.
+      placeholder: https://brasil-imposto.github.io/...
+    validations:
+      required: true
+  - type: input
+    id: item
+    attributes:
+      label: O número ou o texto
+      description: O que está na tela hoje, como aparece.
+    validations:
+      required: true
+  - type: input
+    id: period
+    attributes:
+      label: Período
+      description: O mês, o ano ou o mandato escolhido na página.
+  - type: textarea
+    id: problem
+    attributes:
+      label: O que está errado
+      description: Qual deveria ser o valor e por quê.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Link da fonte oficial com o valor certo
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: source_date
+    attributes:
+      label: Data em que você abriu a fonte
+      placeholder: AAAA-MM-DD
+    validations:
+      required: true

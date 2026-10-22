@@ -1,0 +1,49 @@
+name: Acrescentar fonte
+description: Propor uma base de dados oficial nova, ou uma que complete as de hoje.
+title: "Fonte: "
+labels: [new-source]
+body:
+  - type: input
+    id: agency
+    attributes:
+      label: Órgão e nome da base
+      placeholder: "Ex.: Tesouro Nacional, SICONFI"
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link oficial da base
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: Licença ou termo de uso
+      description: Onde a fonte diz o que se pode fazer com os dados.
+    validations:
+      required: true
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: Frequência de publicação
+      options: [Mensal, Bimestral, Quadrimestral, Anual, Irregular, Não sei]
+    validations:
+      required: true
+  - type: input
+    id: reference_year
+    attributes:
+      label: Anos de referência disponíveis
+      placeholder: "Ex.: 2019 a 2026"
+  - type: input
+    id: unit
+    attributes:
+      label: Unidade
+      placeholder: "Ex.: reais correntes, mil reais, pessoas"
+  - type: textarea
+    id: supports
+    attributes:
+      label: Qual número do site a base sustenta ou completa
+    validations:
+      required: true
