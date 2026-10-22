@@ -1,0 +1,35 @@
+---
+// Phase B0 proof page: it reads the state entity files, typed by the types generated from the schemas, and shows one
+// number of each with its source. It proves the chain (data, schema, type, page); it is not published (phase B5 does that).
+import type { State } from '../generated/types/state';
+import { formatBR, latest } from '../lib/series';
+
+const files = import.meta.glob<State>('../generated/entities/state/*.json', { eager: true, import: 'default' });
+const states = Object.values(files).sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
+if (states.length !== 27) throw new Error(`expected 27 state files, found ${states.length}`);
+const rows = states.map((s) => {
+  const last = latest(s.population.values);
+  if (!last) throw new Error(`${s.id}: no population published`);
+  return { id: s.id, name: s.name, year: s.population.years[last.index]!, people: last.value, source: s.population.source };
+});
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Brasil-Imposto (esqueleto Astro)</title>
+  </head>
+  <body data-states={rows.length}>
+    <h1>Brasil-Imposto</h1>
+    <p>Esqueleto do site em Astro (fase B0). População de cada estado, do arquivo de cada entidade.</p>
+    <ul>
+      {rows.map((r) => (
+        <li data-uf={r.id}>
+          {r.name}: {formatBR(r.people)} pessoas em {r.year} (<a href={r.source.url}>{r.source.agency}</a>)
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>
