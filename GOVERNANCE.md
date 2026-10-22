@@ -43,7 +43,7 @@ Declarações dos mantenedores:
 
 | Mantenedor | Filiação partidária | Cargo público |
 |---|---|---|
-| @VitorPChaves | A declarar | A declarar |
+| @VitorPChaves | Nenhuma | Nenhum |
 
 ## Quem pode doar
 
