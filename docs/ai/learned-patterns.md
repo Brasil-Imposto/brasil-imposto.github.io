@@ -210,8 +210,8 @@ Registro do que as sessões de 2026-09-25 a 2026-10-01 (rounds 1 a 11 das prévi
   ele pular. Uma pergunta escondida na primeira linha de uma tabela logo depois de uma lista passou despercebida.
 - Ao acrescentar linhas a uma tabela markdown por script, inserir depois da última linha e conferir que nenhuma linha em branco
   separa as linhas; inserir antes do título seguinte quebrou a tabela de decisões em sete pedaços.
-- Na conversa com o autor (terminal), nada de `<br>` dentro de tabela: o terminal mostra a tag crua (2026-10-04, *"wtf are these
-  <br> ?? are you bugged??"*). Opções de uma célula vão separadas por ponto e vírgula, ou a tabela vira lista.
+- Na conversa com o autor (terminal), nada de `<br>` dentro de tabela: o terminal mostra a tag crua
+  (2026-10-04). Opções de uma célula vão separadas por ponto e vírgula, ou a tabela vira lista.
 
 ### Mudar como um estado aparece: são quatro lugares (2026-10-17, D138)
 O veredito de um estado ("Enviou", "Recebeu", "o que mais envia") e a cor dele saem de quatro fontes, e cada uma precisa
