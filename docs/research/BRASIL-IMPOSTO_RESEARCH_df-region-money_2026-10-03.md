@@ -1,7 +1,7 @@
 # DF por Região Administrativa: dinheiro público e quem decide, por RA
 
 **Coleta:** 2026-10-03. **Regra seguida:** só fonte oficial do GDF, página ou API primária aberta para cada número; o que não abriu está marcado "não confirmado". Nada estimado.
-**Arquivos:** script `data/scripts/df/build_region_money.py`; dados `data/df/region-money.json`.
+**Arquivos:** script `pipelines/df/build_region_money.py`; dados `data/df/region-money.json`.
 **Pedido:** cobrir o DF como SC (cada divisão do mapa com dado de dinheiro e um painel ao clicar), usando só dinheiro público e quem decide.
 
 ## 0. Resumo
@@ -116,7 +116,7 @@ Todas as três fontes do portal informam atualização em **2026-10-02** (`/api/
 ## 8. Como rodar
 
 ```bash
-python3 data/scripts/df/build_region_money.py                    # baixa tudo (cerca de 1.100 chamadas, uns 15 min), pasta temporária apagada no fim
-python3 data/scripts/df/build_region_money.py --rows-cache DIR    # guarda e reaproveita as linhas compactas (cerca de 6 MB para 8 anos)
+python3 pipelines/df/build_region_money.py                    # baixa tudo (cerca de 1.100 chamadas, uns 15 min), pasta temporária apagada no fim
+python3 pipelines/df/build_region_money.py --rows-cache DIR    # guarda e reaproveita as linhas compactas (cerca de 6 MB para 8 anos)
 ```
 O script para com erro se a checagem falhar ou se o controle não falhar. Sem `--rows-cache`, nenhum arquivo baixado fica no disco.

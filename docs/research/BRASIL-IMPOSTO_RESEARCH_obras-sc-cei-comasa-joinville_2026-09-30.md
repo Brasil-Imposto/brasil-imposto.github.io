@@ -1,7 +1,7 @@
 # CEI Manoel Antônio da Rosa (Comasa, Joinville): contrato, pagamentos, responsáveis, achados e comparação
 
 **Data da coleta:** 2026-09-30 (todas as consultas nesta data, salvo indicação)
-**Dados:** `data/works/cei-comasa-joinville.json` (gerado por `data/scripts/works/build_cei_comasa.py`)
+**Dados:** `data/works/cei-comasa-joinville.json` (gerado por `pipelines/works/build_cei_comasa.py`)
 **Fotos:** `docs/superpowers/previews/assets/cases/cei-comasa-joinville/` com `credits.json`
 **Pergunta:** o primeiro "mega CEI" de Joinville custou quanto, a quem foi pago, quem assinou, quem governava, o que os órgãos de controle disseram e quanto isso é perto de creches parecidas.
 **Onde a pesquisa foi feita:** computador nos EUA (IP norte-americano).
@@ -59,7 +59,7 @@ Prazo de execução: 20/03/2024 no original (calculado: o 2º TA acrescenta 4 me
 
 ## 3. Contrato
 
-Fontes: extratos no Diário Oficial Eletrônico do Município de Joinville (PDFs em `joinville.sc.gov.br/public/portaladm/pdf/jornal/`, sem busca textual; lidos edição por edição com `data/scripts/works/joinville_gazette_scan.py`) e a API de contratos do Portal da Transparência (e-Pública), documentada pelo próprio portal.
+Fontes: extratos no Diário Oficial Eletrônico do Município de Joinville (PDFs em `joinville.sc.gov.br/public/portaladm/pdf/jornal/`, sem busca textual; lidos edição por edição com `pipelines/works/joinville_gazette_scan.py`) e a API de contratos do Portal da Transparência (e-Pública), documentada pelo próprio portal.
 
 | Campo | Valor |
 |---|---|
@@ -87,7 +87,7 @@ Os apostilamentos 1º a 3º só incluem dotações ("Fonte 336 - Recursos Super�
 
 ## 4. Pagamentos
 
-Fonte: API de dados abertos do Portal da Transparência de Joinville, `/api/v1/despesa`, um mês por consulta (cerca de 10 MB), de fev/2023 a set/2026, com os movimentos de cada empenho. Script: `data/scripts/works/joinville_payments.py`. Filtro: empenhos com o campo contrato = 366/2023 (11 empenhos em três exercícios).
+Fonte: API de dados abertos do Portal da Transparência de Joinville, `/api/v1/despesa`, um mês por consulta (cerca de 10 MB), de fev/2023 a set/2026, com os movimentos de cada empenho. Script: `pipelines/works/joinville_payments.py`. Filtro: empenhos com o campo contrato = 366/2023 (11 empenhos em três exercícios).
 
 | Ano | Pago à empresa | Retido na fonte | Bruto liquidado |
 |---|---|---|---|
@@ -130,7 +130,7 @@ Sobre **este** contrato: a nota de 2026 cita o CEI do Comasa entre os já inaugu
 
 ## 8. Comparação
 
-**Unidade:** reais de dezembro de 2024 por vaga (capacidade em dois turnos parciais) e por m² construído, pelo **valor de contrato assinado** (antes de aditivos), para comparar igual com igual. Correção pelo IPCA do mês de assinatura até dez/2024 (`data/scripts/works/convert.py`, mesmo método de `data/scripts/bridges/`). Os comparáveis usam o **projeto padrão do FNDE (Proinfância)**, com área e capacidade oficiais: Tipo 1, 1.513,16 m² e "376 alunos (dois turnos)"; Tipo 2, 895,53 m² e "188 alunos (dois turnos)" (manual do FNDE, área "incluindo projeção da cobertura"). Valores de contrato do PNCP.
+**Unidade:** reais de dezembro de 2024 por vaga (capacidade em dois turnos parciais) e por m² construído, pelo **valor de contrato assinado** (antes de aditivos), para comparar igual com igual. Correção pelo IPCA do mês de assinatura até dez/2024 (`pipelines/works/convert.py`, mesmo método de `pipelines/bridges/`). Os comparáveis usam o **projeto padrão do FNDE (Proinfância)**, com área e capacidade oficiais: Tipo 1, 1.513,16 m² e "376 alunos (dois turnos)"; Tipo 2, 895,53 m² e "188 alunos (dois turnos)" (manual do FNDE, área "incluindo projeção da cobertura"). Valores de contrato do PNCP.
 
 | Obra | Contrato (R$) | Mês | R$ dez/2024 | Área (m²) | Vagas | R$ por vaga | R$ por m² | Múltiplo do m² SINAPI da UF |
 |---|---|---|---|---|---|---|---|---|

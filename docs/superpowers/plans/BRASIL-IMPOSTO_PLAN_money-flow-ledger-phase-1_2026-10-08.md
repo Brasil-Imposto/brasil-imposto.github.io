@@ -66,23 +66,23 @@ Python. Nenhum serviço pago.
 
 | Arquivo | O que faz |
 |---|---|
-| `data/scripts/ledger/money.py` | valor exato e centavos inteiros |
-| `data/scripts/ledger/schema.sql` | as tabelas e as três visões das divulgações atuais |
-| `data/scripts/ledger/reference.py` | nós, tipos de fluxo e regras de localização |
-| `data/scripts/ledger/db.py` | abre o armazém, cria o esquema, grava linhas, impressão digital da tabela `flow` |
-| `data/scripts/ledger/registry.py` | busca com SHA-256 em fluxo, limites de disco e de tamanho, registro e substituição de divulgações |
-| `data/scripts/ledger/sources.py` | endereço e identidade de cada fonte da fase 1 |
-| `data/scripts/ledger/rtn_map.py` | o papel de cada linha do RTN (seção 4) |
-| `data/scripts/ledger/load_rtn.py` | carregador do RTN |
-| `data/scripts/ledger/load_sgs.py` | carregador do Banco Central |
-| `data/scripts/ledger/load_dtt_interest.py` | carregador dos juros pagos em dinheiro |
-| `data/scripts/ledger/load_rreo_union.py` | carregador do RREO da União (conferência dos juros pagos) |
-| `data/scripts/ledger/measures.py` | a conta da União refeita a partir do livro |
-| `data/scripts/ledger/guarantees.py` | as garantias 1 a 7 |
-| `data/scripts/ledger/planted.py` | os quatro erros que têm de falhar (garantia 8) |
-| `data/scripts/ledger/build.py` | a construção: carregar, conferir, plantar, publicar, relatar |
-| `data/scripts/ledger/requirements.txt` | versões do DuckDB e do openpyxl |
-| `data/scripts/ledger/tests/` | testes unitários e a lista de códigos do RTN de ago/2026 |
+| `pipelines/ledger/money.py` | valor exato e centavos inteiros |
+| `pipelines/ledger/schema.sql` | as tabelas e as três visões das divulgações atuais |
+| `pipelines/ledger/reference.py` | nós, tipos de fluxo e regras de localização |
+| `pipelines/ledger/db.py` | abre o armazém, cria o esquema, grava linhas, impressão digital da tabela `flow` |
+| `pipelines/ledger/registry.py` | busca com SHA-256 em fluxo, limites de disco e de tamanho, registro e substituição de divulgações |
+| `pipelines/ledger/sources.py` | endereço e identidade de cada fonte da fase 1 |
+| `pipelines/ledger/rtn_map.py` | o papel de cada linha do RTN (seção 4) |
+| `pipelines/ledger/load_rtn.py` | carregador do RTN |
+| `pipelines/ledger/load_sgs.py` | carregador do Banco Central |
+| `pipelines/ledger/load_dtt_interest.py` | carregador dos juros pagos em dinheiro |
+| `pipelines/ledger/load_rreo_union.py` | carregador do RREO da União (conferência dos juros pagos) |
+| `pipelines/ledger/measures.py` | a conta da União refeita a partir do livro |
+| `pipelines/ledger/guarantees.py` | as garantias 1 a 7 |
+| `pipelines/ledger/planted.py` | os quatro erros que têm de falhar (garantia 8) |
+| `pipelines/ledger/build.py` | a construção: carregar, conferir, plantar, publicar, relatar |
+| `pipelines/ledger/requirements.txt` | versões do DuckDB e do openpyxl |
+| `pipelines/ledger/tests/` | testes unitários e a lista de códigos do RTN de ago/2026 |
 | `data/ledger/ledger.duckdb` | o armazém (gerado, fora do git) |
 | `data/ledger/build-report.json` | o relatório de cada construção (gerado) |
 
@@ -267,9 +267,9 @@ Cada código impresso tem um papel só; um código novo numa divulgação futura
 
 ```bash
 /usr/local/bin/python3 -m pip install --user duckdb
-mkdir -p data/scripts/ledger/tests/fixtures data/ledger
-/usr/local/bin/python3 -c "import duckdb, openpyxl; print(f'duckdb=={duckdb.__version__}'); print(f'openpyxl=={openpyxl.__version__}')" > data/scripts/ledger/requirements.txt
-cat data/scripts/ledger/requirements.txt
+mkdir -p pipelines/ledger/tests/fixtures data/ledger
+/usr/local/bin/python3 -c "import duckdb, openpyxl; print(f'duckdb=={duckdb.__version__}'); print(f'openpyxl=={openpyxl.__version__}')" > pipelines/ledger/requirements.txt
+cat pipelines/ledger/requirements.txt
 ```
 
 Esperado: duas linhas, `duckdb==<versão>` e `openpyxl==3.1.5`.
@@ -279,17 +279,17 @@ Esperado: duas linhas, `duckdb==<versão>` e `openpyxl==3.1.5`.
 ```
 data/ledger/ledger.duckdb
 data/ledger/ledger.duckdb.wal
-data/scripts/ledger/__pycache__/
-data/scripts/ledger/tests/__pycache__/
+pipelines/ledger/__pycache__/
+pipelines/ledger/tests/__pycache__/
 ```
 
 ## Tarefa 1: dinheiro em centavos
 
-**Arquivos:** criar `data/scripts/ledger/money.py` e `data/scripts/ledger/tests/test_money.py`.
+**Arquivos:** criar `pipelines/ledger/money.py` e `pipelines/ledger/tests/test_money.py`.
 
 - [ ] **Passo 1: escrever o teste.**
 
-`data/scripts/ledger/tests/test_money.py`
+`pipelines/ledger/tests/test_money.py`
 
 ```python
 import sys
@@ -322,10 +322,10 @@ if __name__ == "__main__":
     unittest.main()
 ```
 
-- [ ] **Passo 2: rodar e ver falhar.** `/usr/local/bin/python3 -m unittest discover -s data/scripts/ledger/tests -p 'test_money.py' -v`. Esperado: `ModuleNotFoundError: No module named 'money'`.
+- [ ] **Passo 2: rodar e ver falhar.** `/usr/local/bin/python3 -m unittest discover -s pipelines/ledger/tests -p 'test_money.py' -v`. Esperado: `ModuleNotFoundError: No module named 'money'`.
 - [ ] **Passo 3: escrever o código.**
 
-`data/scripts/ledger/money.py`
+`pipelines/ledger/money.py`
 
 ```python
 """Money helpers: exact decimal values and integer cents, never floating point (spec 4.2)."""
@@ -361,11 +361,11 @@ def to_cents(reais):
 
 ## Tarefa 2: esquema, nós, tipos e regras
 
-**Arquivos:** criar `schema.sql`, `reference.py`, `db.py` e `tests/test_schema.py` em `data/scripts/ledger/`.
+**Arquivos:** criar `schema.sql`, `reference.py`, `db.py` e `tests/test_schema.py` em `pipelines/ledger/`.
 
 - [ ] **Passo 1: escrever o teste.** Ele prova que iniciar duas vezes não duplica nada, que a tabela `flow` recusa origem igual ao destino e nó desconhecido, e que uma linha de referência alterada no lugar para a construção.
 
-`data/scripts/ledger/tests/test_schema.py`
+`pipelines/ledger/tests/test_schema.py`
 
 ```python
 import sys
@@ -416,10 +416,10 @@ if __name__ == "__main__":
     unittest.main()
 ```
 
-- [ ] **Passo 2: rodar e ver falhar.** `/usr/local/bin/python3 -m unittest discover -s data/scripts/ledger/tests -p 'test_schema.py' -v`. Esperado: `No module named 'db'`.
+- [ ] **Passo 2: rodar e ver falhar.** `/usr/local/bin/python3 -m unittest discover -s pipelines/ledger/tests -p 'test_schema.py' -v`. Esperado: `No module named 'db'`.
 - [ ] **Passo 3: escrever o esquema.**
 
-`data/scripts/ledger/schema.sql`
+`pipelines/ledger/schema.sql`
 
 ```sql
 -- Money-flow ledger, phase 1 (spec: docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_money-flow-ledger_2026-10-08.md).
@@ -522,7 +522,7 @@ CREATE OR REPLACE VIEW cur_internal AS
 
 - [ ] **Passo 4: escrever a referência.** 86 nós: a União, `gov:sub:br`, `soc:br`, `soc:unknown` (D127), os credores, o exterior, 27 governos estaduais, 26 conjuntos de prefeituras (o DF é estado e município ao mesmo tempo) e 27 sociedades estaduais.
 
-`data/scripts/ledger/reference.py`
+`pipelines/ledger/reference.py`
 
 ```python
 """Reference rows of the ledger: nodes, flow types and allocation rules (spec 4.1, 4.3 and 4.4).
@@ -596,7 +596,7 @@ def seed(con):
 
 - [ ] **Passo 5: escrever a abertura do armazém.**
 
-`data/scripts/ledger/db.py`
+`pipelines/ledger/db.py`
 
 ```python
 """Open the ledger warehouse (one DuckDB file) with the schema and the reference rows in place. Idempotent."""
@@ -666,7 +666,7 @@ def fingerprint(con, table="flow"):
 
 - [ ] **Passo 1: escrever o teste.** Usa um arquivo local por `file://`: o hash bate, o arquivo some no fim, um arquivo acima do limite para, pouco disco para antes de baixar, o mesmo arquivo duas vezes é uma divulgação só, e um arquivo diferente substitui o anterior.
 
-`data/scripts/ledger/tests/test_registry.py`
+`pipelines/ledger/tests/test_registry.py`
 
 ```python
 import hashlib
@@ -731,7 +731,7 @@ if __name__ == "__main__":
 - [ ] **Passo 2: rodar e ver falhar.** `-p 'test_registry.py'`. Esperado: `No module named 'registry'`.
 - [ ] **Passo 3: escrever o cadastro.**
 
-`data/scripts/ledger/registry.py`
+`pipelines/ledger/registry.py`
 
 ```python
 """Source registry (spec 4.5): fetch a source once, hash it while it streams, record the release.
@@ -859,7 +859,7 @@ def register(con, dataset, fx, *, title, publisher, loader, url=None, page_url=N
 ```bash
 /usr/local/bin/python3 - <<'PY'
 import json, re, openpyxl
-wb = openpyxl.load_workbook("data/scripts/series/cache/union/serie_historica_ago26.xlsx", read_only=True, data_only=True)
+wb = openpyxl.load_workbook("pipelines/series/cache/union/serie_historica_ago26.xlsx", read_only=True, data_only=True)
 rows = list(wb["1.2"].iter_rows(values_only=True))
 codes, memo, section = [], [], "lines"
 for r in rows[5:]:
@@ -876,7 +876,7 @@ for r in rows[5:]:
     else:
         memo.append(label)
 json.dump({"source": "RTN serie_historica_ago26.xlsx, Tabela 1.2", "codes": codes, "memo": memo},
-          open("data/scripts/ledger/tests/fixtures/rtn-t12-codes-ago26.json", "w"), ensure_ascii=False, indent=0)
+          open("pipelines/ledger/tests/fixtures/rtn-t12-codes-ago26.json", "w"), ensure_ascii=False, indent=0)
 print(len(codes), "codes,", len(memo), "memo lines")
 PY
 ```
@@ -885,7 +885,7 @@ Esperado: `159 codes, 8 memo lines`.
 
 - [ ] **Passo 2: escrever o teste.** Todo código impresso tem exatamente um papel; todo tipo, nó e regra existe; entre dois governos é sempre repasse e repasse é sempre entre governos.
 
-`data/scripts/ledger/tests/test_rtn_map.py`
+`pipelines/ledger/tests/test_rtn_map.py`
 
 ```python
 import json
@@ -941,7 +941,7 @@ if __name__ == "__main__":
 - [ ] **Passo 3: rodar e ver falhar.** `-p 'test_rtn_map.py'`. Esperado: `No module named 'rtn_map'`.
 - [ ] **Passo 4: escrever as fontes.**
 
-`data/scripts/ledger/sources.py`
+`pipelines/ledger/sources.py`
 
 ```python
 """The phase-1 sources: where each one lives and what it measures (spec section 9, D121)."""
@@ -1009,7 +1009,7 @@ def rreo_bimesters():
 
 - [ ] **Passo 5: escrever o mapa** (é a seção 4 deste plano em código).
 
-`data/scripts/ledger/rtn_map.py`
+`pipelines/ledger/rtn_map.py`
 
 ```python
 """How each line of the RTN Tabela 1.2 becomes ledger rows (spec 4.3 and 4.4, phase 1).
@@ -1152,13 +1152,13 @@ def under(key, line):
 
 - [ ] **Passo 1: escrever o carregador.**
 
-`data/scripts/ledger/load_rtn.py`
+`pipelines/ledger/load_rtn.py`
 
 ```python
 """Load the RTN Tabela 1.2 (Governo Central, monthly, R$ milhões) into the ledger: every printed line as a
 published_line, the money lines as flows (rtn_map.py), the União's payments to itself as internal_flow.
 
-Usage: /usr/local/bin/python3 data/scripts/ledger/load_rtn.py
+Usage: /usr/local/bin/python3 pipelines/ledger/load_rtn.py
 The file is read once from the Tesouro, hashed while it streams and deleted at the end (registry.fetch)."""
 import hashlib
 import re
@@ -1280,12 +1280,12 @@ if __name__ == "__main__":
     run(db.connect())
 ```
 
-- [ ] **Passo 2: rodar.** `/usr/local/bin/python3 data/scripts/ledger/load_rtn.py`. Esperado: uma linha `rtn {... 'new': True ...}` com o SHA-256 e cerca de 4,3 MB.
+- [ ] **Passo 2: rodar.** `/usr/local/bin/python3 pipelines/ledger/load_rtn.py`. Esperado: uma linha `rtn {... 'new': True ...}` com o SHA-256 e cerca de 4,3 MB.
 - [ ] **Passo 3: conferir o que entrou.**
 
 ```bash
 /usr/local/bin/python3 - <<'PY'
-import sys; sys.path.insert(0, "data/scripts/ledger")
+import sys; sys.path.insert(0, "pipelines/ledger")
 import db
 con = db.connect()
 for t in ("published_line", "flow_stage", "internal_flow", "source_release"):
@@ -1304,13 +1304,13 @@ Esperado: `published_line 16008` (159 linhas, 8 de memorando e 7 derivadas, veze
 
 - [ ] **Passo 1: escrever o carregador.** Antes de ler os valores, confere o nome oficial de cada série no serviço do SGS.
 
-`data/scripts/ledger/load_sgs.py`
+`pipelines/ledger/load_sgs.py`
 
 ```python
 """Load the Banco Central's NFSP series for the Governo Central (SGS 4606, 4639 and 4573): the independent check of
 RTN lines 9, 8 and 10 (interest by accrual, D121). Stored as published lines only; they are not flows.
 
-Usage: /usr/local/bin/python3 data/scripts/ledger/load_sgs.py"""
+Usage: /usr/local/bin/python3 pipelines/ledger/load_sgs.py"""
 import calendar
 import html
 import json
@@ -1390,7 +1390,7 @@ if __name__ == "__main__":
     run(db.connect())
 ```
 
-- [ ] **Passo 2: rodar.** `/usr/local/bin/python3 data/scripts/ledger/load_sgs.py`. Esperado: três linhas `sgs {...}`, e 276 linhas novas em `published_line` (3 séries vezes 92 meses).
+- [ ] **Passo 2: rodar.** `/usr/local/bin/python3 pipelines/ledger/load_sgs.py`. Esperado: três linhas `sgs {...}`, e 276 linhas novas em `published_line` (3 séries vezes 92 meses).
 
 ## Tarefa 7: carregador dos juros pagos em dinheiro
 
@@ -1398,13 +1398,13 @@ if __name__ == "__main__":
 
 - [ ] **Passo 1: escrever o carregador.**
 
-`data/scripts/ledger/load_dtt_interest.py`
+`pipelines/ledger/load_dtt_interest.py`
 
 ```python
 """Load the interest the União paid in cash (D121): Tesouro, base "Despesas e Transferências Totais da União",
 grupo de natureza de despesa 2 (Juros e Encargos da Dívida), by month, one year file at a time.
 
-Usage: /usr/local/bin/python3 data/scripts/ledger/load_dtt_interest.py [YEAR ...]
+Usage: /usr/local/bin/python3 pipelines/ledger/load_dtt_interest.py [YEAR ...]
 Each file (23 to 38 MB) is read once, hashed while it streams, summed and deleted before the next one starts.
 The money the Tesouro passes to the Banco Central (action 0669) and intra-budget payments stay inside the União:
 internal_flow, never a flow to the creditors."""
@@ -1520,7 +1520,7 @@ if __name__ == "__main__":
 ```bash
 for y in 2019 2020 2021 2022 2023 2024 2025 2026; do
   df -h ~ | tail -1
-  /usr/local/bin/python3 data/scripts/ledger/load_dtt_interest.py $y || break
+  /usr/local/bin/python3 pipelines/ledger/load_dtt_interest.py $y || break
 done
 ls /var/folders/*/*/T/ 2>/dev/null | grep -c bi-ledger
 ```
@@ -1533,13 +1533,13 @@ Esperado: oito linhas `dtt {...}` com arquivos de 23 a 38 MB e, no fim, `0` (nen
 
 - [ ] **Passo 1: escrever o carregador.**
 
-`data/scripts/ledger/load_rreo_union.py`
+`pipelines/ledger/load_rreo_union.py`
 
 ```python
 """Load the União's RREO Anexo 1 from SICONFI: 'Juros e Encargos da Dívida', despesas pagas até o bimestre.
 It is the independent total the cash interest of the DTT base must match, to the cent (guarantee 3).
 
-Usage: /usr/local/bin/python3 data/scripts/ledger/load_rreo_union.py"""
+Usage: /usr/local/bin/python3 pipelines/ledger/load_rreo_union.py"""
 import json
 import time
 from datetime import date
@@ -1587,7 +1587,7 @@ if __name__ == "__main__":
     run(db.connect())
 ```
 
-- [ ] **Passo 2: rodar.** `/usr/local/bin/python3 data/scripts/ledger/load_rreo_union.py`. Esperado: `rreo 46 bimesters, 46 new` (seis por ano de 2019 a 2025 e quatro em 2026).
+- [ ] **Passo 2: rodar.** `/usr/local/bin/python3 pipelines/ledger/load_rreo_union.py`. Esperado: `rreo 46 bimesters, 46 new` (seis por ano de 2019 a 2025 e quatro em 2026).
 
 ## Tarefa 9: medidas e garantias
 
@@ -1595,7 +1595,7 @@ if __name__ == "__main__":
 
 - [ ] **Passo 1: escrever o teste.** Um livro mínimo de duas linhas passa em tudo; cada garantia pega o erro feito para ela; e a regra do RREO (D122) aceita só o que a decisão aceita.
 
-`data/scripts/ledger/tests/test_guarantees.py`
+`pipelines/ledger/tests/test_guarantees.py`
 
 ```python
 import sys
@@ -1690,7 +1690,7 @@ if __name__ == "__main__":
 - [ ] **Passo 2: rodar e ver falhar.** `-p 'test_guarantees.py'`. Esperado: `No module named 'guarantees'`.
 - [ ] **Passo 3: escrever as medidas.** A conta da União sai daqui: cada linha do RTN refeita a partir dos fluxos.
 
-`data/scripts/ledger/measures.py`
+`pipelines/ledger/measures.py`
 
 ```python
 """Measures: every number on screen is a sum over the ledger (spec section 5). Phase 1 has the União account: the RTN
@@ -1754,7 +1754,7 @@ def union_account(con, flow):
 
 - [ ] **Passo 4: escrever as garantias.**
 
-`data/scripts/ledger/guarantees.py`
+`pipelines/ledger/guarantees.py`
 
 ```python
 """The guarantees of spec section 6. Each check returns a Result; build.py publishes only when every one is ok and
@@ -1991,7 +1991,7 @@ def run_all(con, flow):
     return [g(con, flow) for g in ALL]
 ```
 
-- [ ] **Passo 5: rodar todos os testes.** `/usr/local/bin/python3 -m unittest discover -s data/scripts/ledger/tests -v`. Esperado: `Ran 29 tests ... OK`.
+- [ ] **Passo 5: rodar todos os testes.** `/usr/local/bin/python3 -m unittest discover -s pipelines/ledger/tests -v`. Esperado: `Ran 29 tests ... OK`.
 
 ## Tarefa 10: os erros que têm de falhar
 
@@ -1999,7 +1999,7 @@ def run_all(con, flow):
 
 - [ ] **Passo 1: escrever os erros plantados.** Cada um mexe numa linha real do mês mais recente, numa cópia; a tabela de verdade não é tocada.
 
-`data/scripts/ledger/planted.py`
+`pipelines/ledger/planted.py`
 
 ```python
 """The four errors that must fail (spec 6, guarantee 8): each is planted in a copy of the candidate flows, every
@@ -2050,13 +2050,13 @@ def run(con, check, src="cand_flow"):
 
 - [ ] **Passo 1: escrever a construção.**
 
-`data/scripts/ledger/build.py`
+`pipelines/ledger/build.py`
 
 ```python
 """Build the money-flow ledger, phase 1: load every source, check the guarantees, prove the planted errors fail, and
 only then publish the flows. When any step fails, nothing is published and `flow` keeps the last good build.
 
-Usage: /usr/local/bin/python3 data/scripts/ledger/build.py [--skip-load] [--control]
+Usage: /usr/local/bin/python3 pipelines/ledger/build.py [--skip-load] [--control]
   --skip-load  use the releases already in the warehouse (no download)
   --control    flip the sign of one real flow before the checks: the build must stop and leave `flow` as it was
 Writes data/ledger/build-report.json and one row in build_run."""
@@ -2179,9 +2179,9 @@ if __name__ == "__main__":
     sys.exit(main(sys.argv[1:]))
 ```
 
-- [ ] **Passo 2: construir com o que já foi carregado.** `/usr/local/bin/python3 data/scripts/ledger/build.py --skip-load`. Esperado: sete linhas `ok`, quatro linhas `caught`, e `published | flows <8.281 mais os juros pagos> | db <tamanho> bytes`. Os erros plantados têm de ser pegos assim: linha duplicada por G1, G3, G4 e G5; linha apagada por G3, G4 e G5; sinal trocado por G3, G4 e G5; par separado por G6.
-- [ ] **Passo 3: provar que a construção para.** `/usr/local/bin/python3 data/scripts/ledger/build.py --skip-load --control; echo "exit $?"`. Esperado: linhas `FAIL`, os quatro erros plantados ainda pegos, `stopped` e `exit 1`; no relatório, `flow_before` igual a `flow_after` (a tabela publicada não mudou). O controle troca o sinal de uma linha fora dos alvos plantados (1.1.03.3.1, IRRF do trabalho).
-- [ ] **Passo 4: a construção completa, buscando tudo de novo.** `/usr/local/bin/python3 data/scripts/ledger/build.py; echo "exit $?"`. Esperado: toda carga com `'new': False` (as mesmas divulgações), `published`, `exit 0`, e a impressão digital da tabela `flow` igual à do passo 2.
+- [ ] **Passo 2: construir com o que já foi carregado.** `/usr/local/bin/python3 pipelines/ledger/build.py --skip-load`. Esperado: sete linhas `ok`, quatro linhas `caught`, e `published | flows <8.281 mais os juros pagos> | db <tamanho> bytes`. Os erros plantados têm de ser pegos assim: linha duplicada por G1, G3, G4 e G5; linha apagada por G3, G4 e G5; sinal trocado por G3, G4 e G5; par separado por G6.
+- [ ] **Passo 3: provar que a construção para.** `/usr/local/bin/python3 pipelines/ledger/build.py --skip-load --control; echo "exit $?"`. Esperado: linhas `FAIL`, os quatro erros plantados ainda pegos, `stopped` e `exit 1`; no relatório, `flow_before` igual a `flow_after` (a tabela publicada não mudou). O controle troca o sinal de uma linha fora dos alvos plantados (1.1.03.3.1, IRRF do trabalho).
+- [ ] **Passo 4: a construção completa, buscando tudo de novo.** `/usr/local/bin/python3 pipelines/ledger/build.py; echo "exit $?"`. Esperado: toda carga com `'new': False` (as mesmas divulgações), `published`, `exit 0`, e a impressão digital da tabela `flow` igual à do passo 2.
 - [ ] **Passo 5: tempo e tamanho** (spec, seção 7). Anotar do relatório os segundos da construção completa e os bytes do armazém.
 
 ## Tarefa 12: relatório ao autor e registros

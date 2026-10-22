@@ -27,7 +27,7 @@
   "verified_on": "2026-10-01",
   "note": "As fotos oficiais sao servidas pelo portal senado.leg.br (URL informada pela API). A API nao informa o fotografo de cada retrato; o credito exigido e a fonte 'Senado Federal'. Nao foi encontrada licenca Creative Commons declarada para estas fotos."
  },
- "build_script": "data/scripts/politicians/build_senators.py",
+ "build_script": "pipelines/politicians/build_senators.py",
  "counts": {
   "persons": 157,
   "terms": 163,

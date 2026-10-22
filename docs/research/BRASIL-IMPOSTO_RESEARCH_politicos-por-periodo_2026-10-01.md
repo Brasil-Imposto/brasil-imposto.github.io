@@ -1,6 +1,6 @@
 # Políticos por período: quem ocupava cada cargo, 2019 a 2026
 
-> **Nota de 2026-10-14:** `build_sc_mayors.py` virou `data/scripts/politicians/build_mayors.py --uf SC` (D71).
+> **Nota de 2026-10-14:** `build_sc_mayors.py` virou `pipelines/politicians/build_mayors.py --uf SC` (D71).
 
 Coleta: 2026-10-01. Objetivo: para qualquer período que o usuário escolher no site (mês, ano ou mandato de 4 anos, de 2019-01 a 2026-10), mostrar quem ocupava cada cargo, com o partido na época e uma fonte para cada fato. Linguagem neutra: só cargos, datas, partidos e atos. Nada sobre candidaturas ou resultados das eleições de 2026.
 
@@ -8,12 +8,12 @@ Coleta: 2026-10-01. Objetivo: para qualquer período que o usuário escolher no 
 
 | Arquivo | Conteúdo | Script |
 |---|---|---|
-| `data/politicians/union.json` | Presidente, Vice-Presidente e ministro da área econômica (Economia 2019 a 2022, Fazenda desde 2023) | `data/scripts/politicians/build_union.py` |
-| `data/politicians/governors.json` | Governadores e vices das 27 UFs, com substituições | `data/scripts/politicians/build_governors.py` e `governors_curated/<UF>.json` |
-| `data/politicians/senators.json` | Senadores em exercício desde 2019-02-01, titulares e suplentes | `data/scripts/politicians/build_senators.py` |
-| `data/politicians/federal-deputies.json` | Deputados federais em exercício nas legislaturas 56 e 57 | `data/scripts/politicians/build_federal_deputies.py` |
-| `data/politicians/state-deputies.json` | Deputados estaduais e distritais **eleitos** em 2018 e 2022 | `data/scripts/politicians/build_state_deputies.py` |
-| `data/politicians/sc-mayors.json` | Prefeitos e vices **eleitos** em SC em 2020 e 2024, com código IBGE | `data/scripts/politicians/build_sc_mayors.py` |
+| `data/politicians/union.json` | Presidente, Vice-Presidente e ministro da área econômica (Economia 2019 a 2022, Fazenda desde 2023) | `pipelines/politicians/build_union.py` |
+| `data/politicians/governors.json` | Governadores e vices das 27 UFs, com substituições | `pipelines/politicians/build_governors.py` e `governors_curated/<UF>.json` |
+| `data/politicians/senators.json` | Senadores em exercício desde 2019-02-01, titulares e suplentes | `pipelines/politicians/build_senators.py` |
+| `data/politicians/federal-deputies.json` | Deputados federais em exercício nas legislaturas 56 e 57 | `pipelines/politicians/build_federal_deputies.py` |
+| `data/politicians/state-deputies.json` | Deputados estaduais e distritais **eleitos** em 2018 e 2022 | `pipelines/politicians/build_state_deputies.py` |
+| `data/politicians/sc-mayors.json` | Prefeitos e vices **eleitos** em SC em 2020 e 2024, com código IBGE | `pipelines/politicians/build_sc_mayors.py` |
 
 Módulos comuns: `tse_common.py` (lê o cadastro de candidaturas do TSE) e `commons_photos.py` (foto, autor e licença no Wikimedia Commons).
 
@@ -21,7 +21,7 @@ Como rodar (nenhuma chave, nenhum login; os downloads ficam fora do repositório
 
 ```bash
 export POLITICIANS_WORK=/tmp/politicians-work
-cd ~/Documents/Brasil-Imposto/data/scripts/politicians
+cd ~/Documents/Brasil-Imposto/pipelines/politicians
 python3 build_union.py
 python3 build_governors.py
 python3 build_senators.py
@@ -64,7 +64,7 @@ Achados e ressalvas:
 ### Método
 
 1. **Eleitos:** governador e vice eleitos em 2018 e 2022 em cada UF, do cadastro de candidaturas do TSE (`DS_SIT_TOT_TURNO = ELEITO`, 54 por eleição), com nome completo e partido na eleição. Datas do mandato pela CF, art. 28 (posse em 1º de janeiro).
-2. **Substituições:** pista inicial nas listas de governadores e vices da Wikipédia em português (só como pista, nunca como fonte; vários erros encontrados, ver abaixo), depois cada mudança procurada em fonte oficial: assembleia legislativa, governo do estado, Diário Oficial, STJ, STF, TSE. Os mandatos conferidos ficam em `data/scripts/politicians/governors_curated/<UF>.json`, um arquivo por UF, com a fonte e a frase-chave de cada data.
+2. **Substituições:** pista inicial nas listas de governadores e vices da Wikipédia em português (só como pista, nunca como fonte; vários erros encontrados, ver abaixo), depois cada mudança procurada em fonte oficial: assembleia legislativa, governo do estado, Diário Oficial, STJ, STF, TSE. Os mandatos conferidos ficam em `pipelines/politicians/governors_curated/<UF>.json`, um arquivo por UF, com a fonte e a frase-chave de cada data.
 3. **Conferência automática:** `build_governors.py` cruza cada mandato "eleito" com o TSE (nome e partido) e acusa eleito ausente ou partido divergente (`checks.tse_cross_check_problems`, vazio na versão entregue).
 4. **Partido:** `party_at_start` no mandato; em cada pessoa, `party_observations` traz o partido de cada registro de candidatura no TSE em 2018 e 2022, datado pela eleição. Trocas de partido no meio do mandato só aparecem com data quando uma fonte oficial a dá (exemplo: SC, Carlos Moisés, PSL para Republicanos em março de 2022, pela biografia da Alesc).
 5. **Fotos:** imagem principal do verbete da Wikipédia em português, com licença e autor lidos no Commons. Para evitar homônimos, a foto só entra se o item do Wikidata da pessoa aparece como governador ou vice de uma UF com mandato desde 2019 (consulta SPARQL no Wikidata) ou se a descrição menciona o cargo. Esse filtro derrubou uma foto errada: o verbete "Wilson Lima" é de outro político (nascido em 1953), não do governador do Amazonas.
@@ -149,7 +149,7 @@ Entram as mudanças de quem exerce o cargo: renúncias (abril de 2022, março e 
 ## Senadores e deputados federais (coleta de 2026-10-01)
 
 Arquivos: `data/politicians/senators.json` e `data/politicians/federal-deputies.json`.
-Scripts: `data/scripts/politicians/build_senators.py` e `data/scripts/politicians/build_federal_deputies.py`
+Scripts: `pipelines/politicians/build_senators.py` e `pipelines/politicians/build_federal_deputies.py`
 (Python 3, só biblioteca padrão; cache das respostas brutas em `$POLITICIANS_WORK/api/senado/` e `$POLITICIANS_WORK/api/camara/`;
 data de coleta fixável com `POLITICIANS_COLLECTED_ON=2026-10-01`). Janela: 2019-02-01 a 2026-10-01.
 Não há nada sobre candidaturas nem resultados eleitorais.
@@ -252,8 +252,8 @@ Coleta em 2026-10-01. Os dois arquivos registram **eleitos**, não **em exercíc
 
 | Arquivo | Script |
 |---|---|
-| `data/politicians/sc-mayors.json` | `data/scripts/politicians/build_sc_mayors.py` |
-| `data/politicians/state-deputies.json` | `data/scripts/politicians/build_state_deputies.py` |
+| `data/politicians/sc-mayors.json` | `pipelines/politicians/build_sc_mayors.py` |
+| `data/politicians/state-deputies.json` | `pipelines/politicians/build_state_deputies.py` |
 
 Os dois scripts usam só a biblioteca padrão do Python 3 e reaproveitam `tse_common.py` (`iter_rows`, `br_date`, `TSE_CAND_URL`, `ELECTED`, `WORK`) sem alterá-lo. Rodar com `POLITICIANS_WORK=<dir> python3 <script>`.
 

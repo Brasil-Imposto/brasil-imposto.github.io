@@ -1226,7 +1226,7 @@
    "brl_rule": "Valores em BRL: correção pelo IPCA do mês-base do preço (ou do mês do gasto) até dez/2024.",
    "fx_method": "amount_LCU * (BRL por USD / LCU por USD) do ano do gasto * IPCA dez/2024 / média anual do IPCA do ano do gasto",
    "ppp_method": "amount_LCU * (fator PPP do Brasil / fator PPP do país) do ano do gasto * IPCA dez/2024 / média anual do IPCA do ano do gasto",
-   "same_as": "data/scripts/bridges/build.py (mesmas fontes e fórmulas)",
+   "same_as": "pipelines/bridges/build.py (mesmas fontes e fórmulas)",
    "ipca": {
     "source": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/all?formato=json",
     "table": "SIDRA 1737, variável 2266, número-índice (dez/1993 = 100)",

@@ -3,7 +3,7 @@
 **Data da coleta:** 2026-10-06 (todas as consultas nesta data, salvo indicação)
 **Pergunta:** o que é o Contorno, o que o contrato de concessão de 2008 pedia e quando, quando cada trecho abriu e por que atrasou, quanto custou segundo os documentos oficiais, quem paga (pedágio ou imposto), o que os órgãos de controle disseram, e quanto custa por km em comparação com obras parecidas.
 **Pistas do autor (D100):** "superfaturado" (palavra dele) e a afirmação de que a obra teve muitos atrasos e levou muitos anos a mais do que devia (tradução da mensagem dele). Tratadas como pistas e conferidas nos documentos (seção 9).
-**Dados:** `data/works/florianopolis-bypass.json`. **Script:** `data/scripts/works/build_florianopolis_bypass.py`.
+**Dados:** `data/works/florianopolis-bypass.json`. **Script:** `pipelines/works/build_florianopolis_bypass.py`.
 
 ## Regras desta pesquisa
 
@@ -273,7 +273,7 @@ Todas as consultas em 2026-10-06, de um computador fora do Brasil.
 ## 13. Como reproduzir
 
 ```bash
-W=$(mktemp -d); S=~/Documents/Brasil-Imposto/data/scripts/works
+W=$(mktemp -d); S=~/Documents/Brasil-Imposto/pipelines/works
 python3 $S/build_florianopolis_bypass.py $W --fetch     # TCU, ANTT, DFP, SIOP, IBGE, CVM, CNPJ.ws, TSE, Commons (cerca de 5 MB depois de converter os PDFs em texto)
 python3 $S/build_florianopolis_bypass.py $W             # 18 checagens; grava data/works/florianopolis-bypass.json
 python3 $S/build_florianopolis_bypass.py $W --control   # planta R$ 500 no Quadro 1 do TA 002/2020: tem de falhar e não gravar

@@ -2,7 +2,7 @@
 
 > **Atualização de 2026-10-14:** o total pago da ponte Hercílio Luz passou a R$ 507.319.980,20 (2006 a 2020) com a 1ª etapa, PJ 015/2006, lida na CPI (auditoria A1, aplicada em `data/complete-totals-2026-10-06.json`). Os R$ 483.404.916,67 abaixo são o valor desta coleta.
 
-Coleta: 06/10/2026. Serve à decisão D100 (nada de "a conferir" na tela) e a D91, D93 e D95 (primeiro número de cada caso é o total gasto completo, com fonte). Dados: `data/complete-totals-2026-10-06.json`. Scripts: `data/scripts/complete_totals/`.
+Coleta: 06/10/2026. Serve à decisão D100 (nada de "a conferir" na tela) e a D91, D93 e D95 (primeiro número de cada caso é o total gasto completo, com fonte). Dados: `data/complete-totals-2026-10-06.json`. Scripts: `pipelines/complete_totals/`.
 
 Regra: só fonte oficial e primária, com a frase do órgão (nas citações, o travessão dos títulos originais foi trocado por hífen). Toda soma confere ao centavo com o total oficial, e cada script tem um `--control` que planta um erro e tem de falhar.
 
@@ -64,7 +64,7 @@ Regra: só fonte oficial e primária, com a frase do órgão (nas citações, o 
 
 **Sobre os "R$ 19,4 milhões" do TCE-SC.** A notícia do TCE-SC de 19/10/2015 sobre o processo RLA-12/00285490 (https://www.tcesc.tc.br/tcesc-inicia-julgamento-do-processo-que-trata-de-contratos-para-restauracao-e-supervisao-das-0) diz que "ao consórcio responsável pela supervisão da obra haviam sido pagos R$ 19,4 milhões". Esse número não bate com os pagamentos (R$ 15,27 milhões no total, pela CPI e pelo Portal); bate com o valor do contrato com os aditivos de 2010 e 2012 (R$ 9.811.282,66 + R$ 5.158.436,86 + R$ 4.466.623,62 = R$ 19.436.343,14, extrato SICOP). Fica fora da conta.
 
-Checagens: `data/scripts/complete_totals/ponte_supervision_cpi.py` (lê as tabelas da CPI, confere total e coluna do mês ao centavo, compara com o Portal; `--control` soma R$ 0,01 a um pagamento e falha: "Prosul: payments 9160234.17 != TOTAL 9160234.16") e `data/scripts/complete_totals/bridge_complete_total.py` (total dos 13 contratos em duas passadas, Decimal e centavos inteiros; `--control` falha: "pass 1 483404916.68 != pass 2 483404916.67").
+Checagens: `pipelines/complete_totals/ponte_supervision_cpi.py` (lê as tabelas da CPI, confere total e coluna do mês ao centavo, compara com o Portal; `--control` soma R$ 0,01 a um pagamento e falha: "Prosul: payments 9160234.17 != TOTAL 9160234.16") e `pipelines/complete_totals/bridge_complete_total.py` (total dos 13 contratos em duas passadas, Decimal e centavos inteiros; `--control` falha: "pass 1 483404916.68 != pass 2 483404916.67").
 
 ## 2. Linha 17-Ouro: total pago ou investido até hoje
 
@@ -101,7 +101,7 @@ Checagens: `data/scripts/complete_totals/ponte_supervision_cpi.py` (lê as tabel
 - Relatório da Administração 2011 ("Balanço 2011 - CMSP - Dados finais publicados no jornal"), "Quadro Comparativo dos Recursos Financeiros - 2011/2010", "Linha 17 Ouro - São Judas - Congonhas - Jabaquara - Morumbi 46,7 0,2" (cópia do Internet Archive de 01/11/2012; o arquivo é digitalizado e a coluna da expansão soma 650,5 e 1.067,2, como impresso): https://web.archive.org/web/20121101150948/http://www.metro.sp.gov.br/metro/institucional/pdf/rel-administracao.pdf
 - Relatórios de Administração 2015 e 2016 ("Quadro Comparativo dos Recursos Financeiros"): https://transparencia.metrosp.com.br/node/210/download e https://transparencia.metrosp.com.br/node/694/download
 
-**Conferências.** `data/scripts/complete_totals/metro_line17_total.py`: para cada ano, as linhas transcritas da mesma tabela ou gráfico somam o total impresso (dentro de uma unidade impressa), o que pega valor lido na linha errada; onde há segunda fonte do Metrô, as duas batem (diferenças acima de uma unidade só em 2020, R$ 22 mil); a soma da Linha 17 sai igual em duas passadas; `--control` soma R$ 11 mil ao valor de 2018 e falha ("2018: lines 1710711 vs printed total 1710700").
+**Conferências.** `pipelines/complete_totals/metro_line17_total.py`: para cada ano, as linhas transcritas da mesma tabela ou gráfico somam o total impresso (dentro de uma unidade impressa), o que pega valor lido na linha errada; onde há segunda fonte do Metrô, as duas batem (diferenças acima de uma unidade só em 2020, R$ 22 mil); a soma da Linha 17 sai igual em duas passadas; `--control` soma R$ 11 mil ao valor de 2018 e falha ("2018: lines 1710711 vs printed total 1710700").
 
 **Ressalvas.**
 - 2022: o Acompanhamento de dezembro de 2022 (emitido em 09/01/2023) mostra R$ 173.416 mil realizados na Linha 17; os Relatórios Integrados de 2023 e de 2025 mostram R$ 206,02 mi. Todas as linhas de 2022 diferem entre esses documentos, e nenhum deles diz por quê; foi usado o valor publicado depois, duas vezes.
@@ -128,7 +128,7 @@ O que esse número inclui, pelas Notas Explicativas da DFP 2025 (página 85 de 1
 
 **Como usar no cartão (proposta).** Primeiro número: "Investimento total R$ 229 mi (realizado até dez/2025, Relatório da Administração da Casan)". Detalhes: "faturado, sem reajustes: R$ 160,4 mi até set/2026 (tabela de obras da Casan)"; "consumido no SAP: R$ 203,4 mi (06/10/2026; a Casan não diz que é pago)". O valor de R$ 229 mi é da obra de ampliação do SES Insular inteira, nome que a própria Casan usa para a mesma obra da tabela de obras ("SES Insular - Ampliação ETE e Bacias D/F"), e já supera o consumido do contrato principal, então inclui custos além desse contrato (como os juros capitalizados).
 
-Checagem: `data/scripts/complete_totals/casan_insular_check.py` confere o saldo do SAP (contrato menos consumido) e a soma dos dois contratos contra o principal da tabela de obras, ao centavo; `--control` soma R$ 0,01 ao consumido e falha.
+Checagem: `pipelines/complete_totals/casan_insular_check.py` confere o saldo do SAP (contrato menos consumido) e a soma dos dois contratos contra o principal da tabela de obras, ao centavo; `--control` soma R$ 0,01 ao consumido e falha.
 
 ## 4. SC-401 terceira faixa: o que mede "Pago até set/2026"
 
@@ -147,7 +147,7 @@ Fonte: extrato SICOP do contrato, Portal da Transparência do Poder Executivo de
 - Por que é bruto: em cada ano, o "vlpago" do resumo é a soma de todas as linhas de pagamento, e essas linhas são de dois tipos: "Despesa Empenhada" (o que vai para a conta da empresa) e "Retenção INSS", "Retenção IRRF Receita", "Retenção ISS" (o que o Estado retém e paga ao INSS, à Receita e à prefeitura), com os estornos negativos. As duas partes somam o pago ao centavo.
 - Por que o número mudou: na carga de 30/09/2026, 2026 tinha R$ 14.907.958,78 liquidados e R$ 13.942.009,55 pagos; a diferença (R$ 965.949,23) foi paga em 30/09/2026 e já aparece hoje.
 - Outros contratos ligados à obra, fora deste número: projeto CT-00018/2021 (Norden Engenharia), R$ 441.107,18 pagos de 2022 a 2025 (extrato ...nutitulofiltro[]=101659); supervisão CT-00315/2022 (Iguatemi), R$ 1.832.974,12 pagos em 2025 e 2026 (extrato ...nutitulofiltro[]=103057), mas o objeto da supervisão cobre a restauração da SC-401 e da SC-404 em três trechos, então somá-la misturaria outras obras (regra de D95). Obra mais projeto: R$ 42.135.822,41.
-- Checagem: `data/scripts/complete_totals/sicop_paid.py 104411` confere, ano a ano, linhas igual a resumo ao centavo, e líquido mais retenções igual ao pago; `--control` soma R$ 0,01 a uma linha e falha ("2025: summary 26786756.45 vs lines 26786756.46").
+- Checagem: `pipelines/complete_totals/sicop_paid.py 104411` confere, ano a ano, linhas igual a resumo ao centavo, e líquido mais retenções igual ao pago; `--control` soma R$ 0,01 a uma linha e falha ("2025: summary 26786756.45 vs lines 26786756.46").
 
 ## 5. Banco Master: dinheiro público envolvido
 
@@ -170,7 +170,7 @@ Fonte: extrato SICOP do contrato, Portal da Transparência do Poder Executivo de
 
 **Regimes próprios de previdência (RPPS):** o valor de R$ 1,867 bi em letras financeiras do Master aplicado por 18 regimes de estados e municípios é atribuído pela imprensa ao Ministério da Previdência Social (19/11/2025). A página do Ministério sobre o caso (https://www.gov.br/previdencia/pt-br/noticias/2026/maio/201cos-problemas-no-banco-master-foram-detectados-pela-previdencia-social-em-2024201d-afirma-wolney-queiroz) responde hoje "Conteúdo Restrito. É necessário autenticar para visualizar essa página", e o Internet Archive não tem cópia; a nota do Rioprevidência (https://www.rj.gov.br/rioprevidencia/node/803) responde "Acesso negado", também na cópia do Internet Archive. Não confirmado na fonte primária; fica fora.
 
-**Conferência:** `data/scripts/complete_totals/master_public_money.py` confere ao centavo que o aumento de capital fecha (ações vezes preço igual ao montante; capital antes mais aumento igual ao capital depois, nos dois limites); `--control` muda o preço em R$ 0,01 e falha.
+**Conferência:** `pipelines/complete_totals/master_public_money.py` confere ao centavo que o aumento de capital fecha (ações vezes preço igual ao montante; capital antes mais aumento igual ao capital depois, nos dois limites); `--control` muda o preço em R$ 0,01 e falha.
 
 ## 6. Datas de divulgação: Receita 2024 e BEPS 2024
 
@@ -183,7 +183,7 @@ Fonte: extrato SICOP do contrato, Portal da Transparência do Poder Executivo de
 
 **beps_2024: 31/03/2025 (data em que o arquivo do boletim de dezembro de 2024 foi salvo; a página não guarda mais a data de publicação).**
 - A página do boletim de dez/2024 (https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/Dados-estatisticos-previdencia-social-e-inss/boletins-da-previdencia-social/2024-1/beps122024_final.xls/view, lida em 06/10/2026) diz "Publicado em 03/07/2026 19h23" e "Atualizado em 07/07/2026 13h02", igual a todos os boletins de 2024 a jan/2026. O servidor não manda `Last-Modified`. O Internet Archive não tem cópia do arquivo nem da página de dez/2024 (busca por prefixo nos dois endereços, o antigo `/arquivos/` e o novo `/2024-1/`); a cópia de 13/03/2025 da página "BEPS anteriores" ainda ia só até out/2024.
-- O arquivo oficial (beps122024_final.xls, baixado do endereço acima e apagado depois) traz nas propriedades: salvo pela última vez em 31/03/2025 20h46 UTC (17h46 em Brasília). Lido com `data/scripts/complete_totals/ole_saved_date.py`.
+- O arquivo oficial (beps122024_final.xls, baixado do endereço acima e apagado depois) traz nas propriedades: salvo pela última vez em 31/03/2025 20h46 UTC (17h46 em Brasília). Lido com `pipelines/complete_totals/ole_saved_date.py`.
 - Calibração do método: nos boletins de mai/2026 e jun/2026 republicados em 31/08/2026, a página diz "Publicado em 31/08/2026 17h09" e o arquivo foi salvo às 19h51 e 19h52 UTC do mesmo dia (16h51 e 16h52 em Brasília), 17 minutos antes. O boletim de out/2024 foi salvo em 18/02/2025, coerente com a página de 13/03/2025 que já o listava.
 - Recomendação para a tela: "dezembro de 2024 publicado em 31/03/2025 (data do arquivo oficial)". A data exata da publicação não está mais na página; a data do arquivo é a mais próxima que a fonte oficial guarda.
 

@@ -4,7 +4,7 @@
 **Afirmação a verificar (recebida de terceiro, sem fonte):** "a Prefeitura de Criciúma (SC) orçou recentemente R$ 500.000,00 para a manutenção dos carros da prefeitura, que são 6 carros".
 **Regra:** nenhum número inventado ou estimado. Cada valor tem URL oficial e data da coleta. Contas feitas nesta pesquisa sobre valores oficiais estão marcadas "calc.". Valor estimado e ata de registro de preços são **teto**, não gasto.
 **Onde a pesquisa foi feita:** computador nos EUA (IP norte-americano). Ver o diário (seção 4).
-**Arquivos gerados:** `private/archive/data/criciuma-fleet.json` (dados) e `data/scripts/criciuma/` (scripts de coleta).
+**Arquivos gerados:** `private/archive/data/criciuma-fleet.json` (dados) e `pipelines/criciuma/` (scripts de coleta).
 
 ---
 
@@ -221,10 +221,10 @@ Todas as consultas em 2026-09-29, a partir de IP dos EUA.
 | Arquivo | Conteúdo |
 |---|---|
 | `private/archive/data/criciuma-fleet.json` | Registros de Criciúma, contratos de gerenciamento, lista de 33 editais de manutenção de veículos de órgãos de Criciúma no PNCP, comparação com outros municípios, referências oficiais. Chaves em inglês, valores numéricos em BRL, fonte e data em cada registro |
-| `private/archive/data/scripts/criciuma/pncp_search.py` | Busca pública do PNCP por termo, tipo e município, com User-Agent de navegador e paginação |
-| `private/archive/data/scripts/criciuma/pncp_get.py` | Baixa um endereço da API do PNCP (JSON ou arquivo) com novas tentativas |
-| `private/archive/data/scripts/criciuma/criciuma_fleet_editais.py` | Lista os editais de manutenção de veículos de órgãos de Criciúma e busca valor estimado e homologado |
-| `private/archive/data/scripts/criciuma/doe_fetch.py` | Baixa edições do Diário Oficial Eletrônico de Criciúma e extrai o texto |
-| `private/archive/data/scripts/criciuma/bench_fetch.py` | Baixa cabeçalho, itens e lista de arquivos de compras do PNCP (comparação) |
-| `private/archive/data/scripts/criciuma/bench_docs.py` | Baixa editais e termos de referência do PNCP e extrai o texto |
-| `private/archive/data/scripts/criciuma/build_json.py` | Monta `private/archive/data/criciuma-fleet.json` com os valores copiados das fontes e calcula as razões |
+| `private/archive/pipelines/criciuma/pncp_search.py` | Busca pública do PNCP por termo, tipo e município, com User-Agent de navegador e paginação |
+| `private/archive/pipelines/criciuma/pncp_get.py` | Baixa um endereço da API do PNCP (JSON ou arquivo) com novas tentativas |
+| `private/archive/pipelines/criciuma/criciuma_fleet_editais.py` | Lista os editais de manutenção de veículos de órgãos de Criciúma e busca valor estimado e homologado |
+| `private/archive/pipelines/criciuma/doe_fetch.py` | Baixa edições do Diário Oficial Eletrônico de Criciúma e extrai o texto |
+| `private/archive/pipelines/criciuma/bench_fetch.py` | Baixa cabeçalho, itens e lista de arquivos de compras do PNCP (comparação) |
+| `private/archive/pipelines/criciuma/bench_docs.py` | Baixa editais e termos de referência do PNCP e extrai o texto |
+| `private/archive/pipelines/criciuma/build_json.py` | Monta `private/archive/data/criciuma-fleet.json` com os valores copiados das fontes e calcula as razões |

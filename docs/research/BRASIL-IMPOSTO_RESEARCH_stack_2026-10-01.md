@@ -14,7 +14,7 @@ Status: concluída em 2026-10-02 (seções 1, 6 e 7 escritas por um segundo agen
   22,4 MB são os orçamentos das 295 prefeituras de SC e 13,3 MB os orçamentos dos 27 estados; 1,76 MB é a lista de políticos;
   0,7 MB são bandeiras embutidas.
 - Pipeline: 84 scripts Python (cerca de 10 mil linhas), só biblioteca padrão mais `openpyxl`, sem chave de API. A pasta `data/`
-  tem 190 MB, dos quais cerca de 110 MB são cache de downloads brutos (`data/scripts/series/cache`, `data/ug/cache`,
+  tem 190 MB, dos quais cerca de 110 MB são cache de downloads brutos (`pipelines/series/cache`, `data/ug/cache`,
   `data/df/cache`) e 35 MB as séries geradas.
 - Requisitos da v1 (grill GD1 a GD25 e o pedido): hospedagem grátis, repositório público, AGPL-3.0, celular primeiro com link de
   WhatsApp, URL própria com Open Graph por estado, município, obra e político, mapa 3D com drill-down, período mês, ano e 4 anos

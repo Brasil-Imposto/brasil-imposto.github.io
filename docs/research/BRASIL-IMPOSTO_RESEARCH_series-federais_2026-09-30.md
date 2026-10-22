@@ -2,7 +2,7 @@
 
 **Data da coleta:** 2026-09-30
 **Arquivos de dados:** `data/series/federal-by-uf-monthly.json`, `data/series/sc-municipal-federal.json`, `data/series/population.json`
-**Scripts:** `data/scripts/series/` (ordem de execução na seção 8)
+**Scripts:** `pipelines/series/` (ordem de execução na seção 8)
 **Regra seguida:** nenhum número estimado. Tudo foi somado a partir de arquivos oficiais; onde não há fonte, o valor é `null` e o motivo está no próprio JSON (`flags`, `coverage`, `null_reasons`). Valores em reais correntes, sem correção pela inflação.
 
 ---
@@ -38,14 +38,14 @@
 ### 1.1 Arrecadação federal por UF, mensal
 
 - Fonte: Receita Federal, "Arrecadação por Estado", https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv (mesmo arquivo do relatório de 2024, baixado de novo em 2026-09-30; vai até **julho de 2026**).
-- Leitura com as regras de `data/scripts/parse_rfb.py` (formatos numéricos misturados) e as chaves de `data/scripts/taxmap.py`. `total`, `rfb_administered` e `by_tax` (16 grupos) por UF e mês.
+- Leitura com as regras de `pipelines/parse_rfb.py` (formatos numéricos misturados) e as chaves de `pipelines/taxmap.py`. `total`, `rfb_administered` e `by_tax` (16 grupos) por UF e mês.
 - Total nacional para conferência: série histórica da Receita (XLSX, 1994 a 2025, linha TOTAL GERAL) e, para 2026, a Tabela III da "Análise da Arrecadação das Receitas Federais" de agosto de 2026 (PDF, https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/arrecadacao-federal/2026/analise-mensal-ago-2026.pdf), que traz todos os meses de janeiro de 2021 a agosto de 2026.
 - Cada mês recebe um status em `national.federal_revenue_month_status`: `ok`; `uf_attribution_broken` (DF acima de 12% da soma das UFs; de 2019 a 2024 o máximo mensal foi 10,8%, em maio de 2020, quando o adiamento de tributos na pandemia encolheu o total do país); `unattributed_gap` (soma das UFs difere do total nacional em mais de 0,5%); `not_published`.
 
 ### 1.2 Transferências federais por UF, mensal
 
 - Fonte: CGU, Portal da Transparência, Transferências, 93 arquivos mensais de 201901 a 202609 (https://portaldatransparencia.gov.br/download-de-dados/transferencias/AAAAMM), sem chave. Cada ZIP foi baixado, somado em streaming e apagado na hora (nunca mais de um mês em disco). A soma de cada mês fica num cache pequeno, com as chaves UF, tipo de transferência, tipo de favorecido, função, ação, modalidade e se há município, o que permite refazer a classificação sem baixar de novo.
-- **Classificação: a mesma de `data/scripts/build.py`**, escrita linha a linha em `data/scripts/series/classify_transfers.py`. Duas extensões, necessárias para 2019 a 2021 e documentadas no código:
+- **Classificação: a mesma de `pipelines/build.py`**, escrita linha a linha em `pipelines/series/classify_transfers.py`. Duas extensões, necessárias para 2019 a 2021 e documentadas no código:
   1. **Ação 0E36** ("Complementação da União ao Fundeb", o Fundeb que valeu até 2020) entra em `fundeb_federal_complement`, a mesma categoria da ação 00SB (Fundeb da EC 108/2020). Sem isso, R$ 15,60 bi de 2019 e R$ 12,53 bi de 2020 cairiam em `education_fnde_and_other`.
   2. **"Agentes Intermediários":** o `build.py` admitiu as duas ações de 2024 que têm UF (00VP ao governo do RS, 00WF aos municípios do RS). A regra foi escrita como "linhas com UF e modalidade estadual (3x) ou municipal (4x)". Em 2024 ela seleciona exatamente 00VP e 00WF; em 2019 acrescenta a parte da cessão onerosa do pré-sal registrada com UF.
 - **Estado ou municípios:** o tipo de favorecido decide ("Administração Pública Estadual ou do DF" = governo estadual; "Administração Pública Municipal" = municípios). No tipo genérico "Administração Pública", a modalidade 3x é governo estadual; nas demais, a linha com nome de município vai para municípios (inclui consórcios públicos, modalidades 70 e 71, R$ 0,18 bi no período coletado). A LC 176 entra pelo Tesouro: LC176_EST no governo estadual, LC176_MUN nos municípios. O DF conta como governo estadual.
@@ -243,7 +243,7 @@ Resultado: **o dado existe sem login, em duas fontes, e uma delas já está nos 
 | 6 | dados.gov.br | espelho dos conjuntos acima | | API responde 401 sem login | Desnecessário: o CKAN do INSS está aberto |
 | 7 | Portal da Transparência, download "BPC" por beneficiário | BPC por pessoa e município | | mesmo servidor com bloqueio automático (seção 7) | **Não testado** nesta sessão, para não disparar o bloqueio durante a coleta das transferências |
 
-**Validação do microdado (fonte 2), agosto de 2024.** O arquivo foi lido em streaming (`curl | tar -xOf - | python`, nada gravado em disco), com `data/scripts/series/inss_emitidos_municipio.py`: 40.425.357 benefícios, R$ 67,71 bi líquidos no país, 27 UFs, zero linhas inválidas. Filtrando a coluna UF = Santa Catarina: 1.757.954 benefícios, R$ 3.099,4 mi, dos quais R$ 130,9 mi nas espécies de amparo (BPC da pessoa com deficiência R$ 83,7 mi, BPC do idoso R$ 46,6 mi, amparos previdenciários R$ 0,5 mi). Sem elas sobram R$ 2.968,6 mi, contra **R$ 2.967,1 mi na tabela 19 do BEPS** para SC no mesmo mês: diferença de 0,05%. O valor do microdado é, portanto, o mesmo conceito da série `inss`.
+**Validação do microdado (fonte 2), agosto de 2024.** O arquivo foi lido em streaming (`curl | tar -xOf - | python`, nada gravado em disco), com `pipelines/series/inss_emitidos_municipio.py`: 40.425.357 benefícios, R$ 67,71 bi líquidos no país, 27 UFs, zero linhas inválidas. Filtrando a coluna UF = Santa Catarina: 1.757.954 benefícios, R$ 3.099,4 mi, dos quais R$ 130,9 mi nas espécies de amparo (BPC da pessoa com deficiência R$ 83,7 mi, BPC do idoso R$ 46,6 mi, amparos previdenciários R$ 0,5 mi). Sem elas sobram R$ 2.968,6 mi, contra **R$ 2.967,1 mi na tabela 19 do BEPS** para SC no mesmo mês: diferença de 0,05%. O valor do microdado é, portanto, o mesmo conceito da série `inss`.
 
 Três cuidados para quem for montar a série municipal com a fonte 2:
 
@@ -318,10 +318,10 @@ Mesmo critério do relatório de 2024: registrar o que aconteceu, com o mesmo pe
 
 ## 8. Como reproduzir
 
-Todos os scripts estão em `data/scripts/series/` e usam a mesma pasta de trabalho, fora do repositório. Dependências: Python 3 com `openpyxl` e `xlrd`, `curl`, `tar` (para o microdado do INSS) e `pdftotext` (poppler). Nenhuma chave de API, nenhum login.
+Todos os scripts estão em `pipelines/series/` e usam a mesma pasta de trabalho, fora do repositório. Dependências: Python 3 com `openpyxl` e `xlrd`, `curl`, `tar` (para o microdado do INSS) e `pdftotext` (poppler). Nenhuma chave de API, nenhum login.
 
 ```bash
-SERIES=~/Documents/Brasil-Imposto/data/scripts/series
+SERIES=~/Documents/Brasil-Imposto/pipelines/series
 W=/caminho/para/pasta-de-trabalho
 bash $SERIES/download_inputs.sh $W                        # Receita, Tesouro (cerca de 10 MB)
 bash $SERIES/download_misocial.sh $W                      # MDS MI Social, 8 CSVs de cerca de 5 MB
@@ -341,7 +341,7 @@ curl -s "https://armazenamento-dadosabertos.s3.sa-east-1.amazonaws.com/PDA_2023_
   | tar -xOf - | python3 $SERIES/inss_emitidos_municipio.py saida.json "Santa Catarina"
 ```
 
-Módulo auxiliar: `classify_transfers.py` (regras de destinatário, esfera e categoria das transferências, compartilhadas pelos dois construtores). Os scripts reaproveitam `data/scripts/taxmap.py` e `data/scripts/parse_tt.py`. O pico de disco da coleta foi de cerca de 100 MB (o maior arquivo guardado ao mesmo tempo é um ZIP mensal de até 7 MB; os caches mensais somam cerca de 60 MB).
+Módulo auxiliar: `classify_transfers.py` (regras de destinatário, esfera e categoria das transferências, compartilhadas pelos dois construtores). Os scripts reaproveitam `pipelines/taxmap.py` e `pipelines/parse_tt.py`. O pico de disco da coleta foi de cerca de 100 MB (o maior arquivo guardado ao mesmo tempo é um ZIP mensal de até 7 MB; os caches mensais somam cerca de 60 MB).
 
 ---
 

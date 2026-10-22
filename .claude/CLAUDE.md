@@ -17,7 +17,7 @@ Site: <https://brasil-imposto.github.io>.
 - **Em construção:** o site em Astro 7 com TypeScript estrito, three.js e um mapa SVG gerado no build, um JSON por entidade com
   JSON Schema, Python nos pipelines (Parte B de
   `docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_v1-release-and-site-build_2026-10-22.md`, uma issue por fase).
-- `data/`: os dados publicados e os scripts que buscam e montam cada base (`data/scripts/`).
+- `data/`: os dados publicados e os scripts que buscam e montam cada base (`pipelines/`).
 - `docs/`: documentação em português, pesquisas (`docs/research/`), specs e planos (`docs/superpowers/`).
 
 ## Regras do projeto

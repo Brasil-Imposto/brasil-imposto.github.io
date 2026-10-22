@@ -1,4 +1,4 @@
-# caches and raw downloads: rebuilt by the pipelines (data/scripts/, docs/superpowers/tools/)
+# caches and raw downloads: rebuilt by the pipelines (pipelines/, docs/superpowers/tools/)
 **/cache/
 data/federal/raw/
 data/federal/raw-pay/

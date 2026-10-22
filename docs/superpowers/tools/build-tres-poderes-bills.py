@@ -8,7 +8,7 @@ Sources (official, open, no key):
   Senado: legis.senado.leg.br/dadosabertos/processo?codigoParlamentarAutor=<code>, the whole record of each senator in
           office; main author = the senator is the first name in "autoria".
 Bills: PL, PLP, PEC, PDL, plus the codes used before the 2019 unification (Câmara PDC; Senado PLS and PDS).
-Outcome: data/scripts/politicians/bill_outcomes.py, the same rules as the "Influência" counts (D62). A Câmara bill whose
+Outcome: pipelines/politicians/bill_outcomes.py, the same rules as the "Influência" counts (D62). A Câmara bill whose
 file has no situation is "status_not_published", never "in_progress".
 Raw files go to data/federal/raw-pay/bills/ (gitignored, the names legislative_activity.py reads with --raw); years before
 2019 are deleted once read.
@@ -24,7 +24,7 @@ import collections, csv, json, os, re, subprocess, sys, unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-sys.path.insert(0, str(ROOT / "data" / "scripts" / "politicians"))
+sys.path.insert(0, str(ROOT / "pipelines" / "politicians"))
 from bill_outcomes import camara_outcome, senado_outcome  # noqa: E402
 
 RAW = ROOT / "data" / "federal" / "raw-pay" / "bills"

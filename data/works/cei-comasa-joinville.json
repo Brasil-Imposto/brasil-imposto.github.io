@@ -305,7 +305,7 @@
    "doc": "API de dados abertos do Portal da Transparência de Joinville (e-Pública), despesa por mês, movimentos de cada empenho",
    "url": "https://transparencia.joinville.sc.gov.br/epublica-portal/rest/joinville/api/v1/despesa?periodo_inicial=MM/AAAA&periodo_final=MM/AAAA&codigo_unidade=0",
    "collected_on": "2026-09-30",
-   "script": "data/scripts/works/joinville_payments.py",
+   "script": "pipelines/works/joinville_payments.py",
    "months_queried": "02/2023 em diante"
   },
   "by_year": [
@@ -869,7 +869,7 @@
    "brl_rule": "Valores em BRL: correção pelo IPCA do mês-base do preço (ou do mês do gasto) até dez/2024.",
    "fx_method": "amount_LCU * (BRL por USD / LCU por USD) do ano do gasto * IPCA dez/2024 / média anual do IPCA do ano do gasto",
    "ppp_method": "amount_LCU * (fator PPP do Brasil / fator PPP do país) do ano do gasto * IPCA dez/2024 / média anual do IPCA do ano do gasto",
-   "same_as": "data/scripts/bridges/build.py (mesmas fontes e fórmulas)",
+   "same_as": "pipelines/bridges/build.py (mesmas fontes e fórmulas)",
    "ipca": {
     "source": "https://apisidra.ibge.gov.br/values/t/1737/n1/all/v/2266/p/all?formato=json",
     "table": "SIDRA 1737, variável 2266, número-índice (dez/1993 = 100)",
