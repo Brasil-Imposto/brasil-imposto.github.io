@@ -1,0 +1,11 @@
+{
+ "features": [
+  {
+   "key": "apoie",
+   "issue": 46,
+   "description": "O botão Apoie e o modal de apoio: GitHub Sponsors e cripto \"Em breve\" até cada canal estar pronto, e o formulário de contato pelo Web3Forms (D158)",
+   "staging": true,
+   "production": true
+  }
+ ]
+}

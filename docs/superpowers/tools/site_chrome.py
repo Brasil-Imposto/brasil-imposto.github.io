@@ -8,6 +8,7 @@ fail when a page's copy differs from this module.
 import re
 
 import apoie
+import features
 import support_data
 
 REPO_URL = "https://github.com/Brasil-Imposto/brasil-imposto.github.io"
@@ -145,7 +146,7 @@ MARK = {"css": ("<!-- site-chrome:css -->", "<!-- /site-chrome:css -->"),
         "js": ("<!-- site-chrome:js -->", "<!-- /site-chrome:js -->")}
 
 
-def with_support(head, data):
+def with_support(head, data, keyless=False):
     """The header with the Apoie button after the page links (next to Menu on phones) and its modal after the bar (spec apoie).
     The modal sits outside <header>: the bar's backdrop-filter would make it the box a fixed child is placed in."""
     a, b = '<nav class="bi-links"', "</header>"
@@ -153,20 +154,22 @@ def with_support(head, data):
         raise SystemExit("site_chrome: the header changed; place the Apoie button again")
     head = head.replace(a, '<div class="bi-end">' + a).replace(b, "</div>" + b)
     return head.replace('<button type="button" class="bi-menu-btn"', apoie.BUTTON + '<button type="button" class="bi-menu-btn"', 1) \
-        + apoie.modal(data)
+        + apoie.modal(data, keyless)
 
 
-def parts(current):
-    """Everything the markers carry on one page. The Apoie button and its modal come in only when data/support.json says so,
-    and only with every value filled in; otherwise the pages are what they were."""
+def parts(current, profile="production"):
+    """Everything the markers carry on one page, for one build (spec staging): the Apoie button and its modal come in only when
+    the apoie switch of data/features.json is on for the profile, and production only with the data its rule asks for
+    (support_data.problems); off, the pages are what they were."""
+    on = features.on("apoie", profile)
     data = support_data.load()
     wrong = support_data.problems(data)
     if wrong:
         raise SystemExit("data/support.json: " + "; ".join(wrong))
-    if not data["enabled"]:
+    if not on:
         return {"css": HEAD, "header": header(current), "footer": footer(), "js": SCRIPT}
-    return {"css": HEAD + "\n" + apoie.CSS, "header": with_support(header(current), data), "footer": footer(),
-            "js": SCRIPT.replace("\n</script>", "\n" + apoie.SCRIPT + "</script>", 1)}
+    return {"css": HEAD + "\n" + apoie.CSS, "header": with_support(header(current), data, keyless=profile == "staging"), "footer": footer(),
+            "js": SCRIPT.replace("\n</script>", "\n" + (apoie.STAGING_SCRIPT if profile == "staging" else apoie.SCRIPT) + "</script>", 1)}
 
 
 def block(name, body):
@@ -174,10 +177,10 @@ def block(name, body):
     return f"{a}\n{body}\n{b}"
 
 
-def inject(page, current):
+def inject(page, current, profile="production"):
     """Writes the parts between their markers; a page without markers gets them inserted once: the css before </head>, the
     header right after <body>, the footer and then the script before the last </body>."""
-    for name, body in parts(current).items():
+    for name, body in parts(current, profile).items():
         a, b = MARK[name]
         if page.count(a) == 1 and page.count(b) == 1:
             page = page[:page.index(a)] + block(name, body) + page[page.index(b) + len(b):]

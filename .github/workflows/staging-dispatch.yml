@@ -1,0 +1,33 @@
+# On every push to staging, asks Brasil-Imposto/staging to deploy the staging site (spec BRASIL-IMPOSTO_SPEC_staging_2026-10-23,
+# section 4): POST /repos/Brasil-Imposto/staging/dispatches with event_type staging-updated, using the STAGING_DISPATCH_TOKEN
+# secret (a fine-grained token of the maintainer, limited to that repository). Without the secret it ends with a warning, and
+# the push does not fail. No checkout: nothing of the repository runs here.
+name: staging-dispatch
+on:
+  push:
+    branches: [staging]
+permissions: {}
+concurrency:
+  group: staging-dispatch
+  cancel-in-progress: true
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ask the staging repository to deploy
+        env:
+          TOKEN: ${{ secrets.STAGING_DISPATCH_TOKEN }}
+          SHA: ${{ github.sha }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::warning::STAGING_DISPATCH_TOKEN is not set: the staging site was not asked to deploy (run its deploy by hand)."
+            exit 0
+          fi
+          status=$(curl -sS -o response.txt -w '%{http_code}' -X POST \
+            -H "Accept: application/vnd.github+json" -H "Authorization: Bearer $TOKEN" -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/Brasil-Imposto/staging/dispatches \
+            -d "{\"event_type\":\"staging-updated\",\"client_payload\":{\"sha\":\"$SHA\"}}")
+          if [ "$status" != "204" ]; then
+            echo "::error::the dispatch answered $status"; cat response.txt; exit 1
+          fi
+          echo "staging deploy requested for $SHA"

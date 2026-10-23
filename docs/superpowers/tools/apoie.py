@@ -1,5 +1,6 @@
 """The Apoie button and its modal (spec BRASIL-IMPOSTO_SPEC_apoie_2026-10-23; D123, D124, D152, D155, D156). site_chrome.py adds
-them to the three published pages only when data/support.json has `enabled` true; with it false the pages carry none of this.
+them to the three published pages only when the apoie switch of data/features.json is on for the build; off, the pages carry
+none of this.
 
 Every screen text below is the one the maintainer approved, word for word; the values still missing come from the data file
 (support_data.py). The project e-mail never appears on the page (D124)."""
@@ -107,11 +108,13 @@ def _field(name, label, control):
             f'<p class="bi-ap-err" id="bi-ap-{name}-err" hidden></p></div>')
 
 
-def modal(data):
+def modal(data, keyless=False):
     """The modal's markup: the main view, the contact view, and the view of each payment channel that is live. A value still
-    null leaves its sentence out (production never shows a missing value)."""
+    null leaves its sentence out (production never shows a missing value). keyless (the staging build) draws the contact form
+    without an access key: a send then shows the error line and makes no request."""
     sponsors_live, crypto_live = support_data.live(data, "sponsors"), support_data.live(data, "crypto")
     form_key = data["contact_form"].get("access_key")
+    contact = bool(form_key) or keyless
     before = []
     for k, v in BEFORE:
         if k == "Quem recebe:" and not (sponsors_live or crypto_live):
@@ -137,7 +140,7 @@ def modal(data):
             + _card(COIN, "Cripto", CRYPTO_CARD if crypto_live else CRYPTO_CARD_SOON, "Apoiar com cripto", "crypto", crypto_live)
             + '</div>'
             + (f'<div class="bi-ap-other"><p>{escape(OTHER_WAY)}</p>'
-               '<button type="button" class="bi-ap-cta" data-go="contact">Fale com a gente</button></div>' if form_key else "")
+               '<button type="button" class="bi-ap-cta" data-go="contact">Fale com a gente</button></div>' if contact else "")
             + f'<h3>Antes de apoiar</h3><ul class="bi-ap-list">{"".join(before)}</ul></section>')
     sponsors = ('<section class="bi-ap-view" data-view="sponsors" hidden><h2 tabindex="-1">Apoiar pelo GitHub Sponsors</h2>'
                 '<ol class="bi-ap-steps">' + "".join(f"<li>{escape(x)}</li>" for x in SPONSORS_STEPS) + '</ol>'
@@ -161,10 +164,10 @@ def modal(data):
     # D124: name, e-mail and message, sent by fetch as JSON to Web3Forms with its public access key, so no e-mail address is
     # ever in the page; a honeypot (botcheck) and a minimum time before sending keep robots out.
     form = ""
-    if form_key:
+    if contact:
         form = ('<section class="bi-ap-view" data-view="contact" hidden><h2 tabindex="-1">Fale com a gente</h2>'
                 f'<p>{escape(CONTACT_ASK)}</p>'
-                f'<form class="bi-ap-form" novalidate data-endpoint="{support_data.WEB3FORMS}" data-key="{escape(form_key)}" '
+                f'<form class="bi-ap-form" novalidate data-endpoint="{support_data.WEB3FORMS}" data-key="{escape(form_key or "")}" '
                 f'data-subject="{escape(CONTACT_SUBJECT)}" data-from-name="{escape(CONTACT_FROM)}" '
                 f'data-min-ms="{MIN_SECONDS * 1000}" data-sending="{escape(SENDING)}" data-required="{escape(REQUIRED)}" '
                 f'data-bad-email="{escape(BAD_EMAIL)}">'
@@ -379,3 +382,12 @@ SCRIPT = """// The Apoie modal: opens from the header button, one view at a time
   }
 })();
 """
+
+
+# The staging build draws the contact form even without the access key (spec staging, section 2): there a send shows the error
+# line and makes no request. The line goes only into the staging script, and the comment above keeps its wording, so the
+# production pages stay byte for byte what main publishes (PR #52).
+KEYLESS_ANCHOR = "      if (f.botcheck.checked || Date.now() - openedAt < minMs) { done(); return; }\n"
+if SCRIPT.count(KEYLESS_ANCHOR) != 1:
+    raise SystemExit("apoie: the contact form's send changed; place the staging line again")
+STAGING_SCRIPT = SCRIPT.replace(KEYLESS_ANCHOR, KEYLESS_ANCHOR + "      if (!form.dataset.key) { fail.hidden = false; return; }   // staging without the access key: nothing is sent\n")

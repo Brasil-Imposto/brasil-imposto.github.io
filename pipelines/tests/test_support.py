@@ -1,6 +1,6 @@
-"""The Apoie button's data (spec BRASIL-IMPOSTO_SPEC_apoie_2026-10-23, sections 1 to 8): data/support.json stays off and empty until
-the maintainer fills it in. The button may go on with both payment channels on "soon", but only with the contact form's access
-key filled in; a channel goes "live" only with every one of its values filled and every address in its network's format. The
+"""The Apoie button's data (spec BRASIL-IMPOSTO_SPEC_apoie_2026-10-23, sections 1 to 8, and spec staging, section 2): data/support.json
+stays empty until the maintainer fills it in, and the apoie switch of data/features.json says which build carries the button. Production
+may turn it on with both payment channels on "soon" and without the contact form's access key (D162: the form stays out until the key is filled); a channel goes "live" only with every one of its values filled and every address in its network's format. The
 built pages never show "a definir" and never carry an e-mail address. Every rule has a planted failure."""
 import copy
 import importlib.util
@@ -40,9 +40,8 @@ def committed():
 
 
 def on_soon():
-    """The button on, both channels on "soon": what production goes live with."""
+    """The data production goes live with: both channels on "soon" and the form's access key."""
     d = copy.deepcopy(committed())
-    d["enabled"] = True
     d["contact_form"]["access_key"] = ACCESS_KEY
     return d
 
@@ -58,19 +57,27 @@ def on_live():
     return d
 
 
-def build(data):
-    with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
-        json.dump(data, f)
-    old = os.environ.get("BI_SUPPORT_JSON")
-    os.environ["BI_SUPPORT_JSON"] = f.name
+def switches(production, staging=True):
+    return {"features": [{"key": "apoie", "issue": 46, "description": "O botão Apoie", "staging": staging, "production": production}]}
+
+
+def build(data, on=True, profile="production"):
+    """The parts of the three pages for a test build: data as data/support.json, the apoie switch on (or off) in the profile."""
+    files, old = {}, {}
+    for env, content in (("BI_SUPPORT_JSON", data), ("BI_FEATURES_JSON", switches(on, on))):
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
+            json.dump(content, f)
+        files[env], old[env] = f.name, os.environ.get(env)
+        os.environ[env] = f.name
     try:
-        return {k: site_chrome.parts(k) for k in site_chrome.PAGES}
+        return {k: site_chrome.parts(k, profile) for k in site_chrome.PAGES}
     finally:
-        os.unlink(f.name)
-        if old is None:
-            os.environ.pop("BI_SUPPORT_JSON")
-        else:
-            os.environ["BI_SUPPORT_JSON"] = old
+        for env, name in files.items():
+            os.unlink(name)
+            if old[env] is None:
+                os.environ.pop(env)
+            else:
+                os.environ[env] = old[env]
 
 
 def text(html):
@@ -78,9 +85,9 @@ def text(html):
 
 
 class CommittedFileTest(unittest.TestCase):
-    def test_on_with_the_values_still_empty(self):
+    def test_off_and_empty_until_the_maintainer_fills_it(self):
         d = committed()
-        self.assertIs(d["enabled"], True)
+        self.assertNotIn("enabled", d, "the apoie switch of data/features.json replaced it")
         self.assertEqual(d["contact_form"], {"provider": "web3forms", "access_key": None})
         self.assertNotIn("contact_email", d)
         self.assertIsNone(d["maintainer_cap_brl"])
@@ -89,7 +96,7 @@ class CommittedFileTest(unittest.TestCase):
         self.assertEqual(d["crypto"]["status"], "soon")
         self.assertIsNone(d["crypto"]["unidentified_return_above_brl"])
         self.assertEqual([g["address"] for g in d["crypto"]["groups"]], [None] * 5)
-        self.assertEqual(support_data.problems(d), [])
+        self.assertEqual(support_data.problems(d), [], "the button needs no access key in either profile (D162)")
 
     def test_the_seven_coins_and_their_networks(self):
         d = committed()
@@ -157,8 +164,7 @@ class RulesTest(unittest.TestCase):
 
 class PagesTest(unittest.TestCase):
     def test_off_no_button_and_the_chrome_as_before(self):
-        off = copy.deepcopy(committed()); off["enabled"] = False
-        for key, p in build(off).items():
+        for key, p in build(committed(), on=False).items():
             with self.subTest(page=key):
                 self.assertEqual(p["header"], site_chrome.header(key))
                 self.assertEqual(p["css"], site_chrome.HEAD)
@@ -216,6 +222,26 @@ class PagesTest(unittest.TestCase):
                 for g in on_live()["crypto"]["groups"]:
                     self.assertIn(g["address"], h)
 
+    def test_staging_draws_the_form_without_the_key(self):
+        for key, p in build(committed(), profile="staging").items():
+            with self.subTest(page=key):
+                h = p["header"]
+                self.assertIn('data-view="contact"', h)
+                self.assertIn('data-key=""', h)
+                self.assertEqual(len(re.findall(r'<div class="bi-ap-card bi-ap-soon">', h)), 2)
+                self.assertNotIn("a definir", text(h))
+                self.assertIn("if (!form.dataset.key) { fail.hidden = false; return; }", p["js"])
+
+    def test_production_keeps_the_script_it_publishes(self):
+        """The staging line for a keyless form goes only into the staging script: production's script is apoie.SCRIPT itself."""
+        for key, p in build(committed()).items():
+            with self.subTest(page=key):
+                self.assertNotIn("if (!form.dataset.key)", p["js"])
+                self.assertIn(apoie.SCRIPT, p["js"])
+        self.assertEqual(apoie.STAGING_SCRIPT.replace(
+            "      if (!form.dataset.key) { fail.hidden = false; return; }   // staging without the access key: nothing is sent\n", ""),
+            apoie.SCRIPT, "the staging script differs from production's by that one line only")
+
     def test_on_without_the_access_key_shows_everything_but_the_form(self):
         d = on_soon(); d["contact_form"]["access_key"] = None
         for key, p in build(d).items():
@@ -227,6 +253,7 @@ class PagesTest(unittest.TestCase):
                     self.assertNotIn(gone, h, gone)
                 self.assertNotIn(re.sub(r"\s+", " ", apoie.OTHER_WAY), text(h))
                 self.assertIn(re.sub(r"\s+", " ", apoie.LEAD), text(h))
+
 
     def test_control_a_bad_access_key_refuses_to_build(self):
         d = on_soon(); d["contact_form"]["access_key"] = "not-a-key"

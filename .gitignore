@@ -19,6 +19,8 @@ __pycache__/
 *.pyc
 .venv/
 node_modules/
+# the assembled site (docs/superpowers/tools/build-site.py --out _site)
+_site/
 .DS_Store
 # the author's working notes, kept local: agent notes, the grill, the session tracker, internal audits
 CLAUDE.md

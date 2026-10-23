@@ -1,6 +1,5 @@
 {
- "about": "The Apoie button and its modal (spec docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_apoie_2026-10-23.md). The button shows only when enabled is true. The contact form shows only once contact_form.access_key holds the Web3Forms access key; until then the button and the rest of the modal are live without it (D162). Each payment channel opens on its own: status soon shows its card with an \"Em breve\" tag; status live needs every value of that channel filled in, after the gates of the spec (D123, D125 to D127). pipelines/tests/test_support.py checks it.",
- "enabled": true,
+ "about": "The Apoie button and its modal (spec docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_apoie_2026-10-23.md). Whether a build carries them is the apoie switch of data/features.json (spec staging, D158); the button needs no access key: the contact form shows only once contact_form.access_key holds the Web3Forms access key, and until then the button and the rest of the modal are live without it (D162). Each payment channel opens on its own: status soon shows its card with an \"Em breve\" tag; status live needs every value of that channel filled in, after the gates of the spec (D123, D125 to D127). pipelines/tests/test_support.py checks it.",
  "maintainer_cap_brl": null,
  "contact_form": {
   "provider": "web3forms",

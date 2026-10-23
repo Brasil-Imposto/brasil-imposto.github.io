@@ -133,8 +133,9 @@ class SiteFooterTest(unittest.TestCase):
 
 class HomeLinkTest(unittest.TestCase):
     """Every link to Início points at the site's root ("./"), never at the design file's name (production has no preview), and the
-    old address forwards to the root with its query and hash (pages.yml, "Assemble the site")."""
+    old address forwards to the root with its query and hash (build-site.py, which pages.yml calls)."""
     WORKFLOW = REPO / ".github" / "workflows" / "pages.yml"
+    BUILD_SITE = REPO / "docs" / "superpowers" / "tools" / "build-site.py"
 
     def problems(self, p):
         out = []
@@ -153,7 +154,7 @@ class HomeLinkTest(unittest.TestCase):
         return out
 
     def forward(self):
-        return re.search(r"<<'HTML'\n(.*?)\n\s*HTML\n", self.WORKFLOW.read_text(encoding="utf-8"), re.S).group(1)
+        return re.search(r'FORWARD = """(.*?)"""', self.BUILD_SITE.read_text(encoding="utf-8"), re.S).group(1)
 
     def forward_problems(self, html):
         out = []
@@ -176,9 +177,8 @@ class HomeLinkTest(unittest.TestCase):
 
     def test_the_old_address_forwards_with_query_and_hash(self):
         self.assertEqual(self.forward_problems(self.forward()), [])
-        text = self.WORKFLOW.read_text(encoding="utf-8")
-        self.assertIn(f"cat > _site/{site_chrome.HOME} <<'HTML'", text)
-        self.assertNotIn("for page in platform-preview_2026-10-09", text, "no second copy of Início under its old name")
+        self.assertIn('(out / site_chrome.HOME).write_text(FORWARD, encoding="utf-8")', self.BUILD_SITE.read_text(encoding="utf-8"))
+        self.assertIn("build-site.py --profile production --out _site", self.WORKFLOW.read_text(encoding="utf-8"))
 
     def test_control_a_forward_that_drops_the_hash_fails(self):
         broken = self.forward().replace(" + location.hash", "")

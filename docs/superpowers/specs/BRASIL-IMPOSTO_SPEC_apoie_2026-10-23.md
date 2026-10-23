@@ -2,8 +2,8 @@
 
 English summary: the "Apoie" button and its modal on the three published pages, built switched off. Every value still missing
 (the addresses, the Sponsors page, the cap, the return threshold, the project e-mail) lives in `data/support.json`; the button
-renders only when `enabled` is true, which the maintainer turns on after the gates below, and the build refuses `enabled` with any
-value missing or any address in the wrong format. The texts are the ones the maintainer approved, word for word. Open points come
+renders only when the apoie switch of `data/features.json` is on for the build (spec staging), and the build refuses it in
+production without the contact form's access key, and a live channel with any value missing or any address in the wrong format. The texts are the ones the maintainer approved, word for word. Open points come
 back as questions at the end.
 
 Status: **aprovada pelo mantenedor em 2026-10-23** (desenho e todos os textos, na mensagem que pediu esta construção), com base em
@@ -12,22 +12,23 @@ D123, D124, D152, D155 e D156 (D155 e D156 estão no registro local de decisões
 ## 1. Portões dos canais de pagamento
 
 O agente não decide nenhum destes. Desde 2026-10-23 (seção 8), eles valem para cada canal de pagamento ir de `"soon"` para
-`"live"`; o botão e o formulário de contato vão ao ar antes, com `enabled: true` e a chave do formulário, pela mão do mantenedor.
+`"live"`; o botão e o formulário de contato vão ao ar antes, com a chave `apoie` de `data/features.json` ligada na produção e a
+chave do formulário, pela mão do mantenedor.
 
 1. **D123:** o pedido só vai ao ar depois do 2º turno da eleição (2026-10-25).
 2. **D125 a D127:** toda tela lê o livro de fluxos, toda garantia passa, nenhuma estimativa na tela. O ponto em aberto é a
    estimativa do DF (D146), pergunta Q41.
 3. **Todo valor do canal preenchido.** O teste `pipelines/tests/test_support.py` e a construção das páginas (`site_chrome.parts`)
-   recusam um canal `"live"` com qualquer valor vazio ou endereço fora do formato da rede, e `enabled: true` sem a chave do
-   formulário.
+   recusam um canal `"live"` com qualquer valor vazio ou endereço fora do formato da rede, e a chave `apoie` ligada na produção
+   sem a chave do formulário.
 
 ## 2. O arquivo de dados: `data/support.json`
 
-Chaves em inglês. Hoje tudo vazio e `enabled: false`.
+Chaves em inglês. Hoje tudo vazio. Se uma montagem leva o botão é a chave `apoie` de `data/features.json` (spec de staging,
+seção 2), que substituiu o campo `enabled` deste arquivo.
 
 | Chave | Hoje | O que é |
 |---|---|---|
-| `enabled` | `false` | o botão aparece só com `true`, e `true` pede `contact_form.access_key` (seção 8) |
 | `maintainer_cap_brl` | `null` | o teto do valor fixo da manutenção, por mês, em reais |
 | `contact_form` | `{"provider": "web3forms", "access_key": null}` | a chave pública do Web3Forms para a caixa do projeto; nenhum e-mail na página (D124, seção 8) |
 | `sponsors` | `status: "soon"`, `sponsors_url: null`, `fiscal_host: {"name": "Open Source Collective", "url": null}` | o canal do GitHub Sponsors; `sponsors_url` será `https://github.com/sponsors/Brasil-Imposto` |
@@ -47,7 +48,7 @@ Os grupos de endereço, as redes e as moedas:
 O padrão de endereço de cada explorador foi conferido nas páginas que os buscadores indexam de cada um (2026-10-23); esta sessão
 não alcança os exploradores diretamente (ver as perguntas).
 
-## 3. O botão (em `site_chrome.py`, só com `enabled: true`)
+## 3. O botão (em `site_chrome.py`, só com a chave `apoie` ligada na montagem)
 
 - Uma pílula verde (#12803F), texto branco "Apoie", com um baú dourado (preenchimento #F9BE2A, contorno escuro #8A6A00 e um
   cadeado pequeno). Sem coração.
@@ -124,14 +125,16 @@ robôs (honeypot), como D124 pede. O envio é pelo Web3Forms (seção 8).
 
 - `data/support.json`: os valores (seção 2).
 - `docs/superpowers/tools/support_data.py`: lê o arquivo (ou o de `BI_SUPPORT_JSON`, para um teste local nunca enviado ao git),
-  confere a estrutura sempre e os valores quando `enabled` é `true`, e formata reais.
+  confere a estrutura sempre, a chave do formulário quando `apoie` está ligada na produção e os valores de cada canal `"live"`,
+  e formata reais.
 - `docs/superpowers/tools/apoie.py`: o botão, a janela, o estilo e o código, com os textos aprovados.
-- `docs/superpowers/tools/site_chrome.py`: `parts()` acrescenta o botão, a janela, o estilo e o código só com `enabled: true`. A
+- `docs/superpowers/tools/site_chrome.py`: `parts()` acrescenta o botão, a janela, o estilo e o código só com a chave `apoie`
+  ligada no perfil da montagem. A
   janela fica fora de `<header>`, porque o `backdrop-filter` da barra prenderia um filho fixo dentro dela. O código entra no próprio
   `<script id="bi-chrome-js">`, o único que o carregamento do mapa de Início roda na hora (`map_loader.py`), então o botão funciona
   enquanto os dados do mapa carregam.
 - `pipelines/tests/test_support.py`: o arquivo enviado desligado e vazio; as sete moedas e as redes de cada uma; os exploradores;
-  com `enabled: true`, cada valor vazio falha e cada endereço errado plantado falha; desligado, o cabeçalho é o de antes; ligado, o
+  com a chave ligada, cada valor vazio falha e cada endereço errado plantado falha; desligado, o cabeçalho é o de antes; ligado, o
   botão, os textos e nenhum e-mail na página.
 - `docs/superpowers/tools/apoie-check.cjs`: a sonda da janela no navegador (seção 6), com `--control`.
 
@@ -171,11 +174,12 @@ valores de `data/support.json`).
 - **Cada canal tem um estado** (`sponsors.status` e `crypto.status`): `"soon"` mostra o cartão com a etiqueta "Em breve";
   `"live"` pede todos os valores do canal preenchidos (o teste de endereços e valores vale para `"live"`; com qualquer canal
   `"live"`, o teto `maintainer_cap_brl` também é exigido).
-- **`enabled` pode ser `true` com os dois canais em `"soon"`**, mas só com `contact_form.access_key` preenchida (um UUID; um
-  endereço de e-mail ali é recusado). Neste pull request `enabled` fica `false` e a chave fica `null`: a sessão local escreve a
-  chave e liga `enabled` num commit no mesmo ramo, e o merge espera o "pode" do mantenedor.
+- **A chave `apoie` pode ser ligada na produção com os dois canais em `"soon"`**, com ou sem `contact_form.access_key` (D162): sem
+  ela, a vista de contato fica fora da página; preenchida, é um UUID (um endereço de e-mail ali é recusado). A chave do formulário fica `null` até a sessão local escrevê-la; a
+  produção liga `apoie` em `data/features.json`.
 - **Valores que faltam:** a produção nunca mostra "a definir". A frase que depende de um valor `null` sai (o teto da manutenção, o
-  valor de devolução da cripto). O staging pode mostrar "a definir" (spec de staging).
+  valor de devolução da cripto). O staging segue a mesma regra, e desenha o formulário mesmo sem a chave: um envio mostra a linha
+  de erro e não faz pedido (spec de staging, seção 2).
 - **"Como apoiar":** os dois cartões lado a lado (um sobre o outro no celular), cada um com "Em breve" ao lado do título e sem nada
   para clicar enquanto o canal estiver em `"soon"`: sem botão, sem vista, sem endereço. Sob GitHub Sponsors: "Em dólar, uma vez ou
   todo mês, pela sua conta do GitHub." Sob Cripto: "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB."
@@ -194,6 +198,7 @@ valores de `data/support.json`).
   com os campos mantidos. Campos obrigatórios e e-mail válido conferidos antes do envio, com a mensagem sob o campo.
 - **Nenhum endereço de e-mail** na página, no repositório, num commit ou num pull request: `docs/superpowers/tools/email-scan.py`
   procura o padrão, com um endereço plantado como controle.
-- **Provas:** a montagem da produção com `enabled` ligado e uma chave falsa (só no teste) e `apoie-check.cjs` em 1440, 420 e 320 px,
+- **Provas:** a montagem da produção com a chave `apoie` ligada e uma chave falsa do formulário (só no teste) e `apoie-check.cjs`
+  em 1440, 420 e 320 px,
   com `--control` (seção 6); desligado, as três páginas iguais às da `main`.
 
