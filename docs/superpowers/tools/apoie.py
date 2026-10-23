@@ -33,8 +33,9 @@ LEAD = ("O Brasil-Imposto mostra, com dados oficiais e a fonte de cada número, 
         "apartidário e de código aberto. O seu apoio paga duas coisas, e nada além delas: o trabalho de quem desenvolve o projeto e "
         "a infraestrutura que mantém os dados corretos e no ar.")
 DEVELOPERS = ("Quem entrega trabalho aceito no repositório. Cada tarefa paga é uma issue com o valor em reais publicado antes de o "
-              "trabalho começar, e o pagamento sai quando o pull request entra no site. A pessoa mantenedora recebe um valor fixo "
-              "por mês para revisar, publicar e manter o projeto, com teto de {cap}.")
+              "trabalho começar, e o pagamento sai quando o pull request entra no site.")
+# left out while maintainer_cap_brl is null: production never shows a missing value
+DEVELOPERS_CAP = "A pessoa mantenedora recebe um valor fixo por mês para revisar, publicar e manter o projeto, com teto de {cap}."
 INFRA = ("O custo real de cada mês, com a nota de cada gasto: hoje, as ferramentas de inteligência artificial usadas para coletar e "
          "conferir os dados; depois, servidor e banco de dados, quando o site precisar. O site é hospedado de graça no GitHub "
          "Pages.")
@@ -46,6 +47,9 @@ NOT_PAID_BY = ("Não pagamos por número de commits, de linhas ou de pull reques
                "dias e virar poucas linhas. O valor de cada tarefa é decidido antes, à vista de todos.")
 SPONSORS_CARD = "Em dólar, uma vez ou todo mês, pela sua conta do GitHub."
 CRYPTO_CARD = "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB. Cada endereço é público, com o link do explorador."
+CRYPTO_CARD_SOON = "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB."
+SOON = "Em breve"
+OTHER_WAY = "Quer apoiar de outro jeito, ou falar com a gente? Escreva por aqui."
 BEFORE = [("Quem recebe:", " o GitHub Sponsors paga ao {host}, organização sem fins lucrativos que guarda o dinheiro do projeto e "
            "publica cada entrada e cada despesa; as carteiras de cripto são do projeto e ficam com a pessoa mantenedora."),
           ("O que o apoio compra:", " trabalho e infraestrutura. Não compra conteúdo: ninguém que apoia muda o que o site mostra, "
@@ -67,6 +71,14 @@ RETURN_RULE = "Doação acima de {limit} vinda de carteira sem identificação �
 CONTACT_ASK = ("O que você gostaria de ver no Brasil-Imposto? Conte para a gente. Lemos todas as mensagens e usamos as ideias para "
                "planejar as próximas atualizações.")
 CONTACT_LGPD = "Seu nome e e-mail servem só para responder você."
+CONTACT_SUBJECT = "Brasil-Imposto: mensagem pelo site"
+CONTACT_FROM = "Site Brasil-Imposto"
+SENDING = "Enviando..."
+SENT = "Mensagem enviada. Respondemos pelo e-mail que você informou."
+FAILED = "Não foi possível enviar agora. Tente de novo em alguns minutos."
+REQUIRED = "Preencha este campo."
+BAD_EMAIL = "Informe um e-mail válido."
+MIN_SECONDS = 3   # a send faster than this after the view opens is dropped (D124)
 
 BUTTON = (f'<button type="button" class="bi-apoie-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="bi-apoie">'
           f'{CHEST}<span>Apoie</span></button>')
@@ -81,57 +93,91 @@ def _row(group, network, standard):
             f'<a href="{escape(url)}" target="_blank" rel="noopener">{escape(network["explorer"])}</a></div></div>')
 
 
+def _card(icon, title, text, button, go, is_live):
+    """A way to support. While its channel is on "soon" the card says "Em breve" and has nothing to click."""
+    if not is_live:
+        return (f'<div class="bi-ap-card bi-ap-soon">{icon}<h4>{escape(title)} <span class="bi-ap-tag">{SOON}</span></h4>'
+                f'<p>{escape(text)}</p></div>')
+    return (f'<div class="bi-ap-card">{icon}<h4>{escape(title)}</h4><p>{escape(text)}</p>'
+            f'<button type="button" class="bi-ap-cta" data-go="{go}">{escape(button)}</button></div>')
+
+
+def _field(name, label, control):
+    return (f'<div class="bi-ap-field"><label for="bi-ap-{name}">{label}</label>{control}'
+            f'<p class="bi-ap-err" id="bi-ap-{name}-err" hidden></p></div>')
+
+
 def modal(data):
-    """The modal's markup: the main view and the three focused views. `data` must pass support_data.filled_problems()."""
-    host = f'<a href="{escape(data["fiscal_host"]["url"])}" target="_blank" rel="noopener">{escape(data["fiscal_host"]["name"])}</a>'
-    before = "".join(f"<li><b>{escape(k)}</b>{escape(v).replace('{host}', host)}</li>" if k else f"<li>{escape(v)}</li>"
-                     for k, v in BEFORE)
-    contact = bool(data.get("contact_email"))
+    """The modal's markup: the main view, the contact view, and the view of each payment channel that is live. A value still
+    null leaves its sentence out (production never shows a missing value)."""
+    sponsors_live, crypto_live = support_data.live(data, "sponsors"), support_data.live(data, "crypto")
+    form_key = data["contact_form"].get("access_key")
+    before = []
+    for k, v in BEFORE:
+        if k == "Quem recebe:" and not (sponsors_live or crypto_live):
+            continue  # comes back when a channel goes live
+        host = data["sponsors"]["fiscal_host"]
+        link = (f'<a href="{escape(host["url"])}" target="_blank" rel="noopener">{escape(host["name"])}</a>' if host.get("url")
+                else escape(host["name"]))
+        before.append(f"<li><b>{escape(k)}</b>{escape(v).replace('{host}', link)}</li>" if k else f"<li>{escape(v)}</li>")
+    cap = data.get("maintainer_cap_brl")
+    developers = escape(DEVELOPERS) + (" " + escape(DEVELOPERS_CAP).replace("{cap}", support_data.brl(cap)) if cap else "")
     main = ('<section class="bi-ap-view" data-view="main">'
             '<div class="bi-ap-head"><img src="assets/brand/brasil-imposto-logo.svg" alt="">'
             '<h2 id="bi-ap-title" tabindex="-1">Apoie o Brasil-Imposto</h2></div>'
             f'<p class="bi-ap-lead">{escape(LEAD)}</p>'
             '<h3>Para onde vai o dinheiro</h3><div class="bi-ap-bar" aria-hidden="true"><i></i><i></i></div>'
             '<div class="bi-ap-cols">'
-            f'<div class="bi-ap-col bi-ap-g"><h4>1. Desenvolvedores</h4><p>{escape(DEVELOPERS).replace("{cap}", support_data.brl(data["maintainer_cap_brl"]))}</p></div>'
+            f'<div class="bi-ap-col bi-ap-g"><h4>1. Desenvolvedores</h4><p>{developers}</p></div>'
             f'<div class="bi-ap-col bi-ap-b"><h4>2. Infraestrutura</h4><p>{escape(INFRA)}</p></div></div>'
             '<div class="bi-ap-box"><h4>Como cada mês é dividido</h4><ol>' + "".join(f"<li>{escape(x)}</li>" for x in MONTH)
             + f'</ol></div><p class="bi-ap-note">{escape(NOT_PAID_BY)}</p>'
             '<h3>Como apoiar</h3><div class="bi-ap-cards">'
-            f'<div class="bi-ap-card">{GITHUB}<h4>GitHub Sponsors</h4><p>{escape(SPONSORS_CARD)}</p>'
-            '<button type="button" class="bi-ap-cta" data-go="sponsors">Apoiar pelo GitHub Sponsors</button></div>'
-            f'<div class="bi-ap-card">{COIN}<h4>Cripto</h4><p>{escape(CRYPTO_CARD)}</p>'
-            '<button type="button" class="bi-ap-cta" data-go="crypto">Apoiar com cripto</button></div></div>'
-            f'<h3>Antes de apoiar</h3><ul class="bi-ap-list">{before}</ul>'
-            + ('<p class="bi-ap-talk"><button type="button" class="bi-ap-linkbtn" data-go="contact">Fale com a gente</button></p>'
-               if contact else "") + '</section>')
+            + _card(GITHUB, "GitHub Sponsors", SPONSORS_CARD, "Apoiar pelo GitHub Sponsors", "sponsors", sponsors_live)
+            + _card(COIN, "Cripto", CRYPTO_CARD if crypto_live else CRYPTO_CARD_SOON, "Apoiar com cripto", "crypto", crypto_live)
+            + '</div>'
+            + (f'<div class="bi-ap-other"><p>{escape(OTHER_WAY)}</p>'
+               '<button type="button" class="bi-ap-cta" data-go="contact">Fale com a gente</button></div>' if form_key else "")
+            + f'<h3>Antes de apoiar</h3><ul class="bi-ap-list">{"".join(before)}</ul></section>')
     sponsors = ('<section class="bi-ap-view" data-view="sponsors" hidden><h2 tabindex="-1">Apoiar pelo GitHub Sponsors</h2>'
                 '<ol class="bi-ap-steps">' + "".join(f"<li>{escape(x)}</li>" for x in SPONSORS_STEPS) + '</ol>'
                 f'<p class="bi-ap-facts">{escape(SPONSORS_FACTS)}</p>'
-                + f'<a class="bi-ap-cta" href="{escape(data["sponsors_url"])}" target="_blank" rel="noopener">Abrir o GitHub Sponsors</a>'
-                '</section>')
-    coins = "".join(f'<button type="button" class="bi-ap-coinbtn" data-coin-btn="{c}" aria-pressed="false">{c}</button>'
-                    for c in support_data.COINS)
-    panels = ""
-    for c in support_data.COINS:
-        rows = support_data.networks_of(data, c)
-        panels += (f'<div class="bi-ap-coin" data-coin="{c}" hidden>' + "".join(_row(*r) for r in rows)
-                   + (f'<p class="bi-ap-pick">{escape(PICK_NETWORK)}</p>' if len(rows) > 1 else "") + '</div>')
-    crypto = ('<section class="bi-ap-view" data-view="crypto" hidden><h2 tabindex="-1">Apoiar com cripto</h2>'
-              f'<div class="bi-ap-coins">{coins}</div>{panels}'
-              f'<p class="bi-ap-warn">{escape(WARNING)}</p>'
-              f'<p class="bi-ap-rule">{escape(RETURN_RULE).replace("{limit}", support_data.brl(data["unidentified_return_above_brl"]))}</p>'
-              '</section>')
-    # D124: name, e-mail, message, a honeypot and a minimum time before sending. The hosted service that will deliver the message
-    # (Q40) is not chosen yet, so the form has no destination and its button stays disabled.
-    form = ('<section class="bi-ap-view" data-view="contact" hidden><h2 tabindex="-1">Fale com a gente</h2>'
-            f'<p>{escape(CONTACT_ASK)}</p><form class="bi-ap-form">'
-            '<label>Nome<input name="name" autocomplete="name" required></label>'
-            '<label>E-mail<input name="email" type="email" autocomplete="email" required></label>'
-            '<label>Mensagem<textarea name="message" rows="5" required></textarea></label>'
-            '<label class="bi-ap-hp" aria-hidden="true">Site<input name="website" tabindex="-1" autocomplete="off"></label>'
-            f'<p class="bi-ap-lgpd">{escape(CONTACT_LGPD)}</p>'
-            '<button type="submit" class="bi-ap-cta" disabled>Enviar</button></form></section>') if contact else ""
+                f'<a class="bi-ap-cta" href="{escape(data["sponsors"]["sponsors_url"] or "")}" target="_blank" rel="noopener">'
+                'Abrir o GitHub Sponsors</a></section>') if sponsors_live else ""
+    crypto = ""
+    if crypto_live:
+        coins = "".join(f'<button type="button" class="bi-ap-coinbtn" data-coin-btn="{c}" aria-pressed="false">{c}</button>'
+                        for c in support_data.COINS)
+        panels = ""
+        for c in support_data.COINS:
+            rows = support_data.networks_of(data, c)
+            panels += (f'<div class="bi-ap-coin" data-coin="{c}" hidden>' + "".join(_row(*r) for r in rows)
+                       + (f'<p class="bi-ap-pick">{escape(PICK_NETWORK)}</p>' if len(rows) > 1 else "") + '</div>')
+        limit = data["crypto"].get("unidentified_return_above_brl")
+        crypto = ('<section class="bi-ap-view" data-view="crypto" hidden><h2 tabindex="-1">Apoiar com cripto</h2>'
+                  f'<div class="bi-ap-coins">{coins}</div>{panels}<p class="bi-ap-warn">{escape(WARNING)}</p>'
+                  + (f'<p class="bi-ap-rule">{escape(RETURN_RULE).replace("{limit}", support_data.brl(limit))}</p>' if limit else "")
+                  + '</section>')
+    # D124: name, e-mail and message, sent by fetch as JSON to Web3Forms with its public access key, so no e-mail address is
+    # ever in the page; a honeypot (botcheck) and a minimum time before sending keep robots out.
+    form = ""
+    if form_key:
+        form = ('<section class="bi-ap-view" data-view="contact" hidden><h2 tabindex="-1">Fale com a gente</h2>'
+                f'<p>{escape(CONTACT_ASK)}</p>'
+                f'<form class="bi-ap-form" novalidate data-endpoint="{support_data.WEB3FORMS}" data-key="{escape(form_key)}" '
+                f'data-subject="{escape(CONTACT_SUBJECT)}" data-from-name="{escape(CONTACT_FROM)}" '
+                f'data-min-ms="{MIN_SECONDS * 1000}" data-sending="{escape(SENDING)}" data-required="{escape(REQUIRED)}" '
+                f'data-bad-email="{escape(BAD_EMAIL)}">'
+                + _field("name", "Nome", '<input id="bi-ap-name" name="name" autocomplete="name" required aria-describedby="bi-ap-name-err">')
+                + _field("email", "E-mail", '<input id="bi-ap-email" name="email" type="email" autocomplete="email" required '
+                         'aria-describedby="bi-ap-email-err">')
+                + _field("message", "Mensagem", '<textarea id="bi-ap-message" name="message" rows="5" required '
+                         'aria-describedby="bi-ap-message-err"></textarea>')
+                + '<div class="bi-ap-hp" aria-hidden="true"><input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></div>'
+                f'<p class="bi-ap-lgpd">{escape(CONTACT_LGPD)}</p>'
+                f'<p class="bi-ap-fail" role="alert" hidden>{escape(FAILED)}</p>'
+                '<button type="submit" class="bi-ap-cta">Enviar</button></form>'
+                f'<p class="bi-ap-sent" role="status" tabindex="-1" hidden>{escape(SENT)}</p></section>')
     return ('<div class="bi-apoie" id="bi-apoie" role="dialog" aria-modal="true" aria-labelledby="bi-ap-title" hidden>'
             '<div class="bi-ap-backdrop"></div><div class="bi-ap-panel">'
             f'<div class="bi-ap-top"><button type="button" class="bi-ap-back" hidden>{BACK}<span>Voltar</span></button>'
@@ -207,9 +253,20 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-warn { margin: 6px 0 10px !important; padding: 12px 14px; border-left: 4px solid #C8102E; border-radius: 8px; background: #FDF1F2; color: #6B0F1A !important; }
 .bi-ap-rule { font-size: 13.5px !important; }
 .bi-ap-form { display: grid; gap: 12px; margin-top: 14px; }
-.bi-ap-form label { display: grid; gap: 5px; font-weight: 700; font-size: 13.5px; }
+.bi-ap-hp label { display: grid; }
 .bi-ap-form input, .bi-ap-form textarea { box-sizing: border-box; width: 100%; padding: 10px 12px; border: 1px solid #C9D1D9; border-radius: 10px; font: 500 14px Manrope, system-ui, sans-serif; color: #14202B; }
 .bi-ap-hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.bi-ap-tag { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 99px; background: #FFF4D6; color: #7A5A00; font: 800 11px Manrope, system-ui, sans-serif; letter-spacing: .02em; vertical-align: 1px; white-space: nowrap; }
+.bi-ap-soon { background: #FAFBFC; }
+.bi-ap-other { display: flex; align-items: center; justify-content: space-between; gap: 12px 18px; flex-wrap: wrap; margin: 14px 0 4px; padding: 14px 16px; border-radius: 14px; background: #EAF5EE; border: 1px solid #BFE0CB; }
+.bi-ap-other p { margin: 0 !important; flex: 1 1 260px; font-weight: 700; color: #14202B !important; }
+.bi-ap-field { display: grid; gap: 5px; }
+.bi-ap-field label { font-weight: 700; font-size: 13.5px; }
+.bi-ap-err { margin: 0 !important; font-size: 12.5px !important; font-weight: 700; color: #B3261E !important; }
+.bi-ap-form [aria-invalid="true"] { border-color: #B3261E; }
+.bi-ap-fail { margin: 0 !important; padding: 10px 12px; border-radius: 10px; background: #FDF1F2; color: #6B0F1A !important; font-weight: 700; }
+.bi-ap-sent { margin-top: 14px !important; padding: 14px 16px; border-radius: 12px; background: #EAF5EE; color: #0E5A2C !important; font-weight: 700; }
+.bi-ap-sent:focus { outline: none; }
 .bi-ap-lgpd { font-size: 12.5px !important; color: #5B6773 !important; margin: 0 !important; }
 .bi-ap-form .bi-ap-cta { justify-self: start; }
 @media (max-width: 820px) {
@@ -281,7 +338,44 @@ SCRIPT = """// The Apoie modal: opens from the header button, one view at a time
     }
     b.classList.add('done'); setTimeout(() => b.classList.remove('done'), 1800);
   }));
+  // The contact form (D124): checked here, then sent as JSON to Web3Forms. A checked honeypot or a send faster than the minimum
+  // time after the view opens is dropped without a request.
   const form = root.querySelector('.bi-ap-form');
-  if (form) form.addEventListener('submit', (e) => e.preventDefault());  // no destination until the form service is chosen (Q40)
+  if (form) {
+    const sent = root.querySelector('.bi-ap-sent'), fail = form.querySelector('.bi-ap-fail'), send = form.querySelector('[type="submit"]');
+    const label = send.textContent, minMs = Number(form.dataset.minMs), f = form.elements;
+    let openedAt = 0;
+    const setError = (name, text) => {
+      const p = form.querySelector(`#bi-ap-${name}-err`); p.textContent = text || ''; p.hidden = !text;
+      if (text) f[name].setAttribute('aria-invalid', 'true'); else f[name].removeAttribute('aria-invalid');
+    };
+    const reset = () => {
+      openedAt = Date.now(); form.hidden = false; sent.hidden = true; fail.hidden = true;
+      ['name', 'email', 'message'].forEach((n) => setError(n, ''));
+    };
+    const done = () => { form.reset(); form.hidden = true; sent.hidden = false; sent.focus({ preventScroll: true }); };
+    root.addEventListener('click', (e) => { const go = e.target.closest('[data-go="contact"]'); if (go) reset(); });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); fail.hidden = true;
+      const v = { name: f.name.value.trim(), email: f.email.value.trim(), message: f.message.value.trim() };
+      const bad = {
+        name: v.name ? '' : form.dataset.required,
+        email: !v.email ? form.dataset.required : (/^[^@ ]+@[^@ ]+[.][^@ ]{2,}$/.test(v.email) ? '' : form.dataset.badEmail),
+        message: v.message ? '' : form.dataset.required,
+      };
+      Object.entries(bad).forEach(([n, t]) => setError(n, t));
+      const first = Object.keys(bad).find((n) => bad[n]);
+      if (first) { f[first].focus(); return; }
+      if (f.botcheck.checked || Date.now() - openedAt < minMs) { done(); return; }
+      send.disabled = true; send.textContent = form.dataset.sending;
+      fetch(form.dataset.endpoint, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ access_key: form.dataset.key, ...v, subject: form.dataset.subject, from_name: form.dataset.fromName, botcheck: false }),
+      }).then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+        .then((j) => { if (j && j.success === true) done(); else throw new Error('not sent'); })
+        .catch(() => { fail.hidden = false; })
+        .finally(() => { send.disabled = false; send.textContent = label; });
+    });
+  }
 })();
 """

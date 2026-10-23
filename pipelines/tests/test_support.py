@@ -1,7 +1,9 @@
-"""The Apoie button's data (spec BRASIL-IMPOSTO_SPEC_apoie_2026-10-23): data/support.json stays off and empty until the
-maintainer fills it in, and with `enabled` true every value must be filled and every address must have its network's format.
-A planted bad address of each network must fail."""
+"""The Apoie button's data (spec BRASIL-IMPOSTO_SPEC_apoie_2026-10-23, sections 1 to 8): data/support.json stays off and empty until
+the maintainer fills it in. The button may go on with both payment channels on "soon", but only with the contact form's access
+key filled in; a channel goes "live" only with every one of its values filled and every address in its network's format. The
+built pages never show "a definir" and never carry an e-mail address. Every rule has a planted failure."""
 import copy
+import importlib.util
 import json
 import os
 import re
@@ -11,11 +13,17 @@ import unittest
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(REPO / "docs" / "superpowers" / "tools"))
+TOOLS = REPO / "docs" / "superpowers" / "tools"
+sys.path.insert(0, str(TOOLS))
 import apoie  # noqa: E402
 import site_chrome  # noqa: E402
 import support_data  # noqa: E402
 
+_spec = importlib.util.spec_from_file_location("email_scan", TOOLS / "email-scan.py")
+email_scan = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(email_scan)
+
+ACCESS_KEY = "00000000-1111-4222-8333-444444444444"   # a dummy Web3Forms access key, for these tests only
 # well-formed dummy addresses, for these tests only (never in data/support.json)
 DUMMY = {"bitcoin": "bc1qtesttesttesttesttesttesttesttesttest", "evm": "0x" + "7e57" * 10,
          "solana": "TestTestTestTestTestTestTestTestTest", "tron": "TTestTestTestTestTestTestTestTestT",
@@ -31,24 +39,56 @@ def committed():
     return json.loads(support_data.PATH.read_text(encoding="utf-8"))
 
 
-def filled():
+def on_soon():
+    """The button on, both channels on "soon": what production goes live with."""
     d = copy.deepcopy(committed())
-    d.update(enabled=True, sponsors_url="https://github.com/sponsors/Brasil-Imposto", maintainer_cap_brl=3000,
-             unidentified_return_above_brl=500, contact_email="contato@example.org")
-    d["fiscal_host"]["url"] = "https://opencollective.com/example"
-    for g in d["crypto"]:
+    d["enabled"] = True
+    d["contact_form"]["access_key"] = ACCESS_KEY
+    return d
+
+
+def on_live():
+    d = on_soon()
+    d["maintainer_cap_brl"] = 3000
+    d["sponsors"].update(status="live", sponsors_url="https://github.com/sponsors/Brasil-Imposto")
+    d["sponsors"]["fiscal_host"]["url"] = "https://opencollective.com/example"
+    d["crypto"].update(status="live", unidentified_return_above_brl=500)
+    for g in d["crypto"]["groups"]:
         g["address"] = DUMMY[g["format"]]
     return d
+
+
+def build(data):
+    with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
+        json.dump(data, f)
+    old = os.environ.get("BI_SUPPORT_JSON")
+    os.environ["BI_SUPPORT_JSON"] = f.name
+    try:
+        return {k: site_chrome.parts(k) for k in site_chrome.PAGES}
+    finally:
+        os.unlink(f.name)
+        if old is None:
+            os.environ.pop("BI_SUPPORT_JSON")
+        else:
+            os.environ["BI_SUPPORT_JSON"] = old
+
+
+def text(html):
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html)).replace(" ,", ",").replace(" .", ".")
 
 
 class CommittedFileTest(unittest.TestCase):
     def test_off_and_empty_until_the_maintainer_fills_it(self):
         d = committed()
         self.assertIs(d["enabled"], False)
-        for key in ("sponsors_url", "maintainer_cap_brl", "unidentified_return_above_brl", "contact_email"):
-            self.assertIsNone(d[key], key)
-        self.assertEqual(d["fiscal_host"], {"name": "Open Source Collective", "url": None})
-        self.assertEqual([g["address"] for g in d["crypto"]], [None] * 5)
+        self.assertEqual(d["contact_form"], {"provider": "web3forms", "access_key": None})
+        self.assertNotIn("contact_email", d)
+        self.assertIsNone(d["maintainer_cap_brl"])
+        self.assertEqual(d["sponsors"], {"status": "soon", "sponsors_url": None,
+                                         "fiscal_host": {"name": "Open Source Collective", "url": None}})
+        self.assertEqual(d["crypto"]["status"], "soon")
+        self.assertIsNone(d["crypto"]["unidentified_return_above_brl"])
+        self.assertEqual([g["address"] for g in d["crypto"]["groups"]], [None] * 5)
         self.assertEqual(support_data.problems(d), [])
 
     def test_the_seven_coins_and_their_networks(self):
@@ -61,35 +101,53 @@ class CommittedFileTest(unittest.TestCase):
         self.assertEqual(names["BNB"], ["BNB Smart Chain (BEP-20)"])
 
     def test_one_address_per_group_and_its_explorers(self):
-        urls = {n["id"]: n["explorer_url"] for g in committed()["crypto"] for n in g["networks"]}
+        urls = {n["id"]: n["explorer_url"] for g in committed()["crypto"]["groups"] for n in g["networks"]}
         self.assertEqual(urls, {"bitcoin": "https://mempool.space/address/{address}", "ethereum": "https://etherscan.io/address/{address}",
                                 "bsc": "https://bscscan.com/address/{address}", "solana": "https://solscan.io/account/{address}",
                                 "tron": "https://tronscan.org/address/{address}/transactions",
                                 "xrp-ledger": "https://xrpscan.com/account/{address}"})
 
+    def test_no_email_address_in_the_data_file(self):
+        self.assertEqual(email_scan.find(support_data.PATH.read_text(encoding="utf-8")), [])
 
-class EnabledRuleTest(unittest.TestCase):
-    def test_filled_dummy_data_passes(self):
-        self.assertEqual(support_data.problems(filled()), [])
 
-    def test_enabled_with_a_value_missing_fails(self):
-        for key in ("sponsors_url", "maintainer_cap_brl", "unidentified_return_above_brl", "contact_email"):
-            with self.subTest(key=key):
-                d = filled(); d[key] = None
-                self.assertTrue(any(p.startswith(key) for p in support_data.problems(d)), key)
-        d = filled(); d["fiscal_host"]["url"] = None
-        self.assertTrue(support_data.problems(d))
+class RulesTest(unittest.TestCase):
+    def test_on_with_both_channels_soon_passes(self):
+        self.assertEqual(support_data.problems(on_soon()), [])
+
+    def test_control_on_without_the_access_key_fails(self):
+        d = on_soon(); d["contact_form"]["access_key"] = None
+        self.assertTrue(any(p.startswith("contact_form.access_key") for p in support_data.problems(d)))
+
+    def test_control_an_email_address_as_the_access_key_fails(self):
+        d = on_soon(); d["contact_form"]["access_key"] = "someone" + chr(64) + "example.org"
+        self.assertTrue(any(p.startswith("contact_form.access_key") for p in support_data.problems(d)))
+
+    def test_a_status_outside_soon_and_live_fails(self):
+        d = on_soon(); d["sponsors"]["status"] = "open"
+        self.assertTrue(any(p.startswith("sponsors.status") for p in support_data.problems(d)))
+
+    def test_live_with_every_value_passes(self):
+        self.assertEqual(support_data.problems(on_live()), [])
+
+    def test_live_with_a_value_missing_fails(self):
+        cases = {"sponsors_url": lambda d: d["sponsors"].update(sponsors_url=None),
+                 "fiscal_host": lambda d: d["sponsors"]["fiscal_host"].update(url=None),
+                 "maintainer_cap_brl": lambda d: d.update(maintainer_cap_brl=None),
+                 "threshold": lambda d: d["crypto"].update(unidentified_return_above_brl=None)}
         for i in range(5):
-            with self.subTest(group=i):
-                d = filled(); d["crypto"][i]["address"] = None
-                self.assertTrue(support_data.problems(d))
+            cases[f"address {i}"] = (lambda i: lambda d: d["crypto"]["groups"][i].update(address=None))(i)
+        for name, change in cases.items():
+            with self.subTest(missing=name):
+                d = on_live(); change(d)
+                self.assertTrue(support_data.problems(d), name)
 
     def test_control_a_planted_bad_address_fails(self):
         for fmt, bad in BAD.items():
             for a in bad:
                 with self.subTest(fmt=fmt, address=a):
-                    d = filled()
-                    next(g for g in d["crypto"] if g["format"] == fmt)["address"] = a
+                    d = on_live()
+                    next(g for g in d["crypto"]["groups"] if g["format"] == fmt)["address"] = a
                     self.assertTrue(any("is not a" in p for p in support_data.problems(d)), a)
 
     def test_the_money_format(self):
@@ -98,59 +156,69 @@ class EnabledRuleTest(unittest.TestCase):
 
 
 class PagesTest(unittest.TestCase):
-    def build(self, data):
-        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
-            json.dump(data, f)
-        old = os.environ.get("BI_SUPPORT_JSON")
-        os.environ["BI_SUPPORT_JSON"] = f.name
-        try:
-            return {k: site_chrome.parts(k) for k in site_chrome.PAGES}
-        finally:
-            os.unlink(f.name)
-            if old is None:
-                os.environ.pop("BI_SUPPORT_JSON")
-            else:
-                os.environ["BI_SUPPORT_JSON"] = old
-
     def test_off_no_button_and_the_chrome_as_before(self):
-        for key, p in self.build(committed()).items():
+        for key, p in build(committed()).items():
             with self.subTest(page=key):
                 self.assertEqual(p["header"], site_chrome.header(key))
                 self.assertEqual(p["css"], site_chrome.HEAD)
                 self.assertEqual(p["js"], site_chrome.SCRIPT)
                 self.assertNotIn("bi-apoie", p["header"] + p["css"] + p["js"])
 
-    def test_on_the_button_the_texts_and_no_email(self):
-        d = filled()
-        for key, p in self.build(d).items():
+    def test_on_soon_the_cards_wait_and_the_form_works(self):
+        for key, p in build(on_soon()).items():
             with self.subTest(page=key):
                 h = p["header"]
                 self.assertEqual(h.count('class="bi-apoie-btn"'), 1)
-                self.assertLess(h.index('class="bi-links"'), h.index('class="bi-apoie-btn"'))
-                self.assertLess(h.index('class="bi-apoie-btn"'), h.index('class="bi-menu-btn"'))
                 self.assertLess(h.index("</header>"), h.index('id="bi-apoie"'), "the modal sits outside the header")
-                text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", h)).replace(" ,", ",")
-                for t in [apoie.LEAD, apoie.INFRA, apoie.NOT_PAID_BY, apoie.SPONSORS_FACTS, apoie.WARNING, apoie.CONTACT_ASK,
-                          apoie.CONTACT_LGPD, apoie.PICK_NETWORK, *apoie.MONTH, *apoie.SPONSORS_STEPS,
-                          apoie.DEVELOPERS.replace("{cap}", "R$ 3.000,00"), apoie.RETURN_RULE.replace("{limit}", "R$ 500,00"),
-                          "Apoie o Brasil-Imposto", "Para onde vai o dinheiro", "Como cada mês é dividido", "Como apoiar",
-                          "Antes de apoiar", "Fale com a gente", "Apoiar pelo GitHub Sponsors", "Apoiar com cripto",
-                          "Abrir o GitHub Sponsors", "Voltar", "Copiar"]:
-                    self.assertIn(re.sub(r"\s+", " ", t), text, t[:50])
-                self.assertNotIn(d["contact_email"], h + p["js"], "D124: the e-mail never on the page")
-                self.assertIn(".bi-apoie [hidden] { display: none !important; }", p["css"])
-                for g in d["crypto"]:
+                cards = re.findall(r'<div class="bi-ap-card bi-ap-soon">(.*?)</div>', h)
+                self.assertEqual(len(cards), 2)
+                for c in cards:
+                    self.assertIn('<span class="bi-ap-tag">Em breve</span>', c)
+                    for mark in ("<a ", "<button", "<code", "data-go"):
+                        self.assertNotIn(mark, c, "a card on soon has nothing to click and no address")
+                for view in ("sponsors", "crypto"):
+                    self.assertNotIn(f'data-view="{view}"', h)
+                    self.assertNotIn(f'data-go="{view}"', h)
+                t = text(h)
+                for s in [apoie.SPONSORS_CARD, apoie.CRYPTO_CARD_SOON, apoie.OTHER_WAY, apoie.CONTACT_ASK, apoie.CONTACT_LGPD,
+                          apoie.SENT, apoie.FAILED, apoie.LEAD, apoie.DEVELOPERS, "Fale com a gente", "Nome", "E-mail", "Mensagem"]:
+                    self.assertIn(re.sub(r"\s+", " ", s), t, s[:50])
+                for gone in ("Quem recebe", "a definir", "teto de", "Cada endereço é público", "Doação acima de"):
+                    self.assertNotIn(gone, t, gone)
+                kept = re.findall(r'<ul class="bi-ap-list">(.*?)</ul>', h)[0]
+                self.assertEqual(kept.count("<li>"), 5)
+                self.assertIn('data-endpoint="https://api.web3forms.com/submit"', h)
+                self.assertIn(f'data-key="{ACCESS_KEY}"', h)
+                self.assertIn('<input type="checkbox" name="botcheck"', h)
+
+    def test_no_email_address_in_any_built_part(self):
+        for data in (on_soon(), on_live()):
+            for key, p in build(data).items():
+                with self.subTest(page=key, live=data["crypto"]["status"]):
+                    self.assertEqual(email_scan.find(p["header"] + p["css"] + p["js"]), [])
+
+    def test_control_the_email_scan_catches_a_planted_address(self):
+        p = build(on_soon())["inicio"]
+        self.assertEqual(email_scan.find(p["header"] + email_scan.PLANTED), [email_scan.PLANTED])
+
+    def test_on_live_the_channels_open(self):
+        for key, p in build(on_live()).items():
+            with self.subTest(page=key):
+                h = p["header"]
+                t = text(h)
+                self.assertNotIn("Em breve", t)
+                for view in ("sponsors", "crypto", "contact"):
+                    self.assertIn(f'data-view="{view}"', h)
+                for s in ["Quem recebe", apoie.CRYPTO_CARD, apoie.DEVELOPERS_CAP.replace("{cap}", "R$ 3.000,00"),
+                          apoie.RETURN_RULE.replace("{limit}", "R$ 500,00")]:
+                    self.assertIn(re.sub(r"\s+", " ", s), t, s[:50])
+                for g in on_live()["crypto"]["groups"]:
                     self.assertIn(g["address"], h)
 
-    def test_on_with_a_value_missing_refuses_to_build(self):
-        d = filled(); d["crypto"][0]["address"] = "bc1"
+    def test_control_on_without_the_access_key_refuses_to_build(self):
+        d = on_soon(); d["contact_form"]["access_key"] = None
         with self.assertRaises(SystemExit):
-            self.build(d)
-
-    def test_without_the_email_no_contact_form(self):
-        h = apoie.modal(dict(filled(), contact_email=None))
-        self.assertNotIn('data-view="contact"', h)
-        self.assertNotIn('data-go="contact"', h)
+            build(d)
 
 
 if __name__ == "__main__":
