@@ -6,6 +6,13 @@
    "description": "O botão Apoie e o modal de apoio: GitHub Sponsors e cripto \"Em breve\" até cada canal estar pronto, e o formulário de contato pelo Web3Forms (D158)",
    "staging": true,
    "production": true
+  },
+  {
+   "key": "trade",
+   "issue": 57,
+   "description": "A seção O que o Brasil vende na Início (D159)",
+   "staging": true,
+   "production": false
   }
  ]
 }

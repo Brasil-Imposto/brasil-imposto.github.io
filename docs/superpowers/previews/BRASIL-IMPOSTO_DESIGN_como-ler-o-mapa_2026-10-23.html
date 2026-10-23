@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como ler o mapa · Brasil-Imposto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #14202B; --muted: #5B6773; --faint: #8A95A1; --line: #E3E7EC; --paper: #FFFFFF; --soft: #F6F8FA; --green: #12803F; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--muted); }
+  /* The period and the measure, as on the map (periods.js; the map's measure switch). */
+  /* the same left edge as the notes below: their block is 1180 px inside the section's 24 px (16 px on a phone) */
+  .notes-ctl { max-width: 1228px; margin: 0 auto; padding: 22px 24px 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
+  @media (max-width: 760px) { .notes-ctl { padding: 18px 16px 4px; } }
+  .notes-ctl .period { margin: 0; }
+  .period { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-bottom: 12px; }
+  .period .plab { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--faint, #8A95A1); }
+  .pseg { display: inline-flex; gap: 2px; padding: 3px; background: #EDF0F3; border-radius: 99px; }
+  .pseg button, .pchips button { font: inherit; font-size: 12px; font-weight: 700; color: #5B6773; background: none; border: 0; border-radius: 99px; padding: 5px 11px; cursor: pointer; }
+  .pseg button[aria-pressed="true"] { background: #fff; color: #14202B; box-shadow: 0 1px 3px rgba(20,32,43,.14); }
+  .pchips { display: flex; flex-wrap: wrap; gap: 4px; } .pchips button { border: 1px solid #E3E7EC; background: #fff; }
+  .pchips button[aria-pressed="true"] { background: #14202B; color: #fff; border-color: #14202B; }
+  .period select { font: inherit; font-size: 12.5px; font-weight: 700; border: 1px solid #E3E7EC; border-radius: 99px; padding: 5px 10px; background: #fff; color: #14202B; }
+  .metric-switch { display: inline-flex; gap: 2px; padding: 3px; background: #EDF0F3; border-radius: 99px; }
+  .metric-switch button { font: inherit; font-size: 12px; font-weight: 700; color: var(--muted); background: none; border: 0; border-radius: 99px; padding: 6px 13px; cursor: pointer; }
+  .metric-switch button[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(20,32,43,.14); }
+  /* The two blocks that lived under the map on Início (their style moved with them). */
+  .map-notes { background: #fff; border-top: 1px solid var(--line); padding: 26px 24px 30px; }
+  .map-notes .in { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; }
+  .map-notes h3 { margin: 0 0 8px; font-size: 15px; }
+  .map-notes ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+  .map-notes li + li { margin-top: 4px; }
+  .map-notes table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .map-notes td { padding: 5px 6px; border-bottom: 1px solid var(--line); color: var(--muted); vertical-align: top; }
+  .map-notes td:first-child { color: var(--ink); font-weight: 700; white-space: nowrap; }
+  .map-notes td.d { text-align: right; white-space: nowrap; color: var(--ink); font-weight: 700; }
+  @media (max-width: 760px) { .map-notes { padding: 22px 16px; } .map-notes .in { grid-template-columns: 1fr; gap: 18px; } }
+  .map-notes { border-top: 0; }
+  .map-notes h1, .map-notes h2 { margin: 0 0 8px; font-size: 15px; }
+  .map-notes h1 { font-size: 22px; letter-spacing: -.01em; }
+  .notes-err { max-width: 1180px; margin: 24px auto; padding: 0 24px; color: var(--muted); }
+</style>
+<!-- site-chrome:css -->
+<link rel="icon" href="assets/brand/favicon.ico" sizes="16x16 32x32">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<meta property="og:site_name" content="Brasil-Imposto">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:description" content="Para onde vai o imposto, com dados oficiais e a fonte de cada número.">
+<meta property="og:image" content="https://brasil-imposto.github.io/assets/brand/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A marca do Brasil-Imposto, o nome e a frase: Para onde vai o imposto, com dados oficiais e a fonte de cada número.">
+<meta name="twitter:card" content="summary_large_image">
+<style id="bi-chrome-css">
+.bi-header { position: sticky; top: 0; z-index: 1000; height: 62px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; background: rgba(255,255,255,.94); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid #E3E7EC; font-family: Manrope, system-ui, sans-serif; }
+.bi-brand { display: inline-flex; align-items: center; gap: 9px; color: #14202B; text-decoration: none; font-weight: 800; font-size: 15px; letter-spacing: -.01em; white-space: nowrap; }
+.bi-brand img { width: 30px; height: 30px; }
+.bi-brand i { font-style: normal; color: #12803F; }
+.bi-links { display: flex; align-items: center; gap: 18px; }
+.bi-links a { font-weight: 700; font-size: 13px; color: #5B6773; text-decoration: none; padding-bottom: 3px; }
+.bi-links a:hover { color: #14202B; }
+.bi-links a[aria-current="page"] { color: #14202B; box-shadow: 0 2px 0 #14202B; }
+.bi-menu-btn { display: none; align-items: center; gap: 8px; height: 34px; padding: 0 14px; border: 1px solid #E3E7EC; border-radius: 99px; background: #fff; color: #14202B; font: 700 13px Manrope, system-ui, sans-serif; cursor: pointer; }
+.bi-menu-btn svg { width: 16px; height: 16px; }
+.bi-sheet { position: fixed; left: 0; right: 0; top: 62px; z-index: 999; padding: 6px 14px 16px; background: rgba(255,255,255,.98); border-bottom: 1px solid #E3E7EC; box-shadow: 0 10px 30px rgba(20,32,43,.08); font-family: Manrope, system-ui, sans-serif; }
+.bi-sheet[hidden] { display: none; }
+/* every in-page jump lands below the header (62 px) with a gap; a page's overlays sit above it (z-index 1100) and lock the page */
+:where([id]) { scroll-margin-top: 80px; }
+html.bi-locked, html.bi-locked body { overflow: hidden; }
+.bi-sheet a { display: block; padding: 11px 0; border-bottom: 1px solid #E3E7EC; font-weight: 700; font-size: 17px; color: #14202B; text-decoration: none; }
+.bi-sheet a[aria-current="page"] { color: #12803F; }
+.bi-sheet p { margin: 12px 0 0; font-size: 12.5px; color: #5B6773; }
+.bi-footer { background: #fff; border-top: 1px solid #E3E7EC; font-family: Manrope, system-ui, sans-serif; }
+.bi-footer-in { box-sizing: border-box; max-width: 1180px; margin: 0 auto; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 18px 28px; flex-wrap: wrap; }
+.bi-footer-id { flex: 1 1 280px; min-width: 0; }
+.bi-footer-id p { margin: 6px 0 0; font-size: 12.5px; color: #5B6773; text-wrap: balance; }
+.bi-footer-links { display: flex; flex-wrap: wrap; gap: 10px 18px; flex: 0 1 auto; }
+.bi-footer-links a { font-weight: 700; font-size: 13.5px; color: #5B6773; text-decoration: none; }
+.bi-footer-links a:hover { color: #14202B; }
+@media (max-width: 820px) {
+  .bi-footer-in { flex-direction: column; align-items: flex-start; padding: 22px 14px; }
+  .bi-footer-id, .bi-footer-links { flex: none; }
+  .bi-footer-links { flex-direction: column; gap: 12px; }
+}
+@media (max-width: 820px) {
+  .bi-header { padding: 0 14px; }
+  .bi-header .bi-links { display: none; }
+  .bi-menu-btn { display: inline-flex; }
+}
+</style>
+<style id="bi-apoie-css">
+/* The Apoie button and its modal (spec apoie): present only when data/support.json has enabled true. */
+.bi-end { display: flex; align-items: center; gap: 18px; }
+.bi-apoie-btn { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 14px 0 10px; border: 0; border-radius: 99px; background: #12803F; color: #fff; font: 800 13px Manrope, system-ui, sans-serif; cursor: pointer; white-space: nowrap; }
+.bi-apoie-btn:hover { background: #0E6A33; }
+.bi-apoie-btn:focus-visible, .bi-apoie button:focus-visible, .bi-apoie a:focus-visible { outline: 2px solid #1F5FAF; outline-offset: 2px; }
+.bi-chest { width: 20px; height: 20px; flex: none; }
+.bi-apoie { position: fixed; inset: 0; z-index: 1100; display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; box-sizing: border-box; font-family: Manrope, system-ui, sans-serif; color: #14202B; }
+/* a display rule on a class beats the hidden attribute, so every hidden part of the modal is hidden here on purpose */
+.bi-apoie[hidden], .bi-apoie [hidden] { display: none !important; }
+.bi-ap-backdrop { position: absolute; inset: 0; background: rgba(20,32,43,.55); }
+.bi-ap-panel { position: relative; box-sizing: border-box; width: 100%; max-width: 760px; max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; background: #fff; border-radius: 18px; box-shadow: 0 24px 60px rgba(20,32,43,.28); }
+/* the bar takes no height: its two buttons float over the panel and stay in place while it scrolls */
+.bi-ap-top { position: sticky; top: 0; z-index: 2; height: 0; }
+.bi-ap-x { position: absolute; top: 12px; right: 12px; display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid #E3E7EC; border-radius: 99px; background: #fff; box-shadow: 0 2px 8px rgba(20,32,43,.12); color: #14202B; cursor: pointer; }
+.bi-ap-x svg { width: 15px; height: 15px; }
+.bi-ap-back { position: absolute; top: 12px; left: 14px; display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px 0 8px; border: 1px solid #E3E7EC; border-radius: 99px; background: #fff; color: #14202B; font: 700 13px Manrope, system-ui, sans-serif; cursor: pointer; }
+.bi-ap-back svg { width: 14px; height: 14px; }
+.bi-ap-body { padding: 22px 28px 28px; }
+.bi-ap-view:not([data-view="main"]) { padding-top: 40px; }
+.bi-ap-body h2 { margin: 0; font-size: 24px; letter-spacing: -.015em; line-height: 1.2; }
+.bi-ap-body h2:focus { outline: none; }
+.bi-ap-body h2 + p { margin-top: 10px; }
+.bi-ap-body h3 { margin: 26px 0 10px; font-size: 16px; }
+.bi-ap-body h4 { margin: 0 0 6px; font-size: 14px; }
+.bi-ap-body p, .bi-ap-body li { font-size: 14px; line-height: 1.55; color: #33404C; }
+.bi-ap-body p { margin: 0 0 10px; }
+.bi-ap-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; padding-right: 48px; }
+.bi-ap-head img { width: 42px; height: 42px; flex: none; }
+.bi-ap-bar { display: flex; gap: 3px; height: 6px; margin: 0 0 12px; }
+.bi-ap-bar i { flex: 1; border-radius: 99px; background: #12803F; }
+.bi-ap-bar i + i { background: #1F5FAF; }
+.bi-ap-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 22px; }
+.bi-ap-col h4::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 7px; border-radius: 3px; background: #12803F; vertical-align: -1px; }
+.bi-ap-b h4::before { background: #1F5FAF; }
+.bi-ap-box { margin: 16px 0 10px; padding: 14px 16px; border: 1px solid #E3E7EC; border-radius: 12px; background: #F6F8FA; }
+.bi-ap-box ol, .bi-ap-steps { margin: 0; padding-left: 20px; }
+.bi-ap-box li + li, .bi-ap-steps li + li { margin-top: 4px; }
+.bi-ap-note { font-size: 13px !important; color: #5B6773 !important; }
+.bi-ap-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.bi-ap-card { display: flex; flex-direction: column; align-items: flex-start; padding: 16px; border: 1px solid #E3E7EC; border-radius: 14px; }
+.bi-ap-card p { flex: 1; }
+.bi-ap-mark { width: 28px; height: 28px; margin-bottom: 8px; }
+.bi-ap-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 16px; border: 0; border-radius: 99px; background: #12803F; color: #fff; font: 800 13.5px Manrope, system-ui, sans-serif; text-decoration: none; cursor: pointer; text-align: center; }
+.bi-ap-cta:hover { background: #0E6A33; }
+.bi-ap-cta[disabled] { background: #A8B3BD; cursor: not-allowed; }
+.bi-ap-list { margin: 0; padding-left: 18px; }
+.bi-ap-list li + li { margin-top: 6px; }
+.bi-ap-list a, .bi-ap-net-act a { color: #1F5FAF; font-weight: 700; }
+.bi-ap-talk { margin-top: 18px !important; }
+.bi-ap-linkbtn { padding: 0; border: 0; background: none; color: #1F5FAF; font: 800 14px Manrope, system-ui, sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.bi-ap-steps { margin: 16px 0 12px; }
+.bi-ap-facts { margin: 0 0 16px !important; padding: 12px 14px; border-radius: 12px; background: #F6F8FA; }
+.bi-ap-coins { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 14px; }
+.bi-ap-coinbtn { min-width: 64px; height: 38px; padding: 0 12px; border: 1px solid #D5DBE1; border-radius: 99px; background: #fff; color: #14202B; font: 800 13px "JetBrains Mono", ui-monospace, monospace; cursor: pointer; }
+.bi-ap-coinbtn[aria-pressed="true"] { border-color: #12803F; background: #12803F; color: #fff; }
+.bi-ap-coin { margin-bottom: 12px; }
+.bi-ap-net { padding: 12px 0; border-top: 1px solid #E3E7EC; }
+.bi-ap-net:last-of-type { border-bottom: 1px solid #E3E7EC; }
+.bi-ap-net-name { font-weight: 800; font-size: 14px; }
+.bi-ap-net code { display: block; margin: 6px 0 8px; padding: 8px 10px; border-radius: 8px; background: #F6F8FA; font: 600 12.5px "JetBrains Mono", ui-monospace, monospace; overflow-wrap: anywhere; word-break: break-all; color: #14202B; }
+.bi-ap-net-act { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 13.5px; }
+.bi-ap-copy { height: 32px; padding: 0 14px; border: 1px solid #12803F; border-radius: 99px; background: #fff; color: #12803F; font: 800 13px Manrope, system-ui, sans-serif; cursor: pointer; }
+.bi-ap-copy.done { background: #12803F; color: #fff; }
+.bi-ap-pick { margin-top: 10px !important; font-size: 13px !important; }
+.bi-ap-warn { margin: 6px 0 10px !important; padding: 12px 14px; border-left: 4px solid #C8102E; border-radius: 8px; background: #FDF1F2; color: #6B0F1A !important; }
+.bi-ap-rule { font-size: 13.5px !important; }
+.bi-ap-form { display: grid; gap: 12px; margin-top: 14px; }
+.bi-ap-hp label { display: grid; }
+.bi-ap-form input, .bi-ap-form textarea { box-sizing: border-box; width: 100%; padding: 10px 12px; border: 1px solid #C9D1D9; border-radius: 10px; font: 500 14px Manrope, system-ui, sans-serif; color: #14202B; }
+.bi-ap-hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.bi-ap-tag { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 99px; background: #FFF4D6; color: #7A5A00; font: 800 11px Manrope, system-ui, sans-serif; letter-spacing: .02em; vertical-align: 1px; white-space: nowrap; }
+.bi-ap-soon { background: #FAFBFC; }
+.bi-ap-other { display: flex; align-items: center; justify-content: space-between; gap: 12px 18px; flex-wrap: wrap; margin: 14px 0 4px; padding: 14px 16px; border-radius: 14px; background: #EAF5EE; border: 1px solid #BFE0CB; }
+.bi-ap-other p { margin: 0 !important; flex: 1 1 260px; font-weight: 700; color: #14202B !important; }
+.bi-ap-field { display: grid; gap: 5px; }
+.bi-ap-field label { font-weight: 700; font-size: 13.5px; }
+.bi-ap-err { margin: 0 !important; font-size: 12.5px !important; font-weight: 700; color: #B3261E !important; }
+.bi-ap-form [aria-invalid="true"] { border-color: #B3261E; }
+.bi-ap-fail { margin: 0 !important; padding: 10px 12px; border-radius: 10px; background: #FDF1F2; color: #6B0F1A !important; font-weight: 700; }
+.bi-ap-sent { margin-top: 14px !important; padding: 14px 16px; border-radius: 12px; background: #EAF5EE; color: #0E5A2C !important; font-weight: 700; }
+.bi-ap-sent:focus { outline: none; }
+.bi-ap-lgpd { font-size: 12.5px !important; color: #5B6773 !important; margin: 0 !important; }
+.bi-ap-form .bi-ap-cta { justify-self: start; }
+@media (max-width: 820px) {
+  .bi-end { gap: 8px; }
+}
+@media (max-width: 640px) {
+  .bi-apoie { padding: 8px; }
+  .bi-ap-panel { max-height: calc(100vh - 16px); max-height: calc(100dvh - 16px); border-radius: 14px; }
+  .bi-ap-body { padding: 18px 16px 22px; }
+  .bi-ap-cols, .bi-ap-cards { grid-template-columns: 1fr; }
+  .bi-ap-cols { gap: 12px; }
+  .bi-ap-body h2 { font-size: 21px; }
+}
+/* up to 380 px the Menu button shows only its icon (its name stays for screen readers), so the header fits at 320 px */
+@media (max-width: 380px) {
+  .bi-header { padding: 0 10px; gap: 8px; }
+  .bi-end { gap: 6px; }
+  .bi-menu-btn { padding: 0 10px; }
+  .bi-menu-btn span { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .bi-apoie-btn { padding: 0 12px 0 9px; }
+}
+</style>
+<!-- /site-chrome:css -->
+</head>
+<body>
+<!-- site-chrome:header -->
+<header class="bi-header"><a class="bi-brand" href="./"><img src="assets/brand/brasil-imposto-logo.svg" alt=""><span>Brasil<i>·</i>Imposto</span></a><div class="bi-end"><nav class="bi-links" aria-label="Páginas"><a href="./">Início</a><a href="BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html">Os 3 Poderes</a><a href="BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html">Como o dinheiro anda</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io">Código aberto</a></nav><button type="button" class="bi-apoie-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="bi-apoie"><svg class="bi-chest" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 10.4V8.6c0-2.3 1.9-4.1 4.2-4.1h8.4c2.3 0 4.2 1.8 4.2 4.1v1.8z" fill="#F9BE2A" stroke="#8A6A00" stroke-width="1.4" stroke-linejoin="round"/><rect x="3.6" y="10.4" width="16.8" height="9.1" rx="1.6" fill="#F9BE2A" stroke="#8A6A00" stroke-width="1.4"/><rect x="10.1" y="8.6" width="3.8" height="4.6" rx=".9" fill="#8A6A00"/><circle cx="12" cy="10.5" r=".75" fill="#F9BE2A"/></svg><span>Apoie</span></button><button type="button" class="bi-menu-btn" aria-expanded="false" aria-controls="bi-sheet"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg><span>Menu</span></button></div></header><nav class="bi-sheet" id="bi-sheet" aria-label="Páginas" hidden><a href="./">Início</a><a href="BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html">Os 3 Poderes</a><a href="BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html">Como o dinheiro anda</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io">Código aberto</a><p>Rede do dinheiro (prévia), decisões e licenças ficam no rodapé.</p></nav><div class="bi-apoie" id="bi-apoie" role="dialog" aria-modal="true" aria-labelledby="bi-ap-title" hidden><div class="bi-ap-backdrop"></div><div class="bi-ap-panel"><div class="bi-ap-top"><button type="button" class="bi-ap-back" hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Voltar</span></button><button type="button" class="bi-ap-x" aria-label="Fechar"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></button></div><div class="bi-ap-body"><section class="bi-ap-view" data-view="main"><div class="bi-ap-head"><img src="assets/brand/brasil-imposto-logo.svg" alt=""><h2 id="bi-ap-title" tabindex="-1">Apoie o Brasil-Imposto</h2></div><p class="bi-ap-lead">O Brasil-Imposto mostra, com dados oficiais e a fonte de cada número, para onde vai o imposto pago no Brasil. É apartidário e de código aberto. O seu apoio paga duas coisas, e nada além delas: o trabalho de quem desenvolve o projeto e a infraestrutura que mantém os dados corretos e no ar.</p><h3>Para onde vai o dinheiro</h3><div class="bi-ap-bar" aria-hidden="true"><i></i><i></i></div><div class="bi-ap-cols"><div class="bi-ap-col bi-ap-g"><h4>1. Desenvolvedores</h4><p>Quem entrega trabalho aceito no repositório. Cada tarefa paga é uma issue com o valor em reais publicado antes de o trabalho começar, e o pagamento sai quando o pull request entra no site.</p></div><div class="bi-ap-col bi-ap-b"><h4>2. Infraestrutura</h4><p>O custo real de cada mês, com a nota de cada gasto: hoje, as ferramentas de inteligência artificial usadas para coletar e conferir os dados; depois, servidor e banco de dados, quando o site precisar. O site é hospedado de graça no GitHub Pages.</p></div></div><div class="bi-ap-box"><h4>Como cada mês é dividido</h4><ol><li>Primeiro, a infraestrutura do mês, pelo custo real.</li><li>Com o restante, as tarefas pagas que entraram no mês, pelo valor que estava publicado na issue.</li><li>Depois, o valor fixo da manutenção, até o teto.</li><li>O que ficar fica guardado para os meses seguintes, e o saldo aparece no livro-caixa.</li></ol></div><p class="bi-ap-note">Não pagamos por número de commits, de linhas ou de pull requests: pesquisar e conferir uma fonte oficial pode levar dias e virar poucas linhas. O valor de cada tarefa é decidido antes, à vista de todos.</p><h3>Como apoiar</h3><div class="bi-ap-cards"><div class="bi-ap-card bi-ap-soon"><svg class="bi-ap-mark" viewBox="0 0 16 16" aria-hidden="true"><path fill="#14202B" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg><h4>GitHub Sponsors <span class="bi-ap-tag">Em breve</span></h4><p>Em dólar, uma vez ou todo mês, pela sua conta do GitHub.</p></div><div class="bi-ap-card bi-ap-soon"><svg class="bi-ap-mark" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="17" rx="8" ry="3.2" fill="#E9A912" stroke="#8A6A00" stroke-width="1.3"/><path d="M4 9v8M20 9v8" stroke="#8A6A00" stroke-width="1.3"/><ellipse cx="12" cy="9" rx="8" ry="3.2" fill="#F9BE2A" stroke="#8A6A00" stroke-width="1.3"/><ellipse cx="12" cy="9" rx="4.2" ry="1.5" fill="none" stroke="#8A6A00" stroke-width="1.1"/></svg><h4>Cripto <span class="bi-ap-tag">Em breve</span></h4><p>Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB.</p></div></div><h3>Antes de apoiar</h3><ul class="bi-ap-list"><li><b>O que o apoio compra:</b> trabalho e infraestrutura. Não compra conteúdo: ninguém que apoia muda o que o site mostra, e as regras de neutralidade valem para todos.</li><li><b>De quem não aceitamos:</b> partido, candidato e ocupante de cargo eletivo. Toda fonte acima de 5% da receita do ano é publicada com o nome.</li><li>Tudo o que entra e tudo o que sai é publicado, mês a mês, no livro-caixa do projeto.</li><li><b>Em reais:</b> doação em cripto ou em dólar entra no livro-caixa em reais, pela cotação do dia em que chegou.</li><li><b>Imposto de renda:</b> a doação não é dedutível; o projeto não é uma entidade beneficente.</li></ul></section></div></div></div>
+<!-- /site-chrome:header -->
+<main>
+<div class="notes-ctl"><div data-period></div>
+  <div class="metric-switch" role="group" aria-label="Medida">
+    <button type="button" data-metric="perCapita" aria-pressed="true">Por habitante</button>
+    <button type="button" data-metric="total" aria-pressed="false">Total</button>
+    <button type="button" data-metric="ratio" aria-pressed="false">Proporção</button>
+  </div>
+</div>
+<section class="map-notes" id="como-ler-o-mapa"><div class="in">
+  <div><h1>Como ler o mapa</h1><ul data-map-notes></ul></div>
+  <div><h2>Última divulgação de cada fonte</h2><table data-map-dates></table></div>
+</div></section>
+</main>
+<script src="assets/periods.js"></script>
+<script src="assets/map-notes.js"></script>
+<script>
+// The notes for the period and the measure in the address (D159), read from assets/map-notes.js; the selector and the measure
+// switch change them without reloading, and the address follows, so a link keeps what the reader sees.
+(function () {
+  const N = window.BI_NOTES, BIT = window.BIT;
+  if (!N || !BIT) {
+    document.querySelector('main').insertAdjacentHTML('afterbegin', '<p class="notes-err" role="alert">As notas não carregaram. Recarregue a página.</p>');
+    return;
+  }
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  const METRICS = ['perCapita', 'total', 'ratio'];
+  const base = { year: +N.default.period.slice(5), month: N.default.month, mandate: '2023-2026' };
+  const parse = (id) => {
+    const m = /^(month|year|mandate)-(.+)$/.exec(id || '');
+    if (!m || !N.periods[id]) return null;
+    return m[1] === 'month' ? { ...base, mode: 'month', month: m[2] } : m[1] === 'year' ? { ...base, mode: 'year', year: +m[2] } : { ...base, mode: 'mandate', mandate: m[2] };
+  };
+  const idOf = (p) => (p.mode === 'month' ? `month-${p.month}` : p.mode === 'year' ? `year-${p.year}` : `mandate-${p.mandate}`);
+  const params = new URLSearchParams(location.search);
+  let period = parse(params.get('period')) || parse(N.default.period);
+  let metric = METRICS.includes(params.get('metric')) ? params.get('metric') : N.default.metric;
+  const ctl = document.querySelector('[data-period]');
+  const draw = () => {
+    const id = idOf(period), set = N.periods[id] || N.periods[N.default.period];
+    document.querySelector('[data-map-notes]').innerHTML = set[metric].map((i) => `<li>${esc(N.strings[i])}</li>`).join('');
+    document.querySelector('[data-map-dates]').innerHTML = N.dates.map(([l, what, d]) => `<tr><td>${l}</td><td>${esc(what)}</td><td class="d">${d}</td></tr>`).join('');
+    ctl.innerHTML = BIT.selector(period, N.latest, N.first, 'notes-period');
+    BIT.bind(ctl, period, N.latest, (np) => { period = { ...base, ...np }; draw(); });
+    document.querySelectorAll('.metric-switch button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.metric === metric)));
+    const q = new URLSearchParams(location.search); q.set('period', id); q.set('metric', metric);
+    history.replaceState(null, '', `${location.pathname}?${q}${location.hash}`);
+  };
+  document.querySelectorAll('.metric-switch button').forEach((b) => b.addEventListener('click', () => { metric = b.dataset.metric; draw(); }));
+  window.__showNotes = (id, m) => { period = parse(id) || period; metric = METRICS.includes(m) ? m : metric; draw(); };
+  draw();
+  document.body.dataset.ready = '1';
+})();
+</script>
+<!-- site-chrome:js -->
+<script id="bi-chrome-js">
+// The header's Menu on phones: opens the sheet under the bar, closes with Esc, a tap outside or a link.
+(function () {
+  const btn = document.querySelector('.bi-menu-btn'), sheet = document.getElementById('bi-sheet');
+  if (!btn || !sheet) return;
+  const label = btn.querySelector('span');
+  const set = (open, focusBack) => {
+    sheet.hidden = !open; btn.setAttribute('aria-expanded', String(open)); label.textContent = open ? 'Fechar' : 'Menu';
+    if (open) sheet.querySelector('a').focus(); else if (focusBack) btn.focus();
+  };
+  btn.addEventListener('click', () => set(sheet.hidden, true));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !sheet.hidden) set(false, true); });
+  document.addEventListener('click', (e) => { if (!sheet.hidden && !sheet.contains(e.target) && !btn.contains(e.target)) set(false, false); });
+  window.matchMedia('(min-width: 821px)').addEventListener('change', (m) => { if (m.matches && !sheet.hidden) set(false, false); });
+})();
+// The footer's "Rede do dinheiro (prévia)": on Início the card is on this page, so the link only scrolls to it.
+(function () {
+  const a = document.querySelector('.bi-footer a[data-here]'), target = document.getElementById('rede');
+  if (a && target) a.addEventListener('click', (e) => { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#rede'); });
+})();
+// The Apoie modal: opens from the header button, one view at a time, closes with the X, Escape or a click outside, and gives the
+// focus back to the button.
+(function () {
+  const root = document.getElementById('bi-apoie'), opener = document.querySelector('.bi-apoie-btn');
+  if (!root || !opener) return;
+  const panel = root.querySelector('.bi-ap-panel'), back = root.querySelector('.bi-ap-back');
+  const views = [...root.querySelectorAll('[data-view]')];
+  const show = (name) => {
+    views.forEach((v) => { v.hidden = v.dataset.view !== name; });
+    back.hidden = name === 'main'; panel.scrollTop = 0;
+    const h = root.querySelector(`[data-view="${name}"] h2`); if (h) h.focus({ preventScroll: true });
+  };
+  const open = () => {
+    root.hidden = false; document.documentElement.classList.add('bi-locked'); opener.setAttribute('aria-expanded', 'true'); show('main');
+  };
+  const close = () => {
+    if (root.hidden) return;
+    root.hidden = true; document.documentElement.classList.remove('bi-locked'); opener.setAttribute('aria-expanded', 'false'); opener.focus();
+  };
+  opener.addEventListener('click', open);
+  root.querySelector('.bi-ap-x').addEventListener('click', close);
+  root.querySelector('.bi-ap-backdrop').addEventListener('click', close);
+  back.addEventListener('click', () => show('main'));
+  root.addEventListener('click', (e) => { const go = e.target.closest('[data-go]'); if (go) show(go.dataset.go); });
+  document.addEventListener('keydown', (e) => {
+    if (root.hidden) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+    if (e.key !== 'Tab') return;  // the focus stays inside the modal
+    const f = [...root.querySelectorAll('button, a[href], input, textarea')].filter((x) => !x.disabled && x.getClientRects().length && x.tabIndex >= 0);
+    if (!f.length) return;
+    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+  });
+  root.querySelectorAll('[data-coin-btn]').forEach((b) => b.addEventListener('click', () => {
+    const c = b.dataset.coinBtn;
+    root.querySelectorAll('[data-coin-btn]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    root.querySelectorAll('.bi-ap-coin').forEach((p) => { p.hidden = p.dataset.coin !== c; });
+  }));
+  root.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const text = b.dataset.copy; if (!text) return;
+    try { await navigator.clipboard.writeText(text); } catch (_) {
+      const r = document.createRange(); r.selectNodeContents(b.closest('.bi-ap-net').querySelector('code'));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy');
+    }
+    b.classList.add('done'); setTimeout(() => b.classList.remove('done'), 1800);
+  }));
+  // The contact form (D124): checked here, then sent as JSON to Web3Forms. A checked honeypot or a send faster than the minimum
+  // time after the view opens is dropped without a request.
+  const form = root.querySelector('.bi-ap-form');
+  if (form) {
+    const sent = root.querySelector('.bi-ap-sent'), fail = form.querySelector('.bi-ap-fail'), send = form.querySelector('[type="submit"]');
+    const label = send.textContent, minMs = Number(form.dataset.minMs), f = form.elements;
+    let openedAt = 0;
+    const setError = (name, text) => {
+      const p = form.querySelector(`#bi-ap-${name}-err`); p.textContent = text || ''; p.hidden = !text;
+      if (text) f[name].setAttribute('aria-invalid', 'true'); else f[name].removeAttribute('aria-invalid');
+    };
+    const reset = () => {
+      openedAt = Date.now(); form.hidden = false; sent.hidden = true; fail.hidden = true;
+      ['name', 'email', 'message'].forEach((n) => setError(n, ''));
+    };
+    const done = () => { form.reset(); form.hidden = true; sent.hidden = false; sent.focus({ preventScroll: true }); };
+    root.addEventListener('click', (e) => { const go = e.target.closest('[data-go="contact"]'); if (go) reset(); });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); fail.hidden = true;
+      const v = { name: f.name.value.trim(), email: f.email.value.trim(), message: f.message.value.trim() };
+      const bad = {
+        name: v.name ? '' : form.dataset.required,
+        email: !v.email ? form.dataset.required : (/^[^@ ]+@[^@ ]+[.][^@ ]{2,}$/.test(v.email) ? '' : form.dataset.badEmail),
+        message: v.message ? '' : form.dataset.required,
+      };
+      Object.entries(bad).forEach(([n, t]) => setError(n, t));
+      const first = Object.keys(bad).find((n) => bad[n]);
+      if (first) { f[first].focus(); return; }
+      if (f.botcheck.checked || Date.now() - openedAt < minMs) { done(); return; }
+      send.disabled = true; send.textContent = form.dataset.sending;
+      fetch(form.dataset.endpoint, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ access_key: form.dataset.key, ...v, subject: form.dataset.subject, from_name: form.dataset.fromName, botcheck: false }),
+      }).then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+        .then((j) => { if (j && j.success === true) done(); else throw new Error('not sent'); })
+        .catch(() => { fail.hidden = false; })
+        .finally(() => { send.disabled = false; send.textContent = label; });
+    });
+  }
+})();
+</script>
+<!-- /site-chrome:js -->
+<!-- site-chrome:footer -->
+<footer class="bi-footer"><div class="bi-footer-in"><div class="bi-footer-id"><a class="bi-brand" href="./"><img src="assets/brand/brasil-imposto-logo.svg" alt=""><span>Brasil<i>·</i>Imposto</span></a><p>Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0.</p></div><nav class="bi-footer-links" aria-label="Mais sobre o projeto"><a href="./#rede" data-here>Rede do dinheiro (prévia)</a><a href="BRASIL-IMPOSTO_DESIGN_como-ler-o-mapa_2026-10-23.html">Como ler o mapa</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io">Código aberto no GitHub</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/blob/main/docs/decisions/README.md">Decisões do projeto</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/blob/main/CONTRIBUTING.md">Como ajudar</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io#licenças">Licenças</a></nav></div></footer>
+<!-- /site-chrome:footer -->
+</body>
+</html>

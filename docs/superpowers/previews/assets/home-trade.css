@@ -1,0 +1,49 @@
+/* "O que o Brasil vende" on Início (D109, D111): only where the trade switch of data/features.json builds the section (D159). */
+.ht { max-width: 1180px; margin: 0 auto; padding: 8px 24px 18px; }
+.ht[hidden] { display: none; }
+.ht-in { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px 18px; }
+.ht-lead { margin: 6px 4px 4px; font-size: 15px; line-height: 1.45; color: var(--ink); }
+.ht-ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 8px 4px 10px; }
+.ht-seg { display: inline-flex; background: var(--soft); border: 1px solid var(--line); border-radius: 99px; padding: 3px; }
+.ht-seg button { font: inherit; font-size: 12.5px; font-weight: 700; color: var(--muted); background: none; border: 0; border-radius: 99px; padding: 6px 13px; cursor: pointer; }
+.ht-seg button[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(20,32,43,.14); }
+.ht-per { margin: 0; flex: 1 1 260px; font-size: 12px; line-height: 1.45; color: var(--muted); }
+.ht-ctx { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 0 0 6px; }
+.ht-ctx > div { border: 1px solid var(--line); border-radius: 12px; padding: 9px 11px; background: #FBFCFD; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ht-ctx > div > span { font-size: 10.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); }
+.ht-ctx b { font-size: 18px; font-weight: 800; color: var(--ink); font-variant-numeric: tabular-nums; }
+.ht-ctx small { font-size: 11px; line-height: 1.35; color: var(--muted); } .ht-ctx small .hf-exact { margin: 0 2px; }
+.ht-lead { font-size: 13.5px; color: var(--muted); margin: 6px 4px 10px; }
+.ht-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.ht-it { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.ht-rk { font-size: 12px; font-weight: 800; color: var(--faint); text-align: right; padding-top: 2px; font-variant-numeric: tabular-nums; }
+.ht-main { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.ht-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: start; }
+.ht-nm { font-size: 13.5px; line-height: 1.35; color: var(--ink); overflow-wrap: anywhere; }
+.ht-v { text-align: right; white-space: nowrap; }
+.ht-v b { display: block; font-size: 15px; font-weight: 800; color: var(--ink); font-variant-numeric: tabular-nums; }
+.ht-v small { font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ht-bar { display: grid; grid-template-columns: minmax(80px, 1fr) auto; gap: 10px; align-items: center; }
+.ht-bar i { height: 8px; background: var(--soft); border-radius: 99px; overflow: hidden; } .ht-bar i b { display: block; height: 100%; background: #14202B; border-radius: 99px; }
+.ht-bar em { font-style: normal; font-size: 11.5px; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ht-dest { margin: 0; font-size: 12px; line-height: 1.45; color: var(--muted); } .ht-dest b { color: var(--ink); }
+.ht-sh { margin: 2px 0 0; padding: 8px 10px; border-radius: 10px; background: #F6F8FA; }
+.ht-sh-h { font-size: 12px; color: var(--ink); margin-bottom: 5px; }
+.ht-split { display: flex; height: 10px; border-radius: 99px; overflow: hidden; }
+.ht-split i { display: block; height: 100%; }
+.ht-split .out, .ht-sh-l .out i { background: #14202B; } .ht-split .stay, .ht-sh-l .stay i { background: #9FB3C4; }
+.ht-sh-l { margin: 5px 0 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; font-weight: 700; color: var(--ink); }
+.ht-sh-l i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; }
+.ht-sh-s { margin: 4px 0 0; font-size: 11px; line-height: 1.45; color: var(--muted); } .ht-sh-s a, .ht-price a { color: var(--muted); }
+.ht-sh.na { margin: 0; font-size: 11.5px; line-height: 1.45; color: var(--muted); }
+.ht-price { margin: 0; font-size: 12px; line-height: 1.5; color: var(--ink); } .ht-price small { display: block; font-size: 11px; color: var(--muted); }
+.ht-more { display: block; width: 100%; margin-top: 10px; font: inherit; font-size: 13px; font-weight: 700; color: var(--ink); background: var(--soft); border: 1px dashed #C4CCD6; border-radius: 12px; padding: 10px; cursor: pointer; }
+.ht-foot { margin: 10px 4px 0; font-size: 11px; line-height: 1.5; color: var(--faint); } .ht-foot a { color: var(--muted); }
+@media (max-width: 760px) {
+  .ht { padding: 4px 16px 14px; }
+  .ht-in { padding: 14px 12px 16px; }
+  .ht-ctx { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ht-ctx > div:last-child { grid-column: 1 / -1; }
+  .ht-it { grid-template-columns: 22px minmax(0, 1fr); padding: 9px 10px; gap: 8px; }
+  .ht-row { grid-template-columns: 1fr; gap: 3px; } .ht-v { text-align: left; } .ht-v b { display: inline; margin-right: 8px; }
+  .ht-bar em { white-space: normal; }
+}

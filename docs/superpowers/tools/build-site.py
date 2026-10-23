@@ -1,11 +1,11 @@
 """Assembles the published site in one of two profiles (spec BRASIL-IMPOSTO_SPEC_staging_2026-10-23, section 3).
 
-  production  what https://brasil-imposto.github.io serves: the three pages as committed (index.html is Início), assets/, the
+  production  what https://brasil-imposto.github.io serves: the pages as committed (index.html is Início), assets/, the
               forwarding page at Início's old address (D160), .nojekyll and robots.txt (staging stays out of search)
   staging     what https://brasil-imposto.github.io/staging/ serves: the same pages built with every switch of data/features.json
               that staging turns on, a strip at the top of each page saying it is the test site, and noindex
 
-Both run the four page builders first, as pages.yml did. The staging build writes only to the output folder: the committed pages
+Both run the page builders first (the four pages.yml ran, the notes page and the map's notes, D159). The staging build writes only to the output folder: the committed pages
 are the production ones, so `git status` stays clean after it (pipelines/tests/test_build_site.py).
 
 Run: python3 docs/superpowers/tools/build-site.py --profile {production,staging} --out <folder>
@@ -20,9 +20,23 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 PREVIEWS = TOOLS.parent / "previews"
 sys.path.insert(0, str(TOOLS))
+import features  # noqa: E402
 import site_chrome  # noqa: E402
 
-BUILDERS = ("build-cases.py", "build-standalone-data.py", "build-simulation.py", "build-platform-preview.py")
+BUILDERS = ("build-cases.py", "build-standalone-data.py", "build-simulation.py", "build-platform-preview.py", "build-notes-page.py")
+# the notes of the map for Como ler o mapa (D159), made from the map's data once build-standalone-data.py has written it
+NODE_BUILDERS = ("build-map-notes.cjs",)
+# What each switch of data/features.json adds to a page, after the anchor it follows, and the files only it uses. A switch that
+# is off leaves the page as committed and its files out of assets/ (features.py: absent, never hidden).
+FEATURES = {
+    "trade": {  # O que o Brasil vende, under Por que falta dinheiro on Início (D159)
+        "page": "inicio",
+        "after": [('<link rel="stylesheet" href="assets/home-feed.css">', '<link rel="stylesheet" href="assets/home-trade.css">'),
+                  ('<script type="text/x-bi-deferred" data-src="assets/home-feed.js"></script>',
+                   '<script type="text/x-bi-deferred" data-src="assets/home-trade.js"></script>')],
+        "files": ("home-trade.js", "home-trade.css"),
+    },
+}
 OFFICIAL = "https://brasil-imposto.github.io"
 STRIP_TEXT = ("Ambiente de testes: inclui ideias ainda não aprovadas. O site oficial é "
               f'<a href="{OFFICIAL}">brasil-imposto.github.io</a>.')
@@ -60,6 +74,18 @@ def staging_page(page, key):
     return page[:body.end()] + "\n" + STRIP + page[body.end():]
 
 
+def with_features(page, key, profile):
+    """A page with what each switch turned on for the profile adds to it; with every switch off, the page as it came."""
+    for name, f in FEATURES.items():
+        if f["page"] != key or not features.on(name, profile):
+            continue
+        for anchor, tag in f["after"]:
+            if page.count(anchor) != 1:
+                raise SystemExit(f"build-site: {name}: {anchor} expected once in {key}")
+            page = page.replace(anchor, anchor + "\n" + tag)
+    return page
+
+
 def build(profile, out):
     out = Path(out)
     if out.exists():
@@ -67,13 +93,20 @@ def build(profile, out):
     out.mkdir(parents=True)
     for b in BUILDERS:
         subprocess.run([sys.executable, str(TOOLS / b)], check=True, stdout=subprocess.DEVNULL)
-    shutil.copytree(PREVIEWS / "assets", out / "assets")
-    for key, (name, _label) in site_chrome.PAGES.items():
+    for b in NODE_BUILDERS:
+        subprocess.run(["node", str(TOOLS / b)], check=True, stdout=subprocess.DEVNULL)
+    off = {fn for name, f in FEATURES.items() if not features.on(name, profile) for fn in f["files"]}
+    shutil.copytree(PREVIEWS / "assets", out / "assets", ignore=lambda d, names: [n for n in names if Path(d) == PREVIEWS / "assets" and n in off])
+    for key, (name, _label) in site_chrome.ALL_PAGES.items():
         target = out / ("index.html" if key == "inicio" else name)
-        if profile == "production":
+        committed = (PREVIEWS / name).read_bytes().decode("utf-8")
+        page = with_features(committed, key, profile)
+        if profile == "production" and page == committed:
             shutil.copyfile(PREVIEWS / name, target)   # the committed page, byte for byte
+        elif profile == "production":
+            target.write_bytes(page.encode("utf-8"))
         else:
-            target.write_bytes(staging_page((PREVIEWS / name).read_bytes().decode("utf-8"), key).encode("utf-8"))
+            target.write_bytes(staging_page(page, key).encode("utf-8"))
     (out / site_chrome.HOME).write_text(FORWARD, encoding="utf-8")
     (out / ".nojekyll").write_text("", encoding="utf-8")
     if profile == "production":
