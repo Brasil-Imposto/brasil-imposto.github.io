@@ -92,13 +92,13 @@ def channel_problems(data, channel):
 
 
 def problems(data):
-    """Everything wrong with the file as it is: the structure always; with the button on, the form's access key; with a channel
+    """Everything wrong with the file as it is: the structure always; the form's access key, when there is one, must be a Web3Forms
+    access key (the button may be on without it: the contact form then stays out until the key is filled, D162); with a channel
     live, every value of that channel."""
     out = structure_problems(data)
-    if data.get("enabled"):
-        key = data["contact_form"].get("access_key")
-        if not (isinstance(key, str) and ACCESS_KEY.match(key)):
-            out.append("contact_form.access_key: the Web3Forms access key (a UUID, never an e-mail address)")
+    key = data["contact_form"].get("access_key")
+    if key is not None and not (isinstance(key, str) and ACCESS_KEY.match(key)):
+        out.append("contact_form.access_key: the Web3Forms access key (a UUID, never an e-mail address)")
     open_channels = [c for c in ("sponsors", "crypto") if data[c].get("status") == "live"]
     for channel in open_channels:
         out += channel_problems(data, channel)

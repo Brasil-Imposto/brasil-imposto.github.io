@@ -38,7 +38,6 @@ class SiteHeaderTest(unittest.TestCase):
         for key in site_chrome.PAGES:
             text = re.sub(r"<[^>]+>", " ", site_chrome.extract(page(key), "header"))
             self.assertNotRegex(text, r"Rede\s*\(prévia\)")
-            self.assertNotIn("Apoie", text)
 
 
 class SiteBrandTest(unittest.TestCase):
@@ -70,7 +69,7 @@ class SiteBrandTest(unittest.TestCase):
                 self.assertTrue((PREVIEWS / rel).is_file(), rel)
 
     def test_control_a_wrong_path_fails(self):
-        broken = page("inicio").replace(f'src="{self.LOGO}"', 'src="assets/brand/missing.svg"', 1)
+        broken = page("inicio").replace(f'src="{self.LOGO}"', 'src="assets/brand/missing.svg"')  # every copy: the Apoie modal shows the mark too
         self.assertNotEqual(broken, page("inicio"), "the plant did not land")
         self.assertIn("header: no logo", self.problems(broken))
 
