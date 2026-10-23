@@ -78,9 +78,9 @@ def text(html):
 
 
 class CommittedFileTest(unittest.TestCase):
-    def test_off_and_empty_until_the_maintainer_fills_it(self):
+    def test_on_with_the_values_still_empty(self):
         d = committed()
-        self.assertIs(d["enabled"], False)
+        self.assertIs(d["enabled"], True)
         self.assertEqual(d["contact_form"], {"provider": "web3forms", "access_key": None})
         self.assertNotIn("contact_email", d)
         self.assertIsNone(d["maintainer_cap_brl"])
@@ -115,9 +115,9 @@ class RulesTest(unittest.TestCase):
     def test_on_with_both_channels_soon_passes(self):
         self.assertEqual(support_data.problems(on_soon()), [])
 
-    def test_control_on_without_the_access_key_fails(self):
+    def test_on_without_the_access_key_passes(self):
         d = on_soon(); d["contact_form"]["access_key"] = None
-        self.assertTrue(any(p.startswith("contact_form.access_key") for p in support_data.problems(d)))
+        self.assertEqual(support_data.problems(d), [])
 
     def test_control_an_email_address_as_the_access_key_fails(self):
         d = on_soon(); d["contact_form"]["access_key"] = "someone" + chr(64) + "example.org"
@@ -157,7 +157,8 @@ class RulesTest(unittest.TestCase):
 
 class PagesTest(unittest.TestCase):
     def test_off_no_button_and_the_chrome_as_before(self):
-        for key, p in build(committed()).items():
+        off = copy.deepcopy(committed()); off["enabled"] = False
+        for key, p in build(off).items():
             with self.subTest(page=key):
                 self.assertEqual(p["header"], site_chrome.header(key))
                 self.assertEqual(p["css"], site_chrome.HEAD)
@@ -215,8 +216,20 @@ class PagesTest(unittest.TestCase):
                 for g in on_live()["crypto"]["groups"]:
                     self.assertIn(g["address"], h)
 
-    def test_control_on_without_the_access_key_refuses_to_build(self):
+    def test_on_without_the_access_key_shows_everything_but_the_form(self):
         d = on_soon(); d["contact_form"]["access_key"] = None
+        for key, p in build(d).items():
+            with self.subTest(page=key):
+                h = p["header"]
+                self.assertEqual(h.count('class="bi-apoie-btn"'), 1)
+                self.assertEqual(len(re.findall(r'<div class="bi-ap-card bi-ap-soon">', h)), 2)
+                for gone in ('data-go="contact"', 'data-view="contact"', "api.web3forms.com", 'name="botcheck"'):
+                    self.assertNotIn(gone, h, gone)
+                self.assertNotIn(re.sub(r"\s+", " ", apoie.OTHER_WAY), text(h))
+                self.assertIn(re.sub(r"\s+", " ", apoie.LEAD), text(h))
+
+    def test_control_a_bad_access_key_refuses_to_build(self):
+        d = on_soon(); d["contact_form"]["access_key"] = "not-a-key"
         with self.assertRaises(SystemExit):
             build(d)
 
