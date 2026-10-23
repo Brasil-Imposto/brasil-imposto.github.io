@@ -21,10 +21,10 @@ class SiteHeaderTest(unittest.TestCase):
     def test_each_page_carries_the_module_header(self):
         for key in site_chrome.PAGES:
             with self.subTest(page=key):
-                p = page(key)
-                self.assertEqual(site_chrome.extract(p, "header"), site_chrome.header(key))
-                self.assertEqual(site_chrome.extract(p, "css"), site_chrome.HEAD)
-                self.assertEqual(site_chrome.extract(p, "js"), site_chrome.SCRIPT)
+                p, want = page(key), site_chrome.parts(key)  # with the Apoie parts when data/support.json turns them on
+                self.assertEqual(site_chrome.extract(p, "header"), want["header"])
+                self.assertEqual(site_chrome.extract(p, "css"), want["css"])
+                self.assertEqual(site_chrome.extract(p, "js"), want["js"])
                 self.assertEqual(p.count('class="bi-header"'), 1, "one header per page")
 
     def test_headers_equal_apart_from_the_current_page_mark(self):
