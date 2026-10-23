@@ -9,15 +9,17 @@ back as questions at the end.
 Status: **aprovada pelo mantenedor em 2026-10-23** (desenho e todos os textos, na mensagem que pediu esta construção), com base em
 D123, D124, D152, D155 e D156 (D155 e D156 estão no registro local de decisões, ainda não publicado). Construída desligada.
 
-## 1. Portões (o botão fica desligado até o mantenedor dizer)
+## 1. Portões dos canais de pagamento
 
-O agente não decide nenhum destes; `enabled` só vira `true` pela mão do mantenedor.
+O agente não decide nenhum destes. Desde 2026-10-23 (seção 8), eles valem para cada canal de pagamento ir de `"soon"` para
+`"live"`; o botão e o formulário de contato vão ao ar antes, com `enabled: true` e a chave do formulário, pela mão do mantenedor.
 
 1. **D123:** o pedido só vai ao ar depois do 2º turno da eleição (2026-10-25).
 2. **D125 a D127:** toda tela lê o livro de fluxos, toda garantia passa, nenhuma estimativa na tela. O ponto em aberto é a
    estimativa do DF (D146), pergunta Q41.
-3. **Todo valor de `data/support.json` preenchido.** O teste `pipelines/tests/test_support.py` e a construção das páginas
-   (`site_chrome.parts`) recusam `enabled: true` com qualquer valor vazio ou endereço fora do formato da rede.
+3. **Todo valor do canal preenchido.** O teste `pipelines/tests/test_support.py` e a construção das páginas (`site_chrome.parts`)
+   recusam um canal `"live"` com qualquer valor vazio ou endereço fora do formato da rede, e `enabled: true` sem a chave do
+   formulário.
 
 ## 2. O arquivo de dados: `data/support.json`
 
@@ -25,13 +27,11 @@ Chaves em inglês. Hoje tudo vazio e `enabled: false`.
 
 | Chave | Hoje | O que é |
 |---|---|---|
-| `enabled` | `false` | o botão aparece só com `true` |
-| `sponsors_url` | `null` | será `https://github.com/sponsors/Brasil-Imposto` |
-| `fiscal_host` | `{"name": "Open Source Collective", "url": null}` | quem recebe pelo GitHub Sponsors; o nome vira link quando houver `url` |
+| `enabled` | `false` | o botão aparece só com `true`, e `true` pede `contact_form.access_key` (seção 8) |
 | `maintainer_cap_brl` | `null` | o teto do valor fixo da manutenção, por mês, em reais |
-| `unidentified_return_above_brl` | `null` | acima deste valor, doação de carteira sem identificação é devolvida |
-| `contact_email` | `null` | o e-mail do projeto, para onde as mensagens do formulário vão; nunca aparece na página (D124) |
-| `crypto` | 5 grupos, `address: null` | um endereço por grupo, com as redes, o explorador de cada rede e as moedas |
+| `contact_form` | `{"provider": "web3forms", "access_key": null}` | a chave pública do Web3Forms para a caixa do projeto; nenhum e-mail na página (D124, seção 8) |
+| `sponsors` | `status: "soon"`, `sponsors_url: null`, `fiscal_host: {"name": "Open Source Collective", "url": null}` | o canal do GitHub Sponsors; `sponsors_url` será `https://github.com/sponsors/Brasil-Imposto` |
+| `crypto` | `status: "soon"`, `unidentified_return_above_brl: null`, 5 grupos com `address: null` | o canal de cripto: o valor acima do qual doação de carteira sem identificação é devolvida, e um endereço por grupo, com as redes, o explorador de cada rede e as moedas |
 
 Os grupos de endereço, as redes e as moedas:
 
@@ -93,7 +93,8 @@ ainda).
    - "Tudo o que entra e tudo o que sai é publicado, mês a mês, no livro-caixa do projeto."
    - "Em reais: doação em cripto ou em dólar entra no livro-caixa em reais, pela cotação do dia em que chegou."
    - "Imposto de renda: a doação não é dedutível; o projeto não é uma entidade beneficente."
-7. Um link "Fale com a gente", que abre a vista de contato (D124). Sem `contact_email`, o formulário não aparece.
+7. A vista de contato (D124) abre pela linha em destaque logo depois dos cartões (seção 8). Sem `contact_form.access_key`, ela
+   não existe.
 
 ### 4.2 Vista "Apoiar pelo GitHub Sponsors" (com "Voltar")
 
@@ -117,8 +118,7 @@ contas do dinheiro do projeto." E o botão "Abrir o GitHub Sponsors", para `spon
 
 Nome, e-mail e mensagem; "O que você gostaria de ver no Brasil-Imposto? Conte para a gente. Lemos todas as mensagens e usamos as
 ideias para planejar as próximas atualizações."; "Seu nome e e-mail servem só para responder você." Com um campo escondido contra
-robôs (honeypot), como D124 pede. O envio depende do serviço de formulário de D124, ainda não escolhido (Q40): até lá o botão de
-envio fica desativado (pergunta 1).
+robôs (honeypot), como D124 pede. O envio é pelo Web3Forms (seção 8).
 
 ## 5. Como foi construído
 
@@ -147,9 +147,8 @@ envio fica desativado (pergunta 1).
 
 ## 7. Perguntas ao mantenedor
 
-1. **O envio do formulário (Q40).** D124 pede um serviço de formulário hospedado, registrado com o e-mail do projeto, e que o
-   endereço não apareça na página; o serviço não foi escolhido. Proposta: quando for escolhido, entra uma chave `contact_form_url`
-   em `data/support.json` como mais um portão, e o botão "Enviar" passa a enviar. Até lá ele fica desativado.
+1. **O envio do formulário (Q40).** Respondida pelo mantenedor em 2026-10-23: Web3Forms, com a chave pública em
+   `contact_form.access_key` (seção 8).
 2. **Textos que esta mensagem não trouxe e a construção precisou:** os rótulos do formulário ("Nome", "E-mail", "Mensagem") e o
    botão "Enviar"; o nome de cada explorador como texto do link (mempool.space, Etherscan, BscScan, Solscan, Tronscan, XRPScan);
    "Fechar" como nome do botão de fechar para leitores de tela (o mesmo do Menu aberto). Ficam assim ou têm outro texto?
@@ -162,3 +161,39 @@ envio fica desativado (pergunta 1).
    teto vira `maintainer_cap_brl`; o pagamento de outros desenvolvedores por tarefa paga em issue; a sobra guardada para os meses
    seguintes; cotação do dia em reais e as sete moedas; o valor de devolução vira `unidentified_return_above_brl`; o Open Source
    Collective como quem recebe). Fecha essas perguntas no registro?
+
+## 8. Produção: o botão e o formulário no ar, os canais em breve (mantenedor, 2026-10-23)
+
+Decisão do mantenedor: o botão Apoie e o formulário "Fale com a gente" vão ao ar agora, para quem quiser apoiar de outro jeito falar
+com a pessoa mantenedora já; o GitHub Sponsors e a cripto ficam fechados até os portões deles passarem (D123, D125 a D127 e os
+valores de `data/support.json`).
+
+- **Cada canal tem um estado** (`sponsors.status` e `crypto.status`): `"soon"` mostra o cartão com a etiqueta "Em breve";
+  `"live"` pede todos os valores do canal preenchidos (o teste de endereços e valores vale para `"live"`; com qualquer canal
+  `"live"`, o teto `maintainer_cap_brl` também é exigido).
+- **`enabled` pode ser `true` com os dois canais em `"soon"`**, mas só com `contact_form.access_key` preenchida (um UUID; um
+  endereço de e-mail ali é recusado). Neste pull request `enabled` fica `false` e a chave fica `null`: a sessão local escreve a
+  chave e liga `enabled` num commit no mesmo ramo, e o merge espera o "pode" do mantenedor.
+- **Valores que faltam:** a produção nunca mostra "a definir". A frase que depende de um valor `null` sai (o teto da manutenção, o
+  valor de devolução da cripto). O staging pode mostrar "a definir" (spec de staging).
+- **"Como apoiar":** os dois cartões lado a lado (um sobre o outro no celular), cada um com "Em breve" ao lado do título e sem nada
+  para clicar enquanto o canal estiver em `"soon"`: sem botão, sem vista, sem endereço. Sob GitHub Sponsors: "Em dólar, uma vez ou
+  todo mês, pela sua conta do GitHub." Sob Cripto: "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB."
+- **Logo depois dos cartões**, uma linha em destaque com o botão que abre a vista de contato: "Quer apoiar de outro jeito, ou falar
+  com a gente? Escreva por aqui." Botão: "Fale com a gente". O link "Fale com a gente" do fim da vista principal sai, porque a
+  linha faz o mesmo.
+- **"Antes de apoiar"** fica só com o que vale sem canal aberto: "O que o apoio compra", "De quem não aceitamos", "Tudo o que entra
+  e tudo o que sai é publicado, mês a mês, no livro-caixa do projeto.", "Em reais" e "Imposto de renda". "Quem recebe" volta quando
+  um canal abrir.
+- **O formulário (D124):** Nome, E-mail e Mensagem, com os textos de 4.4. Enviado por JavaScript (fetch), em JSON, para
+  `https://api.web3forms.com/submit`, com `access_key`, `name`, `email`, `message`, `subject` "Brasil-Imposto: mensagem pelo
+  site", `from_name` "Site Brasil-Imposto" e `botcheck`. O honeypot é a caixa `botcheck`, escondida por CSS: marcada, nada sai.
+  Envio a menos de 3 segundos da abertura da vista é descartado. Sucesso é a resposta 200 com `success: true`.
+- **Estados:** enquanto envia, o botão diz "Enviando..." e fica desativado; no sucesso o formulário dá lugar a "Mensagem enviada.
+  Respondemos pelo e-mail que você informou."; em qualquer erro, "Não foi possível enviar agora. Tente de novo em alguns minutos.",
+  com os campos mantidos. Campos obrigatórios e e-mail válido conferidos antes do envio, com a mensagem sob o campo.
+- **Nenhum endereço de e-mail** na página, no repositório, num commit ou num pull request: `docs/superpowers/tools/email-scan.py`
+  procura o padrão, com um endereço plantado como controle.
+- **Provas:** a montagem da produção com `enabled` ligado e uma chave falsa (só no teste) e `apoie-check.cjs` em 1440, 420 e 320 px,
+  com `--control` (seção 6); desligado, as três páginas iguais às da `main`.
+
