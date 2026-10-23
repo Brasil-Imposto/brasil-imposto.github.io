@@ -161,6 +161,7 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-view:not([data-view="main"]) { padding-top: 40px; }
 .bi-ap-body h2 { margin: 0; font-size: 24px; letter-spacing: -.015em; line-height: 1.2; }
 .bi-ap-body h2:focus { outline: none; }
+.bi-ap-body h2 + p { margin-top: 10px; }
 .bi-ap-body h3 { margin: 26px 0 10px; font-size: 16px; }
 .bi-ap-body h4 { margin: 0 0 6px; font-size: 14px; }
 .bi-ap-body p, .bi-ap-body li { font-size: 14px; line-height: 1.55; color: #33404C; }
