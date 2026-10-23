@@ -7,9 +7,9 @@
 //   forward  the old address with a query and a hash, /<old name>?open=SC#rede, ends at /?open=SC#rede with the SC modal open
 //   noscript with JavaScript off, the old address still ends at "/" (the meta refresh)
 // Usage: node home-link-check.cjs <base url of the served _site> [--control]
-// --control plants a failure for every check: the footer logo of each page and "Início" in the header and the phone menu left
-// on the old name, the Rede link too, a forwarding page that drops the hash, and one without its fallback; every check must
-// then fail, or the probe is blind.
+// --control plants a failure for every check: every link to Início left on the old name (the logos, "Início" in the header and
+// the phone menu, the Rede link), a forwarding page that drops the hash, and one without its fallback; every check must then
+// fail, or the probe is blind.
 // Env: PW_CORE (path to playwright-core), CHROME_HEADLESS (chrome-headless-shell binary), CDN_MIRROR (optional, as site-check.cjs).
 const path = require('path');
 const OLD = 'BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html';
@@ -43,9 +43,7 @@ const LINKS = [
       if (url.pathname.endsWith('/' + OLD)) {
         body = opts.noFallback ? body.replace(/<noscript>.*?<\/noscript>/s, '') : body.replace(' + location.hash', '');
       } else {
-        body = body.replace(/(<footer class="bi-footer">.*?<a class="bi-brand" href=")\.\/"/s, `$1${OLD}"`)
-          .replace(/<a href="\.\/"( aria-current="page")?>Início<\/a>/g, `<a href="${OLD}"$1>Início</a>`)
-          .replace('href="./#rede"', `href="${OLD}#rede"`);
+        body = body.split('href="./#rede"').join(`href="${OLD}#rede"`).split('href="./"').join(`href="${OLD}"`);
       }
       return route.fulfill({ response: res, body, headers: { ...res.headers(), 'content-length': String(Buffer.byteLength(body)) } });
     });
