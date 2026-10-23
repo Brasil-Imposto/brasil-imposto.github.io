@@ -9,6 +9,10 @@ O projeto está na **fase 0**: um mantenedor, @VitorPChaves, dono da organizaç�
 
 - **Tudo entra por pull request**, inclusive o que o mantenedor faz. A regra da `main` não tem exceção, nem para o dono: pull
   request obrigatório, o check do DCO verde, histórico linear, sem force push.
+- **Todo pull request vai primeiro para o `staging`**, que publica o site de testes. A `main`, que publica o site, só recebe a
+  promoção do `staging`, feita pelo mantenedor depois de conferir ali o que ela leva; uma funcionalidade nova só aparece na
+  produção quando a chave dela em `data/features.json` é ligada. A exceção é a correção urgente do mantenedor, num ramo
+  `hotfix/*` saído da `main`, que volta em seguida para o `staging`.
 - **Toda decisão tem o motivo por escrito no pull request** que a aplica. As decisões que mudam o produto ficam registradas em
   `docs/decisions/README.md`.
 - Enquanto houver um só mantenedor, o pull request não exige aprovação de outra pessoa; a partir da fase 2, exige.
@@ -81,7 +85,9 @@ Correção de um erro, sem mudança de método, não precisa da janela de coment
 ## In English
 
 Phase 0 today: one maintainer, everything through pull requests with no exception for the owner, and the reason for each
-decision written in its pull request. Four phases, with suggested thresholds, lead to reviewers, a second maintainer and an
+decision written in its pull request. Every pull request goes to `staging` first, which publishes the test site; `main`, which
+publishes the site, only receives the maintainer's promotion of `staging`, and a new feature reaches production only when its
+switch in `data/features.json` is turned on. Four phases, with suggested thresholds, lead to reviewers, a second maintainer and an
 elected council. Neutrality rules: maintainers declare party membership and public office; never two maintainers from the same
 party; a party member never approves alone a pull request about their own party; no money from parties, candidates or elected
 officeholders, and every source above 5% of the year's income is published. Method changes get 7 to 10 days of comment in

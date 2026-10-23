@@ -1,6 +1,6 @@
 <!--
 Título: em inglês, no formato type(area): what changes. Exemplo: fix(site): map legend on phones.
-Um assunto por pull request. As regras completas: https://github.com/Brasil-Imposto
+Um assunto por pull request, aberto para o ramo `staging` (nunca para a `main`). As regras completas: https://github.com/Brasil-Imposto
 -->
 
 ## O que muda e por quê
