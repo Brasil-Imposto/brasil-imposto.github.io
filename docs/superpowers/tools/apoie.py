@@ -189,7 +189,7 @@ def modal(data, keyless=False):
 
 
 CSS = """<style id="bi-apoie-css">
-/* The Apoie button and its modal (spec apoie): present only when the apoie switch is on for the build. */
+/* The Apoie button and its modal (spec apoie): present only when data/support.json has enabled true. */
 .bi-end { display: flex; align-items: center; gap: 18px; }
 .bi-apoie-btn { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 14px 0 10px; border: 0; border-radius: 99px; background: #12803F; color: #fff; font: 800 13px Manrope, system-ui, sans-serif; cursor: pointer; white-space: nowrap; }
 .bi-apoie-btn:hover { background: #0E6A33; }
@@ -370,7 +370,6 @@ SCRIPT = """// The Apoie modal: opens from the header button, one view at a time
       const first = Object.keys(bad).find((n) => bad[n]);
       if (first) { f[first].focus(); return; }
       if (f.botcheck.checked || Date.now() - openedAt < minMs) { done(); return; }
-      if (!form.dataset.key) { fail.hidden = false; return; }   // staging without the access key: nothing is sent
       send.disabled = true; send.textContent = form.dataset.sending;
       fetch(form.dataset.endpoint, {
         method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -383,3 +382,12 @@ SCRIPT = """// The Apoie modal: opens from the header button, one view at a time
   }
 })();
 """
+
+
+# The staging build draws the contact form even without the access key (spec staging, section 2): there a send shows the error
+# line and makes no request. The line goes only into the staging script, and the comment above keeps its wording, so the
+# production pages stay byte for byte what main publishes (PR #52).
+KEYLESS_ANCHOR = "      if (f.botcheck.checked || Date.now() - openedAt < minMs) { done(); return; }\n"
+if SCRIPT.count(KEYLESS_ANCHOR) != 1:
+    raise SystemExit("apoie: the contact form's send changed; place the staging line again")
+STAGING_SCRIPT = SCRIPT.replace(KEYLESS_ANCHOR, KEYLESS_ANCHOR + "      if (!form.dataset.key) { fail.hidden = false; return; }   // staging without the access key: nothing is sent\n")

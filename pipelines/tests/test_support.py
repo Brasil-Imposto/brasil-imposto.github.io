@@ -232,6 +232,16 @@ class PagesTest(unittest.TestCase):
                 self.assertNotIn("a definir", text(h))
                 self.assertIn("if (!form.dataset.key) { fail.hidden = false; return; }", p["js"])
 
+    def test_production_keeps_the_script_it_publishes(self):
+        """The staging line for a keyless form goes only into the staging script: production's script is apoie.SCRIPT itself."""
+        for key, p in build(committed()).items():
+            with self.subTest(page=key):
+                self.assertNotIn("if (!form.dataset.key)", p["js"])
+                self.assertIn(apoie.SCRIPT, p["js"])
+        self.assertEqual(apoie.STAGING_SCRIPT.replace(
+            "      if (!form.dataset.key) { fail.hidden = false; return; }   // staging without the access key: nothing is sent\n", ""),
+            apoie.SCRIPT, "the staging script differs from production's by that one line only")
+
     def test_on_without_the_access_key_shows_everything_but_the_form(self):
         d = on_soon(); d["contact_form"]["access_key"] = None
         for key, p in build(d).items():

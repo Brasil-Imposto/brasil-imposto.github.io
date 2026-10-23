@@ -169,7 +169,7 @@ def parts(current, profile="production"):
     if not on:
         return {"css": HEAD, "header": header(current), "footer": footer(), "js": SCRIPT}
     return {"css": HEAD + "\n" + apoie.CSS, "header": with_support(header(current), data, keyless=profile == "staging"), "footer": footer(),
-            "js": SCRIPT.replace("\n</script>", "\n" + apoie.SCRIPT + "</script>", 1)}
+            "js": SCRIPT.replace("\n</script>", "\n" + (apoie.STAGING_SCRIPT if profile == "staging" else apoie.SCRIPT) + "</script>", 1)}
 
 
 def block(name, body):
