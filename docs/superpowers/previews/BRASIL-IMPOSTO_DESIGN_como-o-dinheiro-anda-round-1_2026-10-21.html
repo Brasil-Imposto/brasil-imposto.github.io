@@ -161,7 +161,7 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
 }
 </style>
 <style id="bi-apoie-css">
-/* The Apoie button and its modal (spec apoie): present only when data/support.json has enabled true. */
+/* The Apoie button and its modal (spec apoie): present only when the apoie switch is on for the build. */
 .bi-end { display: flex; align-items: center; gap: 18px; }
 .bi-apoie-btn { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 14px 0 10px; border: 0; border-radius: 99px; background: #12803F; color: #fff; font: 800 13px Manrope, system-ui, sans-serif; cursor: pointer; white-space: nowrap; }
 .bi-apoie-btn:hover { background: #0E6A33; }
@@ -537,6 +537,7 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
       const first = Object.keys(bad).find((n) => bad[n]);
       if (first) { f[first].focus(); return; }
       if (f.botcheck.checked || Date.now() - openedAt < minMs) { done(); return; }
+      if (!form.dataset.key) { fail.hidden = false; return; }   // staging without the access key: nothing is sent
       send.disabled = true; send.textContent = form.dataset.sending;
       fetch(form.dataset.endpoint, {
         method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },

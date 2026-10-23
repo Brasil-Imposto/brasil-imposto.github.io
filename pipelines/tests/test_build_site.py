@@ -93,7 +93,11 @@ class BuildSiteTest(unittest.TestCase):
                 for k, v in old.items():
                     os.environ.pop(k) if v is None else os.environ.__setitem__(k, v)
             (site / name).write_text(page, encoding="utf-8")
-        found = leaks(site, json.loads((REPO / "data" / "features.json").read_text(encoding="utf-8")))
+        off = json.loads((REPO / "data" / "features.json").read_text(encoding="utf-8"))   # the leak check sees apoie as switched off
+        for f in off["features"]:
+            if f["key"] == "apoie":
+                f["production"] = False
+        found = leaks(site, off)
         self.assertEqual(len(found), 3 * len(MARKS["apoie"]), found)
 
     def test_staging_marks_every_page_and_builds_apoie(self):

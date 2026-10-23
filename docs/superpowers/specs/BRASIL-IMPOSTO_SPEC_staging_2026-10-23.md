@@ -48,12 +48,13 @@ ficar assim.
 - **Desligada é ausente:** uma funcionalidade desligada no perfil não entra na página montada (nem marcação, nem estilo, nem script
   dela); nunca é escondida por CSS.
 - **Estado inicial:** a única chave é `apoie`, ligada no staging; na produção, o valor que o campo `enabled` de `data/support.json`
-  tinha na `main` quando esta mudança entrou (desligado). Esse campo sai: a chave passa a ser a única fonte. O D158 (2026-10-23) põe o
+  tinha na `main` quando esta mudança entrou (ligado desde o PR #54, D162). Esse campo sai: a chave passa a ser a única fonte. O D158 (2026-10-23) põe o
   Apoie na produção: GitHub Sponsors e cripto mostram "Em breve", sem link e sem endereço, até cada canal estar pronto, e o formulário
-  de contato funciona pelo Web3Forms (PR #49).
+  de contato funciona pelo Web3Forms quando a chave de acesso existir (PR #49; o D162 liga o botão antes dela, PR #54).
 - **A regra dos dados é a do PR #49**, igual nos dois perfis: um canal em `live` precisa de todos os seus valores; um canal em `soon`
-  mostra "Em breve", sem link e sem endereço; nenhum valor que falta aparece como "a definir". A produção só liga `apoie` com a chave
-  de acesso do formulário preenchida, e um teste garante isso. O staging desenha o formulário mesmo sem a chave: um envio mostra a
+  mostra "Em breve", sem link e sem endereço; nenhum valor que falta aparece como "a definir". A produção liga `apoie` sem a chave
+  de acesso do formulário (D162): sem ela, a vista de contato fica fora da página; uma chave preenchida e malformada, ou um e-mail no
+  lugar dela, barra a montagem, e um teste garante isso. O staging desenha o formulário mesmo sem a chave: um envio mostra a
   linha de erro e não faz pedido.
 - **Aprovar para a produção** é um pull request de uma linha no `staging` que muda `production` para `true`, seguido da promoção.
 - Esconder partes da produção (a próxima tarefa do mantenedor) será uma chave a mais por parte, neste mesmo arquivo.
@@ -123,8 +124,8 @@ mostrá-lo.
   única diferença nova é o `robots.txt`); a sonda de texto visível dá 100 de 100.
 - **Nada vaza:** um teste monta a produção e procura as marcas de cada funcionalidade desligada (por exemplo, a classe do botão Apoie);
   o controle liga `apoie` na produção num teste e a busca precisa falhar.
-- **A chave da produção pede os dados:** com `apoie` ligada na produção e sem a chave de acesso do formulário, ou com um canal em
-  `live` e um valor dele vazio, o teste falha; um canal em `soon` mostra "Em breve" sem link e sem endereço (os testes e os controles
+- **A chave da produção pede os dados:** com uma chave de acesso malformada (ou um e-mail no lugar dela), ou com um canal em `live` e
+  um valor dele vazio, o teste falha; sem a chave, a produção mostra o botão e o modal sem o formulário (D162); um canal em `soon` mostra "Em breve" sem link e sem endereço (os testes e os controles
   do PR #49 continuam valendo).
 - **O staging não suja o repositório:** depois de `build-site.py --profile staging`, `git status` não mostra mudança em arquivo
   versionado; o controle é uma montagem que escreve num arquivo versionado de propósito.

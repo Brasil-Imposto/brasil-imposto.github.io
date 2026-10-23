@@ -174,8 +174,8 @@ valores de `data/support.json`).
 - **Cada canal tem um estado** (`sponsors.status` e `crypto.status`): `"soon"` mostra o cartão com a etiqueta "Em breve";
   `"live"` pede todos os valores do canal preenchidos (o teste de endereços e valores vale para `"live"`; com qualquer canal
   `"live"`, o teto `maintainer_cap_brl` também é exigido).
-- **A chave `apoie` pode ser ligada na produção com os dois canais em `"soon"`**, mas só com `contact_form.access_key`
-  preenchida (um UUID; um endereço de e-mail ali é recusado). A chave do formulário fica `null` até a sessão local escrevê-la; a
+- **A chave `apoie` pode ser ligada na produção com os dois canais em `"soon"`**, com ou sem `contact_form.access_key` (D162): sem
+  ela, a vista de contato fica fora da página; preenchida, é um UUID (um endereço de e-mail ali é recusado). A chave do formulário fica `null` até a sessão local escrevê-la; a
   produção liga `apoie` em `data/features.json`.
 - **Valores que faltam:** a produção nunca mostra "a definir". A frase que depende de um valor `null` sai (o teto da manutenção, o
   valor de devolução da cripto). O staging segue a mesma regra, e desenha o formulário mesmo sem a chave: um envio mostra a linha
