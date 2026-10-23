@@ -147,7 +147,7 @@ Cada checagem nova ou refeita só conta depois de falhar num controle plantado p
   texto visível igual; arquivos regenerados iguais aos antigos com o mapa de chaves aplicado.
 
 ### Tarefa 7: o mesmo fato com valores diferentes, e armadilhas pequenas (C5: N-11; B15 parte)
-- [ ] SC-401: o total calculado ganha o rótulo "líquido"; Linha 17: a nota "não localizado" sai e entra o campo `provenance` de
+- [x] SC-401: o total calculado ganha o rótulo "líquido"; Linha 17: a nota "não localizado" sai e entra o campo `provenance` de
   registro feito à mão (P2-19).
 - [x] Fotos de signatário só por nome exato, com uma tabela de apelidos (P2-8); o registro de fontes volta à versão antiga quando
   o órgão volta atrás, com teste A, B, A (P2-14); `build.py` da raiz falha com entrada faltando e grava num temporário (P1-12);
@@ -250,5 +250,7 @@ Cada checagem nova ou refeita só conta depois de falhar num controle plantado p
   temporário, teste), `complete` nos impostos municipais (11 estados falsos; o pacote deixa a chave de fora e fica igual byte a
   byte), fotos por nome exato com tabela de apelidos (teste; `cases.json` igual), 124 `assert` em 42 arquivos viram
   `raise SystemExit` (teste), `shot.sh` abre a página da plataforma; caminhos da máquina fora dos
-  documentos. Cada teste falhou no código antigo. Fica com o mantenedor: o rótulo "líquido" do SC-401 e o `provenance` da Linha 17
-  dependem do texto do anexo P2-19, que está fora do git.
+  documentos. Cada teste falhou no código antigo. Com o texto do anexo (P2-19, N-11), em 2026-10-23: a Linha 17 ganhou
+  `provenance` de registro feito à mão e a nota do total aponta para os R$ 5,54 bi de D100; no SC-401 o rótulo "líquido" não entrou,
+  porque o total calculado é o `vlpago` bruto da carga de 2026-09-30 (o líquido seria R$ 39.600.403,49), e o registro ganhou o campo
+  `total_paid_ct_00014_2025_basis` que diz isso. `cases.json` igual byte a byte.

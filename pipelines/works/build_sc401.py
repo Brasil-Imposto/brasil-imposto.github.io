@@ -135,6 +135,9 @@ payments = {
     'source': {'doc': 'Extrato SICOP do contrato ("contratoResumoFinanceiro" e "contratoPagamento"), Portal da Transparência do Poder Executivo de SC', 'url': API_SC + '104411', 'collected_on': COLLECTED},
     'by_contract': {'CT-00014/2025': paid_main, 'CT-00018/2021': resumo('101659'), 'CT-00315/2022': resumo('103057')},
     'total_paid_ct_00014_2025_brl_computed': round(sum(r['paid_brl'] for r in paid_main), 2),
+    # the gross paid total of this load; the case card reads a newer load from data/complete-totals-2026-10-06.json
+    'total_paid_ct_00014_2025_basis': f'vlpago, com as retenções de INSS, IRRF e ISS (não é o valor líquido), na carga do Portal de {COLLECTED}. '
+                                      'O card usa a carga de 2026-10-06, em data/complete-totals-2026-10-06.json (sc401_paid).',
     'checks': ['Em cada ano, a soma das linhas de pagamento do extrato (despesa paga + retenções de INSS, IRRF e ISS - estornos) é igual ao "vlpago" do resumo, ao centavo.',
                'Pagamento por contrato, não por credor: a consulta por credor (Britagem Vogelsanger, filial 0003) mistura outros contratos da mesma empresa com o Estado (ex.: CT-00225/2022, SC-108, R$ 168 mi).'],
     'coverage': 'Até a carga do Portal em 2026-09-30; 2026 é parcial.',

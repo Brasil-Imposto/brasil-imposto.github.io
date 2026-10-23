@@ -131,6 +131,8 @@ de execução que descrevem o que rodou naquele dia.
 | `data/municipal-taxes-2024.json` | nada dizia que faltam municípios | `complete: false` em 11 estados | plano, tarefa 7 (P1-24) |
 | `build-cases.py`, fotos de signatário | por parte do nome | só por nome exato, com tabela de apelidos | plano, tarefa 7 (P2-8) |
 | 124 `assert` em 42 arquivos | somem com `python -O` | `raise SystemExit` | plano, tarefa 7 (P2-20) |
+| `data/works/sc-401-terceira-faixa.json`, total calculado | R$ 40.728.766,00 sem dizer o que mede | o mesmo valor com `total_paid_ct_00014_2025_basis`: `vlpago` com as retenções, carga de 2026-09-30; o card usa a carga de 2026-10-06 | `complete-totals` (`sc401_paid.previous_value_note`); anexo N-11 |
+| `data/works/sp-monotrilho-linha-17.json` | "O total pago não foi localizado em fonte oficial"; sem dizer como foi feito | o total investido de 2010 a ago/2026, R$ 5,54 bi, em `complete-totals` (D100); `provenance` de registro feito à mão | D100; anexo P2-19 e N-11 |
 
 **Provas.** 41 testes de `pipelines/tests` e 30 do livro passam; os cinco construtores que o `ci` confere refazem as páginas, e
 só mudam o que as chaves pedem: o tamanho do pacote no carregamento da home, os dois leitores de Os 3 Poderes e o de
@@ -141,12 +143,12 @@ verificação do site: na descrição do pull request.
 
 ## Para o mantenedor
 
-- **O registro de decisões é gerado.** `docs/decisions/README.md` sai de `private/decisions-original.md` (fora do git) por
-  `publish-decisions.py`; as três linhas mudadas aqui (Fase, Estado em 2026-10-22, Se a sessão cair) precisam ir para o
-  original, ou a próxima publicação as desfaz.
-- **SC-401 "líquido" e Linha 17 `provenance`** (tarefa 7): dependem do texto do anexo P2-19, fora do git. O total calculado
-  (`total_paid_ct_00014_2025_brl_computed`, R$ 40.728.766,00) é o pago líquido; a tela usa o pago com os retidos
-  (R$ 41.694.715,23, `complete-totals`). Falta a frase do anexo para o rótulo.
+- **SC-401: o rótulo "líquido" não entrou, porque os dados dizem outra coisa.** O total calculado do registro
+  (`total_paid_ct_00014_2025_brl_computed`, R$ 40.728.766,00) é o `vlpago` bruto, com as retenções, da carga do Portal de
+  2026-09-30; a diferença para o valor da tela (R$ 41.694.715,23, carga de 2026-10-06) é R$ 965.949,23 liquidados em 2026 e pagos em
+  2026-09-30, como o próprio `complete-totals` registra (`previous_value_note`). O líquido de verdade seria R$ 39.600.403,49. O
+  registro ganhou `total_paid_ct_00014_2025_basis`, que diz isso, no escritor e nos dados. Se o anexo quis outra coisa, é uma
+  correção de uma linha.
 - **Escritores que não rodaram aqui:** os das chaves trocadas baixam as entradas de sites que a rede desta sessão não alcança;
   a troca foi provada pelos dados (mapa aplicado) e pelo código. Uma rodada completa de cada um confirma.
 - **`pages.yml`** usa `actions/setup-python@v5` pela etiqueta, enquanto o `ci.yml` fixa por commit. Mexer em workflow é decisão
