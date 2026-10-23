@@ -30,10 +30,20 @@ jobs:
           mkdir -p _site
           cp -R docs/superpowers/previews/assets _site/assets
           # Only the three published pages; the older design previews stay in the repository, off the site.
-          for page in platform-preview_2026-10-09 tres-poderes-round-3_2026-10-21 como-o-dinheiro-anda-round-1_2026-10-21; do
+          for page in tres-poderes-round-3_2026-10-21 como-o-dinheiro-anda-round-1_2026-10-21; do
             cp "docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_${page}.html" _site/
           done
           cp docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html _site/index.html
+          # Início lives at the root. Its old address, already shared, forwards there with its query (?open=, ?metric=, ?modal=,
+          # ?area=) and its hash; the meta refresh is the fallback without JavaScript.
+          cat > _site/BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html <<'HTML'
+          <!doctype html>
+          <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Brasil-Imposto</title><meta name="robots" content="noindex"><link rel="canonical" href="./">
+          <script>location.replace('./' + location.search + location.hash);</script>
+          <noscript><meta http-equiv="refresh" content="0; url=./"></noscript>
+          </head><body><p>Esta página mudou de endereço: <a href="./">ir para o Início</a>.</p></body></html>
+          HTML
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
