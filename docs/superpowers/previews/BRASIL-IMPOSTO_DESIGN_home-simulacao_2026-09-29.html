@@ -85,16 +85,6 @@
   .ub-src { margin-top: 1px; font-size: 10.5px; color: var(--faint); } .ub-src a { color: var(--muted); white-space: nowrap; }
   .dates-line { margin-top: 6px; font-size: 11px; color: var(--faint); line-height: 1.45; }
   .dates-line a { color: var(--muted); }
-  .map-notes { background: #fff; border-top: 1px solid var(--line); padding: 26px 24px 30px; }
-  .map-notes .in { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; }
-  .map-notes h3 { margin: 0 0 8px; font-size: 15px; }
-  .map-notes ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; line-height: 1.6; }
-  .map-notes li + li { margin-top: 4px; }
-  .map-notes table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  .map-notes td { padding: 5px 6px; border-bottom: 1px solid var(--line); color: var(--muted); vertical-align: top; }
-  .map-notes td:first-child { color: var(--ink); font-weight: 700; white-space: nowrap; }
-  .map-notes td.d { text-align: right; white-space: nowrap; color: var(--ink); font-weight: 700; }
-  @media (max-width: 760px) { .map-notes { padding: 22px 16px; } .map-notes .in { grid-template-columns: 1fr; gap: 18px; } }
   .dates-line b { color: var(--muted); font-weight: 700; }
   .hero-contas { position: absolute; left: 24px; bottom: 24px; z-index: 4; width: min(360px, 28vw); }
   .ctm { display: flex; flex-direction: column; gap: 3px; padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,.86); backdrop-filter: blur(10px);
@@ -295,24 +285,6 @@
 <section class="hf-strip" id="recentes-e-escandalos" aria-label="Maiores escândalos, gastos e receitas do período"></section>
 <section class="hf-cake" id="para-onde-vai" data-cake aria-label="Para onde vai o dinheiro da União"></section>
 
-<section class="map-notes" id="como-ler-o-mapa"><div class="in">
-  <div><h3>Como ler o mapa</h3><ul data-map-notes></ul></div>
-  <div><h3>Última divulgação de cada fonte</h3><table data-map-dates></table></div>
-</div></section>
-
-<section class="fed" id="governo-federal">
-  <div class="fed-in">
-    <div class="fed-top">
-      <div>
-        <div class="eyebrow">Abaixo do mapa</div>
-        <h2>O governo federal</h2>
-        <p>2026, de janeiro a julho. As contas da União, quanto ela paga aos servidores, quanto custam os eleitos e para onde vão as emendas.</p>
-      </div>
-    </div>
-    <div class="fed-root" data-fed-main></div>
-  </div>
-</section>
-
 
 <script src="assets/bi-data.js"></script>
 <script src="assets/bi-geo.js"></script>
@@ -326,8 +298,8 @@
 <script src="assets/periods.js"></script>
 <script src="assets/contas.js"></script>
 <script src="assets/serieslayer.js"></script>
+<script src="assets/map-notes-model.js"></script>
 <script src="assets/politicians.js"></script>
-<script src="assets/federal-section.js"></script>
 <script src="assets/home-feed.js"></script>
 <script type="module">
 // Built by docs/superpowers/tools/build-simulation.py; edit the sources, not this file.
@@ -943,68 +915,19 @@ return { createModals };
   const hero = await createHero(heroEl, { geo, onSelect: (uf) => modals && modals.openState(uf, mapMetric) });
   modals = createModals(heroEl, { states, budgets, cases, geo, colorOf: (uf) => hero.colorOf(uf), onClose: () => hero.clearHover() });
 
-  const bi = (v) => `R$ ${(v / 1e9).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} bi`;
-  const reais = (v) => `R$ ${Math.round(v).toLocaleString('pt-BR')}`;
-  const cents = (v) => `R$ ${v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-  // D94, D115: values in tenths of a billion that add up by hand. Largest remainder: each part is rounded down, and the
-  // tenths still missing for the rounded total go to the parts that lost the most, so the parts always sum to the total.
-  const tenths = (vals, total) => {
-    const raw = vals.map((x) => x / 1e8), out = raw.map(Math.floor); let left = Math.round(total / 1e8) - out.reduce((a, x) => a + x, 0);
-    const order = raw.map((x, i) => [x - out[i], i]).sort((a, b) => b[0] - a[0]);
-    for (let k = 0; left > 0 && k < order.length; k++, left--) out[order[k][1]]++;
-    for (let k = order.length - 1; left < 0 && k >= 0; k--, left++) out[order[k][1]]--;
-    return out;
-  };
-  const num1 = (n) => `${n < 0 ? '−' : ''}${(Math.abs(n) / 10).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}`;
-  const biT = (n) => `${n < 0 ? '−' : ''}R$ ${num1(Math.abs(n))} bi`;
-  const tri = (v) => `R$ ${(v / 1e12).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} tri`;
-  // D115: the União block for the map's months. Sent: the Receita national total minus the 27 states. Paid: RTN line 2
-  // plus line 4 minus what returned to the 27 states, with its parts (data/series/federal-spending-two-step-by-uf.json,
-  // built by pipelines/ug/build_two_step_balance.py, which checks 27 states + União = total to the cent).
-  const unionAt = (rows) => {
-    const S = window.BI.series || {}, TS = S.federal_spending_two_step_by_uf;
-    if (!currentR || !TS || !TS.union || !rows.length || !rows.every((s) => s.ok && s.months === rows[0].months)) return null;
-    const broken = TS.broken_months || {}, ms = currentR.months.filter((m) => !broken[m]).slice(0, rows[0].months);
-    const ti = new Map(TS.months.map((m, i) => [m, i]));
-    if (!ms.every((m) => ti.has(m) && TS.union.official_returned_rtn[ti.get(m)] != null)) return null;
-    const sum = (a) => ms.reduce((x, m) => x + (a[ti.get(m)] || 0), 0), st = (k) => rows.reduce((x, s) => x + (s[k] || 0), 0);
-    let central = sum(TS.no_state.central_benefits);
-    for (const y of new Set(ms.map((m) => m.slice(0, 4)))) {
-      const M = TS.mte_annual[y], my = ms.filter((m) => m.startsWith(y));
-      if (M && my.length === 12) central += M.no_state;
-      else if (M) central += my.reduce((x, m) => x + (TS.union.unemployment_and_wage_bonus_portal_mte_year[ti.get(m)] || 0), 0);
-    }
-    const sent = { official: sum(TS.union.official_revenue), states: st('sent') }; sent.union = sent.official - sent.states;
-    const ret = { official: sum(TS.union.official_returned_rtn), states: st('received') }; ret.union = ret.official - ret.states;
-    const parts = [
-      ['programas nacionais que o arquivo do gasto não põe em nenhum estado (como as folhas das Forças Armadas e as compras do Ministério da Saúde)', sum(TS.no_state.executive)],
-      ['aposentadorias e pensões do INSS pagas além do que o boletim põe por estado', sum(TS.union.inss_rtn) - st('inss')],
-      ['seguro-desemprego, abono e auxílios pagos sem estado', central],
-      ['sentenças judiciais, precatórios e outros pagamentos que só a base do Tesouro traz', sum(TS.union.tesouro_base_executive_not_in_portal)],
-      ['inversões financeiras, como os fundos constitucionais emprestados pelos bancos regionais', sum(TS.union.financial_investments_group_5)],
-      ['pagamentos a entidades privadas, organismos internacionais e ao exterior', sum(TS.union.private_international_abroad)],
-      ['repasses a governos estaduais e municipais que o Portal não põe em nenhum estado', sum(TS.union.public_transfers_tesouro) - st('transfers')],
-      ['Legislativo, Judiciário, MPU e DPU sem estado (Justiça Federal, MPF, DPU)', sum(TS.no_state.other_branches)],
-      ['BPC pago além da série do MDS por estado', sum(TS.union.bpc_rtn) - st('bpc')],
-    ].map(([label, value]) => ({ label, value }));
-    parts.push({ label: 'diferença entre as bases (Tesouro, Portal, MDS e Previdência)', value: ret.union - parts.reduce((a, x) => a + x.value, 0) });
-    ret.parts = parts;
-    return { sent, ret, months: ms.length, population: rows.reduce((a, s) => a + s.population, 0), label: rows[0].label };
-  };
+  // The formatters, the União block, the rows, the colour scale and the facts about the DF are shared with the notes
+  // page (assets/map-notes-model.js, D159).
+  const { bi, reais, cents, tenths, num1, biT, tri } = window.BIMN;
+  const unionAt = (rows) => window.BIMN.unionAt(rows, currentR);
   // Round 10: the map reads the chosen period. rowsAt() builds one row per state from the time series; a state whose
   // federal revenue split is not trustworthy for the period (the Receita's 2025 break) gets no colour.
   let currentR = null;
   // D138: the DF's position is in review until the flow ledger separates its two sides (D118): no colour, no verdict,
   // out of the leaders; its numbers still add up in the União table.
-  const DF_REVIEW = false;  // D146: the DF shows the estimate (BIL.federalAt), marked as such
-  const rowsAt = () => states.map((s) => { const f = window.BIL.federalAt(s.uf, currentR); return { uf: s.uf, name: s.name, ...f, returned_per_real: f.ok ? f.received / f.sent : null, label: f.label || currentR.label, inReview: DF_REVIEW && s.uf === 'DF' }; });
+  const rowsAt = () => window.BIMN.rowsAt(states, currentR);
   // GD18: the colour scale is built from the 26 states; the DF is clamped to the deepest colour and marked when it falls
   // outside (in 2024 and 2026 it receives several times what the 26th state does).
-  const scale26 = (value) => (rows) => {
-    const vs = rows.filter((s) => s.ok && s.uf !== 'DF').map(value); const df = rows.find((s) => s.uf === 'DF');
-    const hi = Math.max(...vs, 1e-9), lo = Math.min(...vs, -1e-9), d = df && df.ok && !df.inReview ? value(df) : null;
-    return { maxPositive: Math.max(hi, 1e-9), maxNegative: Math.max(-lo, 1e-9), dfOut: d != null && (d > hi || d < lo) };
-  };
+  const scale26 = window.BIMN.scale26;
   const METRICS = {
     perCapita: {
       value: (s) => (s.ok && !s.inReview ? s.perPersonMonth : null),
@@ -1028,7 +951,7 @@ return { createModals };
   let rowsNow = [], scaleNow = {}, leaders = {};
   const HOW = { perCapita: [', por pessoa', ', por pessoa'], total: ['', ''], ratio: [', em proporção ao que recebe', ', em proporção ao que envia'] };
   // GD33: every number shows the last date the government published it (data/release-dates.json, read at the source).
-  const relDate = (id) => { const r = window.BI.releases[id]; if (!r.date) return r.unchecked ? 'data a conferir' : 'sem data publicada'; const d = r.date; return d.length === 7 ? `${d.slice(5, 7)}/${d.slice(0, 4)}` : `${d.slice(8, 10)}/${d.slice(5, 7)}/${d.slice(0, 4)}`; };
+  const relDate = window.BIMN.relDate;
   const relOf = (id, label) => `${label} · ${relDate(id)}`;
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
   const describeFor = (metric) => (uf) => {
@@ -1045,6 +968,8 @@ return { createModals };
       <div class="click">Clique para abrir</div>`;
   };
   const apply = (metric) => {
+    // only a measure of the map: ?metric= and the links to the notes page carry it (D159)
+    if (!Object.hasOwn(METRICS, metric)) return;
     mapMetric = metric;
     const m = METRICS[metric];
     rowsNow = rowsAt();
@@ -1062,7 +987,7 @@ return { createModals };
     dfBox.classList.toggle('review', !!(dfRow && dfRow.inReview));
     if (dfRow && dfRow.inReview) {
       dfBox.hidden = false;
-      dfBox.querySelector('span').innerHTML = `<b>DF:</b> em revisão, sem cor. Parte do imposto registrado no DF é retido por sedes em Brasília (<a href="#como-ler-o-mapa">notas ↓</a>).`;
+      dfBox.querySelector('span').innerHTML = `<b>DF:</b> em revisão, sem cor. Parte do imposto registrado no DF é retido por sedes em Brasília (<a href="${window.BIMN.notesHref(currentR, mapMetric)}">notas ↓</a>).`;
     }
     // When the DF is the one that sends the most and sits outside the scale, its own line says so: no second line.
     if (scaleNow.dfOut && L && L.uf === 'DF') sendBox.hidden = true;
@@ -1072,16 +997,8 @@ return { createModals };
       const next = others.reduce((a, s) => (Math.sign(v(s)) === Math.sign(dv) && Math.abs(v(s)) > Math.abs(v(a)) ? s : a), others[0]);
       const times = Math.abs(dv / v(next));
       const amt = metric === 'perCapita' ? `${dfRow.perPersonMonth < 0 ? 'recebeu' : 'enviou'} ${reais(Math.abs(dfRow.perPersonMonth))} a mais por pessoa, por mês` : metric === 'total' ? `${dfRow.balance < 0 ? 'recebeu' : 'enviou'} ${bi(Math.abs(dfRow.balance))} a mais` : `voltaram ${cents(dfRow.returned_per_real)} para cada R$ 1`;
-      // Facts about the DF from the period's own numbers (D114: what the União pays with no state is no longer in the DF).
-      const okRows = rowsNow.filter((s) => s.ok), backPP = (s) => s.received / s.population / s.months;
-      const topBack = okRows.reduce((a, s) => (backPP(s) > backPP(a) ? s : a), okRows[0]);
-      const tax = (s, k) => ((s.byTax || {})[k] || 0), pss = okRows.reduce((a, s) => a + tax(s, 'civil_servant_social_security_pss'), 0);
-      const pssShare = pss > 0 ? Math.round((tax(dfRow, 'civil_servant_social_security_pss') / pss) * 100) : null;
-      dfFacts = [
-        topBack && topBack.uf === 'DF' ? `o DF é também o estado para onde mais volta dinheiro da União por pessoa: ${reais(backPP(dfRow))} por mês${dfRow.fcdf ? `, dos quais ${reais(dfRow.fcdf / dfRow.population / dfRow.months)} do Fundo Constitucional do DF` : ''}` : '',
-        pssShare != null ? `${pssShare}% da contribuição previdenciária dos servidores federais do país foi registrada no DF, porque a Receita conta o imposto retido onde fica a sede de quem paga` : '',
-      ].filter(Boolean);
-      dfBox.querySelector('span').innerHTML = `<b>DF:</b> ${amt}: ${dv < 0 ? 'o que mais recebe' : 'o que mais envia'}.${dv > 0 && pssShare != null ? ` Parte é imposto retido por sedes em Brasília (<a href="#como-ler-o-mapa">notas ↓</a>).` : ''}`;
+      const { facts, pssShare } = window.BIMN.dfFacts(rowsNow, dfRow); dfFacts = facts;
+      dfBox.querySelector('span').innerHTML = `<b>DF:</b> ${amt}: ${dv < 0 ? 'o que mais recebe' : 'o que mais envia'}.${dv > 0 && pssShare != null ? ` Parte é imposto retido por sedes em Brasília (<a href="${window.BIMN.notesHref(currentR, mapMetric)}">notas ↓</a>).` : ''}`;
     }
     // D115: the União block. Same months as the map; 27 states + União = the official total of each side.
     const U = unionAt(rowsNow);
@@ -1097,12 +1014,11 @@ return { createModals };
           <span class="ub-k">Entrou</span><span class="ub-n">R$ ${num1(sS)}</span><span class="ub-op">+</span><span class="ub-n ub-u">${num1(sU)}</span><span class="ub-op">=</span><span class="ub-n">R$ ${num1(sS + sU)} bi</span>
           <span class="ub-k">Pago</span><span class="ub-n">R$ ${num1(rS)}</span><span class="ub-op">+</span><span class="ub-n ub-u">${num1(rU)}</span><span class="ub-op">=</span><span class="ub-n">R$ ${num1(rS + rU)} bi</span></div>
         <div class="ub-pp">União por pessoa, por mês: entrou ${pp(U.sent.union)}, pago ${pp(U.ret.union)}.</div>
-        <div class="ub-src">Totais: Receita (${tri(U.sent.official)}) e Tesouro, RTN (${tri(U.ret.official)}). <a href="#como-ler-o-mapa">O que é ↓</a></div>`;
+        <div class="ub-src">Totais: Receita (${tri(U.sent.official)}) e Tesouro, RTN (${tri(U.ret.official)}). <a href="${window.BIMN.notesHref(currentR, mapMetric)}">O que é ↓</a></div>`;
     }
-    const SRC = [['receita', 'Receita'], ['portal_exec', 'Portal, gastos'], ['portal_transf', 'Portal, repasses'], ['tesouro_base', 'Tesouro'], ['beps', 'Previdência'], ['ibge', 'IBGE'], ['mds', 'MDS']];
+    const SRC = window.BIMN.SRC;
     const dated = SRC.map(([id]) => window.BI.releases[id].date).filter(Boolean).sort();
-    heroEl.querySelector('.dates-line').innerHTML = `Divulgado pelo governo de <b>${relDate(SRC.find(([id]) => window.BI.releases[id].date === dated[0])[0])}</b> a <b>${relDate(SRC.find(([id]) => window.BI.releases[id].date === dated[dated.length - 1])[0])}</b> · <a href="#como-ler-o-mapa">datas de cada fonte ↓</a>`;
-    document.querySelector('[data-map-dates]').innerHTML = SRC.map(([id, l]) => { const r = window.BI.releases[id]; return `<tr><td>${l}</td><td>${esc(r.what)}</td><td class="d">${relDate(id)}</td></tr>`; }).join('');
+    heroEl.querySelector('.dates-line').innerHTML = `Divulgado pelo governo de <b>${relDate(SRC.find(([id]) => window.BI.releases[id].date === dated[0])[0])}</b> a <b>${relDate(SRC.find(([id]) => window.BI.releases[id].date === dated[dated.length - 1])[0])}</b> · <a href="${window.BIMN.notesHref(currentR, mapMetric)}">datas de cada fonte ↓</a>`;
     heroEl.querySelectorAll('.metric-switch button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.metric === metric)));
     const chip = heroEl.querySelector('.data-chip span');
     const broken = rowsNow.some((s) => s.badMonths && s.badMonths.length), gap = rowsNow.some((s) => s.ok === false && !(s.badMonths && s.badMonths.length));
@@ -1110,30 +1026,13 @@ return { createModals };
     const note = window.BIL && window.BIL.estimateNote ? window.BIL.estimateNote() : null;
     const sda = rowsNow.find((s) => s.ok && s.centralWithoutState);
     const pending = rowsNow.some((s) => s.twoStepComplete === false);
-    // The card stays short so it never covers the map; the long notes live in the band under the map (#como-ler-o-mapa).
+    // The card stays short so it never covers the map; the long notes live on the notes page (Como ler o mapa, D159).
     chip.innerHTML = broken ? 'A Receita atribuiu ao DF até 25% da arrecadação do país neste período: o mapa fica sem cor.'
       : pending ? 'O gasto federal pela regra em duas etapas ainda não foi calculado para este período: o mapa fica sem cor.'
       : gap ? 'Os repasses da União deste período ainda não foram publicados por completo: o mapa fica sem cor.'
-      : est || sda ? `${[est ? 'arrecadação estimada em parte do período' : '', sda ? 'o que não tem estado fica com a União' : ''].filter(Boolean).join('; ').replace(/^./, (c) => c.toUpperCase())}. <a href="#como-ler-o-mapa">Notas ↓</a>`
-      : `Dados oficiais · ${rowsNow[0].label}. <a href="#como-ler-o-mapa">Notas ↓</a>`;
+      : est || sda ? `${[est ? 'arrecadação estimada em parte do período' : '', sda ? 'o que não tem estado fica com a União' : ''].filter(Boolean).join('; ').replace(/^./, (c) => c.toUpperCase())}. <a href="${window.BIMN.notesHref(currentR, mapMetric)}">Notas ↓</a>`
+      : `Dados oficiais · ${rowsNow[0].label}. <a href="${window.BIMN.notesHref(currentR, mapMetric)}">Notas ↓</a>`;
     heroEl.querySelector('.data-chip').classList.toggle('warn', broken || gap || pending || est || !!sda);
-    const notes = [];
-    if (est && note) notes.push(note.text);
-    if (sda) notes.push(`Benefícios pagos a pessoas do país inteiro por uma unidade central (seguro-desemprego, abono e, em 2020 e 2021, auxílio emergencial e BEm) contam no estado quando o arquivo diz qual é; seguro-desemprego e abono, também no ano inteiro em que o Ministério do Trabalho publica por estado (hoje, 2024). Neste período, ${bi(sda.centralWithoutState)} ficam com a União.`);
-    if (U) {
-      const P = U.ret.parts.slice().sort((a, b) => b.value - a.value); const pt = tenths(P.map((x) => x.value), rU * 1e8);
-      notes.push(`União, ${U.label}: o que não tem estado é da União. Entrou sem estado ${biT(sU)}: arrecadação federal que o arquivo da Receita não põe em nenhum estado. Pago sem estado ${biT(rU)} = ${P.map((x, i) => `${x.label} ${biT(pt[i])}`).join(' + ')}. Somados aos 27 estados, os dois lados dão o total oficial: a arrecadação da Receita Federal e a despesa mais os repasses do Tesouro (RTN, o mesmo de "As contas do Brasil").`);
-    }
-    if (scaleNow.dfOut) notes.push('A escala de cor é feita com os outros 26 estados. O DF fica muito além de todos eles e aparece na cor mais escura, com o próprio número na legenda.');
-    if (dfFacts.length) notes.push(`DF, ${dfRow.label}: ${dfFacts.join('; ')}.`);
-    if (dfRow && dfRow.dfEstimate) notes.push(`DF, estimativa: a Receita registra no DF o imposto que órgãos e empresas com sede em Brasília retêm ou pagam pelo país inteiro (Lei 9.779/1999, art. 15), inclusive o dos salários que a própria União paga. Em cada imposto, o DF conta no máximo a sua parte no PIB do Brasil (${(dfRow.dfEstimate.share * 100).toLocaleString('pt-BR', { maximumFractionDigits: 1 })}%, IBGE, PIB dos Municípios ${dfRow.dfEstimate.year}); o que passa disso (${bi(dfRow.dfEstimate.excess)} em ${dfRow.label}) vai para a União na tabela abaixo. É uma estimativa: nenhum arquivo aberto separa esse imposto por estado.`);
-    if (dfRow && dfRow.inReview) notes.push('DF em revisão: o DF fica sem cor e fora da comparação entre os estados. A Receita registra no DF o imposto retido por órgãos e empresas com sede em Brasília, inclusive o dos salários que a própria União paga; para saber quanto o DF de fato gera e quanto recebe, os dois lados precisam ser separados, e essa conta (o livro de fluxos) ainda está em construção. Os números do DF continuam somados aos 27 estados na tabela da União.');
-    const dropped = (rowsNow.find((s) => s.droppedMonths && s.droppedMonths.length) || {}).droppedMonths;
-    if (dropped) notes.push(`O arquivo do Portal da Transparência de ${dropped.map((m) => window.BIT.fmtMonth(m)).join(', ')} veio com todos os valores zerados (gerado pela CGU em 01/10/2026). O período é calculado sem esse mês, na arrecadação e no que voltou.`);
-    notes.push('"Voltou" soma os repasses da União, INSS, BPC, Bolsa Família, o Fundo Constitucional do DF e o gasto federal no estado pela regra em duas etapas: vale o estado onde o dinheiro foi aplicado; quando o arquivo não diz, o gasto é da União, e não do estado da unidade que pagou (só a folha dos ex-territórios do Amapá, de Rondônia e de Roraima conta no estado, pela divisão de pessoal de cada um).');
-    notes.push('Por essa regra, a folha militar paga pelas pagadorias centrais (Exército no DF, Marinha e Aeronáutica no RJ), as compras do Ministério da Saúde e os outros programas nacionais que o arquivo não põe em nenhum estado são da União; até 06/10/2026 contavam no DF e no RJ.');
-    notes.push('A Receita registra o imposto onde fica a sede de quem paga: a arrecadação do DF, de SP e do RJ inclui impostos de empresas e órgãos com sede ali.');
-    document.querySelector('[data-map-notes]').innerHTML = notes.map((x) => `<li>${esc(x)}</li>`).join('');
   };
   heroEl.querySelectorAll('.metric-switch button').forEach((b) => b.addEventListener('click', () => apply(b.dataset.metric)));
   window.__openState = (uf) => modals.openState(uf, mapMetric);
@@ -1171,9 +1070,7 @@ return { createModals };
     // D88: the money columns follow the period selector.
     window.__onFeedPeriod = (r) => { window.BIHF.render(document, r); strip.hidden = L.hidden && Rt.hidden; };
   }
-  // Federal section below the map (D44), in form A, cards (D74).
-  if (window.BIFED) window.BIFED.render(document.querySelector('[data-fed-main]'), 'A');
-  if (params.get('metric')) apply(params.get('metric'));
+  if (Object.hasOwn(METRICS, params.get('metric') || '')) apply(params.get('metric'));
   if (params.get('open')) modals.openState(params.get('open'), mapMetric);
   if (params.get('modal')) modals.setMetric(params.get('modal'));
   if (params.get('area')) modals.openFunction(params.get('open'), params.get('area'));

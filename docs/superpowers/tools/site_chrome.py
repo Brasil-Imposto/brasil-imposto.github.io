@@ -21,6 +21,11 @@ PAGES = {
     "tres-poderes": ("BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html", "Os 3 Poderes"),
     "dinheiro": ("BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html", "Como o dinheiro anda"),
 }
+# Pages with the common header and footer that are not in the header's list (D159): the notes of the map, linked from the
+# footer and from the map itself.
+NOTES_PAGE = "BRASIL-IMPOSTO_DESIGN_como-ler-o-mapa_2026-10-23.html"
+OTHER_PAGES = {"notas": (NOTES_PAGE, "Como ler o mapa")}
+ALL_PAGES = {**PAGES, **OTHER_PAGES}
 
 CSS = """<style id="bi-chrome-css">
 .bi-header { position: sticky; top: 0; z-index: 1000; height: 62px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; background: rgba(255,255,255,.94); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid #E3E7EC; font-family: Manrope, system-ui, sans-serif; }
@@ -116,8 +121,9 @@ def _links(current, cls=""):
 
 
 def header(current):
-    """The header for one page; `current` is a key of PAGES. The pages differ only in aria-current."""
-    if not (current in PAGES):
+    """The header for one page; `current` is a key of ALL_PAGES. The pages differ only in aria-current (none on the pages outside
+    the header's list)."""
+    if not (current in ALL_PAGES):
         raise SystemExit(current)
     return ('<header class="bi-header">'
             f'<a class="bi-brand" href="{HOME_HREF}">{LOGO}<span>Brasil<i>·</i>Imposto</span></a>'
@@ -130,7 +136,8 @@ def header(current):
 
 def footer():
     """The footer, the same on every page."""
-    links = [(f"{HOME_HREF}#rede", "Rede do dinheiro (prévia)", ' data-here'), (REPO_URL, "Código aberto no GitHub", ""),
+    links = [(f"{HOME_HREF}#rede", "Rede do dinheiro (prévia)", ' data-here'), (NOTES_PAGE, "Como ler o mapa", ""),
+             (REPO_URL, "Código aberto no GitHub", ""),
              (f"{REPO_URL}/blob/main/docs/decisions/README.md", "Decisões do projeto", ""),
              (f"{REPO_URL}/blob/main/CONTRIBUTING.md", "Como ajudar", ""), (f"{REPO_URL}#licenças", "Licenças", "")]
     return ('<footer class="bi-footer"><div class="bi-footer-in"><div class="bi-footer-id">'

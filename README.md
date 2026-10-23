@@ -107,8 +107,12 @@ python3 docs/superpowers/tools/build-simulation.py
 python3 docs/superpowers/tools/build-platform-preview.py
 ```
 
+A página Como ler o mapa lê as notas de `assets/map-notes.js`, que pede também o Node:
+`node docs/superpowers/tools/build-map-notes.cjs`.
+
 Depois, abra os arquivos das páginas no navegador pelo caminho do arquivo (eles ficam em `docs/superpowers/previews/`). Os
-pacotes `assets/bi-data.js` e `assets/bi-geo*.js` não ficam no repositório: são refeitos por esses comandos a partir de `data/`.
+pacotes `assets/bi-data.js`, `assets/bi-federal.js`, `assets/map-notes.js` e `assets/bi-geo*.js` não ficam no repositório: são
+refeitos por esses comandos a partir de `data/`.
 
 Os pipelines de `pipelines/` e os testes usam Python 3.12 com as versões fixadas em `uv.lock`: instale o
 [uv](https://docs.astral.sh/uv/) e rode `uv sync --locked`, depois `uv run python -m unittest discover -s pipelines/tests`.

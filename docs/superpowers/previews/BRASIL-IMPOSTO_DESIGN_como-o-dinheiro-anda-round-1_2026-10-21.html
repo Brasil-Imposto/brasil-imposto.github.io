@@ -110,7 +110,10 @@
     .in { padding:0 16px; } .nav nav > :not(.on) { display:none; }
     .step { grid-template-columns:1fr; } .opts button { min-width:0; flex:1 1 100%; }
   }
+  /* O governo federal (D159), moved from Início: Início's type size inside this page's 15px body. */
+  .fed { font-size:16px; line-height:normal; }
 </style>
+<link rel="stylesheet" href="assets/federal-section.css">
 <!-- site-chrome:css -->
 <link rel="icon" href="assets/brand/favicon.ico" sizes="16x16 32x32">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
@@ -310,6 +313,18 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
 <div class="in foot">Regras lidas na Constituição Federal (Planalto) e na Lei 14.113/2020 em 21/10/2026; números do RTN do Tesouro e dos RREOs dos 27 estados de 2025, já conferidos no livro de fluxos.</div>
 <div class="tip" data-tip hidden></div>
 
+<section class="fed" id="governo-federal">
+  <div class="fed-in">
+    <div class="fed-top">
+      <div>
+        <h2>O governo federal</h2>
+        <p>2026, de janeiro a julho. As contas da União, quanto ela paga aos servidores, quanto custam os eleitos e para onde vão as emendas.</p>
+      </div>
+    </div>
+    <div class="fed-root" data-fed-main></div>
+  </div>
+</section>
+
 <script src="assets/dinheiro-r1-data.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
@@ -441,6 +456,12 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
   document.body.dataset.ready = '1';
 })();
 </script>
+<script src="assets/bi-federal.js"></script>
+<script src="assets/federal-section.js"></script>
+<script>
+// O governo federal, in form A, cards (D74), read from assets/bi-federal.js (D159).
+if (window.BIFED) window.BIFED.render(document.querySelector('[data-fed-main]'), 'A');
+</script>
 <!-- site-chrome:js -->
 <script id="bi-chrome-js">
 // The header's Menu on phones: opens the sheet under the bar, closes with Esc, a tap outside or a link.
@@ -551,7 +572,7 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
 </script>
 <!-- /site-chrome:js -->
 <!-- site-chrome:footer -->
-<footer class="bi-footer"><div class="bi-footer-in"><div class="bi-footer-id"><a class="bi-brand" href="./"><img src="assets/brand/brasil-imposto-logo.svg" alt=""><span>Brasil<i>·</i>Imposto</span></a><p>Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0.</p></div><nav class="bi-footer-links" aria-label="Mais sobre o projeto"><a href="./#rede" data-here>Rede do dinheiro (prévia)</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io">Código aberto no GitHub</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/blob/main/docs/decisions/README.md">Decisões do projeto</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/blob/main/CONTRIBUTING.md">Como ajudar</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io#licenças">Licenças</a></nav></div></footer>
+<footer class="bi-footer"><div class="bi-footer-in"><div class="bi-footer-id"><a class="bi-brand" href="./"><img src="assets/brand/brasil-imposto-logo.svg" alt=""><span>Brasil<i>·</i>Imposto</span></a><p>Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0.</p></div><nav class="bi-footer-links" aria-label="Mais sobre o projeto"><a href="./#rede" data-here>Rede do dinheiro (prévia)</a><a href="BRASIL-IMPOSTO_DESIGN_como-ler-o-mapa_2026-10-23.html">Como ler o mapa</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io">Código aberto no GitHub</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/blob/main/docs/decisions/README.md">Decisões do projeto</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/blob/main/CONTRIBUTING.md">Como ajudar</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io#licenças">Licenças</a></nav></div></footer>
 <!-- /site-chrome:footer -->
 </body>
 </html>

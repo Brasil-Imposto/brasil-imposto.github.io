@@ -8,8 +8,10 @@ data/df/*.csv
 data/df/*.xlsx
 data/ledger/ledger.duckdb
 data/ledger/ledger.duckdb.wal
-# preview packages rebuilt by docs/superpowers/tools/ (build-cases.py, build-standalone-data.py)
+# preview packages rebuilt by docs/superpowers/tools/ (build-cases.py, build-standalone-data.py, build-map-notes.cjs)
 docs/superpowers/previews/assets/bi-data.js
+docs/superpowers/previews/assets/bi-federal.js
+docs/superpowers/previews/assets/map-notes.js
 docs/superpowers/previews/assets/bi-geo*.js
 docs/superpowers/previews/assets/cases.json
 # material that is not published (D54, D97)
@@ -35,5 +37,6 @@ docs/superpowers/previews/*.html
 !docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html
 !docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html
 !docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html
+!docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_como-ler-o-mapa_2026-10-23.html
 # per-entity JSON files, generated at build time from data/ (D151, answer 3)
 site/src/generated/

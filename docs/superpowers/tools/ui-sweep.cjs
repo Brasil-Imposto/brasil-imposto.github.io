@@ -14,9 +14,12 @@ const PAGES = {
   inicio: 'BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html',
   'tres-poderes': 'BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html',
   dinheiro: 'BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html',
+  notas: 'BRASIL-IMPOSTO_DESIGN_como-ler-o-mapa_2026-10-23.html',
 };
+// The control's cover spans the whole window: on a short page (Como ler o mapa) no control can be scrolled into a band in the
+// middle, so a band would leave the covered check unproven there.
 const PLANT = `body::after { content: ''; display: block; width: 200vw; height: 1px; }
-  #oc-cover { position: fixed; left: 0; right: 0; top: 35%; height: 30%; z-index: 5000; }
+  #oc-cover { position: fixed; inset: 0; z-index: 5000; }
   .bi-header .bi-links a:first-child, .bi-brand { display: inline-block; width: 12px; overflow: hidden; white-space: nowrap; }`;
 
 (async () => {
