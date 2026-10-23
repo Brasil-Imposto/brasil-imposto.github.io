@@ -1,10 +1,11 @@
-# Checks every pull request and every push to main (phase B0 of the Astro site). A red check blocks the merge once the
-# maintainer makes `ci` a required check. Read-only token; actions pinned by commit; never pull_request_target.
+# Checks every pull request and every push to staging and to main (phase B0 of the Astro site; spec staging, section 6). A red
+# check blocks the merge once the maintainer makes `ci` a required check. Read-only token; actions pinned by commit; never
+# pull_request_target.
 name: ci
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, staging]
 permissions:
   contents: read
 concurrency:

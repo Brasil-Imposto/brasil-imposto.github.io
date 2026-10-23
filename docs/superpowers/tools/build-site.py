@@ -1,0 +1,89 @@
+"""Assembles the published site in one of two profiles (spec BRASIL-IMPOSTO_SPEC_staging_2026-10-23, section 3).
+
+  production  what https://brasil-imposto.github.io serves: the three pages as committed (index.html is Início), assets/, the
+              forwarding page at Início's old address (D160), .nojekyll and robots.txt (staging stays out of search)
+  staging     what https://brasil-imposto.github.io/staging/ serves: the same pages built with every switch of data/features.json
+              that staging turns on, a strip at the top of each page saying it is the test site, and noindex
+
+Both run the four page builders first, as pages.yml did. The staging build writes only to the output folder: the committed pages
+are the production ones, so `git status` stays clean after it (pipelines/tests/test_build_site.py).
+
+Run: python3 docs/superpowers/tools/build-site.py --profile {production,staging} --out <folder>
+"""
+import argparse
+import re
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+TOOLS = Path(__file__).resolve().parent
+PREVIEWS = TOOLS.parent / "previews"
+sys.path.insert(0, str(TOOLS))
+import site_chrome  # noqa: E402
+
+BUILDERS = ("build-cases.py", "build-standalone-data.py", "build-simulation.py", "build-platform-preview.py")
+OFFICIAL = "https://brasil-imposto.github.io"
+STRIP_TEXT = ("Ambiente de testes: inclui ideias ainda não aprovadas. O site oficial é "
+              f'<a href="{OFFICIAL}">brasil-imposto.github.io</a>.')
+STRIP = ('<style id="bi-staging-css">.bi-staging { margin: 0; padding: 8px 16px; background: #FFF4D6; border-bottom: 1px solid #E8D9A8; '
+         'color: #14202B; font: 600 13px/1.45 Manrope, system-ui, sans-serif; text-align: center; } '
+         '.bi-staging a { color: #14202B; text-decoration: underline; }</style>'
+         f'<p class="bi-staging" role="note">{STRIP_TEXT}</p>'
+         # the phone menu sits at the header's height (62 px) under a header at the top; with the strip above, the header starts
+         # lower until the page scrolls, so the menu follows the header's real bottom
+         "<script>document.addEventListener('DOMContentLoaded', () => { const h = document.querySelector('.bi-header'), "
+         "s = document.getElementById('bi-sheet'); if (!h || !s) return; const f = () => { s.style.top = "
+         "Math.max(0, h.getBoundingClientRect().bottom) + 'px'; }; f(); addEventListener('scroll', f, { passive: true }); "
+         "addEventListener('resize', f); });</script>")
+NOINDEX = '<meta name="robots" content="noindex">'
+ROBOTS = "User-agent: *\nDisallow: /staging/\n"
+# Início lives at the root. Its old address, already shared, forwards there with its query (?open=, ?metric=, ?modal=, ?area=)
+# and its hash; the meta refresh is the fallback without JavaScript (D160).
+FORWARD = """<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brasil-Imposto</title><meta name="robots" content="noindex"><link rel="canonical" href="./">
+<script>location.replace('./' + location.search + location.hash);</script>
+<noscript><meta http-equiv="refresh" content="0; url=./"></noscript>
+</head><body><p>Esta página mudou de endereço: <a href="./">ir para o Início</a>.</p></body></html>
+"""
+
+
+def staging_page(page, key):
+    """One committed page as the staging build serves it: its chrome rebuilt with the staging switches, the strip first in the
+    body and noindex in the head."""
+    page = site_chrome.inject(page, key, "staging")
+    if not (page.count("</head>") == 1 and len(re.findall(r"<body[^>]*>", page)) == 1 and 'name="robots"' not in page):
+        raise SystemExit(f"build-site: {key}: one </head>, one <body> and no robots meta expected")
+    page = page.replace("</head>", NOINDEX + "\n</head>")
+    body = re.search(r"<body[^>]*>", page)
+    return page[:body.end()] + "\n" + STRIP + page[body.end():]
+
+
+def build(profile, out):
+    out = Path(out)
+    if out.exists():
+        shutil.rmtree(out)
+    out.mkdir(parents=True)
+    for b in BUILDERS:
+        subprocess.run([sys.executable, str(TOOLS / b)], check=True, stdout=subprocess.DEVNULL)
+    shutil.copytree(PREVIEWS / "assets", out / "assets")
+    for key, (name, _label) in site_chrome.PAGES.items():
+        target = out / ("index.html" if key == "inicio" else name)
+        if profile == "production":
+            shutil.copyfile(PREVIEWS / name, target)   # the committed page, byte for byte
+        else:
+            target.write_bytes(staging_page((PREVIEWS / name).read_bytes().decode("utf-8"), key).encode("utf-8"))
+    (out / site_chrome.HOME).write_text(FORWARD, encoding="utf-8")
+    (out / ".nojekyll").write_text("", encoding="utf-8")
+    if profile == "production":
+        (out / "robots.txt").write_text(ROBOTS, encoding="utf-8")
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--profile", required=True, choices=("production", "staging"))
+    ap.add_argument("--out", required=True)
+    a = ap.parse_args()
+    build(a.profile, a.out)
+    print(f"{a.profile}: {a.out}")

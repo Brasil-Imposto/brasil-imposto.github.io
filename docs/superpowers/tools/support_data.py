@@ -93,8 +93,8 @@ def channel_problems(data, channel):
 
 def problems(data):
     """Everything wrong with the file as it is: the structure always; the form's access key, when there is one, must be a Web3Forms
-    access key (the button may be on without it: the contact form then stays out until the key is filled, D162); with a channel
-    live, every value of that channel."""
+    access key (the button may be on without it: production then leaves the contact form out until the key is filled, D162, and
+    staging draws the form, whose send shows the error line); with a channel live, every value of that channel."""
     out = structure_problems(data)
     key = data["contact_form"].get("access_key")
     if key is not None and not (isinstance(key, str) and ACCESS_KEY.match(key)):

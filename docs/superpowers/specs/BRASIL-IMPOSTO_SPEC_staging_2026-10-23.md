@@ -47,16 +47,22 @@ ficar assim.
 - Um esquema em `schemas/` valida o arquivo (chaves em inglês, `key` único, `issue` inteiro, `staging` e `production` booleanos).
 - **Desligada é ausente:** uma funcionalidade desligada no perfil não entra na página montada (nem marcação, nem estilo, nem script
   dela); nunca é escondida por CSS.
-- **Estado inicial:** a única chave é `apoie` (ligada no staging, desligada na produção). O campo `enabled` de `data/support.json`
-  (PR #46) sai: a chave passa a ser a única fonte. No staging, o modal aparece com os valores que existem e "a definir" no lugar dos
-  que faltam. A produção só pode ligar `apoie` com todos os valores de `data/support.json` preenchidos, e um teste garante isso.
+- **Estado inicial:** a única chave é `apoie`, ligada no staging; na produção, o valor que o campo `enabled` de `data/support.json`
+  tinha na `main` quando esta mudança entrou (desligado). Esse campo sai: a chave passa a ser a única fonte. O D158 (2026-10-23) põe o
+  Apoie na produção: GitHub Sponsors e cripto mostram "Em breve", sem link e sem endereço, até cada canal estar pronto, e o formulário
+  de contato funciona pelo Web3Forms (PR #49).
+- **A regra dos dados é a do PR #49**, igual nos dois perfis: um canal em `live` precisa de todos os seus valores; um canal em `soon`
+  mostra "Em breve", sem link e sem endereço; nenhum valor que falta aparece como "a definir". A produção só liga `apoie` com a chave
+  de acesso do formulário preenchida, e um teste garante isso. O staging desenha o formulário mesmo sem a chave: um envio mostra a
+  linha de erro e não faz pedido.
 - **Aprovar para a produção** é um pull request de uma linha no `staging` que muda `production` para `true`, seguido da promoção.
 - Esconder partes da produção (a próxima tarefa do mantenedor) será uma chave a mais por parte, neste mesmo arquivo.
 
 ## 3. Um script de montagem, dois perfis
 
 `docs/superpowers/tools/build-site.py --profile {production,staging} --out <pasta>` faz o que o passo "Assemble the site" de
-`pages.yml` faz hoje (os quatro construtores, as três páginas, `assets/`, `index.html`, `.nojekyll`), mais:
+`pages.yml` faz hoje (os quatro construtores, as três páginas, `assets/`, `index.html`, a página que encaminha o endereço antigo do
+Início para a raiz (D160), `.nojekyll`), mais:
 
 - lê `data/features.json` e monta cada funcionalidade só se a chave do perfil estiver ligada;
 - no perfil `staging`: a faixa e o `noindex` em cada página;
@@ -117,11 +123,14 @@ mostrá-lo.
   única diferença nova é o `robots.txt`); a sonda de texto visível dá 100 de 100.
 - **Nada vaza:** um teste monta a produção e procura as marcas de cada funcionalidade desligada (por exemplo, a classe do botão Apoie);
   o controle liga `apoie` na produção num teste e a busca precisa falhar.
-- **A chave da produção pede os dados:** com `apoie` ligada na produção e um valor de `data/support.json` vazio, o teste falha.
+- **A chave da produção pede os dados:** com `apoie` ligada na produção e sem a chave de acesso do formulário, ou com um canal em
+  `live` e um valor dele vazio, o teste falha; um canal em `soon` mostra "Em breve" sem link e sem endereço (os testes e os controles
+  do PR #49 continuam valendo).
 - **O staging não suja o repositório:** depois de `build-site.py --profile staging`, `git status` não mostra mudança em arquivo
   versionado; o controle é uma montagem que escreve num arquivo versionado de propósito.
 - **O staging funciona:** depois do primeiro deploy, `site-check.cjs` nas três páginas de `/staging/` em 1440 e 420 px, com
-  `--control`; a faixa e o `noindex` em cada página; o botão Apoie presente no staging e ausente na produção.
+  `--control`; a faixa e o `noindex` em cada página; o botão Apoie presente no staging, e na produção só quando a chave `apoie` da
+  produção estiver ligada.
 
 ## 8. Quem faz o quê
 

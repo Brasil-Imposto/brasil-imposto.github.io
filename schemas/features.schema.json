@@ -1,0 +1,26 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://brasil-imposto.github.io/schemas/features.schema.json",
+ "title": "The feature switches (spec staging, section 2)",
+ "description": "One switch per feature: staging builds it when staging is true, production when production is true. A feature switched off is absent from the built page. Each key appears once (checked by pipelines/tests/test_features.py, since JSON Schema cannot say it).",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["features"],
+ "properties": {
+  "features": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["key", "issue", "description", "staging", "production"],
+    "properties": {
+     "key": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+     "issue": {"type": "integer", "minimum": 1},
+     "description": {"type": "string", "minLength": 3},
+     "staging": {"type": "boolean"},
+     "production": {"type": "boolean"}
+    }
+   }
+  }
+ }
+}
