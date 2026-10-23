@@ -6,8 +6,8 @@ Raw files live in data/federal/raw-pay/judiciary/ (see NOTES.md there for how ea
   tst/tst-2026-<mm>.csv    TST own remuneration CSV (used for names, roles and a cross-check)
   comp/*.html              composition pages (STF, STJ, TSE via Web Archive)
 If cnj/*.xlsx are missing, run the CNJ panel export first:
-  .venv/bin/python -B docs/superpowers/tools/collect-judiciary-cnj-download.py
-Run: .venv/bin/python -B docs/superpowers/tools/collect-judiciary-2026.py
+  uv run python -B docs/superpowers/tools/collect-judiciary-cnj-download.py
+Run: uv run python -B docs/superpowers/tools/collect-judiciary-2026.py
 """
 import collections, glob, html, json, re, subprocess, unicodedata
 from urllib.parse import quote
@@ -102,7 +102,8 @@ def stf_composition():
             people.append({"short": name, "role": role})
         if l.startswith("Essa informa"):
             break
-    assert len(people) == len(photos) == 10, (len(people), len(photos))
+    if not (len(people) == len(photos) == 10):
+        raise SystemExit((len(people), len(photos)))
     for p, ph in zip(people, photos):
         p["photo"] = ph.strip().replace("http://", "https://")
     return people
@@ -161,7 +162,8 @@ def stm_composition():
         if norm_tokens(n) == norm_tokens(vice):
             role = "Vice-Presidente e Corregedor-Geral da Justiça Militar da União" if corr else "Vice-Presidente"
         out.append({"short": n, "role": role})
-    assert len(out) == 15, len(out)
+    if not (len(out) == 15):
+        raise SystemExit(len(out))
     return out
 
 
@@ -406,7 +408,8 @@ def main():
     stj_data, stj_months, stj_det = cnj["stj"]
     stj_comp = stj_composition()
     origin = stj_origin()
-    assert len(origin) == len(stj_comp), (len(origin), len(stj_comp))
+    if not (len(origin) == len(stj_comp)):
+        raise SystemExit((len(origin), len(stj_comp)))
     stj_found = 0
     for p in stj_comp:
         hit = match(p["short"], list(stj_data))

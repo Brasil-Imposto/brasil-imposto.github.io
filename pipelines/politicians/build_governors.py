@@ -1,12 +1,12 @@
-"""Gera data/politicians/governors.json: governadores e vice-governadores das 27 UFs, 2019-01-01 ate hoje.
+"""Builds data/politicians/governors.json: governors and vice-governors of the 27 UFs, 2019-01-01 to today.
 
-Entradas:
-- cadastro de candidaturas do TSE (2018 e 2022): eleitos, nome completo e partido na eleicao;
-- governors_curated/<UF>.json: mandatos conferidos a mao, com as substituicoes (renuncias, afastamentos,
-  interinos, eleicoes indiretas, cassacoes) e a fonte de cada uma;
-- Wikidata e Wikimedia Commons: foto, autor e licenca (commons_photos.py).
-Para uma UF sem arquivo curado, saem so os eleitos do TSE, marcados como nao verificados.
-Rodar: POLITICIANS_WORK=/tmp/politicians-work python3 build_governors.py
+Inputs:
+- the TSE candidacy register (2018 and 2022): those elected, full name and party at the election;
+- governors_curated/<UF>.json: terms checked by hand, with the substitutions (resignations, leaves of absence,
+  acting governors, indirect elections, removals from office) and the source of each one;
+- Wikidata and Wikimedia Commons: photo, author and license (commons_photos.py).
+For a UF with no curated file, only the TSE's elected candidates are output, marked as not verified.
+Run: POLITICIANS_WORK=/tmp/politicians-work python3 build_governors.py
 """
 import json
 import pathlib
@@ -23,7 +23,7 @@ CURATED = HERE / "governors_curated"
 UFS = "AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO RR SC SP SE TO".split()
 TSE = "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_{y}.zip"
 CF = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
-CARGO = {"governador": "GOVERNADOR", "vice-governador": "VICE-GOVERNADOR"}
+CARGO = {"governor": "GOVERNADOR", "vice_governor": "VICE-GOVERNADOR"}
 
 
 def norm(s):
@@ -36,7 +36,7 @@ def slug(s):
 
 
 def same_person(a, b):
-    """Nome de uso contra nome do TSE: todas as palavras do nome curto aparecem no outro."""
+    """Name in use against the TSE name: every word of the short name appears in the other."""
     na, nb = set(norm(a)), set(norm(b))
     na -= {"DE", "DA", "DO", "DOS", "DAS", "E", "JR", "JUNIOR", "FILHO"}
     return bool(na) and len(na & nb) >= max(1, len(na) - 1)
@@ -51,7 +51,7 @@ def tse_elected():
 
 
 def tse_index():
-    """Todas as candidaturas de 2018 e 2022 (eleitas ou nao), por nome completo e por nome de urna na UF."""
+    """Every candidacy of 2018 and 2022 (elected or not), by full name and by ballot name in the UF."""
     by_full, by_urna = {}, {}
     for y in (2018, 2022):
         for r in tse_common.iter_rows(y, elected_only=False):
@@ -69,7 +69,7 @@ SPARQL = """SELECT DISTINCT ?person WHERE {
 
 
 def governor_qids():
-    """Pessoas que o Wikidata registra como governador ou vice de uma UF com mandato em 2019 ou depois."""
+    """People that Wikidata records as governor or vice-governor of a UF with a term in 2019 or later."""
     import urllib.parse
     d = commons_photos._get("https://query.wikidata.org/sparql?" + urllib.parse.urlencode({"query": SPARQL, "format": "json"}))
     return {b["person"]["value"].rsplit("/", 1)[1] for b in d["results"]["bindings"]}
@@ -80,10 +80,10 @@ def default_terms(uf, el):
     for y, start, end in ((2018, "2019-01-01", "2023-01-01"), (2022, "2023-01-01", None)):
         for role, cargo in CARGO.items():
             r = el[(uf, y, cargo)]
-            terms.append({"role": role, "name": r["NM_URNA_CANDIDATO"].title(), "full_name": r["NM_CANDIDATO"], "kind": "eleito",
+            terms.append({"role": role, "name": r["NM_URNA_CANDIDATO"].title(), "full_name": r["NM_CANDIDATO"], "kind": "elected",
                           "start": start, "end": end, "start_reason": f"posse após a eleição de {y}", "end_reason": "fim do mandato" if end else None,
                           "party_at_start": r["SG_PARTIDO"], "party_changes": [],
-                          "sources": [{"fact": "eleição e partido na eleição", "url": TSE.format(y=y), "type": "oficial"}, {"fact": "datas do mandato (CF, art. 28)", "url": CF, "type": "oficial"}],
+                          "sources": [{"fact": "eleição e partido na eleição", "url": TSE.format(y=y), "type": "official"}, {"fact": "datas do mandato (CF, art. 28)", "url": CF, "type": "official"}],
                           "verified": False, "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato."})
     return terms
 
@@ -96,9 +96,9 @@ def build():
         path = CURATED / f"{uf}.json"
         cur = json.loads(path.read_text()) if path.exists() else None
         terms = cur["terms"] if cur else default_terms(uf, el)
-        # confere os eleitos contra o TSE e completa nome completo e partido
+        # checks those elected against the TSE and fills in the full name and party
         for t in terms:
-            if t["kind"] != "eleito":
+            if t["kind"] != "elected":
                 continue
             y = 2018 if t["start"] < "2023-01-01" else 2022
             r = el.get((uf, y, CARGO[t["role"]]))
@@ -112,16 +112,16 @@ def build():
         for y in (2018, 2022):
             for role, cargo in CARGO.items():
                 r = el[(uf, y, cargo)]
-                if not any(t["kind"] == "eleito" and t["role"] == role and (t["start"] < "2023-01-01") == (y == 2018) for t in terms):
+                if not any(t["kind"] == "elected" and t["role"] == role and (t["start"] < "2023-01-01") == (y == 2018) for t in terms):
                     problems.append(f"{uf} {role} {y}: eleito do TSE ({r['NM_CANDIDATO']}) ausente dos mandatos")
-        # nome curto sem nome completo (vice que assumiu, interino): herda o nome completo do mesmo eleito na UF
+        # short name, no full name (a vice who took over, an acting governor): full name of the same winner in the UF
         for t in terms:
             if t.get("name") and not t.get("full_name"):
                 for e in terms:
-                    if e["kind"] == "eleito" and e.get("full_name") and same_person(t["name"], e["name"] + " " + e["full_name"]):
+                    if e["kind"] == "elected" and e.get("full_name") and same_person(t["name"], e["name"] + " " + e["full_name"]):
                         t["full_name"] = e["full_name"]
                         break
-        # pessoas: id, nome completo, partido observado no TSE, foto
+        # people: id, full name, party seen in the TSE data, photo
         for t in terms:
             if not t.get("name"):
                 t["person_id"] = None

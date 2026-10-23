@@ -1,25 +1,26 @@
-"""Gera data/politicians/<uf>-mayors.json: prefeitos e vice-prefeitos ELEITOS num estado nas eleições municipais
-escolhidas, incluindo as eleições suplementares do mesmo ciclo. Generaliza o antigo build_sc_mayors.py (mesmo esquema).
+"""Builds data/politicians/<uf>-mayors.json: mayors and vice-mayors ELECTED in a state in the chosen municipal
+elections, including the supplementary elections of the same cycle. Generalizes the old build_sc_mayors.py (same schema).
 
-Fontes (todas oficiais; nada gravado em disco: os zips do TSE são lidos por HTTP Range, só o CSV da UF):
-- TSE, cadastro de candidaturas (consulta_cand) de cada ano;
-- TSE, códigos oficiais de municípios segundo o TSE e o IBGE (municipio_tse_ibge);
-- TSE, listagem das eleições suplementares de cada ciclo (conferência cruzada);
-- TSE, votação nominal por município e zona (votacao_candidato_munzona), só para conferir os eleitos;
-- IBGE, API de localidades (nome oficial do município e conferência dos códigos).
+Sources (all official; nothing written to disk: the TSE zips are read by HTTP Range, only the UF's CSV):
+- TSE, candidacy register (consulta_cand) of each year;
+- TSE, official municipality codes according to the TSE and the IBGE (municipio_tse_ibge);
+- TSE, list of the supplementary elections of each cycle (cross-check);
+- TSE, nominal vote by municipality and zone (votacao_candidato_munzona), only to check those elected;
+- IBGE, localities API (official municipality name and check of the codes).
 
-Checagens que barram a gravação (cada uma com controle plantado que tem de falhar, --control):
-- coverage: todo município tem prefeito eleito na eleição ordinária de cada ano, ou a ausência está nos dados do TSE
-  (eleição suplementar no ciclo, ou candidatura INAPTA no cadastro, ou votos anulados na votação nominal);
-- totals: os prefeitos eleitos de cada ano são exatamente os eleitos da votação nominal do TSE na UF;
-- vice: cada eleição com prefeito eleito tem um vice eleito da mesma chapa (mesmo número), e só ela.
+Checks that block writing (each with a planted control that must fail, --control):
+- coverage: every municipality has a mayor elected in the regular election of each year, or the absence is in the TSE data
+  (a supplementary election in the cycle, or an INAPTA candidacy in the register, or votes annulled in the nominal vote);
+- totals: the mayors elected each year are exactly those elected in the TSE nominal vote in the UF;
+- vice: each election with an elected mayor, and only such an election, has an elected vice from the same ticket
+  (same number).
 
-Uso:
-  python3 pipelines/politicians/build_mayors.py                    # SC, 2020 e 2024 (padrão)
-  python3 pipelines/politicians/build_mayors.py --uf RS            # RS, 2016, 2020 e 2024
-  python3 pipelines/politicians/build_mayors.py --uf RS --control totals   # tem de falhar e não gravar nada
-  --out CAMINHO grava em outro lugar; --replace permite trocar um arquivo existente de conteúdo diferente.
-Só biblioteca padrão do Python 3.
+Usage:
+  python3 pipelines/politicians/build_mayors.py                    # SC, 2020 and 2024 (default)
+  python3 pipelines/politicians/build_mayors.py --uf RS            # RS, 2016, 2020 and 2024
+  python3 pipelines/politicians/build_mayors.py --uf RS --control totals   # must fail and write nothing
+  --out PATH writes elsewhere; --replace allows replacing an existing file that has different content.
+Python 3 standard library only.
 """
 import argparse
 import csv
@@ -39,7 +40,7 @@ from tse_common import TSE_CAND_URL, UA, RemoteZip, br_date, uf_rows  # noqa: E4
 REPO = pathlib.Path(__file__).resolve().parents[2]
 CARGOS = {"PREFEITO": "mayor", "VICE-PREFEITO": "vice_mayor"}
 
-# Cada estado guarda os anos e a data de coleta do arquivo publicado; SC é o arquivo de 2026-10-01, sem mudança.
+# Each state keeps the years and the collection date of the published file; SC is the 2026-10-01 file, unchanged.
 STATES = {
     "SC": {"ibge": "42", "of_name": "de Santa Catarina", "municipalities": 295, "years": (2020, 2024),
            "collected_on": "2026-10-01"},
@@ -48,7 +49,7 @@ STATES = {
 }
 
 CF_URL = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
-# Art. 29, I e III, CF: mandato de quatro anos, posse em 1º de janeiro do ano seguinte à eleição.
+# Art. 29, I and III, CF (Federal Constitution): a four-year term, taking office on 1 January of the year after the election.
 MANDATES = {2016: ("2017-01-01", "2020-12-31"), 2020: ("2021-01-01", "2024-12-31"), 2024: ("2025-01-01", "2028-12-31")}
 
 CROSSWALK_URL = "https://cdn.tse.jus.br/estatistica/sead/odsele/municipio_tse_ibge/municipio_tse_ibge.zip"
@@ -66,23 +67,23 @@ CONTROLS = ("coverage", "totals", "vice")
 
 
 def fetch(url):
-    """Baixa para a memória (arquivos pequenos: tabela TSE-IBGE, listagens, API do IBGE)."""
+    """Downloads into memory (small files: the TSE-IBGE table, listings, the IBGE API)."""
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=120) as r:
         body = r.read()
-        # A API do IBGE responde em gzip mesmo sem Accept-Encoding (visto em 2026-10-04).
+        # The IBGE API answers in gzip even without Accept-Encoding (seen on 2026-10-04).
         return gzip.decompress(body) if r.headers.get("Content-Encoding") == "gzip" else body
 
 
 def tse_csv(data):
-    """Linhas do único CSV de um zip do TSE (latin-1, ';')."""
+    """Rows of the single CSV in a TSE zip (latin-1, ';')."""
     z = zipfile.ZipFile(io.BytesIO(data))
     name = next(n for n in z.namelist() if n.endswith(".csv"))
     return list(csv.DictReader(io.TextIOWrapper(z.open(name), encoding="latin-1"), delimiter=";"))
 
 
 def norm(s):
-    """Nome normalizado para conferência: sem acento, minúsculo, sem apóstrofo, hífen nem espaço repetido."""
+    """Name normalized for checking: no accents, lowercase, no apostrophe, hyphen or repeated space."""
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
     for ch in "'’`-":
         s = s.replace(ch, " ")
@@ -90,7 +91,7 @@ def norm(s):
 
 
 def null_if_tse_blank(v):
-    """O TSE usa #NULO / #NULO# / #NE para campo vazio."""
+    """The TSE uses #NULO / #NULO# / #NE for an empty field."""
     return None if not v or v.startswith("#") else v
 
 
@@ -103,7 +104,8 @@ def load_crosswalk(uf):
     rows = [r for r in tse_csv(fetch(CROSSWALK_URL)) if r["SG_UF"] == uf]
     tse_to_ibge = {r["CD_MUNICIPIO_TSE"]: str(r["CD_MUNICIPIO_IBGE"]) for r in rows}
     ibge_to_tse = {v: k for k, v in tse_to_ibge.items()}
-    assert len(rows) == len(tse_to_ibge) == len(ibge_to_tse), f"tabela TSE-IBGE não é um para um em {uf}"
+    if not (len(rows) == len(tse_to_ibge) == len(ibge_to_tse)):
+        raise SystemExit(f"tabela TSE-IBGE não é um para um em {uf}")
     generated = rows[0]["DT_GERACAO"] if rows else None
     return tse_to_ibge, generated
 
@@ -119,11 +121,11 @@ def load_suppl_list(year, uf):
 
 
 def load_votes(year, uf):
-    """Votação nominal do TSE na UF: SQ dos prefeitos eleitos, e os municípios em que o mais votado para prefeito no
-    1º turno da eleição ordinária teve os votos anulados."""
+    """The TSE nominal vote in the UF: the SQ of the elected mayors, and the municipalities where the candidate with the
+    most votes for mayor in the 1st round of the regular election had their votes annulled."""
     data = RemoteZip(VOTES_URL.format(year=year)).member(f"votacao_candidato_munzona_{year}_{uf}.csv")
     elected = set()
-    votes = defaultdict(lambda: defaultdict(int))  # sg_ue -> sq -> votos nominais no 1º turno da ordinária
+    votes = defaultdict(lambda: defaultdict(int))  # sg_ue -> sq -> nominal votes in the 1st round of the regular election
     annulled_sq = set()
     for r in csv.DictReader(io.TextIOWrapper(io.BytesIO(data), encoding="latin-1"), delimiter=";"):
         if r["DS_CARGO"].upper() != "PREFEITO":
@@ -171,17 +173,17 @@ def mandate_for(year, kind):
 
 
 def plant(control, elections, elected, cand_rows):
-    """Defeito de controle: a checagem correspondente tem de falhar."""
+    """Control defect: the matching check must fail."""
     ords = sorted(k for k in elections if k[2] == "ELEIÇÃO ORDINÁRIA" and elected[k].get("PREFEITO"))
-    if control == "coverage":  # some o prefeito eleito de uma eleição ordinária sem nenhuma explicação nos dados
+    if control == "coverage":  # the elected mayor of a regular election disappears with no explanation in the data
         suppl_ues = {(k[0], k[1]) for k in elections if k[2] != "ELEIÇÃO ORDINÁRIA"}
         k = next(k for k in ords if (k[0], k[1]) not in suppl_ues and not any(
             r["DS_SITUACAO_CANDIDATURA"] == "INAPTO" for r in cand_rows[k]))
         elected[k]["PREFEITO"] = []
-    elif control == "totals":  # troca o eleito pelo segundo colocado da mesma eleição
+    elif control == "totals":  # swaps the winner for the runner-up of the same election
         k = next(k for k in ords if any(r["DS_CARGO"] == "PREFEITO" and r["DS_SIT_TOT_TURNO"] == "NÃO ELEITO" for r in cand_rows[k]))
         elected[k]["PREFEITO"] = [next(r for r in cand_rows[k] if r["DS_CARGO"] == "PREFEITO" and r["DS_SIT_TOT_TURNO"] == "NÃO ELEITO")]
-    elif control == "vice":  # some o vice eleito de uma chapa eleita
+    elif control == "vice":  # the elected vice of an elected ticket disappears
         elected[ords[0]]["VICE-PREFEITO"] = []
     print(f"CONTROLE '{control}' plantado em {k if control != 'vice' else ords[0]}", flush=True)
 
@@ -204,15 +206,17 @@ def main():
     ibge_names = load_ibge_names(cfg["ibge"])
     checks = {}
 
-    # Cruzamento 1:1 nos dois sentidos, contra a API do IBGE.
-    assert len(tse_to_ibge) == N, len(tse_to_ibge)
-    assert set(tse_to_ibge.values()) == set(ibge_names), "códigos IBGE da tabela do TSE diferem da API do IBGE"
+    # 1:1 match in both directions, against the IBGE API.
+    if not (len(tse_to_ibge) == N):
+        raise SystemExit(len(tse_to_ibge))
+    if not (set(tse_to_ibge.values()) == set(ibge_names)):
+        raise SystemExit("códigos IBGE da tabela do TSE diferem da API do IBGE")
 
-    # Chave da eleição: (sg_ue, ano, tipo, descrição). O 2º turno tem CD_ELEICAO próprio no TSE,
-    # então os códigos e as datas ficam guardados por turno dentro da mesma eleição.
-    elections = defaultdict(dict)  # chave -> metadados
-    elected = defaultdict(lambda: defaultdict(list))  # chave -> cargo -> linhas ELEITO
-    cand_rows = defaultdict(list)  # chave -> todas as linhas (só para as checagens)
+    # Election key: (sg_ue, year, type, description). The 2nd round has its own CD_ELEICAO at the TSE,
+    # so the codes and the dates are kept per round inside the same election.
+    elections = defaultdict(dict)  # key -> metadata
+    elected = defaultdict(lambda: defaultdict(list))  # key -> office -> ELEITO rows
+    cand_rows = defaultdict(list)  # key -> every row (only for the checks)
     tse_names = {}
     for year in YEARS:
         for row in uf_rows(year, UF, cargos=set(CARGOS), elected_only=False):
@@ -228,10 +232,12 @@ def main():
         plant(args.control, elections, elected, cand_rows)
 
     unmapped = sorted(set(tse_names) - set(tse_to_ibge))
-    assert not unmapped, f"SG_UE sem código IBGE: {unmapped}"
-    assert set(tse_names) == set(tse_to_ibge), "municípios do cadastro diferem da tabela TSE-IBGE"
+    if not (not unmapped):
+        raise SystemExit(f"SG_UE sem código IBGE: {unmapped}")
+    if not (set(tse_names) == set(tse_to_ibge)):
+        raise SystemExit("municípios do cadastro diferem da tabela TSE-IBGE")
 
-    # Nomes TSE x IBGE: só conferência, o nome publicado é o do IBGE.
+    # TSE x IBGE names: a check only; the published name is the IBGE's.
     name_diffs = sorted(
         f"{tse_names[u]} / {ibge_names[tse_to_ibge[u]]}"
         for u in tse_names
@@ -239,7 +245,7 @@ def main():
     )
 
     suppl_listed = {y: load_suppl_list(y, UF) for y in YEARS}
-    # Suplementar que está no cadastro e não está na listagem do TSE (ex.: marcada e sem resultado).
+    # A supplementary election in the register and not in the TSE listing (e.g. scheduled and with no result).
     unlisted = {
         (k[0], k[1], elections[k]["rounds"][1][0])
         for k in elections
@@ -253,12 +259,14 @@ def main():
         for key in sorted(k for k in elections if k[0] == sg_ue):
             _, year, type_tse, description = key
             rounds = elections[key]["rounds"]
-            assert set(rounds) in ({1}, {1, 2}), f"turnos inesperados em {key}"
+            if not (set(rounds) in ({1}, {1, 2})):
+                raise SystemExit(f"turnos inesperados em {key}")
             kind = TYPE_LABEL[type_tse]
             people = {}
             for cargo, field in CARGOS.items():
                 rows = elected[key].get(cargo, [])
-                assert len(rows) <= 1, f"mais de um {cargo} ELEITO em {key}"
+                if not (len(rows) <= 1):
+                    raise SystemExit(f"mais de um {cargo} ELEITO em {key}")
                 people[field] = person(rows[0], year, mandate_for(year, kind)) if rows else None
             notes = []
             if people["mayor"] is None:
@@ -291,7 +299,7 @@ def main():
                     "note": " ".join(notes) or None,
                 }
             )
-        # Eleição suplementar no ciclo: registra o fato no registro da ordinária, sem inferir exercício.
+        # Supplementary election in the cycle: noted in the regular election's record, without inferring time in office.
         for rec in records:
             if rec["type"] != "ordinaria":
                 continue
@@ -321,7 +329,7 @@ def main():
             }
         )
 
-    # Checagens por ano.
+    # Checks per year.
     failures = []
     for year in YEARS:
         ords = [(m, r) for m in municipalities for r in m["elections"] if r["year"] == year and r["type"] == "ordinaria"]
@@ -329,12 +337,15 @@ def main():
         per_muni = defaultdict(int)
         for m, _ in ords:
             per_muni[m["tse_code"]] += 1
-        assert len(per_muni) == N and set(per_muni.values()) == {1}, f"{year}: eleição ordinária não é única por município"
+        if not (len(per_muni) == N and set(per_muni.values()) == {1}):
+            raise SystemExit(f"{year}: eleição ordinária não é única por município")
         found_suppl = {(m["tse_code"], r["election_code_tse"]) for m, r in sups}
-        assert suppl_listed[year] <= found_suppl, f"{year}: suplementar da listagem do TSE ausente do cadastro"
+        if not (suppl_listed[year] <= found_suppl):
+            raise SystemExit(f"{year}: suplementar da listagem do TSE ausente do cadastro")
         for m, r in sups:
             if (m["tse_code"], year, r["election_code_tse"]) in unlisted:
-                assert r["mayor"] is None, f"{year}: suplementar com eleito fora da listagem do TSE: {m['name']}"
+                if not (r["mayor"] is None):
+                    raise SystemExit(f"{year}: suplementar com eleito fora da listagem do TSE: {m['name']}")
         counts["by_year"][str(year)] = {
             "ordinary_elections": len(ords),
             "ordinary_mayors_elected": sum(1 for _, r in ords if r["mayor"]),
@@ -345,7 +356,7 @@ def main():
             "supplementary_vice_mayors_elected": sum(1 for _, r in sups if r["vice_mayor"]),
         }
 
-        # coverage: prefeito eleito na ordinária, ou ausência explicada pelos dados do TSE.
+        # coverage: a mayor elected in the regular election, or an absence explained by the TSE data.
         votes_elected, votes_annulled = load_votes(year, UF)
         for m, r in ords:
             if r["mayor"]:
@@ -362,14 +373,14 @@ def main():
             if not why:
                 failures.append(f"coverage {year}: {m['name']} sem prefeito eleito e sem explicação nos dados do TSE")
 
-        # totals: eleitos do cadastro = eleitos da votação nominal do TSE na UF.
+        # totals: those elected in the register = those elected in the TSE nominal vote in the UF.
         ours = {r[k]["id"].split(":")[2] for _, r in ords + sups for k in ("mayor",) if r[k]}
         if ours != votes_elected:
             failures.append(f"totals {year}: cadastro {len(ours)} x votação {len(votes_elected)}; "
                             f"só no cadastro {sorted(ours - votes_elected)[:5]}, só na votação {sorted(votes_elected - ours)[:5]}")
         print(f"  totals {year}: prefeitos eleitos no arquivo {len(ours)}, na votação nominal do TSE {len(votes_elected)}")
 
-        # vice: um vice eleito da mesma chapa (mesmo número) onde há prefeito eleito, e nenhum onde não há.
+        # vice: one elected vice of the same ticket (same number) where a mayor was elected, and none where none was.
         bad = []
         for m, r in ords + sups:
             key = next(k for k in elections if k[0] == m["tse_code"] and k[1] == year and k[3] == r["description"])

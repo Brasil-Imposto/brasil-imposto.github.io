@@ -1,7 +1,8 @@
 # Brasil-Imposto: site em Astro, fase B0 (esqueleto, pipelines, esquemas e CI)
 
-Status: **proposta, aguardando a aprovação do mantenedor.** Nenhum código desta fase antes do sim (seção B6 da spec
-`BRASIL-IMPOSTO_SPEC_v1-release-and-site-build_2026-10-22.md`). Issue: #2.
+Status: **aprovada (D151, 2026-10-22) com as 7 respostas recomendadas; em execução.** Feitos: #23 (`pipelines/`), #25 (uv),
+#26 (nomes em inglês), #32 e #33 (o inventário das chaves), #34 (esquemas e exportação) e #35 (o esqueleto em Astro), com o job
+`ci`. Falta: a sonda de paridade das prévias dentro do `ci` e as chaves de `data/` em inglês. Issue: #2.
 
 ### Summary (English)
 

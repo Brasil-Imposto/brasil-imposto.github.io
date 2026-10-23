@@ -1,6 +1,6 @@
-"""Arrecadação federal por UF (Receita), 2024: composição do DF por coluna do arquivo, participação no país e por pessoa.
-Entrada: data/df/arrecadacao-estado.csv (https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv).
-Saída: data/df/rfb_breakdown_2024.json e tabela na tela."""
+"""Federal revenue by state (Receita), 2024: the DF's composition by column of the file, share of the country and per person.
+Input: data/df/arrecadacao-estado.csv (https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv).
+Output: data/df/rfb_breakdown_2024.json and a table on screen."""
 import csv, json, re, sys
 BASE = sys.argv[1] if len(sys.argv) > 1 else "."
 YEAR = sys.argv[2] if len(sys.argv) > 2 else "2024"

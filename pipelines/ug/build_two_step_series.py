@@ -16,7 +16,8 @@ import glob, json, os, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 P = lambda *a: os.path.join(ROOT, *a)
 runs = [json.load(open(f)) for f in sorted(glob.glob(P("data/ug/two-step-balance-*.json")))]
-assert all(r["check"]["passed"] and not r["check"]["control_run"] for r in runs)
+if not (all(r["check"]["passed"] and not r["check"]["control_run"] for r in runs)):
+    raise SystemExit("check failed: all((r['check']['passed'] and (not r['check']['control_run']) for r in runs))")
 CONTROL = next(((a.split("=", 1)[1] if "=" in a else "output") for a in sys.argv[1:] if a.startswith("--control")), None)
 if CONTROL == "input":
     _u = runs[-1]["union_by_month"][runs[-1]["months"][-1]]; _u["inss_rtn"] = round(_u["inss_rtn"] + 0.01, 2)
@@ -38,7 +39,9 @@ mte, years, broken = {}, {}, {}
 seen = set()
 for r in runs:
     for i, m in enumerate(r["months"]):
-        assert m not in seen, f"{m} is in two runs"; seen.add(m)
+        if not (m not in seen):
+            raise SystemExit(f"{m} is in two runs")
+        seen.add(m)
         j = months.index(m)
         for u in UFS:
             x = r["monthly"][u]

@@ -1,8 +1,8 @@
 """Source registry (spec 4.5): fetch a source once, hash it while it streams, record the release.
 
 Raw files are never kept: fetch() writes into a temporary folder that is deleted when the with-block ends.
-Disk rules (CLAUDE.md): nothing above 200 MB, and stop when the free space falls below 5 GB.
-Downloads go through curl, which uses the Mac's certificates (the python.org Python here has no certificate bundle);
+Disk rules: nothing above 200 MB, and stop when the free space falls below 5 GB.
+Downloads go through curl, which uses the system's certificate store (some Python builds ship without one);
 the bytes are hashed as they come out of curl."""
 import contextlib
 import hashlib
@@ -98,10 +98,18 @@ def current(con, dataset):
 
 def register(con, dataset, fx, *, title, publisher, loader, url=None, page_url=None, published_on=None,
              published_note=None):
-    """(source_id, is_new). The same file twice is one release; a different file supersedes the current one."""
+    """(source_id, is_new). The same file twice is one release; a different file supersedes the current one. When the
+    publisher puts back a file it had replaced (A, B, A), that release is the current one again: it supersedes what was current,
+    and its own old supersede record goes, since a release is superseded at most once (release_supersede's key)."""
     row = con.execute("SELECT source_id FROM source_release WHERE dataset = ? AND sha256 = ?", [dataset, fx.sha256]).fetchone()
     if row:
-        return row[0], False
+        known = row[0]
+        previous = current(con, dataset)
+        if known not in previous:
+            con.execute("DELETE FROM release_supersede WHERE old_source_id = ?", [known])
+            for old in previous:
+                con.execute("INSERT INTO release_supersede VALUES (?, ?, ?)", [old, known, fx.fetched_at])
+        return known, False
     source_id = f"{dataset}@{fx.sha256[:12]}"
     previous = current(con, dataset)
     con.execute("INSERT INTO source_release VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",

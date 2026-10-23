@@ -19,7 +19,8 @@
    "itbi": 18172742.57,
    "irrf": 134581410.11,
    "other_taxes_fees": 14168577.14,
-   "total": 453536761.63
+   "total": 453536761.63,
+   "complete": true
   },
   "AL": {
    "municipalities": 102,
@@ -31,7 +32,8 @@
    "itbi": 124757320.13,
    "irrf": 496351508.55,
    "other_taxes_fees": 239431459.57,
-   "total": 2140507714.47
+   "total": 2140507714.47,
+   "complete": false
   },
   "AM": {
    "municipalities": 62,
@@ -43,7 +45,8 @@
    "itbi": 121576714.82,
    "irrf": 631608650.0,
    "other_taxes_fees": 174446190.55,
-   "total": 3132747794.76
+   "total": 3132747794.76,
+   "complete": true
   },
   "AP": {
    "municipalities": 16,
@@ -55,7 +58,8 @@
    "itbi": 9174445.49,
    "irrf": 131033474.39,
    "other_taxes_fees": 39507825.26,
-   "total": 378049150.9
+   "total": 378049150.9,
+   "complete": false
   },
   "BA": {
    "municipalities": 417,
@@ -67,7 +71,8 @@
    "itbi": 881386227.66,
    "irrf": 2561761124.84,
    "other_taxes_fees": 1315996117.59,
-   "total": 12416137621.25
+   "total": 12416137621.25,
+   "complete": false
   },
   "CE": {
    "municipalities": 184,
@@ -79,7 +84,8 @@
    "itbi": 327777166.35,
    "irrf": 1856262205.98,
    "other_taxes_fees": 367573908.95,
-   "total": 6540669072.18
+   "total": 6540669072.18,
+   "complete": true
   },
   "DF": {
    "municipalities": 1,
@@ -91,7 +97,8 @@
    "itbi": 0.0,
    "irrf": 0.0,
    "other_taxes_fees": 0.0,
-   "total": 0.0
+   "total": 0.0,
+   "complete": false
   },
   "ES": {
    "municipalities": 78,
@@ -103,7 +110,8 @@
    "itbi": 391724295.35,
    "irrf": 765894321.97,
    "other_taxes_fees": 422103361.3,
-   "total": 4984338730.15
+   "total": 4984338730.15,
+   "complete": true
   },
   "GO": {
    "municipalities": 246,
@@ -115,7 +123,8 @@
    "itbi": 1226417604.28,
    "irrf": 1731788630.17,
    "other_taxes_fees": 646038780.19,
-   "total": 8999406614.05
+   "total": 8999406614.05,
+   "complete": true
   },
   "MA": {
    "municipalities": 217,
@@ -127,7 +136,8 @@
    "itbi": 166005973.25,
    "irrf": 952640425.32,
    "other_taxes_fees": 177944400.58,
-   "total": 3302030451.67
+   "total": 3302030451.67,
+   "complete": false
   },
   "MG": {
    "municipalities": 853,
@@ -139,7 +149,8 @@
    "itbi": 2215495367.46,
    "irrf": 4402755127.41,
    "other_taxes_fees": 1934730492.88,
-   "total": 24452581074.42
+   "total": 24452581074.42,
+   "complete": true
   },
   "MS": {
    "municipalities": 79,
@@ -151,7 +162,8 @@
    "itbi": 513370912.6,
    "irrf": 969318142.72,
    "other_taxes_fees": 263805772.98,
-   "total": 4556481546.82
+   "total": 4556481546.82,
+   "complete": true
   },
   "MT": {
    "municipalities": 142,
@@ -163,7 +175,8 @@
    "itbi": 733543824.93,
    "irrf": 1054091803.21,
    "other_taxes_fees": 431418528.79,
-   "total": 5661065605.8
+   "total": 5661065605.8,
+   "complete": false
   },
   "PA": {
    "municipalities": 144,
@@ -175,7 +188,8 @@
    "itbi": 174036384.66,
    "irrf": 1527330720.34,
    "other_taxes_fees": 497152835.3,
-   "total": 5851757086.3
+   "total": 5851757086.3,
+   "complete": false
   },
   "PB": {
    "municipalities": 223,
@@ -187,7 +201,8 @@
    "itbi": 282587352.07,
    "irrf": 684964879.79,
    "other_taxes_fees": 190222248.79,
-   "total": 2492436447.83
+   "total": 2492436447.83,
+   "complete": true
   },
   "PE": {
    "municipalities": 184,
@@ -199,7 +214,8 @@
    "itbi": 377984197.94,
    "irrf": 1457426375.85,
    "other_taxes_fees": 1040659593.32,
-   "total": 7391569481.76
+   "total": 7391569481.76,
+   "complete": true
   },
   "PI": {
    "municipalities": 224,
@@ -211,7 +227,8 @@
    "itbi": 80128119.21,
    "irrf": 672390400.02,
    "other_taxes_fees": 104609705.37,
-   "total": 1907107728.59
+   "total": 1907107728.59,
+   "complete": false
   },
   "PR": {
    "municipalities": 399,
@@ -223,7 +240,8 @@
    "itbi": 1850626932.52,
    "irrf": 3181573426.38,
    "other_taxes_fees": 1579024179.93,
-   "total": 18117665481.29
+   "total": 18117665481.29,
+   "complete": false
   },
   "RJ": {
    "municipalities": 92,
@@ -235,7 +253,8 @@
    "itbi": 2014230514.58,
    "irrf": 4650906704.78,
    "other_taxes_fees": 1718657647.85,
-   "total": 30528925048.85
+   "total": 30528925048.85,
+   "complete": true
   },
   "RN": {
    "municipalities": 167,
@@ -247,7 +266,8 @@
    "itbi": 188506217.24,
    "irrf": 490110558.05,
    "other_taxes_fees": 315014319.91,
-   "total": 2852758074.57
+   "total": 2852758074.57,
+   "complete": false
   },
   "RO": {
    "municipalities": 52,
@@ -259,7 +279,8 @@
    "itbi": 101506625.42,
    "irrf": 389980106.81,
    "other_taxes_fees": 187926364.8,
-   "total": 1458714925.07
+   "total": 1458714925.07,
+   "complete": true
   },
   "RR": {
    "municipalities": 15,
@@ -271,7 +292,8 @@
    "itbi": 23163971.09,
    "irrf": 138224362.45,
    "other_taxes_fees": 32755291.99,
-   "total": 491030989.59
+   "total": 491030989.59,
+   "complete": true
   },
   "RS": {
    "municipalities": 497,
@@ -283,7 +305,8 @@
    "itbi": 1464738395.1,
    "irrf": 2964027039.8,
    "other_taxes_fees": 1565981298.46,
-   "total": 15444881119.72
+   "total": 15444881119.72,
+   "complete": true
   },
   "SC": {
    "municipalities": 295,
@@ -295,7 +318,8 @@
    "itbi": 1558587829.88,
    "irrf": 2348648688.59,
    "other_taxes_fees": 1415486232.52,
-   "total": 13262716785.9
+   "total": 13262716785.9,
+   "complete": true
   },
   "SE": {
    "municipalities": 75,
@@ -307,7 +331,8 @@
    "itbi": 125950446.03,
    "irrf": 544078470.89,
    "other_taxes_fees": 73041546.27,
-   "total": 2007789429.81
+   "total": 2007789429.81,
+   "complete": true
   },
   "SP": {
    "municipalities": 645,
@@ -319,7 +344,8 @@
    "itbi": 9255409147.6,
    "irrf": 14116432381.48,
    "other_taxes_fees": 5517856621.67,
-   "total": 125638827735.08
+   "total": 125638827735.08,
+   "complete": true
   },
   "TO": {
    "municipalities": 139,
@@ -331,7 +357,8 @@
    "itbi": 172393260.71,
    "irrf": 325363946.41,
    "other_taxes_fees": 112164478.46,
-   "total": 1487979958.53
+   "total": 1487979958.53,
+   "complete": false
   }
  }
 }

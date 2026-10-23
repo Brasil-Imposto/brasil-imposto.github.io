@@ -1,21 +1,21 @@
-"""Fotos de perfil dos politicos do site (decisao D61) -> data/politicians/photos.json.
+"""Profile photos of the site's politicians (decision D61) -> data/politicians/photos.json.
 
-Fonte principal: fotos de candidatos do TSE (Portal de Dados Abertos, licenca Creative Commons Atribuicao),
-um ZIP por eleicao e UF. O ZIP nao e gravado em disco: o CDN do TSE aceita HTTP Range, entao o script le o
-indice do ZIP e depois so as fotos das pessoas dos nossos arquivos (uma requisicao por foto, CRC conferido).
-Cada foto e reduzida com sips para no maximo 200 px de altura (JPEG qualidade 85) e gravada em
-docs/superpowers/previews/assets/photos/<office>/<id-sanitizado>.jpg. Fotos de quem nao esta nos nossos
-arquivos nunca sao lidas.
+Main source: the TSE candidate photos (Portal de Dados Abertos, Creative Commons Attribution license),
+one ZIP per election and UF. The ZIP is not written to disk: the TSE CDN accepts HTTP Range, so the script reads
+the ZIP's index and then only the photos of the people in our files (one request per photo, CRC checked).
+Each photo is reduced with sips to at most 200 px high (JPEG quality 85) and written to
+docs/superpowers/previews/assets/photos/<office>/<sanitized-id>.jpg. Photos of people who are not in our
+files are never read.
 
-Nomeados que nunca foram candidatos (ministro) vem de pagina oficial, listada em MANUAL.
+Appointees who were never candidates (a minister) come from an official page, listed in MANUAL.
 
-Retoma de onde parou: quem ja tem arquivo e entrada em photos.json e pulado; quem esta em "missing" so e
-tentado de novo com --retry-missing. O JSON e regravado depois de cada ZIP.
+Resumes where it stopped: whoever already has a file and an entry in photos.json is skipped; whoever is in "missing"
+is only tried again with --retry-missing. The JSON is rewritten after each ZIP.
 
-Uso:
-  python3 pipelines/politicians/collect_photos.py              # coleta (ou continua)
-  python3 pipelines/politicians/collect_photos.py --check      # confere o resultado, sem rede
-  python3 pipelines/politicians/collect_photos.py --check --control rs-mayors   # controle: tem de falhar
+Usage:
+  python3 pipelines/politicians/collect_photos.py              # collects (or continues)
+  python3 pipelines/politicians/collect_photos.py --check      # checks the result, no network
+  python3 pipelines/politicians/collect_photos.py --check --control rs-mayors   # control: must fail
   python3 pipelines/politicians/collect_photos.py --only governors,senators --retry-missing
 """
 import argparse
@@ -35,7 +35,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from tse_common import RemoteZip, http_open as _open  # noqa: E402  (leitura por HTTP Range, compartilhada)
+from tse_common import RemoteZip, http_open as _open  # noqa: E402  (shared reading by HTTP Range)
 
 ROOT = Path(__file__).resolve().parents[2]
 POL = ROOT / "data" / "politicians"
@@ -109,7 +109,7 @@ MANUAL = {
 }
 
 
-# ---------------------------------------------------------------- cadastro de candidaturas (para achar o SQ)
+# ---------------------------------------------------------------- candidacy register (to find the SQ)
 
 _cand_cache = {}
 
@@ -136,7 +136,7 @@ def find_sq(year, uf, full_name, cargos):
     return list(hits.values())
 
 
-# ---------------------------------------------------------------- quem precisa de foto
+# ---------------------------------------------------------------- who needs a photo
 
 def sanitize(pid):
     return re.sub(r"[^a-z0-9]+", "-", pid.lower()).strip("-")
@@ -151,7 +151,7 @@ def has_photo(p):
 
 
 def targets(lookup=True):
-    """(tse, manual, missing, inventory). tse = lista de dicts {id, office, year, uf, sq, name}."""
+    """(tse, manual, missing, inventory). tse = list of dicts {id, office, year, uf, sq, name}."""
     tse, manual, missing = [], [], {}
     inv = {}
 
@@ -192,7 +192,7 @@ def targets(lookup=True):
             continue
         found = None
         for t in r.get("terms", []):
-            y = int(t["mandate_start"][:4]) - 1  # mandato de senador começa no ano seguinte à eleição
+            y = int(t["mandate_start"][:4]) - 1  # a senator's term starts in the year after the election
             hits = find_sq(y, t["uf"], r["full_name"], {"SENADOR", "1º SUPLENTE", "2º SUPLENTE", "1O SUPLENTE", "2O SUPLENTE"})
             if len(hits) == 1:
                 found = (y, t["uf"], hits[0])
@@ -238,7 +238,7 @@ def targets(lookup=True):
     return tse, manual, missing, inv
 
 
-# ---------------------------------------------------------------- foto: reduzir e gravar
+# ---------------------------------------------------------------- photo: reduce and write
 
 def sips_height(path):
     out = subprocess.run(["sips", "-g", "pixelHeight", str(path)], capture_output=True, text=True).stdout
@@ -247,7 +247,7 @@ def sips_height(path):
 
 
 def _segments(b):
-    """Segmentos de um JPEG ate o SOS: (marcador, inicio, fim). Vazio se nao for JPEG."""
+    """Segments of a JPEG up to the SOS: (marker, start, end). Empty if it is not a JPEG."""
     if b[:2] != b"\xff\xd8":
         return [], 0
     segs, i = [], 2
@@ -280,7 +280,7 @@ def exif_orientation(b):
 
 
 def strip_metadata(b):
-    """Tira APP1 (EXIF e XMP), APP13 (Photoshop/IPTC) e comentarios; mantem JFIF, ICC e os dados da imagem."""
+    """Strips APP1 (EXIF and XMP), APP13 (Photoshop/IPTC) and comments; keeps JFIF, ICC and the image data."""
     segs, sos = _segments(b)
     out = bytearray(b[:2])
     for m, s, e in segs:
@@ -289,14 +289,14 @@ def strip_metadata(b):
     return bytes(out + b[sos:])
 
 
-# orientacao EXIF -> operacoes do sips para deixar os pixels na posicao em que o navegador mostraria
+# EXIF orientation -> sips operations that put the pixels where the browser would show them
 ORIENT = {2: [["-f", "horizontal"]], 3: [["-r", "180"]], 4: [["-f", "vertical"]], 5: [["-f", "horizontal"], ["-r", "270"]],
           6: [["-r", "90"]], 7: [["-f", "horizontal"], ["-r", "90"]], 8: [["-r", "270"]]}
 
 
 def save_photo(raw, out):
-    """Gira conforme a orientacao EXIF, reduz para no maximo MAX_HEIGHT de altura (nunca amplia), grava JPEG
-    e remove os metadados (o sips preserva EXIF/XMP, inclusive numero de serie de camera). Devolve (w, h, orientacao)."""
+    """Rotates according to the EXIF orientation, reduces to at most MAX_HEIGHT high (never enlarges), writes a JPEG
+    and removes the metadata (sips keeps EXIF/XMP, including a camera's serial number). Returns (w, h, orientation)."""
     out.parent.mkdir(parents=True, exist_ok=True)
     orient = exif_orientation(raw)
     with tempfile.NamedTemporaryFile(suffix=".img", dir=out.parent, delete=True) as tmp:
@@ -430,12 +430,12 @@ def run_manual(st, pid):
     add_source(st, "Ministério da Fazenda, página oficial (cópia do Internet Archive)", m["page"])
 
 
-# ---------------------------------------------------------------- conferência
+# ---------------------------------------------------------------- check
 
 def check(control=None):
     st = load_state()
     _, _, _, inv = targets(lookup=False)
-    if control:  # controle plantado: some a foto de uma pessoa do office; a conferência tem de acusar
+    if control:  # planted control: one photo of a person of that office is removed; the check must report it
         pid = next(k for k, e in sorted(st["people"].items()) if e.get("office") == control)
         del st["people"][pid]
         print(f"CONTROLE: foto de {pid} ({control}) retirada em memória")
@@ -445,7 +445,7 @@ def check(control=None):
         if pid not in expected:
             problems.append(f"{pid}: pessoa fora dos nossos arquivos")
         if not e.get("file") and e.get("url", "").startswith("https://"):
-            continue  # foto remota oficial
+            continue  # official remote photo
         p = ROOT / e["file"] if e.get("file") else None
         if not p or not p.exists():
             problems.append(f"{pid}: arquivo ausente")
@@ -507,7 +507,7 @@ def main():
         ok = run_zip(st, year, uf, items)
         write_state(st)
         print(f"[{i + 1}/{len(groups)}] {year} {uf}: {ok}/{len(items)} fotos em {time.time() - t0:.0f}s", flush=True)
-    for pid, m in MANUAL.items():  # recurso final: foto oficial fora do TSE para quem o TSE não cobriu
+    for pid, m in MANUAL.items():  # last resort: an official photo outside the TSE for whoever the TSE did not cover
         if m.get("fallback_only") and pid in st["missing"] and (not only or m["office"] in only):
             run_manual(st, pid)
     write_state(st)

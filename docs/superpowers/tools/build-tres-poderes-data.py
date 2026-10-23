@@ -9,7 +9,7 @@ Constitucional do DF (unit 73901) and the court orders paid for personnel (unit 
 People: data/federal/servants-by-branch.json (each count with its own date and source) and the Congress quotas from
 data/federal/federal-section.json. Anything the project has not collected is listed per node in "to_collect", never filled.
 
-Usage: .venv/bin/python docs/superpowers/tools/build-tres-poderes-data.py [YEAR] [LAST_MONTH]
+Usage: uv run python docs/superpowers/tools/build-tres-poderes-data.py [YEAR] [LAST_MONTH]
 Writes docs/superpowers/previews/assets/tres-poderes-data.js
 """
 import collections, gzip, json, sys
@@ -23,7 +23,8 @@ MES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "ago
 
 dt = json.load(gzip.open(ROOT / "data" / "ug" / "cache" / f"dtt_monthly_{YEAR}.json.gz", "rt"))
 months = sorted({r[0] for r in dt["agg"]})
-assert LAST in months, f"{YEAR}-{LAST:02d} is not in the Tesouro base (months {months})"
+if not (LAST in months):
+    raise SystemExit(f"{YEAR}-{LAST:02d} is not in the Tesouro base (months {months})")
 ORG_NAME, UO_NAME = dt["names"]["orgao"], dt["names"]["uo"]
 
 LEGISLATIVE = {"1000": "Câmara dos Deputados", "2000": "Senado Federal", "3000": "Tribunal de Contas da União"}
@@ -185,7 +186,8 @@ executive = group("power:executivo", "Poder Executivo", ministries + split + ([g
 
 tree = group("root:uniao", "União: os três Poderes e as funções essenciais à Justiça", [executive, legislative, judiciary, essential], kind="root")
 check = abs(tree["cost"]["all"] - sum(sum(c.values()) for org in cost.values() for c in org.values())) < 1
-assert check, "the tree does not add up to the base"
+if not (check):
+    raise SystemExit("the tree does not add up to the base")
 data = {"period": f"{MES[0]} a {MES[LAST - 1]} de {YEAR}", "year": YEAR, "months": LAST,
         "source": {"body": "Tesouro Nacional", "document": "Despesas e Transferências Totais da União, aplicação direta (modalidade 90)", "url": dt["url"],
                    "file_last_modified": dt.get("resource_last_modified")},

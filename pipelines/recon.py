@@ -1,12 +1,13 @@
-# Conciliação: soma das 27 UFs (arrecadacao-estado.csv) contra a série histórica nacional, 2024 e 2025.
-# Entradas: arrecadacao-estado.csv, serie-1994-2025.xlsx. Saídas: recon.json, tableRecon.md. Requer openpyxl.
+# Reconciliation: the sum of the 27 UFs (arrecadacao-estado.csv) against the national historical series, 2024 and 2025.
+# Inputs: arrecadacao-estado.csv, serie-1994-2025.xlsx. Outputs: recon.json, tableRecon.md. Needs openpyxl.
 import sys, os, json, openpyxl
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from parse_rfb import agg, h
 from taxmap import TAXMAP, NATMAP
 wb=openpyxl.load_workbook('serie-1994-2025.xlsx',data_only=True)
 used=set(c for v in TAXMAP.values() for c in v)
-assert used==set(h[3:]), set(h[3:])-used
+if not (used==set(h[3:])):
+    raise SystemExit(set(h[3:])-used)
 out={}
 for y in ['2024','2025']:
     nat={row[0]:row[-1] for row in wb[y].iter_rows(values_only=True) if row[0]}

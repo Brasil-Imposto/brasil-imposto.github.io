@@ -92,6 +92,7 @@ for u in by_uf.values():
     u["total"] = round(sum(u[k] for k in LINES.values()), 2)
     for k in LINES.values():
         u[k] = round(u[k], 2)
+    u["complete"] = u["reported"] == u["municipalities"]  # a state total is whole only when every municipality reported
 
 OUT.write_text(json.dumps({
     "year": 2024,

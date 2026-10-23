@@ -2,10 +2,10 @@
  "uf": "AP",
  "terms": [
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Waldez Góes",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2023-01-01",
    "start_reason": "posse após a eleição de 2018",
@@ -16,22 +16,22 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse e fim do mandato (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": "Nenhuma mudança de titular encontrada entre 2019-01-01 e 2026-10-01 (pista: listas da Wikipédia, conferidas só contra o TSE). Substituições curtas por viagem ou licença não entram."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Jaime Nunes",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2023-01-01",
    "start_reason": "posse após a eleição de 2018",
@@ -42,22 +42,22 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse e fim do mandato (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": "Nenhuma mudança de titular encontrada entre 2019-01-01 e 2026-10-01 (pista: listas da Wikipédia, conferidas só contra o TSE). Substituições curtas por viagem ou licença não entram."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Clécio Luís",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": null,
    "start_reason": "posse após a eleição de 2022",
@@ -68,22 +68,22 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": "Nenhuma mudança de titular encontrada entre 2019-01-01 e 2026-10-01 (pista: listas da Wikipédia, conferidas só contra o TSE). Substituições curtas por viagem ou licença não entram."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Teles Júnior",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": null,
    "start_reason": "posse após a eleição de 2022",
@@ -94,12 +94,12 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,

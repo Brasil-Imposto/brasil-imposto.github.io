@@ -1,6 +1,6 @@
-"""Arrecadação federal por natureza jurídica do contribuinte (Receita), nacional, por ano.
-Entrada: data/df/arrecadacao-natureza.csv (https://www.gov.br/receitafederal/dados/arrecadacao-natureza.csv).
-Saída: data/df/rfb_legal_nature_<ano>.json e tabela na tela (R$ bi)."""
+"""Federal revenue by the taxpayer's legal nature (Receita), national, by year.
+Input: data/df/arrecadacao-natureza.csv (https://www.gov.br/receitafederal/dados/arrecadacao-natureza.csv).
+Output: data/df/rfb_legal_nature_<year>.json and a table on screen (R$ billion)."""
 import csv, json, re, sys
 BASE = sys.argv[1] if len(sys.argv) > 1 else "."
 YEAR = sys.argv[2] if len(sys.argv) > 2 else "2024"
@@ -23,7 +23,7 @@ for r in rows[1:]:
     for c, x in zip(h[4:], r[4:]):
         if c: d[c] += f(x)
 json.dump({"year": YEAR, "months": sorted(months), "source": "https://www.gov.br/receitafederal/dados/arrecadacao-natureza.csv",
-           "unit": "BRL", "by_natureza": {k: {"name": names[k], **v, "total": sum(v.values())} for k, v in agg.items()}},
+           "unit": "BRL", "by_legal_nature": {k: {"name": names[k], **v, "total": sum(v.values())} for k, v in agg.items()}},
           open(f"{BASE}/data/df/rfb_legal_nature_{YEAR}.json", "w"), ensure_ascii=False, indent=1)
 tot = {c: sum(v[c] for v in agg.values()) for c in cols}
 print("meses", len(months), "total geral R$ bi %.2f" % (sum(tot.values()) / 1e9))

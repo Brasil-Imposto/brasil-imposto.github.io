@@ -1,8 +1,10 @@
-"""Gera data/politicians/union.json: Presidente, Vice-Presidente e ministro da area economica, 2019-01-01 ate hoje.
+"""Builds data/politicians/union.json: President, Vice-President and the minister of the economic area,
+2019-01-01 to today.
 
-Os fatos (datas, atos, partidos) foram conferidos a mao nas fontes citadas em cada registro; o script
-confere os eleitos e o partido na eleicao contra o cadastro do TSE e busca a foto no Wikimedia Commons.
-Rodar: POLITICIANS_WORK=/tmp/politicians-work python3 build_union.py
+The facts (dates, acts, parties) were checked by hand against the sources cited in each record; the script
+checks those elected and the party at the election against the TSE register and fetches the photo from
+Wikimedia Commons.
+Run: POLITICIANS_WORK=/tmp/politicians-work python3 build_union.py
 """
 import json
 import pathlib
@@ -25,7 +27,7 @@ AB_ALCKMIN = "https://agenciabrasil.ebc.com.br/politica/noticia/2022-12/conheca-
 SENADO_MOURAO = "https://legis.senado.leg.br/dadosabertos/senador/6341/filiacoes.json"
 
 
-def src(fact, url, typ="oficial"):
+def src(fact, url, typ="official"):
     return {"fact": fact, "url": url, "type": typ}
 
 
@@ -37,7 +39,7 @@ def tse_party(year, cargo, urna_name):
 
 
 def tse_any(year, name_full):
-    """Partido numa candidatura (eleito ou nao) de qualquer UF, pelo nome completo."""
+    """Party in a candidacy (elected or not) from any UF, by full name."""
     import unicodedata
     norm = lambda s: unicodedata.normalize("NFKD", s.upper()).encode("ascii", "ignore").decode()
     for r in tse_common.iter_rows(year, elected_only=False):
@@ -55,7 +57,8 @@ def build():
     mourao22 = tse_any(2022, mourao)
     alckmin18 = tse_any(2018, alckmin)
     haddad22 = tse_any(2022, "FERNANDO HADDAD")
-    assert bolso22 and mourao22 and alckmin18 and haddad22, "candidaturas de conferencia nao encontradas"
+    if not (bolso22 and mourao22 and alckmin18 and haddad22):
+        raise SystemExit("candidaturas de conferencia nao encontradas")
 
     people = {
         "jair-bolsonaro": {"name": "Jair Bolsonaro", "full_name": bolso, "photo_query": "Jair Bolsonaro",
@@ -85,26 +88,26 @@ def build():
     }
 
     offices = [
-        {"office": "Presidente da República", "person_id": "jair-bolsonaro", "kind": "eleito", "start": "2019-01-01", "end": "2023-01-01",
+        {"office": "Presidente da República", "person_id": "jair-bolsonaro", "kind": "elected", "start": "2019-01-01", "end": "2023-01-01",
          "start_reason": "posse após a eleição de 2018", "end_reason": "fim do mandato", "party_at_start": p18,
          "sources": [src("eleição e partido", TSE.format(y=2018)), src("início e duração do mandato (art. 82)", CF)]},
-        {"office": "Presidente da República", "person_id": "lula", "kind": "eleito", "start": "2023-01-01", "end": None,
+        {"office": "Presidente da República", "person_id": "lula", "kind": "elected", "start": "2023-01-01", "end": None,
          "start_reason": "posse após a eleição de 2022", "end_reason": None, "party_at_start": p22,
          "sources": [src("eleição e partido", TSE.format(y=2022)), src("início do mandato (art. 82)", CF), src("o mandato seguinte começa em 5 de janeiro (EC 111/2021)", EC111)]},
-        {"office": "Vice-Presidente da República", "person_id": "hamilton-mourao", "kind": "eleito", "start": "2019-01-01", "end": "2023-01-01",
+        {"office": "Vice-Presidente da República", "person_id": "hamilton-mourao", "kind": "elected", "start": "2019-01-01", "end": "2023-01-01",
          "start_reason": "posse após a eleição de 2018", "end_reason": "fim do mandato", "party_at_start": v18,
          "sources": [src("eleição e partido", TSE.format(y=2018)), src("mandato (art. 82)", CF)]},
-        {"office": "Vice-Presidente da República", "person_id": "geraldo-alckmin", "kind": "eleito", "start": "2023-01-01", "end": None,
+        {"office": "Vice-Presidente da República", "person_id": "geraldo-alckmin", "kind": "elected", "start": "2023-01-01", "end": None,
          "start_reason": "posse após a eleição de 2022", "end_reason": None, "party_at_start": v22,
          "sources": [src("eleição e partido", TSE.format(y=2022)), src("mandato (art. 82)", CF)]},
-        {"office": "Ministro de Estado da Economia", "person_id": "paulo-guedes", "kind": "nomeado", "start": "2019-01-01", "end": "2023-01-01",
+        {"office": "Ministro de Estado da Economia", "person_id": "paulo-guedes", "kind": "appointed", "start": "2019-01-01", "end": "2023-01-01",
          "start_reason": "nomeação (Decreto de 1º de janeiro de 2019, DOU edição especial)", "end_reason": "exoneração (Decreto de 31 de dezembro de 2022, publicado no DOU de 2023-01-01)", "party_at_start": None,
          "sources": [src("nomeação", DOU_GUEDES_IN), src("exoneração", DOU_GUEDES_OUT)],
          "note": "O decreto de exoneração foi assinado pelo Vice-Presidente 'no exercício do cargo de Presidente da República'. O Ministério da Economia existiu de 2019 a 2022; em 2023 a pasta econômica passou a ser o Ministério da Fazenda."},
-        {"office": "Ministro de Estado da Fazenda", "person_id": "fernando-haddad", "kind": "nomeado", "start": "2023-01-01", "end": "2026-03-20",
+        {"office": "Ministro de Estado da Fazenda", "person_id": "fernando-haddad", "kind": "appointed", "start": "2023-01-01", "end": "2026-03-20",
          "start_reason": "nomeação (Decreto de 1º de janeiro de 2023)", "end_reason": "exoneração a pedido (Decreto de 19 de março de 2026, publicado no DOU de 2026-03-20)", "party_at_start": haddad22[0],
          "sources": [src("nomeação", DOU_HADDAD_IN), src("exoneração", DOU_HADDAD_OUT)]},
-        {"office": "Ministro de Estado da Fazenda", "person_id": "dario-durigan", "kind": "nomeado", "start": "2026-03-20", "end": None,
+        {"office": "Ministro de Estado da Fazenda", "person_id": "dario-durigan", "kind": "appointed", "start": "2026-03-20", "end": None,
          "start_reason": "nomeação (Decreto de 19 de março de 2026, publicado no DOU de 2026-03-20)", "end_reason": None, "party_at_start": None,
          "sources": [src("nomeação", DOU_HADDAD_OUT), src("ministro atual na página do Ministério da Fazenda (atualizada em 10/04/2026)", MF_PAGE)]},
     ]

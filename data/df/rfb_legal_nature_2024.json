@@ -16,7 +16,7 @@
  ],
  "source": "https://www.gov.br/receitafederal/dados/arrecadacao-natureza.csv",
  "unit": "BRL",
- "by_natureza": {
+ "by_legal_nature": {
   "101": {
    "name": "ÓRGÃO PÚBLICO DO PODER EXECUTIVO FEDERAL",
    "II": 137030.42,

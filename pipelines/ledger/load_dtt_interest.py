@@ -1,7 +1,7 @@
 """Load the interest the União paid in cash (D121): Tesouro, base "Despesas e Transferências Totais da União",
 grupo de natureza de despesa 2 (Juros e Encargos da Dívida), by month, one year file at a time.
 
-Usage: .venv/bin/python pipelines/ledger/load_dtt_interest.py [YEAR ...]
+Usage: uv run python pipelines/ledger/load_dtt_interest.py [YEAR ...]
 Each file (23 to 38 MB) is read once, hashed while it streams, summed and deleted before the next one starts.
 The money the Tesouro passes to the Banco Central (action 0669) and intra-budget payments stay inside the União:
 internal_flow, never a flow to the creditors."""

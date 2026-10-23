@@ -112,7 +112,8 @@ def _links(current, cls=""):
 
 def header(current):
     """The header for one page; `current` is a key of PAGES. The pages differ only in aria-current."""
-    assert current in PAGES, current
+    if not (current in PAGES):
+        raise SystemExit(current)
     return ('<header class="bi-header">'
             f'<a class="bi-brand" href="{HOME}">{LOGO}<span>Brasil<i>·</i>Imposto</span></a>'
             f'<nav class="bi-links" aria-label="Páginas">{_links(current)}</nav>'
@@ -177,12 +178,16 @@ def inject(page, current):
         if page.count(a) == 1 and page.count(b) == 1:
             page = page[:page.index(a)] + block(name, body) + page[page.index(b) + len(b):]
             continue
-        assert page.count(a) == 0 and page.count(b) == 0, f"broken {name} markers"
+        if not (page.count(a) == 0 and page.count(b) == 0):
+            raise SystemExit(f"broken {name} markers")
         if name == "css":
-            assert page.count("</head>") == 1
+            if not (page.count("</head>") == 1):
+                raise SystemExit("check failed: page.count('</head>') == 1")
             page = page.replace("</head>", block(name, body) + "\n</head>")
         elif name == "header":
-            m = list(re.finditer(r"<body[^>]*>", page)); assert len(m) == 1
+            m = list(re.finditer(r"<body[^>]*>", page))
+            if not (len(m) == 1):
+                raise SystemExit('check failed: len(m) == 1')
             page = page[:m[0].end()] + "\n" + block(name, body) + page[m[0].end():]
         else:
             i = page.rindex("</body>")
@@ -192,5 +197,6 @@ def inject(page, current):
 
 def extract(page, name):
     a, b = MARK[name]
-    assert page.count(a) == 1 and page.count(b) == 1, f"{name} markers"
+    if not (page.count(a) == 1 and page.count(b) == 1):
+        raise SystemExit(f"{name} markers")
     return page[page.index(a) + len(a):page.index(b)].strip("\n")

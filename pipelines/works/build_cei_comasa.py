@@ -84,7 +84,8 @@ def main(work):
                 program.append({"number": c["numero"], "signed_on": c["assinatura"], "value_original_brl": c["valorTotal"],
                                 "company": rr["fornecedor"]["pessoa"]["nome"], "company_cnpj": rr["fornecedor"]["pessoa"].get("cpfCnpj"),
                                 "object": " ".join(c["objetoResumido"].split())})
-    assert reg is not None
+    if not (reg is not None):
+        raise SystemExit('check failed: reg is not None')
     program.sort(key=lambda x: x["signed_on"])
 
     # ---------------------------------------------------------------- gazette passages
@@ -118,7 +119,8 @@ def main(work):
     m = re.search(r"assinado em (\d{2})/(\d{2})/(\d{4}), com a vigência de (\d+) \(\w+\) meses, no valor de R\$ ([\d.,]+)", ext["text"])
     signed_on = f"{m.group(3)}-{m.group(2)}-{m.group(1)}"
     value_orig = float(m.group(5).replace(".", "").replace(",", "."))
-    assert abs(value_orig - reg["contrato"]["valorTotal"]) < 0.01
+    if not (abs(value_orig - reg["contrato"]["valorTotal"]) < 0.01):
+        raise SystemExit("check failed: abs(value_orig - reg['contrato']['valorTotal']) < 0.01")
 
     amendments, added, removed = [], 0.0, 0.0
     for key in sorted(acts, key=lambda k: (acts[k]["gazette_date"] or "", k)):
@@ -185,7 +187,8 @@ def main(work):
             by_source[src] += v
         if tp.startswith("Estorno de pagamento") or tp.startswith("Estorno de retenção"):
             by_source[src] -= v
-    assert abs(sum(by_source.values()) - gross_total) < 0.05
+    if not (abs(sum(by_source.values()) - gross_total) < 0.05):
+        raise SystemExit('check failed: abs(sum(by_source.values()) - gross_total) < 0.05')
     paid_2024 = round(sum(v * conv.month_factor(m) for m, v in by_month.items()), 2)
     payments = {
         "source": {"doc": "API de dados abertos do Portal da Transparência de Joinville (e-Pública), despesa por mês, movimentos de cada empenho",

@@ -32,8 +32,8 @@
   "persons": 157,
   "terms": 163,
   "exercise_periods": 241,
-  "persons_with_suplente_exercise": 56,
-  "persons_titular_only": 101,
+  "persons_with_substitute_exercise": 56,
+  "persons_full_member_only": 101,
   "persons_in_exercise_on_collection_day": 81,
   "persons_without_photo": 1,
   "by_uf": {
@@ -449,7 +449,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5557/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:4558",
        "name": "Gladson Cameli"
       }
@@ -631,7 +631,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5902/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:285",
        "name": "Marcio Bittar"
       }
@@ -689,7 +689,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5908/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:4560",
        "name": "Sérgio Petecão"
       }
@@ -740,7 +740,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5559/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:4558",
        "name": "Gladson Cameli"
       }
@@ -1047,7 +1047,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5561/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:4525",
        "name": "Fernando Collor"
       }
@@ -1113,7 +1113,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5906/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5905",
        "name": "Rodrigo Cunha"
       }
@@ -1178,7 +1178,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5913/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:70",
        "name": "Renan Calheiros"
       }
@@ -1300,7 +1300,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6345/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5207",
        "name": "Renan Filho"
       }
@@ -1710,7 +1710,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5927/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5926",
        "name": "Lucas Barreto"
       }
@@ -2121,7 +2121,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5971/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5973",
        "name": "Cid Gomes"
       }
@@ -2172,7 +2172,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/611/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:3396",
        "name": "Tasso Jereissati"
       }
@@ -2237,7 +2237,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5972/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5973",
        "name": "Cid Gomes"
       }
@@ -2383,7 +2383,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6350/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:6336",
        "name": "Camilo Santana"
       }
@@ -2434,7 +2434,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6351/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:6336",
        "name": "Camilo Santana"
       }
@@ -2485,7 +2485,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5974/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5976",
        "name": "Eduardo Girão"
       }
@@ -2984,7 +2984,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/151/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:2331",
        "name": "Rose de Freitas"
       }
@@ -3159,7 +3159,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5585/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:456",
        "name": "Ronaldo Caiado"
       }
@@ -3347,7 +3347,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/453/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5899",
        "name": "Vanderlan Cardoso"
       }
@@ -3571,7 +3571,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5892/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5411",
        "name": "Weverton"
       }
@@ -3699,7 +3699,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6358/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:4605",
        "name": "Flávio Dino"
       }
@@ -3764,7 +3764,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/4979/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5718",
        "name": "Eliziane Gama"
       }
@@ -3822,7 +3822,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6359/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:4605",
        "name": "Flávio Dino"
       }
@@ -4073,7 +4073,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/4610/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5529",
        "name": "Antonio Anastasia"
       }
@@ -4124,7 +4124,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/415/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5529",
        "name": "Antonio Anastasia"
       }
@@ -4230,7 +4230,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5991/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5990",
        "name": "Carlos Viana"
       }
@@ -4281,7 +4281,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5257/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5732",
        "name": "Rodrigo Pacheco"
       }
@@ -4909,7 +4909,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5740/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:4531",
        "name": "Jayme Campos"
       }
@@ -5039,7 +5039,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6304/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:6295",
        "name": "Carlos Fávaro"
       }
@@ -5111,7 +5111,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6362/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:1173",
        "name": "Wellington Fagundes"
       }
@@ -5162,7 +5162,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6363/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:1173",
        "name": "Wellington Fagundes"
       }
@@ -5221,7 +5221,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6305/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:6295",
        "name": "Carlos Fávaro"
       }
@@ -5663,7 +5663,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5996/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5998",
        "name": "Daniella Ribeiro"
       }
@@ -5714,7 +5714,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/63/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5748",
        "name": "Veneziano Vital do Rêgo"
       }
@@ -5772,7 +5772,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5997/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5998",
        "name": "Daniella Ribeiro"
       }
@@ -5823,7 +5823,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5281/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:3361",
        "name": "José Maranhão"
       }
@@ -5943,7 +5943,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6366/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:4642",
        "name": "Efraim Filho"
       }
@@ -6153,7 +6153,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5917/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:4545",
        "name": "Jarbas Vasconcelos"
       }
@@ -6416,7 +6416,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5898/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:739",
        "name": "Ciro Nogueira"
       }
@@ -6562,7 +6562,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6369/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5016",
        "name": "Wellington Dias"
       }
@@ -7039,7 +7039,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5936/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:751",
        "name": "Arolde de Oliveira"
       }
@@ -7097,7 +7097,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6372/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5322",
        "name": "Romário"
       }
@@ -7150,7 +7150,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5627/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:3713",
        "name": "Fátima Bezerra"
       }
@@ -7385,7 +7385,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6374/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:4694",
        "name": "Rogerio Marinho"
       }
@@ -7602,7 +7602,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6019/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:475",
        "name": "Confúcio Moura"
       }
@@ -7653,7 +7653,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6021/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5422",
        "name": "Marcos Rogério"
       }
@@ -7970,7 +7970,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6025/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:6027",
        "name": "Mecias de Jesus"
       }
@@ -8226,7 +8226,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6015/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:1186",
        "name": "Luis Carlos Heinze"
       }
@@ -8451,7 +8451,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6010/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5350",
        "name": "Jorginho Mello"
       }
@@ -8557,7 +8557,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6011/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5350",
        "name": "Jorginho Mello"
       }
@@ -8608,7 +8608,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6381/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:6342",
        "name": "Jorge Seif"
       }
@@ -8838,7 +8838,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/4786/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:1023",
        "name": "Maria do Carmo Alves"
       }
@@ -9101,7 +9101,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6008/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:5666",
        "name": "Major Olimpio"
       }
@@ -9173,7 +9173,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/878/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:90",
        "name": "José Serra"
       }
@@ -9452,7 +9452,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6005/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:3777",
        "name": "Eduardo Gomes"
       }
@@ -9503,7 +9503,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/6006/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:3777",
        "name": "Eduardo Gomes"
       }
@@ -9554,7 +9554,7 @@
        }
       ],
       "source": "https://legis.senado.leg.br/dadosabertos/senador/5639/mandatos.json",
-      "titular": {
+      "full_member": {
        "id": "senado:1249",
        "name": "Kátia Abreu"
       }

@@ -77,7 +77,8 @@ def bridge_case():
     me = cmp["hercilio_luz"]
     restoration = [c for c in hl["contracts"] if c["group"] == "restoration_2006_2019"]
     total = sum(c["value_current_brl"] for c in restoration)
-    assert abs(total - hl["contracts_totals_computed"]["value_current_brl"]) < 0.01, "contract total drifted"
+    if not (abs(total - hl["contracts_totals_computed"]["value_current_brl"]) < 0.01):
+        raise SystemExit("contract total drifted")
 
     by_company = defaultdict(lambda: {"value": 0.0, "contracts": [], "status": set(), "cnpj": None})
     for c in restoration:
@@ -125,7 +126,8 @@ def bridge_case():
     findings = []
     for f in sorted(hl["findings"], key=lambda f: f["date"][:10]):
         text = next((v for k, v in summaries.items() if f["process"].startswith(k)), None)
-        assert text, f"no summary for {f['process']}"
+        if not (text):
+            raise SystemExit(f"no summary for {f['process']}")
         findings.append({"body": f"{f['body'].split(' (')[0]} ({f['date'][:4]})", "text": text, "status": f["status"].split(";")[0], "url": f["url"]})
 
     items = [{"label": me["name"].replace(" (restauração)", ""), "detail": "restauração, 13 contratos, 2006 a 2019",
@@ -257,15 +259,21 @@ def all_credits():
     return out
 
 
+# Each portrait under assets/cases with the exact names (as the case data writes them) of the one person it shows. A photo goes
+# only to an exact name, never to a name that merely starts the same way.
+PORTRAITS = {
+    "Adriano Bornschein Silva (Adriano Silva)": "prefeito-adriano-silva",
+    "Carlos Moisés da Silva": "gov-carlos-moises",
+    "Daniela Reinehr": "gov-daniela-reinehr",
+    "Jorginho Mello": "gov-jorginho-mello",
+}
+
+
 def portrait(name, credits):
-    """A portrait whose file name carries the person's first and last name (gov-carlos-moises.jpg)."""
-    parts = slugify(name).split("-")
-    keys = {f"{parts[0]}-{parts[-1]}", slugify(name)} | ({f"{parts[0]}-{parts[1]}"} if len(parts) > 2 else set())
-    for path, c in credits.items():
-        stem = path.rsplit("/", 1)[1].rsplit(".", 1)[0]
-        if stem.split("-", 1)[0] in ("gov", "prefeito", "prefeita", "vice", "pessoa") and any(stem.endswith(k) for k in keys):
-            return path, c
-    return None, None
+    """The portrait of exactly this person (PORTRAITS), wherever it sits under assets/cases."""
+    stem = PORTRAITS.get(name)
+    hits = [(path, c) for path, c in credits.items() if stem and path.rsplit("/", 1)[1].rsplit(".", 1)[0] == stem]
+    return hits[0] if hits else (None, None)
 
 
 EN_MONTH = {m: i + 1 for i, m in enumerate(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])}
@@ -654,7 +662,8 @@ STAGE_KIND = {"Em andamento": "ongoing", "Concluído": "done", "Abandonado": "ab
 for c in cases:
     s = STAGES.get(c["id"])
     if s:
-        assert s["label"] in STAGE_KIND and s.get("source_url") and s.get("as_of"), c["id"]
+        if not (s["label"] in STAGE_KIND and s.get("source_url") and s.get("as_of")):
+            raise SystemExit(c["id"])
         c["stage"] = {"label": s["label"], "kind": STAGE_KIND[s["label"]], "as_of": s["as_of"], "url": s["source_url"]}
 TARGET.write_text(json.dumps(cases, ensure_ascii=False), encoding="utf-8")
 print(f"{len(cases)} case(s) -> {TARGET.relative_to(ROOT)}")

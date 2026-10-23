@@ -139,7 +139,8 @@ def office_costs(sens, servants, lot):
         for r in rows:
             g = sum(money(r[k]) for k in GROSS)
             net = g + sum(money(r[k]) for k in DEDUCTIONS)
-            assert abs(net - money(r["remuneracao_liquida"])) < 0.011, (m, r["nome"])
+            if not (abs(net - money(r["remuneracao_liquida"])) < 0.011):
+                raise SystemExit((m, r["nome"]))
             checked += 1
             c = owner.get(r["nome"])
             if c:
@@ -198,7 +199,8 @@ def ceaps_by_uf():
         m = re.match(r"^\s*([A-Za-zÀ-ú ]+?)\s{2,}([\d.]+,\d{2})\s*$", line)
         if m and norm(m.group(1)) in UF_BY_STATE:
             out[UF_BY_STATE[norm(m.group(1))]] = money(m.group(2))
-    assert len(out) == 27, len(out)
+    if not (len(out) == 27):
+        raise SystemExit(len(out))
     return dict(sorted(out.items()))
 
 
@@ -254,7 +256,8 @@ def build():
         fetch(REM_URL.format(m=m), RAW / f"rem-2026-{m:02d}.json")
     servants = json.loads((RAW / "servidores.json").read_text())
     lot = map_offices(sens, servants)
-    assert len({c for c, _, _ in lot.values()}) == len(sens) == 81
+    if not (len({c for c, _, _ in lot.values()}) == len(sens) == 81):
+        raise SystemExit('check failed: len({c for c, _, _ in lot.values()}) == len(sens) == 81')
     costs = office_costs(sens, servants, lot)
     published = costs["published"]
     lines = ceaps_lines()

@@ -1,11 +1,12 @@
-"""Execução da despesa do Portal da Transparência (Poder Executivo), somada com o código da unidade gestora (UG).
+"""Portal da Transparência spending execution (Execução da despesa, Poder Executivo), summed keeping the code of the
+managing unit (unidade gestora, UG).
 
-Uso: agg_spending_ug.py <workdir> <YYYYMM>[,<YYYYMM>...] [segundos entre downloads, padrão 90]
-Para cada mês grava <workdir>/cache/despug_YYYYMM.json.gz com a soma de valor pago, restos a pagar pagos e valor
-liquidado por [UF do localizador, código do localizador, grupo, modalidade, órgão superior, órgão subordinado, UG,
-unidade orçamentária, função, subfunção, ação, elemento]. Guarda o cabeçalho do CSV e os nomes dos códigos.
-O ZIP bruto é apagado assim que o mês é somado; meses prontos são pulados (retoma de onde parou).
-O servidor da CGU tem um WAF da AWS que bloqueia rajadas: um download a cada 90 s, com espera crescente.
+Usage: agg_spending_ug.py <workdir> <YYYYMM>[,<YYYYMM>...] [seconds between downloads, default 90]
+For each month it writes <workdir>/cache/despug_YYYYMM.json.gz with the sum of valor pago, restos a pagar pagos and
+valor liquidado by [UF do localizador, código do localizador, grupo, modalidade, órgão superior, órgão subordinado, UG,
+unidade orçamentária, função, subfunção, ação, elemento]. It keeps the CSV header and the names of the codes.
+The raw ZIP is deleted as soon as the month is summed; finished months are skipped (a rerun resumes where it stopped).
+The CGU server sits behind an AWS WAF that blocks bursts: one download every 90 s, with a growing wait on failure.
 """
 import collections, csv, gzip, io, json, os, subprocess, sys, time, zipfile
 
@@ -28,7 +29,7 @@ for i, ym in enumerate(MONTHS):
     t0 = time.time()
     for attempt in range(6):
         if os.path.exists(zp) and zipfile.is_zipfile(zp):
-            break  # ZIP já baixado numa rodada anterior
+            break  # ZIP already downloaded in an earlier run
         rc = subprocess.run(["curl", "-sS", "-L", "-m", "900", "-A", "Mozilla/5.0", "-o", zp, URL.format(ym)]).returncode
         if rc == 0 and zipfile.is_zipfile(zp):
             break

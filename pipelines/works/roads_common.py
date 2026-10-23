@@ -1,8 +1,8 @@
-"""Funções comuns às fichas de obra rodoviária (SC-401 e BR-470): IPCA, leitura de textos oficiais e checagem de citações.
+"""Helpers shared by the road works fact sheets (SC-401 and BR-470): IPCA, reading official texts and checking quotes.
 
-Toda citação literal usada nos JSON é conferida contra o texto do documento oficial baixado
-(`require_quote`). A comparação normaliza caixa, acentos e pontuação, porque o PDF do DOE-SC
-troca pontos por caracteres inválidos na extração de texto.
+Every literal quote used in the JSON files is checked against the text of the downloaded official document
+(`require_quote`). The comparison normalises case, accents and punctuation, because the DOE-SC PDF
+turns dots into invalid characters when its text is extracted.
 """
 import html, json, os, re, subprocess, unicodedata
 
@@ -15,7 +15,7 @@ def load_ipca(work):
 
 
 def ipca_factor(ipca, ym):
-    """Fator para levar um valor do mês `ym` (AAAAMM) a reais de dezembro de 2024."""
+    """Factor that brings a value of the month `ym` (YYYYMM) to reais of December 2024."""
     return ipca[TARGET] / ipca[ym]
 
 
@@ -25,7 +25,7 @@ def norm(s):
 
 
 def pdf_text(path):
-    """Texto do PDF em duas leituras (com e sem -layout): diários em colunas só ficam contíguos numa delas."""
+    """Text of the PDF in two readings (with and without -layout): gazettes set in columns stay contiguous in only one."""
     out = []
     for flag, suffix in (('-layout', '.layout.txt'), (None, '.raw.txt')):
         txt = path[:-4] + suffix
@@ -103,7 +103,8 @@ def num_br(s):
 
 
 def no_dashes(obj):
-    """Troca travessão e meia-risca por hífen em todas as strings (regra de estilo do projeto; as citações já foram conferidas antes)."""
+    """Replaces em dashes and en dashes with a hyphen in every string (the project's style rule; the quotes were
+    already checked before this step)."""
     if isinstance(obj, str):
         return obj.replace('\u2014', '-').replace('\u2013', '-')
     if isinstance(obj, list):

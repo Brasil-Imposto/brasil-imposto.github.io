@@ -34,7 +34,7 @@
   {
    "office": "Presidente da República",
    "person_id": "jair-bolsonaro",
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2023-01-01",
    "start_reason": "posse após a eleição de 2018",
@@ -44,19 +44,19 @@
     {
      "fact": "eleição e partido",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "início e duração do mandato (art. 82)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ]
   },
   {
    "office": "Presidente da República",
    "person_id": "lula",
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": null,
    "start_reason": "posse após a eleição de 2022",
@@ -66,24 +66,24 @@
     {
      "fact": "eleição e partido",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "início do mandato (art. 82)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "o mandato seguinte começa em 5 de janeiro (EC 111/2021)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc111.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ]
   },
   {
    "office": "Vice-Presidente da República",
    "person_id": "hamilton-mourao",
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2023-01-01",
    "start_reason": "posse após a eleição de 2018",
@@ -93,19 +93,19 @@
     {
      "fact": "eleição e partido",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "mandato (art. 82)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ]
   },
   {
    "office": "Vice-Presidente da República",
    "person_id": "geraldo-alckmin",
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": null,
    "start_reason": "posse após a eleição de 2022",
@@ -115,19 +115,19 @@
     {
      "fact": "eleição e partido",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "mandato (art. 82)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ]
   },
   {
    "office": "Ministro de Estado da Economia",
    "person_id": "paulo-guedes",
-   "kind": "nomeado",
+   "kind": "appointed",
    "start": "2019-01-01",
    "end": "2023-01-01",
    "start_reason": "nomeação (Decreto de 1º de janeiro de 2019, DOU edição especial)",
@@ -137,12 +137,12 @@
     {
      "fact": "nomeação",
      "url": "https://www.in.gov.br/web/dou/-/decreto-de-1-de-janeiro-de-2019-57510644",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "exoneração",
      "url": "https://www.in.gov.br/web/dou/-/decretos-de-31-de-dezembro-de-2022-455342941",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "note": "O decreto de exoneração foi assinado pelo Vice-Presidente 'no exercício do cargo de Presidente da República'. O Ministério da Economia existiu de 2019 a 2022; em 2023 a pasta econômica passou a ser o Ministério da Fazenda."
@@ -150,7 +150,7 @@
   {
    "office": "Ministro de Estado da Fazenda",
    "person_id": "fernando-haddad",
-   "kind": "nomeado",
+   "kind": "appointed",
    "start": "2023-01-01",
    "end": "2026-03-20",
    "start_reason": "nomeação (Decreto de 1º de janeiro de 2023)",
@@ -160,19 +160,19 @@
     {
      "fact": "nomeação",
      "url": "https://www.in.gov.br/web/dou/-/decreto-de-1-de-janeiro-de-2023-455346888",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "exoneração",
      "url": "https://www.in.gov.br/web/dou/-/decretos-de-19-de-marco-de-2026-694021652",
-     "type": "oficial"
+     "type": "official"
     }
    ]
   },
   {
    "office": "Ministro de Estado da Fazenda",
    "person_id": "dario-durigan",
-   "kind": "nomeado",
+   "kind": "appointed",
    "start": "2026-03-20",
    "end": null,
    "start_reason": "nomeação (Decreto de 19 de março de 2026, publicado no DOU de 2026-03-20)",
@@ -182,12 +182,12 @@
     {
      "fact": "nomeação",
      "url": "https://www.in.gov.br/web/dou/-/decretos-de-19-de-marco-de-2026-694021652",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "ministro atual na página do Ministério da Fazenda (atualizada em 10/04/2026)",
      "url": "https://www.gov.br/fazenda/pt-br/composicao/ministro",
-     "type": "oficial"
+     "type": "official"
     }
    ]
   }

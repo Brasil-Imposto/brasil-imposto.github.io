@@ -163,7 +163,8 @@ def admin_ug_to_ra(ug_names):
         n = re.sub(r"\s*-\s*RA\s+[IVXL]+$", "", n)
         n = n.replace("SETOR COMPL. IND. E ABAST.", "SETOR COMPL. DE IND. E ABAST.").replace("SETOR IND. E ABASTECIMENTO", "SIA")
         found = regions_in(n)
-        assert len(found) == 1, (code, name, found)
+        if not (len(found) == 1):
+            raise SystemExit((code, name, found))
         out[code] = found[0]
     return out
 
@@ -293,7 +294,8 @@ def build(cache):
     for h in holders:
         n = norm(h["nomeOrgao"]).replace("ADMINISTRACAO REGIONAL", "").strip()
         found = regions_in(n)
-        assert len(found) == 1, (h["nomeOrgao"], found)
+        if not (len(found) == 1):
+            raise SystemExit((h["nomeOrgao"], found))
         by_ra.setdefault(found[0], []).append(h)
     for ra, reg in out_regions.items():
         hs = by_ra.get(ra, [])
@@ -306,8 +308,10 @@ def build(cache):
             base["payroll_holders"] = [{"name": re.sub(r"\s+", " ", h["nome"]).strip(), "payroll_admission_date": h["dataAdmissaoFormatada"]} for h in hs]
         reg["administrator"] = base
 
-    assert all(c["ok"] for c in checks.values()), checks
-    assert all(controls.values()), controls
+    if not (all(c["ok"] for c in checks.values())):
+        raise SystemExit(checks)
+    if not (all(controls.values())):
+        raise SystemExit(controls)
     result = {
         "collected_on": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "sources": [

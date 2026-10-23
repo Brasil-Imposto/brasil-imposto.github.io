@@ -14,7 +14,8 @@ RREO_CHECKPOINTS = len(list(sources.rreo_bimesters()))
 
 @dataclass
 class Result:
-    name: str
+    id: str         # the guarantee's function name, the key every report and test uses
+    label: str      # the sentence the build prints beside it
     failures: int = 0
     sample: list = field(default_factory=list)
     detail: dict = field(default_factory=dict)
@@ -43,14 +44,14 @@ def rreo_verdict(until, dtt_cents, rreo_cents, whole_reais):
 
 
 def g1_unique_ids(con, flow):
-    r = Result("G1 nenhum flow_id repetido")
+    r = Result("g1_unique_ids", "G1 nenhum flow_id repetido")
     for fid, n in _rows(con, f"SELECT flow_id, count(*) FROM {flow} GROUP BY flow_id HAVING count(*) > 1"):
         r.fail({"flow_id": fid, "copies": int(n)})
     return r
 
 
 def g2_complete_rows(con, flow):
-    r = Result("G2 toda linha tem origem, destino diferente, tipo, fonte e método de localização")
+    r = Result("g2_complete_rows", "G2 toda linha tem origem, destino diferente, tipo, fonte e método de localização")
     sql = f"""SELECT f.flow_id, f.source_key, f.period FROM {flow} f
         LEFT JOIN node a ON a.node_id = f.from_node
         LEFT JOIN node b ON b.node_id = f.to_node
@@ -70,7 +71,7 @@ def g2_complete_rows(con, flow):
 
 
 def g3_release_totals(con, flow):
-    r = Result("G3 cada divulgação fecha com o total que ela mesma publica")
+    r = Result("g3_release_totals", "G3 cada divulgação fecha com o total que ela mesma publica")
     ds = sources.RTN["dataset"]
     printed = {(k, p): e for k, p, e in _rows(con, "SELECT line_key, period, value_reais FROM cur_line WHERE dataset = ? "
                                                   "AND kind IN ('leaf', 'total', 'adjustment')", [ds])}
@@ -123,7 +124,7 @@ def g3_release_totals(con, flow):
 
 
 def g4_lines_conserved(con, flow):
-    r = Result("G4 as partes de cada linha oficial somam a linha, ao centavo (estados, União e sem informação de estado dão o total)")
+    r = Result("g4_lines_conserved", "G4 as partes de cada linha oficial somam a linha, ao centavo (estados, União e sem informação de estado dão o total)")
     sql = f"""WITH f AS (SELECT source_id, source_key, period, sum(amount_cents) AS s FROM {flow} GROUP BY ALL),
         i AS (SELECT source_id, source_key, period, sum(amount_cents) AS s FROM cur_internal GROUP BY ALL),
         l AS (SELECT source_id, line_key, period, value_cents * flow_sign AS v FROM cur_line WHERE kind IN ('leaf', 'derived'))
@@ -144,7 +145,7 @@ def g4_lines_conserved(con, flow):
 
 
 def g5_union_matches_rtn_and_bcb(con, flow):
-    r = Result("G5 o nó gov:uniao bate com o RTN e com o Banco Central, linha por linha")
+    r = Result("g5_union_matches_rtn_and_bcb", "G5 o nó gov:uniao bate com o RTN e com o Banco Central, linha por linha")
     led, worst, checked = measures.RtnLedger(con, flow), defaultdict(int), 0
     for (code, p), (cents, _sign, kind) in sorted(led.pub.items(), key=lambda x: (x[0][1], x[0][0])):
         if kind == "adjustment" or cents is None or (kind == "memo" and code not in rtn_map.MEMO_CHECKS):
@@ -182,7 +183,7 @@ def g5_union_matches_rtn_and_bcb(con, flow):
 
 
 def g6_pairs_same_state(con, flow):
-    r = Result("G6 todo par salário e imposto retido mora no mesmo estado")
+    r = Result("g6_pairs_same_state", "G6 todo par salário e imposto retido mora no mesmo estado")
     sql = f"""WITH p AS (
           SELECT f.pair_id, f.flow_type, coalesce(CASE WHEN a.is_government THEN b.uf ELSE a.uf END, 'BR') AS uf
           FROM {flow} f JOIN node a ON a.node_id = f.from_node JOIN node b ON b.node_id = f.to_node
@@ -204,7 +205,7 @@ def g6_pairs_same_state(con, flow):
 
 
 def g7_no_transfer_in_spending(con, flow):
-    r = Result("G7 fluxo entre governos nunca entra numa medida de gasto")
+    r = Result("g7_no_transfer_in_spending", "G7 fluxo entre governos nunca entra numa medida de gasto")
     both = f"""SELECT f.flow_id, f.source_key, t.nature FROM {flow} f
         JOIN node a ON a.node_id = f.from_node JOIN node b ON b.node_id = f.to_node
         JOIN flow_type t ON t.flow_type_id = f.flow_type

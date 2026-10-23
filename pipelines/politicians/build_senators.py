@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Gera data/politicians/senators.json a partir da API de dados abertos do Senado Federal.
+"""Builds data/politicians/senators.json from the open data API of the Senado Federal.
 
-Cobertura: todo senador (titular ou suplente) com algum periodo de exercicio entre
-2019-02-01 e a data de coleta. Fonte unica: https://legis.senado.leg.br/dadosabertos
+Coverage: every senator (full member or substitute) with any period in office between
+2019-02-01 and the collection date. Single source: https://legis.senado.leg.br/dadosabertos
 
-Uso:
-    POLITICIANS_WORK=/caminho/para/cache python3 build_senators.py
+Usage:
+    POLITICIANS_WORK=/path/to/cache python3 build_senators.py
 
-Somente biblioteca padrao do Python 3. As respostas brutas da API ficam em
-$POLITICIANS_WORK/api/senado/ para que uma nova execucao nao repita downloads.
-Apague essa pasta para forcar nova coleta.
+Python 3 standard library only. The raw API responses are kept in
+$POLITICIANS_WORK/api/senado/ so that a new run does not repeat downloads.
+Delete that folder to force a new collection.
 """
 import concurrent.futures
 import datetime as dt
@@ -33,8 +33,8 @@ MAX_WORKERS = 8
 UFS = ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB",
        "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"]
 
-# Termos de uso das fotos, lidos nas paginas oficiais do Senado em 2026-10-01 (ver nota de pesquisa).
-# Citacoes literais; nao ha licenca Creative Commons declarada para as fotos oficiais.
+# Terms of use of the photos, read on the Senado's official pages on 2026-10-01 (see research note).
+# Literal citations; no Creative Commons license is declared for the official photos.
 PORTAL_TERMS_URL = "https://www12.senado.leg.br/institucional/documentos/politica-de-uso-do-portal-do-senado-federal"
 AGENCIA_TERMS_URL = "https://www12.senado.leg.br/noticias/politica-de-uso"
 PHOTO_LICENSE = {
@@ -70,7 +70,7 @@ def cache_path(url):
 
 
 def fetch_json(url):
-    """GET com cache em disco e novas tentativas em 429/5xx."""
+    """GET with an on-disk cache and retries on 429/5xx."""
     path = cache_path(url)
     if os.path.exists(path):
         with open(path, encoding="utf-8") as fh:
@@ -99,7 +99,7 @@ def fetch_json(url):
 
 
 def head_ok(url):
-    """Confere (sem baixar a imagem) se a URL da foto responde 200 com conteudo de imagem."""
+    """Checks (without downloading the image) that the photo URL answers 200 with image content."""
     try:
         req = urllib.request.Request(url, method="HEAD",
                                      headers={"User-Agent": "brasil-imposto-data/1.0"})
@@ -147,7 +147,7 @@ def build():
                 start, end = e["DataInicio"], e.get("DataFim")
                 end_reason = e.get("DescricaoCausaAfastamento")
                 if end is None and mandate_end < COLLECTED_ON:
-                    # A API nao trouxe DataFim, mas o mandato ja terminou: registra o limite do mandato.
+                    # The API returned no DataFim, but the term has already ended: records the end of the term.
                     end = mandate_end
                     end_reason = "Término do mandato (DataFim ausente na API; usado o fim do mandato)"
                     issues.append(f"senado:{code} exercicio {e.get('CodigoExercicio')} sem DataFim")
@@ -181,7 +181,7 @@ def build():
                 "source": murl,
             }
             if kind == "suplente" and m.get("Titular"):
-                term["titular"] = {"id": "senado:" + m["Titular"]["CodigoParlamentar"],
+                term["full_member"] = {"id": "senado:" + m["Titular"]["CodigoParlamentar"],
                                    "name": m["Titular"]["NomeParlamentar"]}
             terms.append(term)
         if not terms:
@@ -234,7 +234,7 @@ def build():
             person["photo_null_reason"] = photo_null_reason
         by_uf[uf].append(person)
 
-    # Confere a existencia de cada foto (HEAD, sem baixar o arquivo). Resultado guardado em cache.
+    # Checks that each photo exists (HEAD, without downloading the file). The result is cached.
     head_cache_path = os.path.join(WORK, "api", "senado_photo_head.json")
     head_cache = json.load(open(head_cache_path, encoding="utf-8")) if os.path.exists(head_cache_path) else {}
     todo = [u for _, u in photo_checks if u not in head_cache]
@@ -256,8 +256,8 @@ def build():
 
 
 def in_exercise_on(person, day, end_of_day=False):
-    """Padrao: datas inclusivas, como a API do Senado registra (DataFim e o ultimo dia de exercicio).
-    Com end_of_day=True, quem sai na data nao conta (estado no fim do dia)."""
+    """Default: inclusive dates, as the Senado API records them (DataFim is the last day in office).
+    With end_of_day=True, whoever leaves on that date does not count (the state at the end of the day)."""
     for t in person["terms"]:
         for e in t["exercise"]:
             if e["start"] <= day and (e["end"] is None or (day < e["end"] if end_of_day else day <= e["end"])):
@@ -266,7 +266,7 @@ def in_exercise_on(person, day, end_of_day=False):
 
 
 def explain_anomaly(people, uf, day, n):
-    """Descreve, so com dados da API, por que a contagem do dia difere de 3."""
+    """Describes, with API data only, why the day's count differs from 3."""
     periods = [(p["name"], e) for p in people for t in p["terms"] for e in t["exercise"]]
     item = {"uf": uf, "day": day, "in_exercise": n,
             "who": [p["name"] for p in people if in_exercise_on(p, day)]}
@@ -316,8 +316,8 @@ def main():
         "persons": len(persons),
         "terms": sum(len(p["terms"]) for p in persons),
         "exercise_periods": sum(len(t["exercise"]) for p in persons for t in p["terms"]),
-        "persons_with_suplente_exercise": sum(1 for p in persons if any(t["kind"] == "suplente" for t in p["terms"])),
-        "persons_titular_only": sum(1 for p in persons if all(t["kind"] == "titular" for t in p["terms"])),
+        "persons_with_substitute_exercise": sum(1 for p in persons if any(t["kind"] == "suplente" for t in p["terms"])),
+        "persons_full_member_only": sum(1 for p in persons if all(t["kind"] == "titular" for t in p["terms"])),
         "persons_in_exercise_on_collection_day": sum(1 for p in persons if in_exercise_on(p, COLLECTED_ON)),
         "persons_without_photo": sum(1 for p in persons if p["photo"] is None),
         "by_uf": {uf: len(by_uf[uf]) for uf in UFS},

@@ -2,6 +2,11 @@
   "slug": "sp-monotrilho-linha-17",
   "uf": "SP",
   "collected_on": "2026-10-05",
+  "provenance": {
+    "kind": "hand_curated",
+    "builder": null,
+    "note": "Registro montado à mão a partir de docs/research/BRASIL-IMPOSTO_RESEARCH_obra-sp-monotrilho-linha-17_2026-10-05.md, com a fonte de cada número ao lado; nenhum script em pipelines/ o refaz."
+  },
   "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_obra-sp-monotrilho-linha-17_2026-10-05.md",
   "rules": "Somente papéis e atos oficiais, com as palavras do órgão. Nenhuma inferência de irregularidade. Campo desconhecido fica null.",
   "work": {
@@ -258,7 +263,7 @@
   ],
   "payments": {
     "total_gross_brl": null,
-    "total_paid_note": "O total pago não foi localizado em fonte oficial. O Governo de SP publica 'investimento de R$ 5,97 bilhões', sem dizer se é pago ou contratado nem o que cobre.",
+    "total_paid_note": "O total investido é R$ 5,54 bi, de 2010 a ago/2026, somado ano a ano dos relatórios do Metrô (regime de caixa), em data/complete-totals-2026-10-06.json (metro_line17_invested, D100). O Governo de SP publica 'investimento de R$ 5,97 bilhões', sem dizer se é pago ou contratado nem o que cobre.",
     "official_investment_brl": 5970000000,
     "official_investment_url": "https://www.agenciasp.sp.gov.br/linha-17-ouro-do-metro-balanco-um-mes/",
     "known_payments": [
@@ -570,7 +575,7 @@
         "value": 5970000000,
         "unit": "BRL",
         "display": "R$ 5,97 bi",
-        "note": "valor do Governo de SP; total pago não publicado"
+        "note": "valor do Governo de SP, sem detalhar; o investimento realizado pelo Metrô é R$ 5,54 bi"
       },
       {
         "label": "Contrato original (2011)",

@@ -88,9 +88,9 @@
    "price_base_month": "2014-02",
    "price_base_note": "mês de assinatura",
    "amendments": {
-    "termos_aditivos": 27,
-    "apostilamentos": 0,
-    "ultimo_ato": "2026-06-18",
+    "amendment_terms": 27,
+    "apostille_terms": 0,
+    "last_act": "2026-06-18",
     "value_changes": [
      {
       "date": "2017-03-24",
@@ -273,9 +273,9 @@
    "price_base_month": "2013-05",
    "price_base_note": "data-base informada pelo TCU (Acórdão 1704/2019): maio/2013",
    "amendments": {
-    "termos_aditivos": 28,
-    "apostilamentos": 0,
-    "ultimo_ato": "2026-09-28",
+    "amendment_terms": 28,
+    "apostille_terms": 0,
+    "last_act": "2026-09-28",
     "value_changes": [
      {
       "date": "2015-09-15",
@@ -443,9 +443,9 @@
    "price_base_month": "2013-07",
    "price_base_note": "mês de assinatura",
    "amendments": {
-    "termos_aditivos": 20,
-    "apostilamentos": 1,
-    "ultimo_ato": "2026-09-28",
+    "amendment_terms": 20,
+    "apostille_terms": 1,
+    "last_act": "2026-09-28",
     "value_changes": [
      {
       "date": "2019-05-22",
@@ -575,9 +575,9 @@
    "price_base_month": "2013-06",
    "price_base_note": "mês de assinatura",
    "amendments": {
-    "termos_aditivos": 19,
-    "apostilamentos": 0,
-    "ultimo_ato": "2026-09-28",
+    "amendment_terms": 19,
+    "apostille_terms": 0,
+    "last_act": "2026-09-28",
     "value_changes": [
      {
       "date": "2015-03-12",

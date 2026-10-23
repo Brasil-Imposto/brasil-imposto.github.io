@@ -35,7 +35,7 @@
     "MG": 5273.52,
     "SP": 12987.82
    },
-   "nao_classificado_millions": 4.82,
+   "unclassified_millions": 4.82,
    "uf": {
     "AC": 157980000.0,
     "AL": 544660000.0,
@@ -65,25 +65,25 @@
     "SP": 12987820000.0,
     "TO": 301540000.0
    },
-   "nao_classificado": 4820000.0,
-   "soma_27_ufs": 51948180000.0,
-   "conferencia_regioes_contra_pizza_millions": {
-    "soma_dos_rotulos": {
+   "unclassified": 4820000.0,
+   "sum_27_ufs": 51948180000.0,
+   "regions_vs_pie_check_millions": {
+    "sum_of_labels": {
      "Norte": 4782.28,
      "Nordeste": 11921.96,
      "Sudeste": 22415.3,
      "Sul": 8487.22,
      "Centro-Oeste": 4341.42
     },
-    "pizza": {
+    "pie": {
      "Norte": 5132.3,
      "Nordeste": 11337.3,
      "Sudeste": 22351.1,
      "Sul": 8868.8,
      "Centro-Oeste": 4258.7,
-     "nao_classificado": 6.1
+     "unclassified": 6.1
     },
-    "diferenca": {
+    "difference": {
      "Norte": -350.02,
      "Nordeste": 584.66,
      "Sudeste": 64.2,
@@ -123,7 +123,7 @@
     "MG": 3235.65,
     "SP": 6850.59
    },
-   "nao_classificado_millions": 348.0,
+   "unclassified_millions": 348.0,
    "uf": {
     "AC": 72590000.0,
     "AL": 351600000.0,
@@ -153,25 +153,25 @@
     "SP": 6850590000.0,
     "TO": 176010000.0
    },
-   "nao_classificado": 348000000.0,
-   "soma_27_ufs": 27787310000.0,
-   "conferencia_regioes_contra_pizza_millions": {
-    "soma_dos_rotulos": {
+   "unclassified": 348000000.0,
+   "sum_27_ufs": 27787310000.0,
+   "regions_vs_pie_check_millions": {
+    "sum_of_labels": {
      "Norte": 1667.53,
      "Nordeste": 6269.22,
      "Sudeste": 13001.92,
      "Sul": 4622.8,
      "Centro-Oeste": 2225.84
     },
-    "pizza": {
+    "pie": {
      "Norte": 1667.5,
      "Nordeste": 6269.2,
      "Sudeste": 13001.9,
      "Sul": 4622.8,
      "Centro-Oeste": 2225.8,
-     "nao_classificado": 348.4
+     "unclassified": 348.4
     },
-    "diferenca": {
+    "difference": {
      "Norte": 0.03,
      "Nordeste": 0.02,
      "Sudeste": 0.02,

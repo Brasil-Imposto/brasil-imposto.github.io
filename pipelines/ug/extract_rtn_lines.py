@@ -1,6 +1,6 @@
 """Monthly lines of the Tesouro's RTN (Tabela 1.1) that the Union block of the map needs (D115), as one small JSON.
 
-Usage: .venv/bin/python pipelines/ug/extract_rtn_lines.py [--control]   (needs openpyxl)
+Usage: uv run python pipelines/ug/extract_rtn_lines.py [--control]   (needs openpyxl)
 Input: pipelines/series/cache/union/serie_historica_ago26.xlsx, the same RTN file data/series/union.json is built from
        (https://thot-arquivos.tesouro.gov.br/publicacao-anexo/29326, published 2026-09-29). Nothing is downloaded.
 Output: data/ug/rtn-lines-monthly.json, money in reais with cents (R$ milhões x 1.000.000, rounded to the cent, the same
@@ -28,14 +28,16 @@ LINES = {  # key -> exact label prefix in Tabela 1.1
 }
 wb = openpyxl.load_workbook(SRC, read_only=True, data_only=True)
 rows = list(wb["1.1"].iter_rows(values_only=True))
-assert str(rows[1][0]).startswith("Tabela 1.1.") and "R$ Milhões" in str(rows[2][0]), "RTN Tabela 1.1 layout changed"
+if not (str(rows[1][0]).startswith("Tabela 1.1.") and "R$ Milhões" in str(rows[2][0])):
+    raise SystemExit("RTN Tabela 1.1 layout changed")
 cols = {f"{d.year:04d}-{d.month:02d}": j for j, d in enumerate(rows[4]) if hasattr(d, "year") and d.year >= 2019}
 months = sorted(cols)
 cents = lambda x: None if x is None else int((Decimal(repr(x)) * 1000000 * 100).quantize(Decimal(1)))  # R$ milhões -> cents
 out = {}
 for key, prefix in LINES.items():
     hits = [r for r in rows if isinstance(r[0], str) and r[0].strip().startswith(prefix.strip()) and r[0].strip()[:len(prefix.strip())] == prefix.strip()]
-    assert len(hits) == 1, (prefix, len(hits))
+    if not (len(hits) == 1):
+        raise SystemExit((prefix, len(hits)))
     out[key] = [cents(hits[0][cols[m]]) for m in months]
 if "--control" in sys.argv:
     out["primary_spending"][-1] += 1

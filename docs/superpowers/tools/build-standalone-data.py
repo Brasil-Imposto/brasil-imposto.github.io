@@ -2,7 +2,7 @@
 
 Chrome blocks fetch() and local ES-module imports on file:// pages, but classic <script src> works. Flags used as
 WebGL textures are inlined as data URIs, because an image loaded from file:// would taint the canvas.
-Run: .venv/bin/python docs/superpowers/tools/build-standalone-data.py
+Run: uv run python docs/superpowers/tools/build-standalone-data.py
 Every input the page reads is required: a missing file stops the build with the name of the script that writes it.
 """
 import base64
@@ -40,7 +40,9 @@ DATA = ASSETS.parents[3] / "data"
 data["federal"] = {s["uf"]: {"by_tax": s["federal_revenue"]["by_tax"], "total": s["federal_revenue"]["total"],
                              "rfb": s["federal_revenue"]["rfb_administered"]}
                    for s in json.loads((DATA / "uf-balance-2024.json").read_text(encoding="utf-8"))}
-data["municipal"] = read(DATA / "municipal-taxes-2024.json", "pipelines/siconfi/build_municipal_taxes.py")["by_uf"]
+# "complete" (every municipality of the state reported, P1-24) stays out of the bundle until a screen shows it
+data["municipal"] = {uf: {k: v for k, v in x.items() if k != "complete"} for uf, x in
+                     read(DATA / "municipal-taxes-2024.json", "pipelines/siconfi/build_municipal_taxes.py")["by_uf"].items()}
 # Santa Catarina, one level down: the municipal balance and the municipal map (round 9).
 data["sc"] = read(DATA / "sc-municipal-balance-2024.json", "pipelines/municipalities/build_municipal_balance.py")
 # Time series (round 10), each with the script that writes it.

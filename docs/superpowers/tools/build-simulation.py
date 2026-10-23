@@ -18,7 +18,8 @@ for name, path in MODULES:
     code = path.read_text(encoding="utf-8")
     for line in re.findall(r"^import .* from '[^.][^']*';$", code, flags=re.M):
         hoisted.append(line)
-    assert not re.search(r"^import .* from '\.", code, flags=re.M), f"{name}: local imports are not supported by this bundler"
+    if not (not re.search(r"^import .* from '\.", code, flags=re.M)):
+        raise SystemExit(f"{name}: local imports are not supported by this bundler")
     code = re.sub(r"^import .* from '[^']*';\n", "", code, flags=re.M)
     exports = re.findall(r"^export (?:async )?(?:function|const) (\w+)", code, flags=re.M)
     code = re.sub(r"^export ", "", code, flags=re.M)
@@ -29,12 +30,14 @@ m = re.search(r'<script type="module">\n(.*?)</script>', page, flags=re.S)
 body = m.group(1)
 for name, _ in MODULES:
     body, n = re.subn(rf"  import \{{ ([^}}]+) \}} from '\./assets/{name}\.js\?v=[^']*';\n", rf"  const {{ \1 }} = __{name};\n", body)
-    assert n == 1, f"page import of {name} not found"
+    if not (n == 1):
+        raise SystemExit(f"page import of {name} not found")
 bundle = "\n".join(dict.fromkeys(hoisted)) + "\n" + "\n".join(bundles) + "\n" + body
 out = page[:m.start()] + '<script type="module">\n// Built by docs/superpowers/tools/build-simulation.py; edit the sources, not this file.\n' + bundle + "</script>" + page[m.end():]
 out = out.replace("<title>Hero Mapa 3D</title>", "<title>Brasil-Imposto</title>")
 # The simulation is the home page only; the design notes below the hero belong to the review documents.
 out, n = re.subn(r'\n<main class="doc">.*?</main>\n', "\n", out, flags=re.S)
-assert n == 1, "design-notes block not found"
+if not (n == 1):
+    raise SystemExit("design-notes block not found")
 TARGET.write_text(out, encoding="utf-8")
 print(TARGET.name, round(TARGET.stat().st_size / 1024), "KB; hoisted imports:", len(dict.fromkeys(hoisted)))

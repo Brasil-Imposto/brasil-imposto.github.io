@@ -1,12 +1,12 @@
-"""Execução orçamentária anual da ação da duplicação da BR-470/SC no SIOP (dados abertos do orçamento
-federal, endpoint SPARQL público, sem login).
+"""Annual budget execution of the budget action (ação) for the dualling (duplicação) of the BR-470/SC in SIOP
+(open data of the federal budget, public SPARQL endpoint, no login).
 
-Endpoint: https://www1.siop.planejamento.gov.br/sparql/  (grafos http://orcamento.dados.gov.br/AAAA/)
-Filtro: ações cujo rótulo contém "BR-470" e "Navegantes" (em 2024: ação 7530, "Adequação de Trecho
+Endpoint: https://www1.siop.planejamento.gov.br/sparql/  (graphs http://orcamento.dados.gov.br/AAAA/)
+Filter: actions whose label contains "BR-470" and "Navegantes" (in 2024: ação 7530, "Adequação de Trecho
 Rodoviário - Navegantes - Rio do Sul - na BR-470/SC").
-Limite: `valorPago` é o pago no próprio exercício; restos a pagar pagos nos anos seguintes NÃO entram
-(o vocabulário do SIOP não traz esse campo).
-Uso: python3 br470_siop.py <out.json> [ano_ini] [ano_fim]
+Limit: `valorPago` is the amount paid within the budget year itself; restos a pagar paid in later years are NOT
+included (the SIOP vocabulary has no such field).
+Usage: python3 br470_siop.py <out.json> [first_year] [last_year]
 """
 import json, subprocess, sys, time, urllib.parse
 

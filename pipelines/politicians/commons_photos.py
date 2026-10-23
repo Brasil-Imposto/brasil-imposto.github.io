@@ -1,8 +1,8 @@
-"""Foto de cada pessoa a partir do Wikidata (P18) e do Wikimedia Commons, com autor e licenca.
+"""Photo of each person from Wikidata (P18) and Wikimedia Commons, with author and license.
 
-Guarda so a URL remota; nao baixa imagens. Cache das respostas em $POLITICIANS_WORK/commons/.
-A escolha da entidade exige cidadania brasileira (P27 = Q155) e um cargo publico (P39) ou uma
-descricao com palavra de cargo; o QID fica no dado para conferencia humana.
+Keeps only the remote URL; does not download images. Responses are cached in $POLITICIANS_WORK/commons/.
+Choosing the entity requires Brazilian citizenship (P27 = Q155) and a public office (P39) or a
+description with an office word; the QID stays in the data for human checking.
 """
 import json
 import hashlib
@@ -36,7 +36,7 @@ def _get(url):
 
 
 def _nodash(s):
-    """Texto de terceiros (Commons, Wikidata) sem travessao nem meia-risca, por regra do projeto."""
+    """Third-party text (Commons, Wikidata) with no em dash or en dash, by project rule."""
     return s.replace("\u2014", "-").replace("\u2013", "-") if isinstance(s, str) else s
 
 
@@ -45,7 +45,7 @@ def _strip(html):
 
 
 def find_entity(name, hint=None):
-    """Devolve (qid, entidade) da primeira pessoa brasileira com cargo que casa com o nome."""
+    """Returns (qid, entity) of the first Brazilian person with an office who matches the name."""
     q = urllib.parse.urlencode({"action": "wbsearchentities", "search": name, "language": "pt", "uselang": "pt", "type": "item", "limit": 7, "format": "json"})
     hits = _get("https://www.wikidata.org/w/api.php?" + q).get("search", [])
     if not hits:
@@ -68,7 +68,7 @@ def find_entity(name, hint=None):
 
 
 def photo(name, hint=None):
-    """{'url','file_page','license','license_url','author','credit','wikidata'} ou (None, motivo)."""
+    """{'url','file_page','license','license_url','author','credit','wikidata'} or (None, reason)."""
     qid, ent = find_entity(name, hint)
     if not qid:
         return None, "pessoa nao encontrada no Wikidata com cidadania brasileira e cargo"
@@ -100,12 +100,12 @@ def _chunks(seq, n):
 
 
 def photos_batch(names):
-    """Fotos para muitos nomes com poucas requisicoes (a API do Wikidata limita a taxa por pedido).
+    """Photos for many names with few requests (the Wikidata API limits the rate per request).
 
-    Para cada nome tenta, nesta ordem, os verbetes 'Nome (politico)', 'Nome (politica)' e 'Nome' da
-    Wikipedia em portugues; aceita o primeiro que existe, nao e desambiguacao e cuja descricao curta
-    (vinda do Wikidata) tem palavra de cargo. A foto e a imagem principal do verbete (pageimages),
-    com licenca e autor lidos no Commons. Devolve {nome: (foto|None, motivo|None)}.
+    For each name it tries, in this order, the entries 'Nome (politico)', 'Nome (politica)' and 'Nome' of the
+    Portuguese Wikipedia; it accepts the first that exists, is not a disambiguation page and whose short description
+    (from Wikidata) has an office word. The photo is the entry's main image (pageimages),
+    with license and author read on Commons. Returns {name: (photo|None, reason|None)}.
     """
     cands = {n: [f"{n} (político)", f"{n} (política)", n] for n in names}
     titles = sorted({t for ts in cands.values() for t in ts})

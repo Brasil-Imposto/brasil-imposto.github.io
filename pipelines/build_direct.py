@@ -1,8 +1,8 @@
-# Gera sources.json (fontes por campo) e direct_2024.json (INSS, BPC, Bolsa Família, FCDF por UF).
-# Entradas: aeps/ (tabelas 24SB15 e 24S13_03), pbf_2024.csv, fcdf_2024.json. Requer openpyxl.
+# Writes sources.json (sources per field) and direct_2024.json (INSS, BPC, Bolsa Família, FCDF by state).
+# Inputs: aeps/ (tables 24SB15 and 24S13_03), pbf_2024.csv, fcdf_2024.json. Needs openpyxl.
 import json, glob, csv, collections, openpyxl, warnings
 warnings.filterwarnings('ignore')
-C='2026-09-25'  # data da coleta original; atualizar ao recoletar
+C='2026-09-25'  # date of the original collection; update it when collecting again
 PT='https://portaldatransparencia.gov.br/download-de-dados/transferencias/'
 sources=[
  {'field':'population','url':'https://servicodados.ibge.gov.br/api/v3/agregados/6579/periodos/2024|2025|2026/variaveis/9324?localidades=N3[all]|N1[all]','reference_year':2024,'collected_at':C,'note':'IBGE, Estimativas de População (tabela SIDRA 6579, variável 9324). population = estimativa 2024 (ano de referência do balanço); population_latest = estimativa 2026.'},
@@ -21,7 +21,7 @@ UFN={'Rondônia':'RO','Acre':'AC','Amazonas':'AM','Roraima':'RR','Pará':'PA','A
 wb=openpyxl.load_workbook(glob.glob('aeps/**/24SB15.xlsx',recursive=True)[0],data_only=True)
 inss={}
 for row in wb.worksheets[0].iter_rows(values_only=True):
-    if row[0] in UFN: inss[UFN[row[0]]]=row[3]*1000   # coluna Total 2024, R$ mil
+    if row[0] in UFN: inss[UFN[row[0]]]=row[3]*1000   # column Total 2024, R$ thousand
     if row[0]=='BRASIL': inss_br=row[3]*1000
 wb=openpyxl.load_workbook(glob.glob('aeps/**/24S13_03.xlsx',recursive=True)[0],data_only=True)
 bpc={}; cur=None
@@ -34,7 +34,8 @@ pbf=collections.defaultdict(float)
 for r in csv.DictReader(open('pbf_2024.csv')):
     if r['valor_repassado_bolsa_familia_f']: pbf[r['sigla_uf']]+=float(r['valor_repassado_bolsa_familia_f'])
 fcdf=sum(json.load(open('fcdf_2024.json')).values())
-assert len(inss)==27 and len(bpc)==27 and len(pbf)==27
+if not (len(inss)==27 and len(bpc)==27 and len(pbf)==27):
+    raise SystemExit('check failed: len(inss) == 27 and len(bpc) == 27 and (len(pbf) == 27)')
 print('INSS sum UF',sum(inss.values()),'BR',inss_br,'| BPC sum',sum(bpc.values()),'BR',bpc_br,'| PBF',sum(pbf.values()),'| FCDF',fcdf)
 D={}
 for uf in inss:

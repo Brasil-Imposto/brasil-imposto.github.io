@@ -134,7 +134,8 @@ def dfo_text(W, k):
 
 def dfo_field(txt, label):
     m = re.search(re.escape(label) + r'\s*:?\s*(.+?)\s*\|', txt)
-    assert m, f'campo {label} não achado'
+    if not (m):
+        raise SystemExit(f'campo {label} não achado')
     return m.group(1).strip()
 
 

@@ -8,7 +8,7 @@ art. 60), each with its article. The "follow R$ 100" splits are computed here fr
 States' spending leaves out the "Transferências" subfunction of "Encargos Especiais": in some states it holds the share passed
 to the municipalities, which the page already shows as its own flow.
 
-Usage: .venv/bin/python -B docs/superpowers/tools/build-dinheiro-r1-data.py
+Usage: uv run python -B docs/superpowers/tools/build-dinheiro-r1-data.py
 Writes docs/superpowers/previews/assets/dinheiro-r1-data.js
 """
 import json
@@ -30,7 +30,8 @@ c = duckdb.connect(str(ROOT / "data" / "ledger" / "ledger.duckdb"), read_only=Tr
 rows = c.execute(f"""select line_key, any_value(label), sum(value_cents), count(*) from cur_line where dataset = 'tesouro.rtn.serie_historica'
                     and period between '{YEAR}-01-01' and '{YEAR}-12-01' and line_key in ({','.join("'" + k + "'" for k in LINES)}) group by 1""").fetchall()
 union = {k: {"label": lab.strip(), "bi": round(cents / 1e11, 1)} for k, lab, cents, n in rows}
-assert all(n == 12 for *_, n in rows) and len(union) == len(LINES), "a line is missing months"
+if not (all(n == 12 for *_, n in rows) and len(union) == len(LINES)):
+    raise SystemExit("a line is missing months")
 
 # ---------- the 27 states, from their RREOs
 sb = json.loads((ROOT / "data" / "series" / "state-budgets.json").read_text())
@@ -40,11 +41,13 @@ states = {k: 0.0 for k in REV}
 fn, transfers_in_spending = defaultdict(float), 0.0
 for uf, x in sb["uf"].items():
     rm = x["revenue_monthly"]; idx = [i for i, m in enumerate(rm["months"]) if m.startswith(f"{YEAR}-")]
-    assert len(idx) == 12, uf
+    if not (len(idx) == 12):
+        raise SystemExit(uf)
     for k, line in REV.items():
         v = rm["lines"].get(line)
         if v is None:
-            assert uf == "DF" and k == "to_municipalities", (uf, k)  # the DF has no municipalities
+            if not (uf == "DF" and k == "to_municipalities"):
+                raise SystemExit((uf, k))  # the DF has no municipalities
             continue
         states[k] += sum(v[i] or 0 for i in idx)
     for it in x["periods"][f"{YEAR}-B6"]["spending_by_function"]:
@@ -73,7 +76,8 @@ def split(parts):
         out.append([dest, round(pct - f, 4)])
     if fund:
         out.append(["fundeb", round(fund, 4)])
-    assert abs(sum(p for _, p in out) - 100) < 0.001, parts
+    if not (abs(sum(p for _, p in out) - 100) < 0.001):
+        raise SystemExit(parts)
     return out
 
 

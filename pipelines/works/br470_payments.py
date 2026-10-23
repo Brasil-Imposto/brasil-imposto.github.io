@@ -1,14 +1,15 @@
-"""Pagamentos federais da duplicação da BR-470/SC, por ano, a partir dos arquivos mensais de
-"Execução da despesa" do Portal da Transparência (CGU). Sem chave de API.
+"""Federal payments for the dualling (duplicação) of the BR-470/SC, by year, from the monthly
+"Execução da despesa" files of the Portal da Transparência (CGU). No API key.
 
-Fonte: https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/AAAAMM
-(redireciona para dadosabertos-download.cgu.gov.br). Cada arquivo mensal traz o valor pago no mês
-(`Valor Pago (R$)`) e os restos a pagar pagos no mês (`Valor Restos a Pagar Pagos (R$)`).
+Source: https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao/AAAAMM
+(redirects to dadosabertos-download.cgu.gov.br). Each monthly file carries the amount paid in the month
+(`Valor Pago (R$)`) and the restos a pagar (commitments carried over from earlier years) paid in the month
+(`Valor Restos a Pagar Pagos (R$)`).
 
-Filtro: órgão DNIT (39252) e `Nome Ação`, `Nome Subtítulo`, `Nome Localizador` ou `Plano Orçamentário` citando a BR-470.
-Saída: JSON com a soma por ano, ação e localizador.
-Uso: python3 br470_payments.py <workdir> <out.json> [ano_ini] [ano_fim]
-Cada ZIP é baixado, lido em streaming e apagado, para não ocupar disco.
+Filter: órgão DNIT (39252) and `Nome Ação`, `Nome Subtítulo`, `Nome Localizador` or `Plano Orçamentário` citing the BR-470.
+Output: JSON with the sum by year, ação and localizador.
+Usage: python3 br470_payments.py <workdir> <out.json> [first_year] [last_year]
+Each ZIP is downloaded, read as a stream and deleted, so it does not take up disk space.
 """
 import csv, io, json, os, re, subprocess, sys, zipfile, collections, time
 
@@ -24,7 +25,7 @@ def num(x):
 
 def month(ym, work):
     zp = os.path.join(work, f'{ym}.zip')
-    # curl com cabeçalhos de navegador: o CDN da CGU bloqueia clientes sem eles (HTTP 403/405).
+    # curl with browser headers: the CGU CDN blocks clients without them (HTTP 403/405).
     for attempt in range(3):
         subprocess.run(['curl', '-sS', '-L', '-m', '600', '-A', UA, '-H', 'Accept: */*', '-o', zp, PORTAL.format(ym=ym)])
         if os.path.exists(zp) and zipfile.is_zipfile(zp):
@@ -74,7 +75,7 @@ def main(work, out, y0=2013, y1=2026):
                 continue
             allrows += r
             print(ym, len(r), flush=True)
-    # segunda passada: o CDN da CGU recusa rajadas; meses que falharam costumam baixar depois de uma pausa
+    # second pass: the CGU CDN refuses bursts; months that failed usually download after a pause
     for ym in list(missing):
         time.sleep(90)
         r = month(ym, work)

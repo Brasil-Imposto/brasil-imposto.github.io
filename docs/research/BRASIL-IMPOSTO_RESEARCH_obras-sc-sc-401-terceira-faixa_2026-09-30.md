@@ -202,7 +202,7 @@ Todas as consultas em 2026-09-30, de um IP nos EUA.
 ## 11. Como reproduzir
 
 ```bash
-W=$(mktemp -d); S=~/Documents/Brasil-Imposto/pipelines/works
+W=$(mktemp -d); S=$(git rev-parse --show-toplevel)/pipelines/works
 bash $S/roads_download.sh $W          # entradas oficiais (inclui o CSV de 73 MB)
 python3 $S/roads_media.py             # fotos e credits.json
 python3 $S/build_sc401.py $W          # grava data/works/sc-401-terceira-faixa.json

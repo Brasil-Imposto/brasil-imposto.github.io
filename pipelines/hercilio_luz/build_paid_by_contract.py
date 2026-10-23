@@ -53,7 +53,8 @@ def cents(s):
     s = s.strip(); neg = s.startswith('-'); s = s.lstrip('-')
     whole, _, frac = s.partition('.')
     v = int(whole) * 100 + int((frac + '00')[:2])
-    assert len(frac) <= 2, s
+    if not (len(frac) <= 2):
+        raise SystemExit(s)
     return -v if neg else v
 
 
@@ -120,7 +121,8 @@ def main():
     base = json.load(open(ROOT / 'data' / 'hercilio-luz.json'))
     rows = [c for c in base['contracts'] if c['group'] == 'restoration_2006_2019']
     related = [c for c in base['contracts'] if c['group'] != 'restoration_2006_2019']
-    assert len(rows) == 13, len(rows)
+    if not (len(rows) == 13):
+        raise SystemExit(len(rows))
 
     contracts, related_out, problems = [], [], []
     pass1_total = 0
@@ -131,7 +133,8 @@ def main():
         t = NUTITULO[c['number']]
         e = load(t, from_dir)
         stmt_by_number[c['number']] = e
-        assert e['contrato']['contrato'] == c['number'], (e['contrato']['contrato'], c['number'])
+        if not (e['contrato']['contrato'] == c['number']):
+            raise SystemExit((e['contrato']['contrato'], c['number']))
         lines = e['contratoPagamento']
         res = e['contratoResumoFinanceiro']
         p1_year = defaultdict(int)
@@ -233,7 +236,7 @@ def main():
                 continue
             k = (comp['cnpj'], y['year'])
             if k in by_cnpj_year:
-                creditor.append({'cnpj': comp['cnpj'], 'year': y['year'], 'creditor_vlbruto_brl': round(vb, 2),
+                creditor.append({'cnpj': comp['cnpj'], 'year': y['year'], 'creditor_gross_brl': round(vb, 2),
                                  'contracts_net_paid_brl': brl(by_cnpj_year[k]), 'equal': round(vb * 100) == by_cnpj_year[k]})
 
     total_c = pass1_total + pre_c

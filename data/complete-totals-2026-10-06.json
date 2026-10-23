@@ -3,7 +3,7 @@
  "report": "docs/research/BRASIL-IMPOSTO_RESEARCH_complete-totals_2026-10-06.md",
  "rules": "Official primary sources only, read on the source page; sums checked to the cent with a planted-error control (pipelines/complete_totals/).",
  "gaps": {
-  "ponte_supervision_2006_2010": {
+  "hercilio_luz_supervision_2006_2010": {
    "value_brl": 8982441.11,
    "what_it_measures": "Amount paid (gross, payment date in 2006 to 2010) on supervision contract PJ-170/2006, Consórcio Prosul-Concremat: Prosul R$ 5.389.722,50 and Concremat R$ 3.592.718,61",
    "by_year_brl": {
@@ -26,7 +26,7 @@
    "script": "pipelines/complete_totals/hercilio_luz_supervision_cpi.py",
    "tce_sc_19_4_note": "TCE-SC news of 19/10/2015 says R$ 19,4 milhões were paid to the supervision consortium; that equals the contract value with the 2010 and 2012 amendments (R$ 19.436.343,14), not the payments (R$ 15.266.342,87 in total). Not used."
   },
-  "ponte_total_13_contracts": {
+  "hercilio_luz_total_13_contracts": {
    "value_brl": 507319980.2,
    "what_it_measures": "Total paid (nominal, gross of withheld taxes) on the restoration of the Ponte Hercílio Luz, 2006 to 2020, read contract by contract: the 12 contracts of the SIGEF register (13 records; PJ-170/2006 has one line per consortium member) and the first stage, PJ 015/2006 (Consórcio Roca-TEC), from the ALESC CPI final report",
    "previous_value_brl": 483404916.67,

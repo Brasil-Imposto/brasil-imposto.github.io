@@ -8,7 +8,7 @@ deputy page and the Câmara's cota consultation is exactly twice the complement 
 consultation subtracts it, as the file records it with a negative net value).
 
 Source: https://www.camara.leg.br/cotas/Ano-2026.csv.zip (one line per document; txtDescricao, vlrDocumento, numMes, ideCadastro).
-Usage: .venv/bin/python -B docs/superpowers/tools/collect-camara-ceap-2026.py
+Usage: uv run python -B docs/superpowers/tools/collect-camara-ceap-2026.py
 Writes data/federal/raw-pay/camara-ceap/housing-complement-2026.json (gitignored folder) and deletes the unzipped CSV.
 """
 import csv, json, subprocess, zipfile

@@ -1,9 +1,9 @@
 """Build data/bridge-comparables.json: cost per m2 of deck, in BRL of Dec 2024, for the
 Ponte Hercilio Luz restoration and comparable bridges, by two conversion methods.
 
-Run inside the working directory where download.sh saved its files:
-    bash ~/Documents/Brasil-Imposto/pipelines/bridges/download.sh
-    python3 ~/Documents/Brasil-Imposto/pipelines/bridges/build.py
+Run inside the working directory where download.sh saved its files (REPO is the repository's root):
+    bash $REPO/pipelines/bridges/download.sh
+    python3 $REPO/pipelines/bridges/build.py
 
 Method (i)  FX:  amount_LCU * (BRL per USD / LCU per USD)[year] * IPCA[Dec 2024] / IPCA[year average]
 Method (ii) PPP: amount_LCU * (BRL per intl $ / LCU per intl $)[year] * IPCA[Dec 2024] / IPCA[year average]
@@ -68,11 +68,15 @@ for r in csv.DictReader(open('contratos.csv', encoding='utf-8', errors='ignore')
     txt = norm(' '.join(r.get(k) or '' for k in ('OBJETO', 'RESUMO', 'NMBEMPUBLICO', 'BEMPUBLICO')))
     if 'PONTE' in txt and 'HERCILIO' in txt:
         matched.append(r)
-assert len(matched) == 26, len(matched)
+if not (len(matched) == 26):
+    raise SystemExit(len(matched))
 hl = sorted([r for r in matched if r['NUCONTRATO'] in RESTORATION], key=lambda r: r['DTASSINATURA'])
-assert len(hl) == 13, len(hl)
-assert sum(Decimal(r['VLATUAL']) for r in hl) == Decimal('484645236.82')
-assert sum(Decimal(r['VLORIGINAL']) for r in hl) == Decimal('465106951.83')
+if not (len(hl) == 13):
+    raise SystemExit(len(hl))
+if not (sum(Decimal(r['VLATUAL']) for r in hl) == Decimal('484645236.82')):
+    raise SystemExit("check failed: sum((Decimal(r['VLATUAL']) for r in hl)) == Decimal('484645236.82')")
+if not (sum(Decimal(r['VLORIGINAL']) for r in hl) == Decimal('465106951.83')):
+    raise SystemExit("check failed: sum((Decimal(r['VLORIGINAL']) for r in hl)) == Decimal('465106951.83')")
 
 contracts = []
 tot_cur = tot_low = 0.0

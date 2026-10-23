@@ -51,7 +51,8 @@ def validate(entity):
 
 def _source_for(sources, field):
     hit = [s for s in sources if s["field"] == field]
-    assert len(hit) == 1, f"source of {field}: {len(hit)} found"
+    if not (len(hit) == 1):
+        raise SystemExit(f"source of {field}: {len(hit)} found")
     return hit[0]
 
 
@@ -67,7 +68,8 @@ def entities():
         return {"agency": agency, "dataset": dataset, "url": s["url"], "collected_at": when, "note": s.get("note", "")}
 
     def series(values, source):
-        assert len(values) == len(months), (source["dataset"], len(values))
+        if not (len(values) == len(months)):
+            raise SystemExit((source["dataset"], len(values)))
         return {"unit": "BRL", "months": months, "values": values, "source": source}
 
     pop_src = {"agency": "IBGE", "dataset": "Estimativas da População e Censo 2022",
@@ -124,7 +126,8 @@ def build(out=DEFAULT_OUT):
     seen = set()
     for e in all_entities:
         key = (e["type"], e["id"])
-        assert key not in seen, f"duplicate entity {key}"
+        if not (key not in seen):
+            raise SystemExit(f"duplicate entity {key}")
         seen.add(key)
     if out.exists():
         shutil.rmtree(out)

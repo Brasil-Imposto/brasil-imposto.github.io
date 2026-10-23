@@ -1,7 +1,7 @@
 """Load the Banco Central's NFSP series for the Governo Central (SGS 4606, 4639 and 4573): the independent check of
 RTN lines 9, 8 and 10 (interest by accrual, D121). Stored as published lines only; they are not flows.
 
-Usage: .venv/bin/python pipelines/ledger/load_sgs.py"""
+Usage: uv run python pipelines/ledger/load_sgs.py"""
 import calendar
 import html
 import json

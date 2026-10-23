@@ -321,7 +321,7 @@ Mesmo critério do relatório de 2024: registrar o que aconteceu, com o mesmo pe
 Todos os scripts estão em `pipelines/series/` e usam a mesma pasta de trabalho, fora do repositório. Dependências: Python 3 com `openpyxl` e `xlrd`, `curl`, `tar` (para o microdado do INSS) e `pdftotext` (poppler). Nenhuma chave de API, nenhum login.
 
 ```bash
-SERIES=~/Documents/Brasil-Imposto/pipelines/series
+SERIES=$(git rev-parse --show-toplevel)/pipelines/series
 W=/caminho/para/pasta-de-trabalho
 bash $SERIES/download_inputs.sh $W                        # Receita, Tesouro (cerca de 10 MB)
 bash $SERIES/download_misocial.sh $W                      # MDS MI Social, 8 CSVs de cerca de 5 MB

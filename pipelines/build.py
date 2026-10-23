@@ -1,10 +1,17 @@
 import sys, json, csv, collections, os
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
+YEAR=2024
+# every input is required: a missing one stops the build, naming the script that writes it (pipelines/README.md, table); checked before
+# the imports, because parse_rfb reads its CSV when imported
+NEEDED={'arrecadacao-estado.csv':'download.sh','ibge_pop.json':'download.sh',f'transf_agg_{YEAR}.json':f'agg_transfers.py {YEAR}',
+        'tt/lc176est.csv':'download.sh','tt/lc176mun.csv':'download.sh','direct_2024.json':'build_direct.py','sources.json':'build_direct.py'}
+missing=[f'{f} (written by {w})' for f,w in NEEDED.items() if not os.path.exists(f)]
+if missing:
+    sys.exit('build.py: missing input in '+os.getcwd()+': '+'; '.join(missing))
 from parse_rfb import agg as rfb_agg
 from taxmap import TAXMAP
 from parse_tt import parse as tt_parse, annual as tt_annual
 
-YEAR=2024
 COLLECTED='2026-09-25'
 UFS={'11':'RO','12':'AC','13':'AM','14':'RR','15':'PA','16':'AP','17':'TO','21':'MA','22':'PI','23':'CE','24':'RN','25':'PB','26':'PE','27':'AL','28':'SE','29':'BA','31':'MG','32':'ES','33':'RJ','35':'SP','41':'PR','42':'SC','43':'RS','50':'MS','51':'MT','52':'GO','53':'DF'}
 NAMES={}
@@ -66,15 +73,14 @@ for uf in sorted(UFS.values()):
     if T:
         bc={k:round(v,2) for k,v in T[uf].items()}
         o['transfers']={'total':round(sum(bc.values()),2),'by_category':bc}
-    else:
-        o['transfers']={'total':None,'by_category':None}
     if D:
         d=D[uf]
         o['direct_spending']=d
-    else:
-        o['direct_spending']={'inss_benefits':None,'bolsa_familia':None,'federal_payroll':None}
     o['sources']=json.load(open('sources.json'))
     res.append(o)
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','data',f'uf-balance-{YEAR}.json')
-json.dump(res,open(OUT,'w'),ensure_ascii=False,indent=1)
+# written to a temporary file first, so a failure halfway never leaves a cut file in place of the published one
+with open(OUT+'.tmp','w') as f:
+    json.dump(res,f,ensure_ascii=False,indent=1)
+os.replace(OUT+'.tmp',OUT)
 print('written',len(res))

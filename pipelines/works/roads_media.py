@@ -1,8 +1,8 @@
-"""Baixa as fotos (licença livre, Wikimedia Commons) das fichas de obra, a ~1000 px de largura, e grava credits.json
-no formato de docs/superpowers/previews/assets/cases/hercilio-luz/credits.json.
+"""Downloads the photos (free licence, Wikimedia Commons) of the road works fact sheets, at about 1000 px wide, and
+writes credits.json in the format of docs/superpowers/previews/assets/cases/hercilio-luz/credits.json.
 
-Uso: python3 roads_media.py      (grava direto em docs/superpowers/previews/assets/cases/<slug>/)
-Fonte dos metadados: API do Commons (prop=imageinfo, extmetadata). Coleta original: 2026-09-30.
+Usage: python3 roads_media.py      (writes straight into docs/superpowers/previews/assets/cases/<slug>/)
+Metadata source: the Commons API (prop=imageinfo, extmetadata). Original collection: 2026-09-30.
 """
 import json, os, re, subprocess, time, urllib.parse
 

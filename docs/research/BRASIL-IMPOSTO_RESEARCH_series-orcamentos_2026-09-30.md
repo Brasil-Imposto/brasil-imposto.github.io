@@ -251,7 +251,7 @@ Leitura:
 ## 9. Como reproduzir
 
 ```bash
-cd ~/Documents/Brasil-Imposto/pipelines/series
+cd "$(git rev-parse --show-toplevel)/pipelines/series"
 python3 fetch_state_series.py          # cerca de 13 min na primeira vez; retoma do cache
 python3 build_state_series.py
 python3 fetch_sc_municipal_series.py   # cerca de 20 min na primeira vez; retoma do cache

@@ -5,7 +5,7 @@ open each tab and press "Enviar para Excel". Output: data/federal/raw-pay/judici
 the files read by collect-judiciary-2026.py.
 
 Needs node, playwright-core (path in the PW_CORE environment variable) and a Chromium headless shell (path in CHROME_HEADLESS).
-Run: .venv/bin/python -B docs/superpowers/tools/collect-judiciary-cnj-download.py [stj tst stm tse] [--year 2026]
+Run: uv run python -B docs/superpowers/tools/collect-judiciary-cnj-download.py [stj tst stm tse] [--year 2026]
 About 1.5 minutes per court.
 """
 import argparse, os, shutil, subprocess, sys, tempfile

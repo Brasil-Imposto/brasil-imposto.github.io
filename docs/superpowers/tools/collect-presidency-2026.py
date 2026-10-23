@@ -3,7 +3,7 @@
 
 Sources: Portal da Transparencia bulk downloads (viagens 2026, cpgf monthly extracts already filtered by
 collect-executive-2026.py). Stages: filter (zip -> filtered CSVs), build (filtered CSVs -> presidency-2026.json).
-Run from the project root: .venv/bin/python -B docs/superpowers/tools/collect-presidency-2026.py filter|build
+Run from the project root: uv run python -B docs/superpowers/tools/collect-presidency-2026.py filter|build
 """
 import csv, io, json, re, sys, unicodedata, zipfile
 from pathlib import Path
@@ -386,7 +386,8 @@ def build_stage():
             if r['secret']:
                 otherc[OTHER_UGS[r['ug']]] += r['value']
     unknown = sorted({(r['ug'], r['ug_name']) for r in cp if r['ug'] not in OTHER_UGS and r['ug'] not in PRESIDENT_UGS})
-    assert not unknown, unknown
+    if not (not unknown):
+        raise SystemExit(unknown)
     other_units = [{'unit': k, 'year_total': round(v, 2),
                     'note': f'Cartão corporativo jan a ago 2026, {brl(round(otherc[k], 2))} sob sigilo. Unidade da Presidência sem ligação declarada com a atividade do Presidente; listada à parte.'}
                    for k, v in sorted(other.items(), key=lambda kv: -kv[1])]

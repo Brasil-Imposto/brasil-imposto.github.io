@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Gera data/politicians/federal-deputies.json a partir da API de dados abertos da Camara dos Deputados.
+"""Builds data/politicians/federal-deputies.json from the open data API of the Câmara dos Deputados.
 
-Cobertura: todo deputado federal (titular ou suplente) que exerceu o mandato nas legislaturas 56
-(2019-02-01 a 2023-01-31) e 57 (2023-02-01 a 2027-01-31), ate a data de coleta.
-Fonte unica: https://dadosabertos.camara.leg.br/api/v2
+Coverage: every federal deputy (full member or substitute) who served in legislatures 56
+(2019-02-01 to 2023-01-31) and 57 (2023-02-01 to 2027-01-31), up to the collection date.
+Single source: https://dadosabertos.camara.leg.br/api/v2
 
-Uso:
-    POLITICIANS_WORK=/caminho/para/cache python3 build_federal_deputies.py
+Usage:
+    POLITICIANS_WORK=/path/to/cache python3 build_federal_deputies.py
 
-Somente biblioteca padrao do Python 3. As respostas brutas ficam em $POLITICIANS_WORK/api/camara/
-para que uma nova execucao nao repita downloads. Apague essa pasta para forcar nova coleta.
+Python 3 standard library only. The raw responses are kept in $POLITICIANS_WORK/api/camara/
+so that a new run does not repeat downloads. Delete that folder to force a new collection.
 """
 import concurrent.futures
 import datetime as dt
@@ -34,13 +34,13 @@ LEGISLATURES = {56: ("2019-02-01", "2023-01-31"), 57: ("2023-02-01", "2027-01-31
 UFS = ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB",
        "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"]
 
-# Vagas por UF usadas apenas na conferencia (soma 513). Conferidas contra os proprios dados: numero de
-# titulares empossados no primeiro dia de cada legislatura (ver checks.seats_observed_on_first_day).
+# Seats per UF, used only in the check (sum 513). Checked against the data itself: the number of
+# full members sworn in on the first day of each legislature (see checks.seats_observed_on_first_day).
 SEATS = {"AC": 8, "AL": 9, "AM": 8, "AP": 8, "BA": 39, "CE": 22, "DF": 8, "ES": 10, "GO": 17, "MA": 18,
          "MG": 53, "MS": 8, "MT": 8, "PA": 17, "PB": 12, "PE": 25, "PI": 10, "PR": 30, "RJ": 46, "RN": 8,
          "RO": 8, "RR": 8, "RS": 31, "SC": 16, "SE": 8, "SP": 70, "TO": 8}
 
-# Termos de uso lidos na pagina oficial da Camara em 2026-10-01 (ver nota de pesquisa). Citacao literal.
+# Terms of use read on the Câmara's official page on 2026-10-01 (see research note). Literal citation.
 TERMS_URL = "https://www2.camara.leg.br/termo-de-uso-e-politica-de-privacidade"
 PHOTO_LICENSE = {
     "holder": "Câmara dos Deputados",
@@ -66,7 +66,7 @@ def cache_path(url):
 
 
 def fetch_json(url):
-    """GET com cache em disco e novas tentativas em 429/5xx."""
+    """GET with an on-disk cache and retries on 429/5xx."""
     path = cache_path(url)
     if os.path.exists(path):
         with open(path, encoding="utf-8") as fh:
@@ -95,7 +95,7 @@ def fetch_json(url):
 
 
 def head_ok(url):
-    """Confere (sem baixar a imagem) se a URL da foto responde 200 com conteudo de imagem."""
+    """Checks (without downloading the image) that the photo URL answers 200 with image content."""
     for attempt in range(3):
         try:
             req = urllib.request.Request(url, method="HEAD",
@@ -127,7 +127,7 @@ def day(ts):
 
 
 def build_terms(dep_id, events):
-    """Converte o historico de status em periodos de exercicio por legislatura."""
+    """Turns the status history into periods in office per legislature."""
     hist_url = f"{API}/deputados/{dep_id}/historico"
     terms, issues = [], []
     for leg, (leg_start, leg_end) in LEGISLATURES.items():
@@ -139,11 +139,11 @@ def build_terms(dep_id, events):
             ufs.add(e.get("siglaUf"))
             desc = (e.get("descricaoStatus") or "").strip()
             if e["situacao"] in ("Exercício", "CONVOCADO"):
-                # So abre periodo um registro de entrada (posse, reassuncao, efetivacao) datado dentro da
-                # legislatura. A API registra algumas reassuncoes de suplente com situacao 'CONVOCADO' e
-                # descricao 'Entrada - Reassunção'. Registros administrativos (por exemplo 'Alteração de
-                # partido' de suplente fora do exercicio, convocacoes, oficios anteriores a posse) nao abrem
-                # nem fecham periodo.
+                # Only an entry record (taking office, resumption, confirmation as full member) dated inside the
+                # legislature opens a period. The API records some resumptions by substitutes with situation 'CONVOCADO' and
+                # description 'Entrada - Reassunção'. Administrative records (for example 'Alteração de
+                # partido' of a substitute not in office, calls to serve, official letters before taking office) neither open
+                # nor close a period.
                 if current is None and day(e["dataHora"]) >= leg_start and ENTRY_RE.search(desc):
                     current = {"start": day(e["dataHora"]), "end": None,
                                "start_reason": (e.get("descricaoStatus") or "").strip() or None,
@@ -193,7 +193,7 @@ def build_terms(dep_id, events):
 
 
 def build_parties(dep_id, events, terms):
-    """Historico partidario datado a partir dos registros do historico (partido no momento de cada registro)."""
+    """Dated party history from the history records (the party at the time of each record)."""
     hist_url = f"{API}/deputados/{dep_id}/historico"
     evs = sorted([e for e in events if e.get("situacao") and e.get("siglaPartido")
                   and e.get("idLegislatura") in LEGISLATURES], key=lambda e: e["dataHora"])
@@ -228,8 +228,8 @@ def build_parties(dep_id, events, terms):
 
 
 def in_exercise_on(terms, d, end_of_day=True):
-    """Estado no fim do dia D (convencao da conferencia): quem sai em D nao conta, quem entra em D conta.
-    Com end_of_day=False, as duas pontas contam (datas inclusivas)."""
+    """State at the end of day D (the check's convention): whoever leaves on D does not count, whoever enters on D counts.
+    With end_of_day=False, both ends count (inclusive dates)."""
     for t in terms:
         for e in t["exercise"]:
             if e["start"] <= d and (e["end"] is None or (d < e["end"] if end_of_day else d <= e["end"])):
@@ -316,7 +316,7 @@ def main():
         if len(ufs) == 1:
             by_uf[ufs[0]].append(p)
         else:
-            # Pessoa com mandatos por UFs diferentes: aparece em cada UF so com os mandatos daquela UF.
+            # A person with terms in different UFs appears in each UF only with that UF's terms.
             for uf in ufs:
                 q = dict(p)
                 q["terms"] = [t for t in p["terms"] if t["uf"] == uf]
@@ -374,8 +374,8 @@ def main():
         "terms": len(all_terms),
         "terms_by_legislature": {str(l): sum(1 for t in all_terms if t["legislature"] == l) for l in LEGISLATURES},
         "exercise_periods": sum(len(t["exercise"]) for t in all_terms),
-        "persons_with_suplente_term": sum(1 for p in persons if any(t["kind"] == "suplente" for t in p["terms"])),
-        "suplente_terms_by_legislature": {str(l): sum(1 for t in all_terms if t["legislature"] == l
+        "persons_with_substitute_term": sum(1 for p in persons if any(t["kind"] == "suplente" for t in p["terms"])),
+        "substitute_terms_by_legislature": {str(l): sum(1 for t in all_terms if t["legislature"] == l
                                                       and t["kind"] == "suplente") for l in LEGISLATURES},
         "persons_in_exercise_on_collection_day": sum(1 for p in persons if in_exercise_on(p["terms"], COLLECTED_ON)),
         "persons_without_photo": sum(1 for p in persons if p["photo"] is None),

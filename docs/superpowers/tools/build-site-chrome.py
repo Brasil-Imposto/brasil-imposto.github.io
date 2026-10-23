@@ -15,7 +15,8 @@ for key in ("tres-poderes", "dinheiro"):
     page = path.read_text(encoding="utf-8")
     # the page's own header, from before D152, leaves once
     page, n = re.subn(r'<header class="nav">.*?</header>\n', "", page, count=1, flags=re.S)
-    assert n <= 1
+    if not (n <= 1):
+        raise SystemExit('check failed: n <= 1')
     new = site_chrome.inject(page, key)
     if new != path.read_text(encoding="utf-8"):
         path.write_text(new, encoding="utf-8")

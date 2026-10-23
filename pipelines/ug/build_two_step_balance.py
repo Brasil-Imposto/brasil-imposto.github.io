@@ -17,7 +17,7 @@ with the same unit rules as the first unit-based balance (D41). Transfers, Bolsa
 destination, as in D41; the FCDF counts in the DF, read from the Tesouro base (all rows of unit 73901) so that 2019 to 2021
 have it too. Debt interest and amortization stay out.
 
-Usage: .venv/bin/python pipelines/ug/build_two_step_balance.py 2026 1 7 [--control | --control=input-row | --control=input-revenue]
+Usage: uv run python pipelines/ug/build_two_step_balance.py 2026 1 7 [--control | --control=input-row | --control=input-revenue]
 Inputs (all already in the project; nothing is downloaded):
   data/ug/cache/despug_YYYYMM.json.gz        Portal da Transparência, expense execution, Executive (agg_spending_ug.py)
   data/ug/cache/dtt_monthly_YYYY.json.gz     Tesouro base "Despesas e Transferências Totais da União" (agg_dtt_monthly.py)
@@ -44,7 +44,8 @@ P = lambda *a: os.path.join(ROOT, *a)
 args = [a for a in sys.argv[1:] if not a.startswith("--")]
 YEAR, M0, M1 = int(args[0]), int(args[1]), int(args[2])
 CONTROL = next(((a.split("=", 1)[1] if "=" in a else "output") for a in sys.argv[1:] if a.startswith("--control")), None)
-assert CONTROL in (None, "output", "input-row", "input-revenue"), CONTROL
+if not (CONTROL in (None, "output", "input-row", "input-revenue")):
+    raise SystemExit(CONTROL)
 MONTHS = [f"{YEAR}-{m:02d}" for m in range(M0, M1 + 1)]
 UFS = ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR",
        "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"]
@@ -219,7 +220,8 @@ ratio_off_band = {m: round(indep_exec[m] / dtt_exec_no_court[m], 4) for m in MON
 # step 3 with the MTE series: the year's Portal total of each program goes to the states by the MTE values; what the MTE
 # does not place in a state, and the gap between the Portal and the MTE, stay without a state (as in the 2024 hybrid run)
 mte_annual = collections.defaultdict(int)                      # (dest, program) -> cents, annual block
-assert not (MTE and broken_months), "an MTE year with a broken Portal month needs a decision"
+if not (not (MTE and broken_months)):
+    raise SystemExit("an MTE year with a broken Portal month needs a decision")
 if MTE:
     for prog, key in MTE_KEY.items():
         s = MTE["series"][key]
@@ -245,8 +247,10 @@ ixp = {m: fp["months"].index(m) for m in MONTHS if m in fp["months"]}
 status = {m: fm["national"]["federal_revenue_month_status"][ix[m]] for m in MONTHS}
 broken = lambda m: "uf_attribution_broken" in status[m]
 for m in MONTHS:
-    assert status[m] != "not_published", f"{m}: revenue by state not published"
-    assert not broken(m) or m in ixe, f"{m}: broken split and no estimate"
+    if not (status[m] != "not_published"):
+        raise SystemExit(f"{m}: revenue by state not published")
+    if not (not broken(m) or m in ixe):
+        raise SystemExit(f"{m}: broken split and no estimate")
 if CONTROL == "input-revenue":  # SC's revenue doubled in the series in the first published month of the run
     _m = next(m for m in MONTHS if not broken(m))
     fm["uf"]["SC"]["federal_revenue"]["total"][ix[_m]] *= 2
@@ -260,7 +264,8 @@ def flow(u, m, k):
     if k == "fcdf": return fcdf_m[m] if u == "DF" else 0
     x = fm["uf"][u]
     v = x["transfers"]["total"][ix[m]] if k == "transfers" else x[k][ix[m]]
-    assert v is not None, (u, m, k)
+    if not (v is not None):
+        raise SystemExit((u, m, k))
     return c(v)
 
 # Independent pass over the Receita file itself (data/df/arrecadacao-estado.csv, same bytes as the URL on 2026-10-02),

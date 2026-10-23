@@ -2,10 +2,10 @@
  "uf": "SP",
  "terms": [
   {
-   "role": "governador",
+   "role": "governor",
    "name": "João Doria",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2022-03-31",
    "start_reason": "posse após a eleição de 2018",
@@ -16,17 +16,17 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "renúncia do titular protocolada na Alesp em 31/03/2022 (Alesp, 01/04/2022)",
      "url": "https://www.al.sp.gov.br/noticia/?id=436383",
-     "type": "oficial",
+     "type": "official",
      "quote": "O ofício foi protocolado na Assembleia Legislativa paulista na tarde desta quinta-feira (31). [...] solicito que seja dado conhecimento à Alesp de que me afasto definitivamente do cargo de governador, a partir desta data"
     }
    ],
@@ -34,10 +34,10 @@
    "note": "Renúncia protocolada na Alesp na tarde de quinta-feira, 31/03/2022, 'a partir desta data'; o vice tomou posse na manhã de sexta-feira, 01/04/2022 (Alesp)."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Rodrigo Garcia",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2019-01-01",
    "end": "2022-04-01",
    "start_reason": "posse após a eleição de 2018",
@@ -48,23 +48,23 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "renúncia do titular protocolada na Alesp em 31/03/2022 (Alesp, 01/04/2022)",
      "url": "https://www.al.sp.gov.br/noticia/?id=436383",
-     "type": "oficial",
+     "type": "official",
      "quote": "O ofício foi protocolado na Assembleia Legislativa paulista na tarde desta quinta-feira (31). [...] solicito que seja dado conhecimento à Alesp de que me afasto definitivamente do cargo de governador, a partir desta data"
     },
     {
      "fact": "posse do vice como governador em 01/04/2022 (Alesp, 01/04/2022)",
      "url": "https://www.al.sp.gov.br/noticia/?id=436383",
-     "type": "oficial",
+     "type": "official",
      "quote": "01/04/2022 [...] deu posse ao novo governador do Estado, Rodrigo Garcia, em cerimônia realizada na manhã desta sexta-feira (1º) na unidade do Bom Prato, em Paraisópolis"
     }
    ],
@@ -72,10 +72,10 @@
    "note": "Renúncia protocolada na Alesp na tarde de quinta-feira, 31/03/2022, 'a partir desta data'; o vice tomou posse na manhã de sexta-feira, 01/04/2022 (Alesp)."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Rodrigo Garcia",
    "full_name": null,
-   "kind": "vice no cargo de titular",
+   "kind": "vice_in_office",
    "start": "2022-04-01",
    "end": "2023-01-01",
    "start_reason": "renúncia do titular",
@@ -86,34 +86,34 @@
     {
      "fact": "renúncia do titular protocolada na Alesp em 31/03/2022 (Alesp, 01/04/2022)",
      "url": "https://www.al.sp.gov.br/noticia/?id=436383",
-     "type": "oficial",
+     "type": "official",
      "quote": "O ofício foi protocolado na Assembleia Legislativa paulista na tarde desta quinta-feira (31). [...] solicito que seja dado conhecimento à Alesp de que me afasto definitivamente do cargo de governador, a partir desta data"
     },
     {
      "fact": "posse do vice como governador em 01/04/2022 (Alesp, 01/04/2022)",
      "url": "https://www.al.sp.gov.br/noticia/?id=436383",
-     "type": "oficial",
+     "type": "official",
      "quote": "01/04/2022 [...] deu posse ao novo governador do Estado, Rodrigo Garcia, em cerimônia realizada na manhã desta sexta-feira (1º) na unidade do Bom Prato, em Paraisópolis"
     },
     {
      "fact": "partido no registro de candidatura de 2022 (PSDB)",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse e fim do mandato (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     }
    ],
    "verified": true,
    "note": "Renúncia protocolada na Alesp na tarde de quinta-feira, 31/03/2022, 'a partir desta data'; o vice tomou posse na manhã de sexta-feira, 01/04/2022 (Alesp). Partido: o do registro do TSE de 2022 (PSDB), com filiação exigida até seis meses antes da eleição (Lei 9.504/1997, art. 9º), ou seja, até 02/04/2022; a página da posse não cita partido. Na eleição de 2018 era do DEM; a imprensa registra a filiação ao PSDB em maio de 2021, sem ato oficial datado lido aqui."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": null,
    "full_name": null,
-   "kind": "vago",
+   "kind": "vacant",
    "start": "2022-04-01",
    "end": "2023-01-01",
    "start_reason": "o vice-governador assumiu o cargo de governador",
@@ -124,13 +124,13 @@
     {
      "fact": "renúncia do titular protocolada na Alesp em 31/03/2022 (Alesp, 01/04/2022)",
      "url": "https://www.al.sp.gov.br/noticia/?id=436383",
-     "type": "oficial",
+     "type": "official",
      "quote": "O ofício foi protocolado na Assembleia Legislativa paulista na tarde desta quinta-feira (31). [...] solicito que seja dado conhecimento à Alesp de que me afasto definitivamente do cargo de governador, a partir desta data"
     },
     {
      "fact": "posse do vice como governador em 01/04/2022 (Alesp, 01/04/2022)",
      "url": "https://www.al.sp.gov.br/noticia/?id=436383",
-     "type": "oficial",
+     "type": "official",
      "quote": "01/04/2022 [...] deu posse ao novo governador do Estado, Rodrigo Garcia, em cerimônia realizada na manhã desta sexta-feira (1º) na unidade do Bom Prato, em Paraisópolis"
     }
    ],
@@ -138,10 +138,10 @@
    "note": "Renúncia protocolada na Alesp na tarde de quinta-feira, 31/03/2022, 'a partir desta data'; o vice tomou posse na manhã de sexta-feira, 01/04/2022 (Alesp)."
   },
   {
-   "role": "governador",
+   "role": "governor",
    "name": "Tarcísio",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": null,
    "start_reason": "posse após a eleição de 2022",
@@ -152,17 +152,17 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "decreto de 30/09/2026 assinado pelo governador (Diário Oficial do Estado de São Paulo, publicado em 01/10/2026)",
      "url": "https://doe.sp.gov.br/executivo/decretos/decreto-n-70911-de-30-de-setembro-de-2026-202609301182022170552",
-     "type": "oficial",
+     "type": "official",
      "quote": "DECRETO Nº 70.911, DE 30 DE SETEMBRO DE 2026 [...] Este decreto entra em vigor na data de sua publicação. TARCÍSIO DE FREITAS"
     }
    ],
@@ -170,10 +170,10 @@
    "note": "Segue no cargo: decreto de 30/09/2026 assinado por ele no Diário Oficial do Estado."
   },
   {
-   "role": "vice-governador",
+   "role": "vice_governor",
    "name": "Felicio Ramuth",
    "full_name": null,
-   "kind": "eleito",
+   "kind": "elected",
    "start": "2023-01-01",
    "end": null,
    "start_reason": "posse após a eleição de 2022",
@@ -184,17 +184,17 @@
     {
      "fact": "eleição e partido na eleição",
      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "data de posse (CF, art. 28)",
      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
-     "type": "oficial"
+     "type": "official"
     },
     {
      "fact": "vice-governador em julho de 2026 (Diário Oficial do Estado de São Paulo, Aviso nº 254/2026 do Conselho Superior do Ministério Público, 01/07/2026)",
      "url": "https://doe.sp.gov.br/executivo/ministerio-publico/aviso-n-254-2026-csmp-de-01-07-2026-20260701114241991957876",
-     "type": "oficial",
+     "type": "official",
      "quote": "FELÍCIO RAMUTH (Vice-Governador do Estado de São Paulo)"
     }
    ],
