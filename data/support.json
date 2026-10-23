@@ -1,0 +1,28 @@
+{
+ "about": "The Apoie button and its modal (spec docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_apoie_2026-10-23.md). The button shows only when enabled is true, and enabled may turn true only after the gates of the spec (D123, D125 to D127) and with every value below filled in; pipelines/tests/test_support.py checks it.",
+ "enabled": false,
+ "sponsors_url": null,
+ "fiscal_host": {"name": "Open Source Collective", "url": null},
+ "maintainer_cap_brl": null,
+ "unidentified_return_above_brl": null,
+ "contact_email": null,
+ "crypto": [
+  {"id": "bitcoin", "format": "bitcoin", "address": null, "networks": [
+   {"id": "bitcoin", "name": "Bitcoin", "explorer": "mempool.space", "explorer_url": "https://mempool.space/address/{address}",
+    "coins": [{"coin": "BTC", "standard": null}]}]},
+  {"id": "evm", "format": "evm", "address": null, "networks": [
+   {"id": "ethereum", "name": "Ethereum", "explorer": "Etherscan", "explorer_url": "https://etherscan.io/address/{address}",
+    "coins": [{"coin": "ETH", "standard": null}, {"coin": "USDT", "standard": "ERC-20"}, {"coin": "USDC", "standard": "ERC-20"}]},
+   {"id": "bsc", "name": "BNB Smart Chain", "explorer": "BscScan", "explorer_url": "https://bscscan.com/address/{address}",
+    "coins": [{"coin": "BNB", "standard": "BEP-20"}, {"coin": "USDT", "standard": "BEP-20"}, {"coin": "USDC", "standard": "BEP-20"}]}]},
+  {"id": "solana", "format": "solana", "address": null, "networks": [
+   {"id": "solana", "name": "Solana", "explorer": "Solscan", "explorer_url": "https://solscan.io/account/{address}",
+    "coins": [{"coin": "SOL", "standard": null}, {"coin": "USDT", "standard": "SPL"}, {"coin": "USDC", "standard": "SPL"}]}]},
+  {"id": "tron", "format": "tron", "address": null, "networks": [
+   {"id": "tron", "name": "Tron", "explorer": "Tronscan", "explorer_url": "https://tronscan.org/address/{address}/transactions",
+    "coins": [{"coin": "USDT", "standard": "TRC-20"}]}]},
+  {"id": "xrp", "format": "xrp", "address": null, "networks": [
+   {"id": "xrp-ledger", "name": "XRP Ledger", "explorer": "XRPScan", "explorer_url": "https://xrpscan.com/account/{address}",
+    "coins": [{"coin": "XRP", "standard": null}]}]}
+ ]
+}
