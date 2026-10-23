@@ -7,6 +7,9 @@ fail when a page's copy differs from this module.
 """
 import re
 
+import apoie
+import support_data
+
 REPO_URL = "https://github.com/Brasil-Imposto/brasil-imposto.github.io"
 HOME = "BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html"
 PAGES = {
@@ -137,8 +140,28 @@ MARK = {"css": ("<!-- site-chrome:css -->", "<!-- /site-chrome:css -->"),
         "js": ("<!-- site-chrome:js -->", "<!-- /site-chrome:js -->")}
 
 
+def with_support(head, data):
+    """The header with the Apoie button after the page links (next to Menu on phones) and its modal after the bar (spec apoie).
+    The modal sits outside <header>: the bar's backdrop-filter would make it the box a fixed child is placed in."""
+    a, b = '<nav class="bi-links"', "</header>"
+    if not (head.count(a) == 1 and head.count(b) == 1):
+        raise SystemExit("site_chrome: the header changed; place the Apoie button again")
+    head = head.replace(a, '<div class="bi-end">' + a).replace(b, "</div>" + b)
+    return head.replace('<button type="button" class="bi-menu-btn"', apoie.BUTTON + '<button type="button" class="bi-menu-btn"', 1) \
+        + apoie.modal(data)
+
+
 def parts(current):
-    return {"css": HEAD, "header": header(current), "footer": footer(), "js": SCRIPT}
+    """Everything the markers carry on one page. The Apoie button and its modal come in only when data/support.json says so,
+    and only with every value filled in; otherwise the pages are what they were."""
+    data = support_data.load()
+    wrong = support_data.problems(data)
+    if wrong:
+        raise SystemExit("data/support.json: " + "; ".join(wrong))
+    if not data["enabled"]:
+        return {"css": HEAD, "header": header(current), "footer": footer(), "js": SCRIPT}
+    return {"css": HEAD + "\n" + apoie.CSS, "header": with_support(header(current), data), "footer": footer(),
+            "js": SCRIPT.replace("\n</script>", "\n" + apoie.SCRIPT + "</script>", 1)}
 
 
 def block(name, body):
