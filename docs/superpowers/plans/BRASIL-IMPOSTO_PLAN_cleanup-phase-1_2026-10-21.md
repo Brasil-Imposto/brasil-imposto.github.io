@@ -7,7 +7,8 @@ check able to fail (each with a control that does fail), stops the ledger contro
 Portuguese JSON keys. Two instruments prove "no visible change": the visible text of the page in 100 states and periods,
 identical before and after, and the page's generated files rebuilt from source.
 
-Situação: **tarefas 0 a 5 feitas em 2026-10-21; 6 a 8 na auditoria de consistência de 2026-10-22, por pull request.**
+Situação: **fase 1 fechada.** Tarefas 0 a 5 feitas em 2026-10-21; 6 e 7 na auditoria de consistência (#45, 2026-10-23); 8, o
+fecho, em 2026-10-23. O registro da tarefa 8 que vive fora do git (`private/`, `CLAUDE.md`) é da sessão local.
 
 ### Para quem executa
 Executar na ordem, marcando as caixas. Cada tarefa entra por pull request, com as provas na descrição, e ganha uma linha no
@@ -157,9 +158,9 @@ Cada checagem nova ou refeita só conta depois de falhar num controle plantado p
 - [x] Provas: texto visível igual; testes; cada armadilha com o seu controle.
 
 ### Tarefa 8: fecho da fase
-- [ ] Texto visível igual ao da base (100 de 100), 0 erros; arquivos gerados: só as mudanças das tarefas; 29 testes ou mais.
-- [ ] Registro: uma decisão em `private/decisions-original.md` (a versão pública sai de `publish-decisions.py`), o acompanhamento da rodada 11, o `CLAUDE.md` ("Próxima sessão"), o estado de trabalho.
-- [ ] Nada aberto no fim: nenhum Chrome sem tela, nenhum servidor.
+- [x] Texto visível igual ao da base (100 de 100), 0 erros; arquivos gerados: só as mudanças das tarefas; 29 testes ou mais.
+- [ ] Registro: uma decisão em `private/decisions-original.md` (a versão pública sai de `publish-decisions.py`), o acompanhamento da rodada 11, o `CLAUDE.md` ("Próxima sessão"), o estado de trabalho. Fica com a sessão local: os quatro vivem fora do git.
+- [x] Nada aberto no fim: nenhum Chrome sem tela, nenhum servidor.
 
 ---
 
@@ -254,3 +255,13 @@ Cada checagem nova ou refeita só conta depois de falhar num controle plantado p
   `provenance` de registro feito à mão e a nota do total aponta para os R$ 5,54 bi de D100; no SC-401 o rótulo "líquido" não entrou,
   porque o total calculado é o `vlpago` bruto da carga de 2026-09-30 (o líquido seria R$ 39.600.403,49), e o registro ganhou o campo
   `total_paid_ct_00014_2025_basis` que diz isso. `cases.json` igual byte a byte.
+- **Tarefa 8 (2026-10-23, fecho da fase):** a base das tarefas feitas no git é a `main` antes do #45 (`a0a2362`); a de antes da
+  fase está em `private/snapshots/`, fora do alcance da sessão na nuvem, e as tarefas 0 a 5 já trazem a sua prova contra ela.
+  Texto visível da `main` (`a548547`, com o #45, o #49 e o #51) contra `a0a2362`: 100 de 100 iguais, 0 erros, a auditoria sem
+  nenhum apontamento; o controle (um texto plantado) dá "1 differ" e saída 1. Arquivos gerados, comparados um a um no `_site`
+  montado: no pacote `bi-data.js`, tudo fora de `series.federal_payroll_by_uf` é igual depois de lido, e dentro dela só as 34
+  chaves trocadas, os códigos de motivo (`unidade_de_atuacao_nacional` virou `national_scope_unit`, `trt_de_duas_ufs` virou
+  `trt_covering_two_ufs`) e os textos que citam essas chaves (tarefa 6); `serieslayer.js` e os dois pacotes de Os 3 Poderes, a
+  troca de chaves (tarefa 6); as três páginas, os comentários traduzidos (tarefa 6) e os cinco links do Início (D160, #51); a
+  página no endereço antigo do Início virou o encaminhamento (D160). Testes: 63 (1 pulado) e 30 do livro. No fim da sessão,
+  nenhum servidor e nenhum Chrome sem tela abertos.
