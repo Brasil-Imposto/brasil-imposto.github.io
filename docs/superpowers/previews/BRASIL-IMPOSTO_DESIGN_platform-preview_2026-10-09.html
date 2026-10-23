@@ -1217,6 +1217,8 @@ return { createModals };
       <div class="click">Clique para abrir</div>`;
   };
   const apply = (metric) => {
+    // only a measure of the map: ?metric= and the links to the notes page carry it (D159)
+    if (!Object.hasOwn(METRICS, metric)) return;
     mapMetric = metric;
     const m = METRICS[metric];
     rowsNow = rowsAt();
@@ -1317,7 +1319,7 @@ return { createModals };
     // D88: the money columns follow the period selector.
     window.__onFeedPeriod = (r) => { window.BIHF.render(document, r); strip.hidden = L.hidden && Rt.hidden; };
   }
-  if (params.get('metric')) apply(params.get('metric'));
+  if (Object.hasOwn(METRICS, params.get('metric') || '')) apply(params.get('metric'));
   if (params.get('open')) modals.openState(params.get('open'), mapMetric);
   if (params.get('modal')) modals.setMetric(params.get('modal'));
   if (params.get('area')) modals.openFunction(params.get('open'), params.get('area'));
