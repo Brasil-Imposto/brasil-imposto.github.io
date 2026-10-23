@@ -111,7 +111,7 @@ const path = require('path');
             if (r.url.split('#')[0] !== before.split('#')[0] || !(r.top >= -1 && r.top < r.inner) || !(Math.abs(r.top) < 80 || r.atEnd)) bad.push(`Rede link on Início: ${JSON.stringify(r)}`);
           } else if (!f.hasCard) {
             const href = await page.evaluate(() => document.querySelector('.bi-footer a[data-here]').getAttribute('href'));
-            if (!/platform-preview_2026-10-09\.html#rede$/.test(href)) bad.push(`Rede link goes to ${href}`);
+            if (href !== './#rede') bad.push(`Rede link goes to ${href}`);   // Início lives at the site's root, never at the design file's name
           }
         }
         if (errors.length) bad.push(`page errors: ${errors.slice(0, 2).join(' | ')}`);

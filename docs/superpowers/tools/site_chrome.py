@@ -12,6 +12,9 @@ import support_data
 
 REPO_URL = "https://github.com/Brasil-Imposto/brasil-imposto.github.io"
 HOME = "BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html"
+# every link to Início points at the site's root, never at the design file's name (production has no preview); relative, so the
+# same pages work under a sub-path. The old address forwards to "./" (pages.yml, "Assemble the site").
+HOME_HREF = "./"
 PAGES = {
     "inicio": (HOME, "Início"),
     "tres-poderes": ("BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html", "Os 3 Poderes"),
@@ -104,6 +107,7 @@ SCRIPT = """<script id="bi-chrome-js">
 def _links(current, cls=""):
     out = []
     for key, (href, label) in PAGES.items():
+        href = HOME_HREF if key == "inicio" else href
         cur = ' aria-current="page"' if key == current else ""
         out.append(f'<a href="{href}"{cur}>{label}</a>')
     out.append(f'<a href="{REPO_URL}">Código aberto</a>')
@@ -115,7 +119,7 @@ def header(current):
     if not (current in PAGES):
         raise SystemExit(current)
     return ('<header class="bi-header">'
-            f'<a class="bi-brand" href="{HOME}">{LOGO}<span>Brasil<i>·</i>Imposto</span></a>'
+            f'<a class="bi-brand" href="{HOME_HREF}">{LOGO}<span>Brasil<i>·</i>Imposto</span></a>'
             f'<nav class="bi-links" aria-label="Páginas">{_links(current)}</nav>'
             f'<button type="button" class="bi-menu-btn" aria-expanded="false" aria-controls="bi-sheet">{ICON}<span>Menu</span></button>'
             '</header>'
@@ -125,11 +129,11 @@ def header(current):
 
 def footer():
     """The footer, the same on every page."""
-    links = [(f"{HOME}#rede", "Rede do dinheiro (prévia)", ' data-here'), (REPO_URL, "Código aberto no GitHub", ""),
+    links = [(f"{HOME_HREF}#rede", "Rede do dinheiro (prévia)", ' data-here'), (REPO_URL, "Código aberto no GitHub", ""),
              (f"{REPO_URL}/blob/main/docs/decisions/README.md", "Decisões do projeto", ""),
              (f"{REPO_URL}/blob/main/CONTRIBUTING.md", "Como ajudar", ""), (f"{REPO_URL}#licenças", "Licenças", "")]
     return ('<footer class="bi-footer"><div class="bi-footer-in"><div class="bi-footer-id">'
-            f'<a class="bi-brand" href="{HOME}">{LOGO}<span>Brasil<i>·</i>Imposto</span></a>'
+            f'<a class="bi-brand" href="{HOME_HREF}">{LOGO}<span>Brasil<i>·</i>Imposto</span></a>'
             '<p>Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0.</p></div>'
             '<nav class="bi-footer-links" aria-label="Mais sobre o projeto">'
             + "".join(f'<a href="{h}"{x}>{t}</a>' for h, t, x in links) + '</nav></div></footer>')

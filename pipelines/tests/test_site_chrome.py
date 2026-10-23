@@ -132,5 +132,59 @@ class SiteFooterTest(unittest.TestCase):
         self.assertIn("Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0.", text)
 
 
+class HomeLinkTest(unittest.TestCase):
+    """Every link to Início points at the site's root ("./"), never at the design file's name (production has no preview), and the
+    old address forwards to the root with its query and hash (pages.yml, "Assemble the site")."""
+    WORKFLOW = REPO / ".github" / "workflows" / "pages.yml"
+
+    def problems(self, p):
+        out = []
+        chrome = site_chrome.extract(p, "header") + site_chrome.extract(p, "footer")
+        brands = re.findall(r'<a class="bi-brand" href="([^"]*)"', chrome)
+        if brands != ["./", "./"]:
+            out.append(f"logos: {brands}")
+        inicio = re.findall(r'<a href="([^"]*)"(?: aria-current="page")?>Início</a>', chrome)
+        if inicio != ["./", "./"]:
+            out.append(f"Início in the bar and the sheet: {inicio}")
+        rede = re.findall(r'<a href="([^"]*)" data-here>', chrome)
+        if rede != ["./#rede"]:
+            out.append(f"Rede do dinheiro: {rede}")
+        if re.search(r'href="[^"]*' + re.escape(site_chrome.HOME), p):
+            out.append("an href to the design file's name")
+        return out
+
+    def forward(self):
+        return re.search(r"<<'HTML'\n(.*?)\n\s*HTML\n", self.WORKFLOW.read_text(encoding="utf-8"), re.S).group(1)
+
+    def forward_problems(self, html):
+        out = []
+        for need in ("location.replace('./' + location.search + location.hash)", '<noscript><meta http-equiv="refresh" content="0; url=./">',
+                     '<link rel="canonical" href="./">', '<meta name="robots" content="noindex">'):
+            if need not in html:
+                out.append(need)
+        return out
+
+    def test_every_page_links_to_the_root(self):
+        for key in site_chrome.PAGES:
+            with self.subTest(page=key):
+                self.assertEqual(self.problems(page(key)), [])
+
+    def test_control_one_link_on_the_old_name_fails(self):
+        p = page("tres-poderes")
+        broken = p.replace('<a class="bi-brand" href="./">', f'<a class="bi-brand" href="{site_chrome.HOME}">', 1)
+        self.assertNotEqual(broken, p, "the plant did not land")
+        self.assertTrue(self.problems(broken))
+
+    def test_the_old_address_forwards_with_query_and_hash(self):
+        self.assertEqual(self.forward_problems(self.forward()), [])
+        text = self.WORKFLOW.read_text(encoding="utf-8")
+        self.assertIn(f"cat > _site/{site_chrome.HOME} <<'HTML'", text)
+        self.assertNotIn("for page in platform-preview_2026-10-09", text, "no second copy of Início under its old name")
+
+    def test_control_a_forward_that_drops_the_hash_fails(self):
+        broken = self.forward().replace(" + location.hash", "")
+        self.assertTrue(self.forward_problems(broken))
+
+
 if __name__ == "__main__":
     unittest.main()
