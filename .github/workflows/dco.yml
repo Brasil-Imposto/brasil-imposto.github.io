@@ -16,17 +16,32 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
           PR: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
         run: |
           gh api "repos/$REPO/pulls/$PR/commits?per_page=100" --paginate --slurp > commits.json
           python3 - <<'PY'
-          import json, re, sys
+          import json, os, re, subprocess, sys
           commits = [c for page in json.load(open("commits.json")) for c in page]
+          # A promotion (staging to main) or its back-merge (main to staging) carries the commits GitHub made when it merged
+          # pull requests that already passed this check; GitHub writes those with the account's own address as author. Such a
+          # commit passes when GitHub made it, it carries a sign-off and it belongs to a merged pull request (spec staging, 5).
+          repo = os.environ["REPO"]
+          branch_pair = (os.environ["HEAD_REF"], os.environ["BASE_REF"]) in {("staging", "main"), ("main", "staging")}
+          promotion = os.environ["HEAD_REPO"] == repo and branch_pair
+          def merged_through_a_pull_request(sha):
+              out = subprocess.run(["gh", "api", f"repos/{repo}/commits/{sha}/pulls"], capture_output=True, text=True)
+              return out.returncode == 0 and any(p.get("merged_at") for p in json.loads(out.stdout))
           bad = []
           for c in commits:
               author = c["commit"]["author"]
               signed = re.findall(r"^Signed-off-by: .+ <(.+)>\s*$", c["commit"]["message"], re.M)
-              if author["email"].lower() not in (e.lower() for e in signed):
-                  bad.append(f'{c["sha"][:7]} {author["name"]} <{author["email"]}>')
+              if author["email"].lower() in (e.lower() for e in signed):
+                  continue
+              if promotion and signed and c["commit"]["committer"]["email"] == "noreply@github.com" and merged_through_a_pull_request(c["sha"]):
+                  continue
+              bad.append(f'{c["sha"][:7]} {author["name"]} <{author["email"]}>')
           if bad:
               print("Commits without a sign-off by their author (git commit -s):")
               print("\n".join(bad))
