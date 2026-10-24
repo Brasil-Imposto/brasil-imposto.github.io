@@ -13,7 +13,8 @@ Site: <https://brasil-imposto.github.io>.
 
 - **Hoje:** páginas HTML estáticas em `docs/superpowers/previews/`, montadas por Python 3 a partir de `data/` pelos construtores
   de `docs/superpowers/tools/` (comandos no `README.md`). O workflow `.github/workflows/pages.yml` refaz e publica a cada push na
-  `main`. Os pacotes `assets/bi-data.js` e `assets/bi-geo*.js` não ficam no git: os construtores os refazem.
+  `main`. O staging (`https://brasil-imposto.github.io/staging/`, público, com uma faixa de testes e `noindex`, D165) é
+  publicado pelo repositório `Brasil-Imposto/staging` a partir do ramo `staging`. Os pacotes `assets/bi-data.js` e `assets/bi-geo*.js` não ficam no git: os construtores os refazem.
 - **Em construção:** o site em Astro 7 com TypeScript estrito, three.js e um mapa SVG gerado no build, um JSON por entidade com
   JSON Schema, Python nos pipelines (Parte B de
   `docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_v1-release-and-site-build_2026-10-22.md`, uma issue por fase).
@@ -44,6 +45,10 @@ Site: <https://brasil-imposto.github.io>.
 3. O plano, com uma tarefa por vez.
 4. Testes primeiro.
 5. Revisão, um assunto por pull request, commits assinados (`git commit -s`, DCO).
+6. O pull request vai para o `staging` (o ramo padrão), nunca para a `main`. A `main` só recebe a promoção que a pessoa
+   mantenedora aprova (`release: <data>`, squash) e, logo depois, o back-merge `main` para `staging` com merge commit; só nesses
+   dois o `dco` aceita os commits que o GitHub fez ao mergear (#61). Uma funcionalidade nova entra com a sua chave em
+   `data/features.json`, desligada na produção.
 
 ## Como conferir
 
@@ -82,5 +87,6 @@ Pergunte à pessoa mantenedora, numa issue ou no pull request, antes de:
 Agent guide: Portuguese UI, English identifiers and commits; neutral text; no number without an official source; every sum
 closes by hand; every period works; every check is proven against a planted failure; look at screenshots at 1440 and 420 px.
 Specs are approved by the maintainer before code. Before starting a task, check it has no owner yet (the spec's owner
-section, open issues, pull requests and branches). Ask before changing a recorded decision, a method, sources, dependencies or
+section, open issues, pull requests and branches). Pull requests go to `staging`; `main` only receives the maintainer's
+promotion, followed by the back-merge. Ask before changing a recorded decision, a method, sources, dependencies or
 repository settings.
