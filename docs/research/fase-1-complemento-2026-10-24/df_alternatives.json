@@ -1,0 +1,116 @@
+{
+ "gdp_share_pct": "3.34",
+ "gdp_year": 2023,
+ "rows": [
+  {
+   "period": "2019",
+   "received": "66.6",
+   "sent_registered": "118.9",
+   "excess_gdp": "78.5",
+   "bal_registered": "52.4",
+   "bal_gdp_cap": "-26.2",
+   "bal_pop_cap": "-46.6",
+   "pop_share": "1.43",
+   "ok": true
+  },
+  {
+   "period": "2020",
+   "received": "68.4",
+   "sent_registered": "118.4",
+   "excess_gdp": "74.4",
+   "bal_registered": "50.1",
+   "bal_gdp_cap": "-24.3",
+   "bal_pop_cap": "-49.0",
+   "pop_share": "1.44",
+   "ok": true
+  },
+  {
+   "period": "2021",
+   "received": "68.3",
+   "sent_registered": "137.5",
+   "excess_gdp": "82.5",
+   "bal_registered": "69.2",
+   "bal_gdp_cap": "-13.2",
+   "bal_pop_cap": "-44.0",
+   "pop_share": "1.45",
+   "ok": true
+  },
+  {
+   "period": "2022",
+   "received": "73.8",
+   "sent_registered": "158.6",
+   "excess_gdp": "93.3",
+   "bal_registered": "84.8",
+   "bal_gdp_cap": "-8.5",
+   "bal_pop_cap": "-46.3",
+   "pop_share": "1.39",
+   "ok": true
+  },
+  {
+   "period": "2023",
+   "received": "83.2",
+   "sent_registered": "166.7",
+   "excess_gdp": "97.7",
+   "bal_registered": "83.5",
+   "bal_gdp_cap": "-14.2",
+   "bal_pop_cap": "-53.6",
+   "pop_share": "1.39",
+   "ok": true
+  },
+  {
+   "period": "2024",
+   "received": "91.3",
+   "sent_registered": "184.1",
+   "excess_gdp": "101.5",
+   "bal_registered": "92.8",
+   "bal_gdp_cap": "-8.7",
+   "bal_pop_cap": "-56.2",
+   "pop_share": "1.40",
+   "ok": true
+  },
+  {
+   "period": "2025",
+   "received": "84.7",
+   "sent_registered": "185.9",
+   "excess_gdp": "104.3",
+   "bal_registered": "101.2",
+   "bal_gdp_cap": "-3.1",
+   "bal_pop_cap": "-49.7",
+   "pop_share": "1.40",
+   "ok": true
+  },
+  {
+   "period": "2026 (janeiro a agosto)",
+   "received": "58.9",
+   "sent_registered": "116.7",
+   "excess_gdp": "61.7",
+   "bal_registered": "57.8",
+   "bal_gdp_cap": "-3.9",
+   "bal_pop_cap": "-35.3",
+   "pop_share": "1.41",
+   "ok": true
+  },
+  {
+   "period": "mandato 2019 a 2022",
+   "received": "277.0",
+   "sent_registered": "533.5",
+   "excess_gdp": "323.1",
+   "bal_registered": "256.5",
+   "bal_gdp_cap": "-66.6",
+   "bal_pop_cap": "-187.2",
+   "pop_share": "1.41",
+   "ok": true
+  },
+  {
+   "period": "mandato 2023 a 2026 (até ago/2026)",
+   "received": "318.1",
+   "sent_registered": "653.4",
+   "excess_gdp": "364.5",
+   "bal_registered": "335.3",
+   "bal_gdp_cap": "-29.2",
+   "bal_pop_cap": "-192.6",
+   "pop_share": "1.41",
+   "ok": true
+  }
+ ]
+}
