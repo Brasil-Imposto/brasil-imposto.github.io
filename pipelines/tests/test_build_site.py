@@ -6,6 +6,7 @@ import importlib.util
 import json
 import os
 import re
+import shutil
 import subprocess
 import tempfile
 import unittest
@@ -20,7 +21,11 @@ _spec.loader.exec_module(build_site)
 site_chrome = build_site.site_chrome
 ACCESS_KEY = "00000000-1111-4222-8333-444444444444"   # a dummy Web3Forms access key, for these tests only
 # what each switch leaves in a page when it is built in: its class names, its style and its script
-MARKS = {"apoie": ("bi-apoie", "bi-ap-", "bi-apoie-css")}
+MARKS = {"apoie": ("bi-apoie", "bi-ap-", "bi-apoie-css"),
+         "trade": ("data-trade", "o-que-o-brasil-vende", "home-trade", "BIHT", "O que o Brasil vende ao exterior, produto por produto")}
+# what a switch's content leaves in a script or style of assets/ (home-feed.js keeps the hook window.BIHT and names its file in a
+# comment, so in assets/ only the section itself counts, with its own files)
+ASSET_MARKS = {"apoie": ("bi-apoie-css",), "trade": ("data-trade", "o-que-o-brasil-vende", "O que o Brasil vende ao exterior, produto por produto")}
 
 
 def status():
@@ -35,15 +40,31 @@ def run(profile, out, env=None):
 
 
 def leaks(site, data):
-    """The marks of each feature switched off in production that are in a built page."""
+    """The marks of each feature switched off in production that are in a built page or in a file of its assets/ (its own
+    files are left out of the build, so a mark in any other file is a leak too)."""
     out = []
+    files = sorted(Path(site).glob("*.html")) + sorted(p for p in (Path(site) / "assets").glob("*") if p.suffix in (".js", ".css"))
     for f in data["features"]:
         if f["production"]:
             continue
-        for page in sorted(Path(site).glob("*.html")):
+        for page in files:
             text = page.read_text(encoding="utf-8")
-            out += [f"{page.name}: {f['key']} ({m})" for m in MARKS[f["key"]] if m in text]
+            marks = MARKS[f["key"]] if page.suffix == ".html" else ASSET_MARKS[f["key"]]
+            out += [f"{page.name}: {f['key']} ({m})" for m in marks if m in text]
+            out += [f"{page.name}: {f['key']} (file)" for fn in build_site.FEATURES.get(f["key"], {}).get("files", ()) if page.name == fn]
     return out
+
+
+def built(profile, features_json, key):
+    """One committed page as build-site.py makes it for the profile, under another features file (with_features, then the
+    staging chrome for staging)."""
+    old = os.environ.get("BI_FEATURES_JSON")
+    os.environ["BI_FEATURES_JSON"] = str(features_json)
+    try:
+        page = build_site.with_features((PREVIEWS / site_chrome.ALL_PAGES[key][0]).read_text(encoding="utf-8"), key, profile)
+        return page if profile == "production" else build_site.staging_page(page, key)
+    finally:
+        os.environ.pop("BI_FEATURES_JSON") if old is None else os.environ.__setitem__("BI_FEATURES_JSON", old)
 
 
 class BuildSiteTest(unittest.TestCase):
@@ -61,14 +82,14 @@ class BuildSiteTest(unittest.TestCase):
         cls.tmp.cleanup()
 
     def test_production_is_the_committed_pages_plus_robots(self):
-        for key, (name, _) in site_chrome.PAGES.items():
+        for key, (name, _) in site_chrome.ALL_PAGES.items():
             with self.subTest(page=key):
                 built = self.prod / ("index.html" if key == "inicio" else name)
                 self.assertEqual(built.read_bytes(), (PREVIEWS / name).read_bytes())
         self.assertEqual((self.prod / "robots.txt").read_text(encoding="utf-8"), "User-agent: *\nDisallow: /staging/\n")
         self.assertEqual((self.prod / site_chrome.HOME).read_text(encoding="utf-8"), build_site.FORWARD)
         self.assertEqual(sorted(p.name for p in self.prod.iterdir()), sorted(
-            [".nojekyll", "assets", "index.html", "robots.txt", site_chrome.HOME] + [n for k, (n, _) in site_chrome.PAGES.items() if k != "inicio"]))
+            [".nojekyll", "assets", "index.html", "robots.txt", site_chrome.HOME] + [n for k, (n, _) in site_chrome.ALL_PAGES.items() if k != "inicio"]))
 
     def test_nothing_switched_off_leaks_into_production(self):
         data = json.loads((REPO / "data" / "features.json").read_text(encoding="utf-8"))
@@ -83,7 +104,7 @@ class BuildSiteTest(unittest.TestCase):
         (tmp / "features.json").write_text(json.dumps(switched), encoding="utf-8")
         site = tmp / "control"
         site.mkdir()
-        for key, (name, _) in site_chrome.PAGES.items():   # the committed pages with apoie built in, as production would make them
+        for key, (name, _) in site_chrome.ALL_PAGES.items():   # the committed pages with apoie built in, as production would make them
             env = {"BI_SUPPORT_JSON": str(tmp / "support.json"), "BI_FEATURES_JSON": str(tmp / "features.json")}
             old = {k: os.environ.get(k) for k in env}
             os.environ.update(env)
@@ -98,10 +119,41 @@ class BuildSiteTest(unittest.TestCase):
             if f["key"] == "apoie":
                 f["production"] = False
         found = leaks(site, off)
-        self.assertEqual(len(found), 3 * len(MARKS["apoie"]), found)
+        self.assertEqual(len(found), len(site_chrome.ALL_PAGES) * len(MARKS["apoie"]), found)
+
+    def test_trade_is_off_in_production_and_on_in_staging(self):
+        data = json.loads((REPO / "data" / "features.json").read_text(encoding="utf-8"))
+        trade = next(f for f in data["features"] if f["key"] == "trade")
+        self.assertEqual((trade["staging"], trade["production"]), (True, False))
+        for fn in build_site.FEATURES["trade"]["files"]:
+            self.assertFalse((self.prod / "assets" / fn).exists(), fn)
+            self.assertTrue((self.stage / "assets" / fn).exists(), fn)
+        page = (self.stage / "index.html").read_text(encoding="utf-8")
+        self.assertEqual(page.count('<link rel="stylesheet" href="assets/home-trade.css">'), 1)
+        self.assertEqual(page.count('<script type="text/x-bi-deferred" data-src="assets/home-trade.js"></script>'), 1)
+        self.assertLess(page.index('data-src="assets/home-feed.js"'), page.index('data-src="assets/home-trade.js"'),
+                        "home-trade.js reads home-feed.js's helpers, so it runs after it")
+
+    def test_control_trade_on_in_production_is_found(self):
+        tmp = Path(self.tmp.name)
+        data = json.loads((REPO / "data" / "features.json").read_text(encoding="utf-8"))
+        for f in data["features"]:
+            if f["key"] == "trade":
+                f["production"] = True
+        (tmp / "trade-on.json").write_text(json.dumps(data), encoding="utf-8")
+        site = tmp / "trade-control"
+        shutil.copytree(self.stage / "assets", site / "assets")   # the assets a build with trade on carries
+        (site / "index.html").write_text(built("production", tmp / "trade-on.json", "inicio"), encoding="utf-8")
+        for f in data["features"]:   # the leak check sees trade as switched off
+            if f["key"] == "trade":
+                f["production"] = False
+        found = leaks(site, data)
+        self.assertIn("index.html: trade (home-trade)", found)
+        self.assertIn("home-trade.js: trade (file)", found)
+        self.assertIn("home-trade.css: trade (file)", found)
 
     def test_staging_marks_every_page_and_builds_apoie(self):
-        for key, (name, _) in site_chrome.PAGES.items():
+        for key, (name, _) in site_chrome.ALL_PAGES.items():
             with self.subTest(page=key):
                 page = (self.stage / ("index.html" if key == "inicio" else name)).read_text(encoding="utf-8")
                 self.assertEqual(page.count('<meta name="robots" content="noindex">'), 1)

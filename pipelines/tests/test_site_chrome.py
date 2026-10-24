@@ -14,12 +14,12 @@ PREVIEWS = REPO / "docs" / "superpowers" / "previews"
 
 
 def page(key):
-    return (PREVIEWS / site_chrome.PAGES[key][0]).read_text(encoding="utf-8")
+    return (PREVIEWS / site_chrome.ALL_PAGES[key][0]).read_text(encoding="utf-8")
 
 
 class SiteHeaderTest(unittest.TestCase):
     def test_each_page_carries_the_module_header(self):
-        for key in site_chrome.PAGES:
+        for key in site_chrome.ALL_PAGES:
             with self.subTest(page=key):
                 p, want = page(key), site_chrome.parts(key)  # with the Apoie parts when data/support.json turns them on
                 self.assertEqual(site_chrome.extract(p, "header"), want["header"])
@@ -28,14 +28,16 @@ class SiteHeaderTest(unittest.TestCase):
                 self.assertEqual(p.count('class="bi-header"'), 1, "one header per page")
 
     def test_headers_equal_apart_from_the_current_page_mark(self):
-        blocks = {k: site_chrome.extract(page(k), "header") for k in site_chrome.PAGES}
+        blocks = {k: site_chrome.extract(page(k), "header") for k in site_chrome.ALL_PAGES}
         for k, b in blocks.items():
-            self.assertEqual(b.count('aria-current="page"'), 2, f"{k}: the current link marked in the bar and in the sheet")
+            # a page outside the header's list (Como ler o mapa, D159) marks no link
+            want = 2 if k in site_chrome.PAGES else 0
+            self.assertEqual(b.count('aria-current="page"'), want, f"{k}: the current link marked in the bar and in the sheet")
         plain = {re.sub(r' aria-current="page"', "", b) for b in blocks.values()}
         self.assertEqual(len(plain), 1, "the headers differ beyond the current-page mark")
 
     def test_no_rede_previa_in_the_header(self):
-        for key in site_chrome.PAGES:
+        for key in site_chrome.ALL_PAGES:
             text = re.sub(r"<[^>]+>", " ", site_chrome.extract(page(key), "header"))
             self.assertNotRegex(text, r"Rede\s*\(prévia\)")
 
@@ -59,7 +61,7 @@ class SiteBrandTest(unittest.TestCase):
         return out
 
     def test_every_page_carries_the_logo_and_the_icons(self):
-        for key in site_chrome.PAGES:
+        for key in site_chrome.ALL_PAGES:
             with self.subTest(page=key):
                 self.assertEqual(self.problems(page(key)), [])
 
@@ -96,7 +98,7 @@ class SiteSocialPreviewTest(unittest.TestCase):
         return out
 
     def test_every_page_carries_the_tags(self):
-        for key in site_chrome.PAGES:
+        for key in site_chrome.ALL_PAGES:
             with self.subTest(page=key):
                 self.assertEqual(self.problems(page(key)), [])
 
@@ -115,7 +117,7 @@ class SiteSocialPreviewTest(unittest.TestCase):
 class SiteFooterTest(unittest.TestCase):
     def test_each_page_carries_the_same_footer(self):
         blocks = set()
-        for key in site_chrome.PAGES:
+        for key in site_chrome.ALL_PAGES:
             with self.subTest(page=key):
                 p = page(key)
                 self.assertEqual(site_chrome.extract(p, "footer"), site_chrome.footer())
@@ -126,7 +128,7 @@ class SiteFooterTest(unittest.TestCase):
     def test_footer_links(self):
         text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", site_chrome.footer()))
         self.assertEqual(len(re.findall(r"Rede do dinheiro \(prévia\)", text)), 1)
-        for label in ("Código aberto no GitHub", "Decisões do projeto", "Como ajudar", "Licenças"):
+        for label in ("Código aberto no GitHub", "Decisões do projeto", "Como ajudar", "Licenças", "Como ler o mapa"):
             self.assertEqual(text.count(label), 1, label)
         self.assertIn("Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0.", text)
 
@@ -165,7 +167,7 @@ class HomeLinkTest(unittest.TestCase):
         return out
 
     def test_every_page_links_to_the_root(self):
-        for key in site_chrome.PAGES:
+        for key in site_chrome.ALL_PAGES:
             with self.subTest(page=key):
                 self.assertEqual(self.problems(page(key)), [])
 

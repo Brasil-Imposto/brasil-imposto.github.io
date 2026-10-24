@@ -289,7 +289,11 @@ data["df_regions"] = read(DATA / "df" / "regions.json", "pipelines/df/build_regi
 for uf in ("sc", "rs"):
     state_geo = need(ASSETS / f"geo-{uf}.json", "docs/superpowers/tools/build-geo-state.cjs")
     (ASSETS / f"bi-geo-{uf}.js").write_text(f"window.BI_GEO_{uf.upper()} = " + state_geo.read_text(encoding="utf-8") + ";\n", encoding="utf-8")
+# D159: O governo federal lives on Como o dinheiro anda, which reads a small file of its own instead of the map's data;
+# federal_section and federal_servants leave bi-data.js (federal-section.js is their only reader), releases stays in both.
+federal = {"releases": data["releases"], "federal_section": data.pop("federal_section"), "federal_servants": data.pop("federal_servants")}
+(ASSETS / "bi-federal.js").write_text("window.BI = " + json.dumps(federal, ensure_ascii=False) + ";\n", encoding="utf-8")
 (ASSETS / "bi-data.js").write_text("window.BI = " + json.dumps(data, ensure_ascii=False) + ";\n", encoding="utf-8")
 (ASSETS / "bi-geo.js").write_text("window.BI_GEO = " + json.dumps(geo, ensure_ascii=False) + ";\n", encoding="utf-8")
-print("bi-data.js", round((ASSETS / "bi-data.js").stat().st_size / 1024), "KB · bi-geo.js", round((ASSETS / "bi-geo.js").stat().st_size / 1024), "KB ·",
+print("bi-data.js", round((ASSETS / "bi-data.js").stat().st_size / 1024), "KB · bi-federal.js", round((ASSETS / "bi-federal.js").stat().st_size / 1024), "KB · bi-geo.js", round((ASSETS / "bi-geo.js").stat().st_size / 1024), "KB ·",
       len(icons), "icons ·", len(flag_data), "flags")

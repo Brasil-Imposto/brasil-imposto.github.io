@@ -53,6 +53,7 @@ jobs:
           python docs/superpowers/tools/build-simulation.py
           python docs/superpowers/tools/build-platform-preview.py
           python docs/superpowers/tools/build-site-chrome.py
+          python docs/superpowers/tools/build-notes-page.py
           git diff --exit-code -- docs/superpowers/previews/
       - name: Map loader (the page's size equals the built data file)
         run: uv run --locked python -m unittest pipelines/tests/test_map_loader.py -v

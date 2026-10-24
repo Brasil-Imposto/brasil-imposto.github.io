@@ -46,7 +46,7 @@ MONTH = ["Primeiro, a infraestrutura do mês, pelo custo real.",
          "O que ficar fica guardado para os meses seguintes, e o saldo aparece no livro-caixa."]
 NOT_PAID_BY = ("Não pagamos por número de commits, de linhas ou de pull requests: pesquisar e conferir uma fonte oficial pode levar "
                "dias e virar poucas linhas. O valor de cada tarefa é decidido antes, à vista de todos.")
-SPONSORS_CARD = "Em dólar, uma vez ou todo mês, pela sua conta do GitHub."
+SPONSORS_CARD = "Em dólar, uma vez pela sua conta do GitHub."
 CRYPTO_CARD = "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB. Cada endereço é público, com o link do explorador."
 CRYPTO_CARD_SOON = "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB."
 SOON = "Em breve"

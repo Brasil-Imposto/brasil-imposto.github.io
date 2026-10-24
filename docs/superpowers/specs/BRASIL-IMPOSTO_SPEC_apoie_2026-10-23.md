@@ -80,7 +80,7 @@ ainda).
    de linhas ou de pull requests: pesquisar e conferir uma fonte oficial pode levar dias e virar poucas linhas. O valor de cada
    tarefa é decidido antes, à vista de todos."
 5. "Como apoiar": dois cartões lado a lado (um sobre o outro no celular), cada um abrindo a sua vista dentro da janela:
-   - GitHub Sponsors (a marca do GitHub): "Em dólar, uma vez ou todo mês, pela sua conta do GitHub." Botão "Apoiar pelo GitHub
+   - GitHub Sponsors (a marca do GitHub): "Em dólar, uma vez pela sua conta do GitHub." Botão "Apoiar pelo GitHub
      Sponsors".
    - Cripto (uma moeda): "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB. Cada endereço é público, com o link do explorador."
      Botão "Apoiar com cripto".

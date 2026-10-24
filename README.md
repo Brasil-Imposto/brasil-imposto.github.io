@@ -33,7 +33,9 @@ estados e os municípios, quem ocupa cada cargo dos três Poderes e quanto receb
 fonte oficial ao lado, com o link, o período e a data da coleta.
 
 **Estado:** primeira versão pública (v1). As páginas são arquivos HTML estáticos montados a partir dos dados deste repositório e
-publicados no GitHub Pages a cada mudança na `main`; o site definitivo, em Astro, está em construção.
+publicados no GitHub Pages em dois sites: o de testes, <https://brasil-imposto.github.io/staging/>, a cada merge no ramo `staging`,
+e a produção, <https://brasil-imposto.github.io>, a cada promoção do `staging` para a `main`. O site definitivo, em Astro, está em
+construção.
 
 ## As páginas
 
@@ -105,8 +107,12 @@ python3 docs/superpowers/tools/build-simulation.py
 python3 docs/superpowers/tools/build-platform-preview.py
 ```
 
+A página Como ler o mapa lê as notas de `assets/map-notes.js`, que pede também o Node:
+`node docs/superpowers/tools/build-map-notes.cjs`.
+
 Depois, abra os arquivos das páginas no navegador pelo caminho do arquivo (eles ficam em `docs/superpowers/previews/`). Os
-pacotes `assets/bi-data.js` e `assets/bi-geo*.js` não ficam no repositório: são refeitos por esses comandos a partir de `data/`.
+pacotes `assets/bi-data.js`, `assets/bi-federal.js`, `assets/map-notes.js` e `assets/bi-geo*.js` não ficam no repositório: são
+refeitos por esses comandos a partir de `data/`.
 
 Os pipelines de `pipelines/` e os testes usam Python 3.12 com as versões fixadas em `uv.lock`: instale o
 [uv](https://docs.astral.sh/uv/) e rode `uv sync --locked`, depois `uv run python -m unittest discover -s pipelines/tests`.
@@ -156,8 +162,8 @@ Brasil; os municípios de SC e do RS e as Regiões Administrativas do DF; Os 3 P
 
 Corrigir um número, acrescentar uma fonte, cobrir os municípios de um estado, propor um caso ou relatar um defeito: comece por um
 dos [formulários de issue](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/new/choose). Mudanças entram por pull
-request, e as regras para virar colaborador e para documentar um pull request estão na
-[página da organização](https://github.com/Brasil-Imposto). Perguntas e ideias ficam em
+request para o ramo `staging`, são conferidas no site de testes e só depois vão à produção; as regras para virar colaborador e
+para documentar um pull request estão na [página da organização](https://github.com/Brasil-Imposto). Perguntas e ideias ficam em
 [Discussions](https://github.com/Brasil-Imposto/brasil-imposto.github.io/discussions); falhas de segurança se relatam em privado
 ([`SECURITY.md`](SECURITY.md)); a convivência segue o [código de conduta](CODE_OF_CONDUCT.md).
 
@@ -173,5 +179,7 @@ Brasil-Imposto is a civic, nonpartisan, open-source map of Brazilian public mone
 state and municipal taxes are collected and shared, what each federal officeholder is paid and uses, and where the money goes.
 The site is <https://brasil-imposto.github.io>. The pages are static HTML built from `data/` with Python 3 and no extra packages
 (commands above); an Astro site is being built phase by phase (issues #2 to #7). Code is AGPL-3.0; data and texts are CC BY 4.0.
-Issues and pull requests are welcome, in Portuguese or English; every number needs its official source. How to contribute and
+Issues and pull requests are welcome, in Portuguese or English; every number needs its official source. Pull requests go to the
+`staging` branch, which publishes the test site <https://brasil-imposto.github.io/staging/>; production only receives what was
+checked there. How to contribute and
 how to document a pull request: <https://github.com/Brasil-Imposto>.

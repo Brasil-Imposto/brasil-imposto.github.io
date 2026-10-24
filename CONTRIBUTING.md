@@ -11,6 +11,8 @@ Para começar agora:
   com o link da fonte oficial com o valor certo.
 - **Qualquer outra ideia:** um dos [formulários de issue](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/new/choose)
   ou [Discussions](https://github.com/Brasil-Imposto/brasil-imposto.github.io/discussions).
-- **Um pull request:** o formulário do pull request já traz as seções que ele precisa ter.
+- **Um pull request:** sempre para o ramo `staging`, nunca para a `main`. A mudança é conferida no site de testes,
+  <https://brasil-imposto.github.io/staging/>, e só depois vai à produção. O formulário do pull request já traz as seções que ele
+  precisa ter.
 
 O Brasil-Imposto só mostra dado oficial: toda contribuição traz a fonte.

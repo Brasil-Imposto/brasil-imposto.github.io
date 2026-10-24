@@ -31,9 +31,16 @@ class FeaturesFileTest(unittest.TestCase):
 
     def test_apoie_is_on_in_staging(self):
         d = committed()
-        self.assertEqual([f["key"] for f in d["features"]], ["apoie"])
+        self.assertEqual([f["key"] for f in d["features"]], ["apoie", "trade"])
         self.assertIs(features.on("apoie", "staging", d), True)
         self.assertIsInstance(features.on("apoie", "production", d), bool)
+
+    def test_trade_is_on_in_staging_only(self):
+        # O que o Brasil vende on Início, only in staging (D159, spec home-trim); its issue is the one the switch was opened for
+        d = committed()
+        self.assertIs(features.on("trade", "staging", d), True)
+        self.assertIs(features.on("trade", "production", d), False)
+        self.assertEqual(next(f["issue"] for f in d["features"] if f["key"] == "trade"), 57)
 
     def test_control_a_bad_file_fails_the_schema_and_the_module(self):
         cases = {"a key in Portuguese capitals": lambda d: d["features"][0].update(key="Apoie"),
@@ -54,7 +61,7 @@ class FeaturesFileTest(unittest.TestCase):
 
     def test_control_an_unknown_key_or_profile_stops_the_build(self):
         with self.assertRaises(SystemExit):
-            features.on("trade", "production", committed())
+            features.on("no-such-feature", "production", committed())
         with self.assertRaises(SystemExit):
             features.on("apoie", "preview", committed())
 
