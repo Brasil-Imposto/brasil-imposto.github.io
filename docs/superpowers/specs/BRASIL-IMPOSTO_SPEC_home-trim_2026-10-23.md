@@ -10,7 +10,7 @@ request into `staging` by the cloud session, after the staging pull request land
 Estado: **aprovada pelo mantenedor em 2026-10-23** (D159), com as três recomendações: a página das notas abre no período e na
 medida do leitor; o nome é "Como ler o mapa"; O governo federal fica no fim de Como o dinheiro anda. Base: a spec do staging,
 `docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_staging_2026-10-23.md` (D157), seção 2 ("esconder partes da produção será uma chave a
-mais por parte").
+mais por parte"). Feita no #59, no ar desde o #60 (2026-10-24).
 
 ## 1. O que muda
 

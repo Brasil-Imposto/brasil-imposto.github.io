@@ -343,7 +343,7 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
   GitHub Pages"). O Pages respondeu o endereço da raiz mesmo com o nome da organização em maiúsculas (`Brasil-Imposto`).
 - **Ordem que funcionou:** criar o repositório, ligar o Pages com a fonte "GitHub Actions", ligar a segurança, fazer o push e só então o ruleset da
   `main` (sem exceção, nem para o dono: criado antes, recusaria o próprio push). Depois disso, toda mudança, mesmo de documento, entra por PR com o check
-  `dco` verde e squash merge, que o GitHub assina.
+  `dco` verde (squash, que o GitHub assina; desde D157, no `staging`, e o back-merge de cada promoção usa merge commit).
 - **Peso medido no ar:** `bi-data.js` tem 87 MB e chega com cerca de 20 MB pela rede (gzip do Pages); o mapa espera esse arquivo inteiro, por isso o
   cartão de carregamento com o progresso real (D152). A divisão por entidade vem com o site em Astro (fases B0 a B2).
 - **Conferir o site publicado:** `visible-text-probe.cjs <URL> <saída> --audit` (com `--plant` como controle, que tem de pegar a nota plantada) e
