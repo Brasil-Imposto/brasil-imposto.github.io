@@ -42,6 +42,6 @@ As dez partes do pedido do mantenedor (2026-10-24):
 - [x] Issue #64 aberta; ramo criado do `staging` em `7a239b1`.
 - [x] Medir o estado inicial (clone limpo: os construtores rodam em cerca de 20 s, os testes em cerca de 40 s; regras dos ramos e segurança lidas pela API).
 - [x] Relatório de avaliação: `docs/research/BRASIL-IMPOSTO_RESEARCH_fase-2-avaliacao_2026-10-24.md`.
-- [ ] Spec com as mudanças pequenas e as decisões do mantenedor.
-- [ ] Rascunhos das tarefas iniciais (no relatório; as issues só depois da aprovação).
+- [x] Spec: `docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_fase-2-profissionalizacao_2026-10-24.md` (itens P1 a P8 e as perguntas Q-F2-1 a Q-F2-6).
+- [x] Rascunhos das tarefas iniciais: seção 5 da spec (as issues só depois da aprovação).
 - [ ] Pull request para o `staging`, sem merge.
