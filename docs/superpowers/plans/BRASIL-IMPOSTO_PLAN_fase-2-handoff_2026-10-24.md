@@ -44,4 +44,23 @@ As dez partes do pedido do mantenedor (2026-10-24):
 - [x] Relatório de avaliação: `docs/research/BRASIL-IMPOSTO_RESEARCH_fase-2-avaliacao_2026-10-24.md`.
 - [x] Spec: `docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_fase-2-profissionalizacao_2026-10-24.md` (itens P1 a P8 e as perguntas Q-F2-1 a Q-F2-6).
 - [x] Rascunhos das tarefas iniciais: seção 5 da spec (as issues só depois da aprovação).
-- [ ] Pull request para o `staging`, sem merge.
+- [x] Pull request para o `staging`, sem merge (aberto em 2026-10-24; o número está na issue #64).
+
+## Depois do pull request de documentos
+
+- Se o mantenedor aprovar, registre a aprovação no registro de decisões. O registro está em D154 e precisa de G1 da spec de
+  confiança antes, para os números D não colidirem: confira o último D usado nos pull requests de 2026-10-23 e 24.
+- Abra as issues da seção 5 da spec com o rótulo `difficulty:low`.
+- Implemente um item por pull request, na ordem da seção 2 da spec, a começar por P1. P1 é só documentação e não espera as
+  perguntas.
+- D1 com P2 mexe em workflow: só com a resposta a Q-F2-4.
+- Cada item segue os sete passos do pedido do mantenedor:
+  1. problema;
+  2. arquivos;
+  3. critérios de aceitação;
+  4. riscos;
+  5. a menor solução;
+  6. testes com controle;
+  7. resultado no pull request.
+- O relatório final da fase (seção 10 do pedido) sai quando os itens P estiverem feitos. Ele separa o implementado, o testado, o
+  recomendado e o que depende do mantenedor, e compara com a seção 1 do relatório de avaliação.
