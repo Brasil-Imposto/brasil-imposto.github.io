@@ -40,9 +40,10 @@ Site: <https://brasil-imposto.github.io>.
 ## Fluxo de trabalho
 
 1. Uma spec aprovada pela pessoa mantenedora antes de qualquer código (`docs/superpowers/specs/`).
-2. O plano, com uma tarefa por vez.
-3. Testes primeiro.
-4. Revisão, um assunto por pull request, commits assinados (`git commit -s`, DCO).
+2. Antes de começar, confira se a tarefa já tem dono: a seção "Quem faz o quê" da spec e as issues, pull requests e ramos abertos dela (`gh issue list --search`, `gh pr list --search`, `git ls-remote origin`). Se tiver, não comece outra: comente na issue. Um pull request aberto recebe commits só de quem o abriu, salvo pedido da pessoa mantenedora.
+3. O plano, com uma tarefa por vez.
+4. Testes primeiro.
+5. Revisão, um assunto por pull request, commits assinados (`git commit -s`, DCO).
 
 ## Como conferir
 
@@ -80,5 +81,6 @@ Pergunte à pessoa mantenedora, numa issue ou no pull request, antes de:
 
 Agent guide: Portuguese UI, English identifiers and commits; neutral text; no number without an official source; every sum
 closes by hand; every period works; every check is proven against a planted failure; look at screenshots at 1440 and 420 px.
-Specs are approved by the maintainer before code. Ask before changing a recorded decision, a method, sources, dependencies or
+Specs are approved by the maintainer before code. Before starting a task, check it has no owner yet (the spec's owner
+section, open issues, pull requests and branches). Ask before changing a recorded decision, a method, sources, dependencies or
 repository settings.
