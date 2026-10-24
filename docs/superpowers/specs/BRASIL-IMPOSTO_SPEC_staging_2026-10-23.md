@@ -7,7 +7,7 @@ script with two profiles, and one switch file (`data/features.json`): staging bu
 ones, and a feature switched off is absent from the page. Promotion is a pull request from `staging` to `main`, followed by a back-merge.
 Production stays byte for byte what is live today when this lands.
 
-Estado: **aprovada pelo mantenedor em 2026-10-23.** Base: as escolhas do mantenedor na mesma data (staging num segundo repositório para
+Estado: **aprovada pelo mantenedor em 2026-10-23.** Feita: #52 (2026-10-23) e a seção 6 no mesmo dia; staging público por escolha do mantenedor (D165); falta o token do deploy automático. Base: as escolhas do mantenedor na mesma data (staging num segundo repositório para
 simular produção; staging como ambiente de ideias, onde cada contribuição entra primeiro; uma funcionalidade chega à produção por chave,
 não por cópia de código entre ramos).
 
