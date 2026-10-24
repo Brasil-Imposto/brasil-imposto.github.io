@@ -46,7 +46,7 @@ O pedido do mantenedor (2026-10-24) pede nove entregáveis. A auditoria de 2026-
 
 - [x] Lacunas medidas contra a auditoria de 2026-10-23 (esta tabela).
 - [x] Issue #66 aberta.
-- [ ] Relatório do complemento (itens 1 a 5).
-- [ ] Apêndice de proveniência.
+- [x] Relatório do complemento (itens 1 a 5): `docs/research/BRASIL-IMPOSTO_RESEARCH_fase-1-complemento_2026-10-24.md`, com as alternativas do DF calculadas (`df_alternatives.cjs`).
+- [x] Apêndice de proveniência: `docs/research/fase-1-complemento-2026-10-24/provenance.json` (13 indicadores).
 - [ ] Pull request de documentos para o `staging`, sem merge.
 - [ ] Testes do item 6, um pull request cada.
