@@ -49,7 +49,17 @@ O pedido do mantenedor (2026-10-24) pede nove entregáveis. A auditoria de 2026-
 - [x] Relatório do complemento (itens 1 a 5): `docs/research/BRASIL-IMPOSTO_RESEARCH_fase-1-complemento_2026-10-24.md`, com as alternativas do DF calculadas (`df_alternatives.cjs`).
 - [x] Apêndice de proveniência: `docs/research/fase-1-complemento-2026-10-24/provenance.json` (13 indicadores).
 - [x] Pull request de documentos para o `staging`, sem merge: #68.
-- [ ] Testes do item 6, um pull request cada.
+- [ ] Testes do item 6, um pull request cada:
+  - [x] **A1:** o saldo do DF conferido no `ci` (`pipelines/tests/test_df_balance.py` e `df_page.cjs`), #72, aberto em 2026-10-24
+    e à espera do merge do mantenedor. 102 períodos, 3060 figuras do DF, 100 checagens da União, 0 diferenças; os dois controles
+    falham.
+  - [ ] **A4, o próximo passo:** as diferenças sem explicação, registradas e travadas. Elas aparecem com a mesma conta do A1:
+    - a soma dos impostos do DF contra o registrado (`tax_sum_gaps` do `df_recompute.py`, 9 períodos de 2025 com 1 a 3 centavos);
+    - os totais mensais da Receita (`monthly_official` do mesmo script).
+    Comece de um ramo novo saindo do `staging` depois do merge do #72, reaproveitando `recompute` e os arquivos de `data/` que ele
+    lê. O A4 trava cada diferença conhecida numa lista com o motivo, e um valor novo fora da lista falha.
+  - [ ] **B1:** os 27 estados e o bloco da União, sobre o A1.
+  - [ ] Dupla contagem e consistência entre páginas.
 
 ## Próximo passo (para a sessão local)
 
