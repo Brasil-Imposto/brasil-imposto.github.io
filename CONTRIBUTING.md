@@ -7,6 +7,8 @@ revisão e o merge.
 
 Para começar agora:
 
+- **Antes de tudo:** veja se a tarefa já tem dono, uma issue, um pull request ou um ramo abertos sobre ela. Se tiver, comente lá
+  em vez de começar outra.
 - **Um número errado:** o formulário [Pedir correção](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/new?template=data-correction.yml),
   com o link da fonte oficial com o valor certo.
 - **Qualquer outra ideia:** um dos [formulários de issue](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/new/choose)
