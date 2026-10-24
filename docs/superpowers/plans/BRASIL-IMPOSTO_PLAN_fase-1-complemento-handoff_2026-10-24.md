@@ -48,5 +48,19 @@ O pedido do mantenedor (2026-10-24) pede nove entregáveis. A auditoria de 2026-
 - [x] Issue #66 aberta.
 - [x] Relatório do complemento (itens 1 a 5): `docs/research/BRASIL-IMPOSTO_RESEARCH_fase-1-complemento_2026-10-24.md`, com as alternativas do DF calculadas (`df_alternatives.cjs`).
 - [x] Apêndice de proveniência: `docs/research/fase-1-complemento-2026-10-24/provenance.json` (13 indicadores).
-- [ ] Pull request de documentos para o `staging`, sem merge.
+- [x] Pull request de documentos para o `staging`, sem merge: #68.
 - [ ] Testes do item 6, um pull request cada.
+
+## Próximo passo (para a sessão local)
+
+O mantenedor aprovou as specs em 2026-10-24. Os testes do item 6 começam pelo A1 da spec de confiança, um pull request cada:
+
+1. **A1:** o saldo do DF conferido no `ci`, período por período. Ponto de partida: `df_recompute.py` (apêndice B da auditoria de
+   2026-10-23) e `docs/research/fase-1-complemento-2026-10-24/df_alternatives.cjs`, que já rodam as funções do mapa sobre os dados.
+2. **A4:** as diferenças sem explicação, registradas e travadas.
+3. **B1:** os 27 estados e o bloco da União.
+4. **Dupla contagem:** as transferências e os benefícios não entram no gasto em duas etapas (`federal-spending-two-step-by-uf.json`).
+5. **Consistência entre páginas:** o mesmo número em duas páginas vem da mesma chave.
+
+Cada teste com um controle plantado que falha pelo motivo plantado. Depois, o catálogo de indicadores (P3 da Fase 2, #65) a partir de
+`provenance.json`.
