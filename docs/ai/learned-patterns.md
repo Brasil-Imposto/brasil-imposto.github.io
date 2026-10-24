@@ -76,7 +76,7 @@ Registro do que as sessões de 2026-09-25 a 2026-10-01 (rounds 1 a 11 das prévi
   arquivo, o Chrome bloqueia o desenho de imagens soltas no WebGL. A sonda servida por http escondeu isso. **Conferir a
   prévia pelo `file://`, do jeito que o autor abre**, com uma foto (não só `data-ready`).
 - Cartão sobre o mapa: conferir em 1024, 1280, 1366, 1440, 1680 e 1920 px. A legenda cresceu com notas e datas e cobriu a
-  costa da BA e do ES em 1280 px; as notas longas foram para a faixa "Como ler o mapa" e, entre 761 e 1062 px de janela (1180 px de CSS, com o zoom de 90% de D96), os cartões
+  costa da BA e do ES em 1280 px; as notas longas saíram de cima do mapa (desde D159 ficam na página "Como ler o mapa") e, entre 761 e 1062 px de janela (1180 px de CSS, com o zoom de 90% de D96), os cartões
   saem de cima do mapa.
 - Uma classe genérica num componente novo colide com a página: a dica da busca de emendas usou `.hint` e herdou o
   `position: absolute` da dica do hero, aparecendo em cima do mapa.
@@ -359,3 +359,24 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
 - **Logo (D153):** nada da marca de um governo, nenhuma bandeira alterada (Lei 5.700/1971, art. 31, II); verde, amarelo, azul e branco livres
   (arts. 28 e 29). As 27 estrelas das rodadas estão nas posições oficiais, lidas em `docs/superpowers/previews/assets/flags/br.svg`; o gerador das rodadas
   fica fora do git.
+
+### Staging, promoção e produção (2026-10-23 e 24, D157 a D165)
+
+- **Conferir a produção antes de uma promoção:** montar `build-site.py --profile production --out _site` em duas cópias
+  `git archive` (a `main` e a cabeça do pull request), comparar com `diff -rq` e plantar um byte como controle. A diferença
+  esperada é dita antes de comparar: no #52, só o `robots.txt`; no #60, as quatro mudanças de D159 e nada do comércio (os 59
+  seletores do CSS caíram a 0).
+- **Promoção e back-merge:** pull request `staging` para `main` (`release: <data>`, squash, com o aviso de produção) e, logo
+  depois, `main` para `staging` com merge commit (merge commits ligados no repositório; a regra da `main` segue só squash). O
+  squash que o GitHub faz usa o e-mail da conta como autor e a assinatura com o noreply, por isso o `dco` aceita esses commits
+  só nesses dois pull requests (#61).
+- **Depois de um deploy do Pages:** o Pages manda `cache-control: max-age=600`, e quem abriu o site pouco antes vê a versão
+  antiga por até 10 minutos (2026-10-24: o autor achou que a promoção não tinha ido ao ar). Conferir com `curl` e `?n=<hora>`
+  e uma abertura nova no Chrome sem tela, e dizer junto com "está no ar": Cmd+Shift+R.
+- **Tirar o staging do ar e religar:** `gh api -X DELETE repos/Brasil-Imposto/staging/pages` (404 em segundos, a produção não
+  muda); religar com `gh api -X POST repos/Brasil-Imposto/staging/pages -f build_type=workflow` e rodar o deploy. O staging é
+  público por escolha do autor (D165): restringir a quem contribui, só no GitHub, pede o GitHub Enterprise Cloud (pago).
+- **Ações fixadas por commit:** conferir cada SHA contra a tag oficial (`repos/actions/<ação>/git/ref/tags/<versão>`,
+  desembrulhando a tag anotada), nunca só pelo comentário de versão.
+- **CodeQL vermelho num pull request:** os achados saem em `repos/<repo>/check-runs/<id>/annotations`; a lista
+  `code-scanning/alerts?ref=refs/pull/<n>/merge` voltou vazia.
