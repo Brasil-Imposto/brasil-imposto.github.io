@@ -53,12 +53,12 @@ O pedido do mantenedor (2026-10-24) pede nove entregáveis. A auditoria de 2026-
   - [x] **A1:** o saldo do DF conferido no `ci` (`pipelines/tests/test_df_balance.py` e `df_page.cjs`), #72, aberto em 2026-10-24
     e à espera do merge do mantenedor. 102 períodos, 3060 figuras do DF, 100 checagens da União, 0 diferenças; os dois controles
     falham.
-  - [ ] **A4, o próximo passo:** as diferenças sem explicação, registradas e travadas. Elas aparecem com a mesma conta do A1:
-    - a soma dos impostos do DF contra o registrado (`tax_sum_gaps` do `df_recompute.py`, 9 períodos de 2025 com 1 a 3 centavos);
-    - os totais mensais da Receita (`monthly_official` do mesmo script).
-    Comece de um ramo novo saindo do `staging` depois do merge do #72, reaproveitando `recompute` e os arquivos de `data/` que ele
-    lê. O A4 trava cada diferença conhecida numa lista com o motivo, e um valor novo fora da lista falha.
-  - [ ] **B1:** os 27 estados e o bloco da União, sobre o A1.
+  - [x] **A4:** as diferenças sem explicação, registradas e travadas (`data/series/known-gaps.json`, `test_known_gaps.py`), #86,
+    pela sessão local (a nuvem ficou sem créditos em 2026-10-25, D167): 91 meses, 367 diferenças listadas, 0 novas; os dois
+    controles falham.
+  - [x] **B1:** os 27 estados e o bloco da União, sobre o A1 (`test_df_balance.py`, `df_page.cjs`), pela sessão local: 2.754
+    estado-períodos, 79.866 figuras e 100 blocos da União com cada parte, 0 diferenças; o bloco da União admite um centavo, porque a
+    página soma em ponto flutuante; R$ 1 plantado em SP aparece no estado, no bloco e na conferência mensal.
   - [ ] Dupla contagem e consistência entre páginas.
 
 ## Próximo passo (para a sessão local)
