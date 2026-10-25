@@ -366,10 +366,12 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
   `git archive` (a `main` e a cabeça do pull request), comparar com `diff -rq` e plantar um byte como controle. A diferença
   esperada é dita antes de comparar: no #52, só o `robots.txt`; no #60, as quatro mudanças de D159 e nada do comércio (os 59
   seletores do CSS caíram a 0).
-- **Promoção e back-merge:** pull request `staging` para `main` (`release: <data>`, squash, com o aviso de produção) e, logo
-  depois, `main` para `staging` com merge commit (merge commits ligados no repositório; a regra da `main` segue só squash). O
-  squash que o GitHub faz usa o e-mail da conta como autor e a assinatura com o noreply, por isso o `dco` aceita esses commits
-  só nesses dois pull requests (#61).
+- **Promoção e back-merge (D166):** uma tarefa aprovada por pull request para a `main` (ramo saído da `main` com o cherry-pick
+  do squash da tarefa no `staging`, squash, com o aviso de produção), nunca o `staging` inteiro; uma tarefa que mexe nas linhas de
+  outra ainda fora da `main` espera o merge dela e sai da `main` nova (#80 depois do #76). Logo depois da última, `main` para
+  `staging` com merge commit (merge commits ligados no repositório; a regra da `main` segue só squash). O
+  squash que o GitHub faz usa o e-mail da conta como autor e a assinatura com o noreply, por isso o `dco` aceita esses commits,
+  que só o back-merge leva; o commit de cada tarefa na `main` é feito à mão, com o noreply e `-s` (#61).
 - **Depois de um deploy do Pages:** o Pages manda `cache-control: max-age=600`, e quem abriu o site pouco antes vê a versão
   antiga por até 10 minutos (2026-10-24: o autor achou que a promoção não tinha ido ao ar). Conferir com `curl` e `?n=<hora>`
   e uma abertura nova no Chrome sem tela, e dizer junto com "está no ar": Cmd+Shift+R.
