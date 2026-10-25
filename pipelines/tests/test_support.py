@@ -85,10 +85,11 @@ def text(html):
 
 
 class CommittedFileTest(unittest.TestCase):
-    def test_off_and_empty_until_the_maintainer_fills_it(self):
+    def test_form_key_filled_and_the_channels_empty_until_the_maintainer_fills_them(self):
         d = committed()
         self.assertNotIn("enabled", d, "the apoie switch of data/features.json replaced it")
-        self.assertEqual(d["contact_form"], {"provider": "web3forms", "access_key": None})
+        self.assertEqual(d["contact_form"]["provider"], "web3forms")
+        self.assertRegex(d["contact_form"]["access_key"], support_data.ACCESS_KEY, "D168: the maintainer's Web3Forms key")
         self.assertNotIn("contact_email", d)
         self.assertIsNone(d["maintainer_cap_brl"])
         self.assertEqual(d["sponsors"], {"status": "soon", "sponsors_url": None,
@@ -223,7 +224,8 @@ class PagesTest(unittest.TestCase):
                     self.assertIn(g["address"], h)
 
     def test_staging_draws_the_form_without_the_key(self):
-        for key, p in build(committed(), profile="staging").items():
+        d = committed(); d["contact_form"]["access_key"] = None
+        for key, p in build(d, profile="staging").items():
             with self.subTest(page=key):
                 h = p["header"]
                 self.assertIn('data-view="contact"', h)
