@@ -1,4 +1,5 @@
-"""The DF balance checked to the cent on every period of the selector (trust spec, item A1).
+"""The DF balance (trust spec, item A1), then every state and the União block (item B1), checked to the cent on every period of
+the selector.
 
 Two computations are compared:
   - the page's: df_page.cjs runs the published map's own code (periods.js, serieslayer.js) over the built data bundle;
@@ -8,8 +9,13 @@ Two computations are compared:
 Every DF figure the map shows must match to the cent, and on every complete period the 27 states (DF capped) plus the União
 block must equal the official total, with the excess moved to the União and nothing else.
 
-Two controls must fail: R$ 1 more in the DF's Cofins in a month the estimate does not replace, and the cap switched off in the
-independent computation.
+B1 extends the comparison to every figure of the 27 states and to the União block with each of its parts (sent and paid: the
+official total, the states, the União; the parts of what the União paid with no state). The page adds the União block in
+floating point, so there, and only there, one cent of difference is allowed.
+
+Three controls must fail: R$ 1 more in the DF's Cofins in a month the estimate does not replace, the cap switched off in the
+independent computation, and (B1) R$ 1 more in São Paulo's Cofins, which must show in São Paulo's figures and in the monthly
+check of test_known_gaps.py.
 
 The bundle is built here (build-cases.py, build-standalone-data.py) because the ci runs these tests before the step that builds
 the pages; the test never skips.
@@ -27,6 +33,9 @@ REPO = Path(__file__).resolve().parents[2]
 TOOLS = REPO / "docs" / "superpowers" / "tools"
 ASSETS = REPO / "docs" / "superpowers" / "previews" / "assets"
 CENT = Decimal("0.01")
+# The page adds the 27 states' values (trillions of reais) in floating point for the União block, which can land one cent away
+# from the exact sum; one cent is allowed there and nowhere else, far below the R$ 1 of the controls.
+UNION_FLOAT_CENT = Decimal("0.01")
 
 
 def cent(x):
@@ -52,11 +61,15 @@ def recompute(page, plant=None, cap=True):
     fi, ei, ti = ({m: i for i, m in enumerate(x)} for x in (FM, EM, TM))
     broken = set(TS.get("broken_months") or {})
 
-    if plant:  # R$ 1 more in one DF tax, in its first registered month that the estimate does not replace
-        arr = F["uf"]["DF"]["federal_revenue"]["by_tax"][plant]
+    planted = None
+    if plant:  # R$ 1 more in one tax of a state (the DF when only the tax is given), in its first registered month that the
+        #        estimate does not replace
+        puf, ptax = ("DF", plant) if isinstance(plant, str) else plant
+        arr = F["uf"][puf]["federal_revenue"]["by_tax"][ptax]
         j = next(i for i, m in enumerate(FM) if arr[i] is not None and m not in ei)
         arr[j] += 1
-        F["uf"]["DF"]["federal_revenue"]["total"][j] += 1
+        F["uf"][puf]["federal_revenue"]["total"][j] += 1
+        planted = FM[j]
 
     def rev(uf, m, tax=None):
         if m in ei:
@@ -135,7 +148,21 @@ def recompute(page, plant=None, cap=True):
         want = years[-1]
         return by[sorted(by, key=lambda y: (abs(y - want), -y))[0]]
 
-    rep = {"periods": 0, "df_ok": 0, "fields_compared": 0, "gaps": [], "union_checks": 0, "union_gaps": []}
+    def broken_unestimated(months):
+        return [m for m in months if m in fi and "broken" in str(F["national"]["federal_revenue_month_status"][fi[m]]) and m not in ei]
+
+    def tsum(arr, ms):
+        return sum((arr[ti[m]] or 0 for m in ms), Decimal(0))
+
+    def same(a, b, q=CENT, tol=Decimal(0)):
+        a = None if a is None else Decimal(a).quantize(q, ROUND_HALF_EVEN)
+        b = None if b is None else Decimal(repr(b)).quantize(q, ROUND_HALF_EVEN)
+        if tol and a is not None and b is not None:
+            return abs(a - b) <= tol, str(a), str(b)
+        return a == b, str(a), str(b)
+
+    rep = {"periods": 0, "df_ok": 0, "fields_compared": 0, "gaps": [], "union_checks": 0, "union_gaps": [], "planted": planted,
+           "state_checks": 0, "state_ok": 0, "state_fields": 0, "state_gaps": [], "union_blocks": 0, "union_block_gaps": []}
     for key, P in page["periods"].items():
         rep["periods"] += 1
         months_all = period_months(key)
@@ -173,6 +200,65 @@ def recompute(page, plant=None, cap=True):
             rep["fields_compared"] += 1
             if cent(d["by_tax"][k]) != cent(Decimal(repr(v)) if v is not None else None):
                 rep["gaps"].append([key, f"byTax.{k}", str(cent(d["by_tax"][k])), str(v)])
+        # B1: every figure of the 27 states, the DF with its cap
+        years = sorted({int(m[:4]) for m in months_all})
+        for uf in UFS:
+            s, theirs_u = S[uf], P["all"][uf]
+            ok_u = (len(s["months"]) > 0 and s["sent_complete"] and s["transfers_n"] == len(s["months"]) and s["two_step_complete"]
+                    and not broken_unestimated(s["months"]))
+            ex = excess if uf == "DF" else Decimal(0)
+            sent_u = s["sent_registered"] - ex if (s["sent_registered"] is not None and ex is not None) else None
+            bal = sent_u - s["received"] if ok_u else None
+            mine_u = {"sent": sent_u, "sentRegistered": s["sent_registered"], "received": s["received"], "transfers": s["transfers"],
+                      "bolsa": s["bolsa"], "inss": s["inss"], "bpc": s["bpc"], "fedSpending": s["fed_spending"],
+                      "fcdf": s["fcdf"] if uf == "DF" else None,  # the FCDF is the DF's fund: the map shows it only there
+                      "balance": bal, "perPersonMonth": bal / pop_of(uf, years) / len(s["months"]) if ok_u else None}
+            rep["state_checks"] += 1
+            rep["state_ok"] += bool(ok_u)
+            for f, v in (("ok", ok_u), ("months", len(s["months"]))):
+                rep["state_fields"] += 1
+                if v != theirs_u.get(f):
+                    rep["state_gaps"].append([key, uf, f, str(v), str(theirs_u.get(f))])
+            for f, v in mine_u.items():
+                rep["state_fields"] += 1
+                eq, a, b = same(v, theirs_u.get(f), Decimal("0.0001") if f == "perPersonMonth" else CENT)
+                if not eq:
+                    rep["state_gaps"].append([key, uf, f, a, b])
+            for k, v in (theirs_u.get("byTax") or {}).items():
+                rep["state_fields"] += 1
+                eq, a, b = same(s["by_tax"][k], v)
+                if not eq:
+                    rep["state_gaps"].append([key, uf, f"byTax.{k}", a, b])
+        # B1: the União block the map shows (sent and paid, with the parts of what the União paid with no state)
+        U = P.get("union")
+        if U is not None:
+            ms = d["months"]
+            rep["union_blocks"] += 1
+            st = lambda k: sum((S[u][k] or 0 for u in UFS), Decimal(0))
+            states_sent = st("sent_registered") - (excess or 0)
+            sent = {"official": tsum(TS["union"]["official_revenue"], ms), "states": states_sent}
+            sent["union"] = sent["official"] - sent["states"]
+            ret = {"official": tsum(TS["union"]["official_returned_rtn"], ms), "states": st("received")}
+            ret["union"] = ret["official"] - ret["states"]
+            central = tsum(TS["no_state"]["central_benefits"], ms)
+            for y in sorted({m[:4] for m in ms}):
+                M, my = TS["mte_annual"].get(y), [m for m in ms if m.startswith(y)]
+                if M and len(my) == 12:
+                    central += M["no_state"]
+                elif M:
+                    central += tsum(TS["union"]["unemployment_and_wage_bonus_portal_mte_year"], my)
+            parts = [tsum(TS["no_state"]["executive"], ms), tsum(TS["union"]["inss_rtn"], ms) - st("inss"), central,
+                     tsum(TS["union"]["tesouro_base_executive_not_in_portal"], ms), tsum(TS["union"]["financial_investments_group_5"], ms),
+                     tsum(TS["union"]["private_international_abroad"], ms), tsum(TS["union"]["public_transfers_tesouro"], ms) - st("transfers"),
+                     tsum(TS["no_state"]["other_branches"], ms), tsum(TS["union"]["bpc_rtn"], ms) - st("bpc")]
+            parts.append(ret["union"] - sum(parts, Decimal(0)))
+            checks = [(f"sent.{k}", v, U["sent"][k]) for k, v in sent.items()] + [(f"ret.{k}", v, U["ret"][k]) for k, v in ret.items()]
+            checks += [(f"ret.parts[{i}]", v, U["ret"]["parts"][i]["value"]) for i, v in enumerate(parts)]
+            checks.append(("ret.parts.count", Decimal(len(parts)), len(U["ret"]["parts"])))
+            for f, v, theirs_v in checks:
+                eq, a, b = same(v, theirs_v, tol=UNION_FLOAT_CENT)
+                if not eq:
+                    rep["union_block_gaps"].append([key, f, a, b])
         # the União block after the move: 27 states (DF capped) + União = official total; the excess moved, nothing else
         if ok and all(S[u]["months"] == d["months"] and S[u]["sent_registered"] is not None for u in UFS):
             ms = d["months"]
@@ -203,6 +289,9 @@ class DFBalanceTest(unittest.TestCase):
         print(f"\n[A1] {r['periods']} periods, {r['fields_compared']} DF figures compared to the cent, {r['df_ok']} periods with a "
               f"complete balance, {r['union_checks']} União checks; differences: {len(r['gaps'])} DF, {len(r['union_gaps'])} União",
               file=sys.stderr)
+        print(f"[B1] {r['state_checks']} state-periods ({r['state_ok']} with a complete balance), {r['state_fields']} state figures "
+              f"and {r['union_blocks']} União blocks compared to the cent; differences: {len(r['state_gaps'])} states, "
+              f"{len(r['union_block_gaps'])} União block", file=sys.stderr)
 
     @classmethod
     def tearDownClass(cls):
@@ -228,6 +317,27 @@ class DFBalanceTest(unittest.TestCase):
         r = recompute(self.page, cap=False)
         self.assertTrue(r["gaps"], "the independent computation without the cap must disagree with the page")
         self.assertTrue(any(f in ("sent", "excess", "balance") for _, f, _, _ in r["gaps"]), r["gaps"][:5])
+
+    def test_every_state_and_period_is_checked(self):
+        self.assertEqual(self.report["state_checks"], 27 * self.report["periods"])
+        self.assertGreater(self.report["state_ok"], 27 * 90)
+        self.assertGreater(self.report["union_blocks"], 90)
+
+    def test_every_state_figure_matches_to_the_cent(self):
+        self.assertEqual(self.report["state_gaps"][:10], [])
+
+    def test_the_union_block_and_its_parts_match_to_the_cent(self):
+        self.assertEqual(self.report["union_block_gaps"][:10], [])
+
+    def test_control_one_real_more_in_a_state_fails_in_the_state_and_in_the_monthly_check(self):
+        sys.path.insert(0, str(Path(__file__).parent))
+        from test_known_gaps import KNOWN, compare, current
+        r = recompute(self.page, plant=("SP", "cofins"))
+        self.assertTrue(any(uf == "SP" and f in ("sentRegistered", "byTax.cofins") for _, uf, f, _, _ in r["state_gaps"]),
+                        r["state_gaps"][:5])
+        self.assertTrue(r["union_block_gaps"], "R$ 1 more in a state must also move the União block beyond the one-cent allowance")
+        new, _ = compare(current(plant=("SP", r["planted"])), json.loads(KNOWN.read_text(encoding="utf-8")))
+        self.assertIn(("states_vs_sum_of_ufs", r["planted"]), [(c, k) for c, k, _, _ in new], new[:5])
 
 
 if __name__ == "__main__":
