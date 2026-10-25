@@ -59,7 +59,16 @@ O pedido do mantenedor (2026-10-24) pede nove entregáveis. A auditoria de 2026-
   - [x] **B1:** os 27 estados e o bloco da União, sobre o A1 (`test_df_balance.py`, `df_page.cjs`), pela sessão local: 2.754
     estado-períodos, 79.866 figuras e 100 blocos da União com cada parte, 0 diferenças; o bloco da União admite um centavo, porque a
     página soma em ponto flutuante; R$ 1 plantado em SP aparece no estado, no bloco e na conferência mensal.
-  - [ ] Dupla contagem e consistência entre páginas.
+  - [x] **Dupla contagem** (`test_double_counting.py`), pela sessão local: as cinco correntes "por destino" em toda regra; em cada
+    ano de 2019 a 2026, o que o escopo tirou do gasto para INSS, Bolsa Família, BPC e FCDF fica dentro da faixa do construtor; o
+    gasto de cada estado só tem os oito tipos, que somam o gasto em todo mês. A soma do "Voltou", cada corrente uma vez, é do A1 e
+    do B1. Três controles falham.
+  - [x] **Regras do DF:** cobertas pela conta independente do A1 e do B1, que aplica cada regra e compara cada figura ao centavo: o
+    teto por imposto pela parte do PIB (D146) e o excesso no bloco da União; a estimativa nos meses da quebra; o corte do período no
+    último mês com todos os lados; os meses quebrados da regra em duas etapas fora dos dois lados; o FCDF só no DF. A retenção do IR
+    e do PSS em Brasília não tem dado aberto por UF (Q-C-1).
+  - [ ] **Consistência entre páginas:** espera o catálogo de indicadores (P3 da Fase 2, Q-F2-1), que diz quais páginas mostram cada
+    número; o teste lê o catálogo.
 
 ## Próximo passo (para a sessão local)
 
