@@ -4,7 +4,7 @@
 this repository and hosted by a new repository, `Brasil-Imposto/staging`, that holds only a deploy workflow. Staging is where every pull
 request lands first, including ideas not yet approved; production keeps only what the maintainer approves. One codebase, one build
 script with two profiles, and one switch file (`data/features.json`): staging builds every feature on, production only the approved
-ones, and a feature switched off is absent from the page. Promotion is a pull request from `staging` to `main`, followed by a back-merge.
+ones, and a feature switched off is absent from the page. Promotion carries one approved task at a time, each in its own pull request into `main` (D166), followed by a back-merge.
 Production stays byte for byte what is live today when this lands.
 
 Estado: **aprovada pelo mantenedor em 2026-10-23.** Feita: #52 (2026-10-23) e a seção 6 no mesmo dia; staging público por escolha do mantenedor (D165); falta o token do deploy automático. Base: as escolhas do mantenedor na mesma data (staging num segundo repositório para
@@ -99,9 +99,11 @@ mostrá-lo.
 
 1. Todo ramo de tarefa sai do `staging`, e o pull request vai para o `staging` (squash; `ci` e `dco` obrigatórios).
 2. Cada merge no `staging` dispara o deploy do staging.
-3. **Promoção:** um pull request de `staging` para `main` (squash), com o título `release: <data>` e a lista dos pull requests que ele
-   leva; o aviso de produção e o "pode" do mantenedor antes do merge.
-4. **Logo depois de cada promoção:** um pull request de `main` para `staging` com merge commit (o back-merge), para os dois ramos não se
+3. **Promoção, tarefa por tarefa (D166):** para cada tarefa aprovada no `staging`, um ramo saído da `main` com só os commits dela
+   (cherry-pick do squash no `staging`) e um pull request para a `main` (squash), com o título da tarefa e o número do pull request
+   do `staging` que ela leva; o aviso de produção e o "pode" do mantenedor antes do merge. Nunca o `staging` inteiro: o que não foi
+   aprovado fica nele. Várias tarefas aprovadas juntas são vários pull requests, com um back-merge só depois do último.
+4. **Logo depois da promoção:** um pull request de `main` para `staging` com merge commit (o back-merge), para os dois ramos não se
    afastarem. O GitHub Actions da organização não abre pull request (configuração da organização), então quem promove abre este também.
 5. **Correção urgente:** um ramo `hotfix/*` sai da `main`, o pull request vai para a `main`, e depois o mesmo back-merge para o `staging`.
 
