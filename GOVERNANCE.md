@@ -9,8 +9,8 @@ O projeto está na **fase 0**: um mantenedor, @VitorPChaves, dono da organizaç�
 
 - **Tudo entra por pull request**, inclusive o que o mantenedor faz. A regra da `main` não tem exceção, nem para o dono: pull
   request obrigatório, o check do DCO verde, histórico linear, sem force push.
-- **Todo pull request vai primeiro para o `staging`**, que publica o site de testes. A `main`, que publica o site, só recebe a
-  promoção do `staging`, feita pelo mantenedor depois de conferir ali o que ela leva; uma funcionalidade nova só aparece na
+- **Todo pull request vai primeiro para o `staging`**, que publica o site de testes. A `main`, que publica o site, recebe uma
+  tarefa aprovada por vez, levada do `staging` pelo mantenedor depois de conferida ali (D166); uma funcionalidade nova só aparece na
   produção quando a chave dela em `data/features.json` é ligada. A exceção é a correção urgente do mantenedor, num ramo
   `hotfix/*` saído da `main`, que volta em seguida para o `staging`.
 - **Toda decisão tem o motivo por escrito no pull request** que a aplica. As decisões que mudam o produto ficam registradas em

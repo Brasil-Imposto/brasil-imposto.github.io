@@ -50,7 +50,7 @@ ficar assim.
 - **Estado inicial:** a única chave é `apoie`, ligada no staging; na produção, o valor que o campo `enabled` de `data/support.json`
   tinha na `main` quando esta mudança entrou (ligado desde o PR #54, D162). Esse campo sai: a chave passa a ser a única fonte. O D158 (2026-10-23) põe o
   Apoie na produção: GitHub Sponsors e cripto mostram "Em breve", sem link e sem endereço, até cada canal estar pronto, e o formulário
-  de contato funciona pelo Web3Forms quando a chave de acesso existir (PR #49; o D162 liga o botão antes dela, PR #54).
+  de contato funciona pelo Web3Forms com a chave de acesso do mantenedor (PR #49; o D162 ligou o botão antes dela, PR #54; a chave entrou no #99, D168).
 - **A regra dos dados é a do PR #49**, igual nos dois perfis: um canal em `live` precisa de todos os seus valores; um canal em `soon`
   mostra "Em breve", sem link e sem endereço; nenhum valor que falta aparece como "a definir". A produção liga `apoie` sem a chave
   de acesso do formulário (D162): sem ela, a vista de contato fica fora da página; uma chave preenchida e malformada, ou um e-mail no
@@ -98,7 +98,8 @@ mostrá-lo.
 ## 5. O fluxo
 
 1. Todo ramo de tarefa sai do `staging`, e o pull request vai para o `staging` (squash; `ci` e `dco` obrigatórios).
-2. Cada merge no `staging` dispara o deploy do staging.
+2. Cada merge no `staging` dispara o deploy do staging. Enquanto o segredo da seção 4 não existe, o deploy é à mão, ao fim de cada lote de
+   merges (`gh workflow run deploy.yml --repo Brasil-Imposto/staging --ref main`), e o site de testes é conferido no ar.
 3. **Promoção, tarefa por tarefa (D166):** para cada tarefa aprovada no `staging`, um ramo saído da `main` com só os commits dela
    (cherry-pick do squash no `staging`) e um pull request para a `main` (squash), com o título da tarefa e o número do pull request
    do `staging` que ela leva; o aviso de produção e o "pode" do mantenedor antes do merge. Nunca o `staging` inteiro: o que não foi

@@ -7,7 +7,7 @@ and no new feature: where an item changes what the screen says, the text goes to
 belong to the repository settings, the private decision log or the organization page are marked for the local session and the
 maintainer.
 
-Estado: **proposta, espera a aprovação do mantenedor.** Nada desta lista começa antes dela.
+Estado: **aprovada (D169, 2026-10-25).** Feitos: A1 (#72), A4 (#86), B1 (#87), B4 (#97), D1 (#95), F1 (#90) e G1 (#89, #98); D2 em rascunho (#96, espera Q98). A2, A3, C1, B3, DF-5 e G3 esperam as perguntas 12 a 17 e 46 da prévia de perguntas de 2026-10-25. Dona dos itens da sessão na nuvem desde 2026-10-25: a sessão local (D167).
 
 ## 1. Regras de toda correção
 
@@ -25,27 +25,27 @@ Risco e esforço vêm do relatório. A ordem é a confiança ganha por esforço,
 
 | # | Item | Achados | Risco | Esforço | Quem | Depende de |
 |---|---|---|---|---|---|---|
-| A1 | O saldo do DF conferido no `ci`, período por período | DF-3 | médio | baixo | nuvem | nada |
-| A2 | A Rede do dinheiro com o teto do DF | DF-1 | alto | médio | nuvem, depois do sim ao método | decisão Q-A2 |
-| A3 | Um só valor federal no painel do DF | DF-2 | alto | médio | nuvem, depois do sim ao texto | decisão Q-A3 |
-| A4 | As diferenças sem explicação, registradas e travadas | DF-4, DF-6, DF-7 | médio | baixo | nuvem | nada |
-| D1 | `pages.yml` com as ações por commit e as permissões só no deploy | CI-1, CI-2 | médio | baixo | nuvem | o #52 |
-| B1 | O saldo dos 27 estados e o bloco da União conferidos no `ci` | TST-1 | alto | baixo, sobre o A1 | nuvem | A1 |
-| B2 | As conferências da Rede e as sondas no `ci` | TST-2, CI-6 | médio | médio | nuvem | A2 |
-| C1 | As fontes do lado "Voltou" no painel de cada estado | T-1 | médio | médio | nuvem, depois do sim ao texto | decisão Q-C1 |
-| C2 | Data de leitura e URL em todo arquivo de dados | T-2, T-4 | médio | médio | nuvem | nada (#10) |
-| C3 | A checagem semanal dos links de fonte | seção 2.3, CI-5 | médio | baixo | nuvem | nada (#10, #12) |
-| B3 | Os 3 Poderes: Legislativo e Executivo nas regras do D154 | TST-1, TST-3 | médio | médio | nuvem, depois do sim | decisão Q-B3 |
-| B4 | Como o dinheiro anda: as divisões conferidas | TST-1 | baixo | baixo | nuvem | nada |
-| C4 | Como o dinheiro anda: o RTN e o SICONFI com link e data | T-3 | médio | baixo | nuvem, depois do sim ao texto | nada |
-| D2 | Atualização de dependências | CI-3 | médio | baixo | nuvem | nada |
-| F1 | Um comando para preparar e conferir; as variáveis das sondas documentadas | DX-1, DX-3 | médio | baixo | nuvem | o #52 |
+| A1 | O saldo do DF conferido no `ci`, período por período | DF-3 | médio | baixo | sessão local | nada |
+| A2 | A Rede do dinheiro com o teto do DF | DF-1 | alto | médio | sessão local, depois do sim ao método | decisão Q-A2 |
+| A3 | Um só valor federal no painel do DF | DF-2 | alto | médio | sessão local, depois do sim ao texto | decisão Q-A3 |
+| A4 | As diferenças sem explicação, registradas e travadas | DF-4, DF-6, DF-7 | médio | baixo | sessão local | nada |
+| D1 | `pages.yml` com as ações por commit e as permissões só no deploy | CI-1, CI-2 | médio | baixo | sessão local | o #52 |
+| B1 | O saldo dos 27 estados e o bloco da União conferidos no `ci` | TST-1 | alto | baixo, sobre o A1 | sessão local | A1 |
+| B2 | As conferências da Rede e as sondas no `ci` | TST-2, CI-6 | médio | médio | sessão local | A2 |
+| C1 | As fontes do lado "Voltou" no painel de cada estado | T-1 | médio | médio | sessão local, depois do sim ao texto | decisão Q-C1 |
+| C2 | Data de leitura e URL em todo arquivo de dados | T-2, T-4 | médio | médio | sessão local | nada (#10) |
+| C3 | A checagem semanal dos links de fonte | seção 2.3, CI-5 | médio | baixo | sessão local | nada (#10, #12) |
+| B3 | Os 3 Poderes: Legislativo e Executivo nas regras do D154 | TST-1, TST-3 | médio | médio | sessão local, depois do sim | decisão Q-B3 |
+| B4 | Como o dinheiro anda: as divisões conferidas | TST-1 | baixo | baixo | sessão local | nada |
+| C4 | Como o dinheiro anda: o RTN e o SICONFI com link e data | T-3 | médio | baixo | sessão local, depois do sim ao texto | nada |
+| D2 | Atualização de dependências | CI-3 | médio | baixo | sessão local | nada |
+| F1 | Um comando para preparar e conferir; as variáveis das sondas documentadas | DX-1, DX-3 | médio | baixo | sessão local | o #52 |
 | G1 | O registro público de decisões até a última | GOV-1 | médio | baixo | sessão local | nada |
 | G2 | Uma aprovação exigida na regra da `main` e do `staging` | SEC-1 | médio | baixo | mantenedor | a fase 1 do `GOVERNANCE.md` |
-| G3 | Notas de versão a cada promoção | GOV-4 | baixo | baixo | nuvem | o staging no ar |
-| C5 | Os três arquivos de página reconstruíveis | T-6, DX-4 | médio | alto | nuvem | #10 (manifesto dos brutos) |
-| D3 | OpenSSF Scorecard | CI-4 | baixo | baixo | nuvem | #11 |
-| F2 | Dicionário de dados a partir dos esquemas | DX-2 | baixo | médio | nuvem | #10 |
+| G3 | Notas de versão a cada promoção | GOV-4 | baixo | baixo | sessão local | o staging no ar |
+| C5 | Os três arquivos de página reconstruíveis | T-6, DX-4 | médio | alto | sessão local | #10 (manifesto dos brutos) |
+| D3 | OpenSSF Scorecard | CI-4 | baixo | baixo | sessão local | #11 |
+| F2 | Dicionário de dados a partir dos esquemas | DX-2 | baixo | médio | sessão local | #10 |
 | G4 | Donos por área, triagem, varredura de segredos com os extras | GOV-2, GOV-3, SEC-2 | baixo | baixo | mantenedor | a fase 1 do `GOVERNANCE.md` |
 
 ## 3. Os itens
@@ -213,6 +213,7 @@ Risco e esforço vêm do relatório. A ordem é a confiança ganha por esforço,
 - **G2 (mantenedor):** `required_approving_review_count` 1 e revisão do dono de código nas regras da `main` e do `staging`,
   quando entrar a segunda pessoa com acesso de escrita (fase 1 do `GOVERNANCE.md`).
 - **G3:** a cada promoção do staging, uma versão com notas geradas da lista de pull requests que ela leva, e um `CHANGELOG.md`.
+  - Desde D166 a produção recebe uma tarefa por vez: como fica a versão é a pergunta 46 da prévia de 2026-10-25 (Q100).
   - Teste: a nota cita todo pull request da promoção.
   - Controle: um pull request de fora plantado na lista.
 - **G4 (mantenedor):** `CODEOWNERS` por área; uma etiqueta de entrada `needs-triage` e um parágrafo de triagem em

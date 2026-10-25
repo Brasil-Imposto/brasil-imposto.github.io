@@ -34,7 +34,7 @@ fonte oficial ao lado, com o link, o período e a data da coleta.
 
 **Estado:** primeira versão pública (v1). As páginas são arquivos HTML estáticos montados a partir dos dados deste repositório e
 publicados no GitHub Pages em dois sites: o de testes, <https://brasil-imposto.github.io/staging/>, a cada merge no ramo `staging`,
-e a produção, <https://brasil-imposto.github.io>, a cada promoção do `staging` para a `main`. O site definitivo, em Astro, está em
+e a produção, <https://brasil-imposto.github.io>, que recebe uma tarefa aprovada por vez, levada do `staging` para a `main`. O site definitivo, em Astro, está em
 construção.
 
 ## As páginas
@@ -160,8 +160,7 @@ Brasil; os municípios de SC e do RS e as Regiões Administrativas do DF; Os 3 P
 
 **O que vem** (cada item é uma issue aberta):
 
-- O site em Astro, fase por fase, cada fase aprovada antes do código: [B0](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/2) a [B5](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/7).
-- Chaves de JSON em inglês ([#8](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/8)).
+- O site em Astro, fase por fase, cada fase aprovada antes do código: [B1](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/3) a [B5](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/7).
 - "Pedir correção" em todas as páginas ([#9](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/9)).
 - CI de proveniência ([#10](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/10)) e OpenSSF Scorecard ([#11](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/11)).
 - Guias dos pipelines e documentos de fontes e créditos ([#12](https://github.com/Brasil-Imposto/brasil-imposto.github.io/issues/12)).
@@ -188,7 +187,7 @@ bandeiras: a licença e o crédito de cada arquivo estão junto deles.
 Brasil-Imposto is a civic, nonpartisan, open-source map of Brazilian public money built only from official data: how federal,
 state and municipal taxes are collected and shared, what each federal officeholder is paid and uses, and where the money goes.
 The site is <https://brasil-imposto.github.io>. The pages are static HTML built from `data/` with Python 3 and no extra packages
-(commands above); an Astro site is being built phase by phase (issues #2 to #7). Code is AGPL-3.0; data and texts are CC BY 4.0.
+(commands above); an Astro site is being built phase by phase (issues #3 to #7). Code is AGPL-3.0; data and texts are CC BY 4.0.
 Issues and pull requests are welcome, in Portuguese or English; every number needs its official source. Pull requests go to the
 `staging` branch, which publishes the test site <https://brasil-imposto.github.io/staging/>; production only receives what was
 checked there. How to contribute and
