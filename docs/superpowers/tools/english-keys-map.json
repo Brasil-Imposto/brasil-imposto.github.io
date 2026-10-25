@@ -1,6 +1,6 @@
 {
  "_about": "English names for the identifier keys of data/ (phase B0, D151, issue #8): the complete inventory, checked by hand. Keys are per file; 'key@parent' renames the key only inside the list or object named parent; '_values' lists codes that are also string values in the same file and must change with the keys. Not applied yet: see '_status'.",
- "_status": "Not applied. Every writer of these files downloads government data and cannot run in the cloud session, and in data/series/federal-payroll-by-uf.json the names are keys, enum lists, enum values and prose at once; the maintainer decides whether the renames land now or with each pipeline (D151, answer 7). rename-json-keys.py applies and proves them.",
+ "_status": "Applied. The renames are in data/: task 6 of the cleanup (#45) and, for the three source ids of release-dates.json, the pull request that closes #8. tse_cargo stays as the TSE names it (ALLOWED in pipelines/tests/test_english_keys.py). rename-json-keys.py applies and proves a rename.",
  "_kept": {
   "official labels used as keys (D151, answer 7)": [
    "Agricultura",
