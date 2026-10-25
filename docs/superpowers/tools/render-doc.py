@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """Render a spec, plan or research markdown file into an HTML review copy in the Brasil-Imposto identity.
 The markdown stays canonical; the HTML is the review artifact and opens from its file path.
-The theme is the project's own (light paper, Manrope, ink, green, red, yellow).
+The theme is the project's own (light paper, Manrope, ink, green, red, yellow), with the decided mark (D153) and the site's favicon.
 
 Usage: render-doc.py <in.md> <out.html> [--kind spec]
 A line "@@include name.svg" places that file (next to the markdown) inline, as a figure."""
-import re, sys, html, pathlib, datetime
+import re, sys, html, pathlib, datetime, base64
 
 INCLUDE_DIR = pathlib.Path(".")  # folder of the markdown being rendered (set in main)
+# The decided mark (D153) and the tab icon of the site, embedded so the copy shows them from any folder.
+BRAND = pathlib.Path(__file__).resolve().parents[1] / "previews" / "assets" / "brand"
+LOGO = "data:image/svg+xml;base64," + base64.b64encode((BRAND / "brasil-imposto-logo.svg").read_bytes()).decode()
+FAVICON = "data:image/x-icon;base64," + base64.b64encode((BRAND / "favicon.ico").read_bytes()).decode()
 FONT_LINK = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
              '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">')
 
@@ -24,7 +28,7 @@ CSS = r"""
   .topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-bottom:16px; border-bottom:1px solid var(--line); }
   .wordmark { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.01em; font-size:16px; }
   .wordmark i { font-style:normal; color:var(--faint); }
-  .wm-flag { width:28px; height:20px; object-fit:cover; border-radius:4px; box-shadow:0 0 0 1px rgba(20,32,43,.14); }
+  .wm-logo { width:30px; height:30px; }
   .eyebrow { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
   .topbar .eyebrow { text-align:right; }
   h1 { font-size:clamp(24px,2.6vw,36px); line-height:1.1; letter-spacing:-.025em; margin:26px 0 10px; font-weight:800; }
@@ -71,7 +75,7 @@ CSS = r"""
     td[data-label]::before { content:attr(data-label); display:block; font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); margin-top:4px; } }
 """
 
-TOPBAR = ('<div class="wordmark"><img class="wm-flag" src="assets/flags/br.svg" alt="Bandeira do Brasil"><span>Brasil<i>·</i>Imposto</span></div>'
+TOPBAR = ('<div class="wordmark"><img class="wm-logo" src="{logo}" alt=""><span>Brasil<i>·</i>Imposto</span></div>'
           '<div class="eyebrow">{kind} · {today}</div>')
 FOOTER = ('<span class="eyebrow">Brasil·Imposto · {kind}</span>'
           '<span class="eyebrow">Canônico: o markdown em <code class="path">{src}</code></span>')
@@ -170,10 +174,11 @@ def render(md: str, kind: str, src: str):
         out.append(f"<p{cls}>{inline(para)}</p>")
     close_intro(); close_sec()
     today = datetime.date.today().isoformat()
-    esc = {"kind": html.escape(kind), "today": today, "src": html.escape(src)}
+    esc = {"kind": html.escape(kind), "today": today, "src": html.escape(src), "logo": LOGO}
     return f"""<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{re.sub(r'<[^>]+>', '', title)} · {today}</title>
+<link rel="icon" href="{FAVICON}" sizes="16x16 32x32">
 {FONT_LINK}
 <style>{CSS}</style></head>
 <body>
