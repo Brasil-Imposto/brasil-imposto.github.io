@@ -16,7 +16,7 @@
    "how": "Data de geração dos arquivos mensais no servidor de dados abertos da CGU.",
    "url": "https://portaldatransparencia.gov.br/download-de-dados/despesas-execucao"
   },
-  "portal_transf": {
+  "portal_transfers": {
    "label": "Portal da Transparência (CGU)",
    "what": "Repasses da União a estados e prefeituras, até julho de 2026",
    "date": "2026-09-22",
@@ -87,7 +87,7 @@
    "how": "Linha \"ULTIMA ATUALIZACAO\" do próprio arquivo (02/10/2026, 02h03).",
    "url": "https://www.senado.leg.br/transparencia/LAI/verba/despesa_ceaps_2026.csv"
   },
-  "emendas": {
+  "amendments": {
    "label": "Portal da Transparência (CGU)",
    "what": "Emendas parlamentares",
    "date": "2026-10-01",
@@ -101,7 +101,7 @@
    "how": "Data da Análise da Arrecadação de dezembro de 2024 no gov.br (28/01/2025, 11h00), lida na cópia do Internet Archive: em 03/07/2026 o gov.br republicou os arquivos antigos e a data da página mudou. O arquivo por estado não traz data própria.",
    "url": "https://www.gov.br/receitafederal/dados/arrecadacao-estado.csv"
   },
-  "portal_transf_2024": {
+  "portal_transfers_2024": {
    "label": "Portal da Transparência (CGU)",
    "what": "Repasses da União a estados e prefeituras, 2024",
    "date": "2026-09-25",
