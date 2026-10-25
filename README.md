@@ -117,6 +117,16 @@ refeitos por esses comandos a partir de `data/`.
 Os pipelines de `pipelines/` e os testes usam Python 3.12 com as versões fixadas em `uv.lock`: instale o
 [uv](https://docs.astral.sh/uv/) e rode `uv sync --locked`, depois `uv run python -m unittest discover -s pipelines/tests`.
 
+**Conferir tudo como o `ci`** (Python 3.12 com uv, Node 24; cerca de um minuto e meio):
+
+```
+uv sync --locked
+uv run --locked python docs/superpowers/tools/check-all.py
+```
+
+As sondas no navegador usam as variáveis `PW_CORE`, `CHROME_HEADLESS` e `CDN_MIRROR`. O passo a passo, os erros comuns e a
+revisão estão no [`CONTRIBUTING.md`](CONTRIBUTING.md), seção "Para desenvolver".
+
 ### O site em Astro (em construção)
 
 A pasta `site/` tem o esqueleto do site definitivo: Astro 7, TypeScript estrito e uma página de prova que lê os arquivos de cada
