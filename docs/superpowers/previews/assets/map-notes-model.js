@@ -75,7 +75,7 @@
   }
   // GD33: every number shows the last date the government published it (data/release-dates.json, read at the source).
   const relDate = (id) => { const r = window.BI.releases[id]; if (!r.date) return r.unchecked ? 'data a conferir' : 'sem data publicada'; const d = r.date; return d.length === 7 ? `${d.slice(5, 7)}/${d.slice(0, 4)}` : `${d.slice(8, 10)}/${d.slice(5, 7)}/${d.slice(0, 4)}`; };
-  const SRC = [['receita', 'Receita'], ['portal_exec', 'Portal, gastos'], ['portal_transf', 'Portal, repasses'], ['tesouro_base', 'Tesouro'], ['beps', 'Previdência'], ['ibge', 'IBGE'], ['mds', 'MDS']];
+  const SRC = [['receita', 'Receita'], ['portal_exec', 'Portal, gastos'], ['portal_transfers', 'Portal, repasses'], ['tesouro_base', 'Tesouro'], ['beps', 'Previdência'], ['ibge', 'IBGE'], ['mds', 'MDS']];
   const dates = () => SRC.map(([id, l]) => [l, window.BI.releases[id].what, relDate(id)]);
   // The notes of the map for the rows of a period and a measure, as Início showed them under the map until D159.
   function notes(rowsNow, currentR, metric) {
