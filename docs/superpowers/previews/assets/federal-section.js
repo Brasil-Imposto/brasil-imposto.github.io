@@ -90,7 +90,7 @@
         big: `<div class="fbig g">${bi(AM.paid_total)}<small>pagos em emendas de ${AM.year}, até ${dt(AM.file_generated)} (o arquivo não tem mês)</small></div>`,
         body: bars(Object.entries(AM.paid_by_type).map(([k, v]) => [typeName(k), '', v]), Object.values(AM.paid_by_type)[0], '#12803F')
           + `<div class="search"><input type="search" placeholder="Buscar deputado ou senador (${nf(AM.individual_authors_count)} autores)" aria-label="Buscar autor de emenda" data-search><ul data-results></ul><span class="fhint">Maiores autores coletivos, como o Portal escreve: ${collective.map((a) => `${esc(a.author)} ${bi(a.paid)}`).join('; ')}.</span></div>`,
-        src: [['emendas', 'Portal da Transparência']] },
+        src: [['amendments', 'Portal da Transparência']] },
     };
   }
   const ORDER = ['contas', 'serv', 'pessoa', 'eleitos', 'emendas'];
@@ -123,7 +123,7 @@
         <div class="fb-sec">Quanto a União deve</div>
         ${row('', '', 'Dívida bruta do governo geral', `${nf(U.gross_debt_pct_gdp, 1)}% do PIB em ${dt(U.gross_debt_at)}; em dez/${+U.gross_debt_at.slice(0, 4) - 1}: ${tri(U.gross_debt_at_start)}`, tri(U.gross_debt_brl))}
         <div class="fb-foot"><div class="search"><input type="search" placeholder="Buscar emendas de um deputado ou senador" aria-label="Buscar autor de emenda" data-search><ul data-results></ul></div>
-        ${srcLine([['rtn', 'Tesouro'], ['bcb', 'Banco Central'], ['tesouro_base', 'Tesouro, folha'], ['siape', 'Ministério da Gestão'], ['camara_ceap', 'Câmara'], ['senado_ceaps', 'Senado'], ['emendas', 'Portal, emendas']])}</div></div>`;
+        ${srcLine([['rtn', 'Tesouro'], ['bcb', 'Banco Central'], ['tesouro_base', 'Tesouro, folha'], ['siape', 'Ministério da Gestão'], ['camara_ceap', 'Câmara'], ['senado_ceaps', 'Senado'], ['amendments', 'Portal, emendas']])}</div></div>`;
     }
     if (form === 'C') {
       root.innerHTML = `<div class="fc"><div class="fc-tabs" role="tablist">${ORDER.map((k, i) => `<button type="button" role="tab" aria-selected="${i === 0}" data-tab="${k}">${B[k].title}<small>${B[k].tab}</small></button>`).join('')}</div><div data-tabpanel></div></div>`;
