@@ -49,7 +49,14 @@ Site: <https://brasil-imposto.github.io>.
    mantenedora aprova (D166), nunca o `staging` inteiro: para cada tarefa, um ramo saído da `main` com só os commits dela
    (cherry-pick do squash no `staging`) e um pull request para a `main` (squash), com o aviso de produção; depois, o back-merge
    `main` para `staging` com merge commit, que leva os commits que o GitHub fez ao mergear e que o `dco` aceita (#61). Uma funcionalidade nova entra com a sua chave em
-   `data/features.json`, desligada na produção.
+   `data/features.json`, desligada na produção. Enquanto o segredo `STAGING_DISPATCH_TOKEN` não existe, quem mergeia no `staging`
+   roda o deploy do staging à mão ao fim do lote (`gh workflow run deploy.yml --repo Brasil-Imposto/staging --ref main`) e confere
+   o site de testes.
+7. Para fechar uma issue: os pull requests parciais dizem `Refs #N`; só o que cumpre o último critério diz `Closes #N`. O ramo padrão
+   é o `staging`, então a issue fecha no merge no `staging`; num pull request para a `main` a palavra é ignorada. Antes de fechar,
+   cada critério de "Pronto quando" com a sua prova; o que sobra vira uma issue nova, ligada; o comentário de fechamento lista os
+   pull requests e as provas, e o motivo é "completed" ou "not planned" com uma linha.
+8. Antes de pedir revisão: `uv run --locked python docs/superpowers/tools/check-all.py` roda tudo o que o `ci` roda, na mesma ordem.
 
 ## Como conferir
 
@@ -87,7 +94,8 @@ Pergunte à pessoa mantenedora, numa issue ou no pull request, antes de:
 
 Agent guide: Portuguese UI, English identifiers and commits; neutral text; no number without an official source; every sum
 closes by hand; every period works; every check is proven against a planted failure; look at screenshots at 1440 and 420 px.
-Specs are approved by the maintainer before code. Before starting a task, check it has no owner yet (the spec's owner
+Specs are approved by the maintainer before code. To close an issue, only the pull request that meets its last criterion says `Closes #N` (staging is the default
+branch, so it closes there); partial ones say `Refs #N`, and leftovers become a new linked issue. Before starting a task, check it has no owner yet (the spec's owner
 section, open issues, pull requests and branches). Pull requests go to `staging`; `main` receives approved tasks one at a
 time, each in its own pull request with the maintainer's go (never the whole of `staging`), followed by the back-merge. Ask before changing a recorded decision, a method, sources, dependencies or
 repository settings.

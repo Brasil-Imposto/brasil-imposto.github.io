@@ -5,7 +5,7 @@ flag image, and the three pages get a tab icon (favicon.ico with drawings made f
 (`site_chrome.py`), the pages rebuilt by their builders, tests with a planted control, screenshots at 1440 and 420. The PR goes to `main`,
 which is production: it merges only after the maintainer's go on a PROD WARNING.
 
-Estado: **proposta, espera a aprovação do autor.** Data: 2026-10-22. Decisão de origem: D153 (logo decidido em 2026-10-22: o Resplendor
+Estado: **aprovada e no ar desde 2026-10-22 (PR #37).** Data: 2026-10-22. Decisão de origem: D153 (logo decidido em 2026-10-22: o Resplendor
 em ouro sol, as estrelas de prata viradas para fora, o globo com o céu da bandeira e o brilho leve; o ponto verde entre Brasil e Imposto).
 Visual de referência: `docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_logo-final_2026-10-22.html`, seção "No site".
 
