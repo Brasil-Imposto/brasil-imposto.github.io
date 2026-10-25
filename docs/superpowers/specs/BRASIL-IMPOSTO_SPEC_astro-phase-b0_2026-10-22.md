@@ -1,8 +1,9 @@
 # Brasil-Imposto: site em Astro, fase B0 (esqueleto, pipelines, esquemas e CI)
 
-Status: **aprovada (D151, 2026-10-22) com as 7 respostas recomendadas; em execução.** Feitos: #23 (`pipelines/`), #25 (uv),
-#26 (nomes em inglês), #32 e #33 (o inventário das chaves), #34 (esquemas e exportação) e #35 (o esqueleto em Astro), com o job
-`ci`. Falta: a sonda de paridade das prévias dentro do `ci` e as chaves de `data/` em inglês. Issue: #2.
+Status: **aprovada (D151, 2026-10-22) com as 7 respostas recomendadas; concluída em 2026-10-24** (a #2 fechou com a prova de cada
+critério de "Pronto quando"). Feitos: #23 (`pipelines/`), #25 (uv), #26 (nomes em inglês), #32 e #33 (o inventário das chaves),
+#34 (esquemas e exportação), #35 (o esqueleto em Astro), com o job `ci`, e as chaves de `data/` em inglês (#45; #85 fechou a #8).
+A sonda de paridade das prévias dentro do `ci` segue no #82.
 
 ### Summary (English)
 

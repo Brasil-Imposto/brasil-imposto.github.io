@@ -1,6 +1,6 @@
 # Fase 1, complemento: arquivo de passagem para a sessão local
 
-Issue #66. Ramo `docs/phase-1-complement`, saindo do `staging` em `7a239b1`. A sessão na nuvem está com poucos créditos; este
+Issue #66. Ramo `docs/phase-1-complement`, saindo do `staging` em `7a239b1`. A sessão na nuvem ficou sem créditos em 2026-10-25, e desde então a dona é a sessão local (D167); este
 arquivo diz exatamente o que falta e como continuar.
 
 ## Prompt para colar na sessão local

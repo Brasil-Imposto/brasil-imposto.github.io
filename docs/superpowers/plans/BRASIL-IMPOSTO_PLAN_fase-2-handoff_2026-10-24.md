@@ -45,6 +45,12 @@ As dez partes do pedido do mantenedor (2026-10-24):
 - [x] Spec: `docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_fase-2-profissionalizacao_2026-10-24.md` (itens P1 a P8 e as perguntas Q-F2-1 a Q-F2-6).
 - [x] Rascunhos das tarefas iniciais: seção 5 da spec (as issues só depois da aprovação).
 - [x] Pull request para o `staging`, sem merge (aberto em 2026-10-24; o número está na issue #64).
+- [x] #65 no `staging` e na produção (#79), a pedido do mantenedor; spec aprovada em 2026-10-25 (D169). Dona desde então: a sessão
+  local (D167).
+- [x] Issues da seção 5: #91 a #94 (a tarefa 5, o resumo em inglês do guia, veio no #90).
+- [x] P1 (#90, com o F1 da spec de confiança).
+- [ ] P6 espera o sim ao texto (Q99); P2, P3, P5 e P8 esperam Q-F2-4, Q-F2-1, Q-F2-2 e Q-F2-5 (perguntas 9, 6, 7 e 10 da prévia de
+  2026-10-25). O D1 do `pages.yml` entrou sozinho pela spec de confiança, que não lhe dá pergunta (#95); o P2 segue esperando Q-F2-4.
 
 ## Depois do pull request de documentos
 

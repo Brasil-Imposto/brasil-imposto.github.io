@@ -382,3 +382,40 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
   desembrulhando a tag anotada), nunca só pelo comentário de versão.
 - **CodeQL vermelho num pull request:** os achados saem em `repos/<repo>/check-runs/<id>/annotations`; a lista
   `code-scanning/alerts?ref=refs/pull/<n>/merge` voltou vazia.
+
+### Promoção por tarefa, testes de confiança e fechamento (2026-10-24 e 25, D166 a D171)
+
+- **O workflow que publica a produção vai sozinho e primeiro:** merge, esperar o deploy dele passar, e só então o resto do lote
+  (#105, o `pages.yml` fixado por commit: build e deploy verdes antes dos outros dez). Se ele falhasse, nada mais dependeria dele.
+- **A ordem do lote sai de uma simulação:** cada cherry-pick sozinho sobre a `main` e todos em sequência, com a árvore final igual à
+  do `staging`. Uma tarefa que edita as linhas de outra (a dupla contagem, #88, nas linhas do B1) ou importa o código dela (o B1
+  importa a conferência do A4; o teste de G1 precisa de D166 a D171 no registro) só ganha o pull request de produção depois do merge
+  da outra, saindo da `main` nova; aplicar limpo não basta, porque o `ci` dele falharia sem a outra.
+- **Antes do aviso de produção, dizer quais arquivos publicados mudam e conferir:** o site montado da `main` e do `staging` diferiu
+  em 8 arquivos, as 4 páginas (o formulário no cabeçalho, #99) e os 4 pacotes com as chaves trocadas (#101), e em nada mais.
+- **Todo lote de merges no `staging` termina com o deploy à mão do staging** enquanto não existe o `STAGING_DISPATCH_TOKEN`, e a
+  conferência no ar (o formulário com a chave, a faixa, o `noindex`). Em 2026-10-25 o deploy ficou para depois de 11 merges, até o
+  autor perguntar o que faltava.
+- **A4, uma lista que só encolhe:** `data/series/known-gaps.json` guarda cada diferença sem explicação (367 em 2026-10-25, quase
+  todas de um centavo) e `test_known_gaps.py` falha com uma diferença nova e com um item que já não acontece. Quando a Receita
+  trouxer 2026 ao centavo (Q-A4), os itens de 2026 saem da lista no mesmo pull request.
+- **B1, o centavo do ponto flutuante:** a página soma o bloco da União em ponto flutuante (27 valores na casa dos trilhões), e o
+  resultado pode cair a um centavo da soma exata; o centavo é admitido só ali, e o controle de R$ 1 em São Paulo prova que o bloco
+  ainda pega. `federalAt` devolve `fcdf` nulo fora do DF: a conta independente segue a mesma regra.
+- **Um teste que varre o repositório (`git ls-files`) não vê o próprio arquivo antes do `git add`:** o teste de G1 passou aqui e
+  falhou no `ci`, porque achou no próprio código o número que o seu controle planta. Rodar depois do `git add`, e o teste pula o
+  próprio arquivo.
+- **`cmd | tail -1 && git commit --amend && git push` sobe um teste vermelho:** o código da cadeia é o do `tail` (#98). Gravar a saída
+  num arquivo, guardar `$?` e só então seguir.
+- **Dependabot:** os commits dele não levam `Signed-off-by`, então o `dco` os recusa (Q98, rascunho #96). O Dependabot também não lê
+  `deploy/staging/deploy.yml`, que roda no repositório `Brasil-Imposto/staging`; o `test_workflows.py` confere que ele segue fixado.
+- **Citação que não fecha no registro:** `\(\*"[^)]*?"\*[,;]` acha uma citação seguida de texto antes do `"*)`. A D166 tinha uma, e o
+  padrão do `publish-decisions.py` apagou a D167 inteira do registro público até a citação ser corrigida; duas citações seguidas no
+  mesmo parêntese, `(*"a"*; *"b"*)`, são inofensivas (D69, D77, D130, D134, D157, D159 conferidas palavra por palavra).
+- **Organização no GitHub:** exigir 2FA não tem API e tira da organização quem não tem 2FA (`orgs/<org>/members?filter=2fa_disabled`
+  lista antes); `members_can_create_repositories` tem (`PATCH orgs/<org>`).
+- **A chave do Web3Forms é ligada a uma caixa de entrada e serve a mais de um site** (D168): copiada da página publicada do outro
+  site por script, sem aparecer na saída de nenhum comando.
+- **Prévia de perguntas:** `render-doc.py` sem nenhuma seção `##` dá `class="lead"` a todo parágrafo; as linhas "Recommended" saem
+  como `<p><b>`, que o passo depois troca por `p.rec`. A prévia fica em `docs/superpowers/previews/` (fora do git), a fonte em
+  `private/questions/`.
