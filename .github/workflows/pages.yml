@@ -1,5 +1,6 @@
 # Publishes the production site on GitHub Pages: build-site.py rebuilds the preview packages from data/ and assembles the three
 # published pages in the production profile (the staging site is published by Brasil-Imposto/staging, deploy/staging/deploy.yml).
+# Actions pinned by commit, as in ci.yml; only the deploy job can write to Pages (trust spec, D1).
 name: pages
 on:
   push:
@@ -7,8 +8,6 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -16,23 +15,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
       - name: Assemble the site (the production profile, spec staging section 3)
         # the four page builders, the three published pages, assets/, index.html, the forwarding page at Início's old address
         # (D160), .nojekyll and robots.txt; only the switches of data/features.json that production turns on
         run: python3 docs/superpowers/tools/build-site.py --profile production --out _site
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: _site
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
