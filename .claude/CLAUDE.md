@@ -45,9 +45,10 @@ Site: <https://brasil-imposto.github.io>.
 3. O plano, com uma tarefa por vez.
 4. Testes primeiro.
 5. Revisão, um assunto por pull request, commits assinados (`git commit -s`, DCO).
-6. O pull request vai para o `staging` (o ramo padrão), nunca para a `main`. A `main` só recebe a promoção que a pessoa
-   mantenedora aprova (`release: <data>`, squash) e, logo depois, o back-merge `main` para `staging` com merge commit; só nesses
-   dois o `dco` aceita os commits que o GitHub fez ao mergear (#61). Uma funcionalidade nova entra com a sua chave em
+6. O pull request vai para o `staging` (o ramo padrão), nunca para a `main`. A `main` recebe tarefa por tarefa o que a pessoa
+   mantenedora aprova (D166), nunca o `staging` inteiro: para cada tarefa, um ramo saído da `main` com só os commits dela
+   (cherry-pick do squash no `staging`) e um pull request para a `main` (squash), com o aviso de produção; depois, o back-merge
+   `main` para `staging` com merge commit, que leva os commits que o GitHub fez ao mergear e que o `dco` aceita (#61). Uma funcionalidade nova entra com a sua chave em
    `data/features.json`, desligada na produção.
 
 ## Como conferir
@@ -87,6 +88,6 @@ Pergunte à pessoa mantenedora, numa issue ou no pull request, antes de:
 Agent guide: Portuguese UI, English identifiers and commits; neutral text; no number without an official source; every sum
 closes by hand; every period works; every check is proven against a planted failure; look at screenshots at 1440 and 420 px.
 Specs are approved by the maintainer before code. Before starting a task, check it has no owner yet (the spec's owner
-section, open issues, pull requests and branches). Pull requests go to `staging`; `main` only receives the maintainer's
-promotion, followed by the back-merge. Ask before changing a recorded decision, a method, sources, dependencies or
+section, open issues, pull requests and branches). Pull requests go to `staging`; `main` receives approved tasks one at a
+time, each in its own pull request with the maintainer's go (never the whole of `staging`), followed by the back-merge. Ask before changing a recorded decision, a method, sources, dependencies or
 repository settings.
