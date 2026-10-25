@@ -33,7 +33,7 @@ estados e os municípios, quem ocupa cada cargo dos três Poderes e quanto receb
 fonte oficial ao lado, com o link, o período e a data da coleta.
 
 **Estado:** primeira versão pública (v1). As páginas são arquivos HTML estáticos montados a partir dos dados deste repositório e
-publicados no GitHub Pages em dois sites: o de testes, <https://brasil-imposto.github.io/staging/>, a cada merge no ramo `staging`,
+publicados no GitHub Pages em dois sites: o de testes, <https://brasil-imposto.github.io/staging/>, refeito a partir do ramo `staging` (hoje pelo mantenedor; automático quando o token do disparo existir),
 e a produção, <https://brasil-imposto.github.io>, que recebe uma tarefa aprovada por vez, levada do `staging` para a `main`. O site definitivo, em Astro, está em
 construção.
 
