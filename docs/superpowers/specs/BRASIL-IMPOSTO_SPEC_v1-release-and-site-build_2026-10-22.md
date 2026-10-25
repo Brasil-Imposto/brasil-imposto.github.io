@@ -1,6 +1,6 @@
 # Brasil-Imposto: publicação da v1 e construção do site
 
-Status: **aprovada (D149, 2026-10-22).** Os itens marcados "Feito" foram executados na sessão local, que tinha os arquivos de entrada da máquina do autor. Parte A: esta sessão, até o site no ar. Parte B: o site em Astro, construído numa sessão na nuvem, fase por fase, cada uma com a aprovação do autor.
+Status: **aprovada (D149, 2026-10-22).** Os itens marcados "Feito" foram executados na sessão local, que tinha os arquivos de entrada da máquina do autor. Parte A: esta sessão, até o site no ar. Parte B: o site em Astro, construído numa sessão na nuvem até 2026-10-24 e, desde então, pela sessão local (D167), fase por fase, cada uma com a aprovação do autor.
 
 ### Summary (English)
 
@@ -87,7 +87,7 @@ Cliques do autor no fim: as quatro categorias de Discussions (Perguntas, Ideias,
 | Salário de 3 ministros licenciados da Câmara (pagos pela Câmara, fora do SIAPE), como já feito para o senador licenciado | `area:data` |
 | Municípios de outros estados, no caminho de SC e RS | `new-state`, `uf:xx` |
 
-## 3. Parte B: o site em Astro (sessão na nuvem)
+## 3. Parte B: o site em Astro (sessão na nuvem até 2026-10-24; depois, a sessão local, D167)
 
 ### B1. Objetivo e critério de aceite
 

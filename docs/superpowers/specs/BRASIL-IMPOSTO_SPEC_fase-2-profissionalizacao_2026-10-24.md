@@ -3,7 +3,7 @@
 Issue #64. Avaliação: `docs/research/BRASIL-IMPOSTO_RESEARCH_fase-2-avaliacao_2026-10-24.md`. Esta spec completa a de confiança
 (`BRASIL-IMPOSTO_SPEC_confianca_2026-10-23.md`, "spec de confiança"): não repete os itens dela, só os põe na ordem desta fase.
 
-Situação: **proposta, à espera do sim do mantenedor.** Nada abaixo foi implementado.
+Situação: **aprovada (D169, 2026-10-25).** Feitos: P1 (#90); P7, as issues #91 a #94 (a tarefa 5 da seção 5 veio no #90). P6 espera o sim ao texto (Q99); P2, P3, P5 e P8 esperam Q-F2-4, Q-F2-1, Q-F2-2 e Q-F2-5 (perguntas 9, 6, 7 e 10 da prévia de perguntas de 2026-10-25).
 
 ## 1. Regras
 
@@ -232,7 +232,7 @@ Os do pedido do mantenedor, cada um com o item que o atende:
 
 ## 7. Quem faz o quê
 
-- **Sessão na nuvem ou local, depois do sim:** um pull request por item, na ordem da seção 2. Antes de começar um item, conferir se
+- **Sessão local (D167; a nuvem ficou sem créditos em 2026-10-25), com o sim de D169:** um pull request por item, na ordem da seção 2. Antes de começar um item, conferir se
   ele já tem dono (regra 2 de `.claude/CLAUDE.md`).
 - **Mantenedor:**
   - o sim a esta spec;
@@ -243,7 +243,7 @@ Os do pedido do mantenedor, cada um com o item que o atende:
 ## 8. Fora desta spec
 
 - funcionalidades novas;
-- o site em Astro (#2 a #7);
+- o site em Astro (#3 a #7; a B0, #2, fechou em 2026-10-24);
 - os itens de método da spec de confiança (A2, A3, C1, B3), que já têm as perguntas deles;
 - selos de qualquer tipo.
 
