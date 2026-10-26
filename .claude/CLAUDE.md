@@ -47,7 +47,7 @@ Site: <https://brasil-imposto.github.io>.
 4. Testes primeiro.
 5. Revisão, um assunto por pull request, commits assinados (`git commit -s`, DCO).
 6. O pull request vai para o `staging` (o ramo padrão), nunca para a `main`. A `main` recebe tarefa por tarefa o que a pessoa
-   mantenedora aprova (D166), nunca o `staging` inteiro: para cada tarefa, um ramo saído da `main` com só os commits dela
+   mantenedora aprova (D166), nunca o `staging` inteiro, em lote no fim de um bloco de trabalho (D192): para cada tarefa, um ramo saído da `main` com só os commits dela
    (cherry-pick do squash no `staging`) e um pull request para a `main` (squash), com o aviso de produção; depois, o back-merge
    `main` para `staging` com merge commit, que leva os commits que o GitHub fez ao mergear e que o `dco` aceita (#61). No fim de um dia com produção, a versão do dia
    (D190): `docs/superpowers/tools/release-notes.py` dá o número, as notas e o `CHANGELOG.md`. Uma funcionalidade nova entra com a sua chave em

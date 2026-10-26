@@ -4,6 +4,21 @@ Uma seção por dia com mudanças na produção (`https://brasil-imposto.github.
 levou para a `main` (D166, D190). A data é a de Brasília. A versão do dia, quando existe, está nas
 [versões do GitHub](https://github.com/Brasil-Imposto/brasil-imposto.github.io/releases).
 
+## 2026-10-26
+
+- docs(tools): the review copies carry the decided logo and the site's favicon (#132)
+- docs(decisions): the author's answers to round 1 of the open questions (D172 to D182) (#134)
+- chore(github): CODEOWNERS names the maintainers team, not a person (D172, question 3) (#135)
+- docs(security): who handles each alert and how fast (Phase 2, P8) (#136)
+- ci(pages): the data tests and the page check run before production is uploaded (Phase 2, P2) (#137)
+- docs(decisions): the cargos filters in a tab, partial data in place, and a preview round for every new design (D183 to D186) (#138)
+- docs: round 2 answers and the cargos filters spec, approved (D187 to D191) (#139)
+- docs(governance): how a dispute over a number or a reading is settled (Phase 2, P6; D189) (#140)
+- ci: weekly dependency updates by Dependabot, into staging (D2) (#141)
+- feat(tres-poderes): the cargos filters in a tab with a drawer (spec filtros-cargos, D187) (#142)
+- docs(release): one release per production day and CHANGELOG.md (trust spec G3, D190) (#143)
+- feat(site): the money network preview leaves production and stays in staging (Q-A2, D172) (#144)
+
 ## 2026-10-25
 
 - ci(pages): actions pinned by commit and Pages writes only in deploy (D1) (#105)
