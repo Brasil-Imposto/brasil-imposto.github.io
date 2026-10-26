@@ -1,5 +1,6 @@
 # Checks that every commit of a pull request carries a Developer Certificate of Origin sign-off by its own author
-# (git commit -s). It reads commit metadata through the API and never runs the pull request's code.
+# (git commit -s), except the commits GitHub verified as the dependabot[bot] account (D188). It reads commit metadata through
+# the API and never runs the pull request's code.
 name: dco
 on:
   pull_request:
@@ -38,6 +39,10 @@ jobs:
               author = c["commit"]["author"]
               signed = re.findall(r"^Signed-off-by: .+ <(.+)>\s*$", c["commit"]["message"], re.M)
               if author["email"].lower() in (e.lower() for e in signed):
+                  continue
+              # Dependabot cannot certify the DCO, a person's statement: its commits pass when GitHub verified them as the
+              # dependabot[bot] account (D188). Every other commit still needs its author's sign-off.
+              if (c.get("author") or {}).get("login") == "dependabot[bot]" and (c["commit"].get("verification") or {}).get("verified"):
                   continue
               if promotion and signed and c["commit"]["committer"]["email"] == "noreply@github.com" and merged_through_a_pull_request(c["sha"]):
                   continue
