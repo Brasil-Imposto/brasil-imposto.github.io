@@ -22,7 +22,9 @@ OLD = re.compile(r"""data/scripts|(['"])data\1\s*[/,]\s*(['"])scripts\2"""
 # and the one-time move proof name it because checking for it is their job.
 ALLOWED = {"docs/decisions/README.md", "pipelines/tests/test_layout.py", "docs/superpowers/tools/prove-pipelines-move.py",
            # the approved phase B0 section lists the old names as the ones to rename
-           "docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_astro-phase-b0_2026-10-22.md"}
+           "docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_astro-phase-b0_2026-10-22.md",
+           # the record of what was published quotes the titles of past pull requests, the move to pipelines/ included
+           "CHANGELOG.md"}
 
 
 def tracked_text_files():
