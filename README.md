@@ -20,6 +20,7 @@
 <p align="center">
   <a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/actions/workflows/ci.yml"><img src="https://github.com/Brasil-Imposto/brasil-imposto.github.io/actions/workflows/ci.yml/badge.svg" alt="ci"></a>
   <a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/actions/workflows/pages.yml"><img src="https://github.com/Brasil-Imposto/brasil-imposto.github.io/actions/workflows/pages.yml/badge.svg" alt="pages"></a>
+  <a href="https://scorecard.dev/viewer/?uri=github.com/Brasil-Imposto/brasil-imposto.github.io"><img src="https://api.scorecard.dev/projects/github.com/Brasil-Imposto/brasil-imposto.github.io/badge" alt="OpenSSF Scorecard"></a>
 </p>
 
 <p align="center">
