@@ -67,6 +67,8 @@ que substitui outra) é uma **proposta de método**:
 
 Correção de um erro, sem mudança de método, não precisa da janela de comentário.
 
+**Disputas sobre um dado ou uma leitura.** A disputa vira uma issue (o formulário "Pedir correção" ou "Proposta de método"), com as fontes oficiais dos dois lados. O mantenedor decide pela fonte oficial; quando duas fontes oficiais divergem, a página mostra as duas e diz qual entra na soma. A decisão entra no registro público com o seu número D. Se um número publicado muda, a mudança entra no registro de correções. Quando houver revisores (fase 1 deste documento), a decisão passa também pela revisão de outra pessoa antes do merge.
+
 ## Áreas
 
 | Área | Situação | Quem cuida |
@@ -91,4 +93,6 @@ switch in `data/features.json` is turned on. Four phases, with suggested thresho
 elected council. Neutrality rules: maintainers declare party membership and public office; never two maintainers from the same
 party; a party member never approves alone a pull request about their own party; no money from parties, candidates or elected
 officeholders, and every source above 5% of the year's income is published. Method changes get 7 to 10 days of comment in
-Discussions before merging.
+Discussions before merging. A dispute over a number or a reading becomes an issue with the official
+sources of both sides; the maintainer decides by the official source, and when two official sources differ the page shows both
+and says which one enters the sum.
