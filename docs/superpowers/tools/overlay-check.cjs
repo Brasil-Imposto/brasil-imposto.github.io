@@ -1,6 +1,6 @@
 // The overlays and in-page jumps of the three published pages, measured as a reader meets them (spec interface-fixes,
 // 2026-10-22). For each width:
-//   - every overlay (Os 3 Poderes: the person sheet; Início: the "Ver as contas do Brasil" modal and the home feed's detail
+//   - every overlay (Os 3 Poderes: the person sheet and the filters drawer; Início: the "Ver as contas do Brasil" modal and the home feed's detail
 //     sheet), opened by clicking its button after scrolling the button into view:
 //       close  the close button's centre is inside the window and document.elementFromPoint there is the button itself, and a
 //              real mouse click there closes the overlay;
@@ -20,11 +20,12 @@ const PAGES = {
 };
 const OVERLAYS = [
   { page: 'tres-poderes', name: 'ficha da pessoa', opener: '[data-grid] [data-open]', open: '[data-back]:not([hidden])', close: '[data-sheet] [data-close]' },
+  { page: 'tres-poderes', name: 'gaveta dos filtros', opener: '[data-ftab]', open: '[data-fdrawer]:not([hidden])', close: '[data-fdrawer] [data-fx]' },
   { page: 'inicio', name: 'contas do Brasil', opener: '[data-open-brasil]', open: '.modal-open .modal-layer', close: '.modal-panel .close' },
   { page: 'inicio', name: 'detalhe do feed', opener: '[data-hf]', open: '.hf-sheet:not([hidden])', close: '.hf-sheet .hf-x' },
 ];
 const PLANT = `
-  .back { z-index: 40 !important; } .modal-layer { z-index: 30 !important; } .hf-sheet { z-index: 60 !important; }
+  .back { z-index: 40 !important; } .fdrawer, .fback { z-index: 40 !important; } .fdrawer { top: 0 !important; bottom: auto !important; } .modal-layer { z-index: 30 !important; } .hf-sheet { z-index: 60 !important; }
   .hf-panel { top: 0 !important; transform: translate(-50%, 0) !important; }
   [id] { scroll-margin-top: 0 !important; } html, body { overflow: visible !important; }`;
 
