@@ -27,6 +27,23 @@ import site_chrome  # noqa: E402
 BUILDERS = ("build-cases.py", "build-standalone-data.py", "build-simulation.py", "build-platform-preview.py", "build-notes-page.py")
 # the notes of the map for Como ler o mapa (D159), made from the map's data once build-standalone-data.py has written it
 NODE_BUILDERS = ("build-map-notes.cjs",)
+def script_tags(path):
+    """The script elements of one of our own source files, read line by line (no HTML parsing): a whole line
+    <script src="..."></script>, or a <script> line, its body and a </script> line. Anything else stops the build."""
+    lines, tags, i = path.read_text(encoding="utf-8").strip().split("\n"), [], 0
+    while i < len(lines):
+        if lines[i].startswith('<script src="') and lines[i].endswith('"></script>'):
+            tags.append(lines[i])
+            i += 1
+        elif lines[i] == "<script>" and "</script>" in lines[i:]:
+            j = lines.index("</script>", i)
+            tags.append("\n".join(lines[i:j + 1]))
+            i = j + 1
+        else:
+            raise SystemExit(f"build-site: {path.name}: unexpected line {lines[i][:60]}")
+    return tags
+
+
 # What each switch of data/features.json adds to a page, after the anchor it follows, and the files only it uses. A switch that
 # is off leaves the page as committed and its files out of assets/ (features.py: absent, never hidden).
 FEATURES = {
@@ -36,8 +53,7 @@ FEATURES = {
         "after": [('<link rel="stylesheet" href="assets/home-feed.css">', '<link rel="stylesheet" href="assets/platform.css">'),
                   ('<section class="hf-cake" id="para-onde-vai" data-cake aria-label="Para onde vai o dinheiro da União"></section>',
                    "\n" + (PREVIEWS / "src" / "platform-sections.html").read_text(encoding="utf-8").strip()),
-                  ("<!-- /site-chrome:js -->", "\n".join(map_loader.hold(tag) for tag in re.findall(
-                      r"<script[^>]*>.*?</script>", (PREVIEWS / "src" / "platform-script.html").read_text(encoding="utf-8"), re.S)))],
+                  ("<!-- /site-chrome:js -->", "\n".join(map_loader.hold(tag) for tag in script_tags(PREVIEWS / "src" / "platform-script.html")))],
         "files": ("platform.css", "bi-ledger-interest.js", "ledger-graph-model.js", "ledger-graph-view.js"),
     },
     "trade": {  # O que o Brasil vende, under Por que falta dinheiro on Início (D159)
