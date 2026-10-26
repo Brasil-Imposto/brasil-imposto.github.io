@@ -5,7 +5,7 @@ Este documento diz quem decide no projeto hoje, como decide e como a decisão pa
 ## Quem decide hoje
 
 O projeto está na **fase 0**: um mantenedor, @VitorPChaves, dono da organização `Brasil-Imposto` e de todo o repositório
-(`.github/CODEOWNERS`).
+(`.github/CODEOWNERS` nomeia o time `@Brasil-Imposto/maintainers`, que hoje tem só ele).
 
 - **Tudo entra por pull request**, inclusive o que o mantenedor faz. A regra da `main` não tem exceção, nem para o dono: pull
   request obrigatório, o check do DCO verde, histórico linear, sem force push.
