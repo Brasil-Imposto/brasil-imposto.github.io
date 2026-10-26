@@ -22,10 +22,12 @@ site_chrome = build_site.site_chrome
 ACCESS_KEY = "00000000-1111-4222-8333-444444444444"   # a dummy Web3Forms access key, for these tests only
 # what each switch leaves in a page when it is built in: its class names, its style and its script
 MARKS = {"apoie": ("bi-apoie", "bi-ap-", "bi-apoie-css"),
-         "trade": ("data-trade", "o-que-o-brasil-vende", "home-trade", "BIHT", "O que o Brasil vende ao exterior, produto por produto")}
+         "trade": ("data-trade", "o-que-o-brasil-vende", "home-trade", "BIHT", "O que o Brasil vende ao exterior, produto por produto"),
+         "rede": ('id="rede"', "data-graph", "ledger-graph", "3d-force-graph", "bi-ledger-interest", "platform.css", "Rede do dinheiro", "#rede")}
 # what a switch's content leaves in a script or style of assets/ (home-feed.js keeps the hook window.BIHT and names its file in a
 # comment, so in assets/ only the section itself counts, with its own files)
-ASSET_MARKS = {"apoie": ("bi-apoie-css",), "trade": ("data-trade", "o-que-o-brasil-vende", "O que o Brasil vende ao exterior, produto por produto")}
+ASSET_MARKS = {"apoie": ("bi-apoie-css",), "trade": ("data-trade", "o-que-o-brasil-vende", "O que o Brasil vende ao exterior, produto por produto"),
+               "rede": ("data-graph-stage", "BILGV")}
 
 
 def status():
@@ -99,7 +101,8 @@ class BuildSiteTest(unittest.TestCase):
         tmp = Path(self.tmp.name)
         support = json.loads((REPO / "data" / "support.json").read_text(encoding="utf-8"))
         support["contact_form"]["access_key"] = ACCESS_KEY
-        switched = {"features": [{"key": "apoie", "issue": 46, "description": "O botão Apoie", "staging": True, "production": True}]}
+        switched = {"features": [{"key": "apoie", "issue": 46, "description": "O botão Apoie", "staging": True, "production": True},
+                                 {"key": "rede", "issue": 130, "description": "A prévia da Rede do dinheiro", "staging": True, "production": False}]}
         (tmp / "support.json").write_text(json.dumps(support), encoding="utf-8")
         (tmp / "features.json").write_text(json.dumps(switched), encoding="utf-8")
         site = tmp / "control"
@@ -151,6 +154,42 @@ class BuildSiteTest(unittest.TestCase):
         self.assertIn("index.html: trade (home-trade)", found)
         self.assertIn("home-trade.js: trade (file)", found)
         self.assertIn("home-trade.css: trade (file)", found)
+
+    def test_rede_is_off_in_production_and_on_in_staging(self):
+        data = json.loads((REPO / "data" / "features.json").read_text(encoding="utf-8"))
+        rede = next(f for f in data["features"] if f["key"] == "rede")
+        self.assertEqual((rede["staging"], rede["production"]), (True, False))
+        for fn in build_site.FEATURES["rede"]["files"]:
+            self.assertFalse((self.prod / "assets" / fn).exists(), fn)
+            self.assertTrue((self.stage / "assets" / fn).exists(), fn)
+        page = (self.stage / "index.html").read_text(encoding="utf-8")
+        self.assertEqual(page.count('id="rede"'), 1)
+        self.assertEqual(page.count('<link rel="stylesheet" href="assets/platform.css">'), 1)
+        self.assertEqual(page.count('<script type="text/x-bi-deferred" data-src="assets/ledger-graph-view.js"></script>'), 1)
+        self.assertLess(page.index('id="para-onde-vai"'), page.index('id="rede"'))
+        for key, (name, _) in site_chrome.ALL_PAGES.items():
+            with self.subTest(page=key):
+                stage = (self.stage / ("index.html" if key == "inicio" else name)).read_text(encoding="utf-8")
+                self.assertEqual(stage.count(">Rede do dinheiro (prévia)</a>"), 1)
+
+    def test_control_rede_on_in_production_is_found(self):
+        tmp = Path(self.tmp.name)
+        data = json.loads((REPO / "data" / "features.json").read_text(encoding="utf-8"))
+        for f in data["features"]:
+            if f["key"] == "rede":
+                f["production"] = True
+        (tmp / "rede-on.json").write_text(json.dumps(data), encoding="utf-8")
+        site = tmp / "rede-control"
+        shutil.copytree(self.stage / "assets", site / "assets")   # the assets a build with rede on carries
+        (site / "index.html").write_text(built("production", tmp / "rede-on.json", "inicio"), encoding="utf-8")
+        for f in data["features"]:   # the leak check sees rede as switched off
+            if f["key"] == "rede":
+                f["production"] = False
+        found = leaks(site, data)
+        self.assertIn('index.html: rede (id="rede")', found)
+        self.assertIn("index.html: rede (ledger-graph)", found)
+        self.assertIn("platform.css: rede (file)", found)
+        self.assertIn("ledger-graph-view.js: rede (file)", found)
 
     def test_staging_marks_every_page_and_builds_apoie(self):
         for key, (name, _) in site_chrome.ALL_PAGES.items():
