@@ -143,12 +143,36 @@
   /* ---------- the directory ---------- */
   .note { display:block; font-size:13px; line-height:1.5; color:#6B5310; background:#FFF8E1; border:1px solid #F0D48A; border-radius:12px; padding:10px 13px; margin:0 0 16px; }
   .note b { color:#5A4410; }
-  .tools { display:grid; grid-template-columns:minmax(0, 1.6fr) auto repeat(3, minmax(0, .8fr)); gap:10px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:16px; padding:10px; }
+  .tools { display:flex; gap:10px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:16px; padding:10px; } .tools .search { flex:1 1 auto; min-width:0; }
   .search { position:relative; }
   .search input { width:100%; border:1px solid var(--line); background:var(--soft); border-radius:11px; padding:10px 12px 10px 38px; font-size:14.5px; font-weight:600; outline:none; }
   .search input:focus { border-color:var(--ink2); background:#fff; }
   .search svg { position:absolute; left:12px; top:50%; transform:translateY(-50%); width:17px; height:17px; color:var(--faint); }
-  .tools select { width:100%; border:1px solid var(--line); background:#fff; border-radius:11px; padding:9px 10px; font-size:13px; font-weight:700; color:var(--ink2); }
+  .fdrawer select { width:100%; border:1px solid var(--line); background:#fff; border-radius:11px; padding:9px 10px; font-size:13px; font-weight:700; color:var(--ink2); }
+  /* the filters drawer (spec filtros-cargos, D187): a Filtros tab, the active filters as tags, the drawer as an overlay */
+  .ftab { display:inline-flex; align-items:center; gap:7px; flex:0 0 auto; border:1px solid var(--line); background:#fff; border-radius:11px; padding:9px 13px; font:700 13.5px Manrope,system-ui,sans-serif; color:var(--ink); cursor:pointer; white-space:nowrap; }
+  .ftab svg { width:15px; height:15px; } .ftab[aria-expanded="true"] { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .fn { background:#12803F; color:#fff; border-radius:99px; font-size:11px; padding:1px 7px; line-height:1.5; }
+  .factive { display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; } .factive:empty { display:none; }
+  .factive button { display:inline-flex; align-items:center; gap:6px; border:1px solid #12803F; background:#EAF5EE; color:#0B6B2D; border-radius:99px; padding:5px 10px; font:700 12.5px Manrope,system-ui,sans-serif; cursor:pointer; }
+  .factive button svg { width:12px; height:12px; }
+  .fback { position:fixed; inset:0; background:rgba(20,32,43,.38); z-index:1100; }
+  .fdrawer { position:fixed; top:0; right:0; bottom:0; width:min(400px, 92vw); background:#fff; z-index:1101; display:flex; flex-direction:column; box-shadow:-18px 0 40px rgba(20,32,43,.18); }
+  .fback[hidden], .fdrawer[hidden] { display:none; }
+  .fd-hd { display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border-bottom:1px solid var(--line); } .fd-hd b { font-size:17px; }
+  .fd-x { border:0; background:none; cursor:pointer; color:var(--ink); padding:6px; border-radius:8px; } .fd-x svg { width:20px; height:20px; display:block; }
+  .fd-body { flex:1; overflow:auto; padding:16px 18px; display:flex; flex-direction:column; gap:18px; }
+  .flab { display:block; font-size:11.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--faint); margin-bottom:6px; }
+  .fchips { display:flex; gap:6px; flex-wrap:wrap; }
+  .fchips button { border:1px solid var(--line); background:#fff; border-radius:99px; padding:7px 12px; font:600 13px Manrope,system-ui,sans-serif; color:var(--ink); cursor:pointer; white-space:nowrap; }
+  .fchips button[aria-pressed="true"] { background:#EAF5EE; border-color:#12803F; color:#0B6B2D; font-weight:800; }
+  .fsort { display:flex; flex-direction:column; }
+  .fdir { align-self:flex-start; margin-top:8px; display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); background:#fff; border-radius:99px; padding:7px 12px; font:700 12.5px Manrope,system-ui,sans-serif; color:var(--ink); cursor:pointer; }
+  .fdir svg { width:14px; height:14px; transition:transform .15s; } .fdir[data-first="false"] svg { transform:rotate(180deg); }
+  .fd-ft { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 18px; border-top:1px solid var(--line); }
+  .fclear { border:0; background:none; color:var(--muted); font:700 13px Manrope,system-ui,sans-serif; text-decoration:underline; cursor:pointer; padding:0; }
+  .ordlab { color:var(--muted); } .ordlab b { color:var(--ink); }
+  @media (max-width:620px) { .fdrawer { top:auto; left:0; width:auto; max-height:86vh; border-radius:18px 18px 0 0; box-shadow:0 -18px 40px rgba(20,32,43,.18); } }
   .count { margin:14px 2px 10px; font-size:13px; color:var(--muted); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; }
   .count b { color:var(--ink); }
   .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:12px; }
@@ -256,7 +280,6 @@
   .foot { padding:22px 0 60px; color:var(--muted); font-size:12.5px; }
 
   @media (max-width: 980px) {
-    .tools { grid-template-columns:1fr 1fr; } .search { grid-column:1 / -1; } .tools .mini-switch { grid-column:1 / -1; justify-self:start; flex-wrap:wrap; max-width:100%; border-radius:16px; }
     .p-cols, .cols2 { grid-template-columns:1fr; }
   }
   @media (max-width: 640px) {
@@ -472,20 +495,25 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
       </div>
     </div>
     <div class="note"><b>Cota e verba de gabinete não são salário.</b> <span>A cota paga despesas do mandato com nota fiscal (passagens, escritório, combustível, divulgação); a verba de gabinete paga a equipe. O total por mês soma tudo o que a pessoa usa e mostra as duas partes separadas.</span></div>
-    <div class="tools">
+    <div class="tools" id="filtros">
       <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <input type="search" data-q placeholder="Nome, partido, estado ou tribunal" aria-label="Buscar" autocomplete="off"></label>
-      <div class="mini-switch" role="group" aria-label="Casa" data-houses></div>
-      <select data-uf aria-label="Estado"></select>
-      <select data-party aria-label="Partido"></select>
-      <select data-sort aria-label="Ordem">
-        <option value="name">Nome (A a Z)</option>
-        <option value="total">Total por mês (maior primeiro)</option>
-        <option value="ceap-desc">Cota usada em 2026 (maior primeiro)</option>
-        <option value="ceap-asc">Cota usada em 2026 (menor primeiro)</option>
-      </select>
+      <button type="button" class="ftab" data-ftab aria-expanded="false" aria-controls="filtros-gaveta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16l-6 7.5V19l-4 1.5v-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Filtros</span><span class="fn" data-fn hidden></span></button>
     </div>
-    <div class="count"><span data-count></span><span data-asof></span></div>
+    <div class="factive" data-active></div>
+    <div class="fback" data-fback hidden></div>
+    <aside class="fdrawer" id="filtros-gaveta" data-fdrawer role="dialog" aria-modal="true" aria-labelledby="filtros-titulo" hidden>
+      <div class="fd-hd"><b id="filtros-titulo">Filtros</b><button type="button" class="fd-x" data-fx data-fclose aria-label="Fechar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button></div>
+      <div class="fd-body">
+        <div><span class="flab">Casa</span><div class="fchips" role="group" aria-label="Casa" data-houses></div></div>
+        <label class="fsel"><span class="flab">Estado</span><select data-uf aria-label="Estado"></select></label>
+        <label class="fsel"><span class="flab">Partido</span><select data-party aria-label="Partido"></select></label>
+        <div class="fsort"><span class="flab">Ordenar por</span><div class="fchips" role="group" aria-label="Ordenar por" data-keys><button type="button" data-key="name" aria-pressed="true">Nome</button><button type="button" data-key="total" aria-pressed="false">Total por mês</button><button type="button" data-key="own" aria-pressed="false">Para a pessoa</button><button type="button" data-key="ceap" aria-pressed="false">Cota usada</button></div>
+          <button type="button" class="fdir" data-dir data-first="true" aria-label="Inverter a ordem"><span data-dirtxt>A a Z</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+      </div>
+      <div class="fd-ft"><button type="button" class="fclear" data-fclear>Limpar filtros</button><button type="button" class="btn dark" data-fseen data-fclose>Ver pessoas</button></div>
+    </aside>
+    <div class="count"><span><span data-count></span><span class="ordlab" data-ordlab></span></span><span data-asof></span></div>
     <div class="grid" data-grid></div>
     <div class="more"><button class="btn" type="button" data-more hidden></button></div>
   </div>
@@ -824,7 +852,7 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
   }
   function cardHTML(e) {
     const x = e.x, M = e.M, on = cmp.includes(x.id);
-    return `<article class="pc${on ? ' cmp' : ''}" data-card="${x.id}"><div class="who">${ph(x, true)}<div style="min-width:0"><strong>${esc(x.name)}</strong>`
+    return `<article class="pc${on ? ' cmp' : ''}" data-card="${x.id}" data-total="${M.total}" data-own="${M.own}" data-ceap="${x.ceap && x.ceap.used != null ? x.ceap.used : ''}"><div class="who">${ph(x, true)}<div style="min-width:0"><strong>${esc(x.name)}</strong>`
       + `<div class="meta">${metaHTML(x)}</div></div></div>`
       + `<div class="rows">${(M.generic ? cardRows(M) : M.rows).map((r) => rowHTML(r, !M.generic)).join('')}</div>${M.generic && M.rows.length > cardRows(M).length ? `<div class="tnote">mais ${int(M.rows.length - cardRows(M).length)} componentes sem valor em 2026 na ficha completa</div>` : ''}${totHTML(M)}`
       + (x.bills ? `<div class="rows">${billsLine(x)}</div>` : '')
@@ -839,11 +867,12 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
   const grid = document.querySelector('[data-grid]'), moreBtn = document.querySelector('[data-more]');
   function drawList() {
     let xs = IDX.filter(matches);
-    const by = { name: (a, b) => a.name.localeCompare(b.name), total: (a, b) => b.M.total - a.M.total,
+    const by = { name: (a, b) => a.name.localeCompare(b.name), 'name-desc': (a, b) => b.name.localeCompare(a.name), total: (a, b) => b.M.total - a.M.total, 'total-asc': (a, b) => a.M.total - b.M.total,
+                 'own-desc': (a, b) => b.M.own - a.M.own, 'own-asc': (a, b) => a.M.own - b.M.own,
                  'ceap-desc': (a, b) => ((b.x.ceap && b.x.ceap.used) || -1) - ((a.x.ceap && a.x.ceap.used) || -1),
                  'ceap-asc': (a, b) => ((a.x.ceap && a.x.ceap.used != null ? a.x.ceap.used : 1e12)) - ((b.x.ceap && b.x.ceap.used != null ? b.x.ceap.used : 1e12)) };
     xs.sort(by[F.sort]);
-    document.querySelector('[data-count]').innerHTML = `<b>${int(xs.length)}</b> ${xs.length === 1 ? 'pessoa' : 'pessoas'}`;
+    document.querySelector('[data-count]').innerHTML = `<b>${int(xs.length)}</b> ${xs.length === 1 ? 'pessoa' : 'pessoas'}`; paintFilters(xs.length);
     grid.innerHTML = xs.length ? xs.slice(0, shown).map(cardHTML).join('') : '<div class="empty">Ninguém com esse nome, partido ou estado. Confira a grafia ou limpe os filtros.</div>';
     moreBtn.hidden = xs.length <= shown; moreBtn.textContent = `Mostrar mais ${Math.min(24, xs.length - shown)} de ${int(xs.length - shown)}`;
   }
@@ -851,7 +880,48 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
   qEl.addEventListener('input', () => { F.q = qEl.value; shown = 24; drawList(); });
   housesEl.addEventListener('click', (e) => { const b = e.target.closest('[data-house]'); if (!b) return; F.house = b.dataset.house; shown = 24;
     housesEl.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); drawList(); });
-  [['uf', '[data-uf]'], ['party', '[data-party]'], ['sort', '[data-sort]']].forEach(([k, s]) => document.querySelector(s).addEventListener('change', (e) => { F[k] = e.target.value; shown = 24; drawList(); }));
+  [['uf', '[data-uf]'], ['party', '[data-party]']].forEach(([k, s]) => document.querySelector(s).addEventListener('change', (e) => { F[k] = e.target.value; shown = 24; drawList(); }));
+  // ---------- the filters drawer (spec filtros-cargos, D187): the house buttons and the two selects above live in it
+  const ORDER_LABEL = { name: ['Nome (A a Z)', 'Nome (Z a A)'], total: ['Maior total por mês', 'Menor total por mês'],
+    own: ['Mais para a pessoa por mês', 'Menos para a pessoa por mês'], ceap: ['Maior uso da cota em 2026', 'Menor uso da cota em 2026'] };
+  const SORT_OF = { name: ['name', 'name-desc'], total: ['total', 'total-asc'], own: ['own-desc', 'own-asc'], ceap: ['ceap-desc', 'ceap-asc'] };
+  const fdrawer = document.querySelector('[data-fdrawer]'), fback = document.querySelector('[data-fback]'), ftab = document.querySelector('[data-ftab]');
+  const ufSel = document.querySelector('[data-uf]'), partySel = document.querySelector('[data-party]'), factive = document.querySelector('[data-active]');
+  const TAG_X = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
+  const sortState = { key: 'name', first: true };
+  function setSort() { F.sort = SORT_OF[sortState.key][sortState.first ? 0 : 1]; shown = 24; drawList(); }
+  function paintFilters(n) {
+    fdrawer.querySelectorAll('[data-key]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.key === sortState.key)));
+    const dir = fdrawer.querySelector('[data-dir]'); dir.dataset.first = String(sortState.first);
+    dir.querySelector('[data-dirtxt]').textContent = sortState.key === 'name' ? (sortState.first ? 'A a Z' : 'Z a A') : (sortState.first ? 'Maior primeiro' : 'Menor primeiro');
+    document.querySelector('[data-ordlab]').innerHTML = ` · ordenadas por <b>${ORDER_LABEL[sortState.key][sortState.first ? 0 : 1]}</b>`;
+    const on = [];
+    if (F.house !== 'all') { const b = housesEl.querySelector(`[data-house="${F.house}"]`); on.push(['house', b ? b.textContent.replace(/\s*[\d.]+$/, '') : F.house]); }
+    if (F.uf) on.push(['uf', F.uf]); if (F.party) on.push(['party', F.party]);
+    const fn = ftab.querySelector('[data-fn]'); fn.hidden = !on.length; fn.textContent = on.length;
+    ftab.setAttribute('aria-label', on.length ? `Filtros, ${on.length} ${on.length === 1 ? 'ligado' : 'ligados'}` : 'Filtros');
+    factive.innerHTML = on.map(([k, l]) => `<button type="button" data-rm="${k}" aria-label="Tirar o filtro ${esc(l)}">${esc(l)}${TAG_X}</button>`).join('');
+    fdrawer.querySelector('[data-fseen]').textContent = n ? `Ver ${int(n)} ${n === 1 ? 'pessoa' : 'pessoas'}` : 'Nenhuma pessoa';
+  }
+  function showFilters(v) {
+    fdrawer.hidden = fback.hidden = !v; ftab.setAttribute('aria-expanded', String(v)); document.body.style.overflow = v ? 'hidden' : '';
+    (v ? fdrawer.querySelector('[data-fx]') : ftab).focus({ preventScroll: true });
+  }
+  ftab.addEventListener('click', () => showFilters(true));
+  fback.addEventListener('click', () => showFilters(false));
+  fdrawer.querySelectorAll('[data-fclose]').forEach((b) => b.addEventListener('click', () => showFilters(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !fdrawer.hidden) showFilters(false); });
+  fdrawer.querySelector('[data-keys]').addEventListener('click', (e) => { const b = e.target.closest('[data-key]'); if (!b) return; sortState.key = b.dataset.key; sortState.first = true; setSort(); });
+  fdrawer.querySelector('[data-dir]').addEventListener('click', () => { sortState.first = !sortState.first; setSort(); });
+  fdrawer.querySelector('[data-fclear]').addEventListener('click', () => {
+    F.house = 'all'; F.uf = ''; F.party = ''; ufSel.value = ''; partySel.value = '';
+    housesEl.querySelectorAll('[data-house]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.house === 'all')));
+    sortState.key = 'name'; sortState.first = true; setSort();
+  });
+  factive.addEventListener('click', (e) => { const b = e.target.closest('[data-rm]'); if (!b) return;
+    if (b.dataset.rm === 'house') housesEl.querySelector('[data-house="all"]').click();
+    else { const s = b.dataset.rm === 'uf' ? ufSel : partySel; s.value = ''; s.dispatchEvent(new Event('change')); }
+    ftab.focus({ preventScroll: true }); });
   moreBtn.addEventListener('click', () => { shown += 24; drawList(); });
 
   // ---------- compare
