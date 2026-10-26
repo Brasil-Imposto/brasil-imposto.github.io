@@ -1,5 +1,6 @@
 // Records the visible text of the platform page so a change that must not touch the screen can be proven not to.
 // Usage: node visible-text-probe.cjs <page.html | https://url> <out.json> [--audit] [--plant]
+//        node visible-text-probe.cjs --page <https://url> <out.json>   (the whole text of one page that is not Início)
 //        node visible-text-probe.cjs --compare <a.json> <b.json>
 // A URL is opened as served (the published site); requests to its own origin are allowed.
 // --audit counts what the published site must never show (internal codes D, Q or GD, "Só na prévia", "a coletar", the
@@ -128,5 +129,28 @@ function compare(a, b) {
   process.exitCode = diff.length ? 1 : 0;
 }
 
+// --page <url> <out.json>: the whole visible text of one served page, once it says it is ready (or after load when it never says),
+// for the pages other than Início (the ci's visible-text check, spec paridade-enderecos-formatador, part A).
+async function capturePage(url, outPath) {
+  const { chromium } = require(process.env.PW_CORE || 'playwright-core');
+  const browser = await chromium.launch({ executablePath: process.env.CHROME_HEADLESS, args: ['--enable-unsafe-swiftshader', '--use-angle=swiftshader', '--no-sandbox'] });
+  const out = { page: url, texts: {}, errors: [] };
+  try {
+    const ctx = await browser.newContext({ viewport: { width: +(process.env.VT_WIDTH || 1100), height: 900 } });
+    const origin = new URL(url).origin;
+    await ctx.route('**/*', (r) => (r.request().url().startsWith(origin) || ALLOWED.some((a) => r.request().url().startsWith(a)) ? r.continue() : r.abort()));
+    const page = await ctx.newPage();
+    page.on('pageerror', (e) => out.errors.push(`pageerror: ${e.message}`));
+    await page.goto(url);
+    await page.waitForSelector('body[data-ready="1"]', { timeout: 30000 }).catch(() => page.waitForLoadState('networkidle'));
+    await page.waitForTimeout(500);
+    out.texts.page = await page.evaluate(() => document.body.innerText);
+  } finally { await browser.close(); }
+  fs.writeFileSync(outPath, JSON.stringify(out, null, 1));
+  console.log(`captured ${url}: ${out.texts.page.length} characters, ${out.errors.length} errors`);
+  if (out.errors.length) process.exitCode = 1;
+}
+
 if (process.argv[2] === '--compare') compare(process.argv[3], process.argv[4]);
+else if (process.argv[2] === '--page') capturePage(process.argv[3], process.argv[4]).catch((e) => { console.error(e); process.exitCode = 2; });
 else capture(process.argv[2], process.argv[3], { audit: process.argv.includes('--audit'), plant: process.argv.includes('--plant') }).catch((e) => { console.error(e); process.exitCode = 2; });
