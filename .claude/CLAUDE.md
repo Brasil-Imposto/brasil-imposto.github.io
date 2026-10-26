@@ -49,7 +49,8 @@ Site: <https://brasil-imposto.github.io>.
 6. O pull request vai para o `staging` (o ramo padrão), nunca para a `main`. A `main` recebe tarefa por tarefa o que a pessoa
    mantenedora aprova (D166), nunca o `staging` inteiro: para cada tarefa, um ramo saído da `main` com só os commits dela
    (cherry-pick do squash no `staging`) e um pull request para a `main` (squash), com o aviso de produção; depois, o back-merge
-   `main` para `staging` com merge commit, que leva os commits que o GitHub fez ao mergear e que o `dco` aceita (#61). Uma funcionalidade nova entra com a sua chave em
+   `main` para `staging` com merge commit, que leva os commits que o GitHub fez ao mergear e que o `dco` aceita (#61). No fim de um dia com produção, a versão do dia
+   (D190): `docs/superpowers/tools/release-notes.py` dá o número, as notas e o `CHANGELOG.md`. Uma funcionalidade nova entra com a sua chave em
    `data/features.json`, desligada na produção. Enquanto o segredo `STAGING_DISPATCH_TOKEN` não existe, quem mergeia no `staging`
    roda o deploy do staging à mão ao fim do lote (`gh workflow run deploy.yml --repo Brasil-Imposto/staging --ref main`) e confere
    o site de testes.
