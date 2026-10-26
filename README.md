@@ -61,7 +61,7 @@ A árvore dos cargos da União e a ficha de cada pessoa: os 513 deputados, os 81
 Estado e os ministros dos tribunais superiores, com o salário, cada auxílio e o que cada um usou em 2026. Para cada parlamentar,
 cada projeto que apresentou e o que aconteceu com ele. Em cada ficha, "Pedir correção" abre o formulário já preenchido.
 
-Abrir: <https://brasil-imposto.github.io/BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html>
+Abrir: <https://brasil-imposto.github.io/os-3-poderes.html>
 
 ### Como o dinheiro anda
 
@@ -71,7 +71,7 @@ Quem cobra cada imposto, as partes que a Constituição manda passar de um gover
 dívida, com os números de 2025. Três formas contam o mesmo caminho: siga R$ 100 de um imposto, os seis passos do dinheiro e o
 grande fluxo do ano.
 
-Abrir: <https://brasil-imposto.github.io/BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html>
+Abrir: <https://brasil-imposto.github.io/como-o-dinheiro-anda.html>
 
 ## De onde vêm os números
 

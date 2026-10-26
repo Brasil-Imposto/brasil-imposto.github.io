@@ -35,8 +35,8 @@ docs/superpowers/previews/*.html
 !docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_hero-mapa-3d-round-2_2026-09-29.html
 !docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_home-simulacao_2026-09-29.html
 !docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html
-!docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html
-!docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html
-!docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_como-ler-o-mapa_2026-10-23.html
+!docs/superpowers/previews/os-3-poderes.html
+!docs/superpowers/previews/como-o-dinheiro-anda.html
+!docs/superpowers/previews/como-ler-o-mapa.html
 # per-entity JSON files, generated at build time from data/ (D151, answer 3)
 site/src/generated/

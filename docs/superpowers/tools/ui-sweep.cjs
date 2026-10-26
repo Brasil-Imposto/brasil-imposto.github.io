@@ -12,9 +12,9 @@
 const path = require('path');
 const PAGES = {
   inicio: 'BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html',
-  'tres-poderes': 'BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html',
-  dinheiro: 'BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html',
-  notas: 'BRASIL-IMPOSTO_DESIGN_como-ler-o-mapa_2026-10-23.html',
+  'tres-poderes': 'os-3-poderes.html',
+  dinheiro: 'como-o-dinheiro-anda.html',
+  notas: 'como-ler-o-mapa.html',
 };
 // The control's cover spans the whole window: on a short page (Como ler o mapa) no control can be scrolled into a band in the
 // middle, so a band would leave the covered check unproven there.

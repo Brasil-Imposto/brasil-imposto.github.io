@@ -10,7 +10,7 @@ const { chromium } = require(process.env.PW_CORE || "playwright-core");
   for (let w = 820; w <= 1280; w += 20) {
     const p = await b.newPage({ viewport: { width: w, height: 900 } });
     await p.route('**/*', (r) => r.request().url().startsWith(base) ? r.continue() : r.abort());
-    await p.goto(base + 'BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html#p=stf%3Agilmar-mendes');
+    await p.goto(base + 'os-3-poderes.html#p=stf%3Agilmar-mendes');
     await p.waitForSelector('[data-back]:not([hidden]) .others');
     if (plant) await p.addStyleTag({ content: '.others li b { white-space: nowrap !important; }' });
     const r = await p.evaluate(() => { const sh = document.querySelector('[data-sheet]').getBoundingClientRect();
