@@ -2,8 +2,8 @@
 
 Every `uses:` of .github/workflows/ and deploy/staging/deploy.yml names an action by a 40-character commit with its version in a
 comment, so a moved tag cannot change what runs. No workflow grants a write permission at its top: a write appears only in the
-job that needs it, and the only ones allowed are Pages' (pages and id-token), in a job named deploy, and the Scorecard's
-(security-events and id-token), in a job named scorecard.
+job that needs it, and the only ones allowed are Pages' (pages and id-token), in a job named deploy, the Scorecard's
+(security-events and id-token), in a job named scorecard, and CodeQL's (security-events), in a job named analyze.
 Controls: a copy with an action at @v4, a copy with pages: write at the top, and a copy with a write the job is not allowed, must fail.
 """
 import re
@@ -14,7 +14,7 @@ REPO = Path(__file__).resolve().parents[2]
 FILES = sorted((REPO / ".github" / "workflows").glob("*.yml")) + [REPO / "deploy" / "staging" / "deploy.yml"]
 USES = re.compile(r"^\s*(?:-\s+)?uses:\s*(\S+)(.*)$")
 PINNED = re.compile(r"^[\w.-]+/[\w./-]+@[0-9a-f]{40}$")
-JOB_WRITES = {"deploy": {"pages", "id-token"}, "scorecard": {"security-events", "id-token"}}
+JOB_WRITES = {"deploy": {"pages", "id-token"}, "scorecard": {"security-events", "id-token"}, "analyze": {"security-events"}}
 
 
 def problems(name, text):
