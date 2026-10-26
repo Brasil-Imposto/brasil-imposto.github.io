@@ -1,6 +1,6 @@
 # Brasil-Imposto: a conferência do texto da tela no `ci`, os endereços limpos e o formatador
 
-Status: **rascunho, espera o sim do autor.** Três respostas da rodada 1 que pedem uma escolha de como fazer antes do código:
+Status: **aprovada pelo autor em 2026-10-26 (D194), com A1 na recomendação: a conferência é obrigatória.** Três respostas da rodada 1 que pedem uma escolha de como fazer antes do código:
 a pergunta 41 (#82, Q95), a 28 (Q86) e a 8 (D174).
 
 ### Summary (English)
