@@ -1,0 +1,122 @@
+{
+ "uf": "PR",
+ "terms": [
+  {
+   "role": "governor",
+   "name": "Ratinho Junior",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    }
+   ],
+   "verified": true,
+   "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas."
+  },
+  {
+   "role": "vice_governor",
+   "name": "Darci Piana",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    }
+   ],
+   "verified": true,
+   "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas."
+  },
+  {
+   "role": "governor",
+   "name": "Ratinho Junior",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "decreto assinado pelo governador em 19/08/2026 (Decreto nº 14.804)",
+     "url": "https://www.parana.pr.gov.br/sites/novo-parana/arquivos_restritos/files/documento/2026-08/14804.pdf",
+     "type": "official",
+     "quote": "Curitiba, em 19 de agosto de 2026, 205° da Independência e 138° da República. CARLOS MASSA RATINHO JUNIOR [...] Governador do Estado"
+    }
+   ],
+   "verified": true,
+   "note": "Nenhuma renúncia em 2026: decreto assinado por ele como governador em 19/08/2026, depois do prazo de abril; é o ato mais recente lido."
+  },
+  {
+   "role": "vice_governor",
+   "name": "Darci Piana",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "o vice-governador em evento oficial em 23/10/2026 (Agência Estadual de Notícias do Paraná, 23/10/2026)",
+     "url": "https://www.parana.pr.gov.br/aen/Noticia/Vice-governador-participa-das-celebracoes-do-Dia-do-Aviador-e-dos-120-anos-do-voo-do-14",
+     "type": "official",
+     "quote": "Publicação 23/10/2026 - 12:32 [...] O vice-governador Darci Piana participou das celebrações alusivas à data"
+    }
+   ],
+   "verified": true,
+   "note": "Segue no cargo: a Agência Estadual de Notícias o traz como vice-governador em 23/10/2026."
+  }
+ ],
+ "gaps": []
+}

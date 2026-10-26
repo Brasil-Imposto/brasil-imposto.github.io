@@ -1,0 +1,122 @@
+{
+ "uf": "MS",
+ "terms": [
+  {
+   "role": "governor",
+   "name": "Reinaldo Azambuja",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    }
+   ],
+   "verified": true,
+   "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas."
+  },
+  {
+   "role": "vice_governor",
+   "name": "Murilo Zauith",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    }
+   ],
+   "verified": true,
+   "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas."
+  },
+  {
+   "role": "governor",
+   "name": "Eduardo Riedel",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "expediente e decretos de 19/10/2026 (Diário Oficial de Mato Grosso do Sul nº 12.310, 20/10/2026)",
+     "url": "https://assets.imprensaoficial.ms.gov.br/public/prd/Diario%20Oficial/2026/10/20/DO12310_20_10_2026.pdf",
+     "type": "official",
+     "quote": "PODER EXECUTIVO Governador [...] Eduardo Corrêa Riedel Vice-Governador [...] José Carlos Barbosa [...] Campo Grande, 19 de outubro de 2026. EDUARDO CORRÊA RIEDEL Governador do Estado"
+    }
+   ],
+   "verified": true,
+   "note": "Nenhuma renúncia em 2026; segue no cargo: decretos assinados por ele em 19/10/2026 (Diário Oficial de 20/10/2026)."
+  },
+  {
+   "role": "vice_governor",
+   "name": "Barbosinha",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "expediente e decretos de 19/10/2026 (Diário Oficial de Mato Grosso do Sul nº 12.310, 20/10/2026)",
+     "url": "https://assets.imprensaoficial.ms.gov.br/public/prd/Diario%20Oficial/2026/10/20/DO12310_20_10_2026.pdf",
+     "type": "official",
+     "quote": "PODER EXECUTIVO Governador [...] Eduardo Corrêa Riedel Vice-Governador [...] José Carlos Barbosa [...] Campo Grande, 19 de outubro de 2026. EDUARDO CORRÊA RIEDEL Governador do Estado"
+    }
+   ],
+   "verified": true,
+   "note": "Segue no cargo: o expediente do Diário Oficial de 20/10/2026 o traz como vice-governador (José Carlos Barbosa)."
+  }
+ ],
+ "gaps": []
+}

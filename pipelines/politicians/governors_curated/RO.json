@@ -1,0 +1,122 @@
+{
+ "uf": "RO",
+ "terms": [
+  {
+   "role": "governor",
+   "name": "Marcos Rocha",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    }
+   ],
+   "verified": true,
+   "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas."
+  },
+  {
+   "role": "vice_governor",
+   "name": "Zé Jodan",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    }
+   ],
+   "verified": true,
+   "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas."
+  },
+  {
+   "role": "governor",
+   "name": "Marcos Rocha",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "cabeçalho e autoridades do Poder Executivo (Diário Oficial de Rondônia, edição 202, 20/10/2026)",
+     "url": "https://diof.ro.gov.br/data/uploads/2026/10/DOE-20-10-2026.pdf",
+     "type": "official",
+     "quote": "Porto Velho, 20 de outubro de 2026 Rondônia, ed. 202 - 1 Marcos José Rocha dos Santos - Governador [...] AUTORIDADES DO PODER EXECUTIVO ESTADUAL GOVERNADORIA VICEGOV SÉRGIO GONÇALVES DA SILVA"
+    }
+   ],
+   "verified": true,
+   "note": "Nenhuma renúncia em 2026; segue no cargo: o Diário Oficial de 20/10/2026 o traz como governador."
+  },
+  {
+   "role": "vice_governor",
+   "name": "Sérgio Gonçalves",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "cabeçalho e autoridades do Poder Executivo (Diário Oficial de Rondônia, edição 202, 20/10/2026)",
+     "url": "https://diof.ro.gov.br/data/uploads/2026/10/DOE-20-10-2026.pdf",
+     "type": "official",
+     "quote": "Porto Velho, 20 de outubro de 2026 Rondônia, ed. 202 - 1 Marcos José Rocha dos Santos - Governador [...] AUTORIDADES DO PODER EXECUTIVO ESTADUAL GOVERNADORIA VICEGOV SÉRGIO GONÇALVES DA SILVA"
+    }
+   ],
+   "verified": true,
+   "note": "Segue no cargo: o Diário Oficial de 20/10/2026 o traz entre as autoridades do Executivo como vice-governador."
+  }
+ ],
+ "gaps": []
+}

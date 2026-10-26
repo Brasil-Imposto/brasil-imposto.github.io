@@ -1,0 +1,208 @@
+{
+ "uf": "MG",
+ "terms": [
+  {
+   "role": "governor",
+   "name": "Romeu Zema",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    }
+   ],
+   "verified": true,
+   "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas."
+  },
+  {
+   "role": "vice_governor",
+   "name": "Paulo Brant",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    }
+   ],
+   "verified": true,
+   "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas."
+  },
+  {
+   "role": "governor",
+   "name": "Romeu Zema",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2023-01-01",
+   "end": "2026-03-22",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "renúncia",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "renúncia do titular a partir de 22/03/2026 e posse do vice no mesmo dia (ALMG, nota anterior à posse)",
+     "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-de-Minas-empossara-Mateus-Simoes-como-governador-do-Estado/",
+     "type": "official",
+     "quote": "realiza Reunião Solene do Plenário neste domingo (22/3/26), a partir das 10 horas, para empossar o vice-governador Mateus Simões de Almeida (PSD) como titular do Poder Executivo, em substituição a Romeu Zema (Novo), que renuncia ao cargo a partir de domingo"
+    },
+    {
+     "fact": "posse do vice no cargo de governador em 22/03/2026 (ALMG, 22/03/2026)",
+     "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-da-posse-a-novo-governador-de-Minas/",
+     "type": "official",
+     "quote": "22/03/2026 - 12:10 [...] a Assembleia Legislativa de Minas Gerais (ALMG) empossou o novo governador Mateus Simões de Almeida (PSD), neste domingo (22/3/26). Simões assume no lugar de Romeu Zema (Novo), que renunciou ao mandato"
+    },
+    {
+     "fact": "galeria de governadores do Governo de Minas",
+     "url": "https://www.mg.gov.br/governador/mateus-simoes-de-almeida",
+     "type": "official",
+     "quote": "Mandatos 22/03/2026 até 31/12/2026 [...] Em 22 de março de 2026, assumiu o Governo do Estado após Zema deixar o cargo."
+    }
+   ],
+   "verified": true,
+   "note": "Renúncia a partir de 22/03/2026; o vice tomou posse no mesmo dia (ALMG)."
+  },
+  {
+   "role": "vice_governor",
+   "name": "Mateus Simões",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2023-01-01",
+   "end": "2026-03-22",
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": "assumiu o cargo de governador",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "renúncia do titular a partir de 22/03/2026 e posse do vice no mesmo dia (ALMG, nota anterior à posse)",
+     "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-de-Minas-empossara-Mateus-Simoes-como-governador-do-Estado/",
+     "type": "official",
+     "quote": "realiza Reunião Solene do Plenário neste domingo (22/3/26), a partir das 10 horas, para empossar o vice-governador Mateus Simões de Almeida (PSD) como titular do Poder Executivo, em substituição a Romeu Zema (Novo), que renuncia ao cargo a partir de domingo"
+    },
+    {
+     "fact": "posse do vice no cargo de governador em 22/03/2026 (ALMG, 22/03/2026)",
+     "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-da-posse-a-novo-governador-de-Minas/",
+     "type": "official",
+     "quote": "22/03/2026 - 12:10 [...] a Assembleia Legislativa de Minas Gerais (ALMG) empossou o novo governador Mateus Simões de Almeida (PSD), neste domingo (22/3/26). Simões assume no lugar de Romeu Zema (Novo), que renunciou ao mandato"
+    }
+   ],
+   "verified": true,
+   "note": null
+  },
+  {
+   "role": "governor",
+   "name": "Mateus Simões",
+   "full_name": null,
+   "kind": "vice_in_office",
+   "start": "2026-03-22",
+   "end": null,
+   "start_reason": "renúncia do titular",
+   "end_reason": null,
+   "party_at_start": "PSD",
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "renúncia do titular a partir de 22/03/2026 e posse do vice no mesmo dia (ALMG, nota anterior à posse)",
+     "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-de-Minas-empossara-Mateus-Simoes-como-governador-do-Estado/",
+     "type": "official",
+     "quote": "realiza Reunião Solene do Plenário neste domingo (22/3/26), a partir das 10 horas, para empossar o vice-governador Mateus Simões de Almeida (PSD) como titular do Poder Executivo, em substituição a Romeu Zema (Novo), que renuncia ao cargo a partir de domingo"
+    },
+    {
+     "fact": "posse do vice no cargo de governador em 22/03/2026 (ALMG, 22/03/2026)",
+     "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-da-posse-a-novo-governador-de-Minas/",
+     "type": "official",
+     "quote": "22/03/2026 - 12:10 [...] a Assembleia Legislativa de Minas Gerais (ALMG) empossou o novo governador Mateus Simões de Almeida (PSD), neste domingo (22/3/26). Simões assume no lugar de Romeu Zema (Novo), que renunciou ao mandato"
+    },
+    {
+     "fact": "galeria de governadores do Governo de Minas",
+     "url": "https://www.mg.gov.br/governador/mateus-simoes-de-almeida",
+     "type": "official",
+     "quote": "Mandatos 22/03/2026 até 31/12/2026 [...] Em 22 de março de 2026, assumiu o Governo do Estado após Zema deixar o cargo."
+    },
+    {
+     "fact": "projetos de lei protocolados pelo governador em 18/09/2026 (ALMG, 18/09/2026)",
+     "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Governador-protocola-projetos-de-lei-na-Assembleia-de-Minas/",
+     "type": "official",
+     "quote": "18/09/2026 - 11:40 [...] O governador Mateus Simões (PSD) protocolou três projetos de lei na manhã desta sexta-feira (18/9/26) na Assembleia Legislativa de Minas Gerais (ALMG)."
+    },
+    {
+     "fact": "veto do governador analisado em 26/10/2026 (ALMG, 26/10/2026)",
+     "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Veto-sobre-norma-que-trata-da-defesa-sanitaria-animal-tem-parecer-pela-rejeicao",
+     "type": "official",
+     "quote": "26/10/2026 - 16:58 [...] A rejeição ao Veto 36/26, que incide sobre a Lei 25.974, de 2026, do governador Mateus Simões (PSD)"
+    }
+   ],
+   "verified": true,
+   "note": "Posse na Assembleia em 22/03/2026. Segue no cargo: projetos de lei protocolados por ele em 18/09/2026 e veto dele analisado em 26/10/2026 (ALMG). Partido: PSD na posse (ALMG); no registro do TSE de 2022 era do Novo, e a data da troca não foi lida em fonte oficial."
+  },
+  {
+   "role": "vice_governor",
+   "name": null,
+   "full_name": null,
+   "kind": "vacant",
+   "start": "2026-03-22",
+   "end": null,
+   "start_reason": "o vice-governador assumiu o cargo de governador",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "posse do vice no cargo de governador em 22/03/2026 (ALMG, 22/03/2026)",
+     "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-da-posse-a-novo-governador-de-Minas/",
+     "type": "official",
+     "quote": "22/03/2026 - 12:10 [...] a Assembleia Legislativa de Minas Gerais (ALMG) empossou o novo governador Mateus Simões de Almeida (PSD), neste domingo (22/3/26). Simões assume no lugar de Romeu Zema (Novo), que renunciou ao mandato"
+    }
+   ],
+   "verified": true,
+   "note": null
+  }
+ ],
+ "gaps": []
+}
