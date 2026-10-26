@@ -1,6 +1,7 @@
 # Publishes the production site on GitHub Pages: build-site.py rebuilds the preview packages from data/ and assembles the three
 # published pages in the production profile (the staging site is published by Brasil-Imposto/staging, deploy/staging/deploy.yml).
-# Actions pinned by commit, as in ci.yml; only the deploy job can write to Pages (trust spec, D1).
+# Actions pinned by commit, as in ci.yml; only the deploy job can write to Pages (trust spec, D1). The data tests and the page
+# check run before the upload, so data that fails them never goes live (Phase 2, P2).
 name: pages
 on:
   push:
@@ -21,6 +22,22 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
+      - name: Install uv and the locked Python environment
+        run: |
+          python -m pip install --disable-pip-version-check uv==0.11.32
+          uv lock --check
+          uv sync --locked
+      - name: Data tests before publishing (Phase 2, P2; on a failure nothing is uploaded and the live site stays as it was)
+        run: uv run --locked python -m unittest discover -s pipelines/tests -v
+      - name: The committed pages are what their builders make (as in ci.yml)
+        run: |
+          python docs/superpowers/tools/build-cases.py
+          python docs/superpowers/tools/build-standalone-data.py
+          python docs/superpowers/tools/build-simulation.py
+          python docs/superpowers/tools/build-platform-preview.py
+          python docs/superpowers/tools/build-site-chrome.py
+          python docs/superpowers/tools/build-notes-page.py
+          git diff --exit-code -- docs/superpowers/previews/
       - name: Assemble the site (the production profile, spec staging section 3)
         # the four page builders, the three published pages, assets/, index.html, the forwarding page at Início's old address
         # (D160), .nojekyll and robots.txt; only the switches of data/features.json that production turns on
