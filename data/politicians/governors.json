@@ -28,11 +28,11 @@
  "build_script": "pipelines/politicians/build_governors.py",
  "counts": {
   "ufs": 27,
-  "ufs_curated": 22,
-  "terms": 157,
-  "terms_verified": 132,
+  "ufs_curated": 27,
+  "terms": 159,
+  "terms_verified": 154,
   "people": 95,
-  "people_with_photo": 79
+  "people_with_photo": 81
  },
  "checks": {
   "tse_cross_check_problems": []
@@ -789,7 +789,7 @@
       }
      ],
      "verified": false,
-     "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial; essa edição aparece como 'não disponível' no portal da Imprensa Oficial, e o site da Assembleia não respondeu a esta máquina. Fica 04/04/2026, a conferir.",
+     "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial da Assembleia Legislativa; o portal da Imprensa Oficial do Estado não tem edição de 03 a 05/04/2026, e o site da Assembleia, que publica esse Diário, recusa conexão desta máquina e não tem cópia da edição no Internet Archive. Fica 04/04/2026, a conferir.",
      "person_id": "wilson-miranda-lima-am",
      "interruptions": []
     },
@@ -829,7 +829,7 @@
       }
      ],
      "verified": false,
-     "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial; essa edição aparece como 'não disponível' no portal da Imprensa Oficial, e o site da Assembleia não respondeu a esta máquina. Fica 04/04/2026, a conferir.",
+     "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial da Assembleia Legislativa; o portal da Imprensa Oficial do Estado não tem edição de 03 a 05/04/2026, e o site da Assembleia, que publica esse Diário, recusa conexão desta máquina e não tem cópia da edição no Internet Archive. Fica 04/04/2026, a conferir.",
      "person_id": "tadeu-de-souza-silva-am",
      "interruptions": []
     },
@@ -876,7 +876,7 @@
       }
      ],
      "verified": false,
-     "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial; essa edição aparece como 'não disponível' no portal da Imprensa Oficial, e o site da Assembleia não respondeu a esta máquina. Fica 04/04/2026, a conferir. Fim conferido: posse como governador eleito pela Assembleia em 04/05/2026. Partido: o do registro do TSE de 2022 (União), como deputado estadual; as páginas lidas não citam partido.",
+     "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial da Assembleia Legislativa; o portal da Imprensa Oficial do Estado não tem edição de 03 a 05/04/2026, e o site da Assembleia, que publica esse Diário, recusa conexão desta máquina e não tem cópia da edição no Internet Archive. Fica 04/04/2026, a conferir. Fim conferido: posse como governador eleito pela Assembleia em 04/05/2026. Partido: o do registro do TSE de 2022 (União), como deputado estadual; as páginas lidas não citam partido.",
      "person_id": "roberto-maia-cidade-filho-am",
      "interruptions": []
     },
@@ -912,7 +912,7 @@
       }
      ],
      "verified": false,
-     "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial; essa edição aparece como 'não disponível' no portal da Imprensa Oficial, e o site da Assembleia não respondeu a esta máquina. Fica 04/04/2026, a conferir.",
+     "note": "Renúncias do governador e do vice-governador em 2026: o dia não foi lido em fonte oficial. O Diário Oficial de 01/04/2026 ainda traz os dois no expediente e os últimos atos do titular são de 01/04/2026; o de 06/04/2026 já traz o presidente da Assembleia como governador e nenhum vice, com atos dele de 06/04/2026. A imprensa (Band, 05/04/2026) registra as duas renúncias na noite de sábado, 04/04/2026, publicadas numa edição extra do Diário Oficial da Assembleia Legislativa; o portal da Imprensa Oficial do Estado não tem edição de 03 a 05/04/2026, e o site da Assembleia, que publica esse Diário, recusa conexão desta máquina e não tem cópia da edição no Internet Archive. Fica 04/04/2026, a conferir.",
      "person_id": null,
      "interruptions": []
     },
@@ -2411,7 +2411,7 @@
    "gaps": []
   },
   "MS": {
-   "curated": false,
+   "curated": true,
    "terms": [
     {
      "role": "governor",
@@ -2431,13 +2431,13 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse e fim do mandato (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas.",
      "person_id": "reinaldo-azambuja-silva-ms",
      "interruptions": []
     },
@@ -2459,13 +2459,13 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse e fim do mandato (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas.",
      "person_id": "murilo-zauith-ms",
      "interruptions": []
     },
@@ -2487,13 +2487,19 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "expediente e decretos de 19/10/2026 (Diário Oficial de Mato Grosso do Sul nº 12.310, 20/10/2026)",
+       "url": "https://assets.imprensaoficial.ms.gov.br/public/prd/Diario%20Oficial/2026/10/20/DO12310_20_10_2026.pdf",
+       "type": "official",
+       "quote": "PODER EXECUTIVO Governador [...] Eduardo Corrêa Riedel Vice-Governador [...] José Carlos Barbosa [...] Campo Grande, 19 de outubro de 2026. EDUARDO CORRÊA RIEDEL Governador do Estado"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Nenhuma renúncia em 2026; segue no cargo: decretos assinados por ele em 19/10/2026 (Diário Oficial de 20/10/2026).",
      "person_id": "eduardo-correa-riedel-ms",
      "interruptions": []
     },
@@ -2515,23 +2521,27 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "expediente e decretos de 19/10/2026 (Diário Oficial de Mato Grosso do Sul nº 12.310, 20/10/2026)",
+       "url": "https://assets.imprensaoficial.ms.gov.br/public/prd/Diario%20Oficial/2026/10/20/DO12310_20_10_2026.pdf",
+       "type": "official",
+       "quote": "PODER EXECUTIVO Governador [...] Eduardo Corrêa Riedel Vice-Governador [...] José Carlos Barbosa [...] Campo Grande, 19 de outubro de 2026. EDUARDO CORRÊA RIEDEL Governador do Estado"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Segue no cargo: o expediente do Diário Oficial de 20/10/2026 o traz como vice-governador (José Carlos Barbosa).",
      "person_id": "jose-carlos-barbosa-ms",
      "interruptions": []
     }
    ],
-   "gaps": [
-    "Substituições não pesquisadas: só os eleitos do TSE."
-   ]
+   "gaps": []
   },
   "MG": {
-   "curated": false,
+   "curated": true,
    "terms": [
     {
      "role": "governor",
@@ -2551,13 +2561,13 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse e fim do mandato (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas.",
      "person_id": "romeu-zema-neto-mg",
      "interruptions": []
     },
@@ -2579,25 +2589,25 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse e fim do mandato (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas.",
      "person_id": "paulo-eduardo-rocha-brant-mg",
      "interruptions": []
     },
     {
      "role": "governor",
-     "name": "Zema",
+     "name": "Romeu Zema",
      "full_name": "ROMEU ZEMA NETO",
      "kind": "elected",
      "start": "2023-01-01",
-     "end": null,
+     "end": "2026-03-22",
      "start_reason": "posse após a eleição de 2022",
-     "end_reason": null,
+     "end_reason": "renúncia",
      "party_at_start": "NOVO",
      "party_changes": [],
      "sources": [
@@ -2607,25 +2617,43 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "renúncia do titular a partir de 22/03/2026 e posse do vice no mesmo dia (ALMG, nota anterior à posse)",
+       "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-de-Minas-empossara-Mateus-Simoes-como-governador-do-Estado/",
+       "type": "official",
+       "quote": "realiza Reunião Solene do Plenário neste domingo (22/3/26), a partir das 10 horas, para empossar o vice-governador Mateus Simões de Almeida (PSD) como titular do Poder Executivo, em substituição a Romeu Zema (Novo), que renuncia ao cargo a partir de domingo"
+      },
+      {
+       "fact": "posse do vice no cargo de governador em 22/03/2026 (ALMG, 22/03/2026)",
+       "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-da-posse-a-novo-governador-de-Minas/",
+       "type": "official",
+       "quote": "22/03/2026 - 12:10 [...] a Assembleia Legislativa de Minas Gerais (ALMG) empossou o novo governador Mateus Simões de Almeida (PSD), neste domingo (22/3/26). Simões assume no lugar de Romeu Zema (Novo), que renunciou ao mandato"
+      },
+      {
+       "fact": "galeria de governadores do Governo de Minas",
+       "url": "https://www.mg.gov.br/governador/mateus-simoes-de-almeida",
+       "type": "official",
+       "quote": "Mandatos 22/03/2026 até 31/12/2026 [...] Em 22 de março de 2026, assumiu o Governo do Estado após Zema deixar o cargo."
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Renúncia a partir de 22/03/2026; o vice tomou posse no mesmo dia (ALMG).",
      "person_id": "romeu-zema-neto-mg",
      "interruptions": []
     },
     {
      "role": "vice_governor",
-     "name": "Professor Mateus ",
+     "name": "Mateus Simões",
      "full_name": "MATEUS SIMÕES DE ALMEIDA",
      "kind": "elected",
      "start": "2023-01-01",
-     "end": null,
+     "end": "2026-03-22",
      "start_reason": "posse após a eleição de 2022",
-     "end_reason": null,
+     "end_reason": "assumiu o cargo de governador",
      "party_at_start": "NOVO",
      "party_changes": [],
      "sources": [
@@ -2635,20 +2663,102 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "renúncia do titular a partir de 22/03/2026 e posse do vice no mesmo dia (ALMG, nota anterior à posse)",
+       "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-de-Minas-empossara-Mateus-Simoes-como-governador-do-Estado/",
+       "type": "official",
+       "quote": "realiza Reunião Solene do Plenário neste domingo (22/3/26), a partir das 10 horas, para empossar o vice-governador Mateus Simões de Almeida (PSD) como titular do Poder Executivo, em substituição a Romeu Zema (Novo), que renuncia ao cargo a partir de domingo"
+      },
+      {
+       "fact": "posse do vice no cargo de governador em 22/03/2026 (ALMG, 22/03/2026)",
+       "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-da-posse-a-novo-governador-de-Minas/",
+       "type": "official",
+       "quote": "22/03/2026 - 12:10 [...] a Assembleia Legislativa de Minas Gerais (ALMG) empossou o novo governador Mateus Simões de Almeida (PSD), neste domingo (22/3/26). Simões assume no lugar de Romeu Zema (Novo), que renunciou ao mandato"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": null,
      "person_id": "mateus-simoes-de-almeida-mg",
+     "interruptions": []
+    },
+    {
+     "role": "governor",
+     "name": "Mateus Simões",
+     "full_name": "MATEUS SIMÕES DE ALMEIDA",
+     "kind": "vice_in_office",
+     "start": "2026-03-22",
+     "end": null,
+     "start_reason": "renúncia do titular",
+     "end_reason": null,
+     "party_at_start": "PSD",
+     "party_changes": [],
+     "sources": [
+      {
+       "fact": "renúncia do titular a partir de 22/03/2026 e posse do vice no mesmo dia (ALMG, nota anterior à posse)",
+       "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-de-Minas-empossara-Mateus-Simoes-como-governador-do-Estado/",
+       "type": "official",
+       "quote": "realiza Reunião Solene do Plenário neste domingo (22/3/26), a partir das 10 horas, para empossar o vice-governador Mateus Simões de Almeida (PSD) como titular do Poder Executivo, em substituição a Romeu Zema (Novo), que renuncia ao cargo a partir de domingo"
+      },
+      {
+       "fact": "posse do vice no cargo de governador em 22/03/2026 (ALMG, 22/03/2026)",
+       "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-da-posse-a-novo-governador-de-Minas/",
+       "type": "official",
+       "quote": "22/03/2026 - 12:10 [...] a Assembleia Legislativa de Minas Gerais (ALMG) empossou o novo governador Mateus Simões de Almeida (PSD), neste domingo (22/3/26). Simões assume no lugar de Romeu Zema (Novo), que renunciou ao mandato"
+      },
+      {
+       "fact": "galeria de governadores do Governo de Minas",
+       "url": "https://www.mg.gov.br/governador/mateus-simoes-de-almeida",
+       "type": "official",
+       "quote": "Mandatos 22/03/2026 até 31/12/2026 [...] Em 22 de março de 2026, assumiu o Governo do Estado após Zema deixar o cargo."
+      },
+      {
+       "fact": "projetos de lei protocolados pelo governador em 18/09/2026 (ALMG, 18/09/2026)",
+       "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Governador-protocola-projetos-de-lei-na-Assembleia-de-Minas/",
+       "type": "official",
+       "quote": "18/09/2026 - 11:40 [...] O governador Mateus Simões (PSD) protocolou três projetos de lei na manhã desta sexta-feira (18/9/26) na Assembleia Legislativa de Minas Gerais (ALMG)."
+      },
+      {
+       "fact": "veto do governador analisado em 26/10/2026 (ALMG, 26/10/2026)",
+       "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Veto-sobre-norma-que-trata-da-defesa-sanitaria-animal-tem-parecer-pela-rejeicao",
+       "type": "official",
+       "quote": "26/10/2026 - 16:58 [...] A rejeição ao Veto 36/26, que incide sobre a Lei 25.974, de 2026, do governador Mateus Simões (PSD)"
+      }
+     ],
+     "verified": true,
+     "note": "Posse na Assembleia em 22/03/2026. Segue no cargo: projetos de lei protocolados por ele em 18/09/2026 e veto dele analisado em 26/10/2026 (ALMG). Partido: PSD na posse (ALMG); no registro do TSE de 2022 era do Novo, e a data da troca não foi lida em fonte oficial.",
+     "person_id": "mateus-simoes-de-almeida-mg",
+     "interruptions": []
+    },
+    {
+     "role": "vice_governor",
+     "name": null,
+     "full_name": null,
+     "kind": "vacant",
+     "start": "2026-03-22",
+     "end": null,
+     "start_reason": "o vice-governador assumiu o cargo de governador",
+     "end_reason": null,
+     "party_at_start": null,
+     "party_changes": [],
+     "sources": [
+      {
+       "fact": "posse do vice no cargo de governador em 22/03/2026 (ALMG, 22/03/2026)",
+       "url": "https://www.almg.gov.br/comunicacao/noticias/arquivos/Assembleia-da-posse-a-novo-governador-de-Minas/",
+       "type": "official",
+       "quote": "22/03/2026 - 12:10 [...] a Assembleia Legislativa de Minas Gerais (ALMG) empossou o novo governador Mateus Simões de Almeida (PSD), neste domingo (22/3/26). Simões assume no lugar de Romeu Zema (Novo), que renunciou ao mandato"
+      }
+     ],
+     "verified": true,
+     "note": null,
+     "person_id": null,
      "interruptions": []
     }
    ],
-   "gaps": [
-    "Substituições não pesquisadas: só os eleitos do TSE."
-   ]
+   "gaps": []
   },
   "PA": {
    "curated": true,
@@ -3046,7 +3156,7 @@
    "gaps": []
   },
   "PR": {
-   "curated": false,
+   "curated": true,
    "terms": [
     {
      "role": "governor",
@@ -3066,13 +3176,13 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse e fim do mandato (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas.",
      "person_id": "carlos-roberto-massa-junior-pr",
      "interruptions": []
     },
@@ -3094,19 +3204,19 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse e fim do mandato (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas.",
      "person_id": "darci-piana-pr",
      "interruptions": []
     },
     {
      "role": "governor",
-     "name": "Carlos Massa Ratinho Junior",
+     "name": "Ratinho Junior",
      "full_name": "CARLOS ROBERTO MASSA JUNIOR",
      "kind": "elected",
      "start": "2023-01-01",
@@ -3122,13 +3232,19 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "decreto assinado pelo governador em 19/08/2026 (Decreto nº 14.804)",
+       "url": "https://www.parana.pr.gov.br/sites/novo-parana/arquivos_restritos/files/documento/2026-08/14804.pdf",
+       "type": "official",
+       "quote": "Curitiba, em 19 de agosto de 2026, 205° da Independência e 138° da República. CARLOS MASSA RATINHO JUNIOR [...] Governador do Estado"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Nenhuma renúncia em 2026: decreto assinado por ele como governador em 19/08/2026, depois do prazo de abril; é o ato mais recente lido.",
      "person_id": "carlos-roberto-massa-junior-pr",
      "interruptions": []
     },
@@ -3150,20 +3266,24 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "o vice-governador em evento oficial em 23/10/2026 (Agência Estadual de Notícias do Paraná, 23/10/2026)",
+       "url": "https://www.parana.pr.gov.br/aen/Noticia/Vice-governador-participa-das-celebracoes-do-Dia-do-Aviador-e-dos-120-anos-do-voo-do-14",
+       "type": "official",
+       "quote": "Publicação 23/10/2026 - 12:32 [...] O vice-governador Darci Piana participou das celebrações alusivas à data"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Segue no cargo: a Agência Estadual de Notícias o traz como vice-governador em 23/10/2026.",
      "person_id": "darci-piana-pr",
      "interruptions": []
     }
    ],
-   "gaps": [
-    "Substituições não pesquisadas: só os eleitos do TSE."
-   ]
+   "gaps": []
   },
   "PE": {
    "curated": true,
@@ -3838,11 +3958,11 @@
    "gaps": []
   },
   "RN": {
-   "curated": false,
+   "curated": true,
    "terms": [
     {
      "role": "governor",
-     "name": "Fatima Bezerra",
+     "name": "Fátima Bezerra",
      "full_name": "MARIA DE FATIMA BEZERRA",
      "kind": "elected",
      "start": "2019-01-01",
@@ -3858,13 +3978,19 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse e fim do mandato (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "expediente do Diário Oficial do Rio Grande do Norte de 30/12/2022 (nº 15.336): governadora e vice no fim do mandato",
+       "url": "https://webdisk.diariooficial.rn.gov.br/Jornal/12022-12-30.pdf",
+       "type": "official",
+       "quote": "Administração da Exma. Srª. Maria de Fátima Bezerra - Governadora ANO 90 • Nº 15.336 • NATAL, 30 DE DEZEMBRO DE 2022 [...] GOVERNADORA Fátima Bezerra VICE - GOVERNADOR Antenor Roberto"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Mandato regular; o expediente do Diário Oficial de 30/12/2022 ainda traz a governadora e o vice.",
      "person_id": "maria-de-fatima-bezerra-rn",
      "interruptions": []
     },
@@ -3886,19 +4012,25 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse e fim do mandato (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "expediente do Diário Oficial do Rio Grande do Norte de 30/12/2022 (nº 15.336): governadora e vice no fim do mandato",
+       "url": "https://webdisk.diariooficial.rn.gov.br/Jornal/12022-12-30.pdf",
+       "type": "official",
+       "quote": "Administração da Exma. Srª. Maria de Fátima Bezerra - Governadora ANO 90 • Nº 15.336 • NATAL, 30 DE DEZEMBRO DE 2022 [...] GOVERNADORA Fátima Bezerra VICE - GOVERNADOR Antenor Roberto"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Mandato regular; o expediente do Diário Oficial de 30/12/2022 ainda o traz como vice-governador.",
      "person_id": "antenor-roberto-soares-de-medeiros-rn",
      "interruptions": []
     },
     {
      "role": "governor",
-     "name": "Fatima Bezerra",
+     "name": "Fátima Bezerra",
      "full_name": "MARIA DE FATIMA BEZERRA",
      "kind": "elected",
      "start": "2023-01-01",
@@ -3914,13 +4046,19 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "expediente e ato de 29/09/2026 (Diário Oficial do Rio Grande do Norte nº 16.247, 30/09/2026)",
+       "url": "https://webdisk.diariooficial.rn.gov.br/Jornal/12026-09-30.pdf",
+       "type": "official",
+       "quote": "Mossoró/RN, 29 de setembro de 2026, 205º da Independência e [...] FÁTIMA BEZERRA [...] GOVERNADORA Fátima Bezerra VICE - GOVERNADOR Walter Alves"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Nenhuma renúncia em 2026; segue no cargo: ato assinado por ela em 29/09/2026 e expediente do Diário Oficial de 30/09/2026.",
      "person_id": "maria-de-fatima-bezerra-rn",
      "interruptions": []
     },
@@ -3942,20 +4080,24 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "expediente e ato de 29/09/2026 (Diário Oficial do Rio Grande do Norte nº 16.247, 30/09/2026)",
+       "url": "https://webdisk.diariooficial.rn.gov.br/Jornal/12026-09-30.pdf",
+       "type": "official",
+       "quote": "Mossoró/RN, 29 de setembro de 2026, 205º da Independência e [...] FÁTIMA BEZERRA [...] GOVERNADORA Fátima Bezerra VICE - GOVERNADOR Walter Alves"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Segue no cargo: expediente do Diário Oficial de 30/09/2026.",
      "person_id": "walter-pereira-alves-rn",
      "interruptions": []
     }
    ],
-   "gaps": [
-    "Substituições não pesquisadas: só os eleitos do TSE."
-   ]
+   "gaps": []
   },
   "RS": {
    "curated": true,
@@ -4183,11 +4325,11 @@
    "gaps": []
   },
   "RO": {
-   "curated": false,
+   "curated": true,
    "terms": [
     {
      "role": "governor",
-     "name": "Coronel Marcos Rocha",
+     "name": "Marcos Rocha",
      "full_name": "MARCOS JOSE ROCHA DOS SANTOS",
      "kind": "elected",
      "start": "2019-01-01",
@@ -4203,19 +4345,19 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse e fim do mandato (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas.",
      "person_id": "marcos-jose-rocha-dos-santos-ro",
      "interruptions": []
     },
     {
      "role": "vice_governor",
-     "name": "Ze Jodan",
+     "name": "Zé Jodan",
      "full_name": "JOSE ATILIO SALAZAR MARTINS",
      "kind": "elected",
      "start": "2019-01-01",
@@ -4231,19 +4373,19 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse e fim do mandato (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Mandato regular: eleito do TSE com as datas da CF, art. 28; nenhuma substituição no cargo registrada nas fontes consultadas.",
      "person_id": "jose-atilio-salazar-martins-ro",
      "interruptions": []
     },
     {
      "role": "governor",
-     "name": "Coronel Marcos Rocha",
+     "name": "Marcos Rocha",
      "full_name": "MARCOS JOSÉ ROCHA DOS SANTOS",
      "kind": "elected",
      "start": "2023-01-01",
@@ -4259,13 +4401,19 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "cabeçalho e autoridades do Poder Executivo (Diário Oficial de Rondônia, edição 202, 20/10/2026)",
+       "url": "https://diof.ro.gov.br/data/uploads/2026/10/DOE-20-10-2026.pdf",
+       "type": "official",
+       "quote": "Porto Velho, 20 de outubro de 2026 Rondônia, ed. 202 - 1 Marcos José Rocha dos Santos - Governador [...] AUTORIDADES DO PODER EXECUTIVO ESTADUAL GOVERNADORIA VICEGOV SÉRGIO GONÇALVES DA SILVA"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Nenhuma renúncia em 2026; segue no cargo: o Diário Oficial de 20/10/2026 o traz como governador.",
      "person_id": "marcos-jose-rocha-dos-santos-ro",
      "interruptions": []
     },
@@ -4287,20 +4435,24 @@
        "type": "official"
       },
       {
-       "fact": "datas do mandato (CF, art. 28)",
+       "fact": "data de posse (CF, art. 28)",
        "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
        "type": "official"
+      },
+      {
+       "fact": "cabeçalho e autoridades do Poder Executivo (Diário Oficial de Rondônia, edição 202, 20/10/2026)",
+       "url": "https://diof.ro.gov.br/data/uploads/2026/10/DOE-20-10-2026.pdf",
+       "type": "official",
+       "quote": "Porto Velho, 20 de outubro de 2026 Rondônia, ed. 202 - 1 Marcos José Rocha dos Santos - Governador [...] AUTORIDADES DO PODER EXECUTIVO ESTADUAL GOVERNADORIA VICEGOV SÉRGIO GONÇALVES DA SILVA"
       }
      ],
-     "verified": false,
-     "note": "Substituições não pesquisadas para esta UF: só os eleitos do TSE com as datas constitucionais do mandato.",
+     "verified": true,
+     "note": "Segue no cargo: o Diário Oficial de 20/10/2026 o traz entre as autoridades do Executivo como vice-governador.",
      "person_id": "sergio-goncalves-da-silva-ro",
      "interruptions": []
     }
    ],
-   "gaps": [
-    "Substituições não pesquisadas: só os eleitos do TSE."
-   ]
+   "gaps": []
   },
   "RR": {
    "curated": true,
@@ -5538,7 +5690,7 @@
     },
     {
      "party": "MDB",
-     "observed_on": "2022-10-02",
+     "observed_on": "2022-10-30",
      "basis": "registro de candidatura no TSE (governador, AL, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }
@@ -5621,7 +5773,7 @@
     "credit": "Presidência da República",
     "wikidata": "Q10296136",
     "wikipedia_page": "https://pt.wikipedia.org/wiki/Ronaldo_Lessa",
-    "match_note": "imagem principal do verbete 'Ronaldo Lessa' (civil engineer and Brazilian politician, vice-governor of Alagoas engenheiro civil e politico brasileiro, vice-governador de Alagoas); conferir que é a pessoa certa"
+    "match_note": "imagem principal do verbete 'Ronaldo Lessa' (Brazilian civil engineer andpolitician engenheiro civil e politico brasileiro); conferir que é a pessoa certa"
    }
   },
   "antonio-waldez-goes-da-silva-ap": {
@@ -5759,7 +5911,7 @@
    "party_observations": [
     {
      "party": "AVANTE",
-     "observed_on": "2022-10-30",
+     "observed_on": "2022-10-02",
      "basis": "registro de candidatura no TSE (vice-governador, AM, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }
@@ -5923,7 +6075,7 @@
     "credit": "18/01/2023 - Visita de Cortesia Jerônimo Rodrigues (Governador do Estado da Bahia-BA)",
     "wikidata": "Q115058424",
     "wikipedia_page": "https://pt.wikipedia.org/wiki/Jerônimo_Rodrigues",
-    "match_note": "imagem principal do verbete 'Jerônimo Rodrigues' (Brazilian politician professor, engenheiro agrônomo e político brasileiro; 52.º governador da Bahia); conferir que é a pessoa certa"
+    "match_note": "imagem principal do verbete 'Jerônimo Rodrigues' (Brazilian politician governador do estado da Bahia (2023-presente)); conferir que é a pessoa certa"
    }
   },
   "geraldo-alves-ferreira-junior-ba": {
@@ -5933,7 +6085,7 @@
    "party_observations": [
     {
      "party": "MDB",
-     "observed_on": "2022-10-30",
+     "observed_on": "2022-10-02",
      "basis": "registro de candidatura no TSE (vice-governador, BA, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }
@@ -6039,7 +6191,7 @@
     "credit": "Plenário do Congresso",
     "wikidata": "Q18246475",
     "wikipedia_page": "https://pt.wikipedia.org/wiki/Elmano_de_Freitas",
-    "match_note": "imagem principal do verbete 'Elmano de Freitas' (advogado e político brasileiro; 61.º governador do Ceará Brazilian lawyer and politician); conferir que é a pessoa certa"
+    "match_note": "imagem principal do verbete 'Elmano de Freitas' (governador do estado do Ceará (2023-presente) Brazilian lawyer and politician); conferir que é a pessoa certa"
    }
   },
   "jade-afonso-romero-ce": {
@@ -6219,7 +6371,7 @@
     },
     {
      "party": "PSDB",
-     "observed_on": "2022-10-30",
+     "observed_on": "2022-10-02",
      "basis": "registro de candidatura no TSE (vice-governador, ES, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }
@@ -6643,7 +6795,7 @@
    }
   },
   "mateus-simoes-de-almeida-mg": {
-   "name": "Professor Mateus ",
+   "name": "Mateus Simões",
    "full_name": "MATEUS SIMÕES DE ALMEIDA",
    "uf": "MG",
    "party_observations": [
@@ -6655,8 +6807,18 @@
     }
    ],
    "party_observations_note": "Partido em cada registro de candidatura no TSE (2018 e 2022), datado pela eleição; mudanças entre registros só aparecem nos mandatos quando há fonte datada.",
-   "photo": null,
-   "photo_null_reason": "verbete da Wikipédia em português com descrição de cargo não encontrado"
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Mateus_Sim%C3%B5es%2C_April_2024_%28cropped%29.jpg/500px-Mateus_Sim%C3%B5es%2C_April_2024_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Mateus_Sim%C3%B5es%2C_April_2024_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Mateus_Sim%C3%B5es,_April_2024_(cropped).jpg",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Jonas Pereira/Agência Senado",
+    "credit": "Senado Fotos",
+    "wikidata": "Q104213656",
+    "wikipedia_page": "https://pt.wikipedia.org/wiki/Mateus_Simões",
+    "match_note": "imagem principal do verbete 'Mateus Simões' (Brazilian lawyer, teacher and politician and governor of the state of Minas Gerais Governador de Minas Gerais); conferir que é a pessoa certa"
+   }
   },
   "helder-zahluth-barbalho-pa": {
    "name": "Helder Barbalho",
@@ -6687,7 +6849,7 @@
     "credit": "11.01.2023 - Presidente do Consórcio Interestadual de Desenvolvimento Sustentável da Amazônia Legal, Governador do Estado do Pará",
     "wikidata": "Q3784499",
     "wikipedia_page": "https://pt.wikipedia.org/wiki/Helder_Barbalho",
-    "match_note": "imagem principal do verbete 'Helder Barbalho' (Brazilian politician Político brasileiro; ex-governador do Pará (2019-2026)); conferir que é a pessoa certa"
+    "match_note": "imagem principal do verbete 'Helder Barbalho' (Brazilian politician Político brasileiro; ex-governador do Pará (2019-2026); senador eleito pelo Pará (2027)); conferir que é a pessoa certa"
    }
   },
   "lucio-dutra-vale-pa": {
@@ -6755,7 +6917,7 @@
     },
     {
      "party": "PSB",
-     "observed_on": "2022-10-02",
+     "observed_on": "2022-10-30",
      "basis": "registro de candidatura no TSE (governador, PB, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }
@@ -6955,7 +7117,7 @@
    "party_observations": [
     {
      "party": "PSDB",
-     "observed_on": "2022-10-02",
+     "observed_on": "2022-10-30",
      "basis": "registro de candidatura no TSE (governador, PE, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }
@@ -6987,7 +7149,7 @@
     },
     {
      "party": "CIDADANIA",
-     "observed_on": "2022-10-30",
+     "observed_on": "2022-10-02",
      "basis": "registro de candidatura no TSE (vice-governador, PE, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }
@@ -7087,7 +7249,7 @@
     "credit": "Ipea Recebe o Governador do Piauí Rafael Fonteles",
     "wikidata": "Q111917943",
     "wikipedia_page": "https://pt.wikipedia.org/wiki/Rafael_Fonteles",
-    "match_note": "imagem principal do verbete 'Rafael Fonteles' (Brazilian politician político brasileiro; governador do Piauí); conferir que é a pessoa certa"
+    "match_note": "imagem principal do verbete 'Rafael Fonteles' (Brazilian politician governador do estado do Piauí (2023-presente)); conferir que é a pessoa certa"
    }
   },
   "themistocles-de-sampaio-pereira-filho-pi": {
@@ -7190,13 +7352,13 @@
     {
      "party": "UNIÃO",
      "observed_on": "2022-10-02",
-     "basis": "registro de candidatura no TSE (vice-governador, RJ, eleição de 2022)",
+     "basis": "registro de candidatura no TSE (deputado estadual, RJ, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     },
     {
      "party": "UNIÃO",
      "observed_on": "2022-10-02",
-     "basis": "registro de candidatura no TSE (deputado estadual, RJ, eleição de 2022)",
+     "basis": "registro de candidatura no TSE (vice-governador, RJ, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }
    ],
@@ -7224,7 +7386,7 @@
    "photo_null_reason": "verbete da Wikipédia em português com descrição de cargo não encontrado"
   },
   "maria-de-fatima-bezerra-rn": {
-   "name": "Fatima Bezerra",
+   "name": "Fátima Bezerra",
    "full_name": "MARIA DE FATIMA BEZERRA",
    "uf": "RN",
    "party_observations": [
@@ -7242,8 +7404,18 @@
     }
    ],
    "party_observations_note": "Partido em cada registro de candidatura no TSE (2018 e 2022), datado pela eleição; mudanças entre registros só aparecem nos mandatos quando há fonte datada.",
-   "photo": null,
-   "photo_null_reason": "verbete da Wikipédia em português com descrição de cargo não encontrado"
+   "photo": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/F%C3%A1tima_Bezerra%2C_2023.jpg/500px-F%C3%A1tima_Bezerra%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/F%C3%A1tima_Bezerra%2C_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "file_page": "https://commons.wikimedia.org/wiki/File:F%C3%A1tima_Bezerra,_2023.jpg",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Palácio do Planalto from Brasilia, Brasil",
+    "credit": "29.06.2023 - Audiência com a governadora do Rio Grande do Norte, Fátima Bezerra",
+    "wikidata": "Q10286993",
+    "wikipedia_page": "https://pt.wikipedia.org/wiki/Fátima_Bezerra",
+    "match_note": "imagem principal do verbete 'Fátima Bezerra' (56th Governor of Rio Grande do Norte pedagoga e política brasileira, 56.ª governadora do Rio Grande do Norte); conferir que é a pessoa certa"
+   }
   },
   "antenor-roberto-soares-de-medeiros-rn": {
    "name": "Antenor Roberto",
@@ -7291,13 +7463,13 @@
    ],
    "party_observations_note": "Partido em cada registro de candidatura no TSE (2018 e 2022), datado pela eleição; mudanças entre registros só aparecem nos mandatos quando há fonte datada.",
    "photo": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/DSC_7750_%2852992019574%29_%28cropped%29.jpg/500px-DSC_7750_%2852992019574%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/DSC_7750_%2852992019574%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-    "file_page": "https://commons.wikimedia.org/wiki/File:DSC_7750_(52992019574)_(cropped).jpg",
-    "license": "CC BY 2.0",
-    "license_url": "https://creativecommons.org/licenses/by/2.0",
-    "author": "MDB Nacional",
-    "credit": "DSC_7750",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Walter_Alves_%28foto_para_TSE%29_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Walter_Alves_%28foto_para_TSE%29_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "file_page": "https://commons.wikimedia.org/wiki/File:Walter_Alves_(foto_para_TSE)_2026.jpg",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "author": "Portal de Dados Abertos do Tribunal Superior Eleitoral do Brasil (TSE)",
+    "credit": "https://dadosabertos.tse.jus.br/dataset/candidatos-2026",
     "wikidata": "Q30934849",
     "wikipedia_page": "https://pt.wikipedia.org/wiki/Walter_Alves",
     "match_note": "imagem principal do verbete 'Walter Alves' (Vice-Governor of the state of Rio Grande do Norte Vice-governador do estado do Rio Grande do Norte); conferir que é a pessoa certa"
@@ -7374,7 +7546,7 @@
     },
     {
      "party": "MDB",
-     "observed_on": "2022-10-30",
+     "observed_on": "2022-10-02",
      "basis": "registro de candidatura no TSE (vice-governador, RS, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }
@@ -7394,7 +7566,7 @@
    }
   },
   "marcos-jose-rocha-dos-santos-ro": {
-   "name": "Coronel Marcos Rocha",
+   "name": "Marcos Rocha",
    "full_name": "MARCOS JOSE ROCHA DOS SANTOS",
    "uf": "RO",
    "party_observations": [
@@ -7426,7 +7598,7 @@
    }
   },
   "jose-atilio-salazar-martins-ro": {
-   "name": "Ze Jodan",
+   "name": "Zé Jodan",
    "full_name": "JOSE ATILIO SALAZAR MARTINS",
    "uf": "RO",
    "party_observations": [
@@ -7578,7 +7750,7 @@
     "credit": "Own work",
     "wikidata": "Q59247737",
     "wikipedia_page": "https://pt.wikipedia.org/wiki/Soldado_Sampaio",
-    "match_note": "imagem principal do verbete 'Soldado Sampaio' (Brazilian politician policial militar e político brasileiro, deputado estadual por Roraima e governador-Interino de Roraima); conferir que é a pessoa certa"
+    "match_note": "imagem principal do verbete 'Soldado Sampaio' (Brazilian politician and Acting Governor of Roraima policial militar e político brasileiro, deputado estadual por Roraima e governador-Interino de Roraima); conferir que é a pessoa certa"
    }
   },
   "carlos-moises-da-silva-sc": {
@@ -7690,7 +7862,7 @@
     },
     {
      "party": "PL",
-     "observed_on": "2022-10-02",
+     "observed_on": "2022-10-30",
      "basis": "registro de candidatura no TSE (vice-governador, SC, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }
@@ -7774,7 +7946,7 @@
    "party_observations": [
     {
      "party": "REPUBLICANOS",
-     "observed_on": "2022-10-30",
+     "observed_on": "2022-10-02",
      "basis": "registro de candidatura no TSE (governador, SP, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }
@@ -7790,7 +7962,7 @@
    "party_observations": [
     {
      "party": "PSD",
-     "observed_on": "2022-10-30",
+     "observed_on": "2022-10-02",
      "basis": "registro de candidatura no TSE (vice-governador, SP, eleição de 2022)",
      "source": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
     }

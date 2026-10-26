@@ -1,0 +1,134 @@
+{
+ "uf": "RN",
+ "terms": [
+  {
+   "role": "governor",
+   "name": "Fátima Bezerra",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "expediente do Diário Oficial do Rio Grande do Norte de 30/12/2022 (nº 15.336): governadora e vice no fim do mandato",
+     "url": "https://webdisk.diariooficial.rn.gov.br/Jornal/12022-12-30.pdf",
+     "type": "official",
+     "quote": "Administração da Exma. Srª. Maria de Fátima Bezerra - Governadora ANO 90 • Nº 15.336 • NATAL, 30 DE DEZEMBRO DE 2022 [...] GOVERNADORA Fátima Bezerra VICE - GOVERNADOR Antenor Roberto"
+    }
+   ],
+   "verified": true,
+   "note": "Mandato regular; o expediente do Diário Oficial de 30/12/2022 ainda traz a governadora e o vice."
+  },
+  {
+   "role": "vice_governor",
+   "name": "Antenor Roberto",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2019-01-01",
+   "end": "2023-01-01",
+   "start_reason": "posse após a eleição de 2018",
+   "end_reason": "fim do mandato",
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2018.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse e fim do mandato (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "expediente do Diário Oficial do Rio Grande do Norte de 30/12/2022 (nº 15.336): governadora e vice no fim do mandato",
+     "url": "https://webdisk.diariooficial.rn.gov.br/Jornal/12022-12-30.pdf",
+     "type": "official",
+     "quote": "Administração da Exma. Srª. Maria de Fátima Bezerra - Governadora ANO 90 • Nº 15.336 • NATAL, 30 DE DEZEMBRO DE 2022 [...] GOVERNADORA Fátima Bezerra VICE - GOVERNADOR Antenor Roberto"
+    }
+   ],
+   "verified": true,
+   "note": "Mandato regular; o expediente do Diário Oficial de 30/12/2022 ainda o traz como vice-governador."
+  },
+  {
+   "role": "governor",
+   "name": "Fátima Bezerra",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "expediente e ato de 29/09/2026 (Diário Oficial do Rio Grande do Norte nº 16.247, 30/09/2026)",
+     "url": "https://webdisk.diariooficial.rn.gov.br/Jornal/12026-09-30.pdf",
+     "type": "official",
+     "quote": "Mossoró/RN, 29 de setembro de 2026, 205º da Independência e [...] FÁTIMA BEZERRA [...] GOVERNADORA Fátima Bezerra VICE - GOVERNADOR Walter Alves"
+    }
+   ],
+   "verified": true,
+   "note": "Nenhuma renúncia em 2026; segue no cargo: ato assinado por ela em 29/09/2026 e expediente do Diário Oficial de 30/09/2026."
+  },
+  {
+   "role": "vice_governor",
+   "name": "Walter Alves",
+   "full_name": null,
+   "kind": "elected",
+   "start": "2023-01-01",
+   "end": null,
+   "start_reason": "posse após a eleição de 2022",
+   "end_reason": null,
+   "party_at_start": null,
+   "party_changes": [],
+   "sources": [
+    {
+     "fact": "eleição e partido na eleição",
+     "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip",
+     "type": "official"
+    },
+    {
+     "fact": "data de posse (CF, art. 28)",
+     "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+     "type": "official"
+    },
+    {
+     "fact": "expediente e ato de 29/09/2026 (Diário Oficial do Rio Grande do Norte nº 16.247, 30/09/2026)",
+     "url": "https://webdisk.diariooficial.rn.gov.br/Jornal/12026-09-30.pdf",
+     "type": "official",
+     "quote": "Mossoró/RN, 29 de setembro de 2026, 205º da Independência e [...] FÁTIMA BEZERRA [...] GOVERNADORA Fátima Bezerra VICE - GOVERNADOR Walter Alves"
+    }
+   ],
+   "verified": true,
+   "note": "Segue no cargo: expediente do Diário Oficial de 30/09/2026."
+  }
+ ],
+ "gaps": []
+}
