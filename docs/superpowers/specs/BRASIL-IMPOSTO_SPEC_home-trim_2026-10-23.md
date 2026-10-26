@@ -80,7 +80,7 @@ Para onde vai o dinheiro da União: ele continua seguindo o seletor de período 
 
 ## 5. A página Como ler o mapa
 
-- **Arquivo:** `docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_como-ler-o-mapa_2026-10-23.html`, publicada nos dois sites ao lado
+- **Arquivo:** `docs/superpowers/previews/como-ler-o-mapa.html`, publicada nos dois sites ao lado
   das outras três páginas, com o cabeçalho e o rodapé comuns de `site_chrome.py`. Ela não entra na lista de páginas do cabeçalho
   (nenhum item marcado nela). O rodapé de todas as páginas ganha o link "Como ler o mapa".
 - **Conteúdo:** os dois blocos que saem da Início, com os mesmos títulos, o mesmo texto e a mesma ordem: "Como ler o mapa" (as
@@ -100,7 +100,7 @@ Para onde vai o dinheiro da União: ele continua seguindo o seletor de período 
 ## 6. O governo federal vai para Como o dinheiro anda
 
 - **Lugar:** a seção `#governo-federal` sai da Início e entra no fim de
-  `docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html`, depois das três formas ("Siga R$ 100",
+  `docs/superpowers/previews/como-o-dinheiro-anda.html`, depois das três formas ("Siga R$ 100",
   "O caminho em seis passos" e "O grande fluxo de 2025") e antes do rodapé, nos dois sites. Ela aparece qualquer que seja a forma
   escolhida.
 - **Inteira:** As contas da União, Pessoal pago pela União, o custo dos eleitos e as emendas, na forma A, cartões (D74). Sai só o

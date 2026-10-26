@@ -69,6 +69,19 @@ def built(profile, features_json, key):
         os.environ.pop("BI_FEATURES_JSON") if old is None else os.environ.__setitem__("BI_FEATURES_JSON", old)
 
 
+def problems_of_forward(html, target):
+    """What a forwarding page at an old address misses: the replace to the target with the query and the hash, the fallback
+    without JavaScript, the canonical link and noindex."""
+    need = (f"location.replace('{target}' + location.search + location.hash)", f'<meta http-equiv="refresh" content="0; url={target}">',
+            f'<link rel="canonical" href="{target}">', '<meta name="robots" content="noindex">')
+    return [n for n in need if n not in html]
+
+
+def old_links(html):
+    """Links in a page to an address that only forwards now."""
+    return [m for m in re.findall(r'href="([^"#?]*)', html) if m in site_chrome.OLD_NAMES.values()]
+
+
 class BuildSiteTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -91,7 +104,37 @@ class BuildSiteTest(unittest.TestCase):
         self.assertEqual((self.prod / "robots.txt").read_text(encoding="utf-8"), "User-agent: *\nDisallow: /staging/\n")
         self.assertEqual((self.prod / site_chrome.HOME).read_text(encoding="utf-8"), build_site.FORWARD)
         self.assertEqual(sorted(p.name for p in self.prod.iterdir()), sorted(
-            [".nojekyll", "assets", "index.html", "robots.txt", site_chrome.HOME] + [n for k, (n, _) in site_chrome.ALL_PAGES.items() if k != "inicio"]))
+            [".nojekyll", "assets", "index.html", "robots.txt", site_chrome.HOME] + [n for k, (n, _) in site_chrome.ALL_PAGES.items() if k != "inicio"]
+            + list(site_chrome.OLD_NAMES.values())))
+
+    def test_each_old_address_forwards_to_its_clean_page(self):
+        # Q86: the design-round names keep working in both builds, with the query and the hash
+        for site in (self.prod, self.stage):
+            for key, old in site_chrome.OLD_NAMES.items():
+                with self.subTest(site=site.name, page=old):
+                    new = site_chrome.ALL_PAGES[key][0]
+                    html = (site / old).read_text(encoding="utf-8")
+                    self.assertEqual(problems_of_forward(html, new), [])
+                    self.assertTrue((site / new).is_file())
+
+    def test_control_a_forward_to_the_wrong_page_is_found(self):
+        html = build_site.forward_to("os-3-poderes.html")
+        self.assertTrue(problems_of_forward(html, "como-ler-o-mapa.html"))
+        self.assertTrue(problems_of_forward(html.replace(" + location.search + location.hash", ""), "os-3-poderes.html"))
+
+    def test_no_built_page_links_to_an_old_address(self):
+        for site in (self.prod, self.stage):
+            for page in sorted(site.glob("*.html")):
+                if page.name in site_chrome.OLD_NAMES.values() or page.name == site_chrome.HOME:
+                    continue
+                with self.subTest(site=site.name, page=page.name):
+                    self.assertEqual(old_links(page.read_text(encoding="utf-8")), [])
+
+    def test_control_a_link_to_an_old_address_is_found(self):
+        page = (self.prod / "index.html").read_text(encoding="utf-8")
+        planted = page.replace("</body>", f'<a href="{site_chrome.OLD_NAMES["notas"]}?period=2025">x</a></body>', 1)
+        self.assertNotEqual(planted, page)
+        self.assertEqual(len(old_links(planted)), 1)
 
     def test_nothing_switched_off_leaks_into_production(self):
         data = json.loads((REPO / "data" / "features.json").read_text(encoding="utf-8"))

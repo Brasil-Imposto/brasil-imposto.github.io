@@ -14,7 +14,7 @@
 // top but above its backdrop, so the clicks still land on its controls, every sort of the list reversed, the tab's number frozen, focus() disabled, Escape swallowed, the page left free to
 // scroll, a control too narrow for its text) and must then report every check as FAIL; a check that still passes is blind.
 // Env: PW_CORE (path to playwright-core), CHROME_HEADLESS (chrome-headless-shell binary).
-const PAGE = 'BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html';
+const PAGE = 'os-3-poderes.html';
 const PLANT = `.fdrawer[hidden], .fback[hidden] { display:flex !important; } .fdrawer { z-index:999 !important; top:0 !important; bottom:auto !important; } .fback { z-index:998 !important; }
   html, body { overflow:visible !important; } .fdrawer select { width:60px !important; }`;
 const ORDERS = [['name', true, 'name', 'asc'], ['name', false, 'name', 'desc'], ['total', true, 'total', 'desc'], ['total', false, 'total', 'asc'],

@@ -18,14 +18,19 @@ HOME = "BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html"
 HOME_HREF = "./"
 PAGES = {
     "inicio": (HOME, "Início"),
-    "tres-poderes": ("BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html", "Os 3 Poderes"),
-    "dinheiro": ("BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html", "Como o dinheiro anda"),
+    "tres-poderes": ("os-3-poderes.html", "Os 3 Poderes"),
+    "dinheiro": ("como-o-dinheiro-anda.html", "Como o dinheiro anda"),
 }
 # Pages with the common header and footer that are not in the header's list (D159): the notes of the map, linked from the
 # footer and from the map itself.
-NOTES_PAGE = "BRASIL-IMPOSTO_DESIGN_como-ler-o-mapa_2026-10-23.html"
+NOTES_PAGE = "como-ler-o-mapa.html"
 OTHER_PAGES = {"notas": (NOTES_PAGE, "Como ler o mapa")}
 ALL_PAGES = {**PAGES, **OTHER_PAGES}
+# The design-round names the pages were published under until 2026-10-26 (Q86, D172 question 28): shared links to them keep
+# working, since the site build writes a page at each one that forwards to the clean address, with its query and hash.
+OLD_NAMES = {"tres-poderes": "BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html",
+             "dinheiro": "BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html",
+             "notas": "BRASIL-IMPOSTO_DESIGN_como-ler-o-mapa_2026-10-23.html"}
 
 CSS = """<style id="bi-chrome-css">
 .bi-header { position: sticky; top: 0; z-index: 1000; height: 62px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 22px; background: rgba(255,255,255,.94); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid #E3E7EC; font-family: Manrope, system-ui, sans-serif; }

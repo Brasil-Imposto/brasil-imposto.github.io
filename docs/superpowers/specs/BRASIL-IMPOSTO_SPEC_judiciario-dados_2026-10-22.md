@@ -160,7 +160,7 @@ Linhas, na ordem da ficha (STF; nos outros tribunais, as colunas do Anexo VIII j
 - O bloco do TSE separado (seção 2.3), com os meses dele.
 - O estado de cada linha (recebe, não recebe, zero na folha, não publicado) vem pronto do dado, não deduzido na página.
 
-### 6.3 Página (`BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html`)
+### 6.3 Página (`os-3-poderes.html`)
 - "Média por mês, jan a ago 2026" no total; "pago em <meses>" sob cada pagamento do ano; o bloco "Pago pelo TSE".
 - O estado "zero na folha" ("R$ 0,00 na folha publicada", sem marca); "não recebe" só com o link do ato.
 - "No STF desde" e "Presidente do STF desde", cada uma com a fonte.

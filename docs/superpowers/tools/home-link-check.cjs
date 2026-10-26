@@ -13,8 +13,8 @@
 // Env: PW_CORE (path to playwright-core), CHROME_HEADLESS (chrome-headless-shell binary), CDN_MIRROR (optional, as site-check.cjs).
 const path = require('path');
 const OLD = 'BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html';
-const PAGES = { inicio: '', 'tres-poderes': 'BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html',
-  dinheiro: 'BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html' };
+const PAGES = { inicio: '', 'tres-poderes': 'os-3-poderes.html',
+  dinheiro: 'como-o-dinheiro-anda.html' };
 const LINKS = [
   { name: 'header logo', width: 1440, sel: '.bi-header a.bi-brand' },
   { name: 'header Início', width: 1440, sel: '.bi-links a', text: 'Início' },

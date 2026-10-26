@@ -25,8 +25,8 @@
 // a honeypot the page cannot read, Web3Forms' answers swapped, Escape swallowed, focus() disabled, the backdrop not
 // clickable); every check must then fail, or the probe is blind.
 // Env: PW_CORE (path to playwright-core), CHROME_HEADLESS (chrome-headless-shell binary).
-const PAGES = ['BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html', 'BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html',
-  'BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html'];
+const PAGES = ['BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html', 'os-3-poderes.html',
+  'como-o-dinheiro-anda.html'];
 const NETWORKS = { BTC: 1, ETH: 1, SOL: 1, USDT: 4, USDC: 3, XRP: 1, BNB: 1 };
 const AT = String.fromCharCode(64);
 const PERSON = { name: 'Pessoa de Teste', email: 'teste' + AT + 'exemplo.org', message: 'Mensagem de teste da sonda.' };

@@ -15,8 +15,8 @@
 // Env: PW_CORE (path to playwright-core), CHROME_HEADLESS (chrome-headless-shell binary), CDN_MIRROR (as in site-check.cjs).
 const PAGES = {
   inicio: 'BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html',
-  'tres-poderes': 'BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html',
-  dinheiro: 'BRASIL-IMPOSTO_DESIGN_como-o-dinheiro-anda-round-1_2026-10-21.html',
+  'tres-poderes': 'os-3-poderes.html',
+  dinheiro: 'como-o-dinheiro-anda.html',
 };
 const OVERLAYS = [
   { page: 'tres-poderes', name: 'ficha da pessoa', opener: '[data-grid] [data-open]', open: '[data-back]:not([hidden])', close: '[data-sheet] [data-close]' },

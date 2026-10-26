@@ -107,7 +107,7 @@
   }
   const dfFactsOf = dfFacts;
   // The notes page and the links to it from the map: the period and the measure the reader had (D159).
-  const NOTES_PAGE = 'BRASIL-IMPOSTO_DESIGN_como-ler-o-mapa_2026-10-23.html';
+  const NOTES_PAGE = 'como-ler-o-mapa.html';
   const periodId = (r) => (r.mode === 'month' ? `month-${r.months[0]}` : r.mode === 'year' ? `year-${r.years[0]}` : `mandate-${r.key}`);
   const notesHref = (r, metric) => `${NOTES_PAGE}?period=${encodeURIComponent(periodId(r))}&metric=${encodeURIComponent(metric)}`;
   window.BIMN = { bi, reais, cents, tenths, num1, biT, tri, unionAt, rowsAt, scale26, VALUE, dfFacts, relDate, SRC, dates, notes, NOTES_PAGE, periodId, notesHref };

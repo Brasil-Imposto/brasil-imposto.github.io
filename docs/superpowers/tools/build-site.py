@@ -90,6 +90,12 @@ FORWARD = """<!doctype html>
 """
 
 
+def forward_to(target):
+    """A page at an old address that forwards to the clean one, keeping its query and hash (Q86, as FORWARD does for Início)."""
+    return FORWARD.replace("'./'", f"'{target}'").replace('href="./"', f'href="{target}"').replace("url=./", f"url={target}") \
+        .replace("ir para o Início", "ir para a página")
+
+
 def staging_page(page, key):
     """One committed page as the staging build serves it: its chrome rebuilt with the staging switches, the strip first in the
     body and noindex in the head."""
@@ -135,6 +141,8 @@ def build(profile, out):
         else:
             target.write_bytes(staging_page(page, key).encode("utf-8"))
     (out / site_chrome.HOME).write_text(FORWARD, encoding="utf-8")
+    for key, old_name in site_chrome.OLD_NAMES.items():
+        (out / old_name).write_text(forward_to(site_chrome.ALL_PAGES[key][0]), encoding="utf-8")
     (out / ".nojekyll").write_text("", encoding="utf-8")
     if profile == "production":
         (out / "robots.txt").write_text(ROBOTS, encoding="utf-8")

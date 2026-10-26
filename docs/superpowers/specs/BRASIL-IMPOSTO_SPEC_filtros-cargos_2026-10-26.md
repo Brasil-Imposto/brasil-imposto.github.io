@@ -27,7 +27,7 @@ lá a gaveta mexe nos controles antigos escondidos; aqui ela muda o estado da p�
 
 ## 2. Onde muda
 
-Só a lista de cargos de Os 3 Poderes, no arquivo publicado `docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html`:
+Só a lista de cargos de Os 3 Poderes, no arquivo publicado `docs/superpowers/previews/os-3-poderes.html`:
 
 - **A barra (`.tools`):** a busca e a aba **Filtros**, com o número de filtros ligados (Casa diferente de Todos, Estado,
   Partido). Embaixo, uma etiqueta por filtro ligado, com um x que o tira.
