@@ -40,7 +40,8 @@ Site: <https://brasil-imposto.github.io>.
 
 ## Fluxo de trabalho
 
-1. Uma spec aprovada pela pessoa mantenedora antes de qualquer código (`docs/superpowers/specs/`).
+1. Uma spec aprovada pela pessoa mantenedora antes de qualquer código (`docs/superpowers/specs/`). Se a tarefa muda ou acrescenta
+   algo na tela, também uma rodada de prévia aprovada por ela antes do código (D185).
 2. Antes de começar, confira se a tarefa já tem dono: a seção "Quem faz o quê" da spec e as issues, pull requests e ramos abertos dela (`gh issue list --search`, `gh pr list --search`, `git ls-remote origin`). Se tiver, não comece outra: comente na issue. Um pull request aberto recebe commits só de quem o abriu, salvo pedido da pessoa mantenedora.
 3. O plano, com uma tarefa por vez.
 4. Testes primeiro.
@@ -94,7 +95,7 @@ Pergunte à pessoa mantenedora, numa issue ou no pull request, antes de:
 
 Agent guide: Portuguese UI, English identifiers and commits; neutral text; no number without an official source; every sum
 closes by hand; every period works; every check is proven against a planted failure; look at screenshots at 1440 and 420 px.
-Specs are approved by the maintainer before code. To close an issue, only the pull request that meets its last criterion says `Closes #N` (staging is the default
+Specs are approved by the maintainer before code, and a task that changes or adds anything on screen also needs a preview round the maintainer approves (D185). To close an issue, only the pull request that meets its last criterion says `Closes #N` (staging is the default
 branch, so it closes there); partial ones say `Refs #N`, and leftovers become a new linked issue. Before starting a task, check it has no owner yet (the spec's owner
 section, open issues, pull requests and branches). Pull requests go to `staging`; `main` receives approved tasks one at a
 time, each in its own pull request with the maintainer's go (never the whole of `staging`), followed by the back-merge. Ask before changing a recorded decision, a method, sources, dependencies or
