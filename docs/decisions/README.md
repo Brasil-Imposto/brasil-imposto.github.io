@@ -215,6 +215,7 @@ Mapa interativo e apartidário que mostra, com dados oficiais, como o imposto pa
 | D189 | 2026-10-26 | **Disputa sobre um dado ou uma leitura: o texto de P6 entra no `GOVERNANCE.md` como escrito** (pergunta 45 da rodada 2, Q99, opção a). A disputa vira uma issue com as fontes oficiais dos dois lados; o mantenedor decide pela fonte oficial; quando duas fontes oficiais divergem, a página mostra as duas e diz qual entra na soma; a decisão entra no registro público com o seu número D; um número publicado que muda entra no registro de correções; com revisores (fase 1), a decisão passa também pela revisão de outra pessoa. |
 | D190 | 2026-10-26 | **Notas de versão: uma versão por dia com produção, com cada tarefa promovida no dia, e uma linha por tarefa no `CHANGELOG.md`** (pergunta 46 da rodada 2, Q100, opção a; G3 da spec de confiança, ajustado ao D166). |
 | D191 | 2026-10-26 | **A spec dos filtros dos cargos está aprovada**: `docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_filtros-cargos_2026-10-26.md` (D187). O código começa pela sessão local de 2026-10-26. |
+| D192 | 2026-10-26 | **A produção recebe em lote, no fim de um bloco de trabalho, ainda uma tarefa por pull request**. A sessão trabalha as tarefas abertas no `staging` e leva à produção todas as aprovadas juntas, numa sessão de promoção com um só aviso de produção e o "pode" do autor, como a de 2026-10-26 (#132, #134 a #144); cada tarefa continua no seu próprio pull request para a `main` (D166). O #133 (Scorecard) espera esse lote. |
 
 ## Perguntas em aberto
 
