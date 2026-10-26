@@ -58,7 +58,8 @@ def on_live():
 
 
 def switches(production, staging=True):
-    return {"features": [{"key": "apoie", "issue": 46, "description": "O botão Apoie", "staging": staging, "production": production}]}
+    return {"features": [{"key": "apoie", "issue": 46, "description": "O botão Apoie", "staging": staging, "production": production},
+                         {"key": "rede", "issue": 130, "description": "A prévia da Rede do dinheiro", "staging": True, "production": False}]}
 
 
 def build(data, on=True, profile="production"):
@@ -167,7 +168,7 @@ class PagesTest(unittest.TestCase):
     def test_off_no_button_and_the_chrome_as_before(self):
         for key, p in build(committed(), on=False).items():
             with self.subTest(page=key):
-                self.assertEqual(p["header"], site_chrome.header(key))
+                self.assertEqual(p["header"], site_chrome.header(key, rede=False))   # switches() keeps rede off in production
                 self.assertEqual(p["css"], site_chrome.HEAD)
                 self.assertEqual(p["js"], site_chrome.SCRIPT)
                 self.assertNotIn("bi-apoie", p["header"] + p["css"] + p["js"])
