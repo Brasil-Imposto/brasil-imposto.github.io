@@ -1,0 +1,36 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://brasil-imposto.github.io/schemas/corrections.schema.json",
+ "title": "The public corrections log (Phase 2 spec, P5; D172, question 7)",
+ "description": "One entry per published number that changed by a correction: what it was, what it became, why, when, with which official source and through which pull request. A number that changes by a change of method also has its decision (D number). Newest first.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["corrections"],
+ "properties": {
+  "corrections": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["date", "page", "what", "before", "after", "reason", "source", "pull_request"],
+    "properties": {
+     "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$", "description": "The day the correction reached production (Brasília time)."},
+     "page": {"type": "string", "minLength": 3, "description": "The page and the place on it, as a reader finds it."},
+     "what": {"type": "string", "minLength": 3, "description": "The number or text, with its period."},
+     "before": {"type": "string", "minLength": 1, "description": "What the page showed, as shown."},
+     "after": {"type": "string", "minLength": 1, "description": "What the page shows now, as shown."},
+     "reason": {"type": "string", "minLength": 10},
+     "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "url"],
+      "properties": {"label": {"type": "string", "minLength": 3}, "url": {"type": "string", "pattern": "^https://"}}
+     },
+     "pull_request": {"type": "integer", "minimum": 1},
+     "issue": {"type": "integer", "minimum": 1},
+     "decision": {"type": "string", "pattern": "^D\\d+$"}
+    }
+   }
+  }
+ }
+}

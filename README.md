@@ -91,6 +91,8 @@ Regras de método que aparecem na tela:
   a Receita lançou no DF a arrecadação de outros estados; nos dois casos a tela diz que é estimativa.
 - **Repasse não é gasto:** dinheiro que só passa de um governo para outro não conta como gasto de quem só repassou.
 
+**Correções:** quando um número publicado muda por correção, a mudança entra no registro público [`data/corrections.json`](data/corrections.json): o que estava, o que ficou, por quê, quando, a fonte oficial e o pull request.
+
 ## Neutralidade
 
 Só dados oficiais, com fonte; nenhum chamado ao voto; o mesmo tratamento para qualquer governo e qualquer partido; pessoas
