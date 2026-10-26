@@ -34,7 +34,10 @@ def insert(page, anchor, new, before=True):
 def build(author_notes):
     src = lambda name: (SRC / name).read_text(encoding="utf-8")
     page = SIM.read_text(encoding="utf-8")
-    page = insert(page, '<link rel="stylesheet" href="assets/home-feed.css">', '\n<link rel="stylesheet" href="assets/platform.css">', before=False)
+    # The money network (its section, its scripts and platform.css) is in the author's preview only; the site build adds it to the
+    # staging Início through the rede switch (build-site.py, D172, Q-A2), so the published page has nothing of it.
+    if author_notes:
+        page = insert(page, '<link rel="stylesheet" href="assets/home-feed.css">', '\n<link rel="stylesheet" href="assets/platform.css">', before=False)
     # D152: the hero's own header leaves; the site header shared by the three pages (site_chrome) takes its place.
     old, n = re.subn(r'\n  <header class="hero-nav">\n.*?\n  </header>', '', page, count=1, flags=re.S)
     if not (n == 1 and 'class="hero-nav"' not in old):
@@ -53,21 +56,17 @@ def build(author_notes):
         page = page.replace(old_pad, new_pad)
     if author_notes:
         sections = src("platform-sections.html") + "\n" + src("platform-support.html") + "\n" + src("platform-notes.html") + "\n"
-    else:
-        sections = src("platform-sections.html") + "\n"
-    page = insert(page, '<script src="assets/bi-data.js"></script>', sections)
-    script = src("platform-script.html")
-    if author_notes:  # the support block's handlers go in before the script's closing lines
-        script = insert(script, "})();\n</script>", src("platform-support-script.html"))
-    page = insert(page, "</body>", script)
+        page = insert(page, '<script src="assets/bi-data.js"></script>', sections)
+        # the support block's handlers go in before the network script's closing lines
+        page = insert(page, "</body>", insert(src("platform-script.html"), "})();\n</script>", src("platform-support-script.html")))
     # D152, L1: the map's data arrives through the loader, with the true percentage; every script after it waits for it.
     page, held, size = map_loader.apply(page, PREVIEWS / "assets" / "bi-data.js")
-    if not (held >= 15):
+    if not (held >= 10):
         raise SystemExit(f"only {held} scripts held back")
     if not (chr(0x2014) not in page and chr(0x2013) not in page):
         raise SystemExit("dash found")
     if not author_notes:
-        for banned in ('id="apoie"', 'id="fale"', 'Só na prévia', 'class="doc"', 'data-contact'):
+        for banned in ('id="apoie"', 'id="fale"', 'Só na prévia', 'class="doc"', 'data-contact', 'id="rede"', 'data-graph', 'platform.css'):
             if not (banned not in page):
                 raise SystemExit(f"author material in the published page: {banned}")
     return page

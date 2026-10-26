@@ -102,12 +102,14 @@ SCRIPT = """<script id="bi-chrome-js">
   document.addEventListener('click', (e) => { if (!sheet.hidden && !sheet.contains(e.target) && !btn.contains(e.target)) set(false, false); });
   window.matchMedia('(min-width: 821px)').addEventListener('change', (m) => { if (m.matches && !sheet.hidden) set(false, false); });
 })();
-// The footer's "Rede do dinheiro (prévia)": on Início the card is on this page, so the link only scrolls to it.
+</script>"""
+# The footer's "Rede do dinheiro (prévia)", with the rede switch only: on Início the card is on this page, so the link scrolls to it.
+REDE_SCRIPT = """// The footer's "Rede do dinheiro (prévia)": on Início the card is on this page, so the link only scrolls to it.
 (function () {
   const a = document.querySelector('.bi-footer a[data-here]'), target = document.getElementById('rede');
   if (a && target) a.addEventListener('click', (e) => { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); history.replaceState(null, '', '#rede'); });
 })();
-</script>"""
+"""
 
 
 def _links(current, cls=""):
@@ -120,7 +122,7 @@ def _links(current, cls=""):
     return "".join(out)
 
 
-def header(current):
+def header(current, rede=True):
     """The header for one page; `current` is a key of ALL_PAGES. The pages differ only in aria-current (none on the pages outside
     the header's list)."""
     if not (current in ALL_PAGES):
@@ -131,12 +133,13 @@ def header(current):
             f'<button type="button" class="bi-menu-btn" aria-expanded="false" aria-controls="bi-sheet">{ICON}<span>Menu</span></button>'
             '</header>'
             f'<nav class="bi-sheet" id="bi-sheet" aria-label="Páginas" hidden>{_links(current)}'
-            '<p>Rede do dinheiro (prévia), decisões e licenças ficam no rodapé.</p></nav>')
+            + ('<p>Rede do dinheiro (prévia), decisões e licenças ficam no rodapé.</p></nav>' if rede else '<p>Decisões e licenças ficam no rodapé.</p></nav>'))
 
 
-def footer():
-    """The footer, the same on every page."""
-    links = [(f"{HOME_HREF}#rede", "Rede do dinheiro (prévia)", ' data-here'), (NOTES_PAGE, "Como ler o mapa", ""),
+def footer(rede=True):
+    """The footer, the same on every page; the link to the money network only with its switch (D172, Q-A2)."""
+    links = [(f"{HOME_HREF}#rede", "Rede do dinheiro (prévia)", ' data-here')] if rede else []
+    links += [(NOTES_PAGE, "Como ler o mapa", ""),
              (REPO_URL, "Código aberto no GitHub", ""),
              (f"{REPO_URL}/blob/main/docs/decisions/README.md", "Decisões do projeto", ""),
              (f"{REPO_URL}/blob/main/CONTRIBUTING.md", "Como ajudar", ""), (f"{REPO_URL}#licenças", "Licenças", "")]
@@ -168,15 +171,16 @@ def parts(current, profile="production"):
     """Everything the markers carry on one page, for one build (spec staging): the Apoie button and its modal come in only when
     the apoie switch of data/features.json is on for the profile, and production only with the data its rule asks for
     (support_data.problems); off, the pages are what they were."""
-    on = features.on("apoie", profile)
+    on, rede = features.on("apoie", profile), features.on("rede", profile)
     data = support_data.load()
     wrong = support_data.problems(data)
     if wrong:
         raise SystemExit("data/support.json: " + "; ".join(wrong))
+    script = SCRIPT.replace("\n</script>", "\n" + REDE_SCRIPT + "</script>", 1) if rede else SCRIPT
     if not on:
-        return {"css": HEAD, "header": header(current), "footer": footer(), "js": SCRIPT}
-    return {"css": HEAD + "\n" + apoie.CSS, "header": with_support(header(current), data, keyless=profile == "staging"), "footer": footer(),
-            "js": SCRIPT.replace("\n</script>", "\n" + (apoie.STAGING_SCRIPT if profile == "staging" else apoie.SCRIPT) + "</script>", 1)}
+        return {"css": HEAD, "header": header(current, rede), "footer": footer(rede), "js": script}
+    return {"css": HEAD + "\n" + apoie.CSS, "header": with_support(header(current, rede), data, keyless=profile == "staging"), "footer": footer(rede),
+            "js": script.replace("\n</script>", "\n" + (apoie.STAGING_SCRIPT if profile == "staging" else apoie.SCRIPT) + "</script>", 1)}
 
 
 def block(name, body):
