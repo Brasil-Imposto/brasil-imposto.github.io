@@ -31,7 +31,7 @@ class FeaturesFileTest(unittest.TestCase):
 
     def test_apoie_is_on_in_staging(self):
         d = committed()
-        self.assertEqual([f["key"] for f in d["features"]], ["apoie", "trade"])
+        self.assertEqual([f["key"] for f in d["features"]], ["apoie", "trade", "rede"])
         self.assertIs(features.on("apoie", "staging", d), True)
         self.assertIsInstance(features.on("apoie", "production", d), bool)
 

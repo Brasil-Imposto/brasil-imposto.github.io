@@ -21,6 +21,7 @@ TOOLS = Path(__file__).resolve().parent
 PREVIEWS = TOOLS.parent / "previews"
 sys.path.insert(0, str(TOOLS))
 import features  # noqa: E402
+import map_loader  # noqa: E402
 import site_chrome  # noqa: E402
 
 BUILDERS = ("build-cases.py", "build-standalone-data.py", "build-simulation.py", "build-platform-preview.py", "build-notes-page.py")
@@ -29,6 +30,16 @@ NODE_BUILDERS = ("build-map-notes.cjs",)
 # What each switch of data/features.json adds to a page, after the anchor it follows, and the files only it uses. A switch that
 # is off leaves the page as committed and its files out of assets/ (features.py: absent, never hidden).
 FEATURES = {
+    # rede comes first: its stylesheet then lands after home-trade.css, where the published page had it before the switch
+    "rede": {  # the money network preview on Início, staging only until it is approved for production (D172, Q-A2)
+        "page": "inicio",
+        "after": [('<link rel="stylesheet" href="assets/home-feed.css">', '<link rel="stylesheet" href="assets/platform.css">'),
+                  ('<section class="hf-cake" id="para-onde-vai" data-cake aria-label="Para onde vai o dinheiro da União"></section>',
+                   "\n" + (PREVIEWS / "src" / "platform-sections.html").read_text(encoding="utf-8").strip()),
+                  ("<!-- /site-chrome:js -->", "\n".join(map_loader.hold(tag) for tag in re.findall(
+                      r"<script[^>]*>.*?</script>", (PREVIEWS / "src" / "platform-script.html").read_text(encoding="utf-8"), re.S)))],
+        "files": ("platform.css", "bi-ledger-interest.js", "ledger-graph-model.js", "ledger-graph-view.js"),
+    },
     "trade": {  # O que o Brasil vende, under Por que falta dinheiro on Início (D159)
         "page": "inicio",
         "after": [('<link rel="stylesheet" href="assets/home-feed.css">', '<link rel="stylesheet" href="assets/home-trade.css">'),

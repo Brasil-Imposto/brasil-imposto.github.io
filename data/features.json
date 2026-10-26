@@ -13,6 +13,13 @@
    "description": "A seção O que o Brasil vende na Início (D159)",
    "staging": true,
    "production": false
+  },
+  {
+   "key": "rede",
+   "issue": 130,
+   "description": "A prévia da Rede do dinheiro na Início e o link \"Rede do dinheiro (prévia)\" do rodapé; fica no staging até a prévia ser aprovada para a produção (D172, Q-A2)",
+   "staging": true,
+   "production": false
   }
  ]
 }

@@ -120,7 +120,7 @@ class SiteFooterTest(unittest.TestCase):
         for key in site_chrome.ALL_PAGES:
             with self.subTest(page=key):
                 p = page(key)
-                self.assertEqual(site_chrome.extract(p, "footer"), site_chrome.footer())
+                self.assertEqual(site_chrome.extract(p, "footer"), site_chrome.footer(site_chrome.features.on("rede", "production")))
                 self.assertEqual(p.count('class="bi-footer"'), 1)
                 blocks.add(site_chrome.extract(p, "footer"))
         self.assertEqual(len(blocks), 1, "the footers differ")
@@ -128,6 +128,8 @@ class SiteFooterTest(unittest.TestCase):
     def test_footer_links(self):
         text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", site_chrome.footer()))
         self.assertEqual(len(re.findall(r"Rede do dinheiro \(prévia\)", text)), 1)
+        # without the rede switch the footer has no link to the network (D172, Q-A2)
+        self.assertNotIn("Rede do dinheiro", site_chrome.footer(False))
         for label in ("Código aberto no GitHub", "Decisões do projeto", "Como ajudar", "Licenças", "Como ler o mapa"):
             self.assertEqual(text.count(label), 1, label)
         self.assertIn("Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0.", text)
@@ -149,7 +151,8 @@ class HomeLinkTest(unittest.TestCase):
         if inicio != ["./", "./"]:
             out.append(f"Início in the bar and the sheet: {inicio}")
         rede = re.findall(r'<a href="([^"]*)" data-here>', chrome)
-        if rede != ["./#rede"]:
+        profile = "staging" if 'class="bi-staging"' in p else "production"
+        if rede != (["./#rede"] if site_chrome.features.on("rede", profile) else []):
             out.append(f"Rede do dinheiro: {rede}")
         if re.search(r'href="[^"]*' + re.escape(site_chrome.HOME), p):
             out.append("an href to the design file's name")
