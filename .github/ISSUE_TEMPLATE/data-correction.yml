@@ -5,7 +5,7 @@ labels: [data-correction]
 body:
   - type: markdown
     attributes:
-      value: Quem acrescenta um número prova o número. Sem o link da fonte oficial com o valor certo, a correção não entra.
+      value: Quem acrescenta um número prova o número. Sem o link da fonte oficial com o valor certo, a correção não entra. A correção aceita entra no registro público de correções, `data/corrections.json`.
   - type: input
     id: page
     attributes:
