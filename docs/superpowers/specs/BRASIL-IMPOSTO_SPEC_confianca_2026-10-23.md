@@ -7,7 +7,7 @@ and no new feature: where an item changes what the screen says, the text goes to
 belong to the repository settings, the private decision log or the organization page are marked for the local session and the
 maintainer.
 
-Estado: **aprovada (D169, 2026-10-25).** Feitos: A1 (#72), A4 (#86), B1 (#87), B4 (#97), D1 (#95), F1 (#90) e G1 (#89, #98); D2 em rascunho (#96, espera Q98). A2, A3, C1, B3, DF-5 e G3 esperam as perguntas 12 a 17 e 46 da prévia de perguntas de 2026-10-25. Dona dos itens da sessão na nuvem desde 2026-10-25: a sessão local (D167).
+Estado: **aprovada (D169, 2026-10-25).** Feitos: A1 (#72), A4 (#86), B1 (#87), B4 (#97), D1 (#95), F1 (#90) e G1 (#89, #98); D2 em rascunho (#96, espera Q98). Respondidas em 2026-10-26 (D172): Q-A2 (a Rede do dinheiro sai da produção e fica no staging), Q-A3 (o texto proposto), Q-A4 (os valores ao centavo quando a Receita os publicar), Q-C1 (sim), Q-B3 (sim, com a tabela de cada centavo antes do merge) e DF-5 (cada ano com a sua parte no PIB, com a tabela antes). G3 espera a pergunta 46 da rodada 2. Dona dos itens da sessão na nuvem desde 2026-10-25: a sessão local (D167).
 
 ## 1. Regras de toda correção
 
