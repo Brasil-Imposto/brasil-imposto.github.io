@@ -1,0 +1,8 @@
+{
+  "name": "brasil-imposto-tools",
+  "private": true,
+  "description": "The browser the page probes drive (visible-text-probe.cjs and the other *-check.cjs), pinned for the ci.",
+  "devDependencies": {
+    "playwright-core": "1.58.2"
+  }
+}

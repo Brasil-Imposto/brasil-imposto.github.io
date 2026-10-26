@@ -1,0 +1,44 @@
+# The visible-text check (spec paridade-enderecos-formatador, part A; D194; #82): on every pull request that touches what builds
+# the pages, the published site is built from the pull request and from its base, and the text of the four pages compared;
+# any difference fails unless the pull request carries the label muda-a-tela, which only the maintainer adds. Adding or removing
+# the label runs it again. Read-only token, actions pinned by commit, never pull_request_target.
+name: visible-text
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+permissions:
+  contents: read
+concurrency:
+  group: visible-text-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  visible-text:
+    name: visible-text
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: pr
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: pr/.nvmrc
+      - name: The pinned browser (playwright-core and its headless shell)
+        working-directory: pr/docs/superpowers/tools
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright-core install --only-shell chromium
+      - name: Compare the visible text of the four pages with the base
+        env:
+          HAS_LABEL: ${{ contains(github.event.pull_request.labels.*.name, 'muda-a-tela') }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: python3 pr/docs/superpowers/tools/visible-text-check.py --base base --pr pr --base-sha "$BASE_SHA" $([ "$HAS_LABEL" = "true" ] && echo --label)

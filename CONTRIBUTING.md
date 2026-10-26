@@ -101,6 +101,8 @@ export CHROME_HEADLESS=<o caminho do chrome-headless-shell que o comando acima b
 
 O pull request vai para o `staging`, com `ci` e `dco` verdes (a regra do ramo exige os dois). Quem revisa hoje é o mantenedor
 (`.github/CODEOWNERS`); o merge é por squash. A produção recebe uma tarefa aprovada por vez (D166).
+A verificação `visible-text` compara o texto das quatro páginas com o da base em todo pull request que mexe no que as monta;
+um pull request que muda o texto da tela só entra com o rótulo `muda-a-tela`, que o mantenedor põe quando a mudança é querida (D194).
 No fim de um dia com produção sai a versão do dia (D190): `docs/superpowers/tools/release-notes.py --next-version` dá o número
 (`v1.N.0`), `--date AAAA-MM-DD` dá as notas, uma linha por pull request que entrou na `main` naquele dia, e `--changelog` refaz o
 `CHANGELOG.md`, que vai ao `staging` por pull request e à produção com a próxima tarefa.
