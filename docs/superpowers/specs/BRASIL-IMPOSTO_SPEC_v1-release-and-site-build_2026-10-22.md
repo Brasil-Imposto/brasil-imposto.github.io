@@ -56,7 +56,7 @@ Cada uma provada antes com um caso plantado que tem de ser pego: segredos (mostr
 
 ### A4. Configuração no GitHub
 
-**Feito em 2026-10-22**, menos o que depende do autor: exigir 2FA e as permissões da organização.
+**Feito em 2026-10-22**, menos o que depende do autor: exigir 2FA (D173, 2026-10-26: fica desligado) e as permissões da organização.
 
 Pelo `gh`, depois da organização criada pelo autor:
 

@@ -28,7 +28,7 @@ A Início fica nesta ordem, nos dois sites:
 3. Para onde vai o dinheiro da União (`#para-onde-vai`);
 4. Por que falta dinheiro (`#por-que-falta-dinheiro`);
 5. O que o Brasil vende (`#o-que-o-brasil-vende`), só no staging;
-6. A rede do dinheiro do imposto, prévia (`#rede`);
+6. A rede do dinheiro do imposto, prévia (`#rede`), só no staging desde 2026-10-26 (D172, Q-A2: a chave `rede`, #131);
 7. o rodapé.
 
 Leituras registradas com a decisão (D159):

@@ -412,10 +412,49 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
 - **Citação que não fecha no registro:** `\(\*"[^)]*?"\*[,;]` acha uma citação seguida de texto antes do `"*)`. A D166 tinha uma, e o
   padrão do `publish-decisions.py` apagou a D167 inteira do registro público até a citação ser corrigida; duas citações seguidas no
   mesmo parêntese, `(*"a"*; *"b"*)`, são inofensivas (D69, D77, D130, D134, D157, D159 conferidas palavra por palavra).
-- **Organização no GitHub:** exigir 2FA não tem API e tira da organização quem não tem 2FA (`orgs/<org>/members?filter=2fa_disabled`
+- **Organização no GitHub** (D173: a exigência de 2FA fica desligada)**:** exigir 2FA não tem API e tira da organização quem não tem 2FA (`orgs/<org>/members?filter=2fa_disabled`
   lista antes); `members_can_create_repositories` tem (`PATCH orgs/<org>`).
 - **A chave do Web3Forms é ligada a uma caixa de entrada e serve a mais de um site** (D168): copiada da página publicada do outro
   site por script, sem aparecer na saída de nenhum comando.
 - **Prévia de perguntas:** `render-doc.py` sem nenhuma seção `##` dá `class="lead"` a todo parágrafo; as linhas "Recommended" saem
   como `<p><b>`, que o passo depois troca por `p.rec`. A prévia fica em `docs/superpowers/previews/` (fora do git), a fonte em
   `private/questions/`.
+
+### Rodadas 1 e 2 respondidas, produção em lote e a primeira contribuição de fora (2026-10-26, D172 a D194)
+
+- **O registro público sai do privado pelo gerador:** `docs/superpowers/tools/publish-decisions.py` escreve `docs/decisions/README.md`
+  a partir de `private/decisions-original.md` (sem as citações). Editar os dois à mão funcionou, mas o gerador é o caminho; numa
+  worktree, copiar o arquivo privado para `private/` dela antes de rodar (o `private/` não vai ao git). Uma linha acrescentada acima
+  da tabela de decisões desloca os índices calculados antes: D183 a D186 entraram antes de D182 assim; conferir a ordem de D1 em
+  diante depois de cada inserção.
+- **Promoção por tarefa e o `dco`:** o commit de squash do `staging` sai com o e-mail principal da conta como autor, e o `dco` de um
+  pull request de tarefa para a `main` quer o autor igual à assinatura. No cherry-pick, `commit --amend --author` com o endereço
+  noreply do mantenedor (o #132 falhou antes disso). **Exceção:** o commit de quem contribui de fora mantém o autor dele (o do #124
+  já vem com o autor igual à assinatura).
+- **Pull request de fork:** os workflows de quem contribui pela primeira vez esperam aprovação (`gh api -X POST
+  repos/<repo>/actions/runs/<id>/approve`; os presos: `actions/runs?status=action_required`). A configuração automática do CodeQL
+  não analisou o fork e a regra `code_scanning` do `staging` barrou o merge: daí o `codeql.yml` (D193). Para refazer as verificações
+  de um fork, fechar e reabrir uma vez só, e só depois que o merge commit do pull request (`refs/pull/<n>/merge`) já tiver a mudança
+  de workflow da base; repetir vira ruído público na página de quem contribuiu (o autor perguntou por quê).
+- **A regra do CodeQL só barra o alerta que o pull request traz:** os 24 alertas altos já abertos não barram nada. Um regex de tags
+  HTML vira `py/bad-tag-filter` (alto) mesmo lendo um arquivo nosso: ler o arquivo linha a linha (`build-site.py`, `script_tags`).
+- **Provas do `pages.yml` sem tocar a produção:** o ambiente `github-pages` só publica da `main`, então um disparo num ramo monta e
+  sobe o artefato e tem o deploy recusado. O grupo de concorrência `pages` cancela a execução anterior: dois disparos seguidos, a
+  segunda cancela a primeira (rodar um de cada vez). `gh release create --target` quer o nome do ramo ou o SHA inteiro.
+- **Copiar um arquivo de um ramo para outro repositório:** `git fetch` antes de `git show origin/<ramo>:<arquivo>`; o PR #2 do
+  `Brasil-Imposto/staging` levou a fonte antiga por causa de uma referência local parada.
+- **Chave de funcionalidade para tirar algo que já está na produção (`rede`, #131):** a chave só acrescenta; a página versionada é a
+  produção byte a byte. Então o construtor deixa a parte fora da página publicada, `build-site.py` a acrescenta no staging pelas
+  âncoras, e o cabeçalho e o rodapé (`site_chrome.py`) seguem a chave. Duas chaves na mesma âncora: a ordem do dicionário decide a
+  ordem das folhas de estilo; conferir o staging byte a byte contra o de antes.
+- **Interface:** uma regra `display` de classe vence o atributo `hidden` (a gaveta ficava sempre aberta): `[hidden] { display: none }`
+  explícito. O cabeçalho do site está no z-index 1000; camadas por cima, 1100.
+- **Rodada de prévia da Início:** cada página carrega cerca de 91 MB de dados; seis iframes dela travam o navegador. Capturas mais
+  um link para abrir cada opção ao vivo. Um `#id` no `src` de um iframe rola a página de fora também: rolar só dentro do iframe.
+- **Controle que não pousou:** a gaveta plantada ficou sob o próprio fundo, e os cliques caíram no fundo; a ordem da cota passou com
+  24 pessoas sem cota (valores iguais). Um controle tem de falhar pelo motivo plantado.
+- **A verificação `visible-text` (#154) compara commits:** para rodar `visible-text-check.py` na máquina, fazer o commit antes; com
+  mudança só na árvore de trabalho ela pega o caminho curto. Um controle plantado num construtor regera as páginas versionadas:
+  rodar os construtores de novo depois de tirar o plantio.
+- **O `.gitignore_global` desta máquina ignora `package-lock.json`:** o lock de `docs/superpowers/tools/` precisa de `git add -f`, como
+  o de `site/`.

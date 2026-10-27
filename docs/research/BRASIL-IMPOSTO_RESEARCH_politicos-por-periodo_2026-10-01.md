@@ -13,7 +13,7 @@ Coleta: 2026-10-01. Objetivo: para qualquer período que o usuário escolher no 
 | `data/politicians/senators.json` | Senadores em exercício desde 2019-02-01, titulares e suplentes | `pipelines/politicians/build_senators.py` |
 | `data/politicians/federal-deputies.json` | Deputados federais em exercício nas legislaturas 56 e 57 | `pipelines/politicians/build_federal_deputies.py` |
 | `data/politicians/state-deputies.json` | Deputados estaduais e distritais **eleitos** em 2018 e 2022 | `pipelines/politicians/build_state_deputies.py` |
-| `data/politicians/sc-mayors.json` | Prefeitos e vices **eleitos** em SC em 2020 e 2024, com código IBGE | `pipelines/politicians/build_sc_mayors.py` |
+| `data/politicians/sc-mayors.json` | Prefeitos e vices **eleitos** em SC em 2020 e 2024, com código IBGE | `pipelines/politicians/build_mayors.py --uf SC` |
 
 Módulos comuns: `tse_common.py` (lê o cadastro de candidaturas do TSE) e `commons_photos.py` (foto, autor e licença no Wikimedia Commons).
 
@@ -252,7 +252,7 @@ Coleta em 2026-10-01. Os dois arquivos registram **eleitos**, não **em exercíc
 
 | Arquivo | Script |
 |---|---|
-| `data/politicians/sc-mayors.json` | `pipelines/politicians/build_sc_mayors.py` |
+| `data/politicians/sc-mayors.json` | `pipelines/politicians/build_mayors.py --uf SC` |
 | `data/politicians/state-deputies.json` | `pipelines/politicians/build_state_deputies.py` |
 
 Os dois scripts usam só a biblioteca padrão do Python 3 e reaproveitam `tse_common.py` (`iter_rows`, `br_date`, `TSE_CAND_URL`, `ELECTED`, `WORK`) sem alterá-lo. Rodar com `POLITICIANS_WORK=<dir> python3 <script>`.

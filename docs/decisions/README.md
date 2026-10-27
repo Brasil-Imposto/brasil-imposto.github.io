@@ -9,7 +9,7 @@ Mapa interativo e apartidário que mostra, com dados oficiais, como o imposto pa
 
 ## Status
 
-- **Fase:** v1 publicada em `https://brasil-imposto.github.io` (D149), a cada promoção do `staging` para a `main` (D157); staging público em `https://brasil-imposto.github.io/staging/` (D165). Grill concluído (D42); rodadas de prévias registradas nas decisões; livro de fluxos, fase 1 feita (D121, D122). Em andamento: o site em Astro, fase B0 (D151); os dados do Judiciário (D154); a fase 2 da auditoria, quando o autor mandar (Q53; a fase 1 fechou em D161).
+- **Fase:** v1 publicada em `https://brasil-imposto.github.io` (D149), a cada promoção do `staging` para a `main` (D157); staging público em `https://brasil-imposto.github.io/staging/` (D165). Grill concluído (D42); rodadas de prévias registradas nas decisões; livro de fluxos, fase 1 feita (D121, D122). Produção por tarefa, em lote no fim de um bloco de trabalho (D166, D192); versão por dia com produção (D190: v1.1.0 em 2026-10-26). As rodadas de perguntas 1 e 2 foram respondidas em 2026-10-26 (D172 a D194); o que falta está nas issues #155 a #159 e #150.
 - **Início:** 2026-09-25.
 - **Datas que importam:** 1º turno das eleições em 2026-10-04 (domingo); 2º turno em 2026-10-25.
 
@@ -433,7 +433,7 @@ Mapa interativo e apartidário que mostra, com dados oficiais, como o imposto pa
 
 ## Próximo passo
 
-**Estado em 2026-10-22:** a v1 está publicada em `https://brasil-imposto.github.io` (D149), com os documentos de comunidade, os formulários de issue e o check do DCO (D148). Feito desde então: o logo e a imagem de prévia social (D153, #37 e #42); o cabeçalho, o rodapé e o carregamento do mapa (D152, #27, #28 e #31); no Judiciário, o que os dados do repositório permitem (D154, #40 e #41). Próximo: (0) a coleta nova do Judiciário, que espera os sites dos tribunais (Q78); (1) o resto da fase B0 do site em Astro (D151); (2) as tarefas 6 a 8 da fase 1 da auditoria de limpeza e a fase 2 do livro de fluxos, quando o autor mandar. Perguntas abertas: a seção "Perguntas em aberto" acima.
+**Estado em 2026-10-27:** a v1 está no ar desde 2026-10-22 (D149) e recebeu em 2026-10-26 as 12 tarefas da v1.1.0 (os filtros dos cargos em gaveta, a Rede do dinheiro só no staging, os testes antes da publicação, D2, os registros). No `staging`, esperando o próximo lote (#155): o registro de correções, 20 governadores conferidos, o Scorecard, o teste do tamanho dos arquivos (do Enzo Marx, a primeira contribuição de fora), o CodeQL como workflow, os endereços limpos e a verificação `visible-text`. Próximo: as issues #155 (lote de produção), #156 (formatador), #157 (governadores de AM e TO), #158 (inventário das APIs, D182) e #159 (as respostas da rodada 1 ainda sem código). Perguntas abertas: a seção "Perguntas em aberto" acima.
 
 **Se a sessão cair:** este README (decisões e perguntas) e os arquivos em `docs/research/`, `docs/superpowers/` e `data/` são o
 estado completo no repositório.

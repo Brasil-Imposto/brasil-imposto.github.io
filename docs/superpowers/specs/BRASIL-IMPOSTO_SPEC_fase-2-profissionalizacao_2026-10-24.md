@@ -3,7 +3,7 @@
 Issue #64. Avaliação: `docs/research/BRASIL-IMPOSTO_RESEARCH_fase-2-avaliacao_2026-10-24.md`. Esta spec completa a de confiança
 (`BRASIL-IMPOSTO_SPEC_confianca_2026-10-23.md`, "spec de confiança"): não repete os itens dela, só os põe na ordem desta fase.
 
-Situação: **aprovada (D169, 2026-10-25).** Feitos: P1 (#90); P7, as issues #91 a #94 (a tarefa 5 da seção 5 veio no #90). P6: o texto como escrito (D189). Respondidas em 2026-10-26: Q-F2-1 (a), Q-F2-2 (a), Q-F2-4 (a) e Q-F2-5 (a) (D172); Q-F2-3 (c), Ruff e Prettier em tudo, bloqueando, com uma seção desta spec antes do código (D174); Q-F2-6 espera a resposta do autor ao achado de D175 (Q101).
+Situação: **aprovada (D169, 2026-10-25).** Feitos: P1 (#90); P7, as issues #91 a #94 (a tarefa 5 da seção 5 veio no #90). P6: o texto como escrito (D189). Feitos em 2026-10-26: P2 (#123), P5 (#147), P6 (#127), P8 (#122) e D3, o Scorecard (#133); o formatador (Q-F2-3) está na #156; P3, o catálogo, na #159. Respondidas em 2026-10-26: Q-F2-1 (a), Q-F2-2 (a), Q-F2-4 (a) e Q-F2-5 (a) (D172); Q-F2-3 (c), Ruff e Prettier em tudo, bloqueando, com uma seção desta spec antes do código (D174); Q-F2-6: a aprovação obrigatória espera alguém ganhar escrita no repositório (D186).
 
 ## 1. Regras
 
