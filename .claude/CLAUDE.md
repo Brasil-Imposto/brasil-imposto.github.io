@@ -48,7 +48,8 @@ Site: <https://brasil-imposto.github.io>.
 5. Revisão, um assunto por pull request, commits assinados (`git commit -s`, DCO).
 6. O pull request vai para o `staging` (o ramo padrão), nunca para a `main`. A `main` recebe tarefa por tarefa o que a pessoa
    mantenedora aprova (D166), nunca o `staging` inteiro, em lote no fim de um bloco de trabalho (D192): para cada tarefa, um ramo saído da `main` com só os commits dela
-   (cherry-pick do squash no `staging`) e um pull request para a `main` (squash), com o aviso de produção; depois, o back-merge
+   (cherry-pick do squash no `staging`, com o autor trocado pelo endereço noreply do mantenedor, menos o commit de quem contribui
+   de fora, que mantém o autor) e um pull request para a `main` (squash), com o aviso de produção; depois, o back-merge
    `main` para `staging` com merge commit, que leva os commits que o GitHub fez ao mergear e que o `dco` aceita (#61). No fim de um dia com produção, a versão do dia
    (D190): `docs/superpowers/tools/release-notes.py` dá o número, as notas e o `CHANGELOG.md`. Uma funcionalidade nova entra com a sua chave em
    `data/features.json`, desligada na produção. Enquanto o segredo `STAGING_DISPATCH_TOKEN` não existe, quem mergeia no `staging`
@@ -91,6 +92,9 @@ Pergunte à pessoa mantenedora, numa issue ou no pull request, antes de:
 - usar uma fonte que não é oficial, ou estimar um número;
 - acrescentar um serviço de terceiros, um custo ou uma dependência nova;
 - mexer em workflows, permissões ou configurações do repositório.
+
+A "API" do projeto é ler as APIs abertas do governo nos pipelines, em Python (D171); não há serviço de API próprio, e o site é
+estático no GitHub Pages. A mudança espera o inventário das APIs (D182, #158) e a spec.
 
 ## In English
 

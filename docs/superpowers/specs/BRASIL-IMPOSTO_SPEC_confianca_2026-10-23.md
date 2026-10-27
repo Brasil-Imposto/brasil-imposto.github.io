@@ -7,7 +7,7 @@ and no new feature: where an item changes what the screen says, the text goes to
 belong to the repository settings, the private decision log or the organization page are marked for the local session and the
 maintainer.
 
-Estado: **aprovada (D169, 2026-10-25).** Feitos: A1 (#72), A4 (#86), B1 (#87), B4 (#97), D1 (#95), F1 (#90) e G1 (#89, #98); D2 em rascunho (#96, espera Q98). Respondidas em 2026-10-26 (D172): Q-A2 (a Rede do dinheiro sai da produção e fica no staging), Q-A3 (o texto proposto), Q-A4 (os valores ao centavo quando a Receita os publicar), Q-C1 (sim), Q-B3 (sim, com a tabela de cada centavo antes do merge) e DF-5 (cada ano com a sua parte no PIB, com a tabela antes). G3: uma versão por dia com produção e uma linha por tarefa no `CHANGELOG.md` (D190); D2: o `dco` aceita a conta `dependabot[bot]` (D188). Dona dos itens da sessão na nuvem desde 2026-10-25: a sessão local (D167).
+Estado: **aprovada (D169, 2026-10-25).** Feitos: A1 (#72), A4 (#86), B1 (#87), B4 (#97), D1 (#95), F1 (#90) e G1 (#89, #98); D2 em rascunho (#96, espera Q98). Respondidas em 2026-10-26 (D172): Q-A2 (a Rede do dinheiro sai da produção e fica no staging), Q-A3 (o texto proposto), Q-A4 (os valores ao centavo quando a Receita os publicar), Q-C1 (sim), Q-B3 (sim, com a tabela de cada centavo antes do merge) e DF-5 (cada ano com a sua parte no PIB, com a tabela antes). Feitos em 2026-10-26: A2 (a Rede do dinheiro só no staging, #131), D2 (o Dependabot e o `dco`, #96) e G3 (uma versão por dia com produção, `release-notes.py` e o `CHANGELOG.md`, #129). A3, C1, B3 e DF-5 estão na lista da #159 (rodada de prévia ou tabela de antes e depois primeiro). Dona dos itens da sessão na nuvem desde 2026-10-25: a sessão local (D167).
 
 ## 1. Regras de toda correção
 
@@ -213,7 +213,7 @@ Risco e esforço vêm do relatório. A ordem é a confiança ganha por esforço,
 - **G2 (mantenedor):** `required_approving_review_count` 1 e revisão do dono de código nas regras da `main` e do `staging`,
   quando entrar a segunda pessoa com acesso de escrita (fase 1 do `GOVERNANCE.md`).
 - **G3:** a cada promoção do staging, uma versão com notas geradas da lista de pull requests que ela leva, e um `CHANGELOG.md`.
-  - Desde D166 a produção recebe uma tarefa por vez: como fica a versão é a pergunta 46 da prévia de 2026-10-25 (Q100).
+  - Desde D166 a produção recebe uma tarefa por vez: uma versão por dia com produção, com cada tarefa do dia (D190, #129).
   - Teste: a nota cita todo pull request da promoção.
   - Controle: um pull request de fora plantado na lista.
 - **G4 (mantenedor):** `CODEOWNERS` por área; uma etiqueta de entrada `needs-triage` e um parágrafo de triagem em
@@ -228,12 +228,12 @@ Risco e esforço vêm do relatório. A ordem é a confiança ganha por esforço,
 
 ## 4. Perguntas ao mantenedor
 
-1. **Q-A2:** a Rede do dinheiro sai da produção (recomendado agora) ou passa a desenhar o teto do DF?
-2. **Q-A3:** o painel do DF mostra os impostos com o teto e uma linha com o excesso, com o texto da seção A3?
-3. **Q-A4:** trocar os totais de 2026 em milhões pelos ao centavo quando a Receita os publicar?
-4. **Q-C1:** a lista de fontes do lado "Voltou" no painel, com o texto proposto no pull request.
-5. **Q-B3:** o Legislativo e o Executivo passam às regras de arredondamento do D154, com a tabela de cada centavo que muda?
-6. **DF-5:** o teto do DF continua com a parte do PIB de 2023 em todos os períodos, ou cada ano usa o seu?
+1. **Q-A2:** respondida (D172): a Rede do dinheiro sai da produção e fica no staging (#131).
+2. **Q-A3:** respondida (D172): o texto proposto; falta a rodada de prévia e a tabela (#159).
+3. **Q-A4:** respondida (D172): os valores ao centavo quando a Receita os publicar (#159).
+4. **Q-C1:** respondida (D172): as fontes do "Voltou" na linha de fontes do painel (#159).
+5. **Q-B3:** respondida (D172): as regras do D154, com a tabela de cada centavo antes do merge (#159).
+6. **DF-5:** respondida (D172): cada ano com a sua parte no PIB, 2024 a 2026 com a de 2023, com a tabela antes (#159).
 
 ## 5. Fora desta spec
 

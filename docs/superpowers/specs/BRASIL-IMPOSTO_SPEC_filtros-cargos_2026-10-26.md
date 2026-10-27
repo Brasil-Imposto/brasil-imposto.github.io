@@ -1,6 +1,6 @@
 # Brasil-Imposto: os filtros da lista de cargos numa aba com gaveta
 
-Status: **aprovada pelo autor em 2026-10-26 (D191).** O desenho é a opção B da rodada 2 (D187); esta spec diz como ele entra
+Status: **aprovada pelo autor em 2026-10-26 (D191); feita e na produção no mesmo dia (#128, #142).** O desenho é a opção B da rodada 2 (D187); esta spec diz como ele entra
 na página publicada.
 
 ### Summary (English)

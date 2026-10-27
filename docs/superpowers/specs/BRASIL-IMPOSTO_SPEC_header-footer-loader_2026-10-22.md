@@ -20,7 +20,7 @@ One header and one footer for the three published pages, from a single source, a
 
 - O mesmo nas três páginas, no fim da página: fundo branco, linha `#E3E7EC` em cima, 22 px por 24 px de margem interna, na largura do conteúdo.
 - À esquerda, a marca e a linha "Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0." (12,5 px, `#5B6773`).
-- Os links (Manrope 700, 13,5 px, `#5B6773`, 18 px entre eles; empilham no celular): **Rede do dinheiro (prévia)** (o cartão da rede que já está no fim do Início), **Código aberto no GitHub** (o repositório), **Decisões do projeto** (`docs/decisions/README.md`), **Como ajudar** (`CONTRIBUTING.md`) e **Licenças** (a seção Licenças do README).
+- Os links (Manrope 700, 13,5 px, `#5B6773`, 18 px entre eles; empilham no celular): **Rede do dinheiro (prévia)** (desde 2026-10-26 só com a chave `rede`, isto é, só no staging; D172, #131) (o cartão da rede que já está no fim do Início), **Código aberto no GitHub** (o repositório), **Decisões do projeto** (`docs/decisions/README.md`), **Como ajudar** (`CONTRIBUTING.md`) e **Licenças** (a seção Licenças do README).
 - O cartão da rede continua onde está no Início; só o link do cabeçalho sai.
 
 ## 3. Carregamento do mapa (L1, progresso real)
