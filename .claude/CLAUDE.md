@@ -92,6 +92,7 @@ Pergunte à pessoa mantenedora, numa issue ou no pull request, antes de:
 - usar uma fonte que não é oficial, ou estimar um número;
 - acrescentar um serviço de terceiros, um custo ou uma dependência nova;
 - mexer em workflows, permissões ou configurações do repositório.
+- trocar a pilha (framework, hospedagem, linguagem): pergunte sozinho, com o nome, a popularidade medida (downloads e estrelas), as alternativas e o que custa sair, nunca dentro de uma lista de respostas recomendadas (D195: a escolha do Astro passou sem ser notada pela pessoa mantenedora).
 
 A "API" do projeto é ler as APIs abertas do governo nos pipelines, em Python (D171); não há serviço de API próprio, e o site é
 estático no GitHub Pages. A mudança espera o inventário das APIs (D182, #158) e a spec.
@@ -103,5 +104,5 @@ closes by hand; every period works; every check is proven against a planted fail
 Specs are approved by the maintainer before code, and a task that changes or adds anything on screen also needs a preview round the maintainer approves (D185). To close an issue, only the pull request that meets its last criterion says `Closes #N` (staging is the default
 branch, so it closes there); partial ones say `Refs #N`, and leftovers become a new linked issue. Before starting a task, check it has no owner yet (the spec's owner
 section, open issues, pull requests and branches). Pull requests go to `staging`; `main` receives approved tasks one at a
-time, each in its own pull request with the maintainer's go (never the whole of `staging`), followed by the back-merge. Ask before changing a recorded decision, a method, sources, dependencies or
+time, each in its own pull request with the maintainer's go (never the whole of `staging`), followed by the back-merge. Ask before changing a recorded decision, a method, sources, dependencies, the stack (as its own question, with measured popularity and alternatives) or
 repository settings.

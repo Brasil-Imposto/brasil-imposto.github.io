@@ -458,3 +458,19 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
   rodar os construtores de novo depois de tirar o plantio.
 - **O `.gitignore_global` desta máquina ignora `package-lock.json`:** o lock de `docs/superpowers/tools/` precisa de `git add -f`, como
   o de `site/`.
+- **Ler cada API aberta (2026-10-27, #158):** a especificação do Portal da Transparência está em `/v3/api-docs` (chave grátis no
+  cabeçalho `chave-api-dados`; os limites de pedidos não estão nela); a da Câmara em `/api/v2/api-docs` (`/swagger/api.json` devolve
+  o HTML da página); a do Senado em `/dadosabertos/v3/api-docs`; a do SICONFI em `/ords/siconfi/open-api-catalog/tt/`, cujo campo
+  `servers` aponta para um host interno do Tesouro (usar `https://apidatalake.tesouro.gov.br/ords/siconfi/tt/`). O catálogo CKAN do
+  Tesouro Transparente lista 9 conjuntos `api-*`, entre eles as transferências constitucionais. TSE e INSS em CKAN são arquivos,
+  não consulta. De uma conexão fora do Brasil: `servicodados.ibge.gov.br` esgota o tempo (o `apisidra.ibge.gov.br` responde), o
+  Transferegov dá 403 e `dados.gov.br` dá 401; tente de uma conexão no Brasil antes de dar a fonte por ausente.
+- **Dado novo da API só chega ao site estático com uma reconstrução:** o navegador não vê o que o build não leu. Reconstruir não
+  pede uma pessoa (um agendamento do GitHub Actions confere a data ou o hash de cada fonte e reconstrói só se mudou); as APIs do
+  governo não avisam, então a conferência é por consulta. Atualizar sem reconstruir é questão do modo de renderização (busca no
+  navegador, ou servidor sob demanda), não do framework, e pede um lugar que execute código; o GitHub Pages não executa.
+- **O registro público de decisões é gerado:** escreva D e Q em `private/decisions-original.md` e rode
+  `docs/superpowers/tools/publish-decisions.py`; nunca edite `docs/decisions/README.md` à mão. Cada citação do autor fecha com
+  `"*)` logo depois das aspas; uma que fecha com `"*;` ou `"*,` faz o filtro engolir as linhas seguintes (2026-10-28: sumiram uma
+  decisão e 89 perguntas). Confira a saída contra `origin/staging` (`git diff --stat`: só as linhas novas), porque a `main` local
+  fica atrás do `staging` e o README dela não tem as últimas decisões.
