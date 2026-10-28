@@ -27,12 +27,12 @@ Primeira passada da tarefa #158 (D182): cada API foi aberta e lida na sua própr
 
 - **Onde:** `https://api.portaldatransparencia.gov.br/api-de-dados/...`; especificação em `https://api.portaldatransparencia.gov.br/v3/api-docs`.
 - **Acesso:** cabeçalho `chave-api-dados`; a especificação manda pedir a chave grátis por e-mail em `portaldatransparencia.gov.br/api-de-dados/cadastrar-email`. Contato na especificação: `listaapitransparencia@cgu.gov.br`. Licença citada: Decreto nº 8.777/2016.
-- **Grupos de dados (109 caminhos):**
-  - Servidores: lista, por órgão, funções e cargos, remuneração mês a mês (D176).
-  - Despesas: documentos, por órgão, por funcional programática, itens de empenho, favorecidos, plano orçamentário, tipo de transferência.
-  - Contratos, convênios, licitações, emendas, viagens, cartões, notas fiscais, imóveis, renúncias fiscais.
-  - Benefícios sociais **por município**: Bolsa Família e Novo Bolsa Família, Auxílio Brasil, Auxílio Emergencial, BPC, PETI, Safra, Seguro Defeso.
-  - Sanções e integridade: CEIS, CNEP, CEPIM, CEAF, acordos de leniência.
+- **Tamanho:** 109 caminhos.
+- **Servidores:** lista, por órgão, funções e cargos, remuneração mês a mês (D176).
+- **Despesas:** documentos, por órgão, por funcional programática, itens de empenho, favorecidos, plano orçamentário, tipo de transferência.
+- **Compras e repasses:** contratos, convênios, licitações, emendas, viagens, cartões, notas fiscais, imóveis, renúncias fiscais.
+- **Benefícios sociais por município:** Bolsa Família e Novo Bolsa Família, Auxílio Brasil, Auxílio Emergencial, BPC, PETI, Safra, Seguro Defeso.
+- **Sanções e integridade:** CEIS, CNEP, CEPIM, CEAF, acordos de leniência.
 - **Limites de pedidos:** não estão na especificação. Não confirmado.
 
 ### 2.2 SICONFI (Tesouro Nacional): estados e municípios
