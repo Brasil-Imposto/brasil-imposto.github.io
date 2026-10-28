@@ -8,6 +8,7 @@ import os
 import re
 from decimal import Decimal
 from pathlib import Path
+from urllib.parse import urlsplit
 
 PATH = Path(__file__).resolve().parents[3] / "data" / "support.json"
 COINS = ("BTC", "ETH", "SOL", "USDT", "USDC", "XRP", "BNB")   # the order of the coin buttons
@@ -22,6 +23,8 @@ FORMATS = {
 # Web3Forms' access key: a public UUID, "an alias to your email" (its FAQ); never the e-mail address itself
 ACCESS_KEY = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", re.I)
 STATUSES = ("soon", "live")
+CHANNELS = ("pix", "sponsors", "crypto")                       # the order of the cards and of "Quem recebe"
+VAKINHA_HOSTS = ("vakinha.com.br", "www.vakinha.com.br")
 WEB3FORMS = "https://api.web3forms.com/submit"
 
 
@@ -42,9 +45,11 @@ def live(data, channel):
 def structure_problems(data):
     """What must hold whether the button is on or off: the statuses, the seven coins, each explorer with its address slot."""
     out = []
-    for channel in ("sponsors", "crypto"):
+    for channel in CHANNELS:
         if data[channel].get("status") not in STATUSES:
             out.append(f"{channel}.status: one of {STATUSES}")
+    if data["pix"].get("provider") != "Vakinha":
+        out.append("pix.provider: Vakinha")
     if data["contact_form"].get("provider") != "web3forms":
         out.append("contact_form.provider: web3forms")
     for coin in COINS:
@@ -71,7 +76,14 @@ def money_problem(data, key, where=None):
 def channel_problems(data, channel):
     """What must hold before a channel goes live: every value of that channel filled in."""
     out = []
-    if channel == "sponsors":
+    if channel == "pix":
+        c = data["pix"]
+        u = urlsplit(c.get("campaign_url") or "")
+        if not (u.scheme == "https" and u.hostname in VAKINHA_HOSTS and u.path.strip("/")):
+            out.append("pix.campaign_url: a https:// address on vakinha.com.br")
+        if not (isinstance(c.get("bank_screen_name"), str) and c["bank_screen_name"].strip()):
+            out.append("pix.bank_screen_name: the name the bank app shows before the Pix is confirmed")
+    elif channel == "sponsors":
         c = data["sponsors"]
         if not (c.get("sponsors_url") or "").startswith("https://github.com/sponsors/"):
             out.append("sponsors.sponsors_url: a https://github.com/sponsors/ address")
@@ -99,13 +111,9 @@ def problems(data):
     key = data["contact_form"].get("access_key")
     if key is not None and not (isinstance(key, str) and ACCESS_KEY.match(key)):
         out.append("contact_form.access_key: the Web3Forms access key (a UUID, never an e-mail address)")
-    open_channels = [c for c in ("sponsors", "crypto") if data[c].get("status") == "live"]
-    for channel in open_channels:
-        out += channel_problems(data, channel)
-    if open_channels:  # the maintenance cap governs the money of either channel
-        m = money_problem(data, "maintainer_cap_brl")
-        if m:
-            out.append(m)
+    for channel in CHANNELS:
+        if data[channel].get("status") == "live":
+            out += channel_problems(data, channel)
     return out
 
 

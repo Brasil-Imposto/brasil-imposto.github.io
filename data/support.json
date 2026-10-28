@@ -1,6 +1,11 @@
 {
- "about": "The Apoie button and its modal (spec docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_apoie_2026-10-23.md). Whether a build carries them is the apoie switch of data/features.json (spec staging, D158); the button needs no access key: the contact form shows only once contact_form.access_key holds the Web3Forms access key, and until then the button and the rest of the modal are live without it (D162). Each payment channel opens on its own: status soon shows its card with an \"Em breve\" tag; status live needs every value of that channel filled in, after the gates of the spec (D123, D125 to D127). pipelines/tests/test_support.py checks it.",
- "maintainer_cap_brl": null,
+ "about": "The Apoie button and its modal (spec docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_apoie_2026-10-23.md, section 9 for the Pix). Whether a build carries them is the apoie switch of data/features.json (spec staging, D158); the button needs no access key: the contact form shows only once contact_form.access_key holds the Web3Forms access key, and until then the button and the rest of the modal are live without it (D162). Each payment channel (pix, sponsors, crypto) opens on its own: status soon shows its card with an \"Em breve\" tag; status live needs every value of that channel filled in, after the gates of the spec (D123, D125 to D127; for the Pix, section 9.2). The maintainer has no fixed amount or cap. pipelines/tests/test_support.py checks it.",
+ "pix": {
+  "status": "soon",
+  "provider": "Vakinha",
+  "campaign_url": null,
+  "bank_screen_name": null
+ },
  "contact_form": {
   "provider": "web3forms",
   "access_key": "5c8863d8-320d-4b34-a508-9ca6809c2899"

@@ -5,7 +5,13 @@
 //   bottom   the same after the panel is scrolled to its end (the close button stays pinned)
 //   hscroll  no horizontal scroll: on the page (measured before the modal opens, since it locks the page) and inside the panel,
 //            in every view and with every coin
+//   columns  the three cards of "Como apoiar" (Pix, GitHub Sponsors, Cripto) sit in three equal columns above 820 px and one under
+//            the other at 820 px and below (the computed tracks and the cards' own positions)
 //   soon     each card on "soon" shows "Em breve", holds no link, button or address, and a click on it opens nothing
+//   pix      Pix on "soon": its card shows "Em breve" and holds no button, link or address (the soon check, for the Pix card
+//            alone). Pix live (a test build, BI_SUPPORT_JSON pointing at a file outside the repository, read here for the
+//            expected address): its card has the button "Apoiar com Pix", the view opens alone, the link to the campaign equals
+//            pix.campaign_url, opens in a new tab with noopener, Escape closes from that view and the focus is back on Apoie
 //   views    each button of the main view opens its focused view, the only view displayed (computed display), and Voltar
 //            comes back
 //   coins    (only when crypto is live) each coin shows only its own panel, with its networks: BTC 1, ETH 1, SOL 1, USDT 4,
@@ -20,11 +26,15 @@
 //   focus    after closing, the focus is back on the Apoie button
 //   outside  a click outside the panel closes it
 // Usage: node apoie-check.cjs <base url of a served test build> [--control] [--widths=1440,420,320]
+// For a build with the Pix live, give the same data file that built it: BI_SUPPORT_JSON=/path/support.json
 // --control plants a failure for every check (hidden parts displayed, the close button not pinned, the modal under the header, a
 // header wider than the window, a button in each "soon" card, the field messages hidden, a clock that skips the minimum time,
 // a honeypot the page cannot read, Web3Forms' answers swapped, Escape swallowed, focus() disabled, the backdrop not
-// clickable); every check must then fail, or the probe is blind.
+// clickable, two columns of cards at every width, the Pix link sent to another address); every check must then fail, or the probe
+// is blind.
 // Env: PW_CORE (path to playwright-core), CHROME_HEADLESS (chrome-headless-shell binary).
+const fs = require('fs');
+const SUPPORT = process.env.BI_SUPPORT_JSON ? JSON.parse(fs.readFileSync(process.env.BI_SUPPORT_JSON, 'utf8')) : null;
 const PAGES = ['BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html', 'os-3-poderes.html',
   'como-o-dinheiro-anda.html'];
 const NETWORKS = { BTC: 1, ETH: 1, SOL: 1, USDT: 4, USDC: 3, XRP: 1, BNB: 1 };
@@ -36,6 +46,7 @@ const PLANT = `
   .bi-apoie { z-index: 500 !important; }
   .bi-end { min-width: 150vw !important; }
   .bi-ap-coins, .bi-ap-cards { min-width: 150vw !important; }
+  .bi-ap-cards.bi-ap-cards { grid-template-columns: 1fr 1fr !important; }
   .bi-ap-backdrop { pointer-events: none !important; }
   .bi-apoie .bi-ap-err.bi-ap-err { display: none !important; }`;
 
@@ -83,6 +94,7 @@ const PLANT = `
           document.addEventListener('DOMContentLoaded', () => {
             const s = document.createElement('style'); s.textContent = css; document.head.appendChild(s);
             document.querySelectorAll('.bi-ap-soon').forEach((c) => c.insertAdjacentHTML('beforeend', '<button type="button" data-go="main">x</button>'));
+            document.querySelectorAll('[data-view="pix"] a').forEach((a) => { a.href = 'https://exemplo.org/'; });   // the Pix link goes elsewhere
           });
         }, PLANT);
       }
@@ -108,6 +120,13 @@ const PLANT = `
       await p.waitForTimeout(150);
       const bt = await hit(p);
       report(w, key, 'bottom', bt.ok, `after scrolling to the end: centre ${bt.at}, on top there: ${bt.ok ? 'the button' : bt.on}`);
+      const cols = await p.$eval('.bi-ap-cards', (el) => { const kids = [...el.children], r = kids.map((k) => k.getBoundingClientRect());
+        return { n: kids.length, tracks: getComputedStyle(el).gridTemplateColumns.split(' ').length, rows: new Set(r.map((x) => Math.round(x.top))).size,
+          even: Math.max(...r.map((x) => x.width)) - Math.min(...r.map((x) => x.width)) <= 1,
+          titles: kids.map((k) => k.querySelector('h4').firstChild.textContent.trim()) }; });
+      const wantCols = w > 820 ? 3 : 1;
+      report(w, key, 'columns', cols.n === 3 && cols.tracks === wantCols && cols.rows === (wantCols === 3 ? 1 : 3) && cols.even && cols.titles.join() === 'Pix,GitHub Sponsors,Cripto',
+        `${cols.n} cards (${cols.titles.join(', ')}) in ${cols.tracks} column(s) over ${cols.rows} row(s), ${cols.even ? 'equal' : 'unequal'} widths; wanted ${wantCols}`);
       const hs = { doc: pageWide, panel: await p.$eval('.bi-ap-panel', (e) => e.scrollWidth - e.clientWidth) };
       await p.$eval('.bi-ap-panel', (e) => { e.scrollTop = 0; });
       // the cards on "soon"
@@ -120,6 +139,13 @@ const PLANT = `
         const after = await shown(p, '.bi-ap-view');
         const bad = soon.filter((c) => !c.tag || c.clickable).length + (after.length === 1 && after[0] === 'main' ? 0 : 1);
         report(w, key, 'soon', bad === 0, `${soon.length} cards on soon; ${bad ? `${bad} problems (a missing tag, something to click, or a view opened: ${JSON.stringify(after)})` : 'each with Em breve and nothing to click'}`);
+      }
+      const pixCard = await p.$$eval('.bi-ap-card', (cs) => { const c = cs.find((x) => x.querySelector('h4').firstChild.textContent.trim() === 'Pix');
+        return c ? { soon: c.classList.contains('bi-ap-soon'), tag: [...c.querySelectorAll('.bi-ap-tag')].some((x) => x.textContent.trim() === 'Em breve'),
+          clickable: c.querySelectorAll('a, button, code, [data-go]').length, button: (c.querySelector('button') || {}).textContent } : null; });
+      const pixLive = await p.$('.bi-ap-view[data-view="pix"]') !== null;
+      if (pixCard && !pixLive) {
+        report(w, key, 'pix', pixCard.soon && pixCard.tag && pixCard.clickable === 0, `Pix on soon: tag ${pixCard.tag ? 'Em breve' : 'absent'}, ${pixCard.clickable} things to click`);
       }
       // the views the main view opens
       const gos = await p.$$eval('.bi-ap-view[data-view="main"] [data-go]', (bs) => [...new Set(bs.map((b) => b.dataset.go))]);
@@ -145,6 +171,24 @@ const PLANT = `
         if (back && await back.isVisible()) { await back.evaluate((e) => e.click()); await p.waitForTimeout(80); }
         const m = await shown(p, '.bi-ap-view');
         if (!(m.length === 1 && m[0] === 'main')) v.push(`Voltar from ${go}: displayed ${JSON.stringify(m)}`);
+      }
+      if (pixLive) {
+        const want = SUPPORT && SUPPORT.pix && SUPPORT.pix.campaign_url;
+        await p.waitForTimeout(100);
+        if (await isOpen(p) === false) { await tap(p, '.bi-apoie-btn'); await p.waitForTimeout(150); }
+        const label = await p.$eval('.bi-ap-view[data-view="main"] [data-go="pix"]', (b) => b.textContent.trim());
+        await p.$eval('.bi-ap-view[data-view="main"] [data-go="pix"]', (e) => e.click()); await p.waitForTimeout(120);
+        const only = await shown(p, '.bi-ap-view');
+        const a = await p.$eval('.bi-ap-view[data-view="pix"] a.bi-ap-cta', (x) => ({ href: x.getAttribute('href'), target: x.target, rel: x.rel, text: x.textContent.trim() }));
+        const facts = await p.$eval('.bi-ap-view[data-view="pix"] .bi-ap-facts', (x) => x.textContent);
+        hs.panel = Math.max(hs.panel, await p.$eval('.bi-ap-panel', (e) => e.scrollWidth - e.clientWidth));
+        await p.keyboard.press('Escape'); await p.waitForTimeout(150);
+        const closed = !(await isOpen(p));
+        const back = await p.evaluate(() => document.activeElement && document.activeElement.classList.contains('bi-apoie-btn'));
+        const good = !!want && label === 'Apoiar com Pix' && only.length === 1 && only[0] === 'pix' && a.href === want && a.target === '_blank'
+          && /noopener/.test(a.rel) && a.text === 'Abrir a vaquinha' && SUPPORT.pix.bank_screen_name && facts.includes(SUPPORT.pix.bank_screen_name) && closed && back;
+        report(w, key, 'pix', good, `Pix live: button "${label}", view ${JSON.stringify(only)}, link ${a.href === want ? 'equals campaign_url' : 'is ' + a.href}, ${a.target} ${a.rel}, Escape ${closed ? 'closed it' : 'did not close it'}, focus ${back ? 'on Apoie' : 'elsewhere'}${want ? '' : ' (no BI_SUPPORT_JSON to compare)'}`);
+        await tap(p, '.bi-apoie-btn'); await p.waitForTimeout(150);
       }
       report(w, key, 'views', gos.length > 0 && v.length === 0, v.length ? v.join('; ') : `${gos.join(', ')}: each alone, and back`);
       // the contact form
