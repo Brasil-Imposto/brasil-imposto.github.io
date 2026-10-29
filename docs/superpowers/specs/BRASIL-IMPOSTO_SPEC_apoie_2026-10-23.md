@@ -7,7 +7,7 @@ production without the contact form's access key, and a live channel with any va
 back as questions at the end.
 
 Status: **aprovada pelo mantenedor em 2026-10-23** (desenho e todos os textos, na mensagem que pediu esta construção), com base em
-D123, D124, D152, D155 e D156 (D155 e D156 estão no registro local de decisões, ainda não publicado). Construída desligada. **A seção 9 (rodada 3) foi aprovada pelo mantenedor em 2026-10-28 (D203).** **A seção 10 (a cripto pronta para a produção) é rascunho para a aprovação dele.**
+D123, D124, D152, D155 e D156 (D155 e D156 estão no registro local de decisões, ainda não publicado). Construída desligada. **A seção 9 (rodada 3) foi aprovada pelo mantenedor em 2026-10-28 (D203).** **A seção 10 (a cripto pronta para a produção) foi aprovada em 2026-10-29 (D205).**
 
 ## 1. Portões dos canais de pagamento
 
@@ -306,7 +306,7 @@ mudar, o texto muda junto.
 
 ## 10. A cripto pronta para a produção (D204)
 
-Status: **rascunho para a aprovação do mantenedor.** Quem faz (D164): a sessão local de 2026-10-28, nos ramos desta spec (#162) e do
+Status: **aprovada pelo mantenedor em 2026-10-29 (D205), para construir numa sessão nova.** O XRP fica "Em breve" até o mantenedor mandar o primeiro 1 XRP (D205): `data/support.json` passa a ter um estado por rede, e o botão do XRP em "Em breve" passa por uma rodada de prévia (D185). O teste de verdade na rede (10.2, item 5) é feito pelo mantenedor em todas as moedas e redes, de preferência pela doação dentro do site, que é um pedido novo com sessão e spec próprias (D205). Quem faz (D164): a sessão local de 2026-10-28, nos ramos desta spec (#162) e do
 código (#163). Os cinco endereços do projeto já estão em `data/support.json` no #163, conferidos pela soma de verificação de cada rede e na
 API pública de cada rede, com a cripto ainda em `"soon"`.
 
