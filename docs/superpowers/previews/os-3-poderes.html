@@ -412,7 +412,6 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
 .bi-ap-copy.done { background: #12803F; color: #fff; }
 .bi-ap-pick { margin-top: 10px !important; font-size: 13px !important; }
 .bi-ap-warn { margin: 6px 0 10px !important; padding: 12px 14px; border-left: 4px solid #C8102E; border-radius: 8px; background: #FDF1F2; color: #6B0F1A !important; }
-.bi-ap-rule { font-size: 13.5px !important; }
 .bi-ap-form { display: grid; gap: 12px; margin-top: 14px; }
 .bi-ap-hp label { display: grid; }
 .bi-ap-form input, .bi-ap-form textarea { box-sizing: border-box; width: 100%; padding: 10px 12px; border: 1px solid #C9D1D9; border-radius: 10px; font: 500 14px Manrope, system-ui, sans-serif; color: #14202B; }
@@ -1053,7 +1052,7 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
     const g = e.target.closest('[data-goto]'); if (g) { F.house = g.dataset.goto; shown = 24; housesEl.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.house === F.house))); drawList(); document.getElementById('parlamentares').scrollIntoView({ behavior: 'smooth' }); return; }
     if (e.target.closest('[data-close]') || e.target === back) { close(); return; }
     if (e.target.closest('[data-cmp-open]') && cmp.length >= 2) { openCompare(); return; }
-    const c = e.target.closest('[data-copy]'); if (c) { const u = location.href; (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(() => { c.textContent = 'Link copiado'; }, () => { c.textContent = u; }); }
+    const c = e.target.closest('.links [data-copy]'); if (c) { const u = location.href; (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(() => { c.textContent = 'Link copiado'; }, () => { c.textContent = u; }); }
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !back.hidden) close(); });
 

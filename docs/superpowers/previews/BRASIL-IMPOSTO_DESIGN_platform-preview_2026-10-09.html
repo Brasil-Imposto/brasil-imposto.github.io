@@ -14,6 +14,15 @@
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
   "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+},
+"integrity": {
+  "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js": "sha384-GY5FqjttLCFRt/McQbyaVdCk2O1IQtOeX8Py6NfD89BIAsIyJFRl4UgSXrk2vXAk",
+  "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/Line2.js": "sha384-svIqR2W/RlXb3d4T+bDn3JO+LXLbacA7GpMAUDJxTOFyZmVogvDRaOS7KZBRxcxc",
+  "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineGeometry.js": "sha384-nfFqbe33KO97I7jZXjW73quBqqskqqj64WZycLNDzn0GGGI3aoWLZzuy8i0jeYmU",
+  "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineMaterial.js": "sha384-bLpiIpNrFJ+EMb4Upzkap/Bc9Ul2wLoUMEfFm0PmZfyywMUYUsc5X98AuAYwwjq1",
+  "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineSegments2.js": "sha384-nm+9Od/cYIb15jGaA1U2Geoo18K/i9fF2fZ4KbI2rZydtfYxqwtWRlbvdVfiECU5",
+  "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineSegmentsGeometry.js": "sha384-2bbjHgEUXo9c3VW3OaZV638VYLXKhlNhNStU2D1Jm77zamWSQVYZak2p/Z0bZrmh",
+  "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/renderers/CSS2DRenderer.js": "sha384-9CXQqRjuKfYvfHem9p/LPU6b7PaeeiDuC/gp1qRz3bEV9txWG5wi9XhrkE/0/Dn9"
 } }
 </script>
 <style>
@@ -367,7 +376,6 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
 .bi-ap-copy.done { background: #12803F; color: #fff; }
 .bi-ap-pick { margin-top: 10px !important; font-size: 13px !important; }
 .bi-ap-warn { margin: 6px 0 10px !important; padding: 12px 14px; border-left: 4px solid #C8102E; border-radius: 8px; background: #FDF1F2; color: #6B0F1A !important; }
-.bi-ap-rule { font-size: 13.5px !important; }
 .bi-ap-form { display: grid; gap: 12px; margin-top: 14px; }
 .bi-ap-hp label { display: grid; }
 .bi-ap-form input, .bi-ap-form textarea { box-sizing: border-box; width: 100%; padding: 10px 12px; border: 1px solid #C9D1D9; border-radius: 10px; font: 500 14px Manrope, system-ui, sans-serif; color: #14202B; }
@@ -481,6 +489,7 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
     const run = (s) => new Promise((ok, fail) => {
       const n = document.createElement('script');
       if (s.hasAttribute('data-module')) n.type = 'module';
+      if (s.dataset.integrity) { n.integrity = s.dataset.integrity; n.crossOrigin = 'anonymous'; }
       if (s.dataset.src) { n.src = s.dataset.src; n.async = false; n.onload = ok; n.onerror = () => fail(new Error(s.dataset.src)); }
       else n.textContent = s.textContent;
       s.replaceWith(n);

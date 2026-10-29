@@ -82,7 +82,6 @@ SPONSORS_FACTS = ("Em dólar. O GitHub não cobra taxa de quem apoia por uma con
 PICK_NETWORK = "Escolha uma das redes acima ao enviar."
 WARNING = ("Confira a rede antes de enviar. Uma moeda enviada por uma rede que não está na lista se perde, e o projeto não consegue "
            "devolver.")
-RETURN_RULE = "Doação acima de {limit} vinda de carteira sem identificação é devolvida para a carteira de origem."
 CONTACT_ASK = ("O que você gostaria de ver no Brasil-Imposto? Conte para a gente. Lemos todas as mensagens e usamos as ideias para "
                "planejar as próximas atualizações.")
 CONTACT_LGPD = "Seu nome e e-mail servem só para responder você."
@@ -192,11 +191,8 @@ def modal(data, keyless=False):
             rows = support_data.networks_of(data, c)
             panels += (f'<div class="bi-ap-coin" data-coin="{c}" hidden>' + "".join(_row(*r) for r in rows)
                        + (f'<p class="bi-ap-pick">{escape(PICK_NETWORK)}</p>' if len(rows) > 1 else "") + '</div>')
-        limit = data["crypto"].get("unidentified_return_above_brl")
         crypto = ('<section class="bi-ap-view" data-view="crypto" hidden><h2 tabindex="-1">Apoiar com cripto</h2>'
-                  f'<div class="bi-ap-coins">{coins}</div>{panels}<p class="bi-ap-warn">{escape(WARNING)}</p>'
-                  + (f'<p class="bi-ap-rule">{escape(RETURN_RULE).replace("{limit}", support_data.brl(limit))}</p>' if limit else "")
-                  + '</section>')
+                  f'<div class="bi-ap-coins">{coins}</div>{panels}<p class="bi-ap-warn">{escape(WARNING)}</p></section>')
     # D124: name, e-mail and message, sent by fetch as JSON to Web3Forms with its public access key, so no e-mail address is
     # ever in the page; a honeypot (botcheck) and a minimum time before sending keep robots out.
     form = ""
@@ -294,7 +290,6 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-copy.done { background: #12803F; color: #fff; }
 .bi-ap-pick { margin-top: 10px !important; font-size: 13px !important; }
 .bi-ap-warn { margin: 6px 0 10px !important; padding: 12px 14px; border-left: 4px solid #C8102E; border-radius: 8px; background: #FDF1F2; color: #6B0F1A !important; }
-.bi-ap-rule { font-size: 13.5px !important; }
 .bi-ap-form { display: grid; gap: 12px; margin-top: 14px; }
 .bi-ap-hp label { display: grid; }
 .bi-ap-form input, .bi-ap-form textarea { box-sizing: border-box; width: 100%; padding: 10px 12px; border: 1px solid #C9D1D9; border-radius: 10px; font: 500 14px Manrope, system-ui, sans-serif; color: #14202B; }

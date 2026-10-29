@@ -1,7 +1,9 @@
-"""The Apoie button's data (spec BRASIL-IMPOSTO_SPEC_apoie_2026-10-23, sections 1 to 9, and spec staging, section 2): data/support.json
+"""The Apoie button's data (spec BRASIL-IMPOSTO_SPEC_apoie_2026-10-23, sections 1 to 10, and spec staging, section 2): data/support.json
 stays empty until the maintainer fills it in, and the apoie switch of data/features.json says which build carries the button. Production
 may turn it on with the three payment channels (Pix, GitHub Sponsors, crypto) on "soon" and without the contact form's access key (D162: the form stays out until the key is filled); a channel goes "live" only with every one of its values filled and every address in its network's format. The
-built pages never show "a definir" and never carry an e-mail address. Every rule has a planted failure."""
+built pages never show "a definir" and never carry an e-mail address. Each crypto address passes its network's checksum and equals
+the address pinned here (section 10.2). Every rule has a planted failure."""
+import hashlib
 import copy
 import html as htmllib
 import importlib.util
@@ -11,6 +13,7 @@ import re
 import sys
 import tempfile
 import unittest
+from html.parser import HTMLParser
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
@@ -23,14 +26,26 @@ import support_data  # noqa: E402
 _spec = importlib.util.spec_from_file_location("email_scan", TOOLS / "email-scan.py")
 email_scan = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(email_scan)
+_spec = importlib.util.spec_from_file_location("build_site", TOOLS / "build-site.py")
+build_site = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(build_site)
 
 ACCESS_KEY = "00000000-1111-4222-8333-444444444444"   # a dummy Web3Forms access key, for these tests only
 PIX_URL = "https://www.vakinha.com.br/vaquinha/teste-da-sonda"   # a dummy campaign, for these tests only
 PIX_NAME = "Nome de Teste"
-# well-formed dummy addresses, for these tests only (never in data/support.json)
-DUMMY = {"bitcoin": "bc1qtesttesttesttesttesttesttesttesttest", "evm": "0x" + "7e57" * 10,
-         "solana": "TestTestTestTestTestTestTestTestTest", "tron": "TTestTestTestTestTestTestTestTestT",
-         "xrp": "rTestTestTestTestTestTestTest"}
+# valid addresses taken from each standard's own text, for these tests only (never in data/support.json): BIP-350's first
+# segwit vector, EIP-55's first mixed-case vector, the 32 zero bytes of Solana's system program, the base58 form on TRON's
+# Account page and the address of xrpl.org's Addresses page example
+DUMMY = {"bitcoin": "bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4", "evm": "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed",
+         "solana": "1" * 32, "tron": "TNPeeaaFB7K9cmo4uQpcU32zGK8G1NYqeL", "xrp": "rDTXLQ7ZKZVKz33zJbHjgVShjsBnqMBhmN"}
+# The five project addresses, as the maintainer sent them on 2026-10-29. data/support.json must hold exactly these: an address
+# changes only together with this line, in the same pull request (section 10.2, item 2).
+PINNED = {"bitcoin": "bc1qevkvnl6rvpfyyyjzk08lckz9xn3936qhp86zna", "evm": "0xb947cC8445841cf40AFCA723804d06855bea7bc7",
+          "solana": "FUYqFTFwvF8fgm1NmbRXAEERtRLDry1DCQfNgbZyFv8f", "tron": "TLoXMf8yCEtRJcbR3tqidYd76f1hi4r6cU",
+          "xrp": "rwJXvMdap5E7C49ZkfAjpeAMLd15UmEch2"}
+# the alphabet of each base58 network: Bitcoin's (also Solana's and Tron's) and the XRP Ledger's, copied from xrpl.org
+ALPHABET = {"bitcoin": "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz",
+            "xrp": "rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz"}
 BAD = {"bitcoin": ["bc1qtestbtest", "2Test" + "T" * 30, "bc1qTESTtesttesttesttesttesttesttesttest"],
        "evm": ["0x" + "7e57" * 9 + "7e5", "0x" + "7e57" * 9 + "7e5g", "7e57" * 10 + "00"],
        "solana": ["Test0TestTestTestTestTestTestTestTest", "TestTest"],
@@ -84,7 +99,7 @@ def on_live():
     d["pix"].update(status="live", campaign_url=PIX_URL, bank_screen_name=PIX_NAME)
     d["sponsors"].update(status="live", sponsors_url="https://github.com/sponsors/Brasil-Imposto")
     d["sponsors"]["fiscal_host"]["url"] = "https://opencollective.com/example"
-    d["crypto"].update(status="live", unidentified_return_above_brl=500)
+    d["crypto"]["status"] = "live"
     for g in d["crypto"]["groups"]:
         g["address"] = DUMMY[g["format"]]
     return d
@@ -131,10 +146,10 @@ class CommittedFileTest(unittest.TestCase):
         self.assertEqual(d["sponsors"], {"status": "soon", "sponsors_url": None,
                                          "fiscal_host": {"name": "Open Source Collective", "url": None}})
         self.assertEqual(d["crypto"]["status"], "soon")
-        self.assertIsNone(d["crypto"]["unidentified_return_above_brl"])
-        # the five project addresses came from the maintainer on 2026-10-28; each must fit its network's format
+        self.assertNotIn("unidentified_return_above_brl", d["crypto"], "section 10.1: any amount from any wallet stays")
+        # the five project addresses came from the maintainer; each passes its network's format and checksum
         for g in d["crypto"]["groups"]:
-            self.assertRegex(g["address"] or "", support_data.FORMATS[g["format"]], g["id"])
+            self.assertIsNone(support_data.address_problem(g["format"], g["address"]), g["id"])
         self.assertEqual(support_data.problems(d), [], "the button needs no access key in either profile (D162)")
 
     def test_the_seven_coins_and_their_networks(self):
@@ -180,8 +195,7 @@ class RulesTest(unittest.TestCase):
         cases = {"sponsors_url": lambda d: d["sponsors"].update(sponsors_url=None),
                  "fiscal_host": lambda d: d["sponsors"]["fiscal_host"].update(url=None),
                  "campaign_url": lambda d: d["pix"].update(campaign_url=None),
-                 "bank_screen_name": lambda d: d["pix"].update(bank_screen_name=None),
-                 "threshold": lambda d: d["crypto"].update(unidentified_return_above_brl=None)}
+                 "bank_screen_name": lambda d: d["pix"].update(bank_screen_name=None)}
         for i in range(5):
             cases[f"address {i}"] = (lambda i: lambda d: d["crypto"]["groups"][i].update(address=None))(i)
         for name, change in cases.items():
@@ -223,9 +237,288 @@ class RulesTest(unittest.TestCase):
                     next(g for g in d["crypto"]["groups"] if g["format"] == fmt)["address"] = a
                     self.assertTrue(any("is not a" in p for p in support_data.problems(d)), a)
 
-    def test_the_money_format(self):
-        self.assertEqual(support_data.brl(3000), "R$ 3.000,00")
-        self.assertEqual(support_data.brl(1234567.5), "R$ 1.234.567,50")
+
+class AddressChecksumTest(unittest.TestCase):
+    """Section 10.2, item 1: each address passes its network's checksum, not only its shape. The vectors come from each standard's
+    own text; the keccak-256 of EIP-55 is pure Python, checked against the known empty-input digest and, with SHA-3's padding,
+    against the standard library's sha3_256."""
+
+    def test_keccak_256_matches_the_known_vector_and_sha3_of_the_standard_library(self):
+        self.assertEqual(support_data.keccak_256(b"").hex(), "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470")
+        for n in (0, 1, 55, 135, 136, 137, 271, 272, 500):   # around the 136-byte block of keccak-256
+            data = bytes(range(256)) * 2
+            with self.subTest(length=n):
+                self.assertEqual(support_data.sponge(data[:n], 0x06), hashlib.sha3_256(data[:n]).digest())
+
+    def test_eip55_vectors(self):
+        # the eight addresses of EIP-55's test cases (two whose checksum is all capitals, two all lowercase, four mixed)
+        for a in ("0x52908400098527886E0F7030069857D2E4169EE7", "0x8617E340B3D01FA5F11F306F4090FD50E238070D",
+                  "0xde709f2102306220921060314715629080e2fb77", "0x27b1fdb04752bbc536007a920d24acb045561c26",
+                  "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed", "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359",
+                  "0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB", "0xD1220A0cf47c7B9Be7A2E6BA89F429762e7b9aDb"):
+            with self.subTest(valid=a):
+                self.assertIsNone(support_data.address_problem("evm", a))
+        for a in ("0x5aaeb6053f3e94c9b9a09f33669435e7ef1beaed", "0x5AAEB6053F3E94C9B9A09F33669435E7EF1BEAED",
+                  "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAeD"):
+            with self.subTest(invalid=a):
+                self.assertIsNotNone(support_data.address_problem("evm", a))
+
+    def test_bech32_and_bech32m_vectors_of_bip_350(self):
+        for a in ("BC1QW508D6QEJXTDG4Y5R3ZARVARY0C5XW7KV8F3T4",
+                  "bc1pw508d6qejxtdg4y5r3zarvary0c5xw7kw508d6qejxtdg4y5r3zarvary0c5xw7kt5nd6y", "BC1SW50QGDZ25J",
+                  "bc1zw508d6qejxtdg4y5r3zarvaryvaxxpcs", "bc1p0xlxvlhemja6c4dqv22uapctqupfhlxm9h8z3k2e72q4k9hcz7vqzk5jj0"):
+            with self.subTest(valid=a):
+                self.assertIsNone(support_data.address_problem("bitcoin", a.lower()))
+        for a in ("bc1p0xlxvlhemja6c4dqv22uapctqupfhlxm9h8z3k2e72q4k9hcz7vqh2y7hd",      # bech32 instead of bech32m
+                  "BC1S0XLXVLHEMJA6C4DQV22UAPCTQUPFHLXM9H8Z3K2E72Q4K9HCZ7VQ54WELL",       # bech32 instead of bech32m
+                  "bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kemeawh",                          # bech32m instead of bech32
+                  "BC130XLXVLHEMJA6C4DQV22UAPCTQUPFHLXM9H8Z3K2E72Q4K9HCZ7VQ7ZWS8R",       # witness version 17
+                  "bc1pw5dgrnzv",                                                        # a 1-byte program
+                  "bc1p0xlxvlhemja6c4dqv22uapctqupfhlxm9h8z3k2e72q4k9hcz7v8n0nx0muaewav253zgeav",  # 41 bytes
+                  "BC1QR508D6QEJXTDG4Y5R3ZARVARYV98GJ9P",                                 # 16 bytes at version 0
+                  "bc1p0xlxvlhemja6c4dqv22uapctqupfhlxm9h8z3k2e72q4k9hcz7v07qwwzcrf",      # zero padding over 4 bits
+                  "bc1gmk9yu",                                                           # no data
+                  "tb1qrp33g0q5c5txsp9arysrx4k6zdkfs4nce4xj0gdcccefvpysxf3q0sl5k7"):     # a valid testnet address
+            with self.subTest(invalid=a):
+                self.assertIsNotNone(support_data.address_problem("bitcoin", a.lower()))
+
+    def test_legacy_bitcoin_addresses_of_bitcoin_core(self):
+        # main-chain addresses of Bitcoin Core's src/test/data/key_io_valid.json, with the hash its script holds
+        for a, h in (("1FsSia9rv4NeEwvJ2GvXrX7LyxYspbN2mo", "a31c06bd463e3923bc1aadbde48b16976c080717"),
+                     ("36j4NfKv6Akva9amjWrLG6MuSQym1GuEmm", "373b819a068f32b7a6b38b6b38729647cfde01c2")):
+            with self.subTest(valid=a):
+                self.assertIsNone(support_data.address_problem("bitcoin", a))
+                self.assertEqual(support_data.base58check(a, ALPHABET["bitcoin"])[1:].hex(), h)
+
+    def test_tron_and_xrp_decode_to_the_bytes_their_documentation_gives(self):
+        for a, h in (("TDp4x8kCJ6aHz8wnqZgkaVQAm2ajH1og3L", "412a260a110bc7b03f19c40a0bd04ff2c5dcb57594"),
+                     ("TNPeeaaFB7K9cmo4uQpcU32zGK8G1NYqeL", "418840e6c55b9ada326d211d818c34a994aeced808")):
+            with self.subTest(tron=a):
+                self.assertIsNone(support_data.address_problem("tron", a))
+                self.assertEqual(support_data.base58check(a, ALPHABET["bitcoin"]).hex(), h)
+        for a, h in (("rrrrrrrrrrrrrrrrrrrrrhoLvTp", "00" * 21), ("rrrrrrrrrrrrrrrrrrrrBZbvji", "00" * 20 + "01")):
+            with self.subTest(xrp=a):
+                self.assertIsNone(support_data.address_problem("xrp", a))
+                self.assertEqual(support_data.base58check(a, ALPHABET["xrp"]).hex(), h)
+        for a in ("rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh", "rDTXLQ7ZKZVKz33zJbHjgVShjsBnqMBhmN"):
+            with self.subTest(xrp=a):
+                self.assertIsNone(support_data.address_problem("xrp", a))
+        self.assertIsNotNone(support_data.address_problem("tron", "TDp4x8kCJ6aHz8wnqZgkaVQAm2ajH1og3M"))
+        self.assertIsNotNone(support_data.address_problem("xrp", "rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTi"))
+
+    def test_solana_is_32_bytes(self):
+        self.assertIsNone(support_data.address_problem("solana", "1" * 32))
+        self.assertEqual(support_data.b58decode(PINNED["solana"], ALPHABET["bitcoin"]).__len__(), 32)
+        # Solana addresses run from 32 to 44 characters, so one character less can still be 32 bytes: two less is 31 here
+        self.assertEqual(len(support_data.b58decode(PINNED["solana"][:-1], ALPHABET["bitcoin"])), 32)
+        self.assertIsNotNone(support_data.address_problem("solana", PINNED["solana"][:-2]), "31 bytes")
+        self.assertIsNotNone(support_data.address_problem("solana", PINNED["solana"] + "z"), "33 bytes")
+        self.assertIsNotNone(support_data.address_problem("solana", "1" * 33), "33 zero bytes")
+
+    def test_control_every_one_character_change_of_a_project_address_fails(self):
+        """Every substitution inside the address's own alphabet (so the shape still passes) and, on the 0x address, every flip of a
+        letter's case. Solana has no checksum: a substitution keeps its 32 bytes, and the pin (PinnedAddressesTest) is what
+        catches it there."""
+        hexdigits = "0123456789abcdefABCDEF"
+        for fmt, a in PINNED.items():
+            if fmt == "solana":
+                continue
+            alphabet = {"bitcoin": "qpzry9x8gf2tvdw0s3jn54khce6mua7l", "evm": hexdigits, "tron": ALPHABET["bitcoin"],
+                        "xrp": ALPHABET["xrp"]}[fmt]
+            start = {"bitcoin": 3, "evm": 2, "tron": 1, "xrp": 1}[fmt]
+            passed, tried = [], 0
+            for i in range(start, len(a)):
+                for ch in alphabet:
+                    if ch == a[i]:
+                        continue
+                    b = a[:i] + ch + a[i + 1:]
+                    if not support_data.FORMATS[fmt].match(b):
+                        continue
+                    tried += 1
+                    if support_data.address_problem(fmt, b) is None:
+                        passed.append(b)
+            with self.subTest(fmt=fmt, tried=tried):
+                self.assertGreater(tried, 100)
+                self.assertEqual(passed, [], f"{len(passed)} of {tried} changes passed")
+
+    def test_a_bad_address_fails_in_any_status(self):
+        for status in ("soon", "live"):
+            for g in range(5):
+                with self.subTest(status=status, group=g):
+                    d = on_live() if status == "live" else committed()
+                    a = d["crypto"]["groups"][g]["address"]
+                    # Solana has no checksum: its plant is one the 32-byte rule can see (two characters less, 31 bytes)
+                    planted = a[:-2] if d["crypto"]["groups"][g]["format"] == "solana" else a[:-1] + ("2" if a[-1] != "2" else "3")
+                    d["crypto"]["groups"][g]["address"] = planted
+                    self.assertTrue(any("is not a valid" in p for p in support_data.problems(d)), planted)
+
+
+SRI = re.compile(r"^sha(256|384|512)-[A-Za-z0-9+/]+={0,2}$")
+OUTSIDE = re.compile(r"^(https?:)?//")
+
+
+class _Scripts(HTMLParser):
+    """Every script element of a page, as [attributes, text]: the standard library's parser, which reads tag and attribute names
+    in any case, an end tag with spaces, and a script's content as raw text."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=False)
+        self.found, self.open = [], None
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "script":
+            self.open = [dict(attrs), ""]
+            self.found.append(self.open)
+
+    def handle_data(self, data):
+        if self.open is not None:
+            self.open[1] += data
+
+    def handle_endtag(self, tag):
+        if tag == "script":
+            self.open = None
+
+
+def scripts(page):
+    p = _Scripts()
+    p.feed(page)
+    p.close()
+    return p.found
+
+
+def outside_without_integrity(page):
+    """Each script a page loads from another site without an integrity hash (an empty list: none). A script element with an outside
+    src needs integrity and crossorigin="anonymous"; one the map loader holds back needs data-integrity; through an import map,
+    every outside address it maps exactly, and every module the page's own code imports through it, needs an integrity entry
+    (the modules those import in turn: apoie-check.cjs, the sri check, tampers with every outside file in a real browser)."""
+    out, found = [], scripts(page)
+    for attrs, _body in found:
+        held = "data-src" in attrs
+        src = attrs.get("data-src" if held else "src") or ""
+        if OUTSIDE.match(src):
+            sri = attrs.get("data-integrity" if held else "integrity") or ""
+            if not (SRI.match(sri) and (held or attrs.get("crossorigin") == "anonymous")):
+                out.append(src)
+    maps = [json.loads(body) for attrs, body in found if attrs.get("type") == "importmap"]
+    imports = {k: v for m in maps for k, v in m.get("imports", {}).items()}
+    integrity = {k: v for m in maps for k, v in m.get("integrity", {}).items()}
+    out += [u for u, h in integrity.items() if not SRI.match(h)]
+    out += [u for u in imports.values() if OUTSIDE.match(u) and not u.endswith("/") and u not in integrity]
+    code = "\n".join(body for attrs, body in found if attrs.get("type") == "module" or "data-module" in attrs)
+    for a, b in re.findall(r"""(?:import|export)\s[^'";]*?from\s*['"]([^'"]+)['"]|import\s*\(\s*['"]([^'"]+)['"]""", code):
+        spec = a or b
+        prefix = max((k for k in imports if k.endswith("/") and spec.startswith(k)), key=len, default=None)
+        url = imports.get(spec) or (imports[prefix] + spec[len(prefix):] if prefix else spec)
+        if OUTSIDE.match(url) and url not in integrity:
+            out.append(url)
+    return out
+
+
+def published(profile):
+    """Each page with the Apoie button as the site build serves it in the profile (build-site.py, without running the builders)."""
+    pages = {}
+    for key, (name, _label) in site_chrome.ALL_PAGES.items():
+        page = build_site.with_features((REPO / "docs" / "superpowers" / "previews" / name).read_text(encoding="utf-8"), key, profile)
+        pages[key] = page if profile == "production" else build_site.staging_page(page, key)
+    return pages
+
+
+class OutsideScriptsTest(unittest.TestCase):
+    """Section 10.2, item 4: a file changed on a CDN could swap the address a donor sees, so no page with the Apoie button runs a
+    script from another site without its hash."""
+
+    def test_every_page_with_the_button_checks_each_outside_script(self):
+        for profile in ("production", "staging"):
+            for key, page in published(profile).items():
+                with self.subTest(profile=profile, page=key):
+                    self.assertIn('class="bi-apoie-btn"', page)
+                    self.assertEqual(outside_without_integrity(page), [])
+
+    def test_the_pages_load_what_the_hashes_cover(self):
+        """The outside scripts as measured on 2026-10-29: d3 and d3-sankey on Como o dinheiro anda, the seven three.js modules of
+        Início (the five its code imports and the two Line2 imports), and 3d-force-graph on the staging Início (the money network
+        preview, D172)."""
+        prod, stag = published("production"), published("staging")
+        self.assertIn('<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha384-', prod["dinheiro"])
+        m = json.loads(next(body for attrs, body in scripts(prod["inicio"]) if attrs.get("type") == "importmap"))
+        self.assertEqual(sorted(u.rsplit("/", 1)[1] for u in m["integrity"]),
+                         ["CSS2DRenderer.js", "Line2.js", "LineGeometry.js", "LineMaterial.js", "LineSegments2.js",
+                          "LineSegmentsGeometry.js", "three.module.js"])
+        self.assertIn('data-src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.80.0/dist/3d-force-graph.min.js" data-integrity="sha384-',
+                      stag["inicio"])
+
+    def test_control_each_hash_removed_or_broken_is_caught(self):
+        prod, stag = published("production"), published("staging")
+        cases = {
+            "d3 without integrity": (prod["dinheiro"], lambda p: re.sub(r'(d3\.min\.js") integrity="[^"]+"', r"\1", p)),
+            "d3-sankey without crossorigin": (prod["dinheiro"], lambda p: re.sub(r'(d3-sankey\.min\.js" integrity="[^"]+") crossorigin="anonymous"', r"\1", p)),
+            "a three.js module out of the list": (prod["inicio"], lambda p: re.sub(r'\s*"[^"]+/LineMaterial\.js": "sha384-[^"]+",?', "", p)),
+            "three.module.js out of the list": (prod["inicio"], lambda p: re.sub(r'\s*"[^"]+/three\.module\.js": "sha384-[^"]+",?', "", p)),
+            "a hash that is not one": (prod["inicio"], lambda p: re.sub(r'(/Line2\.js": ")sha384-[^"]+', r"\1md5-abc", p)),
+            "the held 3d-force-graph without data-integrity": (stag["inicio"], lambda p: re.sub(r' data-integrity="[^"]+"', "", p)),
+            "a new outside script": (prod["tres-poderes"], lambda p: p.replace("</body>", '<script src="https://cdn.example.org/x.js"></script></body>')),
+            "one in capitals, with a spaced end tag": (prod["tres-poderes"],
+                                                       lambda p: p.replace("</body>", '<SCRIPT SRC="https://cdn.example.org/x.js"></SCRIPT ></body>')),
+        }
+        for name, (page, plant) in cases.items():
+            with self.subTest(plant=name):
+                planted = plant(page)
+                self.assertNotEqual(planted, page, "the plant landed")
+                self.assertNotEqual(outside_without_integrity(planted), [], name)
+
+
+PAGE_WIDE_COPY = re.compile(r"""closest\(\s*['"]\[data-copy\]['"]\s*\)""")
+
+
+def page_wide_copy_listeners(page):
+    """A click listener of the page, or of a script of ours it loads, that catches every [data-copy] button (an empty list: none).
+    Such a listener also catches the modal's "Copiar" and writes something else after it: the digits only (the case cards'
+    CNPJ copy) or the page's address (the links of Os 3 Poderes) in place of the crypto address. Section 10.2, item 3."""
+    found = [f"page: {m}" for m in PAGE_WIDE_COPY.findall(page)]
+    for attrs, _body in scripts(page):
+        src = (attrs.get("src") or attrs.get("data-src") or "").split("?")[0]
+        f = REPO / "docs" / "superpowers" / "previews" / src
+        if src.startswith("assets/") and src.endswith(".js") and f.exists():
+            found += [f"{src}: {m}" for m in PAGE_WIDE_COPY.findall(f.read_text(encoding="utf-8"))]
+    return found
+
+
+class CopyTest(unittest.TestCase):
+    def test_no_page_catches_every_copy_button(self):
+        for profile in ("production", "staging"):
+            for key, page in published(profile).items():
+                with self.subTest(profile=profile, page=key):
+                    self.assertEqual(page_wide_copy_listeners(page), [])
+
+    def test_control_a_page_wide_copy_listener_is_caught(self):
+        page = published("production")["dinheiro"]
+        planted = page.replace("</body>", "<script>document.addEventListener('click', (e) => { const c = e.target.closest('[data-copy]'); });"
+                                          "</script></body>")
+        self.assertNotEqual(planted, page, "the plant landed")
+        self.assertEqual(len(page_wide_copy_listeners(planted)), 1)
+        self.assertIn("assets/cases.js", published("production")["inicio"], "the scripts a page loads are read too")
+
+
+def pin_diff(data):
+    """The groups of data whose address differs from PINNED (an empty list: every address as pinned)."""
+    return [g["id"] for g in data["crypto"]["groups"] if PINNED.get(g["format"]) != g["address"]] \
+        + sorted(set(PINNED) - {g["format"] for g in data["crypto"]["groups"]})
+
+
+class PinnedAddressesTest(unittest.TestCase):
+    def test_the_committed_addresses_are_the_pinned_ones(self):
+        self.assertEqual(pin_diff(committed()), [])
+        self.assertEqual(len(committed()["crypto"]["groups"]), 5)
+
+    def test_control_any_change_of_one_address_is_caught(self):
+        for g in range(5):
+            with self.subTest(group=g):
+                d = committed()
+                a = d["crypto"]["groups"][g]["address"]
+                d["crypto"]["groups"][g]["address"] = a[:5] + ("A" if a[5] != "A" else "B") + a[6:]
+                self.assertEqual(pin_diff(d), [d["crypto"]["groups"][g]["id"]])
+        d = committed(); del d["crypto"]["groups"][4]
+        self.assertEqual(pin_diff(d), ["xrp"], "a group that left is caught too")
 
 
 class PagesTest(unittest.TestCase):
@@ -372,8 +665,10 @@ class PagesTest(unittest.TestCase):
                 for view in ("pix", "sponsors", "crypto", "contact"):
                     self.assertIn(f'data-view="{view}"', h)
                 self.assertNotIn("teto de", t)
-                for s in ["Quem recebe", apoie.CRYPTO_CARD, "Apoiar com Pix", apoie.RETURN_RULE.replace("{limit}", "R$ 500,00")]:
+                for s in ["Quem recebe", apoie.CRYPTO_CARD, "Apoiar com Pix"]:
                     self.assertIn(re.sub(r"\s+", " ", s), t, s[:50])
+                self.assertNotIn("Doação acima de", t, "section 10.1: the return rule left the crypto view")
+                self.assertNotIn("bi-ap-rule", h + p["css"])
                 for g in on_live()["crypto"]["groups"]:
                     self.assertIn(g["address"], h)
 

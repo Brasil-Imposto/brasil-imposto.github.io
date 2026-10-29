@@ -20,7 +20,6 @@
  },
  "crypto": {
   "status": "soon",
-  "unidentified_return_above_brl": null,
   "groups": [
    {
     "id": "bitcoin",

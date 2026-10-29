@@ -72,7 +72,7 @@ As sondas abrem as páginas num Chromium sem tela, como um visitante:
 |---|---|
 | `docs/superpowers/tools/site-check.cjs` | cada página responde sem erro, sem rolagem lateral, em 1440 e 420 px |
 | `docs/superpowers/tools/visible-text-probe.cjs` | o texto visível da Início em 100 combinações de período e estado, para provar que uma mudança não mexeu na tela |
-| `docs/superpowers/tools/apoie-check.cjs` | o botão Apoie e o formulário de contato (o envio é interceptado: nenhuma mensagem sai) |
+| `docs/superpowers/tools/apoie-check.cjs` | o botão Apoie e o formulário de contato (o envio é interceptado: nenhuma mensagem sai); com a cripto aberta, o endereço mostrado e o copiado de cada moeda e rede iguais a `data/support.json`; e cada script de fora aceito como publicado e recusado quando chega alterado |
 
 Cada uma tem `--control`, que planta uma falha e tem de falhar. Variáveis: `PW_CORE` (a pasta do `playwright-core`),
 `CHROME_HEADLESS` (o binário do Chromium sem tela), `CDN_MIRROR` (pacotes do npm servidos no lugar do cdn.jsdelivr.net, quando a
