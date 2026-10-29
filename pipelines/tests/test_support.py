@@ -119,7 +119,7 @@ def text(html):
 
 
 class CommittedFileTest(unittest.TestCase):
-    def test_form_key_filled_and_the_channels_empty_until_the_maintainer_fills_them(self):
+    def test_form_key_and_addresses_filled_and_the_channels_waiting(self):
         d = committed()
         self.assertNotIn("enabled", d, "the apoie switch of data/features.json replaced it")
         self.assertEqual(d["contact_form"]["provider"], "web3forms")
@@ -132,7 +132,9 @@ class CommittedFileTest(unittest.TestCase):
                                          "fiscal_host": {"name": "Open Source Collective", "url": None}})
         self.assertEqual(d["crypto"]["status"], "soon")
         self.assertIsNone(d["crypto"]["unidentified_return_above_brl"])
-        self.assertEqual([g["address"] for g in d["crypto"]["groups"]], [None] * 5)
+        # the five project addresses came from the maintainer on 2026-10-28; each must fit its network's format
+        for g in d["crypto"]["groups"]:
+            self.assertRegex(g["address"] or "", support_data.FORMATS[g["format"]], g["id"])
         self.assertEqual(support_data.problems(d), [], "the button needs no access key in either profile (D162)")
 
     def test_the_seven_coins_and_their_networks(self):

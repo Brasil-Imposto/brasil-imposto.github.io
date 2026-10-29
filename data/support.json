@@ -25,7 +25,7 @@
    {
     "id": "bitcoin",
     "format": "bitcoin",
-    "address": null,
+    "address": "bc1qevkvnl6rvpfyyyjzk08lckz9xn3936qhp86zna",
     "networks": [
      {
       "id": "bitcoin",
@@ -44,7 +44,7 @@
    {
     "id": "evm",
     "format": "evm",
-    "address": null,
+    "address": "0xb947cC8445841cf40AFCA723804d06855bea7bc7",
     "networks": [
      {
       "id": "ethereum",
@@ -91,7 +91,7 @@
    {
     "id": "solana",
     "format": "solana",
-    "address": null,
+    "address": "FUYqFTFwvF8fgm1NmbRXAEERtRLDry1DCQfNgbZyFv8f",
     "networks": [
      {
       "id": "solana",
@@ -118,7 +118,7 @@
    {
     "id": "tron",
     "format": "tron",
-    "address": null,
+    "address": "TLoXMf8yCEtRJcbR3tqidYd76f1hi4r6cU",
     "networks": [
      {
       "id": "tron",
@@ -137,7 +137,7 @@
    {
     "id": "xrp",
     "format": "xrp",
-    "address": null,
+    "address": "rwJXvMdap5E7C49ZkfAjpeAMLd15UmEch2",
     "networks": [
      {
       "id": "xrp-ledger",
