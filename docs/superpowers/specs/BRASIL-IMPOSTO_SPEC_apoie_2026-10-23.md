@@ -7,7 +7,7 @@ production without the contact form's access key, and a live channel with any va
 back as questions at the end.
 
 Status: **aprovada pelo mantenedor em 2026-10-23** (desenho e todos os textos, na mensagem que pediu esta construção), com base em
-D123, D124, D152, D155 e D156 (D155 e D156 estão no registro local de decisões, ainda não publicado). Construída desligada. **A seção 9 (rodada 3) foi aprovada pelo mantenedor em 2026-10-28 (D203).**
+D123, D124, D152, D155 e D156 (D155 e D156 estão no registro local de decisões, ainda não publicado). Construída desligada. **A seção 9 (rodada 3) foi aprovada pelo mantenedor em 2026-10-28 (D203).** **A seção 10 (a cripto pronta para a produção) é rascunho para a aprovação dele.**
 
 ## 1. Portões dos canais de pagamento
 
@@ -303,3 +303,58 @@ mudar, o texto muda junto.
 - A regra dos pesos escrita no `GOVERNANCE.md`, as etiquetas de peso no repositório e o peso dos pull requests já aceitos desde
   2026-09-25, para a aprovação do mantenedor (D201, D202): tarefa própria.
 - A ida à produção: no próximo lote (D192).
+
+## 10. A cripto pronta para a produção (D204)
+
+Status: **rascunho para a aprovação do mantenedor.** Quem faz (D164): a sessão local de 2026-10-28, nos ramos desta spec (#162) e do
+código (#163). Os cinco endereços do projeto já estão em `data/support.json` no #163, conferidos pela soma de verificação de cada rede e na
+API pública de cada rede, com a cripto ainda em `"soon"`.
+
+### 10.1 O que muda
+
+- **Sai a regra de devolução** (D204): `crypto.unidentified_return_above_brl` deixa `data/support.json` e `support_data.py`, e a frase
+  "Doação acima de ... vinda de carteira sem identificação é devolvida para a carteira de origem." sai da vista da cripto. Qualquer valor de
+  qualquer carteira fica.
+- **A cripto abre no próximo lote de produção** (D204, D192): `crypto.status` passa a `"live"`. Abrem a vista "Apoiar com cripto" (seção
+  4.3), o cartão com "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB. Cada endereço é público, com o link do explorador." e a parte da
+  cripto em "Quem recebe" (seção 9.3). O Pix continua "Em breve" e o GitHub Sponsors também, até os portões deles.
+- **XRP** (D204): sem compra de reserva. O XRP Ledger só cria a conta quando ela recebe 1 XRP ou mais; antes disso, um envio menor é recusado
+  pela rede e o dinheiro fica com quem tentou doar (só a taxa da rede é gasta). A primeira doação de 1 XRP ou mais cria a conta; 1 XRP dela
+  fica preso como reserva da rede. Até lá, o XRPScan mostra o endereço como não encontrado.
+
+### 10.2 Testes e proteções antes da produção
+
+Cada teste é escrito antes da mudança e visto falhando (TDD), e cada um tem o seu controle plantado.
+
+1. **Soma de verificação de cada endereço, no `ci`:** `support_data.py` confere, além do formato, a soma de verificação de cada rede:
+   bech32 ou bech32m no Bitcoin, EIP-55 no endereço 0x (as letras maiúsculas e minúsculas são a soma), base58check com o byte de versão
+   certo na Tron (0x41) e no XRP (0x00, com o alfabeto do XRP), e 32 bytes na Solana. Sem dependência nova: o keccak-256 do EIP-55 em
+   Python puro, conferido contra um vetor de teste conhecido. Controle: um caractere trocado em cada endereço tem de falhar.
+2. **Os endereços fixados no teste:** um teste guarda os cinco endereços esperados; qualquer mudança em `data/support.json` quebra o `ci`
+   até o teste mudar junto, no mesmo pull request. Um endereço nunca muda em silêncio.
+3. **A página mostra e copia o que está no arquivo:** `apoie-check.cjs` lê, em cada moeda e rede, o endereço exibido e o que o botão
+   "Copiar" põe na área de transferência, e compara com `data/support.json`; confere também o link de cada explorador. Controle: um endereço
+   trocado na página tem de falhar.
+4. **Nenhum script de fora sem verificação na página com os endereços:** "Como o dinheiro anda" carrega duas bibliotecas de CDN sem hash de
+   integridade (d3 no cdnjs, d3-sankey no jsdelivr). Um arquivo adulterado na CDN poderia trocar o endereço que quem doa vê. Elas ganham os
+   atributos `integrity` (hash SRI) e `crossorigin`, e um teste recusa script externo sem `integrity` em toda página com o botão Apoie.
+   Controle: tirar um hash tem de falhar.
+5. **Um teste de verdade na rede** (pergunta 2): o mantenedor manda um valor pequeno para cada endereço a partir de uma conta numa
+   corretora, e a sessão confere a chegada no explorador e na API de cada rede; o mantenedor confere no celular. O que entra fica no projeto
+   e vai ao livro-caixa como doação do mantenedor.
+6. **Provas:** as da seção 9.6, mais a vista da cripto aberta em 1440, 420 e 320 px, cada moeda com as suas redes, "Copiar" e os links,
+   com `apoie-check.cjs --control`.
+
+### 10.3 Fora desta seção
+
+O livro-caixa que se preenche sozinho com as entradas das carteiras (depois); a carteira física acima de um saldo a definir; código QR dos
+endereços.
+
+### 10.4 Perguntas ao mantenedor
+
+1. **Aprovar 10.1 e 10.2 como escritas?** Recomendado: sim; o 10.2 cobre os erros que perdem dinheiro de verdade (um endereço errado
+   publicado, um script trocando o endereço na página) e cabe no plano gratuito.
+2. **O teste de verdade na rede:** a) quatro envios pequenos nas redes de taxa baixa (BNB Smart Chain, Solana, Tron com USDT e XRP com 1
+   XRP, que também cria a conta), sem Bitcoin e sem Ethereum (o endereço do Ethereum é o mesmo da BNB Smart Chain); b) os seis; c) nenhum.
+   Recomendado: a. Custo: os valores enviados, que ficam no projeto, e as taxas da rede e de saque da corretora, que variam e não foram
+   pesquisadas.
