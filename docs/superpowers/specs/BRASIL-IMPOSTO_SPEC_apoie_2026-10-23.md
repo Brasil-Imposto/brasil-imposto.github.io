@@ -306,7 +306,7 @@ mudar, o texto muda junto.
 
 ## 10. A cripto pronta para a produção (D204)
 
-Status: **aprovada pelo mantenedor em 2026-10-29 (D205), para construir numa sessão nova.** O XRP fica "Em breve" até o mantenedor mandar o primeiro 1 XRP (D205): `data/support.json` passa a ter um estado por rede, e o botão do XRP em "Em breve" passa por uma rodada de prévia (D185). O teste de verdade na rede (10.2, item 5) é feito pelo mantenedor em todas as moedas e redes, de preferência pela doação dentro do site, que é um pedido novo com sessão e spec próprias (D205). Quem faz (D164): a sessão local de 2026-10-28, nos ramos desta spec (#162) e do
+Status: **aprovada pelo mantenedor em 2026-10-29 (D205) e construída no #163 em 2026-10-29 (10.5), menos o XRP "Em breve" por rede, que espera a rodada de prévia.** O XRP fica "Em breve" até o mantenedor mandar o primeiro 1 XRP (D205): `data/support.json` passa a ter um estado por rede, e o botão do XRP em "Em breve" passa por uma rodada de prévia (D185). O teste de verdade na rede (10.2, item 5) é feito pelo mantenedor em todas as moedas e redes, de preferência pela doação dentro do site, que é um pedido novo com sessão e spec próprias (D205). Quem faz (D164): a sessão local de 2026-10-28, nos ramos desta spec (#162) e do
 código (#163). Os cinco endereços do projeto já estão em `data/support.json` no #163, conferidos pela soma de verificação de cada rede e na
 API pública de cada rede, com a cripto ainda em `"soon"`.
 
@@ -358,3 +358,10 @@ endereços.
    XRP, que também cria a conta), sem Bitcoin e sem Ethereum (o endereço do Ethereum é o mesmo da BNB Smart Chain); b) os seis; c) nenhum.
    Recomendado: a. Custo: os valores enviados, que ficam no projeto, e as taxas da rede e de saque da corretora, que variam e não foram
    pesquisadas.
+
+### 10.5 Como foi construído (2026-10-29, #163)
+
+- **Soma de verificação:** `support_data.address_problem`, sem dependência; vetores do BIP-350, do EIP-55, do Bitcoin Core, da página de contas da Tron e da página de endereços do xrpl.org. O keccak-256 em Python puro bate com o resumo conhecido da entrada vazia e, com o preenchimento do SHA-3, com o `hashlib.sha3_256`. Controle: 5.811 trocas de um caractere nos quatro endereços com soma (Bitcoin, 0x, Tron e XRP), todas recusadas. **A Solana não tem soma de verificação:** uma troca de um caractere continua com 32 bytes (e até um caractere a menos pode continuar com 32); lá quem pega a troca é o endereço fixado no teste (item 2). Um endereço preenchido é conferido em qualquer estado, não só com a cripto aberta.
+- **Scripts de fora:** além das duas bibliotecas de "Como o dinheiro anda", a Início carrega sete módulos do three.js pelo mapa de importação (os cinco que o código importa e os dois que o Line2 importa), e a Início do staging carrega o 3d-force-graph (a prévia da Rede, D172). Os três ganharam hash: os atributos nas duas tags, a lista `integrity` no mapa de importação (posta pelo `build-platform-preview.py`; Chrome 127, Firefox 138 e Safari 18 conferem, um navegador mais antigo ignora a lista) e o `data-integrity` que o carregador do mapa repõe. Cada hash foi conferido com o hash que o próprio CDN publica.
+- **`apoie-check.cjs`** ganhou duas conferências: `addresses` (nome da rede, endereço mostrado, endereço copiado lido da área de transferência de verdade e link do explorador, em cada moeda e rede) e `sri` (cada script de fora servido como publicado tem de ser aceito, e servido alterado não pode rodar). Nas versões de produção e de staging, todas passam; no controle, todas falham.
+- **Dois defeitos achados pelas conferências novas:** o "copiar" dos cartões de casos (`assets/cases.js`) e o "Copiar link" de Os 3 Poderes pegavam todo clique em `[data-copy]` da página, então o "Copiar" da janela copiava só os dígitos do endereço na Início e o link da página em Os 3 Poderes. Os dois passaram a pegar só os próprios botões, e um teste recusa um "copiar" que pega a página inteira.
