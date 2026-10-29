@@ -7,10 +7,10 @@ description = "Quanto cada estado envia e recebe da União, com dados oficiais e
 license = "AGPL-3.0-only"
 requires-python = "==3.12.*"
 dependencies = [
-    "duckdb==1.5.6",
+    "duckdb==2.0.0",
     "jsonschema==4.26.0",
     "openpyxl==3.1.5",
-    "xlrd==2.0.1",
+    "xlrd==2.0.2",
 ]
 
 [tool.uv]
