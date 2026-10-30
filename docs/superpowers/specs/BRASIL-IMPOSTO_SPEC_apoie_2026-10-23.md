@@ -7,7 +7,7 @@ production without the contact form's access key, and a live channel with any va
 back as questions at the end.
 
 Status: **aprovada pelo mantenedor em 2026-10-23** (desenho e todos os textos, na mensagem que pediu esta construção), com base em
-D123, D124, D152, D155 e D156 (D155 e D156 estão no registro local de decisões, ainda não publicado). Construída desligada.
+D123, D124, D152, D155 e D156 (D155 e D156 estão no registro local de decisões, ainda não publicado). Construída desligada. **A seção 9 (rodada 3) foi aprovada pelo mantenedor em 2026-10-28 (D203).** **A seção 10 (a cripto pronta para a produção) foi aprovada em 2026-10-29 (D205).**
 
 ## 1. Portões dos canais de pagamento
 
@@ -202,3 +202,167 @@ valores de `data/support.json`).
   em 1440, 420 e 320 px,
   com `--control` (seção 6); desligado, as três páginas iguais às da `main`.
 
+
+## 9. Rodada 3 (2026-10-28): o Pix pela Vakinha e a divisão pelas contribuições (D198 a D202)
+
+Status: **aprovada pelo mantenedor em 2026-10-28 (D203).** A prévia da rodada, com todas as respostas aplicadas, é
+`docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_apoie-r3_2026-10-28.html` (gerador local `private/apoie/build_apoie_r3.py`, sobre
+uma cópia da página publicada em 2026-10-28). Pesquisa que levou ao Pix pela Vakinha:
+`docs/research/BRASIL-IMPOSTO_RESEARCH_doacao-rapida_2026-10-28.md`. Nada desta seção vai para o código antes da aprovação (D185).
+
+**Quem faz (D164):** a sessão local de 2026-10-28. Conferido em 2026-10-28: nenhuma issue, pull request ou ramo aberto de outra sessão
+trata do Apoie.
+
+### 9.1 `data/support.json`
+
+- **Sai `maintainer_cap_brl`** (D202: a pessoa mantenedora não tem valor fixo nem teto). `support_data.problems` deixa de exigi-lo, e
+  a frase do teto (`DEVELOPERS_CAP`) sai de `apoie.py`.
+- **Entra o canal `pix`**, o primeiro dos três:
+
+| Chave | Hoje | O que é |
+|---|---|---|
+| `pix.status` | `"soon"` | `"soon"` mostra o cartão com "Em breve" e nada para clicar; `"live"` abre a vista do Pix |
+| `pix.provider` | `"Vakinha"` | o nome da plataforma, escrito nos textos |
+| `pix.campaign_url` | `null` | o endereço da vaquinha do Brasil-Imposto; com `"live"`, precisa ser `https://` no domínio `vakinha.com.br` |
+| `pix.bank_screen_name` | `null` | o nome que o app do banco mostra antes de confirmar o Pix, conferido pelo mantenedor sem pagar (D199, item 3) |
+
+O teste recusa `pix` em `"live"` com qualquer desses valores vazio, ou com o endereço fora do formato.
+
+### 9.2 Portões do Pix
+
+O cartão do Pix fica "Em breve" até: a conta na Vakinha existir (o mantenedor ainda não se cadastrou), a vaquinha estar criada
+(`campaign_url`), o nome da tela do banco estar conferido (`bank_screen_name`) e o portão da seção 1 passar. Abrir um canal antes de
+D125 a D127 é a mesma pergunta ainda aberta para a cripto (D158), e vale igual para o Pix.
+
+### 9.3 Vista principal: os textos novos, exatamente assim
+
+Na ordem em que aparecem:
+
+- **Abertura:** "O Brasil-Imposto mostra, com dados oficiais e a fonte de cada número, para onde vai o imposto pago no Brasil. É
+  apartidário e de código aberto. O seu apoio paga duas coisas, e nada além delas: a infraestrutura que mantém os dados corretos e no
+  ar e o trabalho de quem desenvolve o projeto." (a infraestrutura primeiro, D201)
+- **Título:** "Para onde vai o dinheiro do apoio" (D200). A barra fina fica azul e depois verde, na ordem das colunas.
+- **Coluna "1. Infraestrutura"** (primeira, D201): "O custo real de cada mês, que muda de um mês para outro, com a nota de cada gasto:
+  hoje, as ferramentas de inteligência artificial usadas para coletar e conferir os dados; depois, servidor e banco de dados, quando o
+  site precisar. O site é hospedado de graça no GitHub Pages. É a primeira coisa paga com o apoio."
+- **Coluna "2. Desenvolvedores":** "Quem entrega trabalho aceito no repositório, inclusive a pessoa mantenedora. O que sobra de cada
+  mês, depois da infraestrutura, é dividido entre quem contribuiu pelo peso de cada contribuição aceita (1, 2 ou 3, escrito no pull
+  request antes do merge), e cada pagamento é publicado no livro-caixa."
+- **"Como apoiar":** três cartões do mesmo tamanho, Pix, GitHub Sponsors e Cripto, em três colunas acima de 820 px e um sobre o outro
+  abaixo disso (opção A, D200). O do Pix: a marca "R$" num quadrado verde, o título "Pix" e "Em reais, qualquer valor, com Pix ou
+  cartão, pela vaquinha do Brasil-Imposto."; em `"soon"`, a etiqueta "Em breve" ao lado do título e nenhum botão; em `"live"`, o
+  botão "Apoiar com Pix". "Brasil-Imposto" nunca quebra no hífen.
+- **A linha do "Fale com a gente"**, logo depois dos cartões, como hoje.
+- **O quadro "Como cada mês é dividido"**, depois dessa linha (D200), com quatro itens (D202): "Primeiro, a infraestrutura do mês, pelo
+  custo real, que muda de um mês para outro." / "O resto vai para quem contribuiu, inclusive a pessoa mantenedora, dividido pelo peso
+  de cada contribuição aceita no mês (1, 2 ou 3)." / "Nas primeiras divisões, contam todas as contribuições aceitas desde o início do
+  projeto, em 25/09/2026, de todas as pessoas, até esse saldo ser pago; depois, só as do mês." / "Num mês sem contribuição aceita, o
+  resto fica guardado para os meses seguintes, e o saldo aparece no livro-caixa."
+- **Sai** o parágrafo "Não pagamos por número de commits, de linhas ou de pull requests..." (D200).
+- **"O que o apoio compra":** "trabalho e infraestrutura. Junto com a doação, você pode pedir pelo "Fale com a gente" uma
+  funcionalidade que ainda não existe; os pedidos entram no planejamento das próximas atualizações. Nenhum apoio muda um número: todo
+  número vem da fonte oficial, e as regras de neutralidade valem para todos." (D201)
+- **"Quem recebe"** continua só com algum canal aberto, e passa a juntar uma parte por canal aberto, nesta ordem, separadas por ponto e
+  vírgula: Pix, "o Pix e o cartão vão para a Vakinha, que repassa o valor à pessoa mantenedora; cada repasse é publicado no
+  livro-caixa do projeto" (D199); GitHub Sponsors, "o GitHub Sponsors paga ao {host}, organização sem fins lucrativos que guarda o
+  dinheiro do projeto e publica cada entrada e cada despesa"; cripto, "as carteiras de cripto são do projeto e ficam com a pessoa
+  mantenedora".
+- **As outras linhas de "Antes de apoiar"** ficam como estão.
+
+### 9.4 Vista "Apoiar com Pix" (com "Voltar"), só com `pix.status` em `"live"`
+
+Três passos: "Abra a vaquinha do Brasil-Imposto na Vakinha." / "Digite o valor que quiser." / "Pague com Pix, pelo app do seu banco, ou
+com cartão." Os fatos: "A Vakinha recebe a doação e repassa o valor ao projeto. Na tela do seu banco, o Pix aparece para
+{bank_screen_name}. A Vakinha fica com 6,4% mais R$ 0,50 de cada doação, e cada repasse entra no livro-caixa do projeto, com o extrato da
+Vakinha." E o botão "Abrir a vaquinha", para `campaign_url`, numa aba nova. A taxa é a da página da Vakinha lida em 2026-10-28; se ela
+mudar, o texto muda junto.
+
+### 9.5 Como construir
+
+- `support_data.py`: o canal `pix` na estrutura e nos valores de `"live"`; sem `maintainer_cap_brl`.
+- `apoie.py`: os textos e a ordem de 9.3, o cartão e a vista do Pix, o quadro depois do contato, sem o parágrafo e sem a frase do teto,
+  "Quem recebe" por canal.
+- `pipelines/tests/test_support.py`: a estrutura do `pix`; `"live"` sem `campaign_url` ou sem `bank_screen_name` falha; controles
+  plantados: um endereço `http://` e um de outro domínio, cada um tem de falhar; a ordem da vista principal (infraestrutura,
+  desenvolvedores, cartões, contato, quadro, "Antes de apoiar"); os textos que saíram não aparecem, com a construção de antes como
+  controle, onde eles aparecem.
+- `docs/superpowers/tools/apoie-check.cjs`: o cartão do Pix em "Em breve" sem botão; três colunas em 1440 px e uma em 420 e 320 px;
+  numa construção de teste com o Pix em `"live"`, a vista abre, o link é o de `campaign_url`, Escape e o foco de volta, com `--control`.
+- A comparação do texto visível no `ci` (#154) vai mostrar a diferença dos textos do modal: esperada, e anotada no pull request.
+
+### 9.6 Provas
+
+- A construção da produção, com o Pix em `"soon"`: capturas em 1440, 420 e 320 px, olhadas; `apoie-check.cjs` com `--control`.
+- Uma construção de teste com o Pix em `"live"` (endereço e nome falsos mas bem formados, nunca enviados ao git): a vista do Pix nas três
+  larguras.
+
+### 9.7 Fora desta seção
+
+- A rodada das regras do dinheiro (D170): o portão dos canais, `unidentified_return_above_brl`, por onde sai o pagamento de quem contribui
+  (Q34) e a cotação que converte cada doação em reais (Q36).
+- A regra dos pesos escrita no `GOVERNANCE.md`, as etiquetas de peso no repositório e o peso dos pull requests já aceitos desde
+  2026-09-25, para a aprovação do mantenedor (D201, D202): tarefa própria.
+- A ida à produção: no próximo lote (D192).
+
+## 10. A cripto pronta para a produção (D204)
+
+Status: **aprovada pelo mantenedor em 2026-10-29 (D205) e construída no #163 em 2026-10-29 (10.5), com o XRP "Em breve" por rede pela opção A da rodada de prévia (D206).** O XRP fica "Em breve" até o mantenedor mandar o primeiro 1 XRP (D205): `data/support.json` passa a ter um estado por rede, e o botão do XRP em "Em breve" passa por uma rodada de prévia (D185). O teste de verdade na rede (10.2, item 5) é feito pelo mantenedor em todas as moedas e redes, de preferência pela doação dentro do site, que é um pedido novo com sessão e spec próprias (D205). Quem faz (D164): a sessão local de 2026-10-28, nos ramos desta spec (#162) e do
+código (#163). Os cinco endereços do projeto já estão em `data/support.json` no #163, conferidos pela soma de verificação de cada rede e na
+API pública de cada rede, com a cripto ainda em `"soon"`.
+
+### 10.1 O que muda
+
+- **Sai a regra de devolução** (D204): `crypto.unidentified_return_above_brl` deixa `data/support.json` e `support_data.py`, e a frase
+  "Doação acima de ... vinda de carteira sem identificação é devolvida para a carteira de origem." sai da vista da cripto. Qualquer valor de
+  qualquer carteira fica.
+- **A cripto abre no próximo lote de produção** (D204, D192): `crypto.status` passa a `"live"`. Abrem a vista "Apoiar com cripto" (seção
+  4.3), o cartão com "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB. Cada endereço é público, com o link do explorador." e a parte da
+  cripto em "Quem recebe" (seção 9.3). O Pix continua "Em breve" e o GitHub Sponsors também, até os portões deles.
+- **XRP** (D204): sem compra de reserva. O XRP Ledger só cria a conta quando ela recebe 1 XRP ou mais; antes disso, um envio menor é recusado
+  pela rede e o dinheiro fica com quem tentou doar (só a taxa da rede é gasta). A primeira doação de 1 XRP ou mais cria a conta; 1 XRP dela
+  fica preso como reserva da rede. Até lá, o XRPScan mostra o endereço como não encontrado.
+
+### 10.2 Testes e proteções antes da produção
+
+Cada teste é escrito antes da mudança e visto falhando (TDD), e cada um tem o seu controle plantado.
+
+1. **Soma de verificação de cada endereço, no `ci`:** `support_data.py` confere, além do formato, a soma de verificação de cada rede:
+   bech32 ou bech32m no Bitcoin, EIP-55 no endereço 0x (as letras maiúsculas e minúsculas são a soma), base58check com o byte de versão
+   certo na Tron (0x41) e no XRP (0x00, com o alfabeto do XRP), e 32 bytes na Solana. Sem dependência nova: o keccak-256 do EIP-55 em
+   Python puro, conferido contra um vetor de teste conhecido. Controle: um caractere trocado em cada endereço tem de falhar.
+2. **Os endereços fixados no teste:** um teste guarda os cinco endereços esperados; qualquer mudança em `data/support.json` quebra o `ci`
+   até o teste mudar junto, no mesmo pull request. Um endereço nunca muda em silêncio.
+3. **A página mostra e copia o que está no arquivo:** `apoie-check.cjs` lê, em cada moeda e rede, o endereço exibido e o que o botão
+   "Copiar" põe na área de transferência, e compara com `data/support.json`; confere também o link de cada explorador. Controle: um endereço
+   trocado na página tem de falhar.
+4. **Nenhum script de fora sem verificação na página com os endereços:** "Como o dinheiro anda" carrega duas bibliotecas de CDN sem hash de
+   integridade (d3 no cdnjs, d3-sankey no jsdelivr). Um arquivo adulterado na CDN poderia trocar o endereço que quem doa vê. Elas ganham os
+   atributos `integrity` (hash SRI) e `crossorigin`, e um teste recusa script externo sem `integrity` em toda página com o botão Apoie.
+   Controle: tirar um hash tem de falhar.
+5. **Um teste de verdade na rede** (pergunta 2): o mantenedor manda um valor pequeno para cada endereço a partir de uma conta numa
+   corretora, e a sessão confere a chegada no explorador e na API de cada rede; o mantenedor confere no celular. O que entra fica no projeto
+   e vai ao livro-caixa como doação do mantenedor.
+6. **Provas:** as da seção 9.6, mais a vista da cripto aberta em 1440, 420 e 320 px, cada moeda com as suas redes, "Copiar" e os links,
+   com `apoie-check.cjs --control`.
+
+### 10.3 Fora desta seção
+
+O livro-caixa que se preenche sozinho com as entradas das carteiras (depois); a carteira física acima de um saldo a definir; código QR dos
+endereços.
+
+### 10.4 Perguntas ao mantenedor
+
+1. **Aprovar 10.1 e 10.2 como escritas?** Recomendado: sim; o 10.2 cobre os erros que perdem dinheiro de verdade (um endereço errado
+   publicado, um script trocando o endereço na página) e cabe no plano gratuito.
+2. **O teste de verdade na rede:** a) quatro envios pequenos nas redes de taxa baixa (BNB Smart Chain, Solana, Tron com USDT e XRP com 1
+   XRP, que também cria a conta), sem Bitcoin e sem Ethereum (o endereço do Ethereum é o mesmo da BNB Smart Chain); b) os seis; c) nenhum.
+   Recomendado: a. Custo: os valores enviados, que ficam no projeto, e as taxas da rede e de saque da corretora, que variam e não foram
+   pesquisadas.
+
+### 10.5 Como foi construído (2026-10-29, #163)
+
+- **Soma de verificação:** `support_data.address_problem`, sem dependência; vetores do BIP-350, do EIP-55, do Bitcoin Core, da página de contas da Tron e da página de endereços do xrpl.org. O keccak-256 em Python puro bate com o resumo conhecido da entrada vazia e, com o preenchimento do SHA-3, com o `hashlib.sha3_256`. Controle: 5.811 trocas de um caractere nos quatro endereços com soma (Bitcoin, 0x, Tron e XRP), todas recusadas. **A Solana não tem soma de verificação:** uma troca de um caractere continua com 32 bytes (e até um caractere a menos pode continuar com 32); lá quem pega a troca é o endereço fixado no teste (item 2). Um endereço preenchido é conferido em qualquer estado, não só com a cripto aberta.
+- **Scripts de fora:** além das duas bibliotecas de "Como o dinheiro anda", a Início carrega sete módulos do three.js pelo mapa de importação (os cinco que o código importa e os dois que o Line2 importa), e a Início do staging carrega o 3d-force-graph (a prévia da Rede, D172). Os três ganharam hash: os atributos nas duas tags, a lista `integrity` no mapa de importação (posta pelo `build-platform-preview.py`; Chrome 127, Firefox 138 e Safari 18 conferem, um navegador mais antigo ignora a lista) e o `data-integrity` que o carregador do mapa repõe. Cada hash foi conferido com o hash que o próprio CDN publica.
+- **`apoie-check.cjs`** ganhou duas conferências: `addresses` (nome da rede, endereço mostrado, endereço copiado lido da área de transferência de verdade e link do explorador, em cada moeda e rede) e `sri` (cada script de fora servido como publicado tem de ser aceito, e servido alterado não pode rodar). Nas versões de produção e de staging, todas passam; no controle, todas falham.
+- **O estado por rede (D205, D206):** cada rede tem `status`; a cripto está em `"live"` e o XRP Ledger em `"soon"`. Uma moeda sem rede aberta fica na fila, apagada (contorno tracejado), desligada, com "Em breve", sem painel, e a página não leva o endereço dela (opção A da rodada `apoie-xrp-r1`). O texto do cartão "Cripto" fica como aprovado em 10.1 (D208). Cada botão de moeda tem o ícone do token à esquerda do nome (D206, rodada `cripto-envio-r1` aprovada em D208): o conjunto aberto cryptocurrency-icons 0.18.1 (CC0), em `assets/cripto/`, carregado só quando aparece; o XRP apagado leva o ícone em cinza.
+- **Dois defeitos achados pelas conferências novas:** o "copiar" dos cartões de casos (`assets/cases.js`) e o "Copiar link" de Os 3 Poderes pegavam todo clique em `[data-copy]` da página, então o "Copiar" da janela copiava só os dígitos do endereço na Início e o link da página em Os 3 Poderes. Os dois passaram a pegar só os próprios botões, e um teste recusa um "copiar" que pega a página inteira.
