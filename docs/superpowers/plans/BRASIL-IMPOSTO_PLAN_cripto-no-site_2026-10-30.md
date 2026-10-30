@@ -31,13 +31,13 @@
 ## Tarefa 0: ramo e dono (D164)
 
 - [ ] **Passo 1:** conferir que ninguém mais tem esta tarefa: `gh pr list --search cripto`, `git ls-remote --heads origin | grep -i cripto`, `ListAgents`. Achou dono: parar e avisar o autor.
-- [ ] **Passo 2:** criar o ramo em cima do #163, que tem a vista da cripto e os ícones:
+- [ ] **Passo 2:** criar o ramo a partir do `staging`, que já tem a vista da cripto e os ícones (#163):
 ```bash
 cd ~/Documents/Brasil-Imposto
 git fetch origin
-git worktree add .worktrees/cripto-envio -b feat/cripto-envio origin/feat/apoie-pix
+git worktree add .worktrees/cripto-envio -b feat/cripto-envio origin/staging
 ```
-Rodar tudo daqui em diante dentro de `.worktrees/cripto-envio`. O pull request abre para `staging` quando o #163 entrar; até lá, a base do pull request é `feat/apoie-pix`.
+Rodar tudo daqui em diante dentro de `.worktrees/cripto-envio`. O pull request abre para `staging`.
 
 ## Tarefa 1: os dados do envio
 
@@ -1056,7 +1056,7 @@ git commit --signoff -m "test(apoie): the closed list of wallet methods, the des
 
 - [ ] **Passo 1:** rodar tudo de novo: `uv run --locked python -B -m unittest discover -s pipelines/tests`, `apoie-check.cjs` e `cripto-check.cjs` nas duas montagens, com controle. Parar os servidores (`lsof -nP -iTCP:8742 -sTCP:LISTEN -t`).
 - [ ] **Passo 2:** acrescentar à spec a seção "Como foi construído" e a linha de `cripto-check.cjs` em `CONTRIBUTING.md`, junto da de `apoie-check.cjs`.
-- [ ] **Passo 3:** abrir o pull request (`--body-file -` com heredoc entre aspas), com base em `feat/apoie-pix` enquanto o #163 não entrar. Conferir `dco`, `ci`, `visible-text` e CodeQL.
+- [ ] **Passo 3:** abrir o pull request para `staging` (`--body-file -` com heredoc entre aspas). Conferir `dco`, `ci`, `visible-text` e CodeQL.
 - [ ] **Passo 4: o teste do mantenedor no site de testes** (D205). Ele manda um valor pequeno em cada linha; a sessão confere a chegada no explorador e na API da rede, e marca o que cada carteira de verdade mostrou. Um caminho que não funcionar fica com a reserva (copiar o endereço) até a correção.
 
 | Moeda | Rede | Computador | Celular | Chegou |
