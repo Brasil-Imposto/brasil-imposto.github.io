@@ -16,7 +16,7 @@
 //            comes back
 //   coins    (only when crypto is live) each coin shows only its own panel, with its networks on "live" in the data file (all
 //            open: BTC 1, ETH 1, SOL 1, USDT 4, USDC 3, XRP 1, BNB 1); a coin with none (XRP until its account exists, spec
-//            section 10) keeps its button in the row, disabled, with "Em breve", and has no panel
+//            section 10) keeps its button in the row, disabled, with "Em breve", and has no panel; every coin button's icon loads (assets/cripto)
 //   addresses (only when crypto is live; spec apoie, section 10.2, item 3) for every coin and network, in the order of the data
 //            file: the network's name, the address shown, the address "Copiar" puts on the clipboard (read back from the real
 //            clipboard after a real click) and the explorer link equal data/support.json (or BI_SUPPORT_JSON)
@@ -37,7 +37,8 @@
 // header wider than the window, a button in each "soon" card, the field messages hidden, a clock that skips the minimum time,
 // a honeypot the page cannot read, Web3Forms' answers swapped, Escape swallowed, focus() disabled, the backdrop not
 // clickable, two columns of cards at every width, the Pix link sent to another address, the first ETH address and its explorer
-// link changed on the page, the hashes taken out of the page so the changed outside scripts run); every check must then fail,
+// link changed on the page, the hashes taken out of the page so the changed outside scripts run, the coin icons blocked);
+// every check must then fail,
 // or the probe is blind.
 // Env: PW_CORE (path to playwright-core), CHROME_HEADLESS (chrome-headless-shell binary).
 const fs = require('fs');
@@ -141,6 +142,7 @@ const PLANT = `
           return r.fulfill(good ? { status: 200, contentType: 'application/json', body: '{"success":true,"message":"Email sent successfully!"}' }
             : { status: 500, contentType: 'application/json', body: '{"success":false,"message":"Something went wrong"}' });
         }
+        if (control && u.includes('/assets/cripto/')) return r.abort();   // the control: the coin icons never arrive
         return u.startsWith(base) ? r.continue() : r.abort();
       });
       if (control) {
@@ -222,7 +224,7 @@ const PLANT = `
           const bad = [];
           for (const [coin, n] of Object.entries(NETWORKS)) {
             if (n === 0) {   // on soon: dimmed, disabled, with the tag, and no panel
-              const s = await p.evaluate((coin) => { const b = [...document.querySelectorAll('.bi-ap-coinsoon')].find((x) => x.firstChild.textContent.trim() === coin);
+              const s = await p.evaluate((coin) => { const b = [...document.querySelectorAll('.bi-ap-coinsoon')].find((x) => [...x.childNodes].filter((c) => c.nodeType === 3).map((c) => c.textContent).join('').trim() === coin);
                 return { found: !!b, disabled: !!b && b.disabled, tag: !!b && !!b.querySelector('.bi-ap-tag') && b.querySelector('.bi-ap-tag').textContent.trim() === 'Em breve',
                   panel: !!document.querySelector(`.bi-ap-coin[data-coin="${coin}"]`), dashed: !!b && getComputedStyle(b).borderTopStyle === 'dashed' }; }, coin);
               if (!(s.found && s.disabled && s.tag && !s.panel && s.dashed)) bad.push(`${coin} on soon: ${JSON.stringify(s)}`);
@@ -234,7 +236,10 @@ const PLANT = `
             if (!(c.length === 1 && c[0] === coin && nets === n)) bad.push(`${coin}: panels ${JSON.stringify(c)}, ${nets} networks`);
             hs.panel = Math.max(hs.panel, await p.$eval('.bi-ap-panel', (e) => e.scrollWidth - e.clientWidth));
           }
-          report(w, key, 'coins', bad.length === 0, bad.length ? bad.join('; ') : 'each coin alone, with its networks');
+          await p.waitForTimeout(300);
+          const icons = await p.$$eval('.bi-ap-coins .bi-ap-coinbtn img', (is) => is.map((i) => ({ src: i.getAttribute('src'), ok: i.complete && i.naturalWidth > 0 })));
+          if (icons.length !== 7 || icons.some((i) => !i.ok)) bad.push(`icons: ${icons.filter((i) => i.ok).length} of ${icons.length} loaded`);
+          report(w, key, 'coins', bad.length === 0, bad.length ? bad.join('; ') : 'each coin alone, with its networks, and its icon');
           const wrong = [];
           let rowsSeen = 0;
           for (const coin of Object.keys(NETWORKS).filter((c) => NETWORKS[c] > 0)) {

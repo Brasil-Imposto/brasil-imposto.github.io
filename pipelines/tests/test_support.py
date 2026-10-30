@@ -185,7 +185,8 @@ class CommittedFileTest(unittest.TestCase):
 class NetworkStatusTest(unittest.TestCase):
     """Spec section 10: a status per network. XRP stays "Em breve" until the maintainer's first 1 XRP: its button stays in the row,
     dimmed, with the tag, opens nothing, and the page carries no XRP address."""
-    XRP_SOON = '<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled>XRP <span class="bi-ap-tag">Em breve</span></button>'
+    XRP_SOON = ('<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled><img src="assets/cripto/xrp.svg" alt="" width="20" '
+                'height="20" loading="lazy">XRP <span class="bi-ap-tag">Em breve</span></button>')
 
     def test_the_committed_crypto_is_live_with_xrp_on_soon(self):
         d = committed()
@@ -222,6 +223,50 @@ class NetworkStatusTest(unittest.TestCase):
         d = committed()
         del d["crypto"]["groups"][1]["networks"][1]["status"]
         self.assertTrue(any("evm/bsc.status" in p for p in support_data.problems(d)))
+
+
+ICONS = REPO / "docs" / "superpowers" / "previews" / "assets" / "cripto"
+
+
+def svg_problems(text):
+    """What an icon file must never hold: a script, an event handler, a javascript: address or anything fetched from outside (an empty
+    list: clean)."""
+    return re.findall(r"<script|\son\w+\s*=|javascript:|(?:xlink:)?href\s*=\s*[\"'](?:https?:)?//|url\(\s*[\"']?(?:https?:)?//", text, re.I)
+
+
+class CoinIconTest(unittest.TestCase):
+    """Spec section 10, round cripto-envio-r1: each coin button carries the token's icon, left of the name, the dimmed XRP
+    included. The icons are the CC0 set cryptocurrency-icons 0.18.1, served from the site itself and loaded only when shown."""
+
+    def test_every_coin_button_carries_its_icon(self):
+        for key, p in build(on_soon_crypto_live()).items():
+            with self.subTest(page=key):
+                h = p["header"]
+                for coin in support_data.COINS:
+                    img = f'<img src="assets/cripto/{coin.lower()}.svg" alt="" width="20" height="20" loading="lazy">'
+                    if coin == "XRP":
+                        self.assertIn(f'<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled>{img}XRP <span class="bi-ap-tag">', h)
+                    else:
+                        self.assertIn(f'data-coin-btn="{coin}" aria-pressed="false">{img}{coin}</button>', h)
+                self.assertIn(".bi-ap-coinbtn img {", p["css"])
+
+    def test_the_icon_files_are_clean_svgs(self):
+        names = sorted(f.name for f in ICONS.glob("*.svg"))
+        self.assertEqual(names, sorted(f"{c.lower()}.svg" for c in support_data.COINS))
+        for f in ICONS.glob("*.svg"):
+            with self.subTest(icon=f.name):
+                text = f.read_text(encoding="utf-8")
+                self.assertTrue(text.lstrip().startswith("<svg"))
+                self.assertLess(len(text.encode()), 2048)
+                self.assertEqual(svg_problems(text), [])
+        self.assertIn("CC0", (ICONS / "LICENSE.txt").read_text(encoding="utf-8"))
+
+    def test_control_a_planted_script_or_outside_reference_is_caught(self):
+        clean = (ICONS / "btc.svg").read_text(encoding="utf-8")
+        for plant in ('<script>alert(1)</script>', '<g onload="x()"/>', '<image href="https://exemplo.org/x.png"/>',
+                      '<a xlink:href="javascript:x()"/>', '<rect style="fill:url(https://exemplo.org/p)"/>'):
+            with self.subTest(plant=plant):
+                self.assertNotEqual(svg_problems(clean.replace("</svg>", plant + "</svg>")), [])
 
 
 class RulesTest(unittest.TestCase):

@@ -188,10 +188,12 @@ def modal(data, keyless=False):
         coins, panels = "", ""
         for c in support_data.COINS:
             rows = support_data.networks_of(data, c, live=True)
+            # Spec section 10: the token's icon left of its name (assets/cripto, CC0), fetched only once the button is shown
+            icon = f'<img src="assets/cripto/{c.lower()}.svg" alt="" width="20" height="20" loading="lazy">'
             if not rows:
-                coins += f'<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled>{c} <span class="bi-ap-tag">{SOON}</span></button>'
+                coins += f'<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled>{icon}{c} <span class="bi-ap-tag">{SOON}</span></button>'
                 continue
-            coins += f'<button type="button" class="bi-ap-coinbtn" data-coin-btn="{c}" aria-pressed="false">{c}</button>'
+            coins += f'<button type="button" class="bi-ap-coinbtn" data-coin-btn="{c}" aria-pressed="false">{icon}{c}</button>'
             panels += (f'<div class="bi-ap-coin" data-coin="{c}" hidden>' + "".join(_row(*r) for r in rows)
                        + (f'<p class="bi-ap-pick">{escape(PICK_NETWORK)}</p>' if len(rows) > 1 else "") + '</div>')
         crypto = ('<section class="bi-ap-view" data-view="crypto" hidden><h2 tabindex="-1">Apoiar com cripto</h2>'
@@ -281,10 +283,13 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-steps { margin: 16px 0 12px; }
 .bi-ap-facts { margin: 0 0 16px !important; padding: 12px 14px; border-radius: 12px; background: #F6F8FA; }
 .bi-ap-coins { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 14px; }
-.bi-ap-coinbtn { min-width: 64px; height: 38px; padding: 0 12px; border: 1px solid #D5DBE1; border-radius: 99px; background: #fff; color: #14202B; font: 800 13px "JetBrains Mono", ui-monospace, monospace; cursor: pointer; }
+.bi-ap-coinbtn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-width: 64px; height: 38px; padding: 0 12px 0 9px; border: 1px solid #D5DBE1; border-radius: 99px; background: #fff; color: #14202B; font: 800 13px "JetBrains Mono", ui-monospace, monospace; cursor: pointer; }
 .bi-ap-coinbtn[aria-pressed="true"] { border-color: #12803F; background: #12803F; color: #fff; }
+.bi-ap-coinbtn img { display: block; width: 20px; height: 20px; flex: none; }
+.bi-ap-coinbtn[aria-pressed="true"] img { background: #fff; border-radius: 99px; }
 .bi-ap-coinbtn.bi-ap-coinsoon { color: #8A95A1; border-style: dashed; background: #F6F8FA; cursor: default; }
-.bi-ap-coinbtn .bi-ap-tag { margin-left: 6px; }
+.bi-ap-coinbtn.bi-ap-coinsoon img { opacity: .45; filter: grayscale(1); }
+.bi-ap-coinbtn .bi-ap-tag { margin-left: 0; }
 .bi-ap-coin { margin-bottom: 12px; }
 .bi-ap-net { padding: 12px 0; border-top: 1px solid #E3E7EC; }
 .bi-ap-net:last-of-type { border-bottom: 1px solid #E3E7EC; }

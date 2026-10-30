@@ -1,0 +1,3 @@
+Ícones das moedas da janela Apoie (BTC, ETH, SOL, USDT, USDC, XRP, BNB): o conjunto cryptocurrency-icons, versão 0.18.1
+(svg/color), publicado no npm sob CC0-1.0 (domínio público). Cada arquivo foi conferido: sem script, sem manipulador de evento e
+sem nada buscado de fora (pipelines/tests/test_support.py, CoinIconTest).
