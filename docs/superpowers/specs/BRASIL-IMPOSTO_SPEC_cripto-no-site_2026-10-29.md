@@ -4,7 +4,7 @@ Status: **rascunho para a aprovação do mantenedor** (D205); **rodada 1 respond
 
 ## 1. O objetivo
 
-Nas palavras do autor (D205): *"the brasil imposto website should not just show the address... it should be able to do the transaction - user selects which token, which chain and the amount he wants to send and sends... everything done inside the website"*. Quem doa escolhe a moeda, a rede e o valor, e envia sem sair do site; a confirmação final é sempre na tela da própria carteira. O autor vai testar mandando um valor pequeno em cada moeda e cada rede, de preferência por este fluxo (o que também cria a conta do XRP).
+Nas palavras do autor (D205): *"the brasil imposto website should not just show the address... it should be able to do the transaction - user selects which token, which chain and the amount he wants to send and sends... everything done inside the website"*. Quem doa escolhe a moeda, a rede e o valor, e envia sem sair do site; a confirmação final é sempre na tela da própria carteira. O autor vai testar mandando um valor pequeno em cada moeda e cada rede, de preferência por este fluxo (o que também cria a conta do XRP). Em 2026-10-30 (D207), o autor fixou o alvo: o fluxo de uma corretora (escolher o token, a rede e o valor, ver o endereço sem digitá-lo e confirmar); links e QR ficam só como reserva. A única diferença para a corretora é o "Confirmar" final, que acontece na carteira de quem doa, porque as moedas estão com ela.
 
 ## 2. O que fica como está
 
