@@ -23,6 +23,27 @@ SIM = PREVIEWS / "BRASIL-IMPOSTO_DESIGN_home-simulacao_2026-09-29.html"
 OUT = PREVIEWS / "BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html"
 OUT_AUTHOR = PREVIEWS / "BRASIL-IMPOSTO_AUTHOR_platform-preview_2026-10-09.html"
 SRC = PREVIEWS / "src"
+# The three.js modules Início loads from the CDN through its import map, each with its hash (spec apoie, section 10.2, item 4): the
+# five the page's code imports and the two Line2 imports. Computed from the files and matched with jsDelivr's own file hashes on
+# 2026-10-29. Browsers check them from Chrome 127, Firefox 138 and Safari 18 (MDN); an older one ignores the list and runs the
+# modules unchecked. Another three.js version stops the build until its hashes are here.
+IMPORTMAP = '"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"\n}'
+THREE_INTEGRITY = {
+    "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js":
+        "sha384-GY5FqjttLCFRt/McQbyaVdCk2O1IQtOeX8Py6NfD89BIAsIyJFRl4UgSXrk2vXAk",
+    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/Line2.js":
+        "sha384-svIqR2W/RlXb3d4T+bDn3JO+LXLbacA7GpMAUDJxTOFyZmVogvDRaOS7KZBRxcxc",
+    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineGeometry.js":
+        "sha384-nfFqbe33KO97I7jZXjW73quBqqskqqj64WZycLNDzn0GGGI3aoWLZzuy8i0jeYmU",
+    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineMaterial.js":
+        "sha384-bLpiIpNrFJ+EMb4Upzkap/Bc9Ul2wLoUMEfFm0PmZfyywMUYUsc5X98AuAYwwjq1",
+    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineSegments2.js":
+        "sha384-nm+9Od/cYIb15jGaA1U2Geoo18K/i9fF2fZ4KbI2rZydtfYxqwtWRlbvdVfiECU5",
+    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineSegmentsGeometry.js":
+        "sha384-2bbjHgEUXo9c3VW3OaZV638VYLXKhlNhNStU2D1Jm77zamWSQVYZak2p/Z0bZrmh",
+    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/renderers/CSS2DRenderer.js":
+        "sha384-9CXQqRjuKfYvfHem9p/LPU6b7PaeeiDuC/gp1qRz3bEV9txWG5wi9XhrkE/0/Dn9"
+}
 
 
 def insert(page, anchor, new, before=True):
@@ -34,6 +55,8 @@ def insert(page, anchor, new, before=True):
 def build(author_notes):
     src = lambda name: (SRC / name).read_text(encoding="utf-8")
     page = SIM.read_text(encoding="utf-8")
+    page = insert(page, IMPORTMAP, ',\n"integrity": {\n' + ",\n".join(f'  "{u}": "{h}"' for u, h in THREE_INTEGRITY.items()) + "\n}",
+                  before=False)
     # The money network (its section, its scripts and platform.css) is in the author's preview only; the site build adds it to the
     # staging Início through the rede switch (build-site.py, D172, Q-A2), so the published page has nothing of it.
     if author_notes:

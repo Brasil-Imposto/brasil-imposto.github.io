@@ -25,41 +25,55 @@ COIN = ('<svg class="bi-ap-mark" viewBox="0 0 24 24" aria-hidden="true"><ellipse
         'stroke="#8A6A00" stroke-width="1.3"/><path d="M4 9v8M20 9v8" stroke="#8A6A00" stroke-width="1.3"/>'
         '<ellipse cx="12" cy="9" rx="8" ry="3.2" fill="#F9BE2A" stroke="#8A6A00" stroke-width="1.3"/>'
         '<ellipse cx="12" cy="9" rx="4.2" ry="1.5" fill="none" stroke="#8A6A00" stroke-width="1.1"/></svg>')
+PIX = ('<svg class="bi-ap-mark" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="#12803F"/>'
+       '<text x="14" y="18.6" text-anchor="middle" font-family="Manrope,system-ui,sans-serif" font-weight="800" font-size="11" '
+       'fill="#fff">R$</text></svg>')
 CLOSE = ('<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" '
          'stroke-width="1.9" stroke-linecap="round"/></svg>')
 BACK = ('<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.9" '
         'fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 
 LEAD = ("O Brasil-Imposto mostra, com dados oficiais e a fonte de cada número, para onde vai o imposto pago no Brasil. É "
-        "apartidário e de código aberto. O seu apoio paga duas coisas, e nada além delas: o trabalho de quem desenvolve o projeto e "
-        "a infraestrutura que mantém os dados corretos e no ar.")
-DEVELOPERS = ("Quem entrega trabalho aceito no repositório. Cada tarefa paga é uma issue com o valor em reais publicado antes de o "
-              "trabalho começar, e o pagamento sai quando o pull request entra no site.")
-# left out while maintainer_cap_brl is null: production never shows a missing value
-DEVELOPERS_CAP = "A pessoa mantenedora recebe um valor fixo por mês para revisar, publicar e manter o projeto, com teto de {cap}."
-INFRA = ("O custo real de cada mês, com a nota de cada gasto: hoje, as ferramentas de inteligência artificial usadas para coletar e "
-         "conferir os dados; depois, servidor e banco de dados, quando o site precisar. O site é hospedado de graça no GitHub "
-         "Pages.")
-MONTH = ["Primeiro, a infraestrutura do mês, pelo custo real.",
-         "Com o restante, as tarefas pagas que entraram no mês, pelo valor que estava publicado na issue.",
-         "Depois, o valor fixo da manutenção, até o teto.",
-         "O que ficar fica guardado para os meses seguintes, e o saldo aparece no livro-caixa."]
-NOT_PAID_BY = ("Não pagamos por número de commits, de linhas ou de pull requests: pesquisar e conferir uma fonte oficial pode levar "
-               "dias e virar poucas linhas. O valor de cada tarefa é decidido antes, à vista de todos.")
+        "apartidário e de código aberto. O seu apoio paga duas coisas, e nada além delas: a infraestrutura que mantém os dados "
+        "corretos e no ar e o trabalho de quem desenvolve o projeto.")
+MONEY_TITLE = "Para onde vai o dinheiro do apoio"
+INFRA = ("O custo real de cada mês, que muda de um mês para outro, com a nota de cada gasto: hoje, as ferramentas de inteligência "
+         "artificial usadas para coletar e conferir os dados; depois, servidor e banco de dados, quando o site precisar. O site é "
+         "hospedado de graça no GitHub Pages. É a primeira coisa paga com o apoio.")
+DEVELOPERS = ("Quem entrega trabalho aceito no repositório, inclusive a pessoa mantenedora. O que sobra de cada mês, depois da "
+              "infraestrutura, é dividido entre quem contribuiu pelo peso de cada contribuição aceita (1, 2 ou 3, escrito no pull "
+              "request antes do merge), e cada pagamento é publicado no livro-caixa.")
+MONTH = ["Primeiro, a infraestrutura do mês, pelo custo real, que muda de um mês para outro.",
+         "O resto vai para quem contribuiu, inclusive a pessoa mantenedora, dividido pelo peso de cada contribuição aceita no mês "
+         "(1, 2 ou 3).",
+         "Nas primeiras divisões, contam todas as contribuições aceitas desde o início do projeto, em 25/09/2026, de todas as "
+         "pessoas, até esse saldo ser pago; depois, só as do mês.",
+         "Num mês sem contribuição aceita, o resto fica guardado para os meses seguintes, e o saldo aparece no livro-caixa."]
+PIX_CARD = "Em reais, qualquer valor, com Pix ou cartão, pela vaquinha do Brasil-Imposto."
 SPONSORS_CARD = "Em dólar, uma vez pela sua conta do GitHub."
 CRYPTO_CARD = "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB. Cada endereço é público, com o link do explorador."
 CRYPTO_CARD_SOON = "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB."
 SOON = "Em breve"
 OTHER_WAY = "Quer apoiar de outro jeito, ou falar com a gente? Escreva por aqui."
-BEFORE = [("Quem recebe:", " o GitHub Sponsors paga ao {host}, organização sem fins lucrativos que guarda o dinheiro do projeto e "
-           "publica cada entrada e cada despesa; as carteiras de cripto são do projeto e ficam com a pessoa mantenedora."),
-          ("O que o apoio compra:", " trabalho e infraestrutura. Não compra conteúdo: ninguém que apoia muda o que o site mostra, "
-           "e as regras de neutralidade valem para todos."),
+# "Quem recebe" gathers one part per open channel, in this order, joined by "; "
+RECEIVES = {"pix": "o Pix e o cartão vão para a Vakinha, que repassa o valor à pessoa mantenedora; cada repasse é publicado no "
+                   "livro-caixa do projeto",
+            "sponsors": "o GitHub Sponsors paga ao {host}, organização sem fins lucrativos que guarda o dinheiro do projeto e publica "
+                        "cada entrada e cada despesa",
+            "crypto": "as carteiras de cripto são do projeto e ficam com a pessoa mantenedora"}
+BEFORE = [("Quem recebe:", ""),   # filled from RECEIVES, only with a channel open
+          ("O que o apoio compra:", " trabalho e infraestrutura. Junto com a doação, você pode pedir pelo \"Fale com a gente\" uma "
+           "funcionalidade que ainda não existe; os pedidos entram no planejamento das próximas atualizações. Nenhum apoio muda um "
+           "número: todo número vem da fonte oficial, e as regras de neutralidade valem para todos."),
           ("De quem não aceitamos:", " partido, candidato e ocupante de cargo eletivo. Toda fonte acima de 5% da receita do ano é "
            "publicada com o nome."),
           ("", "Tudo o que entra e tudo o que sai é publicado, mês a mês, no livro-caixa do projeto."),
           ("Em reais:", " doação em cripto ou em dólar entra no livro-caixa em reais, pela cotação do dia em que chegou."),
           ("Imposto de renda:", " a doação não é dedutível; o projeto não é uma entidade beneficente.")]
+PIX_STEPS = ["Abra a vaquinha do Brasil-Imposto na Vakinha.", "Digite o valor que quiser.",
+             "Pague com Pix, pelo app do seu banco, ou com cartão."]
+PIX_FACTS = ("A Vakinha recebe a doação e repassa o valor ao projeto. Na tela do seu banco, o Pix aparece para {bank}. A Vakinha fica "
+             "com 6,4% mais R$ 0,50 de cada doação, e cada repasse entra no livro-caixa do projeto, com o extrato da Vakinha.")
 SPONSORS_STEPS = ["Abra a página do Brasil-Imposto no GitHub Sponsors.", "Escolha um valor, uma vez ou todo mês.",
                   "Pague com a forma de pagamento da sua conta do GitHub."]
 SPONSORS_FACTS = ("Em dólar. O GitHub não cobra taxa de quem apoia por uma conta pessoal; o apoio feito por uma organização tem taxa "
@@ -68,7 +82,6 @@ SPONSORS_FACTS = ("Em dólar. O GitHub não cobra taxa de quem apoia por uma con
 PICK_NETWORK = "Escolha uma das redes acima ao enviar."
 WARNING = ("Confira a rede antes de enviar. Uma moeda enviada por uma rede que não está na lista se perde, e o projeto não consegue "
            "devolver.")
-RETURN_RULE = "Doação acima de {limit} vinda de carteira sem identificação é devolvida para a carteira de origem."
 CONTACT_ASK = ("O que você gostaria de ver no Brasil-Imposto? Conte para a gente. Lemos todas as mensagens e usamos as ideias para "
                "planejar as próximas atualizações.")
 CONTACT_LGPD = "Seu nome e e-mail servem só para responder você."
@@ -94,12 +107,17 @@ def _row(group, network, standard):
             f'<a href="{escape(url)}" target="_blank" rel="noopener">{escape(network["explorer"])}</a></div></div>')
 
 
+def _nowrap(text):
+    """Escaped text in which "Brasil-Imposto" never breaks at its hyphen."""
+    return escape(text).replace("Brasil-Imposto", '<span class="bi-ap-nw">Brasil-Imposto</span>')
+
+
 def _card(icon, title, text, button, go, is_live):
     """A way to support. While its channel is on "soon" the card says "Em breve" and has nothing to click."""
     if not is_live:
         return (f'<div class="bi-ap-card bi-ap-soon">{icon}<h4>{escape(title)} <span class="bi-ap-tag">{SOON}</span></h4>'
-                f'<p>{escape(text)}</p></div>')
-    return (f'<div class="bi-ap-card">{icon}<h4>{escape(title)}</h4><p>{escape(text)}</p>'
+                f'<p>{_nowrap(text)}</p></div>')
+    return (f'<div class="bi-ap-card">{icon}<h4>{escape(title)}</h4><p>{_nowrap(text)}</p>'
             f'<button type="button" class="bi-ap-cta" data-go="{go}">{escape(button)}</button></div>')
 
 
@@ -108,40 +126,57 @@ def _field(name, label, control):
             f'<p class="bi-ap-err" id="bi-ap-{name}-err" hidden></p></div>')
 
 
+def _receives(data):
+    """The "Quem recebe" line: one part per open channel, in the order Pix, Sponsors, crypto, joined by "; "."""
+    parts = []
+    for channel in support_data.CHANNELS:
+        if not support_data.live(data, channel):
+            continue
+        host = data["sponsors"]["fiscal_host"]
+        link = (f'<a href="{escape(host["url"])}" target="_blank" rel="noopener">{escape(host["name"])}</a>' if host.get("url")
+                else escape(host["name"]))
+        parts.append(escape(RECEIVES[channel]).replace("{host}", link))
+    return "; ".join(parts) + "." if parts else ""
+
+
 def modal(data, keyless=False):
     """The modal's markup: the main view, the contact view, and the view of each payment channel that is live. A value still
     null leaves its sentence out (production never shows a missing value). keyless (the staging build) draws the contact form
     without an access key: a send then shows the error line and makes no request."""
-    sponsors_live, crypto_live = support_data.live(data, "sponsors"), support_data.live(data, "crypto")
+    pix_live, sponsors_live, crypto_live = (support_data.live(data, c) for c in support_data.CHANNELS)
     form_key = data["contact_form"].get("access_key")
     contact = bool(form_key) or keyless
+    receives = _receives(data)
     before = []
     for k, v in BEFORE:
-        if k == "Quem recebe:" and not (sponsors_live or crypto_live):
-            continue  # comes back when a channel goes live
-        host = data["sponsors"]["fiscal_host"]
-        link = (f'<a href="{escape(host["url"])}" target="_blank" rel="noopener">{escape(host["name"])}</a>' if host.get("url")
-                else escape(host["name"]))
-        before.append(f"<li><b>{escape(k)}</b>{escape(v).replace('{host}', link)}</li>" if k else f"<li>{escape(v)}</li>")
-    cap = data.get("maintainer_cap_brl")
-    developers = escape(DEVELOPERS) + (" " + escape(DEVELOPERS_CAP).replace("{cap}", support_data.brl(cap)) if cap else "")
+        if k == "Quem recebe:":
+            if receives:   # comes back when a channel goes live
+                before.append(f"<li><b>{escape(k)}</b> {receives}</li>")
+            continue
+        before.append(f"<li><b>{escape(k)}</b>{escape(v)}</li>" if k else f"<li>{escape(v)}</li>")
+    box = ('<div class="bi-ap-box"><h4>Como cada mês é dividido</h4><ol>' + "".join(f"<li>{escape(x)}</li>" for x in MONTH)
+           + '</ol></div>')
     main = ('<section class="bi-ap-view" data-view="main">'
             '<div class="bi-ap-head"><img src="assets/brand/brasil-imposto-logo.svg" alt="">'
             '<h2 id="bi-ap-title" tabindex="-1">Apoie o Brasil-Imposto</h2></div>'
             f'<p class="bi-ap-lead">{escape(LEAD)}</p>'
-            '<h3>Para onde vai o dinheiro</h3><div class="bi-ap-bar" aria-hidden="true"><i></i><i></i></div>'
+            f'<h3>{escape(MONEY_TITLE)}</h3><div class="bi-ap-bar" aria-hidden="true"><i></i><i></i></div>'
             '<div class="bi-ap-cols">'
-            f'<div class="bi-ap-col bi-ap-g"><h4>1. Desenvolvedores</h4><p>{developers}</p></div>'
-            f'<div class="bi-ap-col bi-ap-b"><h4>2. Infraestrutura</h4><p>{escape(INFRA)}</p></div></div>'
-            '<div class="bi-ap-box"><h4>Como cada mês é dividido</h4><ol>' + "".join(f"<li>{escape(x)}</li>" for x in MONTH)
-            + f'</ol></div><p class="bi-ap-note">{escape(NOT_PAID_BY)}</p>'
+            f'<div class="bi-ap-col bi-ap-b"><h4>1. Infraestrutura</h4><p>{escape(INFRA)}</p></div>'
+            f'<div class="bi-ap-col bi-ap-g"><h4>2. Desenvolvedores</h4><p>{escape(DEVELOPERS)}</p></div></div>'
             '<h3>Como apoiar</h3><div class="bi-ap-cards">'
+            + _card(PIX, "Pix", PIX_CARD, "Apoiar com Pix", "pix", pix_live)
             + _card(GITHUB, "GitHub Sponsors", SPONSORS_CARD, "Apoiar pelo GitHub Sponsors", "sponsors", sponsors_live)
             + _card(COIN, "Cripto", CRYPTO_CARD if crypto_live else CRYPTO_CARD_SOON, "Apoiar com cripto", "crypto", crypto_live)
             + '</div>'
             + (f'<div class="bi-ap-other"><p>{escape(OTHER_WAY)}</p>'
                '<button type="button" class="bi-ap-cta" data-go="contact">Fale com a gente</button></div>' if contact else "")
-            + f'<h3>Antes de apoiar</h3><ul class="bi-ap-list">{"".join(before)}</ul></section>')
+            + box + f'<h3>Antes de apoiar</h3><ul class="bi-ap-list">{"".join(before)}</ul></section>')
+    pix = ('<section class="bi-ap-view" data-view="pix" hidden><h2 tabindex="-1">Apoiar com Pix</h2>'
+           '<ol class="bi-ap-steps">' + "".join(f"<li>{escape(x)}</li>" for x in PIX_STEPS) + '</ol>'
+           f'<p class="bi-ap-facts">{escape(PIX_FACTS).replace("{bank}", escape(data["pix"]["bank_screen_name"] or ""))}</p>'
+           f'<a class="bi-ap-cta" href="{escape(data["pix"]["campaign_url"] or "")}" target="_blank" rel="noopener">'
+           'Abrir a vaquinha</a></section>') if pix_live else ""
     sponsors = ('<section class="bi-ap-view" data-view="sponsors" hidden><h2 tabindex="-1">Apoiar pelo GitHub Sponsors</h2>'
                 '<ol class="bi-ap-steps">' + "".join(f"<li>{escape(x)}</li>" for x in SPONSORS_STEPS) + '</ol>'
                 f'<p class="bi-ap-facts">{escape(SPONSORS_FACTS)}</p>'
@@ -149,18 +184,20 @@ def modal(data, keyless=False):
                 'Abrir o GitHub Sponsors</a></section>') if sponsors_live else ""
     crypto = ""
     if crypto_live:
-        coins = "".join(f'<button type="button" class="bi-ap-coinbtn" data-coin-btn="{c}" aria-pressed="false">{c}</button>'
-                        for c in support_data.COINS)
-        panels = ""
+        # Spec section 10: a coin with no network on "live" keeps its place in the row, dimmed, with the tag, and opens nothing
+        coins, panels = "", ""
         for c in support_data.COINS:
-            rows = support_data.networks_of(data, c)
+            rows = support_data.networks_of(data, c, live=True)
+            # Spec section 10: the token's icon left of its name (assets/cripto, CC0), fetched only once the button is shown
+            icon = f'<img src="assets/cripto/{c.lower()}.svg" alt="" width="20" height="20" loading="lazy">'
+            if not rows:
+                coins += f'<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled>{icon}{c} <span class="bi-ap-tag">{SOON}</span></button>'
+                continue
+            coins += f'<button type="button" class="bi-ap-coinbtn" data-coin-btn="{c}" aria-pressed="false">{icon}{c}</button>'
             panels += (f'<div class="bi-ap-coin" data-coin="{c}" hidden>' + "".join(_row(*r) for r in rows)
                        + (f'<p class="bi-ap-pick">{escape(PICK_NETWORK)}</p>' if len(rows) > 1 else "") + '</div>')
-        limit = data["crypto"].get("unidentified_return_above_brl")
         crypto = ('<section class="bi-ap-view" data-view="crypto" hidden><h2 tabindex="-1">Apoiar com cripto</h2>'
-                  f'<div class="bi-ap-coins">{coins}</div>{panels}<p class="bi-ap-warn">{escape(WARNING)}</p>'
-                  + (f'<p class="bi-ap-rule">{escape(RETURN_RULE).replace("{limit}", support_data.brl(limit))}</p>' if limit else "")
-                  + '</section>')
+                  f'<div class="bi-ap-coins">{coins}</div>{panels}<p class="bi-ap-warn">{escape(WARNING)}</p></section>')
     # D124: name, e-mail and message, sent by fetch as JSON to Web3Forms with its public access key, so no e-mail address is
     # ever in the page; a honeypot (botcheck) and a minimum time before sending keep robots out.
     form = ""
@@ -185,7 +222,7 @@ def modal(data, keyless=False):
             '<div class="bi-ap-backdrop"></div><div class="bi-ap-panel">'
             f'<div class="bi-ap-top"><button type="button" class="bi-ap-back" hidden>{BACK}<span>Voltar</span></button>'
             f'<button type="button" class="bi-ap-x" aria-label="Fechar">{CLOSE}</button></div>'
-            f'<div class="bi-ap-body">{main}{sponsors}{crypto}{form}</div></div></div>')
+            f'<div class="bi-ap-body">{main}{pix}{sponsors}{crypto}{form}</div></div></div>')
 
 
 CSS = """<style id="bi-apoie-css">
@@ -218,17 +255,21 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; padding-right: 48px; }
 .bi-ap-head img { width: 42px; height: 42px; flex: none; }
 .bi-ap-bar { display: flex; gap: 3px; height: 6px; margin: 0 0 12px; }
-.bi-ap-bar i { flex: 1; border-radius: 99px; background: #12803F; }
-.bi-ap-bar i + i { background: #1F5FAF; }
+.bi-ap-bar i { flex: 1; border-radius: 99px; background: #1F5FAF; }
+.bi-ap-bar i + i { background: #12803F; }
 .bi-ap-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 22px; }
 .bi-ap-col h4::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 7px; border-radius: 3px; background: #12803F; vertical-align: -1px; }
 .bi-ap-b h4::before { background: #1F5FAF; }
 .bi-ap-box { margin: 16px 0 10px; padding: 14px 16px; border: 1px solid #E3E7EC; border-radius: 12px; background: #F6F8FA; }
 .bi-ap-box ol, .bi-ap-steps { margin: 0; padding-left: 20px; }
 .bi-ap-box li + li, .bi-ap-steps li + li { margin-top: 4px; }
-.bi-ap-note { font-size: 13px !important; color: #5B6773 !important; }
-.bi-ap-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.bi-ap-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.bi-ap-nw { white-space: nowrap; }
+.bi-ap-other + .bi-ap-box, .bi-ap-cards + .bi-ap-box { margin-top: 22px; }
 .bi-ap-card { display: flex; flex-direction: column; align-items: flex-start; padding: 16px; border: 1px solid #E3E7EC; border-radius: 14px; }
+/* the title and its "Em breve" tag share a row that wraps: in a narrow column the tag drops under the title, aligned with it */
+.bi-ap-card h4 { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.bi-ap-card .bi-ap-tag { margin-left: 0; }
 .bi-ap-card p { flex: 1; }
 .bi-ap-mark { width: 28px; height: 28px; margin-bottom: 8px; }
 .bi-ap-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 16px; border: 0; border-radius: 99px; background: #12803F; color: #fff; font: 800 13.5px Manrope, system-ui, sans-serif; text-decoration: none; cursor: pointer; text-align: center; }
@@ -242,8 +283,13 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-steps { margin: 16px 0 12px; }
 .bi-ap-facts { margin: 0 0 16px !important; padding: 12px 14px; border-radius: 12px; background: #F6F8FA; }
 .bi-ap-coins { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 14px; }
-.bi-ap-coinbtn { min-width: 64px; height: 38px; padding: 0 12px; border: 1px solid #D5DBE1; border-radius: 99px; background: #fff; color: #14202B; font: 800 13px "JetBrains Mono", ui-monospace, monospace; cursor: pointer; }
+.bi-ap-coinbtn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-width: 64px; height: 38px; padding: 0 12px 0 9px; border: 1px solid #D5DBE1; border-radius: 99px; background: #fff; color: #14202B; font: 800 13px "JetBrains Mono", ui-monospace, monospace; cursor: pointer; }
 .bi-ap-coinbtn[aria-pressed="true"] { border-color: #12803F; background: #12803F; color: #fff; }
+.bi-ap-coinbtn img { display: block; width: 20px; height: 20px; flex: none; }
+.bi-ap-coinbtn[aria-pressed="true"] img { background: #fff; border-radius: 99px; }
+.bi-ap-coinbtn.bi-ap-coinsoon { color: #8A95A1; border-style: dashed; background: #F6F8FA; cursor: default; }
+.bi-ap-coinbtn.bi-ap-coinsoon img { opacity: .45; filter: grayscale(1); }
+.bi-ap-coinbtn .bi-ap-tag { margin-left: 0; }
 .bi-ap-coin { margin-bottom: 12px; }
 .bi-ap-net { padding: 12px 0; border-top: 1px solid #E3E7EC; }
 .bi-ap-net:last-of-type { border-bottom: 1px solid #E3E7EC; }
@@ -254,7 +300,6 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-copy.done { background: #12803F; color: #fff; }
 .bi-ap-pick { margin-top: 10px !important; font-size: 13px !important; }
 .bi-ap-warn { margin: 6px 0 10px !important; padding: 12px 14px; border-left: 4px solid #C8102E; border-radius: 8px; background: #FDF1F2; color: #6B0F1A !important; }
-.bi-ap-rule { font-size: 13.5px !important; }
 .bi-ap-form { display: grid; gap: 12px; margin-top: 14px; }
 .bi-ap-hp label { display: grid; }
 .bi-ap-form input, .bi-ap-form textarea { box-sizing: border-box; width: 100%; padding: 10px 12px; border: 1px solid #C9D1D9; border-radius: 10px; font: 500 14px Manrope, system-ui, sans-serif; color: #14202B; }
@@ -274,12 +319,13 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-form .bi-ap-cta { justify-self: start; }
 @media (max-width: 820px) {
   .bi-end { gap: 8px; }
+  .bi-ap-cards { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .bi-apoie { padding: 8px; }
   .bi-ap-panel { max-height: calc(100vh - 16px); max-height: calc(100dvh - 16px); border-radius: 14px; }
   .bi-ap-body { padding: 18px 16px 22px; }
-  .bi-ap-cols, .bi-ap-cards { grid-template-columns: 1fr; }
+  .bi-ap-cols { grid-template-columns: 1fr; }
   .bi-ap-cols { gap: 12px; }
   .bi-ap-body h2 { font-size: 21px; }
 }

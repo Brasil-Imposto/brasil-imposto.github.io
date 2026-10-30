@@ -51,6 +51,7 @@ SCRIPT = r"""<script id="bi-loader-js">
     const run = (s) => new Promise((ok, fail) => {
       const n = document.createElement('script');
       if (s.hasAttribute('data-module')) n.type = 'module';
+      if (s.dataset.integrity) { n.integrity = s.dataset.integrity; n.crossOrigin = 'anonymous'; }
       if (s.dataset.src) { n.src = s.dataset.src; n.async = false; n.onload = ok; n.onerror = () => fail(new Error(s.dataset.src)); }
       else n.textContent = s.textContent;
       s.replaceWith(n);
@@ -103,14 +104,17 @@ def card(size):
 
 
 def hold(tag):
-    """One script element held back unchanged until the data has run."""
+    """One script element held back unchanged until the data has run. An outside script keeps its hash: integrity with
+    crossorigin="anonymous" becomes data-integrity, which the loader puts back (spec apoie, section 10.2, item 4)."""
     m = re.fullmatch(r'<script( [^>]*)?>(.*)</script>', tag, flags=re.S)
     attrs, body = m.group(1) or "", m.group(2)
     src = re.search(r' src="([^"]+)"', attrs)
     if src:
-        if not (body == "" and attrs.strip() == f'src="{src.group(1)}"'):
+        sri = re.fullmatch(f'src="{re.escape(src.group(1))}"' + r'(?: integrity="([^"]+)" crossorigin="anonymous")?', attrs.strip())
+        if not (body == "" and sri):
             raise SystemExit(tag[:80])
-        return f'<script type="text/x-bi-deferred" data-src="{src.group(1)}"></script>'
+        integrity = f' data-integrity="{sri.group(1)}"' if sri.group(1) else ""
+        return f'<script type="text/x-bi-deferred" data-src="{src.group(1)}"{integrity}></script>'
     if attrs.strip() == 'type="module"':
         return f'<script type="text/x-bi-deferred" data-module>{body}</script>'
     if not (attrs == ""):

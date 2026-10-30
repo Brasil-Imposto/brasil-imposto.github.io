@@ -109,9 +109,10 @@
       ${(cmp.sources || []).length ? `<p class="cp-src"><b>Fontes:</b> ${cmp.sources.map((s) => link(s)).join(' ')}</p>` : ''}</div>`;
   }
 
-  // Copy buttons (CNPJ) work anywhere the case page is shown.
+  // Copy buttons (CNPJ) work anywhere the case page is shown. Only the cases' own buttons (class copy): the Apoie modal's
+  // "Copiar" also carries data-copy, and keeping only the digits of a crypto address would break it (spec apoie, 10.2, item 3).
   document.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-copy]');
+    const b = e.target.closest('button.copy[data-copy]');
     if (!b) return;
     navigator.clipboard && navigator.clipboard.writeText(b.dataset.copy.replace(/\D/g, ''));
     b.classList.add('done'); setTimeout(() => b.classList.remove('done'), 1400);
