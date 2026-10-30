@@ -78,7 +78,14 @@ Medido em 2026-10-29 nas versões exatas do jsDelivr (bytes comprimidos com gzip
 
 A Xverse mostra destinos, valores e a taxa, que quem doa escolhe. A MetaMask diz que o link "mostra a tela de confirmação". O TronLink abre uma janela com Recusar e Assinar. Os campos exatos das telas de MetaMask, Trust Wallet, TronLink, Phantom, Xaman, GemWallet e Crossmark não estão escritos nas páginas lidas: o teste do autor em cada moeda e rede (D205) é o que confere.
 
-## 10. O que não foi confirmado
+## 10. WalletConnect e AppKit: o que cobrem e a licença (lido pela sessão em 2026-10-29)
+
+- docs.reown.com (AppKit overview, networks overview, JavaScript installation, Blockchain API): o AppKit tem suporte de primeira classe a EVM, Solana, Bitcoin, TON e Tron; a Blockchain API cobre Solana, Bitcoin e Tron (rede principal) e é grátis até 2,5 milhões de pedidos a cada 30 dias. O XRP Ledger não está.
+- Licenças, lidas nos arquivos de licença dos repositórios: o AppKit e a Blockchain API sob a "Reown Community License Agreement" (25/08/2025); as bibliotecas do protocolo (`@walletconnect/sign-client` e as irmãs) sob a "WalletConnect Community License Agreement" (20/08/2025). Uso comercial limitado a 2.500.000 chamadas e 500 usuários ativos por mês, acima disso licença paga; conexão obrigatória à rede da Reown; aviso de direitos e cópia da licença no site; mudanças no código cedidas à Reown.
+- npm e GitHub (APIs, 2026-10-29): `@reown/appkit` 1.8.24, 7.036.019 downloads no último mês, 5.455 estrelas; `@walletconnect/sign-client` 2.26.0, 17.275.315 downloads; nenhum marcado como obsoleto.
+- Licenças das bibliotecas do caminho direto: Crossmark SDK, `sats-connect` e `qrcode-generator`, MIT; GemWallet API sem licença declarada (npm e GitHub).
+
+## 11. O que não foi confirmado
 
 - Se os navegadores internos de MetaMask, Trust Wallet e TronLink injetam o objeto da carteira (provável; nenhuma página diz).
 - Se links `ethereum:` sem o domínio da MetaMask abrem alguma carteira; a unidade do valor no link da Trust Wallet e se ele funciona para USDT na Tron.

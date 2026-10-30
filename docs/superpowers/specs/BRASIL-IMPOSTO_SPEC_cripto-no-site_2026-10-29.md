@@ -1,6 +1,6 @@
 # Spec: a doação em cripto feita dentro do site
 
-Status: **rascunho para a aprovação do mantenedor** (D205). Nenhum código antes da aprovação e das rodadas de prévia (D3, D185). Pesquisa: `docs/research/BRASIL-IMPOSTO_RESEARCH_cripto-no-site_2026-10-29.md`. Quem faz (D164): a sessão local de 2026-10-29, que tem o #162 (esta spec) e o #163 (o código da seção 10 do Apoie, onde a vista de copiar o endereço já está pronta e testada).
+Status: **rascunho para a aprovação do mantenedor** (D205); **rodada 1 respondida em parte em 2026-10-29 (D206)**: a direção do modal, os ícones, os valores na unidade da moeda e as perguntas 6, 8 e 9 estão decididos; a pergunta 2 (como o site fala com as carteiras, com as perguntas 3 a 5 dentro dela) espera a resposta com os fatos da seção 4.1. Nenhum código antes da aprovação e das rodadas de prévia (D3, D185). Pesquisa: `docs/research/BRASIL-IMPOSTO_RESEARCH_cripto-no-site_2026-10-29.md`. Quem faz (D164): a sessão local de 2026-10-29, que tem o #162 (esta spec) e o #163 (o código da seção 10 do Apoie, onde a vista de copiar o endereço já está pronta e testada).
 
 ## 1. O objetivo
 
@@ -28,9 +28,9 @@ Nas palavras do autor (D205): *"the brasil imposto website should not just show 
 
 ### 3.2 Os passos
 
-1. **Moeda:** os sete botões de hoje (BTC, ETH, SOL, USDT, USDC, XRP, BNB). Uma moeda cujas redes estão todas "Em breve" não abre envio (o XRP hoje).
-2. **Rede:** as linhas de hoje (nome da rede, endereço, "Copiar", explorador). Cada linha ganha "Enviar pelo site" (pergunta 1).
-3. **Valor:** um campo na unidade da moeda ("10 USDT", "0,005 BTC"), com vírgula ou ponto. Sem valor em reais (pergunta 7).
+1. **Moeda:** os sete botões de hoje (BTC, ETH, SOL, USDT, USDC, XRP, BNB), cada um com o ícone do token à esquerda do nome (D206). Uma moeda cujas redes estão todas "Em breve" fica na fila, apagada, com "Em breve", e não abre nada (o XRP hoje, D206). **Escolher o token muda o modal para o envio** (D206): a rede, o valor e o "como enviar" aparecem logo, e a linha do endereço continua na tela.
+2. **Rede:** as linhas de hoje (nome da rede, endereço, "Copiar", explorador) continuam (D206); com mais de uma rede (USDT 4, USDC 3), quem doa escolhe a rede e o envio segue a escolhida.
+3. **Valor:** um campo na unidade da moeda ("10 USDT", "0,005 BTC"), com vírgula ou ponto. Sem valor em reais (D206).
 4. **Como enviar**, só os caminhos que funcionam para aquela rede naquele aparelho:
    - "Carteira deste navegador": as extensões encontradas para a rede (pelo nome e ícone que cada uma anuncia);
    - "Abrir no app da carteira" (no celular): um botão por app documentado para a rede, que abre o app com o destino e o valor preenchidos;
@@ -81,6 +81,17 @@ Enviado (com o link da transação), cancelado (nada sai da carteira), ou um cam
 | Bitcoin | Link `bitcoin:` (pergunta 4) | Link `bitcoin:` com o valor em BTC | O mesmo link num QR |
 | XRP Ledger | Link de pedido do Xaman (pergunta 5) | O mesmo link, que abre o Xaman preenchido | O mesmo link num QR |
 
+### 4.1 Conectar qualquer carteira de celular: o WalletConnect da Reown (lido em 2026-10-29)
+
+O único jeito documentado de um botão "Conectar carteira" funcionar com quase qualquer app de carteira no celular (e por QR no computador) é o protocolo WalletConnect, hoje da Reown, com o kit AppKit.
+
+- **O que cobre:** EVM, Solana, Bitcoin, TON e Tron (docs.reown.com, AppKit networks overview; a versão em JavaScript cobre EVM, Solana e Bitcoin na tabela da visão geral, e a página de instalação mostra o adaptador da Tron). O XRP Ledger não está (só uma rede lateral EVM do XRPL, que é outra coisa). O AppKit traz o próprio acesso às redes (Blockchain API), que cobre Solana, Bitcoin e Tron: grátis até 2,5 milhões de pedidos a cada 30 dias. Isso resolveria a Solana pela extensão sem um nó separado.
+- **Cadastro:** uma conta na Reown e um identificador do projeto (público por desenho, preso aos domínios do site). Nenhuma chave secreta.
+- **Licença:** o AppKit está sob a "Reown Community License Agreement" (25/08/2025), da Reown, Inc., e as bibliotecas do protocolo sob a "WalletConnect Community License Agreement" (20/08/2025). **Não é código aberto.** Grátis enquanto o site ficar abaixo de 2.500.000 chamadas por mês e de 500 usuários ativos por mês (uma carteira diferente que se conecta em 30 dias); acima disso, licença comercial paga, preço sob consulta, e a Reown pode mudar os limites "a seu critério". Obriga a usar a rede da própria Reown, pôr o aviso "Portions © 2025 Reown, Inc. All Rights Reserved" e uma cópia da licença no site; qualquer mudança no código deles passa a ser da Reown; lei de Delaware, EUA. O Brasil-Imposto é AGPL-3.0.
+- **Uso:** `@reown/appkit` 1.8.24, 7,0 milhões de downloads no mês (npm), 5.455 estrelas no GitHub, atualizado nesta semana; pede uma etapa de montagem (o AppKit recomenda o Vite) e um arquivo próprio no site, carregado só no envio (peso ainda não medido).
+- **Sair depois:** o kit ficaria só no arquivo do envio; sair é apagar esse arquivo e o botão. Os caminhos diretos continuam.
+- **Sem o WalletConnect:** no computador, as extensões funcionam direto (EVM e Tron sem biblioteca; XRP pela Crossmark, MIT, 10 KB); no celular, quem doa toca em "Abrir no app da carteira": o app abre o site no navegador dele, onde o mesmo caminho da extensão roda (MetaMask e Trust Wallet documentam o link), ou abre o envio já preenchido (MetaMask, Xaman, `bitcoin:`, `solana:`). A GemWallet saiu da lista: não declara licença (npm e GitHub).
+
 ## 5. Regras de segurança
 
 1. **O destino vem só do arquivo de dados conferido** (`data/support.json`, com a soma de verificação e o endereço fixado no teste, seção 10 do Apoie). Nunca do link, de um campo, da carteira ou de qualquer resposta de fora. O link do site (E2) só escolhe moeda, rede e valor.
@@ -119,7 +130,9 @@ Chaves em inglês. Em cada rede de `crypto.groups[].networks[]`:
 5. **A lista fechada de métodos** (regra 4): um método fora da lista no código tem de falhar.
 6. **O teste de verdade:** o autor manda um valor pequeno em cada moeda e cada rede pelo fluxo, no site de testes; a sessão confere a chegada no explorador e na API de cada rede.
 
-## 9. Perguntas ao mantenedor (rodada 1)
+## 9. Perguntas ao mantenedor (rodada 1; respostas em D206)
+
+Respondidas (D206): 1 com uma direção nova (o envio aparece ao escolher o token, com a linha do endereço na tela); 6 a, 7 a, 8 a e 9 a. Aberta: a 2, com as 3 a 5 dentro dela, agora com os fatos da seção 4.1.
 
 1. **Onde fica o envio na vista da cripto?** a) um botão "Enviar pelo site" em cada linha de rede, que abre o valor e o "como enviar" logo abaixo, com a linha do endereço como está (recomendado); b) um fluxo em passos que substitui a vista, com "copiar o endereço" como um dos caminhos; c) uma página separada.
 2. **Como o site fala com as carteiras?** a) sem biblioteca, sem servidor e sem conta: a extensão do navegador por chamadas diretas onde as carteiras documentam (EVM e Tron) e links ou QR que abrem o app da carteira preenchido (recomendado); b) o mesmo, mais o WalletConnect da Reown: um painel para centenas de carteiras, com uma conta e um identificador público da Reown; plano grátis com corte em 2,5 milhões de chamadas por mês, Pro a US$ 89 por mês; c) só links e QR.
