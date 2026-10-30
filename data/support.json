@@ -1,5 +1,5 @@
 {
- "about": "The Apoie button and its modal (spec docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_apoie_2026-10-23.md, section 9 for the Pix). Whether a build carries them is the apoie switch of data/features.json (spec staging, D158); the button needs no access key: the contact form shows only once contact_form.access_key holds the Web3Forms access key, and until then the button and the rest of the modal are live without it (D162). Each payment channel (pix, sponsors, crypto) opens on its own: status soon shows its card with an \"Em breve\" tag; status live needs every value of that channel filled in, after the gates of the spec (D123, D125 to D127; for the Pix, section 9.2). The maintainer has no fixed amount or cap. pipelines/tests/test_support.py checks it.",
+ "about": "The Apoie button and its modal (spec docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_apoie_2026-10-23.md, section 9 for the Pix). Whether a build carries them is the apoie switch of data/features.json (spec staging, D158); the button needs no access key: the contact form shows only once contact_form.access_key holds the Web3Forms access key, and until then the button and the rest of the modal are live without it (D162). Each payment channel (pix, sponsors, crypto) opens on its own: status soon shows its card with an \"Em breve\" tag; status live needs every value of that channel filled in, after the gates of the spec (D123, D125 to D127; for the Pix, section 9.2). Each crypto network has its own status: one on soon shows no address, and a coin whose networks are all on soon keeps its button in the row, dimmed, with the Em breve tag (spec section 10). The maintainer has no fixed amount or cap. pipelines/tests/test_support.py checks it.",
  "pix": {
   "status": "soon",
   "provider": "Vakinha",
@@ -19,7 +19,7 @@
   }
  },
  "crypto": {
-  "status": "soon",
+  "status": "live",
   "groups": [
    {
     "id": "bitcoin",
@@ -28,6 +28,8 @@
     "networks": [
      {
       "id": "bitcoin",
+
+      "status": "live",
       "name": "Bitcoin",
       "explorer": "mempool.space",
       "explorer_url": "https://mempool.space/address/{address}",
@@ -47,6 +49,8 @@
     "networks": [
      {
       "id": "ethereum",
+
+      "status": "live",
       "name": "Ethereum",
       "explorer": "Etherscan",
       "explorer_url": "https://etherscan.io/address/{address}",
@@ -67,6 +71,8 @@
      },
      {
       "id": "bsc",
+
+      "status": "live",
       "name": "BNB Smart Chain",
       "explorer": "BscScan",
       "explorer_url": "https://bscscan.com/address/{address}",
@@ -94,6 +100,8 @@
     "networks": [
      {
       "id": "solana",
+
+      "status": "live",
       "name": "Solana",
       "explorer": "Solscan",
       "explorer_url": "https://solscan.io/account/{address}",
@@ -121,6 +129,8 @@
     "networks": [
      {
       "id": "tron",
+
+      "status": "live",
       "name": "Tron",
       "explorer": "Tronscan",
       "explorer_url": "https://tronscan.org/address/{address}/transactions",
@@ -140,6 +150,8 @@
     "networks": [
      {
       "id": "xrp-ledger",
+
+      "status": "soon",
       "name": "XRP Ledger",
       "explorer": "XRPScan",
       "explorer_url": "https://xrpscan.com/account/{address}",

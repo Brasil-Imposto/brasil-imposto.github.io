@@ -14,8 +14,9 @@
 //            pix.campaign_url, opens in a new tab with noopener, Escape closes from that view and the focus is back on Apoie
 //   views    each button of the main view opens its focused view, the only view displayed (computed display), and Voltar
 //            comes back
-//   coins    (only when crypto is live) each coin shows only its own panel, with its networks: BTC 1, ETH 1, SOL 1, USDT 4,
-//            USDC 3, XRP 1, BNB 1
+//   coins    (only when crypto is live) each coin shows only its own panel, with its networks on "live" in the data file (all
+//            open: BTC 1, ETH 1, SOL 1, USDT 4, USDC 3, XRP 1, BNB 1); a coin with none (XRP until its account exists, spec
+//            section 10) keeps its button in the row, disabled, with "Em breve", and has no panel
 //   addresses (only when crypto is live; spec apoie, section 10.2, item 3) for every coin and network, in the order of the data
 //            file: the network's name, the address shown, the address "Copiar" puts on the clipboard (read back from the real
 //            clipboard after a real click) and the explorer link equal data/support.json (or BI_SUPPORT_JSON)
@@ -43,8 +44,9 @@ const fs = require('fs');
 const path = require('path');
 const SUPPORT = JSON.parse(fs.readFileSync(process.env.BI_SUPPORT_JSON || path.join(__dirname, '..', '..', '..', 'data', 'support.json'), 'utf8'));
 // every row the crypto view must show for a coin, in the order of the data file (support_data.networks_of)
-const expected = (coin) => SUPPORT.crypto.groups.flatMap((g) => g.networks.flatMap((n) => n.coins.filter((c) => c.coin === coin)
+const expected = (coin) => SUPPORT.crypto.groups.flatMap((g) => g.networks.filter((n) => n.status === 'live').flatMap((n) => n.coins.filter((c) => c.coin === coin)
   .map((c) => ({ name: n.name + (c.standard ? ` (${c.standard})` : ''), address: g.address, href: n.explorer_url.replace('{address}', g.address), explorer: n.explorer }))));
+const NETWORKS = Object.fromEntries(['BTC', 'ETH', 'SOL', 'USDT', 'USDC', 'XRP', 'BNB'].map((c) => [c, expected(c).length]));
 // the line added to every outside script: plain script syntax, valid in a classic script and in a module alike
 const mark = (u) => `\n;(window.__biTampered = window.__biTampered || []).push(${JSON.stringify(u)});\n`;
 // the control's page: every hash taken out (integrity, data-integrity and the import map's list), plus one outside script with no
@@ -55,7 +57,6 @@ const unhash = (html) => html.replace(/ integrity="[^"]*"/g, '').replace(/ data-
 const rehash = (html) => html.replace(/(sha(?:256|384|512)-)(.)/g, (m, alg, c) => alg + (c === 'A' ? 'B' : 'A'));
 const PAGES = ['BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html', 'os-3-poderes.html',
   'como-o-dinheiro-anda.html'];
-const NETWORKS = { BTC: 1, ETH: 1, SOL: 1, USDT: 4, USDC: 3, XRP: 1, BNB: 1 };
 const AT = String.fromCharCode(64);
 const PERSON = { name: 'Pessoa de Teste', email: 'teste' + AT + 'exemplo.org', message: 'Mensagem de teste da sonda.' };
 const PLANT = `
@@ -220,6 +221,13 @@ const PLANT = `
         if (go === 'crypto') {
           const bad = [];
           for (const [coin, n] of Object.entries(NETWORKS)) {
+            if (n === 0) {   // on soon: dimmed, disabled, with the tag, and no panel
+              const s = await p.evaluate((coin) => { const b = [...document.querySelectorAll('.bi-ap-coinsoon')].find((x) => x.firstChild.textContent.trim() === coin);
+                return { found: !!b, disabled: !!b && b.disabled, tag: !!b && !!b.querySelector('.bi-ap-tag') && b.querySelector('.bi-ap-tag').textContent.trim() === 'Em breve',
+                  panel: !!document.querySelector(`.bi-ap-coin[data-coin="${coin}"]`), dashed: !!b && getComputedStyle(b).borderTopStyle === 'dashed' }; }, coin);
+              if (!(s.found && s.disabled && s.tag && !s.panel && s.dashed)) bad.push(`${coin} on soon: ${JSON.stringify(s)}`);
+              continue;
+            }
             await tap(p, `[data-coin-btn="${coin}"]`); await p.waitForTimeout(60);
             const c = await shown(p, '.bi-ap-coin');
             const nets = await p.$$eval(`.bi-ap-coin[data-coin="${coin}"] .bi-ap-net`, (es) => es.filter((e) => e.getClientRects().length).length);
@@ -229,7 +237,7 @@ const PLANT = `
           report(w, key, 'coins', bad.length === 0, bad.length ? bad.join('; ') : 'each coin alone, with its networks');
           const wrong = [];
           let rowsSeen = 0;
-          for (const coin of Object.keys(NETWORKS)) {
+          for (const coin of Object.keys(NETWORKS).filter((c) => NETWORKS[c] > 0)) {
             await tap(p, `[data-coin-btn="${coin}"]`); await p.waitForTimeout(60);
             const sel = `.bi-ap-coin[data-coin="${coin}"] .bi-ap-net`;
             const rows = await p.$$eval(sel, (es) => es.map((e) => ({ name: e.querySelector('.bi-ap-net-name').textContent.trim(),

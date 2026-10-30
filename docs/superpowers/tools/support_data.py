@@ -35,10 +35,11 @@ def load():
     return json.loads(Path(os.environ.get("BI_SUPPORT_JSON") or PATH).read_text(encoding="utf-8"))
 
 
-def networks_of(data, coin):
-    """Every (group, network, standard) that receives `coin`, in the order of the file."""
+def networks_of(data, coin, live=False):
+    """Every (group, network, standard) that receives `coin`, in the order of the file; with live, only the networks on "live"
+    (a network on "soon" shows no address, spec section 10)."""
     return [(g, n, c["standard"]) for g in data["crypto"]["groups"] for n in g["networks"] for c in n["coins"]
-            if c["coin"] == coin]
+            if c["coin"] == coin and (not live or n.get("status") == "live")]
 
 
 def live(data, channel):
@@ -66,6 +67,8 @@ def structure_problems(data):
         if g["format"] not in FORMATS:
             out.append(f"{g['id']}: unknown address format {g['format']!r}")
         for n in g["networks"]:
+            if n.get("status") not in STATUSES:
+                out.append(f"{g['id']}/{n['id']}.status: one of {STATUSES}")
             if not (n["explorer_url"].startswith("https://") and n["explorer_url"].count("{address}") == 1):
                 out.append(f"{g['id']}/{n['id']}: the explorer URL needs https and one {{address}}")
     return out
@@ -229,6 +232,8 @@ def channel_problems(data, channel):
         for g in data["crypto"]["groups"]:
             if not g.get("address"):
                 out.append(f"crypto/{g['id']}: the address")
+        if not any(n.get("status") == "live" for g in data["crypto"]["groups"] for n in g["networks"]):
+            out.append("crypto: at least one network on live")
     return out
 
 

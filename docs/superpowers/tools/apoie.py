@@ -184,11 +184,14 @@ def modal(data, keyless=False):
                 'Abrir o GitHub Sponsors</a></section>') if sponsors_live else ""
     crypto = ""
     if crypto_live:
-        coins = "".join(f'<button type="button" class="bi-ap-coinbtn" data-coin-btn="{c}" aria-pressed="false">{c}</button>'
-                        for c in support_data.COINS)
-        panels = ""
+        # Spec section 10: a coin with no network on "live" keeps its place in the row, dimmed, with the tag, and opens nothing
+        coins, panels = "", ""
         for c in support_data.COINS:
-            rows = support_data.networks_of(data, c)
+            rows = support_data.networks_of(data, c, live=True)
+            if not rows:
+                coins += f'<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled>{c} <span class="bi-ap-tag">{SOON}</span></button>'
+                continue
+            coins += f'<button type="button" class="bi-ap-coinbtn" data-coin-btn="{c}" aria-pressed="false">{c}</button>'
             panels += (f'<div class="bi-ap-coin" data-coin="{c}" hidden>' + "".join(_row(*r) for r in rows)
                        + (f'<p class="bi-ap-pick">{escape(PICK_NETWORK)}</p>' if len(rows) > 1 else "") + '</div>')
         crypto = ('<section class="bi-ap-view" data-view="crypto" hidden><h2 tabindex="-1">Apoiar com cripto</h2>'
@@ -280,6 +283,8 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-coins { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 14px; }
 .bi-ap-coinbtn { min-width: 64px; height: 38px; padding: 0 12px; border: 1px solid #D5DBE1; border-radius: 99px; background: #fff; color: #14202B; font: 800 13px "JetBrains Mono", ui-monospace, monospace; cursor: pointer; }
 .bi-ap-coinbtn[aria-pressed="true"] { border-color: #12803F; background: #12803F; color: #fff; }
+.bi-ap-coinbtn.bi-ap-coinsoon { color: #8A95A1; border-style: dashed; background: #F6F8FA; cursor: default; }
+.bi-ap-coinbtn .bi-ap-tag { margin-left: 6px; }
 .bi-ap-coin { margin-bottom: 12px; }
 .bi-ap-net { padding: 12px 0; border-top: 1px solid #E3E7EC; }
 .bi-ap-net:last-of-type { border-bottom: 1px solid #E3E7EC; }

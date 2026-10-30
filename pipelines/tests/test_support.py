@@ -88,7 +88,15 @@ def committed():
 
 
 def on_soon():
-    """The data production goes live with: both channels on "soon" and the form's access key."""
+    """The three channels (Pix, GitHub Sponsors, crypto) on "soon", with the form's access key."""
+    d = copy.deepcopy(committed())
+    d["contact_form"]["access_key"] = ACCESS_KEY
+    d["crypto"]["status"] = "soon"
+    return d
+
+
+def on_soon_crypto_live():
+    """The data production goes live with: the access key, the Pix and GitHub Sponsors on "soon", crypto open with XRP on "soon"."""
     d = copy.deepcopy(committed())
     d["contact_form"]["access_key"] = ACCESS_KEY
     return d
@@ -102,6 +110,8 @@ def on_live():
     d["crypto"]["status"] = "live"
     for g in d["crypto"]["groups"]:
         g["address"] = DUMMY[g["format"]]
+        for n in g["networks"]:
+            n["status"] = "live"
     return d
 
 
@@ -145,7 +155,7 @@ class CommittedFileTest(unittest.TestCase):
         self.assertEqual(d["pix"], {"status": "soon", "provider": "Vakinha", "campaign_url": None, "bank_screen_name": None})
         self.assertEqual(d["sponsors"], {"status": "soon", "sponsors_url": None,
                                          "fiscal_host": {"name": "Open Source Collective", "url": None}})
-        self.assertEqual(d["crypto"]["status"], "soon")
+        self.assertEqual(d["crypto"]["status"], "live", "section 10.1; XRP stays on soon by its network (NetworkStatusTest)")
         self.assertNotIn("unidentified_return_above_brl", d["crypto"], "section 10.1: any amount from any wallet stays")
         # the five project addresses came from the maintainer; each passes its network's format and checksum
         for g in d["crypto"]["groups"]:
@@ -170,6 +180,48 @@ class CommittedFileTest(unittest.TestCase):
 
     def test_no_email_address_in_the_data_file(self):
         self.assertEqual(email_scan.find(support_data.PATH.read_text(encoding="utf-8")), [])
+
+
+class NetworkStatusTest(unittest.TestCase):
+    """Spec section 10: a status per network. XRP stays "Em breve" until the maintainer's first 1 XRP: its button stays in the row,
+    dimmed, with the tag, opens nothing, and the page carries no XRP address."""
+    XRP_SOON = '<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled>XRP <span class="bi-ap-tag">Em breve</span></button>'
+
+    def test_the_committed_crypto_is_live_with_xrp_on_soon(self):
+        d = committed()
+        self.assertEqual(d["crypto"]["status"], "live", "section 10.1: crypto opens in the next production batch")
+        status = {n["id"]: n["status"] for g in d["crypto"]["groups"] for n in g["networks"]}
+        self.assertEqual(status, {"bitcoin": "live", "ethereum": "live", "bsc": "live", "solana": "live", "tron": "live",
+                                  "xrp-ledger": "soon"})
+
+    def test_xrp_on_soon_is_dimmed_and_has_no_address(self):
+        for key, p in build(on_soon_crypto_live()).items():
+            with self.subTest(page=key):
+                h = p["header"]
+                self.assertEqual(h.count(self.XRP_SOON), 1)
+                self.assertNotIn('data-coin="XRP"', h)
+                self.assertNotIn(PINNED["xrp"], h)
+                for coin in ("BTC", "ETH", "SOL", "USDT", "USDC", "BNB"):
+                    self.assertIn(f'data-coin-btn="{coin}"', h)
+                    self.assertIn(f'data-coin="{coin}"', h)
+                self.assertIn(".bi-ap-coinbtn.bi-ap-coinsoon {", p["css"])
+
+    def test_control_xrp_live_shows_its_button_panel_and_address(self):
+        d = on_soon_crypto_live()
+        next(n for g in d["crypto"]["groups"] for n in g["networks"] if n["id"] == "xrp-ledger")["status"] = "live"
+        h = build(d)["inicio"]["header"]
+        self.assertNotIn(self.XRP_SOON, h)
+        self.assertIn('data-coin-btn="XRP"', h)
+        self.assertIn('data-coin="XRP"', h)
+        self.assertIn(PINNED["xrp"], h)
+
+    def test_a_network_status_outside_soon_and_live_fails(self):
+        d = committed()
+        d["crypto"]["groups"][0]["networks"][0]["status"] = "open"
+        self.assertTrue(any("bitcoin/bitcoin.status" in p for p in support_data.problems(d)))
+        d = committed()
+        del d["crypto"]["groups"][1]["networks"][1]["status"]
+        self.assertTrue(any("evm/bsc.status" in p for p in support_data.problems(d)))
 
 
 class RulesTest(unittest.TestCase):
@@ -679,7 +731,8 @@ class PagesTest(unittest.TestCase):
                 h = p["header"]
                 self.assertIn('data-view="contact"', h)
                 self.assertIn('data-key=""', h)
-                self.assertEqual(len(re.findall(r'<div class="bi-ap-card bi-ap-soon">', h)), 3)
+                # the Pix and GitHub Sponsors on soon; crypto open (section 10.1)
+                self.assertEqual(len(re.findall(r'<div class="bi-ap-card bi-ap-soon">', h)), 2)
                 self.assertNotIn("a definir", text(h))
                 self.assertIn("if (!form.dataset.key) { fail.hidden = false; return; }", p["js"])
 
