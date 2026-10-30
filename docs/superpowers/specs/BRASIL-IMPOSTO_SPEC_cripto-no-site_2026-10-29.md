@@ -1,6 +1,6 @@
 # Spec: a doação em cripto feita dentro do site
 
-Status: **pronta para a aprovação do mantenedor** (D205 a D208). A rodada 1 de perguntas está respondida (D206, D208) e a rodada de prévia `cripto-envio-r1` é a base da tela de envio (D208). Nenhum código do envio antes da aprovação desta spec (D3); depois, o plano e o código.
+Status: **aprovada pelo mantenedor em 2026-10-30 (D209)**, fechada com D205 a D208. A rodada 1 de perguntas está respondida (D206, D208) e a rodada de prévia `cripto-envio-r1` é a base da tela de envio (D208). Próximo: o plano, depois o código com testes antes.
 
 ## 1. O objetivo
 
@@ -78,12 +78,12 @@ Sem conta, sem chave e sem WalletConnect (D208). Em todas as redes, o "Confirmar
 | Rede | Computador | Celular | Reserva |
 |---|---|---|---|
 | Ethereum e BNB Smart Chain (ETH, BNB, USDT, USDC) | "Conectar carteira" acha as extensões pelo EIP-6963 (e `window.ethereum` como reserva); "Confirmar" pede `eth_sendTransaction` com o valor ou com a chamada `transfer` do token, depois de conferir a rede (`wallet_switchEthereumChain`, e `wallet_addEthereumChain` para a BNB Smart Chain). Sem biblioteca | "Abrir no app da carteira" (MetaMask, Trust Wallet) abre o site dentro do app, já com a moeda, a rede e o valor, e o mesmo fluxo roda lá (D208) | Copiar o endereço |
-| Tron (USDT) | TronLink pelo TIP-6963, com o `tronWeb` que a própria carteira injeta. Sem biblioteca | Abrir o site dentro do TronLink (o formato do link é conferido na primeira tarefa do plano) | Copiar o endereço |
+| Tron (USDT) | TronLink pelo TIP-6963, com o `tronWeb` que a própria carteira injeta. Sem biblioteca | No navegador do app do TronLink, o mesmo fluxo roda; fora dele, o site pede para abrir a página lá (nenhum link documentado) | Copiar o endereço |
 | Solana (SOL, USDT, USDC) | QR com o pedido do Solana Pay, para a câmera do celular (pela extensão a página precisaria de um nó, e sem conta não há um confirmado: fica fora da versão 1) | "Confirmar" abre o app da carteira já preenchido (Solana Pay: a carteira monta a transação, sem nó e sem conta) | Copiar o endereço |
 | Bitcoin (BTC) | UniSat (`window.unisat.sendBitcoin`, sem biblioteca) e o QR `bitcoin:` para o celular | "Confirmar" abre o app da carteira com o valor (BIP-321) | Copiar o endereço |
 | XRP Ledger (XRP) | Crossmark (MIT, 10 KB, guardada no próprio site) | "Confirmar" abre o Xaman já preenchido (link de pedido de pagamento, sem conta) | Copiar o endereço |
 
-O XRP só abre no site de testes até o primeiro 1 XRP do mantenedor, com o mínimo de 1 XRP enquanto a conta não existir (D206). Os fatos ainda não confirmados nas páginas das carteiras (a injeção nos navegadores dos apps, o link do TronLink, o comportamento do link do Xaman e da Crossmark) são conferidos num navegador de verdade na primeira tarefa do plano, antes de cada caminho; um caminho que não se confirmar fica com a reserva.
+O XRP só abre no site de testes até o primeiro 1 XRP do mantenedor, com o mínimo de 1 XRP enquanto a conta não existir (D206). Os fatos ainda não confirmados nas páginas das carteiras (a injeção nos navegadores dos apps, o comportamento do link do Xaman e da Crossmark) só uma carteira de verdade mostra: são conferidos no teste do mantenedor, no site de testes (seção 8, item 6); um caminho que não se confirmar fica com a reserva até a correção.
 
 ### 4.1 Conectar qualquer carteira de celular: o WalletConnect da Reown (lido em 2026-10-29; fora da versão 1, D208)
 
@@ -121,8 +121,8 @@ Chaves em inglês. Em cada rede de `crypto.groups[].networks[]`:
 
 ## 7. O peso na página (#150)
 
-- O código do envio fica num arquivo próprio (`assets/bi-cripto.js`), carregado só quando quem doa toca em "Enviar pelo site". Quem não abre o envio não baixa nada a mais.
-- Meta: o arquivo do envio abaixo de 15 KB comprimidos, sem biblioteca. O gerador de QR (11,7 KB comprimidos, `qrcode-generator` 2.0.4, MIT) e a Crossmark (10,5 KB, MIT) ficam em `assets/` e só carregam quando o QR aparece no computador ou quando quem doa envia XRP pela extensão.
+- O código do envio fica em dois arquivos próprios (`assets/bi-cripto-core.js` e `assets/bi-cripto.js`), carregados só quando quem doa escolhe uma moeda (D206). Quem não abre o envio não baixa nada a mais.
+- Meta: os dois arquivos do envio abaixo de 15 KB comprimidos, juntos, sem biblioteca. O gerador de QR (11,7 KB comprimidos, `qrcode-generator` 2.0.4, MIT) e a Crossmark (10,5 KB, MIT) ficam em `assets/` e só carregam quando o QR aparece no computador ou quando quem doa envia XRP pela extensão.
 - Nenhuma biblioteca de rede (ethers, tronweb, `@solana/web3.js`, xrpl): as carteiras fazem esse trabalho.
 
 ## 8. Provas (cada teste escrito antes do código e visto falhando, cada um com o seu controle plantado)
@@ -138,7 +138,7 @@ Chaves em inglês. Em cada rede de `crypto.groups[].networks[]`:
 
 Todas respondidas: 1 com uma direção nova (o envio aparece ao escolher o token, com a linha do endereço na tela; D206) e o alvo de uma corretora (D207); 2 a, sem conta e sem WalletConnect, com 3 a 5 resolvidas pela seção 4 (D208); 6 a, 7 a, 8 a e 9 a (D206). A rodada `cripto-envio-r1` é a base da tela (D208); os outros estados da seção 3.3 usam as mesmas peças da rodada, com os textos de lá.
 
-**Para aprovar:** esta spec, como está.
+**Aprovada em 2026-10-30 (D209).**
 
 1. **Onde fica o envio na vista da cripto?** a) um botão "Enviar pelo site" em cada linha de rede, que abre o valor e o "como enviar" logo abaixo, com a linha do endereço como está (recomendado); b) um fluxo em passos que substitui a vista, com "copiar o endereço" como um dos caminhos; c) uma página separada.
 2. **Como o site fala com as carteiras?** a) sem biblioteca, sem servidor e sem conta: a extensão do navegador por chamadas diretas onde as carteiras documentam (EVM e Tron) e links ou QR que abrem o app da carteira preenchido (recomendado); b) o mesmo, mais o WalletConnect da Reown: um painel para centenas de carteiras, com uma conta e um identificador público da Reown; plano grátis com corte em 2,5 milhões de chamadas por mês, Pro a US$ 89 por mês; c) só links e QR.
