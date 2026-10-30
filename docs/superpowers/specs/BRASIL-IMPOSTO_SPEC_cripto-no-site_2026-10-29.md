@@ -1,6 +1,6 @@
 # Spec: a doação em cripto feita dentro do site
 
-Status: **rascunho para a aprovação do mantenedor** (D205); **rodada 1 respondida em parte em 2026-10-29 (D206)**: a direção do modal, os ícones, os valores na unidade da moeda e as perguntas 6, 8 e 9 estão decididos; a pergunta 2 (como o site fala com as carteiras, com as perguntas 3 a 5 dentro dela) espera a resposta com os fatos da seção 4.1. Nenhum código antes da aprovação e das rodadas de prévia (D3, D185). Pesquisa: `docs/research/BRASIL-IMPOSTO_RESEARCH_cripto-no-site_2026-10-29.md`. Quem faz (D164): a sessão local de 2026-10-29, que tem o #162 (esta spec) e o #163 (o código da seção 10 do Apoie, onde a vista de copiar o endereço já está pronta e testada).
+Status: **pronta para a aprovação do mantenedor** (D205 a D208). A rodada 1 de perguntas está respondida (D206, D208) e a rodada de prévia `cripto-envio-r1` é a base da tela de envio (D208). Nenhum código do envio antes da aprovação desta spec (D3); depois, o plano e o código.
 
 ## 1. O objetivo
 
@@ -71,17 +71,21 @@ Nas palavras do autor (D205): *"the brasil imposto website should not just show 
 
 Enviado (com o link da transação), cancelado (nada sai da carteira), ou um caminho alternativo (QR, app ou copiar o endereço). Nenhuma saída deixa quem doa sem o endereço: a linha com "Copiar" está sempre na tela.
 
-## 4. Como o site fala com cada carteira (versão 1, com as recomendações das perguntas)
+## 4. Como o site fala com cada carteira (versão 1, D207 e D208)
 
-| Rede | Computador | Celular | QR no computador |
+Sem conta, sem chave e sem WalletConnect (D208). Em todas as redes, o "Confirmar" do modal leva à confirmação da carteira de quem doa, com a moeda, a rede, o valor e o endereço do projeto já preenchidos; quem doa não digita nada além do valor (D207).
+
+| Rede | Computador | Celular | Reserva |
 |---|---|---|---|
-| Ethereum e BNB Smart Chain | Extensões pelo EIP-6963 (e `window.ethereum` como reserva): `eth_requestAccounts`, `wallet_switchEthereumChain` (e `wallet_addEthereumChain` para a BNB Smart Chain), `eth_sendTransaction` com o valor ou com a chamada `transfer` do token. Sem biblioteca | Link de envio da MetaMask (documentado: preenche e troca a rede); abrir o site no navegador da MetaMask ou da Trust Wallet, onde o caminho do computador roda | Link EIP-681 da rede |
-| Tron (USDT) | TronLink pelo TIP-6963 e o `tronWeb` que a própria carteira injeta. Sem biblioteca | Abrir o site no navegador do TronLink (a confirmar no teste); senão, copiar o endereço | Não há link de pagamento Tron documentado: só copiar |
-| Solana | Link do Solana Pay (pergunta 3) | Link `solana:` com o valor e, para token, o mint | O mesmo link num QR |
-| Bitcoin | Link `bitcoin:` (pergunta 4) | Link `bitcoin:` com o valor em BTC | O mesmo link num QR |
-| XRP Ledger | Link de pedido do Xaman (pergunta 5) | O mesmo link, que abre o Xaman preenchido | O mesmo link num QR |
+| Ethereum e BNB Smart Chain (ETH, BNB, USDT, USDC) | "Conectar carteira" acha as extensões pelo EIP-6963 (e `window.ethereum` como reserva); "Confirmar" pede `eth_sendTransaction` com o valor ou com a chamada `transfer` do token, depois de conferir a rede (`wallet_switchEthereumChain`, e `wallet_addEthereumChain` para a BNB Smart Chain). Sem biblioteca | "Abrir no app da carteira" (MetaMask, Trust Wallet) abre o site dentro do app, já com a moeda, a rede e o valor, e o mesmo fluxo roda lá (D208) | Copiar o endereço |
+| Tron (USDT) | TronLink pelo TIP-6963, com o `tronWeb` que a própria carteira injeta. Sem biblioteca | Abrir o site dentro do TronLink (o formato do link é conferido na primeira tarefa do plano) | Copiar o endereço |
+| Solana (SOL, USDT, USDC) | QR com o pedido do Solana Pay, para a câmera do celular (pela extensão a página precisaria de um nó, e sem conta não há um confirmado: fica fora da versão 1) | "Confirmar" abre o app da carteira já preenchido (Solana Pay: a carteira monta a transação, sem nó e sem conta) | Copiar o endereço |
+| Bitcoin (BTC) | UniSat (`window.unisat.sendBitcoin`, sem biblioteca) e o QR `bitcoin:` para o celular | "Confirmar" abre o app da carteira com o valor (BIP-321) | Copiar o endereço |
+| XRP Ledger (XRP) | Crossmark (MIT, 10 KB, guardada no próprio site) | "Confirmar" abre o Xaman já preenchido (link de pedido de pagamento, sem conta) | Copiar o endereço |
 
-### 4.1 Conectar qualquer carteira de celular: o WalletConnect da Reown (lido em 2026-10-29)
+O XRP só abre no site de testes até o primeiro 1 XRP do mantenedor, com o mínimo de 1 XRP enquanto a conta não existir (D206). Os fatos ainda não confirmados nas páginas das carteiras (a injeção nos navegadores dos apps, o link do TronLink, o comportamento do link do Xaman e da Crossmark) são conferidos num navegador de verdade na primeira tarefa do plano, antes de cada caminho; um caminho que não se confirmar fica com a reserva.
+
+### 4.1 Conectar qualquer carteira de celular: o WalletConnect da Reown (lido em 2026-10-29; fora da versão 1, D208)
 
 O único jeito documentado de um botão "Conectar carteira" funcionar com quase qualquer app de carteira no celular (e por QR no computador) é o protocolo WalletConnect, hoje da Reown, com o kit AppKit.
 
@@ -118,13 +122,13 @@ Chaves em inglês. Em cada rede de `crypto.groups[].networks[]`:
 ## 7. O peso na página (#150)
 
 - O código do envio fica num arquivo próprio (`assets/bi-cripto.js`), carregado só quando quem doa toca em "Enviar pelo site". Quem não abre o envio não baixa nada a mais.
-- Meta: o arquivo do envio abaixo de 15 KB comprimidos, sem biblioteca. O gerador de QR (11,7 KB comprimidos, `qrcode-generator` 2.0.4) fica em `assets/` e só carrega quando o QR aparece no computador.
+- Meta: o arquivo do envio abaixo de 15 KB comprimidos, sem biblioteca. O gerador de QR (11,7 KB comprimidos, `qrcode-generator` 2.0.4, MIT) e a Crossmark (10,5 KB, MIT) ficam em `assets/` e só carregam quando o QR aparece no computador ou quando quem doa envia XRP pela extensão.
 - Nenhuma biblioteca de rede (ethers, tronweb, `@solana/web3.js`, xrpl): as carteiras fazem esse trabalho.
 
 ## 8. Provas (cada teste escrito antes do código e visto falhando, cada um com o seu controle plantado)
 
 1. **As contas do valor:** valor digitado para unidades inteiras, em cada token e rede, com casos de borda (casas demais, zero, vírgula e ponto). Controle: 6 casas no USDT da BNB Smart Chain tem de falhar.
-2. **Os links de pagamento:** cada link (MetaMask, EIP-681, Solana Pay, BIP-321, Xaman) igual ao formato da página de cada padrão, com o destino do arquivo. Controle: um destino trocado tem de falhar.
+2. **Os links:** o que abre o site dentro do app da carteira (MetaMask, Trust Wallet, TronLink) leva a moeda, a rede e o valor, nunca o endereço; os pedidos de pagamento (Solana Pay, BIP-321, Xaman) iguais ao formato da página de cada padrão, com o destino do arquivo. Controle: um destino trocado tem de falhar.
 3. **A chamada do token:** os dados `a9059cbb` + destino + valor, conferidos com o keccak-256 do `support_data.py`.
 4. **Uma sonda no navegador com carteiras de mentira** (um objeto EIP-1193 anunciado pelo EIP-6963, um `window.tron` e os links interceptados), que grava cada pedido: o destino, o contrato, o valor e a rede iguais ao arquivo de dados em cada moeda e rede; a recusa, a troca de rede recusada e o clique duplo com as frases da seção 3.3. Controle: um destino trocado no caminho do envio tem de falhar.
 5. **A lista fechada de métodos** (regra 4): um método fora da lista no código tem de falhar.
@@ -132,7 +136,9 @@ Chaves em inglês. Em cada rede de `crypto.groups[].networks[]`:
 
 ## 9. Perguntas ao mantenedor (rodada 1; respostas em D206)
 
-Respondidas (D206): 1 com uma direção nova (o envio aparece ao escolher o token, com a linha do endereço na tela); 6 a, 7 a, 8 a e 9 a. Aberta: a 2, com as 3 a 5 dentro dela, agora com os fatos da seção 4.1.
+Todas respondidas: 1 com uma direção nova (o envio aparece ao escolher o token, com a linha do endereço na tela; D206) e o alvo de uma corretora (D207); 2 a, sem conta e sem WalletConnect, com 3 a 5 resolvidas pela seção 4 (D208); 6 a, 7 a, 8 a e 9 a (D206). A rodada `cripto-envio-r1` é a base da tela (D208); os outros estados da seção 3.3 usam as mesmas peças da rodada, com os textos de lá.
+
+**Para aprovar:** esta spec, como está.
 
 1. **Onde fica o envio na vista da cripto?** a) um botão "Enviar pelo site" em cada linha de rede, que abre o valor e o "como enviar" logo abaixo, com a linha do endereço como está (recomendado); b) um fluxo em passos que substitui a vista, com "copiar o endereço" como um dos caminhos; c) uma página separada.
 2. **Como o site fala com as carteiras?** a) sem biblioteca, sem servidor e sem conta: a extensão do navegador por chamadas diretas onde as carteiras documentam (EVM e Tron) e links ou QR que abrem o app da carteira preenchido (recomendado); b) o mesmo, mais o WalletConnect da Reown: um painel para centenas de carteiras, com uma conta e um identificador público da Reown; plano grátis com corte em 2,5 milhões de chamadas por mês, Pro a US$ 89 por mês; c) só links e QR.
@@ -148,4 +154,4 @@ Depois das respostas: as rodadas de prévia do envio (o botão na linha, o valor
 
 ## 10. Fora desta spec
 
-A cotação em reais (Q36); o site confirmar a chegada da doação; um livro-caixa automático das carteiras; o WalletConnect, se a pergunta 2 ficar em a; uma política de conteúdo (CSP) para a página.
+A cotação em reais (Q36); o site confirmar a chegada da doação; um livro-caixa automático das carteiras; o WalletConnect (D208; pode entrar depois sem refazer nada); a Solana pela extensão do computador; uma política de conteúdo (CSP) para a página.
