@@ -88,6 +88,7 @@ FEE_NOTE = "A taxa da rede {net} é paga em {fee}, pela sua carteira."
 EXCHANGE_LINE = "Vai enviar de uma corretora? Copie o endereço acima e envie pela rede {net}."
 NOT_ISSUER = "Nesta rede, o USDT e o USDC não são emitidos pela Tether nem pela Circle: são versões de terceiros."
 NO_SEED = "O site nunca pede a sua frase de recuperação nem a sua chave privada."
+AFTER_CONNECT = "A sua carteira vai mostrar o mesmo valor e o mesmo endereço para você confirmar."
 CONTACT_ASK = ("O que você gostaria de ver no Brasil-Imposto? Conte para a gente. Lemos todas as mensagens e usamos as ideias para "
                "planejar as próximas atualizações.")
 CONTACT_LGPD = "Seu nome e e-mail servem só para responder você."
@@ -216,11 +217,19 @@ def modal(data, keyless=False, staging=False):
         blob = json.dumps(support_data.send_data(data, staging), ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
         send = ('<div class="bi-ap-send" hidden><label class="bi-ap-lab" for="bi-ap-amount">Valor</label>'
                 '<div class="bi-ap-amt"><input id="bi-ap-amount" inputmode="decimal" autocomplete="off" placeholder="0"><span data-unit></span></div>'
-                '<p class="bi-ap-err" data-msg hidden></p><p class="bi-ap-note" data-note></p>'
+                '<p class="bi-ap-err" data-msg role="alert" hidden></p><p class="bi-ap-note" data-note></p>'
                 f'<p class="bi-ap-note" data-issuer hidden>{escape(NOT_ISSUER)}</p>'
+                '<div class="bi-ap-conn" data-conn hidden>Carteira conectada: <b data-account></b><span data-conn-net></span>'
+                '<button type="button" data-change>Trocar</button></div>'
+                '<div class="bi-ap-wallets" data-wallets hidden></div>'
+                '<div class="bi-ap-qr" data-qr hidden><span class="bi-ap-lab">QR para o celular</span><div data-qr-code></div></div>'
+                '<p class="bi-ap-note" data-hint hidden></p>'
                 '<button type="button" class="bi-ap-cta bi-ap-sendbtn" data-send disabled>Conectar carteira</button>'
-                f'<p class="bi-ap-alt">{escape(EXCHANGE_LINE).replace("{net}", "<span data-exchange-net></span>")}</p>'
-                f'<p class="bi-ap-alt">{escape(NO_SEED)}</p></div>')
+                '<a class="bi-ap-cta bi-ap-sendbtn" data-pay hidden></a>'
+                f'<p class="bi-ap-alt" data-after hidden>{escape(AFTER_CONNECT)}</p>'
+                f'<p class="bi-ap-alt" data-exchange>{escape(EXCHANGE_LINE).replace("{net}", "<span data-exchange-net></span>")}</p>'
+                f'<p class="bi-ap-alt">{escape(NO_SEED)}</p></div>'
+                '<div class="bi-ap-confirm" data-confirm hidden></div><div class="bi-ap-done" data-done hidden></div>')
         crypto = ('<section class="bi-ap-view" data-view="crypto" hidden><h2 tabindex="-1">Apoiar com cripto</h2>'
                   f'<span class="bi-ap-lab">Moeda</span><div class="bi-ap-coins">{coins}</div>{panels}{send}'
                   f'<p class="bi-ap-warn">{escape(WARNING)}</p>'
@@ -340,6 +349,32 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-sendbtn[disabled] { background: #9FC7AE; cursor: default; }
 .bi-ap-alt { margin: 10px 0 0 !important; font-size: 13px !important; line-height: 1.5 !important; text-align: center; color: #5B6773 !important; }
 .bi-ap-send .bi-ap-err { margin-top: 6px !important; }
+.bi-ap-conn { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding: 10px 12px; border-radius: 12px; background: #EFF7F1; color: #0E5A2C; font: 700 13.5px Manrope, system-ui, sans-serif; flex-wrap: wrap; }
+.bi-ap-conn b { font-family: "JetBrains Mono", ui-monospace, monospace; }
+.bi-ap-conn button { margin-left: auto; padding: 0; border: 0; background: none; color: #12803F; font: inherit; text-decoration: underline; cursor: pointer; }
+.bi-ap-wallets { display: grid; gap: 8px; margin-top: 14px; }
+.bi-ap-wallets button, .bi-ap-wallets a { display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 12px; border: 1px solid #D5DBE1; border-radius: 10px; background: #fff; color: #14202B; font: 700 14px Manrope, system-ui, sans-serif; text-decoration: none; cursor: pointer; }
+.bi-ap-wallets img { width: 24px; height: 24px; border-radius: 6px; }
+.bi-ap-qr { width: 200px; margin: 14px auto 0; }
+.bi-ap-qr .bi-ap-lab { margin-top: 0; text-align: center; }
+.bi-ap-qr svg { display: block; width: 100%; height: auto; }
+.bi-ap-sum { margin-top: 14px; border: 1px solid #E3E7EC; border-radius: 12px; }
+.bi-ap-sum div { display: flex; justify-content: space-between; gap: 12px; padding: 9px 12px; font-size: 13.5px; line-height: 1.5; }
+.bi-ap-sum div + div { border-top: 1px solid #E3E7EC; }
+.bi-ap-sum b { font: 700 12.5px/1.5 "JetBrains Mono", ui-monospace, monospace; text-align: right; word-break: break-all; }
+.bi-ap-sum em { padding: 0 3px; border-radius: 4px; background: #FFF4D6; font-style: normal; white-space: nowrap; }
+.bi-ap-wait { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding: 12px; border-radius: 12px; background: #FFF8E6; color: #5C4810; font: 700 14px Manrope, system-ui, sans-serif; }
+.bi-ap-spin { flex: none; box-sizing: border-box; width: 18px; height: 18px; border: 3px solid #E8D9A8; border-top-color: #7A5A00; border-radius: 99px; animation: bi-ap-spin 1s linear infinite; }
+@keyframes bi-ap-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .bi-ap-spin { animation: none; } }
+.bi-ap-done { display: flex; flex-direction: column; align-items: center; margin-top: 6px; padding: 10px 0 4px; text-align: center; }
+.bi-ap-ck { display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; border-radius: 99px; background: #12803F; color: #fff; font: 800 30px Manrope, system-ui, sans-serif; }
+.bi-ap-body .bi-ap-done h3 { margin: 14px 0 4px; font-size: 22px; line-height: 1.5; }
+.bi-ap-body .bi-ap-done p { margin: 4px 0; font-size: 16px; line-height: 1.5; color: #5B6773; }
+.bi-ap-done a { color: #1F5FAF; font-weight: 800; text-decoration: none; }
+.bi-ap-done a:hover { text-decoration: underline; }
+/* moments 3 and 4 of the drawing take the whole view */
+.bi-ap-view[data-step="confirm"] > :not(h2, .bi-ap-confirm), .bi-ap-view[data-step="done"] > :not(h2, .bi-ap-done) { display: none !important; }
 .bi-ap-warn { margin: 14px 0 0 !important; padding: 11px 13px; border-left: 4px solid #C8102E; border-radius: 8px; background: #FDF1F2; color: #6B0F1A !important; font-size: 13.5px !important; line-height: 1.5 !important; }
 .bi-ap-form { display: grid; gap: 12px; margin-top: 14px; }
 .bi-ap-hp label { display: grid; }
@@ -400,6 +435,7 @@ SCRIPT = """// The Apoie modal: opens from the header button, one view at a time
     views.forEach((v) => { v.hidden = v.dataset.view !== name; });
     back.hidden = name === 'main'; panel.scrollTop = 0;
     const h = root.querySelector(`[data-view="${name}"] h2`); if (h) h.focus({ preventScroll: true });
+    if (name === 'crypto') root.dispatchEvent(new CustomEvent('bi-cripto-view'));
   };
   const open = () => {
     root.hidden = false; document.documentElement.classList.add('bi-locked'); opener.setAttribute('aria-expanded', 'true'); show('main');

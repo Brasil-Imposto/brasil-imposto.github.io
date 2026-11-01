@@ -23,8 +23,8 @@
 //            "Copiar" puts on the clipboard (read back from the real clipboard after a real click) and the explorer link equal
 //            data/support.json (or BI_SUPPORT_JSON)
 //   amount   (only when crypto is live) the value and the button appear only after a network is tapped; the unit is the coin; the
-//            fee line and the exchange line name the network; the button is off while the value is empty, zero or has too many
-//            decimals, and on with a valid one; changing the coin clears the value
+//            fee line and the exchange line name the network; a value that is zero or has too many decimals shows its message, and
+//            a valid one does not; changing the coin clears the value (the wallets and the button: cripto-check.cjs)
 //   reserve  (only when crypto is live; once per page, at the first width) with the send's own files blocked, the coin and the
 //            network can still be chosen and "Copiar" still works, and no value or button shows (spec cripto-no-site, tarefa 4)
 //   sri      (section 10.2, item 4; once per page, at the first width) every script the page asks of another site is served
@@ -307,26 +307,24 @@ const PLANT = `
           await p.waitForTimeout(100);
           if (!(await shownNow())) send.push('the send is hidden after a network is tapped');
           else {
-            const state = () => p.$eval('.bi-ap-send', (x) => ({ unit: x.querySelector('[data-unit]').textContent, fee: x.querySelector('[data-note]').textContent, line: x.querySelector('.bi-ap-alt').textContent,
-              off: x.querySelector('[data-send]').disabled, msg: x.querySelector('[data-msg]').textContent, value: x.querySelector('input').value }));
+            const state = () => p.$eval('.bi-ap-send', (x) => ({ unit: x.querySelector('[data-unit]').textContent, fee: x.querySelector('[data-note]').textContent, line: x.querySelector('[data-exchange]').textContent, msg: x.querySelector('[data-msg]').textContent, value: x.querySelector('input').value }));
             const type = async (v) => { await p.fill('#bi-ap-amount', v); await p.waitForTimeout(40); return state(); };
             const empty = await type('');
             if (empty.unit !== 'USDC') send.push(`unit ${JSON.stringify(empty.unit)}`);
             if (empty.fee !== `A taxa da rede ${usdc.net} é paga em ${usdc.fee}, pela sua carteira.`) send.push(`fee line ${JSON.stringify(empty.fee)}`);
             if (!empty.line.endsWith(`pela rede ${usdc.net}.`)) send.push(`exchange line ${JSON.stringify(empty.line)}`);
-            if (!empty.off) send.push('the button is on with no value');
             const zero = await type('0'), many = await type('1,12345678'), good = await type('10,5');
-            if (!zero.off || zero.msg !== 'Informe um valor maior que zero.') send.push(`zero: ${JSON.stringify(zero)}`);
-            if (!many.off || !many.msg.includes('USDC aceita até 6 casas')) send.push(`too many decimals: ${JSON.stringify(many)}`);
-            if (good.off || good.msg) send.push(`a valid value: ${JSON.stringify(good)}`);
+            if (zero.msg !== 'Informe um valor maior que zero.') send.push(`zero: ${JSON.stringify(zero)}`);
+            if (!many.msg.includes('USDC aceita até 6 casas')) send.push(`too many decimals: ${JSON.stringify(many)}`);
+            if (/maior que zero|casas/.test(good.msg)) send.push(`a valid value: ${JSON.stringify(good)}`);
             hs.panel = Math.max(hs.panel, await p.$eval('.bi-ap-panel', (x) => x.scrollWidth - x.clientWidth));
             await tap(p, '[data-coin-btn="USDT"]'); await p.waitForTimeout(60);
             const usdt = expected('USDT')[0];
             await tap(p, `.bi-ap-coin[data-coin="USDT"] [data-net-btn="${usdt.id}"]`); await p.waitForTimeout(60);
             const cleared = await state();
-            if (cleared.value !== '' || cleared.unit !== 'USDT' || !cleared.off) send.push(`after changing the coin: ${JSON.stringify(cleared)}`);
+            if (cleared.value !== '' || cleared.unit !== 'USDT') send.push(`after changing the coin: ${JSON.stringify(cleared)}`);
           }
-          report(w, key, 'amount', send.length === 0, send.length ? send.join('; ') : 'shown only after a network; unit, fee line and exchange line follow it; the button only with a valid value; a new coin clears the value');
+          report(w, key, 'amount', send.length === 0, send.length ? send.join('; ') : 'shown only after a network; unit, fee line and exchange line follow it; the messages of the value; a new coin clears the value');
         }
         hs.panel = Math.max(hs.panel, await p.$eval('.bi-ap-panel', (e) => e.scrollWidth - e.clientWidth));
         const back = await p.$('.bi-ap-back');

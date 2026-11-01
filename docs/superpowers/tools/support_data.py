@@ -50,7 +50,7 @@ def send_data(data, staging=False):
     for g in data["crypto"]["groups"]:
         for n in g["networks"]:
             if n["status"] == "live" or staging:
-                nets.append({"id": n["id"], "name": n["name"], "family": g["format"], "address": g["address"], "tx_url": n["tx_url"],
+                nets.append({"id": n["id"], "name": n["name"], "family": g["format"], "address": g["address"], "explorer": n["explorer"], "tx_url": n["tx_url"],
                              "native_symbol": n["native_symbol"], **{k: n[k] for k in keep if k in n},
                              "coins": {c["coin"]: {"contract": c["contract"], "decimals": c["decimals"], "issuer_listed": c["issuer_listed"]}
                                        for c in n["coins"]}})
