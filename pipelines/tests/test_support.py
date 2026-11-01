@@ -412,6 +412,25 @@ class SendViewTest(unittest.TestCase):
         self.assertFalse(in_order(text(moved), self.MARKS))
 
 
+VENDOR = REPO / "docs" / "superpowers" / "previews" / "assets" / "vendor"
+VENDORED = {"qrcode.js": "79ec86f82856005b1c887905cfccfcfbec3821ca61c7fd5a952faa5f778f791c",      # qrcode-generator 2.0.4, MIT
+            "crossmark-sdk.js": "785beebb27c7d6f200b1827a25b2351fc22721b610a028abdf88295ad711de59"}  # @crossmarkio/sdk 0.4.0, MIT
+
+
+class VendoredTest(unittest.TestCase):
+    def test_each_library_is_the_exact_file_reviewed(self):
+        for name, want in VENDORED.items():
+            with self.subTest(file=name):
+                self.assertEqual(hashlib.sha256((VENDOR / name).read_bytes()).hexdigest(), want)
+        self.assertIn("MIT", (VENDOR / "LICENSE.txt").read_text(encoding="utf-8"))
+        self.assertIn("GNU GENERAL PUBLIC LICENSE", (VENDOR / "LICENSE-crossmark.txt").read_text(encoding="utf-8"), "the text the Crossmark package ships")
+
+    def test_control_a_changed_byte_is_caught(self):
+        b = bytearray((VENDOR / "qrcode.js").read_bytes())
+        b[0] ^= 1
+        self.assertNotEqual(hashlib.sha256(bytes(b)).hexdigest(), VENDORED["qrcode.js"])
+
+
 class RulesTest(unittest.TestCase):
     def test_on_with_both_channels_soon_passes(self):
         self.assertEqual(support_data.problems(on_soon()), [])
