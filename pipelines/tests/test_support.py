@@ -5,6 +5,7 @@ built pages never show "a definir" and never carry an e-mail address. Each crypt
 the address pinned here (section 10.2). Every rule has a planted failure."""
 import hashlib
 import copy
+import gzip
 import html as htmllib
 import importlib.util
 import json
@@ -236,7 +237,7 @@ def svg_problems(text):
 
 class CoinIconTest(unittest.TestCase):
     """Spec section 10, round cripto-envio-r1: each coin button carries the token's icon, left of the name, the dimmed XRP
-    included. The icons are the CC0 set cryptocurrency-icons 0.18.1, served from the site itself and loaded only when shown."""
+    included. The icons are the CC0 set cryptocurrency-icons 0.18.1, but for SOL, served from the site itself and loaded only when shown."""
 
     def test_every_coin_button_carries_its_icon(self):
         for key, p in build(on_soon_crypto_live()).items():
@@ -379,6 +380,10 @@ class SendViewTest(unittest.TestCase):
         h = self.view()
         self.assertEqual(h.count('class="bi-ap-send"'), 1)
         self.assertIn('<div class="bi-ap-send" hidden>', h, "the send block shows only after a network is chosen")
+        for part in ("data-conn hidden", "data-wallets hidden", "data-qr hidden", "data-pay hidden", "data-after hidden", "data-confirm hidden", "data-done hidden",
+                     'data-msg role="alert"'):
+            self.assertIn(part, h)
+        self.assertIn(apoie.AFTER_CONNECT, h)
         self.assertIn('id="bi-ap-amount"', h)
         self.assertRegex(h, r'<button type="button" class="bi-ap-cta bi-ap-sendbtn" data-send disabled>Conectar carteira</button>')
         blob = json.loads(re.search(r'<script type="application/json" id="bi-cripto-data">(.*?)</script>', h, re.S).group(1))
@@ -414,7 +419,7 @@ class SendViewTest(unittest.TestCase):
 
 VENDOR = REPO / "docs" / "superpowers" / "previews" / "assets" / "vendor"
 VENDORED = {"qrcode.js": "79ec86f82856005b1c887905cfccfcfbec3821ca61c7fd5a952faa5f778f791c",      # qrcode-generator 2.0.4, MIT
-            "crossmark-sdk.js": "785beebb27c7d6f200b1827a25b2351fc22721b610a028abdf88295ad711de59"}  # @crossmarkio/sdk 0.4.0, MIT
+            "crossmark-sdk.js": "785beebb27c7d6f200b1827a25b2351fc22721b610a028abdf88295ad711de59"}  # @crossmarkio/sdk 0.4.0, see LICENSE.txt
 
 
 class VendoredTest(unittest.TestCase):
@@ -429,6 +434,76 @@ class VendoredTest(unittest.TestCase):
         b = bytearray((VENDOR / "qrcode.js").read_bytes())
         b[0] ^= 1
         self.assertNotEqual(hashlib.sha256(bytes(b)).hexdigest(), VENDORED["qrcode.js"])
+
+
+SEND_JS = REPO / "docs" / "superpowers" / "previews" / "assets" / "bi-cripto.js"
+CORE_JS = SEND_JS.with_name("bi-cripto-core.js")
+ALLOWED_METHODS = {"eth_requestAccounts", "eth_chainId", "wallet_switchEthereumChain", "wallet_addEthereumChain", "eth_sendTransaction"}
+FORBIDDEN = re.compile(r"personal_sign|eth_sign|signTypedData|signMessage|approve|permit|setApprovalForAll|seed|mnemonic|privateKey", re.I)
+# Every place the send names a destination must read n.address (or c.contract, for the token a transfer calls): n comes from the page's data
+# block. The space goes inside the lookahead: outside it, the regex could match no space and pass over the correct code.
+BAD_DESTINATION = re.compile(r"Destination:(?!\s*n\.address)|sendBitcoin\((?!n\.address)|\bto:(?!\s*(?:n\.address|c\.contract))|erc20Transfer\((?!n\.address)"
+                             r"|type: 'address', value:(?!\s*n\.address)|paymentLink\(n\.family, (?!n\.address)")
+
+
+def send_js(f=SEND_JS):
+    with f.open(encoding="utf-8") as handle:
+        return handle.read()
+
+
+def method_problems(js):
+    """A wallet method outside the closed list, or a word that asks for more than a plain transfer (an empty list: clean). Section 5, rule 4."""
+    return sorted(set(re.findall(r"method:\s*'([^']+)'", js)) - ALLOWED_METHODS) + FORBIDDEN.findall(js)
+
+
+class SendRulesTest(unittest.TestCase):
+    def test_only_the_closed_list_of_wallet_methods(self):
+        self.assertEqual(method_problems(send_js()), [])
+
+    def test_control_another_method_or_a_signature_is_caught(self):
+        js = send_js()
+        for plant in ("p.request({ method: 'personal_sign' })", "p.request({ method: 'eth_accounts' })", "token.approve(x)"):
+            with self.subTest(plant=plant):
+                self.assertNotEqual(method_problems(js + plant), [])
+
+    def test_the_destination_comes_only_from_the_page_block(self):
+        js = send_js()
+        self.assertIsNone(BAD_DESTINATION.search(js))
+        self.assertNotIn("URLSearchParams", js, "the entry link goes through the core, which never reads an address")
+
+    def test_control_a_destination_from_a_field_is_caught(self):
+        js = send_js()
+        for old, new in (("to: n.address, value", "to: input.value, value"), ("to: c.contract, data", "to: input.value, data"),
+                         ("Destination: n.address", "Destination: input.value"), ("sendBitcoin(n.address", "sendBitcoin(input.value"),
+                         ("erc20Transfer(n.address", "erc20Transfer(input.value"), ("type: 'address', value: n.address", "type: 'address', value: input.value"),
+                         ("paymentLink(n.family, n.address", "paymentLink(n.family, input.value")):
+            with self.subTest(plant=new):
+                planted = js.replace(old, new)
+                self.assertNotEqual(planted, js, "the plant landed")
+                self.assertIsNotNone(BAD_DESTINATION.search(planted))
+
+    def test_the_weight_of_the_send(self):
+        for f in (SEND_JS, CORE_JS):
+            self.assertLess(len(gzip.compress(f.read_bytes(), 9)), 15 * 1024, f.name)
+        self.assertLess(sum(len(gzip.compress(f.read_bytes(), 9)) for f in (SEND_JS, CORE_JS)), 15 * 1024, "section 7: under 15 KB together")
+
+    def test_the_send_is_not_in_the_page_until_asked(self):
+        h = build(on_soon_crypto_live())["inicio"]
+        self.assertNotIn('src="assets/bi-cripto', h["header"] + h["js"])
+
+
+class SpecProofTest(unittest.TestCase):
+    """Spec cripto-no-site, section 8, items 1 and 3."""
+
+    def test_the_transfer_selector_is_the_keccak_of_the_function(self):
+        selector = support_data.keccak_256(b"transfer(address,uint256)")[:4].hex()
+        self.assertEqual(selector, "a9059cbb")
+        self.assertIn(f"'0x{selector}'", send_js(CORE_JS))
+
+    def test_control_six_decimals_on_the_usdt_of_bnb_smart_chain_is_caught(self):
+        d = committed()
+        next(c for n in d["crypto"]["groups"][1]["networks"] if n["id"] == "bsc" for c in n["coins"] if c["coin"] == "USDT")["decimals"] = 6
+        self.assertEqual(token_diff(d), [("bsc", "USDT")])
 
 
 class RulesTest(unittest.TestCase):
