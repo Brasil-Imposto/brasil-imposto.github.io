@@ -269,6 +269,73 @@ class CoinIconTest(unittest.TestCase):
                 self.assertNotEqual(svg_problems(clean.replace("</svg>", plant + "</svg>")), [])
 
 
+# The contracts of the tokens, read on each issuer's own page on 2026-10-29 (the two of BNB Smart Chain from the chain: neither
+# issuer lists them). data/support.json must hold exactly these, like the addresses in PINNED.
+PINNED_TOKENS = {("ethereum", "USDT"): ("0xdAC17F958D2ee523a2206206994597C13D831ec7", 6, True),
+                 ("ethereum", "USDC"): ("0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", 6, True),
+                 ("bsc", "USDT"): ("0x55d398326f99059fF775485246999027B3197955", 18, False),
+                 ("bsc", "USDC"): ("0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d", 18, False),
+                 ("solana", "USDT"): ("Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB", 6, True),
+                 ("solana", "USDC"): ("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", 6, True),
+                 ("tron", "USDT"): ("TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t", 6, True)}
+
+
+def token_diff(data):
+    """The tokens of data that differ from PINNED_TOKENS (an empty list: every contract as pinned)."""
+    found = {(n["id"], c["coin"]): (c["contract"], c["decimals"], c["issuer_listed"])
+             for g in data["crypto"]["groups"] for n in g["networks"] for c in n["coins"] if c.get("contract")}
+    return sorted(k for k in set(found) | set(PINNED_TOKENS) if found.get(k) != PINNED_TOKENS.get(k))
+
+
+class SendDataTest(unittest.TestCase):
+    def test_the_contracts_are_the_pinned_ones(self):
+        self.assertEqual(token_diff(committed()), [])
+
+    def test_control_a_changed_contract_is_caught(self):
+        d = committed()
+        coin = next(c for n in d["crypto"]["groups"][1]["networks"] for c in n["coins"] if c["coin"] == "USDT")
+        coin["contract"] = "0x" + "1" * 40
+        self.assertEqual(token_diff(d), [("ethereum", "USDT")])
+
+    def test_each_contract_passes_its_network_checksum(self):
+        d = committed()
+        seen = 0
+        for g in d["crypto"]["groups"]:
+            for n in g["networks"]:
+                for c in n["coins"]:
+                    if c.get("contract"):
+                        seen += 1
+                        self.assertIsNone(support_data.address_problem(g["format"], c["contract"]), c["contract"])
+        self.assertEqual(seen, len(PINNED_TOKENS), "the loop above saw every token")
+
+    def test_a_bad_value_of_the_send_fails(self):
+        cases = {"tx_url": lambda n, c: n.update(tx_url="https://x.org/tx"), "decimals": lambda n, c: c.update(decimals=None),
+                 "native_decimals": lambda n, c: n.update(native_decimals="6"), "chain_id": lambda n, c: n.update(chain_id=None)}
+        for name, change in cases.items():
+            with self.subTest(key=name):
+                d = committed()
+                n = d["crypto"]["groups"][1]["networks"][0]
+                change(n, n["coins"][0])
+                self.assertTrue(any(name in p for p in support_data.problems(d)), name)
+
+    def test_control_a_token_without_contract_or_with_a_bad_one_fails(self):
+        for bad in (None, "0x" + "aB" * 20):   # all digits would pass EIP-55: it has no letters to check
+            d = committed()
+            coin = next(c for n in d["crypto"]["groups"][1]["networks"] for c in n["coins"] if c["coin"] == "USDC")
+            coin["contract"] = bad
+            self.assertTrue(any("USDC" in p for p in support_data.problems(d)), bad)
+
+    def test_the_page_block_holds_only_open_networks_and_never_more_than_the_send_needs(self):
+        d = committed()
+        blob = support_data.send_data(d)
+        self.assertEqual([n["id"] for n in blob["networks"]], ["bitcoin", "ethereum", "bsc", "solana", "tron"])
+        tron = next(n for n in blob["networks"] if n["id"] == "tron")
+        self.assertEqual(tron["address"], PINNED["tron"])
+        self.assertEqual(tron["coins"]["USDT"], {"contract": PINNED_TOKENS[("tron", "USDT")][0], "decimals": 6, "issuer_listed": True})
+        self.assertEqual(support_data.send_data(d, staging=True)["networks"][-1]["id"], "xrp-ledger", "D206: staging opens XRP")
+        self.assertEqual(support_data.send_data(d, staging=True)["networks"][-1]["first_min"], "1")
+
+
 class RulesTest(unittest.TestCase):
     def test_on_with_both_channels_soon_passes(self):
         self.assertEqual(support_data.problems(on_soon()), [])

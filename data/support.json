@@ -28,7 +28,6 @@
     "networks": [
      {
       "id": "bitcoin",
-
       "status": "live",
       "name": "Bitcoin",
       "explorer": "mempool.space",
@@ -36,9 +35,15 @@
       "coins": [
        {
         "coin": "BTC",
-        "standard": null
+        "standard": null,
+        "contract": null,
+        "decimals": 8,
+        "issuer_listed": true
        }
-      ]
+      ],
+      "native_symbol": "BTC",
+      "native_decimals": 8,
+      "tx_url": "https://mempool.space/tx/{tx}"
      }
     ]
    },
@@ -49,7 +54,6 @@
     "networks": [
      {
       "id": "ethereum",
-
       "status": "live",
       "name": "Ethereum",
       "explorer": "Etherscan",
@@ -57,21 +61,34 @@
       "coins": [
        {
         "coin": "ETH",
-        "standard": null
+        "standard": null,
+        "contract": null,
+        "decimals": 18,
+        "issuer_listed": true
        },
        {
         "coin": "USDT",
-        "standard": "ERC-20"
+        "standard": "ERC-20",
+        "contract": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        "decimals": 6,
+        "issuer_listed": true
        },
        {
         "coin": "USDC",
-        "standard": "ERC-20"
+        "standard": "ERC-20",
+        "contract": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "decimals": 6,
+        "issuer_listed": true
        }
-      ]
+      ],
+      "native_symbol": "ETH",
+      "native_decimals": 18,
+      "tx_url": "https://etherscan.io/tx/{tx}",
+      "chain_id": 1,
+      "trust_coin_id": 60
      },
      {
       "id": "bsc",
-
       "status": "live",
       "name": "BNB Smart Chain",
       "explorer": "BscScan",
@@ -79,17 +96,45 @@
       "coins": [
        {
         "coin": "BNB",
-        "standard": "BEP-20"
+        "standard": "BEP-20",
+        "contract": null,
+        "decimals": 18,
+        "issuer_listed": true
        },
        {
         "coin": "USDT",
-        "standard": "BEP-20"
+        "standard": "BEP-20",
+        "contract": "0x55d398326f99059fF775485246999027B3197955",
+        "decimals": 18,
+        "issuer_listed": false
        },
        {
         "coin": "USDC",
-        "standard": "BEP-20"
+        "standard": "BEP-20",
+        "contract": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+        "decimals": 18,
+        "issuer_listed": false
        }
-      ]
+      ],
+      "native_symbol": "BNB",
+      "native_decimals": 18,
+      "tx_url": "https://bscscan.com/tx/{tx}",
+      "chain_id": 56,
+      "trust_coin_id": 20000714,
+      "add_chain": {
+       "chainName": "BNB Smart Chain",
+       "nativeCurrency": {
+        "name": "BNB",
+        "symbol": "BNB",
+        "decimals": 18
+       },
+       "rpcUrls": [
+        "https://bsc-dataseed.bnbchain.org"
+       ],
+       "blockExplorerUrls": [
+        "https://bscscan.com"
+       ]
+      }
      }
     ]
    },
@@ -100,7 +145,6 @@
     "networks": [
      {
       "id": "solana",
-
       "status": "live",
       "name": "Solana",
       "explorer": "Solscan",
@@ -108,17 +152,29 @@
       "coins": [
        {
         "coin": "SOL",
-        "standard": null
+        "standard": null,
+        "contract": null,
+        "decimals": 9,
+        "issuer_listed": true
        },
        {
         "coin": "USDT",
-        "standard": "SPL"
+        "standard": "SPL",
+        "contract": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+        "decimals": 6,
+        "issuer_listed": true
        },
        {
         "coin": "USDC",
-        "standard": "SPL"
+        "standard": "SPL",
+        "contract": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "decimals": 6,
+        "issuer_listed": true
        }
-      ]
+      ],
+      "native_symbol": "SOL",
+      "native_decimals": 9,
+      "tx_url": "https://solscan.io/tx/{tx}"
      }
     ]
    },
@@ -129,7 +185,6 @@
     "networks": [
      {
       "id": "tron",
-
       "status": "live",
       "name": "Tron",
       "explorer": "Tronscan",
@@ -137,9 +192,15 @@
       "coins": [
        {
         "coin": "USDT",
-        "standard": "TRC-20"
+        "standard": "TRC-20",
+        "contract": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+        "decimals": 6,
+        "issuer_listed": true
        }
-      ]
+      ],
+      "native_symbol": "TRX",
+      "native_decimals": 6,
+      "tx_url": "https://tronscan.org/#/transaction/{tx}"
      }
     ]
    },
@@ -150,7 +211,6 @@
     "networks": [
      {
       "id": "xrp-ledger",
-
       "status": "soon",
       "name": "XRP Ledger",
       "explorer": "XRPScan",
@@ -158,9 +218,16 @@
       "coins": [
        {
         "coin": "XRP",
-        "standard": null
+        "standard": null,
+        "contract": null,
+        "decimals": 6,
+        "issuer_listed": true
        }
-      ]
+      ],
+      "native_symbol": "XRP",
+      "native_decimals": 6,
+      "tx_url": "https://xrpscan.com/tx/{tx}",
+      "first_min": "1"
      }
     ]
    }

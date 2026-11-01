@@ -42,6 +42,21 @@ def networks_of(data, coin, live=False):
             if c["coin"] == coin and (not live or n.get("status") == "live")]
 
 
+def send_data(data, staging=False):
+    """What the send in the modal reads from the page: only the networks open in this build (staging also opens those on soon, so the
+    maintainer can make the first XRP donation through the site). The destination the page sends to is the address here, and only it."""
+    keep = ("chain_id", "trust_coin_id", "add_chain", "first_min")
+    nets = []
+    for g in data["crypto"]["groups"]:
+        for n in g["networks"]:
+            if n["status"] == "live" or staging:
+                nets.append({"id": n["id"], "name": n["name"], "family": g["format"], "address": g["address"], "tx_url": n["tx_url"],
+                             "native_symbol": n["native_symbol"], **{k: n[k] for k in keep if k in n},
+                             "coins": {c["coin"]: {"contract": c["contract"], "decimals": c["decimals"], "issuer_listed": c["issuer_listed"]}
+                                       for c in n["coins"]}})
+    return {"networks": nets}
+
+
 def live(data, channel):
     return data[channel]["status"] == "live"
 
@@ -71,6 +86,17 @@ def structure_problems(data):
                 out.append(f"{g['id']}/{n['id']}.status: one of {STATUSES}")
             if not (n["explorer_url"].startswith("https://") and n["explorer_url"].count("{address}") == 1):
                 out.append(f"{g['id']}/{n['id']}: the explorer URL needs https and one {{address}}")
+            if not (str(n.get("tx_url", "")).startswith("https://") and str(n.get("tx_url", "")).count("{tx}") == 1):
+                out.append(f"{g['id']}/{n['id']}.tx_url: needs https and one {{tx}}")
+            if not isinstance(n.get("native_decimals"), int) or isinstance(n.get("native_decimals"), bool):
+                out.append(f"{g['id']}/{n['id']}.native_decimals: a whole number")
+            if g["format"] == "evm" and not isinstance(n.get("chain_id"), int):
+                out.append(f"{g['id']}/{n['id']}.chain_id: a whole number")
+            for c in n["coins"]:
+                if not isinstance(c.get("decimals"), int) or isinstance(c.get("decimals"), bool):
+                    out.append(f"{g['id']}/{n['id']}/{c['coin']}.decimals: a whole number")
+                if c["coin"] != n.get("native_symbol") and (not c.get("contract") or address_problem(g["format"], c["contract"])):
+                    out.append(f"{g['id']}/{n['id']}/{c['coin']}: a valid contract")
     return out
 
 
