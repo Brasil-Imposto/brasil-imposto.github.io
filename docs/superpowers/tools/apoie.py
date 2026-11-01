@@ -4,6 +4,7 @@ none of this.
 
 Every screen text below is the one the maintainer approved, word for word; the values still missing come from the data file
 (support_data.py). The project e-mail never appears on the page (D124)."""
+import json
 from html import escape
 
 import support_data
@@ -79,9 +80,14 @@ SPONSORS_STEPS = ["Abra a página do Brasil-Imposto no GitHub Sponsors.", "Escol
 SPONSORS_FACTS = ("Em dólar. O GitHub não cobra taxa de quem apoia por uma conta pessoal; o apoio feito por uma organização tem taxa "
                   "de até 6%. O dinheiro vai para o Open Source Collective, que fica com 10% para guardar e prestar contas do "
                   "dinheiro do projeto.")
-PICK_NETWORK = "Escolha uma das redes acima ao enviar."
 WARNING = ("Confira a rede antes de enviar. Uma moeda enviada por uma rede que não está na lista se perde, e o projeto não consegue "
            "devolver.")
+# The send, as drawn in round cripto-envio-r1 (spec cripto-no-site, section 3.2). {net} is the network the donor chose, {fee} its coin.
+ADDRESS_NOTE = "É o endereço do projeto, conferido. Você não digita nada."
+FEE_NOTE = "A taxa da rede {net} é paga em {fee}, pela sua carteira."
+EXCHANGE_LINE = "Vai enviar de uma corretora? Copie o endereço acima e envie pela rede {net}."
+NOT_ISSUER = "Nesta rede, o USDT e o USDC não são emitidos pela Tether nem pela Circle: são versões de terceiros."
+NO_SEED = "O site nunca pede a sua frase de recuperação nem a sua chave privada."
 CONTACT_ASK = ("O que você gostaria de ver no Brasil-Imposto? Conte para a gente. Lemos todas as mensagens e usamos as ideias para "
                "planejar as próximas atualizações.")
 CONTACT_LGPD = "Seu nome e e-mail servem só para responder você."
@@ -93,18 +99,29 @@ FAILED = "Não foi possível enviar agora. Tente de novo em alguns minutos."
 REQUIRED = "Preencha este campo."
 BAD_EMAIL = "Informe um e-mail válido."
 MIN_SECONDS = 3   # a send faster than this after the view opens is dropped (D124)
+MONO_FONT = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&display=swap"   # the crypto view's coins and addresses
 
 BUTTON = (f'<button type="button" class="bi-apoie-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="bi-apoie">'
           f'{CHEST}<span>Apoie</span></button>')
 
 
-def _row(group, network, standard):
-    name = network["name"] + (f" ({standard})" if standard else "")
+def _row(group, network, _standard):
+    """The address of one network, hidden until its button is tapped: what the drawing shows under "Endereço do Brasil-Imposto"."""
     a = group["address"]
     url = network["explorer_url"].replace("{address}", a)
-    return (f'<div class="bi-ap-net"><div class="bi-ap-net-name">{escape(name)}</div><code>{escape(a)}</code>'
+    return (f'<div class="bi-ap-net" data-net="{escape(network["id"])}" hidden>'
+            f'<span class="bi-ap-lab">Endereço do Brasil-Imposto (rede {escape(network["name"])})</span>'
+            f'<div class="bi-ap-addr"><code>{escape(a)}</code>'
             f'<div class="bi-ap-net-act"><button type="button" class="bi-ap-copy" data-copy="{escape(a)}">Copiar</button>'
-            f'<a href="{escape(url)}" target="_blank" rel="noopener">{escape(network["explorer"])}</a></div></div>')
+            f'<a href="{escape(url)}" target="_blank" rel="noopener">{escape(network["explorer"])}</a></div></div>'
+            f'<p class="bi-ap-note">{escape(ADDRESS_NOTE)}</p></div>')
+
+
+def _net_buttons(rows):
+    """Section "Escolha a Rede": one button per network, none chosen, even for a coin with a single network (spec cripto-no-site, 3.2)."""
+    out = "".join(f'<button type="button" class="bi-ap-netbtn" data-net-btn="{escape(n["id"])}" aria-pressed="false">'
+                  f'{escape(n["name"] + (f" ({s})" if s else ""))}</button>' for _g, n, s in rows)
+    return f'<span class="bi-ap-lab">Escolha a Rede</span><div class="bi-ap-nets">{out}</div>'
 
 
 def _nowrap(text):
@@ -139,10 +156,11 @@ def _receives(data):
     return "; ".join(parts) + "." if parts else ""
 
 
-def modal(data, keyless=False):
+def modal(data, keyless=False, staging=False):
     """The modal's markup: the main view, the contact view, and the view of each payment channel that is live. A value still
     null leaves its sentence out (production never shows a missing value). keyless (the staging build) draws the contact form
-    without an access key: a send then shows the error line and makes no request."""
+    without an access key: a send then shows the error line and makes no request. staging opens the networks still on "soon", so
+    the maintainer can make the first XRP donation through the test site (spec cripto-no-site, section 4)."""
     pix_live, sponsors_live, crypto_live = (support_data.live(data, c) for c in support_data.CHANNELS)
     form_key = data["contact_form"].get("access_key")
     contact = bool(form_key) or keyless
@@ -187,17 +205,26 @@ def modal(data, keyless=False):
         # Spec section 10: a coin with no network on "live" keeps its place in the row, dimmed, with the tag, and opens nothing
         coins, panels = "", ""
         for c in support_data.COINS:
-            rows = support_data.networks_of(data, c, live=True)
+            rows = support_data.networks_of(data, c, live=not staging)
             # Spec section 10: the token's icon left of its name (assets/cripto, CC0), fetched only once the button is shown
             icon = f'<img src="assets/cripto/{c.lower()}.svg" alt="" width="20" height="20" loading="lazy">'
             if not rows:
                 coins += f'<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled>{icon}{c} <span class="bi-ap-tag">{SOON}</span></button>'
                 continue
             coins += f'<button type="button" class="bi-ap-coinbtn" data-coin-btn="{c}" aria-pressed="false">{icon}{c}</button>'
-            panels += (f'<div class="bi-ap-coin" data-coin="{c}" hidden>' + "".join(_row(*r) for r in rows)
-                       + (f'<p class="bi-ap-pick">{escape(PICK_NETWORK)}</p>' if len(rows) > 1 else "") + '</div>')
+            panels += f'<div class="bi-ap-coin" data-coin="{c}" hidden>' + _net_buttons(rows) + "".join(_row(*r) for r in rows) + '</div>'
+        blob = json.dumps(support_data.send_data(data, staging), ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+        send = ('<div class="bi-ap-send" hidden><label class="bi-ap-lab" for="bi-ap-amount">Valor</label>'
+                '<div class="bi-ap-amt"><input id="bi-ap-amount" inputmode="decimal" autocomplete="off" placeholder="0"><span data-unit></span></div>'
+                '<p class="bi-ap-err" data-msg hidden></p><p class="bi-ap-note" data-note></p>'
+                f'<p class="bi-ap-note" data-issuer hidden>{escape(NOT_ISSUER)}</p>'
+                '<button type="button" class="bi-ap-cta bi-ap-sendbtn" data-send disabled>Conectar carteira</button>'
+                f'<p class="bi-ap-alt">{escape(EXCHANGE_LINE).replace("{net}", "<span data-exchange-net></span>")}</p>'
+                f'<p class="bi-ap-alt">{escape(NO_SEED)}</p></div>')
         crypto = ('<section class="bi-ap-view" data-view="crypto" hidden><h2 tabindex="-1">Apoiar com cripto</h2>'
-                  f'<div class="bi-ap-coins">{coins}</div>{panels}<p class="bi-ap-warn">{escape(WARNING)}</p></section>')
+                  f'<span class="bi-ap-lab">Moeda</span><div class="bi-ap-coins">{coins}</div>{panels}{send}'
+                  f'<p class="bi-ap-warn">{escape(WARNING)}</p>'
+                  f'<script type="application/json" id="bi-cripto-data">{blob}</script></section>')
     # D124: name, e-mail and message, sent by fetch as JSON to Web3Forms with its public access key, so no e-mail address is
     # ever in the page; a honeypot (botcheck) and a minimum time before sending keep robots out.
     form = ""
@@ -282,24 +309,38 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-linkbtn { padding: 0; border: 0; background: none; color: #1F5FAF; font: 800 14px Manrope, system-ui, sans-serif; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .bi-ap-steps { margin: 16px 0 12px; }
 .bi-ap-facts { margin: 0 0 16px !important; padding: 12px 14px; border-radius: 12px; background: #F6F8FA; }
-.bi-ap-coins { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 14px; }
-.bi-ap-coinbtn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-width: 64px; height: 38px; padding: 0 12px 0 9px; border: 1px solid #D5DBE1; border-radius: 99px; background: #fff; color: #14202B; font: 800 13px "JetBrains Mono", ui-monospace, monospace; cursor: pointer; }
+/* the crypto view keeps the proportions of its drawing (round cripto-envio-r1); the wider panel is for the three cards of the main view */
+.bi-ap-panel:has(.bi-ap-view[data-view="crypto"]:not([hidden])) { max-width: 540px; }
+.bi-ap-view[data-view="crypto"] h2 { font-size: 26px; letter-spacing: -.01em; line-height: 1.5; }
+.bi-ap-lab { display: block; margin: 16px 0 8px; font: 800 12px Manrope, system-ui, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: #5B6773; }
+.bi-ap-coins { display: flex; flex-wrap: wrap; gap: 8px; }
+.bi-ap-coinbtn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-width: 64px; height: 40px; padding: 0 13px 0 9px; border: 1px solid #D5DBE1; border-radius: 99px; background: #fff; color: #14202B; font: 800 13px "JetBrains Mono", ui-monospace, monospace; cursor: pointer; }
 .bi-ap-coinbtn[aria-pressed="true"] { border-color: #12803F; background: #12803F; color: #fff; }
 .bi-ap-coinbtn img { display: block; width: 20px; height: 20px; flex: none; }
 .bi-ap-coinbtn[aria-pressed="true"] img { background: #fff; border-radius: 99px; }
 .bi-ap-coinbtn.bi-ap-coinsoon { color: #8A95A1; border-style: dashed; background: #F6F8FA; cursor: default; }
 .bi-ap-coinbtn.bi-ap-coinsoon img { opacity: .45; filter: grayscale(1); }
 .bi-ap-coinbtn .bi-ap-tag { margin-left: 0; }
-.bi-ap-coin { margin-bottom: 12px; }
-.bi-ap-net { padding: 12px 0; border-top: 1px solid #E3E7EC; }
-.bi-ap-net:last-of-type { border-bottom: 1px solid #E3E7EC; }
-.bi-ap-net-name { font-weight: 800; font-size: 14px; }
-.bi-ap-net code { display: block; margin: 6px 0 8px; padding: 8px 10px; border-radius: 8px; background: #F6F8FA; font: 600 12.5px "JetBrains Mono", ui-monospace, monospace; overflow-wrap: anywhere; word-break: break-all; color: #14202B; }
-.bi-ap-net-act { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 13.5px; }
-.bi-ap-copy { height: 32px; padding: 0 14px; border: 1px solid #12803F; border-radius: 99px; background: #fff; color: #12803F; font: 800 13px Manrope, system-ui, sans-serif; cursor: pointer; }
+.bi-ap-nets { display: flex; flex-wrap: wrap; gap: 8px; }
+.bi-ap-netbtn { height: 36px; padding: 0 13px; border: 1px solid #D5DBE1; border-radius: 10px; background: #fff; color: #14202B; font: 700 13px Manrope, system-ui, sans-serif; cursor: pointer; }
+.bi-ap-netbtn[aria-pressed="true"] { border: 2px solid #12803F; background: #EFF7F1; color: #12803F; }
+.bi-ap-addr { padding: 10px 12px 22px; border: 1px solid #E3E7EC; border-radius: 12px; background: #F6F8FA; }
+.bi-ap-addr code { display: block; font: 600 13px "JetBrains Mono", ui-monospace, monospace; overflow-wrap: anywhere; word-break: break-all; color: #14202B; }
+.bi-ap-net-act { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 8px; font-size: 12.5px; }
+.bi-ap-net-act a { text-decoration: none; }
+.bi-ap-net-act a:hover { text-decoration: underline; }
+.bi-ap-copy { height: 30px; padding: 0 13px; border: 1px solid #12803F; border-radius: 99px; background: #fff; color: #12803F; font: 800 12.5px Manrope, system-ui, sans-serif; cursor: pointer; }
 .bi-ap-copy.done { background: #12803F; color: #fff; }
-.bi-ap-pick { margin-top: 10px !important; font-size: 13px !important; }
-.bi-ap-warn { margin: 6px 0 10px !important; padding: 12px 14px; border-left: 4px solid #C8102E; border-radius: 8px; background: #FDF1F2; color: #6B0F1A !important; }
+.bi-ap-note { margin: 6px 0 0 !important; font-size: 13px !important; line-height: 1.5 !important; color: #5B6773 !important; }
+.bi-ap-amt { display: flex; align-items: center; box-sizing: border-box; height: 52px; padding: 0 14px; border: 2px solid #14202B; border-radius: 12px; }
+.bi-ap-amt:focus-within { outline: 2px solid #1F5FAF; outline-offset: 2px; }
+.bi-ap-amt input { flex: 1; min-width: 0; padding: 0; border: 0; outline: 0; font: 800 22px Manrope, system-ui, sans-serif; color: #14202B; background: transparent; }
+.bi-ap-amt span { font: 800 15px "JetBrains Mono", ui-monospace, monospace; color: #5B6773; }
+.bi-ap-sendbtn { display: flex; box-sizing: border-box; width: 100%; height: 50px; margin-top: 16px; border-radius: 12px; font-size: 16px; }
+.bi-ap-sendbtn[disabled] { background: #9FC7AE; cursor: default; }
+.bi-ap-alt { margin: 10px 0 0 !important; font-size: 13px !important; line-height: 1.5 !important; text-align: center; color: #5B6773 !important; }
+.bi-ap-send .bi-ap-err { margin-top: 6px !important; }
+.bi-ap-warn { margin: 14px 0 0 !important; padding: 11px 13px; border-left: 4px solid #C8102E; border-radius: 8px; background: #FDF1F2; color: #6B0F1A !important; font-size: 13.5px !important; line-height: 1.5 !important; }
 .bi-ap-form { display: grid; gap: 12px; margin-top: 14px; }
 .bi-ap-hp label { display: grid; }
 .bi-ap-form input, .bi-ap-form textarea { box-sizing: border-box; width: 100%; padding: 10px 12px; border: 1px solid #C9D1D9; border-radius: 10px; font: 500 14px Manrope, system-ui, sans-serif; color: #14202B; }
@@ -328,6 +369,7 @@ CSS = """<style id="bi-apoie-css">
   .bi-ap-cols { grid-template-columns: 1fr; }
   .bi-ap-cols { gap: 12px; }
   .bi-ap-body h2 { font-size: 21px; }
+  .bi-ap-view[data-view="crypto"] h2 { font-size: 22px; }
 }
 /* up to 380 px the Menu button shows only its icon (its name stays for screen readers), so the header fits at 320 px */
 @media (max-width: 380px) {
@@ -348,7 +390,13 @@ SCRIPT = """// The Apoie modal: opens from the header button, one view at a time
   if (!root || !opener) return;
   const panel = root.querySelector('.bi-ap-panel'), back = root.querySelector('.bi-ap-back');
   const views = [...root.querySelectorAll('[data-view]')];
+  let monoAsked = false;
+  const mono = () => {   // the crypto view's mono font: nobody who stays out of that view downloads it
+    if (monoAsked) return; monoAsked = true;
+    const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = '@@MONO_FONT@@'; document.head.appendChild(l);
+  };
   const show = (name) => {
+    if (name === 'crypto') mono();
     views.forEach((v) => { v.hidden = v.dataset.view !== name; });
     back.hidden = name === 'main'; panel.scrollTop = 0;
     const h = root.querySelector(`[data-view="${name}"] h2`); if (h) h.focus({ preventScroll: true });
@@ -374,11 +422,44 @@ SCRIPT = """// The Apoie modal: opens from the header button, one view at a time
     if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
     else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
   });
-  root.querySelectorAll('[data-coin-btn]').forEach((b) => b.addEventListener('click', () => {
+  // The crypto view: a coin shows only its network buttons; tapping one shows its address, and the send (assets/bi-cripto.js, loaded when
+  // a coin is picked) shows the value and the button. If those files fail, the choice and "Copiar" still work.
+  let sendAsked = false;
+  const loadSend = () => {
+    if (sendAsked) return; sendAsked = true;
+    ['assets/bi-cripto-core.js', 'assets/bi-cripto.js'].reduce((p, src) => p.then(() => new Promise((ok, no) => {
+      const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = no; document.head.appendChild(s);
+    })), Promise.resolve()).catch(() => {});
+  };
+  const picked = (coin, net) => { root.dataset.coin = coin; root.dataset.net = net || ''; root.dispatchEvent(new CustomEvent('bi-cripto-pick')); };
+  const pickNet = (panel, id) => {
+    panel.querySelectorAll('[data-net-btn]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.netBtn === id)));
+    panel.querySelectorAll('.bi-ap-net').forEach((r) => { r.hidden = r.dataset.net !== id; });
+    picked(panel.dataset.coin, id);
+  };
+  root.querySelectorAll('[data-net-btn]').forEach((b) => b.addEventListener('click', () => pickNet(b.closest('.bi-ap-coin'), b.dataset.netBtn)));
+  const pickCoin = (b, net) => {
     const c = b.dataset.coinBtn;
     root.querySelectorAll('[data-coin-btn]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
     root.querySelectorAll('.bi-ap-coin').forEach((p) => { p.hidden = p.dataset.coin !== c; });
-  }));
+    const panel = root.querySelector(`.bi-ap-coin[data-coin="${c}"]`);
+    panel.querySelectorAll('[data-net-btn]').forEach((x) => x.setAttribute('aria-pressed', 'false'));
+    panel.querySelectorAll('.bi-ap-net').forEach((r) => { r.hidden = true; });
+    picked(c, '');
+    loadSend();
+    if (net) pickNet(panel, net);   // only the site's own link chooses a network for the donor
+  };
+  root.querySelectorAll('[data-coin-btn]').forEach((b) => b.addEventListener('click', () => pickCoin(b)));
+  // The site's own link (#apoie-cripto?moeda=USDT&rede=tron&valor=10), used to open the site inside a wallet app: it only chooses.
+  const entry = /^#apoie-cripto\\?(.*)$/.exec(location.hash);
+  if (entry) {
+    const q = new URLSearchParams(entry[1]);
+    const b = [...root.querySelectorAll('[data-coin-btn]')].find((x) => x.dataset.coinBtn === q.get('moeda'));
+    if (b) {
+      const net = [...root.querySelectorAll(`.bi-ap-coin[data-coin="${b.dataset.coinBtn}"] [data-net-btn]`)].find((x) => x.dataset.netBtn === q.get('rede'));
+      open(); show('crypto'); pickCoin(b, net && net.dataset.netBtn);
+    }
+  }
   root.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', async () => {
     const text = b.dataset.copy; if (!text) return;
     try { await navigator.clipboard.writeText(text); } catch (_) {
@@ -427,7 +508,7 @@ SCRIPT = """// The Apoie modal: opens from the header button, one view at a time
     });
   }
 })();
-"""
+""".replace("@@MONO_FONT@@", MONO_FONT)
 
 
 # The staging build draws the contact form even without the access key (spec staging, section 2): there a send shows the error

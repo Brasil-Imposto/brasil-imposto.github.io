@@ -24,7 +24,8 @@ class CryptoCoreTest(unittest.TestCase):
         self.assertEqual(run(), 0)
 
     def test_control_a_broken_decimals_rule_fails(self):
-        text = CORE.read_text(encoding="utf-8")
+        with CORE.open(encoding="utf-8") as f:
+            text = f.read()
         broken = text.replace("frac.length > decimals", "frac.length > decimals + 9")
         self.assertNotEqual(broken, text, "the plant landed")
         with tempfile.TemporaryDirectory() as d:

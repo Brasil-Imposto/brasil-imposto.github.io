@@ -261,6 +261,14 @@ class CoinIconTest(unittest.TestCase):
                 self.assertEqual(svg_problems(text), [])
         self.assertIn("CC0", (ICONS / "LICENSE.txt").read_text(encoding="utf-8"))
 
+    def test_the_sol_icon_is_the_foundation_mark_and_its_notice_says_so(self):
+        """The round green icon of the CC0 set left (spec cripto-no-site, 3.2). The mark belongs to the Solana Foundation, so the CC0 notice
+        must not cover it."""
+        svg = (ICONS / "sol.svg").read_text(encoding="utf-8")
+        self.assertNotIn("#66F9A1", svg.upper())
+        self.assertIn("#9945FF", svg.upper())
+        self.assertIn("Solana Foundation", (ICONS / "LICENSE.txt").read_text(encoding="utf-8"))
+
     def test_control_a_planted_script_or_outside_reference_is_caught(self):
         clean = (ICONS / "btc.svg").read_text(encoding="utf-8")
         for plant in ('<script>alert(1)</script>', '<g onload="x()"/>', '<image href="https://exemplo.org/x.png"/>',
@@ -334,6 +342,74 @@ class SendDataTest(unittest.TestCase):
         self.assertEqual(tron["coins"]["USDT"], {"contract": PINNED_TOKENS[("tron", "USDT")][0], "decimals": 6, "issuer_listed": True})
         self.assertEqual(support_data.send_data(d, staging=True)["networks"][-1]["id"], "xrp-ledger", "D206: staging opens XRP")
         self.assertEqual(support_data.send_data(d, staging=True)["networks"][-1]["first_min"], "1")
+
+
+class SendViewTest(unittest.TestCase):
+    """The crypto view as drawn in round cripto-envio-r1, with the network chosen by buttons (spec cripto-no-site, 3.2)."""
+
+    def view(self, profile="production"):
+        return build(on_soon_crypto_live(), profile=profile)["inicio"]["header"]
+
+    MARKS = ["Apoiar com cripto", "Moeda", "Escolha a Rede", "Endereço do Brasil-Imposto (rede ", apoie.ADDRESS_NOTE, "Valor",
+             apoie.EXCHANGE_LINE.split("{net}")[0].strip(), apoie.WARNING]
+
+    def test_the_order_of_the_view(self):
+        self.assertTrue(in_order(text(self.view()), self.MARKS))
+
+    def test_each_network_has_its_button_and_no_row_shows_before_a_choice(self):
+        h = self.view()
+        usdt = re.search(r'<div class="bi-ap-coin" data-coin="USDT" hidden>(.*?)<div class="bi-ap-coin" data-coin="USDC"', h, re.S).group(1)
+        self.assertEqual(re.findall(r'data-net-btn="([^"]+)" aria-pressed="false"', usdt), ["ethereum", "bsc", "solana", "tron"])
+        self.assertEqual(re.findall(r'<div class="bi-ap-net" data-net="([^"]+)"( hidden)?>', usdt),
+                         [("ethereum", " hidden"), ("bsc", " hidden"), ("solana", " hidden"), ("tron", " hidden")])
+        self.assertNotIn('aria-pressed="true"', re.search(r'data-view="crypto".*?</section>', h, re.S).group(0))
+        self.assertNotIn("Escolha uma das redes acima", h)
+
+    def test_a_coin_with_one_network_shows_its_button_too(self):
+        btc = re.search(r'<div class="bi-ap-coin" data-coin="BTC" hidden>(.*?)<div class="bi-ap-coin"', self.view(), re.S).group(1)
+        self.assertEqual(re.findall(r'data-net-btn="([^"]+)" aria-pressed="false">([^<]+)<', btc), [("bitcoin", "Bitcoin")])
+
+    def test_each_address_row_names_its_network_and_says_nothing_is_typed(self):
+        h = self.view()
+        for net in ("Tron", "BNB Smart Chain", "Bitcoin"):
+            self.assertIn(f'<span class="bi-ap-lab">Endereço do Brasil-Imposto (rede {net})</span>', h)
+        self.assertEqual(h.count(apoie.ADDRESS_NOTE), sum(len(support_data.networks_of(on_soon_crypto_live(), c, live=True)) for c in support_data.COINS))
+
+    def test_the_send_block_and_the_data_block_are_in_the_page(self):
+        h = self.view()
+        self.assertEqual(h.count('class="bi-ap-send"'), 1)
+        self.assertIn('<div class="bi-ap-send" hidden>', h, "the send block shows only after a network is chosen")
+        self.assertIn('id="bi-ap-amount"', h)
+        self.assertRegex(h, r'<button type="button" class="bi-ap-cta bi-ap-sendbtn" data-send disabled>Conectar carteira</button>')
+        blob = json.loads(re.search(r'<script type="application/json" id="bi-cripto-data">(.*?)</script>', h, re.S).group(1))
+        self.assertEqual(blob, support_data.send_data(on_soon_crypto_live()))
+
+    def test_staging_opens_xrp_and_production_does_not(self):
+        self.assertNotIn(PINNED["xrp"], self.view("production"))
+        self.assertIn(PINNED["xrp"], self.view("staging"))
+        self.assertIn('data-coin-btn="XRP"', self.view("staging"))
+
+    def test_the_note_of_the_tokens_the_issuer_does_not_list_and_the_seed_line(self):
+        self.assertIn(apoie.NOT_ISSUER, self.view())
+        self.assertIn(apoie.NO_SEED, self.view())
+
+    def test_the_view_keeps_the_width_of_its_drawing(self):
+        self.assertRegex(apoie.CSS, r'\.bi-ap-panel:has\(\.bi-ap-view\[data-view="crypto"\]:not\(\[hidden\]\)\) \{ max-width: 540px; \}')
+
+    def test_the_mono_font_is_asked_for_only_when_the_view_opens(self):
+        """JetBrains Mono (the coins, the address, the unit) was never loaded by any page; it comes with the view, so a visitor who
+        never opens it downloads nothing more (spec cripto-no-site, section 7)."""
+        p = build(on_soon_crypto_live())["inicio"]
+        self.assertNotIn("family=JetBrains", p["header"] + p["css"])
+        self.assertRegex(p["js"], r"if \(name === 'crypto'\) mono\(\);")
+        self.assertIn(apoie.MONO_FONT, p["js"])
+
+    def test_control_the_order_check_catches_a_moved_warning(self):
+        h = self.view()
+        moved = h.replace(f'<p class="bi-ap-warn">{apoie.escape(apoie.WARNING)}</p>', "")
+        moved = moved.replace('<h2 tabindex="-1">Apoiar com cripto</h2>', f'<h2 tabindex="-1">Apoiar com cripto</h2><p>{apoie.escape(apoie.WARNING)}</p>')
+        self.assertNotEqual(moved, h, "the plant landed")
+        self.assertFalse(in_order(text(moved), self.MARKS))
 
 
 class RulesTest(unittest.TestCase):
