@@ -10,6 +10,10 @@
 
 **Spec:** `docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_cripto-no-site_2026-10-29.md` (aprovada, D209). **Desenho aprovado:** a rodada `cripto-envio-r1` (D208), gerador `private/apoie/build_cripto_envio_r1.py`.
 
+**Ordem (D212):** o desenho primeiro. Faça as tarefas 0, 1 e 4, com o mínimo que faça o valor e o botão aparecerem de verdade (o que a tarefa 2 precisar), e mostre ao mantenedor a página real ao lado da rodada, antes de ligar qualquer carteira. Com a aprovação dele, siga com as tarefas 2, 3, 5, 6 e 7. Junto da tarefa 4, o ícone do SOL: o verde do conjunto aberto sai; a marca oficial está em `private/apoie/icons/sol-official-logomark.svg` (vai do roxo `#9945FF` ao verde `#19FB9B`, 2.519 bytes, acima do limite de 2 KB de `CoinIconTest`). Desenhe-a em tamanho de botão ao lado da mesma forma em roxo `#9945FF` e deixe o mantenedor escolher; confira as regras de uso nas diretrizes da Solana Foundation, que não foram lidas.
+
+**Deploy do staging:** um push no `staging` não publica nada (não existe `STAGING_DISPATCH_TOKEN`; ver `docs/ai/learned-patterns.md`). Rode `gh workflow run deploy.yml -R Brasil-Imposto/staging` e confira a página no ar.
+
 ---
 
 ## Arquivos
@@ -434,7 +438,7 @@ git commit --signoff -m "feat(apoie): the QR and Crossmark libraries kept in the
 
 **Arquivos:** `docs/superpowers/tools/apoie.py`, `docs/superpowers/tools/site_chrome.py`, `docs/superpowers/tools/apoie-check.cjs`, `pipelines/tests/test_support.py`, as quatro páginas publicadas (reconstruídas).
 
-O desenho aprovado (rodada `cripto-envio-r1`): moeda (com ícone), rede (botões), o endereço da rede escolhida com "Copiar" e o explorador, valor, botão, a linha da corretora e o aviso. Hoje a vista mostra todas as redes da moeda ao mesmo tempo: passa a mostrar uma linha por vez. Sem JavaScript do envio (arquivo que não carregou), a escolha de moeda e rede e o "Copiar" continuam funcionando: é a reserva.
+O desenho aprovado (rodada `cripto-envio-r1`, com D211): escolhida a moeda, a seção "Escolha a Rede" só com os botões, nenhum pré-escolhido; tocar numa rede mostra o endereço dela com "Copiar" e o explorador, o valor e o botão. Trocar de moeda esconde tudo isso de novo. Hoje a vista mostra todas as redes da moeda ao mesmo tempo. A linha "Escolha uma das redes acima ao enviar." sai (D211): apague `PICK_NETWORK` e `.bi-ap-pick` de `apoie.py`. Sem JavaScript do envio (arquivo que não carregou), a escolha de moeda e rede e o "Copiar" continuam funcionando: é a reserva.
 
 - [ ] **Passo 1: escrever os testes** em `pipelines/tests/test_support.py`, antes de `class RulesTest`:
 
@@ -445,14 +449,16 @@ class SendViewTest(unittest.TestCase):
 
     def test_the_order_of_the_view(self):
         t = text(self.view())
-        self.assertTrue(in_order(t, ["Apoiar com cripto", "Moeda", "Rede", "Valor", apoie.EXCHANGE_LINE, apoie.WARNING]))
+        self.assertTrue(in_order(t, ["Apoiar com cripto", "Moeda", "Escolha a Rede", "Valor", apoie.EXCHANGE_LINE, apoie.WARNING]))
 
-    def test_each_network_has_its_button_and_only_the_first_row_shows(self):
+    def test_each_network_has_its_button_and_no_row_shows_before_a_choice(self):
         h = self.view()
-        usdt = re.search(r'<div class="bi-ap-coin" data-coin="USDT" hidden>(.*?)<p class="bi-ap-pick">', h, re.S).group(1)
-        self.assertEqual(re.findall(r'data-net-btn="([^"]+)"', usdt), ["ethereum", "bsc", "solana", "tron"])
+        usdt = re.search(r'<div class="bi-ap-coin" data-coin="USDT" hidden>(.*?)<div class="bi-ap-coin" data-coin="USDC"', h, re.S).group(1)
+        self.assertEqual(re.findall(r'data-net-btn="([^"]+)" aria-pressed="false"', usdt), ["ethereum", "bsc", "solana", "tron"])
         self.assertEqual(re.findall(r'<div class="bi-ap-net" data-net="([^"]+)"( hidden)?>', usdt),
-                         [("ethereum", ""), ("bsc", " hidden"), ("solana", " hidden"), ("tron", " hidden")])
+                         [("ethereum", " hidden"), ("bsc", " hidden"), ("solana", " hidden"), ("tron", " hidden")])
+        self.assertNotIn('aria-pressed="true"', re.search(r'data-view="crypto".*?</section>', h, re.S).group(0))
+        self.assertNotIn("Escolha uma das redes acima", h)
 
     def test_the_send_block_and_the_data_block_are_in_the_page(self):
         h = self.view()
@@ -475,7 +481,7 @@ class SendViewTest(unittest.TestCase):
         moved = h.replace(f'<p class="bi-ap-warn">{apoie.escape(apoie.WARNING)}</p>', "")
         moved = moved.replace("<h2 tabindex=\"-1\">Apoiar com cripto</h2>", f"<h2 tabindex=\"-1\">Apoiar com cripto</h2><p>{apoie.escape(apoie.WARNING)}</p>")
         self.assertNotEqual(moved, h, "the plant landed")
-        self.assertFalse(in_order(text(moved), ["Apoiar com cripto", "Moeda", "Rede", "Valor", apoie.EXCHANGE_LINE, apoie.WARNING]))
+        self.assertFalse(in_order(text(moved), ["Apoiar com cripto", "Moeda", "Escolha a Rede", "Valor", apoie.EXCHANGE_LINE, apoie.WARNING]))
 ```
 
 - [ ] **Passo 2: rodar e ver falhar:** `uv run --locked python -B -m unittest pipelines.tests.test_support.SendViewTest` (FAIL ou ERROR).
@@ -491,19 +497,19 @@ NO_SEED = "O site nunca pede a sua frase de recuperação nem a sua chave privad
 - [ ] **Passo 4: `apoie.py`, a linha de rede e a vista.** Trocar `_row` e o trecho da vista da cripto em `modal`:
 
 ```python
-def _row(group, network, standard, first=True):
+def _row(group, network, standard):
     name = network["name"] + (f" ({standard})" if standard else "")
     a = group["address"]
     url = network["explorer_url"].replace("{address}", a)
-    return (f'<div class="bi-ap-net" data-net="{escape(network["id"])}"{"" if first else " hidden"}><div class="bi-ap-net-name">{escape(name)}</div><code>{escape(a)}</code>'
+    return (f'<div class="bi-ap-net" data-net="{escape(network["id"])}" hidden><div class="bi-ap-net-name">{escape(name)}</div><code>{escape(a)}</code>'
             f'<div class="bi-ap-net-act"><button type="button" class="bi-ap-copy" data-copy="{escape(a)}">Copiar</button>'
             f'<a href="{escape(url)}" target="_blank" rel="noopener">{escape(network["explorer"])}</a></div></div>')
 
 
 def _net_buttons(rows):
-    out = "".join(f'<button type="button" class="bi-ap-netbtn" data-net-btn="{escape(n["id"])}" aria-pressed="{"true" if i == 0 else "false"}">'
-                  f'{escape(n["name"] + (f" ({s})" if s else ""))}</button>' for i, (_g, n, s) in enumerate(rows))
-    return f'<span class="bi-ap-lab">Rede</span><div class="bi-ap-nets">{out}</div>'
+    out = "".join(f'<button type="button" class="bi-ap-netbtn" data-net-btn="{escape(n["id"])}" aria-pressed="false">'
+                  f'{escape(n["name"] + (f" ({s})" if s else ""))}</button>' for _g, n, s in rows)
+    return f'<span class="bi-ap-lab">Escolha a Rede</span><div class="bi-ap-nets">{out}</div>'
 ```
 
 No corpo de `modal`, com um parâmetro novo `staging=False` (assinatura `def modal(data, keyless=False, staging=False):`):
@@ -520,9 +526,8 @@ No corpo de `modal`, com um parâmetro novo `staging=False` (assinatura `def mod
                 continue
             coins += f'<button type="button" class="bi-ap-coinbtn" data-coin-btn="{c}" aria-pressed="false">{icon}{c}</button>'
             panels += (f'<div class="bi-ap-coin" data-coin="{c}" hidden>' + _net_buttons(rows)
-                       + '<span class="bi-ap-lab">Endereço do Brasil-Imposto</span>'
-                       + "".join(_row(*r, first=i == 0) for i, r in enumerate(rows))
-                       + (f'<p class="bi-ap-pick">{escape(PICK_NETWORK)}</p>' if len(rows) > 1 else "") + '</div>')
+                       + '<span class="bi-ap-lab" data-addr hidden>Endereço do Brasil-Imposto</span>'
+                       + "".join(_row(*r) for r in rows) + '</div>')
         blob = json.dumps(support_data.send_data(data, staging), ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
         send = ('<div class="bi-ap-send" hidden><label class="bi-ap-lab" for="bi-ap-amount">Valor</label>'
                 '<div class="bi-ap-amt"><input id="bi-ap-amount" inputmode="decimal" autocomplete="off" placeholder="0"><span data-unit></span></div>'
@@ -567,8 +572,8 @@ Em `site_chrome.py`, `with_support(head, data, keyless=False)` passa `keyless` t
 - [ ] **Passo 6: `apoie.py`, o script do modal.** Trocar o manipulador de `[data-coin-btn]` por:
 
 ```js
-  // The crypto view: a coin shows its networks, one address row at a time, and opens the send block; the send's own two files load
-  // only then, and if they fail the choice and "Copiar" still work.
+  // The crypto view: a coin shows only its network buttons; tapping one shows its address and the send block. The send's own two files
+  // load when a coin is picked, and if they fail the choice and "Copiar" still work.
   const sendBlock = root.querySelector('.bi-ap-send');
   let sendAsked = false;
   const loadSend = () => {
@@ -581,6 +586,8 @@ Em `site_chrome.py`, `with_support(head, data, keyless=False)` passa `keyless` t
   const pickNet = (panel, id) => {
     panel.querySelectorAll('[data-net-btn]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.netBtn === id)));
     panel.querySelectorAll('.bi-ap-net').forEach((r) => { r.hidden = r.dataset.net !== id; });
+    panel.querySelector('[data-addr]').hidden = false;
+    if (sendBlock) sendBlock.hidden = false;
     picked(panel.dataset.coin, id);
   };
   root.querySelectorAll('[data-net-btn]').forEach((b) => b.addEventListener('click', () => pickNet(b.closest('.bi-ap-coin'), b.dataset.netBtn)));
@@ -589,9 +596,11 @@ Em `site_chrome.py`, `with_support(head, data, keyless=False)` passa `keyless` t
     root.querySelectorAll('[data-coin-btn]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
     root.querySelectorAll('.bi-ap-coin').forEach((p) => { p.hidden = p.dataset.coin !== c; });
     const panel = root.querySelector(`.bi-ap-coin[data-coin="${c}"]`);
-    if (sendBlock) sendBlock.hidden = false;
+    panel.querySelectorAll('[data-net-btn]').forEach((x) => x.setAttribute('aria-pressed', 'false'));
+    panel.querySelectorAll('.bi-ap-net, [data-addr]').forEach((r) => { r.hidden = true; });
+    if (sendBlock) sendBlock.hidden = true;
     loadSend();
-    pickNet(panel, net || panel.querySelector('[data-net-btn]').dataset.netBtn);
+    if (net) pickNet(panel, net);   // only the site's own link chooses a network for the donor
   };
   root.querySelectorAll('[data-coin-btn]').forEach((b) => b.addEventListener('click', () => pickCoin(b)));
   // The site's own link (#apoie-cripto?moeda=USDT&rede=tron&valor=10), used to open the site inside a wallet app: it only chooses.
@@ -611,7 +620,7 @@ Conferir o nome da função que abre o modal no script (`open`, ligada ao `opene
 ```js
             const nets = await p.$$eval(`.bi-ap-coin[data-coin="${coin}"] [data-net-btn]`, (es) => es.filter((e) => e.getClientRects().length).length);
             const rowsShown = await p.$$eval(`.bi-ap-coin[data-coin="${coin}"] .bi-ap-net`, (es) => es.filter((e) => e.getClientRects().length).length);
-            if (!(c.length === 1 && c[0] === coin && nets === n && rowsShown === 1)) bad.push(`${coin}: panels ${JSON.stringify(c)}, ${nets} networks, ${rowsShown} rows shown`);
+            if (!(c.length === 1 && c[0] === coin && nets === n && rowsShown === 0)) bad.push(`${coin}: panels ${JSON.stringify(c)}, ${nets} networks, ${rowsShown} rows shown before a network is tapped`);
 ```
 
 Na conferência `addresses`, antes de ler cada linha, tocar no botão da rede dela, e ler só a linha visível:

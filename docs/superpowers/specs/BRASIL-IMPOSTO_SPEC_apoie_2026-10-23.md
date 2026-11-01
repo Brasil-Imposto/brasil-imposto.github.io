@@ -24,15 +24,14 @@ chave do formulário, pela mão do mantenedor.
 
 ## 2. O arquivo de dados: `data/support.json`
 
-Chaves em inglês. Hoje tudo vazio. Se uma montagem leva o botão é a chave `apoie` de `data/features.json` (spec de staging,
+Chaves em inglês. Se uma montagem leva o botão é a chave `apoie` de `data/features.json` (spec de staging,
 seção 2), que substituiu o campo `enabled` deste arquivo.
 
 | Chave | Hoje | O que é |
 |---|---|---|
-| `maintainer_cap_brl` | `null` | o teto do valor fixo da manutenção, por mês, em reais |
 | `contact_form` | `{"provider": "web3forms", "access_key": null}` | a chave pública do Web3Forms para a caixa do projeto; nenhum e-mail na página (D124, seção 8) |
 | `sponsors` | `status: "soon"`, `sponsors_url: null`, `fiscal_host: {"name": "Open Source Collective", "url": null}` | o canal do GitHub Sponsors; `sponsors_url` será `https://github.com/sponsors/Brasil-Imposto` |
-| `crypto` | `status: "soon"`, `unidentified_return_above_brl: null`, 5 grupos com `address: null` | o canal de cripto: o valor acima do qual doação de carteira sem identificação é devolvida, e um endereço por grupo, com as redes, o explorador de cada rede e as moedas |
+| `crypto` | `status: "live"`, 5 grupos com endereço, `status` em cada rede (o XRP Ledger em `"soon"`) | o canal de cripto: um endereço por grupo, com as redes, o explorador de cada rede e as moedas |
 
 Os grupos de endereço, as redes e as moedas:
 
@@ -67,13 +66,7 @@ ainda).
 2. "O Brasil-Imposto mostra, com dados oficiais e a fonte de cada número, para onde vai o imposto pago no Brasil. É apartidário e
    de código aberto. O seu apoio paga duas coisas, e nada além delas: o trabalho de quem desenvolve o projeto e a infraestrutura
    que mantém os dados corretos e no ar."
-3. "Para onde vai o dinheiro": uma barra fina em duas cores (verde, azul) como legenda, e duas colunas:
-   - "1. Desenvolvedores": "Quem entrega trabalho aceito no repositório. Cada tarefa paga é uma issue com o valor em reais
-     publicado antes de o trabalho começar, e o pagamento sai quando o pull request entra no site. A pessoa mantenedora recebe um
-     valor fixo por mês para revisar, publicar e manter o projeto, com teto de {maintainer_cap_brl}."
-   - "2. Infraestrutura": "O custo real de cada mês, com a nota de cada gasto: hoje, as ferramentas de inteligência artificial
-     usadas para coletar e conferir os dados; depois, servidor e banco de dados, quando o site precisar. O site é hospedado de
-     graça no GitHub Pages."
+3. "Para onde vai o dinheiro do apoio": os textos da seção 9.3.
 4. Um quadro "Como cada mês é dividido": "1. Primeiro, a infraestrutura do mês, pelo custo real. 2. Com o restante, as tarefas
    pagas que entraram no mês, pelo valor que estava publicado na issue. 3. Depois, o valor fixo da manutenção, até o teto. 4. O que
    ficar fica guardado para os meses seguintes, e o saldo aparece no livro-caixa." e, abaixo: "Não pagamos por número de commits,
@@ -106,12 +99,13 @@ contas do dinheiro do projeto." E o botão "Abrir o GitHub Sponsors", para `spon
 
 ### 4.3 Vista "Apoiar com cripto" (com "Voltar")
 
-- Sete botões de moeda: BTC, ETH, SOL, USDT, USDC, XRP, BNB. Escolher uma mostra só as redes dela; cada linha com o nome da rede,
-  o endereço, "Copiar" e o link do explorador. USDT mostra quatro redes e USDC três, com "Escolha uma das redes acima ao enviar.".
+- Sete botões de moeda (BTC, ETH, SOL, USDT, USDC, XRP, BNB), cada um com o ícone do token à esquerda do nome (D206). Uma moeda sem rede
+  aberta fica na fila, apagada, com "Em breve", e não abre nada (o XRP hoje, D206).
+- Escolher uma moeda mostra só a seção "Escolha a Rede", com os botões das redes dela, nenhum pré-escolhido (USDT quatro, USDC três). O
+  endereço, "Copiar" e o link do explorador aparecem só depois de tocar numa rede (D211); o desenho completo com o envio está na spec
+  `docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_cripto-no-site_2026-10-29.md`. O site hoje ainda mostra todas as redes ao mesmo tempo.
 - O aviso: "Confira a rede antes de enviar. Uma moeda enviada por uma rede que não está na lista se perde, e o projeto não consegue
   devolver."
-- A regra: "Doação acima de {unidentified_return_above_brl} vinda de carteira sem identificação é devolvida para a carteira de
-  origem."
 - Um painel de moeda escondido fica escondido de verdade: uma regra `display` na classe do painel venceria o atributo `hidden`,
   então a folha de estilo da janela esconde todo `[hidden]` dentro dela com `!important`.
 
@@ -172,8 +166,7 @@ com a pessoa mantenedora já; o GitHub Sponsors e a cripto ficam fechados até o
 valores de `data/support.json`).
 
 - **Cada canal tem um estado** (`sponsors.status` e `crypto.status`): `"soon"` mostra o cartão com a etiqueta "Em breve";
-  `"live"` pede todos os valores do canal preenchidos (o teste de endereços e valores vale para `"live"`; com qualquer canal
-  `"live"`, o teto `maintainer_cap_brl` também é exigido).
+  `"live"` pede todos os valores do canal preenchidos (o teste de endereços e valores vale para `"live"`).
 - **A chave `apoie` pode ser ligada na produção com os dois canais em `"soon"`**, com ou sem `contact_form.access_key` (D162): sem
   ela, a vista de contato fica fora da página; preenchida, é um UUID (um endereço de e-mail ali é recusado). A chave do formulário fica `null` até a sessão local escrevê-la; a
   produção liga `apoie` em `data/features.json`.
@@ -298,7 +291,7 @@ mudar, o texto muda junto.
 
 ### 9.7 Fora desta seção
 
-- A rodada das regras do dinheiro (D170): o portão dos canais, `unidentified_return_above_brl`, por onde sai o pagamento de quem contribui
+- A rodada das regras do dinheiro (D170): por onde sai o pagamento de quem contribui
   (Q34) e a cotação que converte cada doação em reais (Q36).
 - A regra dos pesos escrita no `GOVERNANCE.md`, as etiquetas de peso no repositório e o peso dos pull requests já aceitos desde
   2026-09-25, para a aprovação do mantenedor (D201, D202): tarefa própria.
