@@ -817,6 +817,42 @@ def page_wide_copy_listeners(page):
     return found
 
 
+MODAL = re.compile(r'<div class="bi-apoie" id="bi-apoie".*?</section></div></div></div>', re.S)
+
+
+def modal_clashes(page):
+    """The data attributes of the modal that a page's own script looks up in the whole document (an empty list: none). The modal comes
+    first in the page, so such a lookup finds the modal's element and not the page's: a data-hint in the modal left the tip of Os 3
+    Poderes on the screen, which is how this rule came to be."""
+    names = set(re.findall(r"\sdata-([a-z][a-z-]*)", MODAL.search(page).group(0)))
+    code = ""
+    for attrs, body in scripts(page):
+        code += body.replace(apoie.STAGING_SCRIPT, "").replace(apoie.SCRIPT, "")
+        src = (attrs.get("src") or attrs.get("data-src") or "").split("?")[0]
+        f = REPO / "docs" / "superpowers" / "previews" / src
+        if src.startswith("assets/") and src.endswith(".js") and f.exists() and "/vendor/" not in src:
+            code += f.read_text(encoding="utf-8")
+    return sorted(names & set(re.findall(r"""document\.querySelector(?:All)?\(\s*['"`][^'"`]*\[data-([a-z][a-z-]*)""", code)))
+
+
+class ModalAttributeTest(unittest.TestCase):
+    # The tabs of Como o dinheiro anda hide every [data-view], the modal's included: harmless, since the modal covers them while open and
+    # sets its own views each time it opens. Any other clash fails.
+    KNOWN = {"dinheiro": ["view"]}
+
+    def test_no_page_looks_up_an_attribute_of_the_modal(self):
+        for profile in ("production", "staging"):
+            for key, page in published(profile).items():
+                with self.subTest(profile=profile, page=key):
+                    self.assertEqual(modal_clashes(page), self.KNOWN.get(key, []))
+
+    def test_control_a_page_lookup_of_a_modal_attribute_is_caught(self):
+        page = published("production")["dinheiro"]
+        planted = page.replace("</body>", "<script>const box = document.querySelector('[data-send]');</script></body>")
+        self.assertNotEqual(planted, page, "the plant landed")
+        self.assertEqual(modal_clashes(planted), ["send", "view"])
+
+
 class CopyTest(unittest.TestCase):
     def test_no_page_catches_every_copy_button(self):
         for profile in ("production", "staging"):

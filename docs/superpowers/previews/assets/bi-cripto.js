@@ -8,7 +8,7 @@
   const $ = (s) => root.querySelector(s);
   const view = $('[data-view="crypto"]'), block = $('.bi-ap-send'), input = $('#bi-ap-amount'), unit = $('[data-unit]'), msg = $('[data-msg]');
   const note = $('[data-note]'), issuer = $('[data-issuer]'), conn = $('[data-conn]'), account = $('[data-account]'), connNet = $('[data-conn-net]');
-  const wallets = $('[data-wallets]'), qrBox = $('[data-qr]'), qrCode = $('[data-qr-code]'), hint = $('[data-hint]'), sendBtn = $('[data-send]');
+  const wallets = $('[data-wallets]'), qrBox = $('[data-qr]'), qrCode = $('[data-qr-code]'), hint = $('[data-qr-hint]'), sendBtn = $('[data-send]');
   const payLink = $('[data-pay]'), after = $('[data-after]'), exchange = $('[data-exchange]'), exchangeNet = $('[data-exchange-net]');
   const confirmBox = $('[data-confirm]'), done = $('[data-done]');
   const phone = navigator.maxTouchPoints > 0 && /Android|iPhone|iPad/.test(navigator.userAgent);
@@ -128,7 +128,7 @@
   // Moment 4: the result, with the link to the transaction. The site only knows the wallet took it (spec, section 3.3).
   function finished(hash, n, c, units) {
     const a = el('a', '', `Ver a transação no ${n.explorer}`), p = el('p'), ck = el('span', 'bi-ap-ck', '✓');
-    a.href = n.tx_url.replace('{tx}', encodeURIComponent(hash)); a.target = '_blank'; a.rel = 'noopener';
+    a.href = encodeURI(n.tx_url).replace('%7Btx%7D', encodeURIComponent(hash)); a.target = '_blank'; a.rel = 'noopener';
     p.append(a);
     done.replaceChildren(ck, el('h3', '', 'Doação enviada. Obrigado!'), el('p', '', `${shownValue(units, c)} ${root.dataset.coin} pela rede ${n.name}.`), p, el('p', '', 'Pode levar alguns minutos para aparecer.'));
     confirmBox.hidden = true; done.hidden = false; view.dataset.step = 'done';

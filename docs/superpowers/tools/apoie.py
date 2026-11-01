@@ -223,7 +223,7 @@ def modal(data, keyless=False, staging=False):
                 '<button type="button" data-change>Trocar</button></div>'
                 '<div class="bi-ap-wallets" data-wallets hidden></div>'
                 '<div class="bi-ap-qr" data-qr hidden><span class="bi-ap-lab">QR para o celular</span><div data-qr-code></div></div>'
-                '<p class="bi-ap-note" data-hint hidden></p>'
+                '<p class="bi-ap-note" data-qr-hint hidden></p>'
                 '<button type="button" class="bi-ap-cta bi-ap-sendbtn" data-send disabled>Conectar carteira</button>'
                 '<a class="bi-ap-cta bi-ap-sendbtn" data-pay hidden></a>'
                 f'<p class="bi-ap-alt" data-after hidden>{escape(AFTER_CONNECT)}</p>'

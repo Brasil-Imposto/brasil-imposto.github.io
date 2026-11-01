@@ -46,6 +46,11 @@ test('payment links in each standard form', () => {
   assert.strictEqual(C.paymentLink('evm', '0x', 1n, 18, null), null);
 });
 
+test('a value that is not what a valid address looks like cannot break out of the link', () => {
+  assert.strictEqual(C.paymentLink('bitcoin', 'a?b=c', 1n, 8, null), 'bitcoin:a%3Fb%3Dc?amount=0.00000001&label=Brasil-Imposto');
+  assert.strictEqual(C.openInApp('trust', 'https://x.org/', '1&url=y'), 'https://link.trustwallet.com/open_url?coin_id=1%26url%3Dy&url=https%3A%2F%2Fx.org%2F');
+});
+
 test('opening the site inside a wallet app carries the choice and never an address', () => {
   const url = C.siteLink('https://brasil-imposto.github.io/', 'USDT', 'bsc', '10');
   assert.strictEqual(url, 'https://brasil-imposto.github.io/#apoie-cripto?moeda=USDT&rede=bsc&valor=10');

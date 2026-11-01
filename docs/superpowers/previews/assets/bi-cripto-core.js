@@ -26,17 +26,18 @@
     return s.slice(0, s.length - decimals) + (frac ? '.' + frac : '');
   }
   // A link the wallet itself turns into the transaction (Solana Pay, BIP-321, Xaman's payment request); null where a network has none.
+  // Every value that goes into a link is encoded, even those a valid address or amount leaves unchanged.
   function paymentLink(family, address, units, decimals, token) {
-    const n = decimalText(units, decimals);
-    if (family === 'solana') return `solana:${address}?amount=${n}${token ? `&spl-token=${token}` : ''}&label=Brasil-Imposto`;
-    if (family === 'bitcoin') return `bitcoin:${address}?amount=${n}&label=Brasil-Imposto`;
-    if (family === 'xrp') return `https://xaman.app/detect/request:${address}?amount=${n}&network=XRPL`;
+    const a = encodeURIComponent(address), n = encodeURIComponent(decimalText(units, decimals));
+    if (family === 'solana') return `solana:${a}?amount=${n}${token ? `&spl-token=${encodeURIComponent(token)}` : ''}&label=Brasil-Imposto`;
+    if (family === 'bitcoin') return `bitcoin:${a}?amount=${n}&label=Brasil-Imposto`;
+    if (family === 'xrp') return `https://xaman.app/detect/request:${a}?amount=${n}&network=XRPL`;
     return null;
   }
   const siteLink = (base, coin, net, amount) => `${base}#apoie-cripto?moeda=${encodeURIComponent(coin)}&rede=${encodeURIComponent(net)}&valor=${encodeURIComponent(amount)}`;
   function openInApp(wallet, url, coinId) {
     if (wallet === 'metamask') return 'https://link.metamask.io/dapp/' + url.replace(/^https?:\/\//, '');
-    if (wallet === 'trust') return `https://link.trustwallet.com/open_url?coin_id=${coinId}&url=${encodeURIComponent(url)}`;
+    if (wallet === 'trust') return `https://link.trustwallet.com/open_url?coin_id=${encodeURIComponent(coinId)}&url=${encodeURIComponent(url)}`;
     return null;
   }
   // The site's own link only ever chooses: the coin and the network must exist in the page's data, and nothing else in it is read.

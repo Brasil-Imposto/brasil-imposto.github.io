@@ -156,7 +156,7 @@ const units = (text, decimals) => { const [w, f = ''] = text.split('.'); return 
   const c11 = await open('none'); await pick(c11.p, 'ETH', 'ethereum');
   report('no wallet in this browser', (await msg(c11.p)).startsWith('Nenhuma carteira de Ethereum neste navegador.') && !(await shown(c11.p, '[data-send]')), await msg(c11.p)); await c11.ctx.close();
   const c12 = await open('none'); await pick(c12.p, 'SOL', 'solana');
-  const noQr = !(await shown(c12.p, '[data-qr]')), hint = await c12.p.$eval('[data-hint]', (e) => e.textContent); await c12.p.fill('#bi-ap-amount', '1.5'); await c12.p.waitForFunction(() => document.querySelector('[data-qr-code] svg'), null, { timeout: 4000 }).catch(() => {});
+  const noQr = !(await shown(c12.p, '[data-qr]')), hint = await c12.p.$eval('[data-qr-hint]', (e) => e.textContent); await c12.p.fill('#bi-ap-amount', '1.5'); await c12.p.waitForFunction(() => document.querySelector('[data-qr-code] svg'), null, { timeout: 4000 }).catch(() => {});
   const qr = await c12.p.$eval('[data-qr-code]', (e) => ({ link: e.dataset.link || '', svg: !!e.querySelector('svg') })), sol = nets().find((n) => n.id === 'solana');
   report('a computer with no wallet: the QR, and never "no wallet" on Solana', noQr && hint.includes('valor') && qr.svg && qr.link.startsWith(`solana:${sol.address}?amount=1.5`) && !(await msg(c12.p)).includes('Nenhuma carteira'), qr.link.slice(0, 80)); await c12.ctx.close();
   const c13 = await open(true); await pick(c13.p, 'USDT', 'bsc'); await c13.p.fill('#bi-ap-amount', '10'); await c13.p.waitForTimeout(150);
