@@ -5,6 +5,7 @@ built pages never show "a definir" and never carry an e-mail address. Each crypt
 the address pinned here (section 10.2). Every rule has a planted failure."""
 import hashlib
 import copy
+import gzip
 import html as htmllib
 import importlib.util
 import json
@@ -236,7 +237,7 @@ def svg_problems(text):
 
 class CoinIconTest(unittest.TestCase):
     """Spec section 10, round cripto-envio-r1: each coin button carries the token's icon, left of the name, the dimmed XRP
-    included. The icons are the CC0 set cryptocurrency-icons 0.18.1, served from the site itself and loaded only when shown."""
+    included. The icons are the CC0 set cryptocurrency-icons 0.18.1, but for SOL, served from the site itself and loaded only when shown."""
 
     def test_every_coin_button_carries_its_icon(self):
         for key, p in build(on_soon_crypto_live()).items():
@@ -261,12 +262,248 @@ class CoinIconTest(unittest.TestCase):
                 self.assertEqual(svg_problems(text), [])
         self.assertIn("CC0", (ICONS / "LICENSE.txt").read_text(encoding="utf-8"))
 
+    def test_the_sol_icon_is_the_foundation_mark_and_its_notice_says_so(self):
+        """The round green icon of the CC0 set left (spec cripto-no-site, 3.2). The mark belongs to the Solana Foundation, so the CC0 notice
+        must not cover it."""
+        svg = (ICONS / "sol.svg").read_text(encoding="utf-8")
+        self.assertNotIn("#66F9A1", svg.upper())
+        self.assertIn("#9945FF", svg.upper())
+        self.assertIn("Solana Foundation", (ICONS / "LICENSE.txt").read_text(encoding="utf-8"))
+
     def test_control_a_planted_script_or_outside_reference_is_caught(self):
         clean = (ICONS / "btc.svg").read_text(encoding="utf-8")
         for plant in ('<script>alert(1)</script>', '<g onload="x()"/>', '<image href="https://exemplo.org/x.png"/>',
                       '<a xlink:href="javascript:x()"/>', '<rect style="fill:url(https://exemplo.org/p)"/>'):
             with self.subTest(plant=plant):
                 self.assertNotEqual(svg_problems(clean.replace("</svg>", plant + "</svg>")), [])
+
+
+# The contracts of the tokens, read on each issuer's own page on 2026-10-29 (the two of BNB Smart Chain from the chain: neither
+# issuer lists them). data/support.json must hold exactly these, like the addresses in PINNED.
+PINNED_TOKENS = {("ethereum", "USDT"): ("0xdAC17F958D2ee523a2206206994597C13D831ec7", 6, True),
+                 ("ethereum", "USDC"): ("0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", 6, True),
+                 ("bsc", "USDT"): ("0x55d398326f99059fF775485246999027B3197955", 18, False),
+                 ("bsc", "USDC"): ("0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d", 18, False),
+                 ("solana", "USDT"): ("Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB", 6, True),
+                 ("solana", "USDC"): ("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v", 6, True),
+                 ("tron", "USDT"): ("TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t", 6, True)}
+
+
+def token_diff(data):
+    """The tokens of data that differ from PINNED_TOKENS (an empty list: every contract as pinned)."""
+    found = {(n["id"], c["coin"]): (c["contract"], c["decimals"], c["issuer_listed"])
+             for g in data["crypto"]["groups"] for n in g["networks"] for c in n["coins"] if c.get("contract")}
+    return sorted(k for k in set(found) | set(PINNED_TOKENS) if found.get(k) != PINNED_TOKENS.get(k))
+
+
+class SendDataTest(unittest.TestCase):
+    def test_the_contracts_are_the_pinned_ones(self):
+        self.assertEqual(token_diff(committed()), [])
+
+    def test_control_a_changed_contract_is_caught(self):
+        d = committed()
+        coin = next(c for n in d["crypto"]["groups"][1]["networks"] for c in n["coins"] if c["coin"] == "USDT")
+        coin["contract"] = "0x" + "1" * 40
+        self.assertEqual(token_diff(d), [("ethereum", "USDT")])
+
+    def test_each_contract_passes_its_network_checksum(self):
+        d = committed()
+        seen = 0
+        for g in d["crypto"]["groups"]:
+            for n in g["networks"]:
+                for c in n["coins"]:
+                    if c.get("contract"):
+                        seen += 1
+                        self.assertIsNone(support_data.address_problem(g["format"], c["contract"]), c["contract"])
+        self.assertEqual(seen, len(PINNED_TOKENS), "the loop above saw every token")
+
+    def test_a_bad_value_of_the_send_fails(self):
+        cases = {"tx_url": lambda n, c: n.update(tx_url="https://x.org/tx"), "decimals": lambda n, c: c.update(decimals=None),
+                 "native_decimals": lambda n, c: n.update(native_decimals="6"), "chain_id": lambda n, c: n.update(chain_id=None)}
+        for name, change in cases.items():
+            with self.subTest(key=name):
+                d = committed()
+                n = d["crypto"]["groups"][1]["networks"][0]
+                change(n, n["coins"][0])
+                self.assertTrue(any(name in p for p in support_data.problems(d)), name)
+
+    def test_control_a_token_without_contract_or_with_a_bad_one_fails(self):
+        for bad in (None, "0x" + "aB" * 20):   # all digits would pass EIP-55: it has no letters to check
+            d = committed()
+            coin = next(c for n in d["crypto"]["groups"][1]["networks"] for c in n["coins"] if c["coin"] == "USDC")
+            coin["contract"] = bad
+            self.assertTrue(any("USDC" in p for p in support_data.problems(d)), bad)
+
+    def test_the_page_block_holds_only_open_networks_and_never_more_than_the_send_needs(self):
+        d = committed()
+        blob = support_data.send_data(d)
+        self.assertEqual([n["id"] for n in blob["networks"]], ["bitcoin", "ethereum", "bsc", "solana", "tron"])
+        tron = next(n for n in blob["networks"] if n["id"] == "tron")
+        self.assertEqual(tron["address"], PINNED["tron"])
+        self.assertEqual(tron["coins"]["USDT"], {"contract": PINNED_TOKENS[("tron", "USDT")][0], "decimals": 6, "issuer_listed": True})
+        self.assertEqual(support_data.send_data(d, staging=True)["networks"][-1]["id"], "xrp-ledger", "D206: staging opens XRP")
+        self.assertEqual(support_data.send_data(d, staging=True)["networks"][-1]["first_min"], "1")
+
+
+class SendViewTest(unittest.TestCase):
+    """The crypto view as drawn in round cripto-envio-r1, with the network chosen by buttons (spec cripto-no-site, 3.2)."""
+
+    def view(self, profile="production"):
+        return build(on_soon_crypto_live(), profile=profile)["inicio"]["header"]
+
+    MARKS = ["Apoiar com cripto", "Moeda", "Escolha a Rede", "Endereço do Brasil-Imposto (rede ", apoie.ADDRESS_NOTE, "Valor",
+             apoie.EXCHANGE_LINE.split("{net}")[0].strip(), apoie.WARNING]
+
+    def test_the_order_of_the_view(self):
+        self.assertTrue(in_order(text(self.view()), self.MARKS))
+
+    def test_each_network_has_its_button_and_no_row_shows_before_a_choice(self):
+        h = self.view()
+        usdt = re.search(r'<div class="bi-ap-coin" data-coin="USDT" hidden>(.*?)<div class="bi-ap-coin" data-coin="USDC"', h, re.S).group(1)
+        self.assertEqual(re.findall(r'data-net-btn="([^"]+)" aria-pressed="false"', usdt), ["ethereum", "bsc", "solana", "tron"])
+        self.assertEqual(re.findall(r'<div class="bi-ap-net" data-net="([^"]+)"( hidden)?>', usdt),
+                         [("ethereum", " hidden"), ("bsc", " hidden"), ("solana", " hidden"), ("tron", " hidden")])
+        self.assertNotIn('aria-pressed="true"', re.search(r'data-view="crypto".*?</section>', h, re.S).group(0))
+        self.assertNotIn("Escolha uma das redes acima", h)
+
+    def test_a_coin_with_one_network_shows_its_button_too(self):
+        btc = re.search(r'<div class="bi-ap-coin" data-coin="BTC" hidden>(.*?)<div class="bi-ap-coin"', self.view(), re.S).group(1)
+        self.assertEqual(re.findall(r'data-net-btn="([^"]+)" aria-pressed="false">([^<]+)<', btc), [("bitcoin", "Bitcoin")])
+
+    def test_each_address_row_names_its_network_and_says_nothing_is_typed(self):
+        h = self.view()
+        for net in ("Tron", "BNB Smart Chain", "Bitcoin"):
+            self.assertIn(f'<span class="bi-ap-lab">Endereço do Brasil-Imposto (rede {net})</span>', h)
+        self.assertEqual(h.count(apoie.ADDRESS_NOTE), sum(len(support_data.networks_of(on_soon_crypto_live(), c, live=True)) for c in support_data.COINS))
+
+    def test_the_send_block_and_the_data_block_are_in_the_page(self):
+        h = self.view()
+        self.assertEqual(h.count('class="bi-ap-send"'), 1)
+        self.assertIn('<div class="bi-ap-send" hidden>', h, "the send block shows only after a network is chosen")
+        for part in ("data-conn hidden", "data-wallets hidden", "data-qr hidden", "data-pay hidden", "data-after hidden", "data-confirm hidden", "data-done hidden",
+                     'data-msg role="alert"'):
+            self.assertIn(part, h)
+        self.assertIn(apoie.AFTER_CONNECT, h)
+        self.assertIn('id="bi-ap-amount"', h)
+        self.assertRegex(h, r'<button type="button" class="bi-ap-cta bi-ap-sendbtn" data-send disabled>Conectar carteira</button>')
+        blob = json.loads(re.search(r'<script type="application/json" id="bi-cripto-data">(.*?)</script>', h, re.S).group(1))
+        self.assertEqual(blob, support_data.send_data(on_soon_crypto_live()))
+
+    def test_staging_opens_xrp_and_production_does_not(self):
+        self.assertNotIn(PINNED["xrp"], self.view("production"))
+        self.assertIn(PINNED["xrp"], self.view("staging"))
+        self.assertIn('data-coin-btn="XRP"', self.view("staging"))
+
+    def test_the_note_of_the_tokens_the_issuer_does_not_list_and_the_seed_line(self):
+        self.assertIn(apoie.NOT_ISSUER, self.view())
+        self.assertIn(apoie.NO_SEED, self.view())
+
+    def test_the_view_keeps_the_width_of_its_drawing(self):
+        self.assertRegex(apoie.CSS, r'\.bi-ap-panel:has\(\.bi-ap-view\[data-view="crypto"\]:not\(\[hidden\]\)\) \{ max-width: 540px; \}')
+
+    def test_the_mono_font_is_asked_for_only_when_the_view_opens(self):
+        """JetBrains Mono (the coins, the address, the unit) was never loaded by any page; it comes with the view, so a visitor who
+        never opens it downloads nothing more (spec cripto-no-site, section 7)."""
+        p = build(on_soon_crypto_live())["inicio"]
+        self.assertNotIn("family=JetBrains", p["header"] + p["css"])
+        self.assertRegex(p["js"], r"if \(name === 'crypto'\) mono\(\);")
+        self.assertIn(apoie.MONO_FONT, p["js"])
+
+    def test_control_the_order_check_catches_a_moved_warning(self):
+        h = self.view()
+        moved = h.replace(f'<p class="bi-ap-warn">{apoie.escape(apoie.WARNING)}</p>', "")
+        moved = moved.replace('<h2 tabindex="-1">Apoiar com cripto</h2>', f'<h2 tabindex="-1">Apoiar com cripto</h2><p>{apoie.escape(apoie.WARNING)}</p>')
+        self.assertNotEqual(moved, h, "the plant landed")
+        self.assertFalse(in_order(text(moved), self.MARKS))
+
+
+VENDOR = REPO / "docs" / "superpowers" / "previews" / "assets" / "vendor"
+VENDORED = {"qrcode.js": "79ec86f82856005b1c887905cfccfcfbec3821ca61c7fd5a952faa5f778f791c",      # qrcode-generator 2.0.4, MIT
+            "crossmark-sdk.js": "785beebb27c7d6f200b1827a25b2351fc22721b610a028abdf88295ad711de59"}  # @crossmarkio/sdk 0.4.0, see LICENSE.txt
+
+
+class VendoredTest(unittest.TestCase):
+    def test_each_library_is_the_exact_file_reviewed(self):
+        for name, want in VENDORED.items():
+            with self.subTest(file=name):
+                self.assertEqual(hashlib.sha256((VENDOR / name).read_bytes()).hexdigest(), want)
+        self.assertIn("MIT", (VENDOR / "LICENSE.txt").read_text(encoding="utf-8"))
+        self.assertIn("GNU GENERAL PUBLIC LICENSE", (VENDOR / "LICENSE-crossmark.txt").read_text(encoding="utf-8"), "the text the Crossmark package ships")
+
+    def test_control_a_changed_byte_is_caught(self):
+        b = bytearray((VENDOR / "qrcode.js").read_bytes())
+        b[0] ^= 1
+        self.assertNotEqual(hashlib.sha256(bytes(b)).hexdigest(), VENDORED["qrcode.js"])
+
+
+SEND_JS = REPO / "docs" / "superpowers" / "previews" / "assets" / "bi-cripto.js"
+CORE_JS = SEND_JS.with_name("bi-cripto-core.js")
+ALLOWED_METHODS = {"eth_requestAccounts", "eth_chainId", "wallet_switchEthereumChain", "wallet_addEthereumChain", "eth_sendTransaction"}
+FORBIDDEN = re.compile(r"personal_sign|eth_sign|signTypedData|signMessage|approve|permit|setApprovalForAll|seed|mnemonic|privateKey", re.I)
+# Every place the send names a destination must read n.address (or c.contract, for the token a transfer calls): n comes from the page's data
+# block. The space goes inside the lookahead: outside it, the regex could match no space and pass over the correct code.
+BAD_DESTINATION = re.compile(r"Destination:(?!\s*n\.address)|sendBitcoin\((?!n\.address)|\bto:(?!\s*(?:n\.address|c\.contract))|erc20Transfer\((?!n\.address)"
+                             r"|type: 'address', value:(?!\s*n\.address)|paymentLink\(n\.family, (?!n\.address)")
+
+
+def send_js(f=SEND_JS):
+    with f.open(encoding="utf-8") as handle:
+        return handle.read()
+
+
+def method_problems(js):
+    """A wallet method outside the closed list, or a word that asks for more than a plain transfer (an empty list: clean). Section 5, rule 4."""
+    return sorted(set(re.findall(r"method:\s*'([^']+)'", js)) - ALLOWED_METHODS) + FORBIDDEN.findall(js)
+
+
+class SendRulesTest(unittest.TestCase):
+    def test_only_the_closed_list_of_wallet_methods(self):
+        self.assertEqual(method_problems(send_js()), [])
+
+    def test_control_another_method_or_a_signature_is_caught(self):
+        js = send_js()
+        for plant in ("p.request({ method: 'personal_sign' })", "p.request({ method: 'eth_accounts' })", "token.approve(x)"):
+            with self.subTest(plant=plant):
+                self.assertNotEqual(method_problems(js + plant), [])
+
+    def test_the_destination_comes_only_from_the_page_block(self):
+        js = send_js()
+        self.assertIsNone(BAD_DESTINATION.search(js))
+        self.assertNotIn("URLSearchParams", js, "the entry link goes through the core, which never reads an address")
+
+    def test_control_a_destination_from_a_field_is_caught(self):
+        js = send_js()
+        for old, new in (("to: n.address, value", "to: input.value, value"), ("to: c.contract, data", "to: input.value, data"),
+                         ("Destination: n.address", "Destination: input.value"), ("sendBitcoin(n.address", "sendBitcoin(input.value"),
+                         ("erc20Transfer(n.address", "erc20Transfer(input.value"), ("type: 'address', value: n.address", "type: 'address', value: input.value"),
+                         ("paymentLink(n.family, n.address", "paymentLink(n.family, input.value")):
+            with self.subTest(plant=new):
+                planted = js.replace(old, new)
+                self.assertNotEqual(planted, js, "the plant landed")
+                self.assertIsNotNone(BAD_DESTINATION.search(planted))
+
+    def test_the_weight_of_the_send(self):
+        for f in (SEND_JS, CORE_JS):
+            self.assertLess(len(gzip.compress(f.read_bytes(), 9)), 15 * 1024, f.name)
+        self.assertLess(sum(len(gzip.compress(f.read_bytes(), 9)) for f in (SEND_JS, CORE_JS)), 15 * 1024, "section 7: under 15 KB together")
+
+    def test_the_send_is_not_in_the_page_until_asked(self):
+        h = build(on_soon_crypto_live())["inicio"]
+        self.assertNotIn('src="assets/bi-cripto', h["header"] + h["js"])
+
+
+class SpecProofTest(unittest.TestCase):
+    """Spec cripto-no-site, section 8, items 1 and 3."""
+
+    def test_the_transfer_selector_is_the_keccak_of_the_function(self):
+        selector = support_data.keccak_256(b"transfer(address,uint256)")[:4].hex()
+        self.assertEqual(selector, "a9059cbb")
+        self.assertIn(f"'0x{selector}'", send_js(CORE_JS))
+
+    def test_control_six_decimals_on_the_usdt_of_bnb_smart_chain_is_caught(self):
+        d = committed()
+        next(c for n in d["crypto"]["groups"][1]["networks"] if n["id"] == "bsc" for c in n["coins"] if c["coin"] == "USDT")["decimals"] = 6
+        self.assertEqual(token_diff(d), [("bsc", "USDT")])
 
 
 class RulesTest(unittest.TestCase):
@@ -578,6 +815,42 @@ def page_wide_copy_listeners(page):
         if src.startswith("assets/") and src.endswith(".js") and f.exists():
             found += [f"{src}: {m}" for m in PAGE_WIDE_COPY.findall(f.read_text(encoding="utf-8"))]
     return found
+
+
+MODAL = re.compile(r'<div class="bi-apoie" id="bi-apoie".*?</section></div></div></div>', re.S)
+
+
+def modal_clashes(page):
+    """The data attributes of the modal that a page's own script looks up in the whole document (an empty list: none). The modal comes
+    first in the page, so such a lookup finds the modal's element and not the page's: a data-hint in the modal left the tip of Os 3
+    Poderes on the screen, which is how this rule came to be."""
+    names = set(re.findall(r"\sdata-([a-z][a-z-]*)", MODAL.search(page).group(0)))
+    code = ""
+    for attrs, body in scripts(page):
+        code += body.replace(apoie.STAGING_SCRIPT, "").replace(apoie.SCRIPT, "")
+        src = (attrs.get("src") or attrs.get("data-src") or "").split("?")[0]
+        f = REPO / "docs" / "superpowers" / "previews" / src
+        if src.startswith("assets/") and src.endswith(".js") and f.exists() and "/vendor/" not in src:
+            code += f.read_text(encoding="utf-8")
+    return sorted(names & set(re.findall(r"""document\.querySelector(?:All)?\(\s*['"`][^'"`]*\[data-([a-z][a-z-]*)""", code)))
+
+
+class ModalAttributeTest(unittest.TestCase):
+    # The tabs of Como o dinheiro anda hide every [data-view], the modal's included: harmless, since the modal covers them while open and
+    # sets its own views each time it opens. Any other clash fails.
+    KNOWN = {"dinheiro": ["view"]}
+
+    def test_no_page_looks_up_an_attribute_of_the_modal(self):
+        for profile in ("production", "staging"):
+            for key, page in published(profile).items():
+                with self.subTest(profile=profile, page=key):
+                    self.assertEqual(modal_clashes(page), self.KNOWN.get(key, []))
+
+    def test_control_a_page_lookup_of_a_modal_attribute_is_caught(self):
+        page = published("production")["dinheiro"]
+        planted = page.replace("</body>", "<script>const box = document.querySelector('[data-send]');</script></body>")
+        self.assertNotEqual(planted, page, "the plant landed")
+        self.assertEqual(modal_clashes(planted), ["send", "view"])
 
 
 class CopyTest(unittest.TestCase):

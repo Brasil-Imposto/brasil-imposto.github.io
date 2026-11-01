@@ -14,12 +14,19 @@
 //            pix.campaign_url, opens in a new tab with noopener, Escape closes from that view and the focus is back on Apoie
 //   views    each button of the main view opens its focused view, the only view displayed (computed display), and Voltar
 //            comes back
-//   coins    (only when crypto is live) each coin shows only its own panel, with its networks on "live" in the data file (all
-//            open: BTC 1, ETH 1, SOL 1, USDT 4, USDC 3, XRP 1, BNB 1); a coin with none (XRP until its account exists, spec
-//            section 10) keeps its button in the row, disabled, with "Em breve", and has no panel; every coin button's icon loads (assets/cripto)
+//   coins    (only when crypto is live) each coin shows only its own panel, with one button per network on "live" in the data file
+//            (all open: BTC 1, ETH 1, SOL 1, USDT 4, USDC 3, XRP 1, BNB 1) and no address until a network is tapped (spec
+//            cripto-no-site, 3.2); a coin with none (XRP until its account exists, spec section 10) keeps its button in the row,
+//            disabled, with "Em breve", and has no panel; every coin button's icon loads (assets/cripto)
 //   addresses (only when crypto is live; spec apoie, section 10.2, item 3) for every coin and network, in the order of the data
-//            file: the network's name, the address shown, the address "Copiar" puts on the clipboard (read back from the real
-//            clipboard after a real click) and the explorer link equal data/support.json (or BI_SUPPORT_JSON)
+//            file, after tapping that network: the button's name, the label with the network, the address shown, the address
+//            "Copiar" puts on the clipboard (read back from the real clipboard after a real click) and the explorer link equal
+//            data/support.json (or BI_SUPPORT_JSON)
+//   amount   (only when crypto is live) the value and the button appear only after a network is tapped; the unit is the coin; the
+//            fee line and the exchange line name the network; a value that is zero or has too many decimals shows its message, and
+//            a valid one does not; changing the coin clears the value (the wallets and the button: cripto-check.cjs)
+//   reserve  (only when crypto is live; once per page, at the first width) with the send's own files blocked, the coin and the
+//            network can still be chosen and "Copiar" still works, and no value or button shows (spec cripto-no-site, tarefa 4)
 //   sri      (section 10.2, item 4; once per page, at the first width) every script the page asks of another site is served
 //            changed, with a line that marks it as run; none may run, since each has its hash; a page that asks for none says so
 //   empty    the contact form sent empty shows the three field messages and makes no request
@@ -31,13 +38,15 @@
 //   escape   Escape closes the modal
 //   focus    after closing, the focus is back on the Apoie button
 //   outside  a click outside the panel closes it
-// Usage: node apoie-check.cjs <base url of a served test build> [--control] [--widths=1440,420,320]
+// Usage: node apoie-check.cjs <base url of a served test build> [--control] [--staging] [--widths=1440,420,320]
+// --staging says the build is the staging profile, where the networks on "soon" open (the first XRP goes through the test site).
 // For a build with the Pix live, give the same data file that built it: BI_SUPPORT_JSON=/path/support.json
 // --control plants a failure for every check (hidden parts displayed, the close button not pinned, the modal under the header, a
 // header wider than the window, a button in each "soon" card, the field messages hidden, a clock that skips the minimum time,
 // a honeypot the page cannot read, Web3Forms' answers swapped, Escape swallowed, focus() disabled, the backdrop not
 // clickable, two columns of cards at every width, the Pix link sent to another address, the first ETH address and its explorer
-// link changed on the page, the hashes taken out of the page so the changed outside scripts run, the coin icons blocked);
+// link changed on the page, the hashes taken out of the page so the changed outside scripts run, the coin icons blocked, the
+// send's own files blocked for the amount check and left to load for the reserve check);
 // every check must then fail,
 // or the probe is blind.
 // Env: PW_CORE (path to playwright-core), CHROME_HEADLESS (chrome-headless-shell binary).
@@ -45,8 +54,9 @@ const fs = require('fs');
 const path = require('path');
 const SUPPORT = JSON.parse(fs.readFileSync(process.env.BI_SUPPORT_JSON || path.join(__dirname, '..', '..', '..', 'data', 'support.json'), 'utf8'));
 // every row the crypto view must show for a coin, in the order of the data file (support_data.networks_of)
-const expected = (coin) => SUPPORT.crypto.groups.flatMap((g) => g.networks.filter((n) => n.status === 'live').flatMap((n) => n.coins.filter((c) => c.coin === coin)
-  .map((c) => ({ name: n.name + (c.standard ? ` (${c.standard})` : ''), address: g.address, href: n.explorer_url.replace('{address}', g.address), explorer: n.explorer }))));
+const STAGING = process.argv.includes('--staging');
+const expected = (coin) => SUPPORT.crypto.groups.flatMap((g) => g.networks.filter((n) => STAGING || n.status === 'live').flatMap((n) => n.coins.filter((c) => c.coin === coin)
+  .map((c) => ({ id: n.id, net: n.name, fee: n.native_symbol, name: n.name + (c.standard ? ` (${c.standard})` : ''), address: g.address, href: n.explorer_url.replace('{address}', g.address), explorer: n.explorer }))));
 const NETWORKS = Object.fromEntries(['BTC', 'ETH', 'SOL', 'USDT', 'USDC', 'XRP', 'BNB'].map((c) => [c, expected(c).length]));
 // the line added to every outside script: plain script syntax, valid in a classic script and in a module alike
 const mark = (u) => `\n;(window.__biTampered = window.__biTampered || []).push(${JSON.stringify(u)});\n`;
@@ -130,6 +140,26 @@ const PLANT = `
             + `changed: ${bad.asked.length} asked for, ${bad.ran.length} ran${bad.ran.length ? ': ' + bad.ran.join(', ') : ''}`
           : 'no outside script on this page');
       }
+      // reserve: the send's own files never arrive (the control lets them load, so the value and the button show and the check must fail)
+      if (w === widths[0] && Object.values(NETWORKS).some((n) => n > 0)) {
+        const rctx = await browser.newContext({ viewport: { width: w, height: 900 }, permissions: ['clipboard-read', 'clipboard-write'] });
+        await rctx.route('**/*', (r) => { const u = r.request().url(); return !u.startsWith(base) || (!control && u.includes('/assets/bi-cripto')) ? r.abort() : r.continue(); });
+        const rp = await rctx.newPage();
+        await rp.goto(base + page); await rp.waitForSelector('.bi-apoie-btn', { timeout: 120000 }); await rp.waitForTimeout(300);
+        await rp.$eval('.bi-apoie-btn', (e) => e.click()); await rp.waitForTimeout(100);
+        const live = await rp.$('.bi-ap-view[data-view="main"] [data-go="crypto"]');
+        if (live) {
+          await live.evaluate((e) => e.click()); await rp.waitForTimeout(100);
+          const coin = 'USDT', e = expected(coin)[0], row = `.bi-ap-coin[data-coin="${coin}"] .bi-ap-net[data-net="${e.id}"]`;
+          await rp.$eval(`[data-coin-btn="${coin}"]`, (x) => x.click()); await rp.waitForTimeout(400);
+          await rp.$eval(`.bi-ap-coin[data-coin="${coin}"] [data-net-btn="${e.id}"]`, (x) => x.click()); await rp.waitForTimeout(400);
+          await rp.locator(`${row} [data-copy]`).click(); await rp.waitForTimeout(80);
+          const copied = await rp.evaluate(() => navigator.clipboard.readText()).catch(() => '');
+          const send = await rp.$eval('.bi-ap-send', (x) => x.getClientRects().length > 0);
+          report(w, key, 'reserve', copied === e.address && !send, `send files blocked: copied ${copied === e.address ? 'the address' : JSON.stringify(copied)}, value and button ${send ? 'shown' : 'hidden'}`);
+        }
+        await rctx.close();
+      }
       const ctx = await browser.newContext({ viewport: { width: w, height: w <= 420 ? 800 : 900 }, permissions: ['clipboard-read', 'clipboard-write'] });
       const posts = [];
       let answer = 'ok';
@@ -142,7 +172,7 @@ const PLANT = `
           return r.fulfill(good ? { status: 200, contentType: 'application/json', body: '{"success":true,"message":"Email sent successfully!"}' }
             : { status: 500, contentType: 'application/json', body: '{"success":false,"message":"Something went wrong"}' });
         }
-        if (control && u.includes('/assets/cripto/')) return r.abort();   // the control: the coin icons never arrive
+        if (control && (u.includes('/assets/cripto/') || u.includes('/assets/bi-cripto'))) return r.abort();   // the control: the coin icons and the send never arrive
         return u.startsWith(base) ? r.continue() : r.abort();
       });
       if (control) {
@@ -232,37 +262,69 @@ const PLANT = `
             }
             await tap(p, `[data-coin-btn="${coin}"]`); await p.waitForTimeout(60);
             const c = await shown(p, '.bi-ap-coin');
-            const nets = await p.$$eval(`.bi-ap-coin[data-coin="${coin}"] .bi-ap-net`, (es) => es.filter((e) => e.getClientRects().length).length);
-            if (!(c.length === 1 && c[0] === coin && nets === n)) bad.push(`${coin}: panels ${JSON.stringify(c)}, ${nets} networks`);
+            const nets = await p.$$eval(`.bi-ap-coin[data-coin="${coin}"] [data-net-btn]`, (es) => es.filter((e) => e.getClientRects().length).length);
+            const rowsShown = await p.$$eval(`.bi-ap-coin[data-coin="${coin}"] .bi-ap-net`, (es) => es.filter((e) => e.getClientRects().length).length);
+            if (!(c.length === 1 && c[0] === coin && nets === n && rowsShown === 0)) bad.push(`${coin}: panels ${JSON.stringify(c)}, ${nets} networks, ${rowsShown} rows shown before a network is tapped`);
             hs.panel = Math.max(hs.panel, await p.$eval('.bi-ap-panel', (e) => e.scrollWidth - e.clientWidth));
           }
-          await p.waitForTimeout(300);
+          // the icons load lazily, and Início's main thread is busy with its data: wait for them, within a limit a blocked icon cannot pass
+          await p.waitForFunction(() => [...document.querySelectorAll('.bi-ap-coins .bi-ap-coinbtn img')].every((i) => i.complete && i.naturalWidth > 0), null, { timeout: 8000 }).catch(() => {});
           const icons = await p.$$eval('.bi-ap-coins .bi-ap-coinbtn img', (is) => is.map((i) => ({ src: i.getAttribute('src'), ok: i.complete && i.naturalWidth > 0 })));
-          if (icons.length !== 7 || icons.some((i) => !i.ok)) bad.push(`icons: ${icons.filter((i) => i.ok).length} of ${icons.length} loaded`);
+          if (icons.length !== 7 || icons.some((i) => !i.ok)) bad.push(`icons: ${icons.filter((i) => i.ok).length} of ${icons.length} loaded (missing: ${icons.filter((i) => !i.ok).map((i) => i.src).join(', ')})`);
           report(w, key, 'coins', bad.length === 0, bad.length ? bad.join('; ') : 'each coin alone, with its networks, and its icon');
           const wrong = [];
           let rowsSeen = 0;
           for (const coin of Object.keys(NETWORKS).filter((c) => NETWORKS[c] > 0)) {
             await tap(p, `[data-coin-btn="${coin}"]`); await p.waitForTimeout(60);
-            const sel = `.bi-ap-coin[data-coin="${coin}"] .bi-ap-net`;
-            const rows = await p.$$eval(sel, (es) => es.map((e) => ({ name: e.querySelector('.bi-ap-net-name').textContent.trim(),
-              shown: e.querySelector('code').textContent.trim(), href: e.querySelector('a').getAttribute('href'), explorer: e.querySelector('a').textContent.trim() })));
             const want = expected(coin);
-            if (rows.length !== want.length) wrong.push(`${coin}: ${rows.length} rows, the file has ${want.length}`);
-            for (const [i, r] of rows.entries()) {
-              const e = want[i] || {};
+            for (const e of want) {
+              const btn = `.bi-ap-coin[data-coin="${coin}"] [data-net-btn="${e.id}"]`, sel = `.bi-ap-coin[data-coin="${coin}"] .bi-ap-net[data-net="${e.id}"]`;
+              await tap(p, btn); await p.waitForTimeout(60);
+              const r = await p.$eval(sel, (x) => ({ label: x.querySelector('.bi-ap-lab').textContent.trim(), shown: x.querySelector('code').textContent.trim(),
+                href: x.querySelector('a').getAttribute('href'), explorer: x.querySelector('a').textContent.trim() }));
+              const name = await p.$eval(btn, (b) => b.textContent.trim());
               await p.evaluate(() => navigator.clipboard.writeText(''));
-              await p.locator(`${sel} [data-copy]`).nth(i).click(); await p.waitForTimeout(80);
+              await p.locator(`${sel} [data-copy]`).click(); await p.waitForTimeout(80);
               const copied = await p.evaluate(() => navigator.clipboard.readText()).catch((x) => `(clipboard not readable: ${x.message})`);
               rowsSeen += 1;
-              for (const [what, got, ok] of [['name', r.name, e.name], ['shown', r.shown, e.address], ['copied', copied, e.address],
+              for (const [what, got, ok] of [['name', name, e.name], ['label', r.label, `Endereço do Brasil-Imposto (rede ${e.net})`], ['shown', r.shown, e.address], ['copied', copied, e.address],
                 ['explorer link', r.href, e.href], ['explorer name', r.explorer, e.explorer]]) {
-                if (got !== ok) wrong.push(`${coin} ${r.name}: ${what} ${JSON.stringify(got)}, the file has ${JSON.stringify(ok)}`);
+                if (got !== ok) wrong.push(`${coin} ${name}: ${what} ${JSON.stringify(got)}, the file has ${JSON.stringify(ok)}`);
               }
+              hs.panel = Math.max(hs.panel, await p.$eval('.bi-ap-panel', (x) => x.scrollWidth - x.clientWidth));
             }
           }
           report(w, key, 'addresses', rowsSeen > 0 && wrong.length === 0, wrong.length ? wrong.join('; ')
-            : `${rowsSeen} rows: the name, the address shown and copied, and the explorer link equal the data file`);
+            : `${rowsSeen} rows: the name, the label, the address shown and copied, and the explorer link equal the data file`);
+          // the value and the button: only after a network, and only on with a valid value
+          const send = [];
+          await tap(p, '[data-coin-btn="USDC"]'); await p.waitForTimeout(150);
+          const shownNow = () => p.$eval('.bi-ap-send', (x) => x.getClientRects().length > 0);
+          if (await shownNow()) send.push('the send shows before a network is tapped');
+          const usdc = expected('USDC')[0];
+          await tap(p, `.bi-ap-coin[data-coin="USDC"] [data-net-btn="${usdc.id}"]`);
+          await p.waitForFunction(() => window.BiCripto && window.BiCripto.ready, null, { timeout: 4000 }).catch(() => send.push('the send never loaded'));
+          await p.waitForTimeout(100);
+          if (!(await shownNow())) send.push('the send is hidden after a network is tapped');
+          else {
+            const state = () => p.$eval('.bi-ap-send', (x) => ({ unit: x.querySelector('[data-unit]').textContent, fee: x.querySelector('[data-note]').textContent, line: x.querySelector('[data-exchange]').textContent, msg: x.querySelector('[data-msg]').textContent, value: x.querySelector('input').value }));
+            const type = async (v) => { await p.fill('#bi-ap-amount', v); await p.waitForTimeout(40); return state(); };
+            const empty = await type('');
+            if (empty.unit !== 'USDC') send.push(`unit ${JSON.stringify(empty.unit)}`);
+            if (empty.fee !== `A taxa da rede ${usdc.net} é paga em ${usdc.fee}, pela sua carteira.`) send.push(`fee line ${JSON.stringify(empty.fee)}`);
+            if (!empty.line.endsWith(`pela rede ${usdc.net}.`)) send.push(`exchange line ${JSON.stringify(empty.line)}`);
+            const zero = await type('0'), many = await type('1,12345678'), good = await type('10,5');
+            if (zero.msg !== 'Informe um valor maior que zero.') send.push(`zero: ${JSON.stringify(zero)}`);
+            if (!many.msg.includes('USDC aceita até 6 casas')) send.push(`too many decimals: ${JSON.stringify(many)}`);
+            if (/maior que zero|casas/.test(good.msg)) send.push(`a valid value: ${JSON.stringify(good)}`);
+            hs.panel = Math.max(hs.panel, await p.$eval('.bi-ap-panel', (x) => x.scrollWidth - x.clientWidth));
+            await tap(p, '[data-coin-btn="USDT"]'); await p.waitForTimeout(60);
+            const usdt = expected('USDT')[0];
+            await tap(p, `.bi-ap-coin[data-coin="USDT"] [data-net-btn="${usdt.id}"]`); await p.waitForTimeout(60);
+            const cleared = await state();
+            if (cleared.value !== '' || cleared.unit !== 'USDT') send.push(`after changing the coin: ${JSON.stringify(cleared)}`);
+          }
+          report(w, key, 'amount', send.length === 0, send.length ? send.join('; ') : 'shown only after a network; unit, fee line and exchange line follow it; the messages of the value; a new coin clears the value');
         }
         hs.panel = Math.max(hs.panel, await p.$eval('.bi-ap-panel', (e) => e.scrollWidth - e.clientWidth));
         const back = await p.$('.bi-ap-back');

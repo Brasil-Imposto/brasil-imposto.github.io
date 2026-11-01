@@ -1,3 +1,6 @@
 Ícones das moedas da janela Apoie (BTC, ETH, SOL, USDT, USDC, XRP, BNB): o conjunto cryptocurrency-icons, versão 0.18.1
 (svg/color), publicado no npm sob CC0-1.0 (domínio público). Cada arquivo foi conferido: sem script, sem manipulador de evento e
 sem nada buscado de fora (pipelines/tests/test_support.py, CoinIconTest).
+
+O sol.svg não vem desse conjunto e não é CC0: é o Solana Logomark branco do kit oficial da Solana Foundation, sem alteração, sobre um
+círculo #9945FF, usado só para identificar a moeda SOL. A marca é da Solana Foundation (Solana Foundation Brand Guidelines, junho de 2026).

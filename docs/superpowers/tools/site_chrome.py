@@ -169,7 +169,7 @@ def with_support(head, data, keyless=False):
         raise SystemExit("site_chrome: the header changed; place the Apoie button again")
     head = head.replace(a, '<div class="bi-end">' + a).replace(b, "</div>" + b)
     return head.replace('<button type="button" class="bi-menu-btn"', apoie.BUTTON + '<button type="button" class="bi-menu-btn"', 1) \
-        + apoie.modal(data, keyless)
+        + apoie.modal(data, keyless, staging=keyless)
 
 
 def parts(current, profile="production"):
