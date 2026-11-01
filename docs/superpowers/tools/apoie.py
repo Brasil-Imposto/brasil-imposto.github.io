@@ -207,7 +207,7 @@ def modal(data, keyless=False, staging=False):
         coins, panels = "", ""
         for c in support_data.COINS:
             rows = support_data.networks_of(data, c, live=not staging)
-            # Spec section 10: the token's icon left of its name (assets/cripto, CC0), fetched only once the button is shown
+            # Spec section 10: the token's icon left of its name (assets/cripto), fetched only once the button is shown
             icon = f'<img src="assets/cripto/{c.lower()}.svg" alt="" width="20" height="20" loading="lazy">'
             if not rows:
                 coins += f'<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled>{icon}{c} <span class="bi-ap-tag">{SOON}</span></button>'

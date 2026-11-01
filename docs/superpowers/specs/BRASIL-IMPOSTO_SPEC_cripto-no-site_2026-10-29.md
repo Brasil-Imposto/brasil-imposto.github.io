@@ -1,6 +1,6 @@
 # Spec: a doação em cripto feita dentro do site
 
-Status: **aprovada pelo mantenedor em 2026-10-30 (D209)**, com os ajustes de D211 e D212. A rodada `cripto-envio-r1` é a base da tela de envio (D208). Próximo (D212): o modal real igual a essa rodada, mostrado ao mantenedor antes de ligar qualquer carteira; depois o resto do plano; depois a sessão de segurança (D210).
+Status: **aprovada pelo mantenedor em 2026-10-30 (D209)**, com os ajustes de D211, D212 e D213, e **construída** (seção 11). A rodada `cripto-envio-r1` é a base da tela de envio (D208); o modal real foi mostrado ao lado dela antes de ligar as carteiras e aprovado (D213). Próximo: o teste de verdade do mantenedor no site de testes (seção 8, item 6); depois a sessão de segurança (D210).
 
 Pesquisa: `docs/research/BRASIL-IMPOSTO_RESEARCH_cripto-no-site_2026-10-29.md`. Plano: `docs/superpowers/plans/BRASIL-IMPOSTO_PLAN_cripto-no-site_2026-10-30.md`. Quem faz (D164): a sessão aberta pelo kickstart de 2026-10-30, dona do ramo `feat/cripto-envio`.
 
@@ -30,7 +30,7 @@ Nas palavras do autor (D205): *"the brasil imposto website should not just show 
 
 ### 3.2 Os passos
 
-1. **Moeda:** os sete botões de hoje (BTC, ETH, SOL, USDT, USDC, XRP, BNB), cada um com o ícone do token à esquerda do nome (D206; o do SOL sai do conjunto aberto e vem da marca oficial ou do roxo da Solana, à escolha do mantenedor na prévia, D212). Uma moeda cujas redes estão todas "Em breve" fica na fila, apagada, com "Em breve", e não abre nada (o XRP hoje, D206). **Escolher o token muda o modal para o envio** (D206): aparece a seção "Escolha a Rede", com os botões das redes (D211).
+1. **Moeda:** os sete botões de hoje (BTC, ETH, SOL, USDT, USDC, XRP, BNB), cada um com o ícone do token à esquerda do nome (D206; o do SOL é a marca branca oficial da Solana, sem alteração, sobre um círculo #9945FF, D213). Uma moeda cujas redes estão todas "Em breve" fica na fila, apagada, com "Em breve", e não abre nada (o XRP hoje, D206). **Escolher o token muda o modal para o envio** (D206): aparece a seção "Escolha a Rede", com os botões das redes (D211).
 2. **Rede:** só os botões, nenhum pré-escolhido, mesmo numa moeda de uma rede só (D211). Tocar numa rede mostra o endereço dela, com "Copiar" e o explorador (D206), e o valor e o botão de envio. Trocar de moeda esconde tudo isso até a nova escolha de rede.
 3. **Valor:** um campo na unidade da moeda ("10 USDT", "0,005 BTC"), com vírgula ou ponto. Sem valor em reais (D206).
 4. **Como enviar**, só os caminhos que funcionam para aquela rede naquele aparelho:
@@ -83,7 +83,7 @@ Sem conta, sem chave e sem WalletConnect (D208). Em todas as redes, o "Confirmar
 | Tron (USDT) | TronLink pelo TIP-6963, com o `tronWeb` que a própria carteira injeta. Sem biblioteca | No navegador do app do TronLink, o mesmo fluxo roda; fora dele, o site pede para abrir a página lá (nenhum link documentado) | Copiar o endereço |
 | Solana (SOL, USDT, USDC) | QR com o pedido do Solana Pay, para a câmera do celular (pela extensão a página precisaria de um nó, e sem conta não há um confirmado: fica fora da versão 1) | "Confirmar" abre o app da carteira já preenchido (Solana Pay: a carteira monta a transação, sem nó e sem conta) | Copiar o endereço |
 | Bitcoin (BTC) | UniSat (`window.unisat.sendBitcoin`, sem biblioteca) e o QR `bitcoin:` para o celular | "Confirmar" abre o app da carteira com o valor (BIP-321) | Copiar o endereço |
-| XRP Ledger (XRP) | Crossmark (MIT, 10 KB, guardada no próprio site) | "Confirmar" abre o Xaman já preenchido (link de pedido de pagamento, sem conta) | Copiar o endereço |
+| XRP Ledger (XRP) | Crossmark (10 KB, guardada no próprio site; licença na seção 11) | "Confirmar" abre o Xaman já preenchido (link de pedido de pagamento, sem conta) | Copiar o endereço |
 
 O XRP só abre no site de testes até o primeiro 1 XRP do mantenedor, com o mínimo de 1 XRP enquanto a conta não existir (D206). Os fatos ainda não confirmados nas páginas das carteiras (a injeção nos navegadores dos apps, o comportamento do link do Xaman e da Crossmark) só uma carteira de verdade mostra: são conferidos no teste do mantenedor, no site de testes (seção 8, item 6); um caminho que não se confirmar fica com a reserva até a correção.
 
@@ -96,7 +96,7 @@ O único jeito documentado de um botão "Conectar carteira" funcionar com quase 
 - **Licença:** o AppKit está sob a "Reown Community License Agreement" (25/08/2025), da Reown, Inc., e as bibliotecas do protocolo sob a "WalletConnect Community License Agreement" (20/08/2025). **Não é código aberto.** Grátis enquanto o site ficar abaixo de 2.500.000 chamadas por mês e de 500 usuários ativos por mês (uma carteira diferente que se conecta em 30 dias); acima disso, licença comercial paga, preço sob consulta, e a Reown pode mudar os limites "a seu critério". Obriga a usar a rede da própria Reown, pôr o aviso "Portions © 2025 Reown, Inc. All Rights Reserved" e uma cópia da licença no site; qualquer mudança no código deles passa a ser da Reown; lei de Delaware, EUA. O Brasil-Imposto é AGPL-3.0.
 - **Uso:** `@reown/appkit` 1.8.24, 7,0 milhões de downloads no mês (npm), 5.455 estrelas no GitHub, atualizado nesta semana; pede uma etapa de montagem (o AppKit recomenda o Vite) e um arquivo próprio no site, carregado só no envio (peso ainda não medido).
 - **Sair depois:** o kit ficaria só no arquivo do envio; sair é apagar esse arquivo e o botão. Os caminhos diretos continuam.
-- **Sem o WalletConnect:** no computador, as extensões funcionam direto (EVM e Tron sem biblioteca; XRP pela Crossmark, MIT, 10 KB); no celular, quem doa toca em "Abrir no app da carteira": o app abre o site no navegador dele, onde o mesmo caminho da extensão roda (MetaMask e Trust Wallet documentam o link), ou abre o envio já preenchido (MetaMask, Xaman, `bitcoin:`, `solana:`). A GemWallet saiu da lista: não declara licença (npm e GitHub).
+- **Sem o WalletConnect:** no computador, as extensões funcionam direto (EVM e Tron sem biblioteca; XRP pela Crossmark, 10 KB); no celular, quem doa toca em "Abrir no app da carteira": o app abre o site no navegador dele, onde o mesmo caminho da extensão roda (MetaMask e Trust Wallet documentam o link), ou abre o envio já preenchido (MetaMask, Xaman, `bitcoin:`, `solana:`). A GemWallet saiu da lista: não declara licença (npm e GitHub).
 
 ## 5. Regras de segurança
 
@@ -124,7 +124,7 @@ Chaves em inglês. Em cada rede de `crypto.groups[].networks[]`:
 ## 7. O peso na página (#150)
 
 - O código do envio fica em dois arquivos próprios (`assets/bi-cripto-core.js` e `assets/bi-cripto.js`), carregados só quando quem doa escolhe uma moeda (D206). Quem não abre o envio não baixa nada a mais.
-- Meta: os dois arquivos do envio abaixo de 15 KB comprimidos, juntos, sem biblioteca. O gerador de QR (11,7 KB comprimidos, `qrcode-generator` 2.0.4, MIT) e a Crossmark (10,5 KB, MIT) ficam em `assets/` e só carregam quando o QR aparece no computador ou quando quem doa envia XRP pela extensão.
+- Meta: os dois arquivos do envio abaixo de 15 KB comprimidos, juntos, sem biblioteca. O gerador de QR (11,7 KB comprimidos, `qrcode-generator` 2.0.4, MIT) e a Crossmark (10,5 KB; licença na seção 11) ficam em `assets/` e só carregam quando o QR aparece no computador ou quando quem doa envia XRP pela extensão.
 - Nenhuma biblioteca de rede (ethers, tronweb, `@solana/web3.js`, xrpl): as carteiras fazem esse trabalho.
 
 ## 8. Provas (cada teste escrito antes do código e visto falhando, cada um com o seu controle plantado)
@@ -157,3 +157,24 @@ Depois das respostas: as rodadas de prévia do envio (o botão na linha, o valor
 ## 10. Fora desta spec
 
 A cotação em reais (Q36); o site confirmar a chegada da doação; um livro-caixa automático das carteiras; o WalletConnect (D208; pode entrar depois sem refazer nada); a Solana pela extensão do computador; uma política de conteúdo (CSP) para a página.
+
+## 11. Como foi construído (2026-11-01)
+
+**Ordem (D212):** primeiro o modal real igual à rodada, mostrado ao lado dela na rodada `cripto-envio-r2`, antes de ligar qualquer carteira; com o "pode" (D213), as carteiras.
+
+**Medido contra o desenho:** a mesma caixa nos dois lados, no mesmo estado (USDT, Tron, 10): posição, tamanho, fonte, cores e texto. O momento 1 fecha em 19 de 21 caixas a até 1 px; as duas outras são de propósito ("Escolha a Rede", D211, e a frase da regra 8, que desce o aviso 29,5 px). Os momentos 2, 3 e 4 fecham em 15 de 15. O painel da vista fica em 540 px, como na rodada; a vista principal segue em 760 px, por causa dos três cartões.
+
+**O que o plano não tinha, achado ao rodar:**
+
+- Nenhuma página carregava a JetBrains Mono dos botões e dos endereços: era uma das causas do "clearly different" de D212. Agora a fonte é pedida só quando a vista da cripto abre, e quem não abre não baixa nada.
+- O `render()` do plano apagava a mensagem da carteira logo depois de mostrá-la ("Envio cancelado"): a mensagem do valor e a da carteira ficam separadas.
+- Na tela o valor usa vírgula, como pede a seção 3.2; no link, ponto.
+- Trocar de moeda limpa o valor: 10 USDT nunca vira 10 BTC. Voltar à vista depois de um envio começa do início.
+- A conta e a rede são lidas de novo logo antes de cada envio (regra 5).
+- Sem carteira da rede no computador, a mensagem da seção 3.3 fica no lugar do botão. Na Solana ela não aparece: a extensão está fora da versão 1 (seção 4), e dizer "nenhuma carteira" a quem tem a Phantom seria falso.
+- A regra do destino do plano tinha um defeito: o `\s*` fora da checagem casava com nada e passava por cima do código certo, e o controle dela passava até no código limpo. A regra nova cobre os seis lugares onde o envio nomeia um destino, e o controle planta cada um.
+- A licença da Crossmark: o `package.json` e o registro do npm dizem MIT, mas o `LICENSE` do pacote é o texto da GNU GPL v3, e o repositório de origem não é público. Valendo o mais restrito, esse texto acompanha a biblioteca (`assets/vendor/LICENSE-crossmark.txt`). A GPL v3 pode ser combinada com a AGPL-3.0 do projeto.
+
+**Provas:** `cripto-check.cjs` (seção 8, item 4) com carteiras de mentira, nada sai da máquina: em cada moeda e rede, o pedido que a carteira recebe traz o endereço, o contrato, o valor e a rede do arquivo de dados; os momentos 2, 3 e 4; os casos da seção 3.3. No controle, com os endereços trocados na página, toda checagem de envio e de link falha. `apoie-check.cjs` segue a vista nova, com o valor e a reserva (sem os arquivos do envio, a escolha e o "Copiar" continuam funcionando). Passa `--staging` nas duas sondas para a montagem de testes, onde o XRP abre.
+
+**O que só o teste do mantenedor mostra** (seção 8, item 6): se os navegadores dos apps injetam a carteira; se o endereço de transação da Tronscan abre; se o Xaman abre preenchido; se a carteira cria a conta de token do destino na Solana; a resposta real da Crossmark e do TronLink. Um caminho que não funcionar fica com a reserva (copiar o endereço) até a correção.

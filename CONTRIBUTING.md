@@ -73,8 +73,9 @@ As sondas abrem as páginas num Chromium sem tela, como um visitante:
 | `docs/superpowers/tools/site-check.cjs` | cada página responde sem erro, sem rolagem lateral, em 1440 e 420 px |
 | `docs/superpowers/tools/visible-text-probe.cjs` | o texto visível da Início em 100 combinações de período e estado, para provar que uma mudança não mexeu na tela |
 | `docs/superpowers/tools/apoie-check.cjs` | o botão Apoie e o formulário de contato (o envio é interceptado: nenhuma mensagem sai); com a cripto aberta, o endereço mostrado e o copiado de cada moeda e rede iguais a `data/support.json`; e cada script de fora aceito como publicado e recusado quando chega alterado |
+| `docs/superpowers/tools/cripto-check.cjs` | o envio em cripto, com carteiras de mentira (nada sai da máquina): o endereço, o contrato, o valor e a rede de cada pedido iguais a `data/support.json`, em cada moeda e rede; os momentos da tela, os casos de erro, os links do celular e o QR |
 
-Cada uma tem `--control`, que planta uma falha e tem de falhar. Variáveis: `PW_CORE` (a pasta do `playwright-core`),
+Cada uma tem `--control`, que planta uma falha e tem de falhar; `apoie-check.cjs` e `cripto-check.cjs` pedem `--staging` na montagem de testes, onde o XRP abre. Variáveis: `PW_CORE` (a pasta do `playwright-core`),
 `CHROME_HEADLESS` (o binário do Chromium sem tela), `CDN_MIRROR` (pacotes do npm servidos no lugar do cdn.jsdelivr.net, quando a
 rede bloqueia), `VT_WIDTH` e `VT_STATES` (largura e estados da sonda de texto), `SC_WIDTHS` (larguras do `site-check.cjs`).
 Para obter os dois primeiros:
