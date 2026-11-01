@@ -1,8 +1,8 @@
 # Spec: a doação em cripto feita dentro do site
 
-Status: **aprovada pelo mantenedor em 2026-10-30 (D209)**, fechada com D205 a D208. A rodada 1 de perguntas está respondida (D206, D208) e a rodada de prévia `cripto-envio-r1` é a base da tela de envio (D208). Próximo: o plano, depois o código com testes antes.
+Status: **aprovada pelo mantenedor em 2026-10-30 (D209)**, com os ajustes de D211 e D212. A rodada `cripto-envio-r1` é a base da tela de envio (D208). Próximo (D212): o modal real igual a essa rodada, mostrado ao mantenedor antes de ligar qualquer carteira; depois o resto do plano; depois a sessão de segurança (D210).
 
-Pesquisa: `docs/research/BRASIL-IMPOSTO_RESEARCH_cripto-no-site_2026-10-29.md`. Plano: `docs/superpowers/plans/BRASIL-IMPOSTO_PLAN_cripto-no-site_2026-10-30.md`. Quem faz (D164): a sessão aberta pelo kickstart de 2026-10-30, que assume o #162, o #163 e o ramo `feat/cripto-envio`.
+Pesquisa: `docs/research/BRASIL-IMPOSTO_RESEARCH_cripto-no-site_2026-10-29.md`. Plano: `docs/superpowers/plans/BRASIL-IMPOSTO_PLAN_cripto-no-site_2026-10-30.md`. Quem faz (D164): a sessão aberta pelo kickstart de 2026-10-30, dona do ramo `feat/cripto-envio`.
 
 ## 1. O objetivo
 
@@ -26,12 +26,12 @@ Nas palavras do autor (D205): *"the brasil imposto website should not just show 
 | E4 | Computador com extensão de carteira | Passo 4 com "Carteira deste navegador" (a extensão encontrada, pelo nome e ícone dela) |
 | E5 | Computador sem extensão | Passo 4 com o QR para o celular e "Copiar o endereço" |
 | E6 | Celular com o app da carteira instalado | Passo 4 com "Abrir no app da carteira" |
-| E7 | Quem envia de uma corretora | Passo 2: a linha da rede com o endereço e "Copiar", como hoje |
+| E7 | Quem envia de uma corretora | Passo 2: toca na rede e usa a linha com o endereço e "Copiar" |
 
 ### 3.2 Os passos
 
-1. **Moeda:** os sete botões de hoje (BTC, ETH, SOL, USDT, USDC, XRP, BNB), cada um com o ícone do token à esquerda do nome (D206). Uma moeda cujas redes estão todas "Em breve" fica na fila, apagada, com "Em breve", e não abre nada (o XRP hoje, D206). **Escolher o token muda o modal para o envio** (D206): a rede, o valor e o "como enviar" aparecem logo, e a linha do endereço continua na tela.
-2. **Rede:** as linhas de hoje (nome da rede, endereço, "Copiar", explorador) continuam (D206); com mais de uma rede (USDT 4, USDC 3), quem doa escolhe a rede e o envio segue a escolhida.
+1. **Moeda:** os sete botões de hoje (BTC, ETH, SOL, USDT, USDC, XRP, BNB), cada um com o ícone do token à esquerda do nome (D206; o do SOL sai do conjunto aberto e vem da marca oficial ou do roxo da Solana, à escolha do mantenedor na prévia, D212). Uma moeda cujas redes estão todas "Em breve" fica na fila, apagada, com "Em breve", e não abre nada (o XRP hoje, D206). **Escolher o token muda o modal para o envio** (D206): aparece a seção "Escolha a Rede", com os botões das redes (D211).
+2. **Rede:** só os botões, nenhum pré-escolhido, mesmo numa moeda de uma rede só (D211). Tocar numa rede mostra o endereço dela, com "Copiar" e o explorador (D206), e o valor e o botão de envio. Trocar de moeda esconde tudo isso até a nova escolha de rede.
 3. **Valor:** um campo na unidade da moeda ("10 USDT", "0,005 BTC"), com vírgula ou ponto. Sem valor em reais (D206).
 4. **Como enviar**, só os caminhos que funcionam para aquela rede naquele aparelho:
    - "Carteira deste navegador": as extensões encontradas para a rede (pelo nome e ícone que cada uma anuncia);
@@ -71,7 +71,7 @@ Nas palavras do autor (D205): *"the brasil imposto website should not just show 
 
 ### 3.4 Onde o fluxo termina
 
-Enviado (com o link da transação), cancelado (nada sai da carteira), ou um caminho alternativo (QR, app ou copiar o endereço). Nenhuma saída deixa quem doa sem o endereço: a linha com "Copiar" está sempre na tela.
+Enviado (com o link da transação), cancelado (nada sai da carteira), ou um caminho alternativo (QR, app ou copiar o endereço). Nenhuma saída deixa quem doa sem o endereço: escolhida a rede, a linha com "Copiar" está sempre na tela.
 
 ## 4. Como o site fala com cada carteira (versão 1, D207 e D208)
 
@@ -117,7 +117,7 @@ Chaves em inglês. Em cada rede de `crypto.groups[].networks[]`:
 - `status`: `"live"` ou `"soon"` (D205: o estado por rede; uma rede em `"soon"` não mostra endereço nem envio);
 - `chain_id` nas redes EVM (1 e 56);
 - `tx_url`: o endereço da transação no explorador (`https://etherscan.io/tx/{tx}`, por exemplo);
-- `native_decimals` e, em cada moeda que é token, `contract` (ou `mint` na Solana), `decimals` e `issuer_listed` (verdadeiro quando o emissor lista o contrato na própria página).
+- `native_decimals` e, em cada moeda que é token, `contract` (o mint, na Solana), `decimals` e `issuer_listed` (verdadeiro quando o emissor lista o contrato na própria página).
 
 `support_data.py` confere tudo isso, e o teste fixa cada contrato como fixa os endereços.
 
@@ -138,7 +138,7 @@ Chaves em inglês. Em cada rede de `crypto.groups[].networks[]`:
 
 ## 9. Perguntas ao mantenedor (rodada 1; respostas em D206)
 
-Todas respondidas: 1 com uma direção nova (o envio aparece ao escolher o token, com a linha do endereço na tela; D206) e o alvo de uma corretora (D207); 2 a, sem conta e sem WalletConnect, com 3 a 5 resolvidas pela seção 4 (D208); 6 a, 7 a, 8 a e 9 a (D206). A rodada `cripto-envio-r1` é a base da tela (D208); os outros estados da seção 3.3 usam as mesmas peças da rodada, com os textos de lá.
+Todas respondidas: 1 com uma direção nova (o envio aparece ao escolher o token, com a linha do endereço na tela; D206) e o alvo de uma corretora (D207); 2 a, sem conta e sem WalletConnect, com 3 a 5 resolvidas pela seção 4 (D208); 6 a, 7 a, 8 a e 9 a (D206). A rodada `cripto-envio-r1` é a base da tela (D208), com a rede em botões e o endereço só depois da escolha (D211); os outros estados da seção 3.3 usam as mesmas peças da rodada, com os textos de lá.
 
 **Aprovada em 2026-10-30 (D209).**
 

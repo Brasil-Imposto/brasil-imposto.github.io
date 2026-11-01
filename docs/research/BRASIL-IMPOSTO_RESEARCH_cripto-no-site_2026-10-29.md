@@ -67,9 +67,9 @@ Medido em 2026-10-29 nas versões exatas do jsDelivr (bytes comprimidos com gzip
 |---|---|---|
 | Nenhuma (EVM, Tron, links e QR) | 0 | Caminho recomendado |
 | Gerador de QR (`qrcode-generator` 2.0.4) | 11,7 KB | Só para o QR no computador |
-| GemWallet API 3.8.0 | 5,2 KB | Só se a extensão do XRP entrar |
-| Crossmark SDK 0.4.0 | 10,5 KB | Idem |
-| `@solana/web3.js` 1.98.4 | 106,8 KB | Só se a Solana pela extensão entrar |
+| GemWallet API 3.8.0 | 5,2 KB | Não: não declara licença (a spec usa a Crossmark) |
+| Crossmark SDK 0.4.0 | 10,5 KB | Só para enviar XRP pela extensão (D208) |
+| `@solana/web3.js` 1.98.4 | 106,8 KB | Não: a Solana pela extensão ficou fora da versão 1 (D208) |
 | `xrpl` 5.3.0 | 138,3 KB | Não precisa |
 | `ethers` 6.17.0 | 160,7 KB | Não precisa |
 | `tronweb` 6.5.1 | 232,1 KB | Não precisa (a carteira já injeta) |

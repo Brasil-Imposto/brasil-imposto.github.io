@@ -24,15 +24,14 @@ chave do formulário, pela mão do mantenedor.
 
 ## 2. O arquivo de dados: `data/support.json`
 
-Chaves em inglês. Hoje tudo vazio. Se uma montagem leva o botão é a chave `apoie` de `data/features.json` (spec de staging,
+Chaves em inglês. Se uma montagem leva o botão é a chave `apoie` de `data/features.json` (spec de staging,
 seção 2), que substituiu o campo `enabled` deste arquivo.
 
 | Chave | Hoje | O que é |
 |---|---|---|
-| `maintainer_cap_brl` | `null` | o teto do valor fixo da manutenção, por mês, em reais |
 | `contact_form` | `{"provider": "web3forms", "access_key": null}` | a chave pública do Web3Forms para a caixa do projeto; nenhum e-mail na página (D124, seção 8) |
 | `sponsors` | `status: "soon"`, `sponsors_url: null`, `fiscal_host: {"name": "Open Source Collective", "url": null}` | o canal do GitHub Sponsors; `sponsors_url` será `https://github.com/sponsors/Brasil-Imposto` |
-| `crypto` | `status: "soon"`, `unidentified_return_above_brl: null`, 5 grupos com `address: null` | o canal de cripto: o valor acima do qual doação de carteira sem identificação é devolvida, e um endereço por grupo, com as redes, o explorador de cada rede e as moedas |
+| `crypto` | `status: "live"`, 5 grupos com endereço, `status` em cada rede (o XRP Ledger em `"soon"`) | o canal de cripto: um endereço por grupo, com as redes, o explorador de cada rede e as moedas |
 
 Os grupos de endereço, as redes e as moedas:
 
@@ -67,13 +66,7 @@ ainda).
 2. "O Brasil-Imposto mostra, com dados oficiais e a fonte de cada número, para onde vai o imposto pago no Brasil. É apartidário e
    de código aberto. O seu apoio paga duas coisas, e nada além delas: o trabalho de quem desenvolve o projeto e a infraestrutura
    que mantém os dados corretos e no ar."
-3. "Para onde vai o dinheiro": uma barra fina em duas cores (verde, azul) como legenda, e duas colunas:
-   - "1. Desenvolvedores": "Quem entrega trabalho aceito no repositório. Cada tarefa paga é uma issue com o valor em reais
-     publicado antes de o trabalho começar, e o pagamento sai quando o pull request entra no site. A pessoa mantenedora recebe um
-     valor fixo por mês para revisar, publicar e manter o projeto, com teto de {maintainer_cap_brl}."
-   - "2. Infraestrutura": "O custo real de cada mês, com a nota de cada gasto: hoje, as ferramentas de inteligência artificial
-     usadas para coletar e conferir os dados; depois, servidor e banco de dados, quando o site precisar. O site é hospedado de
-     graça no GitHub Pages."
+3. "Para onde vai o dinheiro do apoio": os textos da seção 9.3.
 4. Um quadro "Como cada mês é dividido": "1. Primeiro, a infraestrutura do mês, pelo custo real. 2. Com o restante, as tarefas
    pagas que entraram no mês, pelo valor que estava publicado na issue. 3. Depois, o valor fixo da manutenção, até o teto. 4. O que
    ficar fica guardado para os meses seguintes, e o saldo aparece no livro-caixa." e, abaixo: "Não pagamos por número de commits,
@@ -106,12 +99,13 @@ contas do dinheiro do projeto." E o botão "Abrir o GitHub Sponsors", para `spon
 
 ### 4.3 Vista "Apoiar com cripto" (com "Voltar")
 
-- Sete botões de moeda: BTC, ETH, SOL, USDT, USDC, XRP, BNB. Escolher uma mostra só as redes dela; cada linha com o nome da rede,
-  o endereço, "Copiar" e o link do explorador. USDT mostra quatro redes e USDC três, com "Escolha uma das redes acima ao enviar.".
+- Sete botões de moeda (BTC, ETH, SOL, USDT, USDC, XRP, BNB), cada um com o ícone do token à esquerda do nome (D206). Uma moeda sem rede
+  aberta fica na fila, apagada, com "Em breve", e não abre nada (o XRP hoje, D206).
+- Escolher uma moeda mostra só a seção "Escolha a Rede", com os botões das redes dela, nenhum pré-escolhido (USDT quatro, USDC três). O
+  endereço, "Copiar" e o link do explorador aparecem só depois de tocar numa rede (D211); o desenho completo com o envio está na spec
+  `docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_cripto-no-site_2026-10-29.md`. O site hoje ainda mostra todas as redes ao mesmo tempo.
 - O aviso: "Confira a rede antes de enviar. Uma moeda enviada por uma rede que não está na lista se perde, e o projeto não consegue
   devolver."
-- A regra: "Doação acima de {unidentified_return_above_brl} vinda de carteira sem identificação é devolvida para a carteira de
-  origem."
 - Um painel de moeda escondido fica escondido de verdade: uma regra `display` na classe do painel venceria o atributo `hidden`,
   então a folha de estilo da janela esconde todo `[hidden]` dentro dela com `!important`.
 
@@ -172,8 +166,7 @@ com a pessoa mantenedora já; o GitHub Sponsors e a cripto ficam fechados até o
 valores de `data/support.json`).
 
 - **Cada canal tem um estado** (`sponsors.status` e `crypto.status`): `"soon"` mostra o cartão com a etiqueta "Em breve";
-  `"live"` pede todos os valores do canal preenchidos (o teste de endereços e valores vale para `"live"`; com qualquer canal
-  `"live"`, o teto `maintainer_cap_brl` também é exigido).
+  `"live"` pede todos os valores do canal preenchidos (o teste de endereços e valores vale para `"live"`).
 - **A chave `apoie` pode ser ligada na produção com os dois canais em `"soon"`**, com ou sem `contact_form.access_key` (D162): sem
   ela, a vista de contato fica fora da página; preenchida, é um UUID (um endereço de e-mail ali é recusado). A chave do formulário fica `null` até a sessão local escrevê-la; a
   produção liga `apoie` em `data/features.json`.
@@ -298,7 +291,7 @@ mudar, o texto muda junto.
 
 ### 9.7 Fora desta seção
 
-- A rodada das regras do dinheiro (D170): o portão dos canais, `unidentified_return_above_brl`, por onde sai o pagamento de quem contribui
+- A rodada das regras do dinheiro (D170): por onde sai o pagamento de quem contribui
   (Q34) e a cotação que converte cada doação em reais (Q36).
 - A regra dos pesos escrita no `GOVERNANCE.md`, as etiquetas de peso no repositório e o peso dos pull requests já aceitos desde
   2026-09-25, para a aprovação do mantenedor (D201, D202): tarefa própria.
@@ -306,7 +299,7 @@ mudar, o texto muda junto.
 
 ## 10. A cripto pronta para a produção (D204)
 
-Status: **aprovada pelo mantenedor em 2026-10-29 (D205) e construída no #163 em 2026-10-29 (10.5), com o XRP "Em breve" por rede pela opção A da rodada de prévia (D206).** O XRP fica "Em breve" até o mantenedor mandar o primeiro 1 XRP (D205): `data/support.json` passa a ter um estado por rede, e o botão do XRP em "Em breve" passa por uma rodada de prévia (D185). O teste de verdade na rede (10.2, item 5) é feito pelo mantenedor em todas as moedas e redes, de preferência pela doação dentro do site, que é um pedido novo com sessão e spec próprias (D205). Quem faz (D164): a sessão local de 2026-10-28, nos ramos desta spec (#162) e do
+Status: **aprovada pelo mantenedor em 2026-10-29 (D205) e construída no #163 em 2026-10-29 (10.4), com o XRP "Em breve" por rede pela opção A da rodada de prévia (D206).** O XRP fica "Em breve" até o mantenedor mandar o primeiro 1 XRP (D205): `data/support.json` passa a ter um estado por rede, e o botão do XRP em "Em breve" passa por uma rodada de prévia (D185). O teste de verdade na rede (10.2, item 5) é feito pelo mantenedor em todas as moedas e redes, de preferência pela doação dentro do site, que é um pedido novo com sessão e spec próprias (D205). Quem faz (D164): a sessão local de 2026-10-28, nos ramos desta spec (#162) e do
 código (#163). Os cinco endereços do projeto já estão em `data/support.json` no #163, conferidos pela soma de verificação de cada rede e na
 API pública de cada rede, com a cripto ainda em `"soon"`.
 
@@ -339,8 +332,8 @@ Cada teste é escrito antes da mudança e visto falhando (TDD), e cada um tem o 
    integridade (d3 no cdnjs, d3-sankey no jsdelivr). Um arquivo adulterado na CDN poderia trocar o endereço que quem doa vê. Elas ganham os
    atributos `integrity` (hash SRI) e `crossorigin`, e um teste recusa script externo sem `integrity` em toda página com o botão Apoie.
    Controle: tirar um hash tem de falhar.
-5. **Um teste de verdade na rede** (pergunta 2): o mantenedor manda um valor pequeno para cada endereço a partir de uma conta numa
-   corretora, e a sessão confere a chegada no explorador e na API de cada rede; o mantenedor confere no celular. O que entra fica no projeto
+5. **Um teste de verdade na rede** (D205): o mantenedor manda um valor pequeno em cada moeda e cada rede, de preferência pela doação dentro
+   do site, e a sessão confere a chegada no explorador e na API de cada rede; o mantenedor confere no celular. O que entra fica no projeto
    e vai ao livro-caixa como doação do mantenedor.
 6. **Provas:** as da seção 9.6, mais a vista da cripto aberta em 1440, 420 e 320 px, cada moeda com as suas redes, "Copiar" e os links,
    com `apoie-check.cjs --control`.
@@ -350,16 +343,7 @@ Cada teste é escrito antes da mudança e visto falhando (TDD), e cada um tem o 
 O livro-caixa que se preenche sozinho com as entradas das carteiras (depois); a carteira física acima de um saldo a definir; código QR dos
 endereços.
 
-### 10.4 Perguntas ao mantenedor
-
-1. **Aprovar 10.1 e 10.2 como escritas?** Recomendado: sim; o 10.2 cobre os erros que perdem dinheiro de verdade (um endereço errado
-   publicado, um script trocando o endereço na página) e cabe no plano gratuito.
-2. **O teste de verdade na rede:** a) quatro envios pequenos nas redes de taxa baixa (BNB Smart Chain, Solana, Tron com USDT e XRP com 1
-   XRP, que também cria a conta), sem Bitcoin e sem Ethereum (o endereço do Ethereum é o mesmo da BNB Smart Chain); b) os seis; c) nenhum.
-   Recomendado: a. Custo: os valores enviados, que ficam no projeto, e as taxas da rede e de saque da corretora, que variam e não foram
-   pesquisadas.
-
-### 10.5 Como foi construído (2026-10-29, #163)
+### 10.4 Como foi construído (2026-10-29, #163)
 
 - **Soma de verificação:** `support_data.address_problem`, sem dependência; vetores do BIP-350, do EIP-55, do Bitcoin Core, da página de contas da Tron e da página de endereços do xrpl.org. O keccak-256 em Python puro bate com o resumo conhecido da entrada vazia e, com o preenchimento do SHA-3, com o `hashlib.sha3_256`. Controle: 5.811 trocas de um caractere nos quatro endereços com soma (Bitcoin, 0x, Tron e XRP), todas recusadas. **A Solana não tem soma de verificação:** uma troca de um caractere continua com 32 bytes (e até um caractere a menos pode continuar com 32); lá quem pega a troca é o endereço fixado no teste (item 2). Um endereço preenchido é conferido em qualquer estado, não só com a cripto aberta.
 - **Scripts de fora:** além das duas bibliotecas de "Como o dinheiro anda", a Início carrega sete módulos do three.js pelo mapa de importação (os cinco que o código importa e os dois que o Line2 importa), e a Início do staging carrega o 3d-force-graph (a prévia da Rede, D172). Os três ganharam hash: os atributos nas duas tags, a lista `integrity` no mapa de importação (posta pelo `build-platform-preview.py`; Chrome 127, Firefox 138 e Safari 18 conferem, um navegador mais antigo ignora a lista) e o `data-integrity` que o carregador do mapa repõe. Cada hash foi conferido com o hash que o próprio CDN publica.
