@@ -34,7 +34,7 @@ estados e os municípios, quem ocupa cada cargo dos três Poderes e quanto receb
 fonte oficial ao lado, com o link, o período e a data da coleta.
 
 **Estado:** primeira versão pública (v1). As páginas são arquivos HTML estáticos montados a partir dos dados deste repositório e
-publicados no GitHub Pages em dois sites: o de testes, <https://brasil-imposto.github.io/staging/>, refeito a partir do ramo `staging` (hoje pelo mantenedor; automático quando o token do disparo existir),
+publicados no GitHub Pages em dois sites: o de testes, <https://brasil-imposto.github.io/staging/> (no ar só durante os testes), refeito a partir do ramo `staging` (hoje pelo mantenedor; automático quando o token do disparo existir),
 e a produção, <https://brasil-imposto.github.io>, que recebe uma tarefa aprovada por vez, levada do `staging` para a `main`. O site definitivo, em Astro, está em
 construção.
 
@@ -192,6 +192,6 @@ state and municipal taxes are collected and shared, what each federal officehold
 The site is <https://brasil-imposto.github.io>. The pages are static HTML built from `data/` with Python 3 and no extra packages
 (commands above); an Astro site is being built phase by phase (issues #3 to #7). Code is AGPL-3.0; data and texts are CC BY 4.0.
 Issues and pull requests are welcome, in Portuguese or English; every number needs its official source. Pull requests go to the
-`staging` branch, which publishes the test site <https://brasil-imposto.github.io/staging/>; production only receives what was
+`staging` branch, which publishes the test site <https://brasil-imposto.github.io/staging/> (online only during tests); production only receives what was
 checked there. How to contribute and
 how to document a pull request: <https://github.com/Brasil-Imposto>.

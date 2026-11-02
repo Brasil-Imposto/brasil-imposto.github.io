@@ -13,7 +13,7 @@ Site: <https://brasil-imposto.github.io>.
 
 - **Hoje:** páginas HTML estáticas em `docs/superpowers/previews/`, montadas por Python 3 a partir de `data/` pelos construtores
   de `docs/superpowers/tools/` (comandos no `README.md`). O workflow `.github/workflows/pages.yml` refaz e publica a cada push na
-  `main`. O staging (`https://brasil-imposto.github.io/staging/`, público, com uma faixa de testes e `noindex`, D165) é
+  `main`. O staging (`https://brasil-imposto.github.io/staging/`, com uma faixa de testes e `noindex`; fora do ar fora dos testes desde 2026-11-02, D214) é
   publicado pelo repositório `Brasil-Imposto/staging` a partir do ramo `staging`. Os pacotes `assets/bi-data.js` e `assets/bi-geo*.js` não ficam no git: os construtores os refazem.
 - **Em construção:** o site em Astro 7 com TypeScript estrito, three.js e um mapa SVG gerado no build, um JSON por entidade com
   JSON Schema, Python nos pipelines (Parte B de

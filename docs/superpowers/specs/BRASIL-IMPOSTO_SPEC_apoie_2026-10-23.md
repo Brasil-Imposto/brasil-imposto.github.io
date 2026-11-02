@@ -92,6 +92,8 @@ ainda).
 
 ### 4.2 Vista "Apoiar pelo GitHub Sponsors" (com "Voltar")
 
+O Open Source Collective recusou o projeto como fiscal host em 2026-11-01 (D214). O GitHub Sponsors aceita uma organização no Brasil recebendo direto numa conta bancária; quem recebe está em aberto, e os textos abaixo que citam o Open Source Collective mudam antes de o canal abrir.
+
 Três passos: "Abra a página do Brasil-Imposto no GitHub Sponsors." / "Escolha um valor, uma vez ou todo mês." / "Pague com a forma
 de pagamento da sua conta do GitHub." Os fatos: "Em dólar. O GitHub não cobra taxa de quem apoia por uma conta pessoal; o apoio
 feito por uma organização tem taxa de até 6%. O dinheiro vai para o Open Source Collective, que fica com 10% para guardar e prestar
