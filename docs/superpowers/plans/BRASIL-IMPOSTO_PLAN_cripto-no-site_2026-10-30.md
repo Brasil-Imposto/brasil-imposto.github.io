@@ -12,7 +12,7 @@
 
 **Executado em 2026-11-01:** o código abaixo foi o desenho; o que mudou ao rodar está na seção 11 da spec.
 
-**Ordem (D212):** o desenho primeiro. Faça as tarefas 0, 1 e 4, com o mínimo que faça o valor e o botão aparecerem de verdade (o que a tarefa 2 precisar), e mostre ao mantenedor a página real ao lado da rodada, antes de ligar qualquer carteira. Com a aprovação dele, siga com as tarefas 2, 3, 5, 6 e 7. Junto da tarefa 4, o ícone do SOL: o verde do conjunto aberto sai; a marca oficial está em `private/apoie/icons/sol-official-logomark.svg` (vai do roxo `#9945FF` ao verde `#19FB9B`, 2.519 bytes, acima do limite de 2 KB de `CoinIconTest`). Desenhe-a em tamanho de botão ao lado da mesma forma em roxo `#9945FF` e deixe o mantenedor escolher; confira as regras de uso nas diretrizes da Solana Foundation, que não foram lidas.
+**Ordem (D212):** o desenho primeiro. Faça as tarefas 0, 1 e 4, com o mínimo que faça o valor e o botão aparecerem de verdade (o que a tarefa 2 precisar), e mostre ao mantenedor a página real ao lado da rodada, antes de ligar qualquer carteira. Com a aprovação dele, siga com as tarefas 2, 3, 5, 6 e 7. Junto da tarefa 4, o ícone do SOL: o verde do conjunto aberto sai; a marca oficial está em `private/apoie/icons/sol-official-logomark.svg` (vai do roxo `#9945FF` ao verde `#19FB9B`, 2.519 bytes, acima do limite de 2 KB de `CoinIconTest`). Escolhido em D213: a marca branca oficial sobre um círculo `#9945FF` (as diretrizes da Solana Foundation, lidas em 2026-11-01, proíbem mudar as cores da marca).
 
 **Deploy do staging:** um push no `staging` não publica nada (não existe `STAGING_DISPATCH_TOKEN`; ver `docs/ai/learned-patterns.md`). Rode `gh workflow run deploy.yml -R Brasil-Imposto/staging` e confira a página no ar.
 

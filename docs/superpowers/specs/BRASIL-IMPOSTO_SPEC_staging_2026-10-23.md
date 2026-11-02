@@ -1,5 +1,7 @@
 # Spec: o ambiente de staging e as chaves de funcionalidade
 
+Desde 2026-11-02 (D214), o site de testes fica fora do ar e só liga para os testes: desligar com `gh api -X DELETE repos/Brasil-Imposto/staging/pages`, religar com `gh api -X POST repos/Brasil-Imposto/staging/pages -f build_type=workflow` e o deploy à mão.
+
 **Summary (English).** A second public site, staging, at `https://brasil-imposto.github.io/staging/`, built from a `staging` branch of
 this repository and hosted by a new repository, `Brasil-Imposto/staging`, that holds only a deploy workflow. Staging is where every pull
 request lands first, including ideas not yet approved; production keeps only what the maintainer approves. One codebase, one build

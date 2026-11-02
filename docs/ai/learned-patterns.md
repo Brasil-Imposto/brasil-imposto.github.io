@@ -376,8 +376,8 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
   antiga por até 10 minutos (2026-10-24: o autor achou que a promoção não tinha ido ao ar). Conferir com `curl` e `?n=<hora>`
   e uma abertura nova no Chrome sem tela, e dizer junto com "está no ar": Cmd+Shift+R.
 - **Tirar o staging do ar e religar:** `gh api -X DELETE repos/Brasil-Imposto/staging/pages` (404 em segundos, a produção não
-  muda); religar com `gh api -X POST repos/Brasil-Imposto/staging/pages -f build_type=workflow` e rodar o deploy. O staging é
-  público por escolha do autor (D165): restringir a quem contribui, só no GitHub, pede o GitHub Enterprise Cloud (pago).
+  muda); religar com `gh api -X POST repos/Brasil-Imposto/staging/pages -f build_type=workflow` e rodar o deploy. Desde
+  2026-11-02 o staging fica fora do ar e só liga para os testes (D214), porque divide a origem com a produção; restringir a quem contribui, só no GitHub, pede o GitHub Enterprise Cloud (pago).
 - **Ações fixadas por commit:** conferir cada SHA contra a tag oficial (`repos/actions/<ação>/git/ref/tags/<versão>`,
   desembrulhando a tag anotada), nunca só pelo comentário de versão.
 - **CodeQL vermelho num pull request:** os achados saem em `repos/<repo>/check-runs/<id>/annotations`; a lista
@@ -499,3 +499,40 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
 - **Um alerta do CodeQL se lê no SARIF:** `gh api -H 'Accept: application/sarif+json' repos/<repo>/code-scanning/analyses/<id>` traz o caminho inteiro (`codeFlows`), da origem ao destino; o `id` sai de `code-scanning/analyses?ref=refs/pull/<n>/merge`. Em `href`, o valor que entra num link vai com `encodeURIComponent` (ou `encodeURI` no endereço inteiro), mesmo quando um valor válido não muda.
 - **`python3 -m http.server` derruba conexões numa rajada:** a fila dele é de 5, e uma sonda que abre a página várias vezes recebe `ERR_CONNECTION_RESET` em ícones soltos. Parecia um defeito do ícone do XRP e sumia ao repetir; contar os `requestfailed` mostrou o motivo. Para as sondas, um `ThreadingHTTPServer` com `request_queue_size` maior: 12 de 12 aberturas limpas, contra 2 falhas em 12.
 - **Abaixo de 1280 px a rodada empilha:** o desenho estica e a página real fica embaixo. O autor mandou uma foto só da coluna do desenho; ler a foto antes de ler o comentário.
+
+### A revisão de segurança da doação (2026-11-01 e 02, D214 a D216)
+
+- **Uma função que mexe com dinheiro não está pronta para o teste de verdade só porque as sondas de funcionamento passam.** Em
+  2026-11-01 o envio passou em tudo (207 testes, 30 de 30 com carteiras de mentira no ar) e o autor foi chamado para mandar dinheiro;
+  ele perguntou se o teste bastava, e o laboratório de ataques achou texto dos dados rodando como código. Antes de chamar o autor:
+  links forjados em toda entrada, dados envenenados em todo texto, carteiras hostis e corridas, cada um com controle plantado.
+- **Links forjados:** 7 cargas (HTML, quebra de aspas, `javascript:`, `constructor`, `__proto__`, `toString`) em cada parâmetro que as
+  páginas leem (`?open=`, `?metric=`, `?modal=`, `?area=`, `?grafo=`, `?period=`, `#p=` e o link de entrada da cripto); a sonda lê
+  `window.__xss`, os `img[src="x"]` na página e se o endereço do bloco de dados continua o fixado. 196 links, 0 injeções; o controle
+  é a mesma sonda numa página com um buraco plantado, e ela tem de disparar. Os erros de página que sobram (`GEO[uf] is not a function`
+  com `?open=constructor`) são os alertas `js/unvalidated-dynamic-method-call` do CodeQL: quebram a página, não rodam código.
+- **Dados envenenados:** escrever as cópias envenenadas no disco e servi-las; 110 MB passados pelo `route.fulfill` do Playwright
+  derrubaram o navegador. Limitar a carga a cerca de 150 textos por campo (todo campo coberto, 7.896 textos em 265 campos); um
+  `MutationObserver` posto antes da página conta cada `img[src="x"]` no instante em que entra, e "quantos textos envenenados
+  apareceram como texto" prova que o veneno chegou à tela. Resultado: rodou em Os 3 Poderes ("Média por mês"), em Como o dinheiro
+  anda ("Tribunais Superiores") e na janela do estado (as strings dos ícones). Um pull request que mude um rótulo desses passa pelo
+  teste do endereço fixado e pode trocar o endereço na hora em que a página roda: a correção é escapar esses campos e uma CSP sem
+  manipuladores inline (spec de segurança).
+- **Conferir na blockchain, sem chave:** `ethereum-rpc.publicnode.com` e `bsc-rpc.publicnode.com` (`eth_call` com `0x95d89b41`
+  símbolo, `0x313ce567` casas, `0x70a08231` saldo; `eth_getTransactionCount`, `eth_getCode`), `api.mainnet-beta.solana.com`
+  (`getAccountInfo` com `jsonParsed`, `getTokenAccountsByOwner`, `getMinimumBalanceForRentExemption`), `api.trongrid.io`
+  (`/v1/accounts/<endereço>`, `/wallet/triggerconstantcontract`), `mempool.space/api/address/<endereço>`, `xrplcluster.com`
+  (`server_info`, `account_info`). Em 2026-11-02: os 7 contratos com símbolo e casas iguais ao arquivo; os 5 endereços do projeto
+  com zero transações; a reserva do XRP Ledger em 1 XRP; o mínimo de aluguel da Solana em 650.240 lamports.
+- **Um QR se confere lendo de volta:** foto do `svg` do QR, desenhada num canvas com margem branca, lida pelo `jsQR` 1.4.0 numa
+  página em branco: os cinco tipos de link saíram exatos.
+- **Fatos de plataforma que moldam a detecção:** numa organização gratuita, o log de auditoria do GitHub só se lê na tela, por 180
+  dias (a API é do Enterprise Cloud); o Web3Forms grátis aceita envio do navegador e não do servidor ("Server side usage requires paid
+  plan + server IP whitelisting"); o e-mail de falha de um agendamento vai para quem criou o agendamento, e o GitHub manda os
+  e-mails de uma organização para outro endereço verificado na conta; o agendamento mais curto é a cada 5 minutos e atrasa nas horas
+  cheias.
+- **Uma pesquisa de agente é afirmação:** um leitor disse que a semente "precisa ser tratada como exposta" pelo ataque de dezembro
+  de 2025 à extensão, e a carteira foi criada dez meses depois; outro disse que o three.js vinha sem hash, e o mapa de importação
+  fixa cada módulo. Conferir datas no registro, código no repositório e decisões do autor (D165, D173) antes de repassar.
+- **Um modelo de ameaças que lista fraquezas abertas de um site público fica em `private/`** até elas fecharem
+  (`private/security/`, com as notas das pesquisas e o laboratório).

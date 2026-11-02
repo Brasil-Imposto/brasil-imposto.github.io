@@ -1,6 +1,6 @@
 # Spec: a doação em cripto feita dentro do site
 
-Status: **aprovada pelo mantenedor em 2026-10-30 (D209)**, com os ajustes de D211, D212 e D213, e **construída** (seção 11). A rodada `cripto-envio-r1` é a base da tela de envio (D208); o modal real foi mostrado ao lado dela antes de ligar as carteiras e aprovado (D213). Próximo: o teste de verdade do mantenedor no site de testes (seção 8, item 6); depois a sessão de segurança (D210).
+Status: **aprovada pelo mantenedor em 2026-10-30 (D209)**, com os ajustes de D211, D212 e D213, e **construída** (seção 11). A rodada `cripto-envio-r1` é a base da tela de envio (D208); o modal real foi mostrado ao lado dela antes de ligar as carteiras e aprovado (D213). Próximo (D214, D215): a sessão de segurança, que previne e detecta toda tentativa de ataque; depois o teste de verdade do mantenedor no site de testes (seção 8, item 6), religando o site.
 
 Pesquisa: `docs/research/BRASIL-IMPOSTO_RESEARCH_cripto-no-site_2026-10-29.md`. Plano: `docs/superpowers/plans/BRASIL-IMPOSTO_PLAN_cripto-no-site_2026-10-30.md`. Quem faz (D164): a sessão aberta pelo kickstart de 2026-10-30, dona do ramo `feat/cripto-envio`.
 
