@@ -545,13 +545,9 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
   já faz na carteira; nenhuma corretora, carteira ou página de doação lida a usa. Depois, a regra: todo mecanismo precisa de um projeto
   ou plataforma com nome que o usa, lido na fonte primária, ou sai, ou volta ao autor dizendo que não há precedente. Uma lista de desenho
   num kickstart é afirmação da sessão que a escreveu, não decisão do autor: cada item passa pela mesma conferência antes de entrar numa spec.
-- **Como a auditoria foi feita:** três leitores por superfície (repositório e construção; página e site no ar; blockchain e telas), cada
-  item com um de quatro vereditos (com usuário nomeado, só recomendado por um padrão, sem precedente, desaconselhado), citação curta e data.
-  Depois, cada citação-chave reaberta por script na própria página, com uma citação falsa plantada como controle (achada 0 vezes): 31 de 31.
-  Um "faltando" é primeiro uma questão de normalização: comentários `#` de um YAML e tags HTML partiam duas citações verdadeiras; tirar as
-  tags e os marcadores antes de comparar. A conferência pegou um caminho errado num relatório (o CODEOWNERS do Homebrew fica na raiz).
-  Resultado em `private/security/BRASIL-IMPOSTO_RESEARCH_precedentes-seguranca_2026-11-02.md`: 18 ficaram, 17 saíram, 5 foram ao autor
-  (D219). Nenhum leitor achou um incidente em que esses mecanismos pegaram um ataque: a prova é o uso, não a captura.
+- **Como a auditoria foi feita:** a receita está na skill `agent-ops` ("A precedent audit of a design"). Resultado em
+  `private/security/BRASIL-IMPOSTO_RESEARCH_precedentes-seguranca_2026-11-02.md`: 18 ficaram, 17 saíram, 5 foram ao autor (D219). Nenhum
+  leitor achou um incidente em que esses mecanismos pegaram um ataque: a prova é o uso, não a captura.
 - **O que a auditoria tirou, e por quê, vale para qualquer desenho futuro:** uma segunda cópia do endereço no próprio script (um deploy
   malicioso troca as duas); vigiar o objeto da carteira, recusar dentro de um frame e mandar relatório de violação da CSP pelo navegador
   (sem usuário nomeado; com eles fora, os avisos do navegador de D216 não têm o que mandar); um canário de navegador por hora (cego a um
@@ -567,8 +563,6 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
   Gerador e driver em `private/security/build_seguranca_r1.py` e `private/security/round-r1/site/`.
 - **No modal, rolar até o centro esconde o título sob a barra de cima fixa** e parece defeito: rolar só o necessário
   (`scrollIntoView({ block: 'nearest' })`). A vista principal precisa de um quadro de 1000 px para os cartões ficarem em linha.
-- **O `chrome-headless-shell --screenshot` não pinta o conteúdo rolado por script** (a página rolou para 7.068 de 10.445 px e a foto saiu
-  em branco), e o `sips --cropOffset` cortou faixas em outro lugar: para fotografar uma seção, esconder as outras e fotografar do topo.
 - **`render-doc.py` numera todo `##`:** um "Resumo em inglês" como `##` deslocou a numeração da página em um, e os "seção N" do texto
   apontavam para a seção vizinha. O resumo vai como linha em negrito antes da seção 1.
 - **A produção na `main` ainda usa os nomes longos** (`BRASIL-IMPOSTO_DESIGN_..._2026-10-21.html`); os nomes curtos do `staging` dão 404
