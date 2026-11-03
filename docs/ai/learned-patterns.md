@@ -536,3 +536,43 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
   fixa cada módulo. Conferir datas no registro, código no repositório e decisões do autor (D165, D173) antes de repassar.
 - **Um modelo de ameaças que lista fraquezas abertas de um site público fica em `private/`** até elas fecharem
   (`private/security/`, com as notas das pesquisas e o laboratório).
+
+### A spec de segurança, a auditoria de referências e a rodada no modal real (2026-11-02 e 03, D217 a D220)
+
+- **Só entra mecanismo com caso real de sucesso (D218).** A spec aprovada em D217 trazia uma caixa "cole aqui para conferir" que veio da
+  lista de desenho escrita no kickstart pela sessão anterior. O autor perguntou se alguma plataforma fazia aquilo: contra um endereço
+  trocado na raiz a caixa confere com o mesmo endereço falso, e contra o programa que troca a cópia ela repete a conferência que quem doa
+  já faz na carteira; nenhuma corretora, carteira ou página de doação lida a usa. Depois, a regra: todo mecanismo precisa de um projeto
+  ou plataforma com nome que o usa, lido na fonte primária, ou sai, ou volta ao autor dizendo que não há precedente. Uma lista de desenho
+  num kickstart é afirmação da sessão que a escreveu, não decisão do autor: cada item passa pela mesma conferência antes de entrar numa spec.
+- **Como a auditoria foi feita:** três leitores por superfície (repositório e construção; página e site no ar; blockchain e telas), cada
+  item com um de quatro vereditos (com usuário nomeado, só recomendado por um padrão, sem precedente, desaconselhado), citação curta e data.
+  Depois, cada citação-chave reaberta por script na própria página, com uma citação falsa plantada como controle (achada 0 vezes): 31 de 31.
+  Um "faltando" é primeiro uma questão de normalização: comentários `#` de um YAML e tags HTML partiam duas citações verdadeiras; tirar as
+  tags e os marcadores antes de comparar. A conferência pegou um caminho errado num relatório (o CODEOWNERS do Homebrew fica na raiz).
+  Resultado em `private/security/BRASIL-IMPOSTO_RESEARCH_precedentes-seguranca_2026-11-02.md`: 18 ficaram, 17 saíram, 5 foram ao autor
+  (D219). Nenhum leitor achou um incidente em que esses mecanismos pegaram um ataque: a prova é o uso, não a captura.
+- **O que a auditoria tirou, e por quê, vale para qualquer desenho futuro:** uma segunda cópia do endereço no próprio script (um deploy
+  malicioso troca as duas); vigiar o objeto da carteira, recusar dentro de um frame e mandar relatório de violação da CSP pelo navegador
+  (sem usuário nomeado; com eles fora, os avisos do navegador de D216 não têm o que mandar); um canário de navegador por hora (cego a um
+  código que só dispara para um alvo: no Bybit o arquivo trocado ficou dois dias no servidor e só disparava para uma carteira, então a
+  conferência de 5 minutos compara o hash de todo arquivo servido); pausa automática (nenhuma fonte; as corretoras pausam uma rede à mão).
+- **Uma spec ou um plano que descreve fraquezas abertas fica em `private/security/`** até o pull request que fecha a primeira; entra em
+  `docs/superpowers/` nesse pull request, porque o código cita a spec.
+- **Rodada desenhada no modal real, sem servidor:** `git archive origin/staging` só da página mais leve com o modal
+  (`como-ler-o-mapa.html`) e dos arquivos que o modal pede, mais uma cópia dela com um `round-driver.js` no começo do `head`. O driver põe
+  uma TronLink de mentira antes dos scripts da página, abre o modal pelo link de entrada (`#apoie-cripto?moeda=USDT&rede=tron&valor=10`),
+  clica até o momento pedido (a assinatura nunca volta, para ficar na confirmação), planta a opção e escreve `READY` ou `ERR` no título.
+  Cada quadro é provado com `--dump-dom` lendo o título (as quatro versões da rodada, de 29, 24, 15 e 17 quadros, todas READY), e uma opção que não existe dá `ERR` (controle).
+  Gerador e driver em `private/security/build_seguranca_r1.py` e `private/security/round-r1/site/`.
+- **No modal, rolar até o centro esconde o título sob a barra de cima fixa** e parece defeito: rolar só o necessário
+  (`scrollIntoView({ block: 'nearest' })`). A vista principal precisa de um quadro de 1000 px para os cartões ficarem em linha.
+- **O `chrome-headless-shell --screenshot` não pinta o conteúdo rolado por script** (a página rolou para 7.068 de 10.445 px e a foto saiu
+  em branco), e o `sips --cropOffset` cortou faixas em outro lugar: para fotografar uma seção, esconder as outras e fotografar do topo.
+- **`render-doc.py` numera todo `##`:** um "Resumo em inglês" como `##` deslocou a numeração da página em um, e os "seção N" do texto
+  apontavam para a seção vizinha. O resumo vai como linha em negrito antes da seção 1.
+- **A produção na `main` ainda usa os nomes longos** (`BRASIL-IMPOSTO_DESIGN_..._2026-10-21.html`); os nomes curtos do `staging` dão 404
+  lá, e a página de 404 tem 9.379 bytes. Conferir a produção pelo código HTTP e pelos nomes da `main`, nunca só pelo tamanho.
+- **Fatos do GitHub que moldam o monitor** (avisos por execução são um ajuste só da pessoa, a franquia de uma organização grátis em
+  dólares, só um GitHub App lista os tokens com acesso à organização, o `GITHUB_TOKEN` pode disparar `workflow_dispatch`): na skill
+  `agent-ops`, "Free GitHub organization facts for monitoring".

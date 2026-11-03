@@ -38,7 +38,7 @@ Nas palavras do autor (D205): *"the brasil imposto website should not just show 
    - "Abrir no app da carteira" (no celular): um botão por app documentado para a rede, que abre o app com o destino e o valor preenchidos;
    - "QR para o celular" (no computador): o link de pagamento da rede num QR, para a câmera do celular;
    - "Copiar o endereço": a linha do passo 2, para corretora ou outra carteira.
-5. **Conferir:** moeda, rede, valor e o endereço completo, com os 4 últimos caracteres em destaque, e a frase "Na carteira, confira se o endereço termina em {4 últimos}." Para token, o aviso da taxa: "Você vai precisar de um pouco de {ETH, BNB, TRX ou SOL} na carteira para a taxa da rede."
+5. **Conferir:** moeda, rede, valor e o endereço inteiro em grupos de 4, num bloco próprio, com a frase "Compare o endereço inteiro com o da carteira, grupo por grupo. Se a carteira encurtar o endereço, abra o endereço inteiro nela." (D220, na fase 2 da spec de segurança; antes, os 4 últimos caracteres em destaque, que não bastam: golpes acertam de 14 a 20 caracteres). Para token, o aviso da taxa: "Você vai precisar de um pouco de {ETH, BNB, TRX ou SOL} na carteira para a taxa da rede."
 6. **Na carteira:** conectar (a conta), trocar para a rede certa se precisar, e o pedido de envio; quem doa confirma na tela da carteira.
 7. **Resultado:** "Doação enviada. Obrigado!" com o link da transação no explorador da rede (do arquivo de dados) e "Pode levar alguns minutos para aparecer."
 
@@ -66,7 +66,7 @@ Nas palavras do autor (D205): *"the brasil imposto website should not just show 
 | A carteira abre sem o valor preenchido | "Se a carteira não trouxer o valor, digite {valor} {moeda}." (o padrão de cada rede diz que o valor do link é só uma sugestão) | Na carteira |
 | Token na Solana para uma conta de token que ainda não existe | A carteira pode cobrar uma pequena taxa para criar a conta (não confirmado); o teste do autor confere | Na carteira |
 | Quem doa sai da página no meio (troca de app, recarrega, a bateria acaba) | Nada é reenviado sozinho; ao voltar, a vista abre do começo; o histórico fica na carteira | Passo 1 |
-| A carteira mostra um endereço diferente do resumo | O resumo pede para conferir os 4 últimos caracteres e cancelar se não baterem | Cancelado |
+| A carteira mostra um endereço diferente do resumo | O resumo pede para conferir o endereço inteiro, grupo por grupo, e cancelar se não bater (D220) | Cancelado |
 | Moeda "Em breve" (o XRP hoje) | O botão da moeda como decidido na rodada do XRP | Sem envio |
 
 ### 3.4 Onde o fluxo termina
@@ -105,7 +105,7 @@ O único jeito documentado de um botão "Conectar carteira" funcionar com quase 
 3. **O valor vira unidades inteiras com BigInt**, pelas casas de cada token em cada rede (USDT: 6 no Ethereum e na Tron, 18 na BNB Smart Chain). Nunca número de ponto flutuante. Casas demais são recusadas, não arredondadas.
 4. **Só transferências simples.** O código chama só uma lista fechada de métodos da carteira (conta, rede, troca de rede, adicionar rede, enviar). Nunca assinatura de mensagem, `approve`, `permit` ou permissão de gastar tokens; um teste recusa qualquer outro método no código.
 5. **A rede e a conta são conferidas logo antes de cada envio;** o site nunca envia numa rede diferente da escolhida.
-6. **O resumo mostra o endereço completo** e pede para conferir os 4 últimos caracteres na tela da carteira.
+6. **O resumo mostra o endereço inteiro em grupos de 4** e pede para conferi-lo inteiro na tela da carteira (D220, na fase 2 da spec de segurança).
 7. **Nenhum script de fora sem hash** (seção 10.2, item 4, do Apoie). Sem biblioteca sempre que der; uma biblioteca necessária fica no próprio site (`assets/`), revisada no pull request.
 8. **O site nunca pede frase de recuperação nem chave privada.** A vista diz isso numa linha.
 9. **Nada sai sozinho:** cada envio precisa de um clique na página e da confirmação na carteira; nada é refeito depois de recarregar.

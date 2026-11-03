@@ -244,7 +244,8 @@ Na ordem em que aparecem:
   mês, depois da infraestrutura, é dividido entre quem contribuiu pelo peso de cada contribuição aceita (1, 2 ou 3, escrito no pull
   request antes do merge), e cada pagamento é publicado no livro-caixa."
 - **"Como apoiar":** três cartões do mesmo tamanho, Pix, GitHub Sponsors e Cripto, em três colunas acima de 820 px e um sobre o outro
-  abaixo disso (opção A, D200). O do Pix: a marca "R$" num quadrado verde, o título "Pix" e "Em reais, qualquer valor, com Pix ou
+  abaixo disso (opção A, D200). D220 muda isso na fase 2 da spec de segurança: o cartão do GitHub Sponsors sai e o da Cripto vem antes do
+  Pix, enquanto o Pix não está disponível, em duas colunas (uma no celular). O do Pix: a marca "R$" num quadrado verde, o título "Pix" e "Em reais, qualquer valor, com Pix ou
   cartão, pela vaquinha do Brasil-Imposto."; em `"soon"`, a etiqueta "Em breve" ao lado do título e nenhum botão; em `"live"`, o
   botão "Apoiar com Pix". "Brasil-Imposto" nunca quebra no hífen.
 - **A linha do "Fale com a gente"**, logo depois dos cartões, como hoje.
@@ -312,7 +313,7 @@ API pública de cada rede, com a cripto ainda em `"soon"`.
   qualquer carteira fica.
 - **A cripto abre no próximo lote de produção** (D204, D192): `crypto.status` passa a `"live"`. Abrem a vista "Apoiar com cripto" (seção
   4.3), o cartão com "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB. Cada endereço é público, com o link do explorador." e a parte da
-  cripto em "Quem recebe" (seção 9.3). O Pix continua "Em breve" e o GitHub Sponsors também, até os portões deles.
+  cripto em "Quem recebe" (seção 9.3). O Pix continua "Em breve" até o portão dele; o cartão do GitHub Sponsors sai (D220).
 - **XRP** (D204): sem compra de reserva. O XRP Ledger só cria a conta quando ela recebe 1 XRP ou mais; antes disso, um envio menor é recusado
   pela rede e o dinheiro fica com quem tentou doar (só a taxa da rede é gasta). A primeira doação de 1 XRP ou mais cria a conta; 1 XRP dela
   fica preso como reserva da rede. Até lá, o XRPScan mostra o endereço como não encontrado.
