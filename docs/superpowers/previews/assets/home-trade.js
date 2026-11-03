@@ -11,7 +11,7 @@
   const usd = (v) => (v >= 1e9 ? `US$ ${nf(v / 1e9, 2)} bi` : v >= 1e6 ? `US$ ${nf(v / 1e6, 1)} mi` : v >= 1e3 ? `US$ ${nf(v / 1e3, 0)} mil` : `US$ ${nf(v, 0)}`);
   const brl = (v) => (v >= 1e12 ? `R$ ${nf(v / 1e12, 2)} tri` : v >= 1e9 ? `R$ ${nf(v / 1e9, 2)} bi` : v >= 1e6 ? `R$ ${nf(v / 1e6, 1)} mi` : v >= 1e3 ? `R$ ${nf(v / 1e3, 0)} mil` : `R$ ${nf(v, 0)}`);
   const share100 = (s) => (s * 100 >= 0.005 ? `${nf(s * 100, 2)}%` : 'menos de 0,01%');
-  const qty = (x) => (x[0] == null ? 'sem número oficial' : `${nf(+x[0], Number.isInteger(+x[0]) ? 0 : 1)} ${x[1]}`);
+  const qty = (x) => (x[0] == null ? 'sem número oficial' : `${nf(+x[0], Number.isInteger(+x[0]) ? 0 : 1)} ${esc(x[1])}`);
   // World Bank series names, in Portuguese.
   const REF_PT = { 'Crude oil, Brent': 'petróleo Brent', 'Soybeans': 'soja', 'Iron ore, cfr spot': 'minério de ferro entregue na China', 'Coffee, Arabica': 'café arábica',
     'Coffee, Robusta': 'café robusta', 'Beef': 'carne bovina', 'Sugar, world': 'açúcar, mercado mundial', 'Chicken': 'frango', 'Maize': 'milho',
@@ -50,7 +50,7 @@
     const r1 = (v) => Math.round(v / 1e8) / 10, bal = Math.round((r1(P.usd) - r1(P.imports_usd)) * 10) / 10;
     if (Math.abs(bal - r1(P.balance_usd)) > 0.05) console.error('O que o Brasil vende: o saldo arredondado não fecha');
     const per = y === '2025' ? '2025, o ano inteiro' : '2026, de janeiro a setembro';
-    const noShare = T.share_none.map((s) => `${s.name.split(' (')[0].toLowerCase()} (${esc(s.note.replace(/^Não calculado: /, '').split(/\.\s/)[0].replace(/\.$/, ''))})`).join('; ');
+    const noShare = T.share_none.map((s) => `${esc(s.name.split(' (')[0].toLowerCase())} (${esc(s.note.replace(/^Não calculado: /, '').split(/\.\s/)[0].replace(/\.$/, ''))})`).join('; ');
     return `<div class="ht-in"><div class="hf-h"><span>O que o Brasil vende</span><small>todos os produtos, do maior para o menor</small></div>
       <div class="ht-ctl"><div class="ht-seg" role="group" aria-label="Período do comércio exterior">${[['2025', '2025 (ano inteiro)'], ['2026', '2026 (janeiro a setembro)']].map(([k, l]) => `<button type="button" data-ty="${k}" aria-pressed="${k === y}">${l}</button>`).join('')}</div>
         <p class="ht-per">Estes números não seguem o seletor de período do mapa: o comércio exterior tem 2025 inteiro e 2026 até setembro.</p></div>

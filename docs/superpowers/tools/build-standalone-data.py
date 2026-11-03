@@ -7,7 +7,11 @@ Every input the page reads is required: a missing file stops the build with the 
 """
 import base64
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import icon_check  # noqa: E402
 
 ASSETS = Path(__file__).resolve().parents[1] / "previews" / "assets"
 load = lambda name: json.loads((ASSETS / name).read_text(encoding="utf-8"))
@@ -23,6 +27,9 @@ read = lambda path, writer: json.loads(need(path, writer).read_text(encoding="ut
 
 geo = load("map-geo.json")
 icons = {p.stem: p.read_text(encoding="utf-8") for p in sorted((ASSETS / "icons").glob("*.svg"))}
+for _stem, _svg in icons.items():   # the icons become HTML on the page (spec seguranca-doacoes, section 8)
+    if icon_check.problems(_svg):
+        raise SystemExit(f"build-standalone-data: icon {_stem}: {icon_check.problems(_svg)}")
 flag_data = {}
 for c in geo["countries"]:
     if c.get("flag") and c["flag"] not in flag_data:

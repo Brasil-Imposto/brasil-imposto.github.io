@@ -681,7 +681,7 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
     return `<div class="split" aria-hidden="true"><i class="own" style="width:${a}%"></i><i class="mand" style="width:${100 - a}%"></i></div>`
       + `<div class="split-lg"><span><i class="own"></i>para a pessoa <b>${brl(M.own)}</b></span><span><i class="mand"></i>mandato e equipe <b>${brl(M.total - M.own)}</b></span></div>`;
   };
-  const totHTML = (M, label = 'Total por mês') => `<div class="tot"><span>${M.totalLabel || label}</span><b>${brl(M.total)}</b></div>${M.totalNote ? `<div class="tnote">${esc(M.totalNote)}</div>` : ''}${M.partial ? '<div class="tnote"><span class="chip">parcial</span> falta parte do dado; nunca uma estimativa</div>' : ''}${splitHTML(M)}`;
+  const totHTML = (M, label = 'Total por mês') => `<div class="tot"><span>${esc(M.totalLabel || label)}</span><b>${brl(M.total)}</b></div>${M.totalNote ? `<div class="tnote">${esc(M.totalNote)}</div>` : ''}${M.partial ? '<div class="tnote"><span class="chip">parcial</span> falta parte do dado; nunca uma estimativa</div>' : ''}${splitHTML(M)}`;
 
   // ---------- bills: the outcome of each one, as the shared rules classify it (bill_outcomes.py)
   const OUTC = { law: ['Virou lei', 'law'], approved: ['Aprovado, ainda sem lei', 'ok'], approved_with_another_bill: ['Aprovado junto com outro projeto', 'ok'],
@@ -1017,7 +1017,7 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
       + `<div class="links">${x.page ? `<a href="${esc(x.page)}" target="_blank" rel="noopener">Página oficial ↗</a>` : ''}<button type="button" data-copy>Copiar link</button><a class="fix" href="${esc(fixUrl(x))}" target="_blank" rel="noopener">Pedir correção</a></div></div></div>`
       + `<div class="p-cols"><div class="box"><h4>Salário e cada componente pago em 2026</h4><div class="rows">${M.rows.filter((r) => r.block !== 'tse').map((r) => rowHTML(r)).join('')}</div>`
       + (M.rows.some((r) => r.block === 'tse') ? `<div class="blk">Pago pelo TSE <span>· média de ${esc(M.tseMonths)}</span></div><div class="rows">${M.rows.filter((r) => r.block === 'tse').map((r) => rowHTML(Object.assign({}, r, { label: r.label.replace(/^TSE: /, '') }))).join('')}</div>` : '')
-      + `<div class="big"><span>${M.totalLabel || 'Total por mês'}</span><b>${brl(M.total)}</b></div>${M.totalNote ? `<div class="tnote">${esc(M.totalNote)}</div>` : ''}${M.partial ? '<div class="tnote"><span class="chip">parcial</span> parte do dado não é publicada; nunca uma estimativa</div>' : ''}${splitHTML(M)}</div>`
+      + `<div class="big"><span>${esc(M.totalLabel || 'Total por mês')}</span><b>${brl(M.total)}</b></div>${M.totalNote ? `<div class="tnote">${esc(M.totalNote)}</div>` : ''}${M.partial ? '<div class="tnote"><span class="chip">parcial</span> parte do dado não é publicada; nunca uma estimativa</div>' : ''}${splitHTML(M)}</div>`
       + `<div style="display:grid;gap:14px;align-content:start"><div class="box"><h4>Outros</h4><ul class="others">`
       + `${x.role ? `<li><span>Cargo</span><b>${esc(x.role)}</b></li>` : ''}${x.tse_role ? `<li><span>No TSE</span><b>${esc(x.tse_role)}</b></li>` : ''}`
       + `${x.court_since ? `<li><span>No ${esc(x.court)} desde</span><b>${dmy(x.court_since)}</b></li>` : ''}${x.office ? `<li><span>${esc(x.office.label)} desde</span><b><a href="${esc(x.office.source)}" target="_blank" rel="noopener">${dmy(x.office.since)}</a></b></li>` : ''}`

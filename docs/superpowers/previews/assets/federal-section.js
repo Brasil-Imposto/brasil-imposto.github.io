@@ -29,7 +29,7 @@
   function blocksOf(F, R) {
     const U = F.union_accounts, PB = F.federal_payroll_by_branch, CG = F.congress_cost, Q = F.parliamentary_quota, AM = F.amendments, PER = periodOf(F.months);
     // D73: every list from the largest to the smallest value; the scale is the largest value of the list.
-    const bars = (items, _max, color, fmt = money) => { items = items.slice().sort((a, b) => b[2] - a[2]); const max = items.length ? items[0][2] : 1; return `<ul class="fbars">${items.map(([l, s, v]) => `<li><span>${l}${s ? `<small>${s}</small>` : ''}</span><b>${fmt(v)}</b><i style="--w:${Math.max(0.6, (v / max) * 100)}%;--c:${color}"></i></li>`).join('')}</ul>`; };
+    const bars = (items, _max, color, fmt = money) => { items = items.slice().sort((a, b) => b[2] - a[2]); const max = items.length ? items[0][2] : 1; return `<ul class="fbars">${items.map(([l, s, v]) => `<li><span>${esc(l)}${s ? `<small>${esc(s)}</small>` : ''}</span><b>${fmt(v)}</b><i style="--w:${Math.max(0.6, (v / max) * 100)}%;--c:${color}"></i></li>`).join('')}</ul>`; };
     const brl = (v) => `R$ ${nf(v)}`, mil = (v) => `R$ ${nf(v / 1000, 1)} mil`;
     const srcLine = (ids) => `<p class="dchip-s">${ids.map(([id, lab]) => { const r = R[id]; const d = dt(r.date); return `${lab}: <b>${d ? 'divulgado em ' + d : r.unchecked ? 'data a conferir' : 'sem data publicada'}</b>`; }).join(' · ')}</p>`;
     const pbItems = Object.entries(PB).map(([k, v]) => [PBL[k][0], PBL[k][1], v]);

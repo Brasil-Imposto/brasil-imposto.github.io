@@ -6,6 +6,7 @@
   const GREEN = ['#E6E3D6', '#BFDDB8', '#7CC287', '#35A05E', '#12803F', '#06592B'];
   const RED = ['#E6E3D6', '#F5C4B6', '#EE8D76', '#DA4A3C', '#B41E25', '#7A0710'];
   const NO_DATA = '#C4CCD6';
+  const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
   const mix = (a, b, t) => '#' + hex(a).map((x, i) => Math.round(x + (hex(b)[i] - x) * t).toString(16).padStart(2, '0')).join('');
   const stop = (stops, t) => {
@@ -117,7 +118,7 @@
       const o = new CSS2DObject(d); o.position.set(m.label[0], m.label[1], DEPTH + 0.2); m.group.add(o);
     };
     // labelHtml lets a map mark one place differently (the DF: ★ Brasília on the Plano Piloto).
-    for (const code of opts.labels || []) addLabel(code, 'sm-name', (opts.labelHtml && opts.labelHtml(code)) || (byCode.get(code) ? byCode.get(code).name : ''));
+    for (const code of opts.labels || []) addLabel(code, 'sm-name', (opts.labelHtml && opts.labelHtml(code)) || (byCode.get(code) ? esc(byCode.get(code).name) : ''));
     // D60: a case is a small dot on its municipality (the old balloon on a stem covered the municipalities behind it).
     for (const p of opts.pins || []) addLabel(p.code, 'sm-pin', '<span class="dot"></span>');
     // A neighbour's name the frame would cut is hidden rather than shown in half (D83): on a phone the side margins are thin.
