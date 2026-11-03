@@ -2,6 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<!-- site-chrome:csp -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src * blob: data:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<!-- /site-chrome:csp -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Como ler o mapa · Brasil-Imposto</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -268,187 +271,9 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
 </main>
 <script src="assets/periods.js"></script>
 <script src="assets/map-notes.js"></script>
-<script>
-// The notes for the period and the measure in the address (D159), read from assets/map-notes.js; the selector and the measure
-// switch change them without reloading, and the address follows, so a link keeps what the reader sees.
-(function () {
-  const N = window.BI_NOTES, BIT = window.BIT;
-  if (!N || !BIT) {
-    document.querySelector('main').insertAdjacentHTML('afterbegin', '<p class="notes-err" role="alert">As notas não carregaram. Recarregue a página.</p>');
-    return;
-  }
-  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-  const METRICS = ['perCapita', 'total', 'ratio'];
-  const base = { year: +N.default.period.slice(5), month: N.default.month, mandate: '2023-2026' };
-  const parse = (id) => {
-    const m = /^(month|year|mandate)-(.+)$/.exec(id || '');
-    if (!m || !N.periods[id]) return null;
-    return m[1] === 'month' ? { ...base, mode: 'month', month: m[2] } : m[1] === 'year' ? { ...base, mode: 'year', year: +m[2] } : { ...base, mode: 'mandate', mandate: m[2] };
-  };
-  const idOf = (p) => (p.mode === 'month' ? `month-${p.month}` : p.mode === 'year' ? `year-${p.year}` : `mandate-${p.mandate}`);
-  const params = new URLSearchParams(location.search);
-  let period = parse(params.get('period')) || parse(N.default.period);
-  let metric = METRICS.includes(params.get('metric')) ? params.get('metric') : N.default.metric;
-  const ctl = document.querySelector('[data-period]');
-  const draw = () => {
-    const id = idOf(period), set = N.periods[id] || N.periods[N.default.period];
-    document.querySelector('[data-map-notes]').innerHTML = set[metric].map((i) => `<li>${esc(N.strings[i])}</li>`).join('');
-    document.querySelector('[data-map-dates]').innerHTML = N.dates.map(([l, what, d]) => `<tr><td>${l}</td><td>${esc(what)}</td><td class="d">${d}</td></tr>`).join('');
-    ctl.innerHTML = BIT.selector(period, N.latest, N.first, 'notes-period');
-    BIT.bind(ctl, period, N.latest, (np) => { period = { ...base, ...np }; draw(); });
-    document.querySelectorAll('.metric-switch button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.metric === metric)));
-    const q = new URLSearchParams(location.search); q.set('period', id); q.set('metric', metric);
-    history.replaceState(null, '', `${location.pathname}?${q}${location.hash}`);
-  };
-  document.querySelectorAll('.metric-switch button').forEach((b) => b.addEventListener('click', () => { metric = b.dataset.metric; draw(); }));
-  window.__showNotes = (id, m) => { period = parse(id) || period; metric = METRICS.includes(m) ? m : metric; draw(); };
-  draw();
-  document.body.dataset.ready = '1';
-})();
-</script>
+<script src="assets/map-notes-page.js"></script>
 <!-- site-chrome:js -->
-<script id="bi-chrome-js">
-// The header's Menu on phones: opens the sheet under the bar, closes with Esc, a tap outside or a link.
-(function () {
-  const btn = document.querySelector('.bi-menu-btn'), sheet = document.getElementById('bi-sheet');
-  if (!btn || !sheet) return;
-  const label = btn.querySelector('span');
-  const set = (open, focusBack) => {
-    sheet.hidden = !open; btn.setAttribute('aria-expanded', String(open)); label.textContent = open ? 'Fechar' : 'Menu';
-    if (open) sheet.querySelector('a').focus(); else if (focusBack) btn.focus();
-  };
-  btn.addEventListener('click', () => set(sheet.hidden, true));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !sheet.hidden) set(false, true); });
-  document.addEventListener('click', (e) => { if (!sheet.hidden && !sheet.contains(e.target) && !btn.contains(e.target)) set(false, false); });
-  window.matchMedia('(min-width: 821px)').addEventListener('change', (m) => { if (m.matches && !sheet.hidden) set(false, false); });
-})();
-// The Apoie modal: opens from the header button, one view at a time, closes with the X, Escape or a click outside, and gives the
-// focus back to the button.
-(function () {
-  const root = document.getElementById('bi-apoie'), opener = document.querySelector('.bi-apoie-btn');
-  if (!root || !opener) return;
-  const panel = root.querySelector('.bi-ap-panel'), back = root.querySelector('.bi-ap-back');
-  const views = [...root.querySelectorAll('[data-view]')];
-  let monoAsked = false;
-  const mono = () => {   // the crypto view's mono font: nobody who stays out of that view downloads it
-    if (monoAsked) return; monoAsked = true;
-    const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&display=swap'; document.head.appendChild(l);
-  };
-  const show = (name) => {
-    if (name === 'crypto') mono();
-    views.forEach((v) => { v.hidden = v.dataset.view !== name; });
-    back.hidden = name === 'main'; panel.scrollTop = 0;
-    const h = root.querySelector(`[data-view="${name}"] h2`); if (h) h.focus({ preventScroll: true });
-    if (name === 'crypto') root.dispatchEvent(new CustomEvent('bi-cripto-view'));
-  };
-  const open = () => {
-    root.hidden = false; document.documentElement.classList.add('bi-locked'); opener.setAttribute('aria-expanded', 'true'); show('main');
-  };
-  const close = () => {
-    if (root.hidden) return;
-    root.hidden = true; document.documentElement.classList.remove('bi-locked'); opener.setAttribute('aria-expanded', 'false'); opener.focus();
-  };
-  opener.addEventListener('click', open);
-  root.querySelector('.bi-ap-x').addEventListener('click', close);
-  root.querySelector('.bi-ap-backdrop').addEventListener('click', close);
-  back.addEventListener('click', () => show('main'));
-  root.addEventListener('click', (e) => { const go = e.target.closest('[data-go]'); if (go) show(go.dataset.go); });
-  document.addEventListener('keydown', (e) => {
-    if (root.hidden) return;
-    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
-    if (e.key !== 'Tab') return;  // the focus stays inside the modal
-    const f = [...root.querySelectorAll('button, a[href], input, textarea')].filter((x) => !x.disabled && x.getClientRects().length && x.tabIndex >= 0);
-    if (!f.length) return;
-    if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
-    else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
-  });
-  // The crypto view: a coin shows only its network buttons; tapping one shows its address, and the send (assets/bi-cripto.js, loaded when
-  // a coin is picked) shows the value and the button. If those files fail, the choice and "Copiar" still work.
-  let sendAsked = false;
-  const loadSend = () => {
-    if (sendAsked) return; sendAsked = true;
-    ['assets/bi-cripto-core.js', 'assets/bi-cripto.js'].reduce((p, src) => p.then(() => new Promise((ok, no) => {
-      const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = no; document.head.appendChild(s);
-    })), Promise.resolve()).catch(() => {});
-  };
-  const picked = (coin, net) => { root.dataset.coin = coin; root.dataset.net = net || ''; root.dispatchEvent(new CustomEvent('bi-cripto-pick')); };
-  const pickNet = (panel, id) => {
-    panel.querySelectorAll('[data-net-btn]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.netBtn === id)));
-    panel.querySelectorAll('.bi-ap-net').forEach((r) => { r.hidden = r.dataset.net !== id; });
-    picked(panel.dataset.coin, id);
-  };
-  root.querySelectorAll('[data-net-btn]').forEach((b) => b.addEventListener('click', () => pickNet(b.closest('.bi-ap-coin'), b.dataset.netBtn)));
-  const pickCoin = (b, net) => {
-    const c = b.dataset.coinBtn;
-    root.querySelectorAll('[data-coin-btn]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    root.querySelectorAll('.bi-ap-coin').forEach((p) => { p.hidden = p.dataset.coin !== c; });
-    const panel = root.querySelector(`.bi-ap-coin[data-coin="${c}"]`);
-    panel.querySelectorAll('[data-net-btn]').forEach((x) => x.setAttribute('aria-pressed', 'false'));
-    panel.querySelectorAll('.bi-ap-net').forEach((r) => { r.hidden = true; });
-    picked(c, '');
-    loadSend();
-    if (net) pickNet(panel, net);   // only the site's own link chooses a network for the donor
-  };
-  root.querySelectorAll('[data-coin-btn]').forEach((b) => b.addEventListener('click', () => pickCoin(b)));
-  // The site's own link (#apoie-cripto?moeda=USDT&rede=tron&valor=10), used to open the site inside a wallet app: it only chooses.
-  const entry = /^#apoie-cripto\?(.*)$/.exec(location.hash);
-  if (entry) {
-    const q = new URLSearchParams(entry[1]);
-    const b = [...root.querySelectorAll('[data-coin-btn]')].find((x) => x.dataset.coinBtn === q.get('moeda'));
-    if (b) {
-      const net = [...root.querySelectorAll(`.bi-ap-coin[data-coin="${b.dataset.coinBtn}"] [data-net-btn]`)].find((x) => x.dataset.netBtn === q.get('rede'));
-      open(); show('crypto'); pickCoin(b, net && net.dataset.netBtn);
-    }
-  }
-  root.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', async () => {
-    const text = b.dataset.copy; if (!text) return;
-    try { await navigator.clipboard.writeText(text); } catch (_) {
-      const r = document.createRange(); r.selectNodeContents(b.closest('.bi-ap-net').querySelector('code'));
-      const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy');
-    }
-    b.classList.add('done'); setTimeout(() => b.classList.remove('done'), 1800);
-  }));
-  // The contact form (D124): checked here, then sent as JSON to Web3Forms. A checked honeypot or a send faster than the minimum
-  // time after the view opens is dropped without a request.
-  const form = root.querySelector('.bi-ap-form');
-  if (form) {
-    const sent = root.querySelector('.bi-ap-sent'), fail = form.querySelector('.bi-ap-fail'), send = form.querySelector('[type="submit"]');
-    const label = send.textContent, minMs = Number(form.dataset.minMs), f = form.elements;
-    let openedAt = 0;
-    const setError = (name, text) => {
-      const p = form.querySelector(`#bi-ap-${name}-err`); p.textContent = text || ''; p.hidden = !text;
-      if (text) f[name].setAttribute('aria-invalid', 'true'); else f[name].removeAttribute('aria-invalid');
-    };
-    const reset = () => {
-      openedAt = Date.now(); form.hidden = false; sent.hidden = true; fail.hidden = true;
-      ['name', 'email', 'message'].forEach((n) => setError(n, ''));
-    };
-    const done = () => { form.reset(); form.hidden = true; sent.hidden = false; sent.focus({ preventScroll: true }); };
-    root.addEventListener('click', (e) => { const go = e.target.closest('[data-go="contact"]'); if (go) reset(); });
-    form.addEventListener('submit', (e) => {
-      e.preventDefault(); fail.hidden = true;
-      const v = { name: f.name.value.trim(), email: f.email.value.trim(), message: f.message.value.trim() };
-      const bad = {
-        name: v.name ? '' : form.dataset.required,
-        email: !v.email ? form.dataset.required : (/^[^@ ]+@[^@ ]+[.][^@ ]{2,}$/.test(v.email) ? '' : form.dataset.badEmail),
-        message: v.message ? '' : form.dataset.required,
-      };
-      Object.entries(bad).forEach(([n, t]) => setError(n, t));
-      const first = Object.keys(bad).find((n) => bad[n]);
-      if (first) { f[first].focus(); return; }
-      if (f.botcheck.checked || Date.now() - openedAt < minMs) { done(); return; }
-      send.disabled = true; send.textContent = form.dataset.sending;
-      fetch(form.dataset.endpoint, {
-        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ access_key: form.dataset.key, ...v, subject: form.dataset.subject, from_name: form.dataset.fromName, botcheck: false }),
-      }).then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-        .then((j) => { if (j && j.success === true) done(); else throw new Error('not sent'); })
-        .catch(() => { fail.hidden = false; })
-        .finally(() => { send.disabled = false; send.textContent = label; });
-    });
-  }
-})();
-</script>
+<script id="bi-chrome-js" src="assets/bi-chrome.js"></script>
 <!-- /site-chrome:js -->
 <!-- site-chrome:footer -->
 <footer class="bi-footer"><div class="bi-footer-in"><div class="bi-footer-id"><a class="bi-brand" href="./"><img src="assets/brand/brasil-imposto-logo.svg" alt=""><span>Brasil<i>·</i>Imposto</span></a><p>Dados oficiais, com fonte em cada número. Código AGPL-3.0, dados CC BY 4.0.</p></div><nav class="bi-footer-links" aria-label="Mais sobre o projeto"><a href="como-ler-o-mapa.html">Como ler o mapa</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io">Código aberto no GitHub</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/blob/main/docs/decisions/README.md">Decisões do projeto</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/blob/main/CONTRIBUTING.md">Como ajudar</a><a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io#licenças">Licenças</a></nav></div></footer>

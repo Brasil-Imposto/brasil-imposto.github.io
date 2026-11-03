@@ -72,9 +72,23 @@ def built(profile, features_json, key):
 def problems_of_forward(html, target):
     """What a forwarding page at an old address misses: the replace to the target with the query and the hash, the fallback
     without JavaScript, the canonical link and noindex."""
-    need = (f"location.replace('{target}' + location.search + location.hash)", f'<meta http-equiv="refresh" content="0; url={target}">',
+    need = ('<script src="assets/forward.js"></script>', f'<meta http-equiv="refresh" content="0; url={target}">',
             f'<link rel="canonical" href="{target}">', '<meta name="robots" content="noindex">')
-    return [n for n in need if n not in html]
+    return [n for n in need if n not in html] + forward_js_problems()
+
+
+def asset_text(name):
+    """A file of the site's assets/ as text (through a function: a JavaScript comment starts with "/", which test_layout would read
+    as an absolute path built from __file__)."""
+    return (Path(__file__).resolve().parents[2] / "docs" / "superpowers" / "previews" / "assets" / name).read_text(encoding="utf-8")
+
+
+def forward_js_problems(js=None):
+    """The forwarding script (a file: the site's CSP refuses inline code, spec seguranca-doacoes, section 8) replaces the
+    address with the page's canonical link plus the query and the hash."""
+    js = asset_text("forward.js") if js is None else js
+    need = "location.replace(document.querySelector('link[rel=\"canonical\"]').getAttribute('href') + location.search + location.hash)"
+    return [] if need in js else [need]
 
 
 def old_links(html):
@@ -117,10 +131,35 @@ class BuildSiteTest(unittest.TestCase):
                     self.assertEqual(problems_of_forward(html, new), [])
                     self.assertTrue((site / new).is_file())
 
+    def test_every_served_page_has_the_csp_and_no_inline_code(self):
+        # spec seguranca-doacoes, section 8: what each build serves, the staging strip and the forwarding pages included
+        spec = importlib.util.spec_from_file_location("test_csp", Path(__file__).resolve().parent / "test_csp.py")
+        test_csp = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(test_csp)
+        for site in (self.prod, self.stage):
+            for page in sorted(site.glob("*.html")):
+                with self.subTest(site=site.name, page=page.name):
+                    html = page.read_text(encoding="utf-8")
+                    s = test_csp.scan(html)
+                    self.assertEqual((s.inline, s.handlers, s.js_urls), ([], [], []))
+                    # a page of a switch's build carries that build's policy; the forwarding pages, production's
+                    real = ["index.html"] + [n for k, (n, _) in site_chrome.ALL_PAGES.items() if k != "inicio"]   # Início's file name only forwards
+                    want = test_csp.csp.meta(site.name) if page.name in real else test_csp.csp.META
+                    self.assertEqual(html.count('http-equiv="Content-Security-Policy"'), 1)
+                    self.assertEqual(html.count(want), 1)
+                    self.assertLess(html.index(want), html.index("<script"))
+
+    def test_each_build_serves_its_own_chrome_script(self):
+        # production serves the committed file; staging writes its own (the staging switches) into its output, never into the repository
+        self.assertEqual((self.prod / "assets" / site_chrome.CHROME_FILE).read_text(encoding="utf-8"), site_chrome.chrome_js("production"))
+        self.assertEqual((self.stage / "assets" / site_chrome.CHROME_FILE).read_text(encoding="utf-8"), site_chrome.chrome_js("staging"))
+        self.assertNotEqual(site_chrome.chrome_js("production"), site_chrome.chrome_js("staging"))
+
     def test_control_a_forward_to_the_wrong_page_is_found(self):
         html = build_site.forward_to("os-3-poderes.html")
         self.assertTrue(problems_of_forward(html, "como-ler-o-mapa.html"))
-        self.assertTrue(problems_of_forward(html.replace(" + location.search + location.hash", ""), "os-3-poderes.html"))
+        self.assertTrue(problems_of_forward(html.replace('<script src="assets/forward.js"></script>', ""), "os-3-poderes.html"))
+        self.assertTrue(forward_js_problems(asset_text("forward.js").replace(" + location.hash", "")))
 
     def test_no_built_page_links_to_an_old_address(self):
         for site in (self.prod, self.stage):
@@ -241,7 +280,9 @@ class BuildSiteTest(unittest.TestCase):
                 self.assertEqual(page.count('<meta name="robots" content="noindex">'), 1)
                 self.assertEqual(page.count('class="bi-staging"'), 1)
                 self.assertLess(page.index('class="bi-staging"'), page.index('class="bi-header"'), "the strip comes first")
-                self.assertIn("s.style.top = Math.max(0, h.getBoundingClientRect().bottom)", page, "the phone menu follows the header")
+                self.assertEqual(page.count('<script src="assets/staging-strip.js"></script>'), 1)
+                self.assertIn("s.style.top = Math.max(0, h.getBoundingClientRect().bottom)",
+                              (self.stage / "assets" / "staging-strip.js").read_text(encoding="utf-8"), "the phone menu follows the header")
                 text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", page))
                 self.assertIn("Ambiente de testes: inclui ideias ainda não aprovadas. O site oficial é brasil-imposto.github.io", text)
                 self.assertEqual(page.count('class="bi-apoie-btn"'), 1, "apoie is on in staging")

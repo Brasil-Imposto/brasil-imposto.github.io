@@ -21,6 +21,7 @@ TOOLS = Path(__file__).resolve().parent
 PREVIEWS = TOOLS.parent / "previews"
 sys.path.insert(0, str(TOOLS))
 import features  # noqa: E402
+import csp  # noqa: E402
 import map_loader  # noqa: E402
 import site_chrome  # noqa: E402
 
@@ -54,7 +55,7 @@ FEATURES = {
                   ('<section class="hf-cake" id="para-onde-vai" data-cake aria-label="Para onde vai o dinheiro da União"></section>',
                    "\n" + (PREVIEWS / "src" / "platform-sections.html").read_text(encoding="utf-8").strip()),
                   ("<!-- /site-chrome:js -->", "\n".join(map_loader.hold(tag) for tag in script_tags(PREVIEWS / "src" / "platform-script.html")))],
-        "files": ("platform.css", "bi-ledger-interest.js", "ledger-graph-model.js", "ledger-graph-view.js"),
+        "files": ("platform.css", "bi-ledger-interest.js", "ledger-graph-model.js", "ledger-graph-view.js", "platform-rede.js"),
     },
     "trade": {  # O que o Brasil vende, under Por que falta dinheiro on Início (D159)
         "page": "inicio",
@@ -73,26 +74,30 @@ STRIP = ('<style id="bi-staging-css">.bi-staging { margin: 0; padding: 8px 16px;
          f'<p class="bi-staging" role="note">{STRIP_TEXT}</p>'
          # the phone menu sits at the header's height (62 px) under a header at the top; with the strip above, the header starts
          # lower until the page scrolls, so the menu follows the header's real bottom
-         "<script>document.addEventListener('DOMContentLoaded', () => { const h = document.querySelector('.bi-header'), "
-         "s = document.getElementById('bi-sheet'); if (!h || !s) return; const f = () => { s.style.top = "
-         "Math.max(0, h.getBoundingClientRect().bottom) + 'px'; }; f(); addEventListener('scroll', f, { passive: true }); "
-         "addEventListener('resize', f); });</script>")
+         '<script src="assets/staging-strip.js"></script>')
+# a file the staging build writes into its own output, not inline code: the site's CSP refuses inline scripts (spec
+# seguranca-doacoes, section 8)
+STRIP_JS = ("document.addEventListener('DOMContentLoaded', () => { const h = document.querySelector('.bi-header'), "
+            "s = document.getElementById('bi-sheet'); if (!h || !s) return; const f = () => { s.style.top = "
+            "Math.max(0, h.getBoundingClientRect().bottom) + 'px'; }; f(); addEventListener('scroll', f, { passive: true }); "
+            "addEventListener('resize', f); });\n")
 NOINDEX = '<meta name="robots" content="noindex">'
 ROBOTS = "User-agent: *\nDisallow: /staging/\n"
 # Início lives at the root. Its old address, already shared, forwards there with its query (?open=, ?metric=, ?modal=, ?area=)
 # and its hash; the meta refresh is the fallback without JavaScript (D160).
 FORWARD = """<!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="pt-BR"><head><meta charset="utf-8">@@CSP@@<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brasil-Imposto</title><meta name="robots" content="noindex"><link rel="canonical" href="./">
-<script>location.replace('./' + location.search + location.hash);</script>
+<script src="assets/forward.js"></script>
 <noscript><meta http-equiv="refresh" content="0; url=./"></noscript>
 </head><body><p>Esta página mudou de endereço: <a href="./">ir para o Início</a>.</p></body></html>
 """
+FORWARD = FORWARD.replace("@@CSP@@", csp.META)   # the site's CSP on every page it serves (spec seguranca-doacoes, section 8)
 
 
 def forward_to(target):
     """A page at an old address that forwards to the clean one, keeping its query and hash (Q86, as FORWARD does for Início)."""
-    return FORWARD.replace("'./'", f"'{target}'").replace('href="./"', f'href="{target}"').replace("url=./", f"url={target}") \
+    return FORWARD.replace('href="./"', f'href="{target}"').replace("url=./", f"url={target}") \
         .replace("ir para o Início", "ir para a página")
 
 
@@ -130,6 +135,9 @@ def build(profile, out):
         subprocess.run(["node", str(TOOLS / b)], check=True, stdout=subprocess.DEVNULL)
     off = {fn for name, f in FEATURES.items() if not features.on(name, profile) for fn in f["files"]}
     shutil.copytree(PREVIEWS / "assets", out / "assets", ignore=lambda d, names: [n for n in names if Path(d) == PREVIEWS / "assets" and n in off])
+    if profile == "staging":   # the chrome's script with the staging switches; the committed file is production's
+        (out / "assets" / site_chrome.CHROME_FILE).write_text(site_chrome.chrome_js("staging"), encoding="utf-8")
+        (out / "assets" / "staging-strip.js").write_text(STRIP_JS, encoding="utf-8")
     for key, (name, _label) in site_chrome.ALL_PAGES.items():
         target = out / ("index.html" if key == "inicio" else name)
         committed = (PREVIEWS / name).read_bytes().decode("utf-8")

@@ -416,7 +416,7 @@ CSS = """<style id="bi-apoie-css">
 }
 </style>"""
 
-# The modal's code. site_chrome.py puts it inside the chrome's own <script id="bi-chrome-js">, the one script the map loader on
+# The modal's code. site_chrome.py puts it in the chrome's own script, assets/bi-chrome.js, the one script the map loader on
 # Início runs at once (map_loader.py), so the button works while the map data loads.
 SCRIPT = """// The Apoie modal: opens from the header button, one view at a time, closes with the X, Escape or a click outside, and gives the
 // focus back to the button.

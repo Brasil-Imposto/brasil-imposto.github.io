@@ -23,27 +23,12 @@ SIM = PREVIEWS / "BRASIL-IMPOSTO_DESIGN_home-simulacao_2026-09-29.html"
 OUT = PREVIEWS / "BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html"
 OUT_AUTHOR = PREVIEWS / "BRASIL-IMPOSTO_AUTHOR_platform-preview_2026-10-09.html"
 SRC = PREVIEWS / "src"
-# The three.js modules Início loads from the CDN through its import map, each with its hash (spec apoie, section 10.2, item 4): the
-# five the page's code imports and the two Line2 imports. Computed from the files and matched with jsDelivr's own file hashes on
-# 2026-10-29. Browsers check them from Chrome 127, Firefox 138 and Safari 18 (MDN); an older one ignores the list and runs the
-# modules unchecked. Another three.js version stops the build until its hashes are here.
-IMPORTMAP = '"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"\n}'
-THREE_INTEGRITY = {
-    "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js":
-        "sha384-GY5FqjttLCFRt/McQbyaVdCk2O1IQtOeX8Py6NfD89BIAsIyJFRl4UgSXrk2vXAk",
-    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/Line2.js":
-        "sha384-svIqR2W/RlXb3d4T+bDn3JO+LXLbacA7GpMAUDJxTOFyZmVogvDRaOS7KZBRxcxc",
-    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineGeometry.js":
-        "sha384-nfFqbe33KO97I7jZXjW73quBqqskqqj64WZycLNDzn0GGGI3aoWLZzuy8i0jeYmU",
-    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineMaterial.js":
-        "sha384-bLpiIpNrFJ+EMb4Upzkap/Bc9Ul2wLoUMEfFm0PmZfyywMUYUsc5X98AuAYwwjq1",
-    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineSegments2.js":
-        "sha384-nm+9Od/cYIb15jGaA1U2Geoo18K/i9fF2fZ4KbI2rZydtfYxqwtWRlbvdVfiECU5",
-    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/lines/LineSegmentsGeometry.js":
-        "sha384-2bbjHgEUXo9c3VW3OaZV638VYLXKhlNhNStU2D1Jm77zamWSQVYZak2p/Z0bZrmh",
-    "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/renderers/CSS2DRenderer.js":
-        "sha384-9CXQqRjuKfYvfHem9p/LPU6b7PaeeiDuC/gp1qRz3bEV9txWG5wi9XhrkE/0/Dn9"
-}
+HOME_MAP = PREVIEWS / "assets" / "home-map.js"
+# three.js is served by the site itself (spec seguranca-doacoes, section 8): an inline import map is inline code, which the site's
+# CSP refuses, so the page's module goes to assets/home-map.js and imports the copies in assets/vendor/three/ by their paths
+# (vendor-three.py checks each against the hash the import map pinned; pipelines/tests/test_vendor_three.py checks it again).
+THREE_PATHS = (("from 'three';", "from './vendor/three/build/three.module.js';"),
+               ("from 'three/addons/", "from './vendor/three/examples/jsm/"))
 
 
 def insert(page, anchor, new, before=True):
@@ -52,11 +37,25 @@ def insert(page, anchor, new, before=True):
     return page.replace(anchor, new + anchor if before else anchor + new)
 
 
+def module_to_file(page):
+    """The simulation's import map leaves and its module becomes assets/home-map.js, importing three.js by path."""
+    page, n = re.subn(r'\n<script type="importmap">\n.*?\n</script>', '', page, count=1, flags=re.S)
+    m = list(re.finditer(r'<script type="module">\n(.*?)</script>', page, flags=re.S))
+    if not (n == 1 and len(m) == 1):
+        raise SystemExit("build-platform-preview: one import map and one module script expected in the simulation")
+    body = m[0].group(1)
+    for old, new in THREE_PATHS:
+        if old not in body:
+            raise SystemExit(f"build-platform-preview: the module no longer has {old}")
+        body = body.replace(old, new)
+    HOME_MAP.write_text(body, encoding="utf-8")
+    return page[:m[0].start()] + '<script type="module" src="assets/home-map.js"></script>' + page[m[0].end():]
+
+
 def build(author_notes):
     src = lambda name: (SRC / name).read_text(encoding="utf-8")
     page = SIM.read_text(encoding="utf-8")
-    page = insert(page, IMPORTMAP, ',\n"integrity": {\n' + ",\n".join(f'  "{u}": "{h}"' for u, h in THREE_INTEGRITY.items()) + "\n}",
-                  before=False)
+    page = module_to_file(page)
     # The money network (its section, its scripts and platform.css) is in the author's preview only; the site build adds it to the
     # staging Início through the rede switch (build-site.py, D172, Q-A2), so the published page has nothing of it.
     if author_notes:
@@ -65,6 +64,7 @@ def build(author_notes):
     old, n = re.subn(r'\n  <header class="hero-nav">\n.*?\n  </header>', '', page, count=1, flags=re.S)
     if not (n == 1 and 'class="hero-nav"' not in old):
         raise SystemExit("hero header not found")
+    site_chrome.write_script(PREVIEWS)
     page = site_chrome.inject(old, "inicio")
     # The home renders at 90% from 1063 px (D96, html { zoom: .9 }); the site header cancels it to keep its size on every page.
     zoom = "    html { zoom: .9; }\n"
@@ -81,11 +81,16 @@ def build(author_notes):
         sections = src("platform-sections.html") + "\n" + src("platform-support.html") + "\n" + src("platform-notes.html") + "\n"
         page = insert(page, '<script src="assets/bi-data.js"></script>', sections)
         # the support block's handlers go in before the network script's closing lines
-        page = insert(page, "</body>", insert(src("platform-script.html"), "})();\n</script>", src("platform-support-script.html")))
+        rede = (PREVIEWS / "assets" / "platform-rede.js").read_text(encoding="utf-8")
+        at = rede.rindex("})();")
+        inline = "<script>\n" + rede[:at] + src("platform-support-script.html") + rede[at:] + "</script>"
+        page = insert(page, "</body>", src("platform-script.html").replace('<script src="assets/platform-rede.js"></script>', inline))
     # D152, L1: the map's data arrives through the loader, with the true percentage; every script after it waits for it.
-    page, held, size = map_loader.apply(page, PREVIEWS / "assets" / "bi-data.js")
+    page, held, size = map_loader.apply(page, PREVIEWS / "assets" / "bi-data.js", allow_inline=author_notes)
     if not (held >= 10):
         raise SystemExit(f"only {held} scripts held back")
+    if author_notes:   # the author's preview is local and never published; its support handlers are inline, which the CSP refuses
+        page = page.replace(site_chrome.block("csp", site_chrome.csp.meta("production")) + "\n", "", 1)
     if not (chr(0x2014) not in page and chr(0x2013) not in page):
         raise SystemExit("dash found")
     if not author_notes:
