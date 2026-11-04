@@ -11,6 +11,9 @@
   // methods (CodeQL js/unvalidated-dynamic-method-call; the attack lab of 2026-11-01 saw the page break on it)
   const GEO = new Map([['SC', () => window.BI_GEO_SC], ['RS', () => window.BI_GEO_RS], ['DF', () => window.BI_GEO_DF]]);
   const DATA = new Map([['SC', () => window.BI.sc], ['RS', () => window.BI.rs], ['DF', () => window.BI.df_regions]]);
+  // a getter is called only after the check that it is one (CodeQL's documented safe form of a dynamic call)
+  const geoOf = (uf) => { const f = GEO.get(uf); return typeof f === 'function' ? f() : undefined; };
+  const dataOf = (uf) => { const f = DATA.get(uf); return typeof f === 'function' ? f() : undefined; };
   const series = (uf) => window.BI.series && window.BI.series[`${uf.toLowerCase()}_municipal_federal`];
   // D66, D77: the DF has one municipality, Brasília; its map shows the 37 Regiões Administrativas (GDF boundaries), all in
   // the DF's own colour, because the tax flow with the Union is published only for the whole DF.
@@ -157,7 +160,7 @@
     return `<div class="mun-grid df-grid">${who}${budget}${localized}${obras}</div>${tail}`;
   }
 
-  const has = (uf) => Boolean(GEO.get(uf) && GEO.get(uf)() && DATA.get(uf) && DATA.get(uf)());
+  const has = (uf) => Boolean(geoOf(uf) && dataOf(uf));
   // Rows for the period. Municipal federal revenue is annual, so a single month is shown as its whole year.
   let cache = { key: null, rows: null, r: null };
   // D46 (GD33): when the period reaches a year whose municipal revenue is not published yet (today, 2026), the map shows
@@ -173,11 +176,11 @@
   }
   function rowsOf(uf, r) {
     const S = series(uf);
-    if (!r || !S || !window.BIL) return Object.fromEntries(DATA.get(uf)().municipalities.map((m) => [m.code, m]));
+    if (!r || !S || !window.BIL) return Object.fromEntries(dataOf(uf).municipalities.map((m) => [m.code, m]));
     const e = effective(uf, r); const key = `${uf}|${e.label}`;
     if (cache.key === key) return cache.rows;
     const rows = {};
-    for (const m of DATA.get(uf)().municipalities) {
+    for (const m of dataOf(uf).municipalities) {
       const x = window.BIL.municipalAt(m.code, e);
       rows[m.code] = { ...m, ...x, name: m.name, months: e.months.length,
         balance_per_capita: x && x.balance != null ? (x.balance / x.population) * (12 / e.months.length) : null };
@@ -212,9 +215,9 @@
   const LABEL_GAP = { RS: [16, 4] };
   function labelCodes(uf) {
     if (isRegions(uf)) return dfLabels();
-    const byPop = DATA.get(uf)().municipalities.slice().sort((a, b) => b.population - a.population), gap = LABEL_GAP[uf];
+    const byPop = dataOf(uf).municipalities.slice().sort((a, b) => b.population - a.population), gap = LABEL_GAP[uf];
     if (!gap) return byPop.slice(0, 10).map((m) => m.code);
-    const at = new Map(GEO.get(uf)().municipalities.map((m) => [m.code, m.label])), out = [];
+    const at = new Map(geoOf(uf).municipalities.map((m) => [m.code, m.label])), out = [];
     for (const m of byPop) {
       if (out.length === 10) break;
       const p = at.get(m.code);
@@ -229,7 +232,7 @@
   // Facts that hold for one state's map only.
   const LEGEND_EXTRA = { SC: ' Cidades com porto (Itajaí, Navegantes, Itapoá) registram o imposto de importação de mercadorias do país inteiro.' };
   function legend(uf, r) {
-    const d = DATA.get(uf)(); const e = periodOf(uf, r);
+    const d = dataOf(uf); const e = periodOf(uf, r);
     const label = e ? `${e.label}${e.fallbackFrom ? `, estimado (a arrecadação por município de ${e.fallbackFrom} ainda não foi publicada)` : r.mode === 'month' ? ' (a arrecadação por município é anual)' : ''}` : d.year;
     return `<div class="st-legend"><div class="lg-title">Saldo com a União, por município · ${label}</div>
       <div class="lg-bar" style="background:${window.BIS.legendGradient()}"></div>
@@ -278,7 +281,7 @@
       const sel = (code) => { state.selected = code; dmap.setSelected(code); panel.innerHTML = dfPanel(code, v, r, metric); const c = panel.querySelector('[data-clear]'); if (c) c.onclick = () => sel(null);
         panel.querySelectorAll('[data-select]').forEach((b) => { b.onclick = () => sel(b.dataset.select); }); };
       const F = dfFlow(metric, r);
-      const dmap = create(el, { geo: GEO.get(uf)(), labels: dfLabels(), pins: [], onSelect: sel,
+      const dmap = create(el, { geo: geoOf(uf), labels: dfLabels(), pins: [], onSelect: sel,
         labelHtml: (c) => (c === 'RA-I' ? '<span class="sm-cap">★ Brasília</span><small>Plano Piloto</small>' : null),
         labelText: (c) => (c === 'RA-I' ? '★ Brasília (Plano Piloto)' : null) });
       dmap.setData(Object.fromEntries(Object.keys(dfRows()).map((c) => [c, F.value])), dfDescribe(metric, r), false, F.scale);
@@ -290,7 +293,7 @@
       const clear = panel.querySelector('[data-clear]'); if (clear) clear.onclick = () => select(null);
       panel.querySelectorAll('.cc8-card[data-case]').forEach((b) => { b.onclick = () => state.onCase && state.onCase(v.cases.filter((c) => c.municipality === code)[+b.dataset.case]); });
     };
-    const map = create(el, { geo: GEO.get(uf)(), labels: labelCodes(uf), pins: pinsOf(v), onSelect: select });
+    const map = create(el, { geo: geoOf(uf), labels: labelCodes(uf), pins: pinsOf(v), onSelect: select });
     const rows = rowsOf(uf, r);
     map.setData(Object.fromEntries(Object.entries(rows).map(([c, m]) => [c, value(m, metric)])), describe(uf, metric, r, v));
     root.querySelectorAll('[data-select]').forEach((b) => { b.onclick = () => select(b.dataset.select); });
