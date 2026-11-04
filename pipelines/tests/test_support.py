@@ -1167,3 +1167,4 @@ class PauseTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+# guard test R1 (spec seguranca-doacoes, section 14): this pull request is closed without merging
