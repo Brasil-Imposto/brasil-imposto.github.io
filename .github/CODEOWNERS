@@ -2,7 +2,7 @@
 * @Brasil-Imposto/maintainers
 
 # The paths of the guard (.github/guard-paths.txt, spec seguranca-doacoes, section 5), named one by one for when owners by area come;
-# a second reviewer on production comes with the crypto batch (D214).
+# in the crypto batch, each production publish waits for the author's approval (D221, D222), and a second reviewer when there is one (D214).
 /data/support.json @Brasil-Imposto/maintainers
 /docs/superpowers/tools/support_data.py @Brasil-Imposto/maintainers
 /docs/superpowers/tools/apoie.py @Brasil-Imposto/maintainers
