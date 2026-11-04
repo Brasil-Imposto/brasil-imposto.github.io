@@ -10,6 +10,7 @@ import site_chrome
 
 PREVIEWS = Path(__file__).resolve().parents[1] / "previews"
 
+site_chrome.write_script(PREVIEWS)
 for key in ("tres-poderes", "dinheiro"):
     path = PREVIEWS / site_chrome.PAGES[key][0]
     page = path.read_text(encoding="utf-8")

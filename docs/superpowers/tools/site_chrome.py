@@ -8,6 +8,7 @@ fail when a page's copy differs from this module.
 import re
 
 import apoie
+import csp
 import features
 import support_data
 
@@ -155,7 +156,8 @@ def footer(rede=True):
             + "".join(f'<a href="{h}"{x}>{t}</a>' for h, t, x in links) + '</nav></div></footer>')
 
 
-MARK = {"css": ("<!-- site-chrome:css -->", "<!-- /site-chrome:css -->"),
+MARK = {"csp": ("<!-- site-chrome:csp -->", "<!-- /site-chrome:csp -->"),
+        "css": ("<!-- site-chrome:css -->", "<!-- /site-chrome:css -->"),
         "header": ("<!-- site-chrome:header -->", "<!-- /site-chrome:header -->"),
         "footer": ("<!-- site-chrome:footer -->", "<!-- /site-chrome:footer -->"),
         "js": ("<!-- site-chrome:js -->", "<!-- /site-chrome:js -->")}
@@ -181,11 +183,44 @@ def parts(current, profile="production"):
     wrong = support_data.problems(data)
     if wrong:
         raise SystemExit("data/support.json: " + "; ".join(wrong))
-    script = SCRIPT.replace("\n</script>", "\n" + REDE_SCRIPT + "</script>", 1) if rede else SCRIPT
     if not on:
-        return {"css": HEAD, "header": header(current, rede), "footer": footer(rede), "js": script}
-    return {"css": HEAD + "\n" + apoie.CSS, "header": with_support(header(current, rede), data, keyless=profile == "staging"), "footer": footer(rede),
-            "js": script.replace("\n</script>", "\n" + (apoie.STAGING_SCRIPT if profile == "staging" else apoie.SCRIPT) + "</script>", 1)}
+        return {"csp": csp.meta(profile), "css": HEAD, "header": header(current, rede), "footer": footer(rede), "js": TAG}
+    return {"csp": csp.meta(profile), "css": HEAD + "\n" + apoie.CSS, "header": with_support(header(current, rede), data, keyless=profile == "staging"), "footer": footer(rede),
+            "js": TAG}
+
+
+CHROME_FILE = "bi-chrome.js"
+# The chrome's script is a file, never inline code: the site's CSP refuses inline scripts (spec seguranca-doacoes, section 8).
+# The id stays on the tag (the map loader on Início keeps this one script running at once, map_loader.py).
+TAG = f'<script id="bi-chrome-js" src="assets/{CHROME_FILE}"></script>'
+SCRIPT_BODY = SCRIPT[len('<script id="bi-chrome-js">\n'):-len('\n</script>')]
+# Images that fail to load, with no handler attribute (the CSP blocks those): data-fallback="hide" hides the image,
+# data-fallback="remove" removes it. The error event does not bubble, so the listener captures it.
+FALLBACK_SCRIPT = """// Images that fail to load: data-fallback="hide" hides the image, data-fallback="remove" removes it (no handler attributes:
+// the site's CSP blocks them). The error event does not bubble, so the listener captures it.
+document.addEventListener('error', (e) => {
+  const img = e.target;
+  if (!(img instanceof HTMLImageElement) || !img.dataset.fallback) return;
+  if (img.dataset.fallback === 'remove') img.remove(); else img.style.display = 'none';
+}, true);
+"""
+
+
+def chrome_js(profile="production"):
+    """The chrome's script for one build: the menu, the image fallback, the footer's network link on staging (rede) and the Apoie
+    modal when its switch is on. Production's is the committed assets/bi-chrome.js (write_script); build-site.py writes the
+    staging one into its own output."""
+    body = SCRIPT_BODY + "\n" + FALLBACK_SCRIPT + (REDE_SCRIPT if features.on("rede", profile) else "")
+    if features.on("apoie", profile):
+        body += apoie.STAGING_SCRIPT if profile == "staging" else apoie.SCRIPT
+    return body
+
+
+def write_script(previews):
+    """Writes production's chrome script into previews/assets (build-platform-preview.py, build-site-chrome.py)."""
+    path = previews / "assets" / CHROME_FILE
+    if not path.exists() or path.read_text(encoding="utf-8") != chrome_js("production"):
+        path.write_text(chrome_js("production"), encoding="utf-8")
 
 
 def block(name, body):
@@ -203,7 +238,11 @@ def inject(page, current, profile="production"):
             continue
         if not (page.count(a) == 0 and page.count(b) == 0):
             raise SystemExit(f"broken {name} markers")
-        if name == "css":
+        if name == "csp":   # first in the head, before any script or style it governs (spec seguranca-doacoes, section 8)
+            if not (page.count('<meta charset="utf-8">') == 1):
+                raise SystemExit("check failed: one <meta charset> expected")
+            page = page.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + block(name, body))
+        elif name == "css":
             if not (page.count("</head>") == 1):
                 raise SystemExit("check failed: page.count('</head>') == 1")
             page = page.replace("</head>", block(name, body) + "\n</head>")

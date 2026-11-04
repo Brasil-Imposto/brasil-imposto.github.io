@@ -1,8 +1,10 @@
 {
   "name": "brasil-imposto-tools",
   "private": true,
-  "description": "The browser the page probes drive (visible-text-probe.cjs and the other *-check.cjs), pinned for the ci.",
+  "description": "The browser the page probes drive (visible-text-probe.cjs and the other *-check.cjs) and the lint rule against unescaped HTML (eslint.config.mjs), pinned for the ci.",
   "devDependencies": {
+    "eslint": "10.14.0",
+    "eslint-plugin-no-unsanitized": "4.1.5",
     "playwright-core": "1.58.2"
   }
 }

@@ -57,3 +57,40 @@ jobs:
           git diff --exit-code -- docs/superpowers/previews/
       - name: Map loader (the page's size equals the built data file)
         run: uv run --locked python -m unittest pipelines/tests/test_map_loader.py -v
+
+  security:
+    # spec seguranca-doacoes, section 14: the attacks of phase 1 against the staging build, each with its control; a broken
+    # control fails the job (bash -e)
+    name: security
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: docs/superpowers/tools/package-lock.json
+      - name: The pinned browser and the lint rule
+        working-directory: docs/superpowers/tools
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright-core install --only-shell chromium
+      - name: "No unescaped HTML: the Firefox rule, with the list of what existed on 2026-11-03, which only shrinks"
+        run: docs/superpowers/tools/node_modules/.bin/eslint --config docs/superpowers/tools/eslint.config.mjs --suppressions-location docs/superpowers/tools/eslint-suppressions.json 'docs/superpowers/previews/assets/*.js'
+      - name: "Attacks P1 (poisoned data), P2 (an injected handler) and P9 (Google Fonts), each with its control"
+        run: |
+          python docs/superpowers/tools/build-site.py --profile staging --out "$RUNNER_TEMP/site"
+          python docs/superpowers/tools/poison-data.py "$RUNNER_TEMP/site" "$RUNNER_TEMP/poison"
+          cp -R "$RUNNER_TEMP/poison" "$RUNNER_TEMP/poison-control"
+          cd docs/superpowers/tools
+          node poison-check.cjs "$RUNNER_TEMP/poison"
+          node poison-check.cjs "$RUNNER_TEMP/poison-control" --control
+          node csp-check.cjs "$RUNNER_TEMP/site"
+          node csp-check.cjs "$RUNNER_TEMP/site" --control
+          node fonts-check.cjs "$RUNNER_TEMP/site"
+          node fonts-check.cjs "$RUNNER_TEMP/site" --control

@@ -4,9 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Brasil-Imposto</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts/manrope.css">
 <link rel="stylesheet" href="assets/proposals.css">
 <link rel="stylesheet" href="assets/federal-section.css">
 <link rel="stylesheet" href="assets/home-feed.css">
@@ -869,7 +867,7 @@ function createModals(root, { states, budgets, cases, geo, colorOf, onClose }) {
     const U = window.BI.series.union;
     const html = () => {
       const r = window.BIT.resolve(period, latest);
-      return `<div class="bp-head"><img class="bp-flag" src="assets/flags/br.svg" alt="Bandeira do Brasil" onerror="this.style.display='none'">
+      return `<div class="bp-head"><img class="bp-flag" src="assets/flags/br.svg" alt="Bandeira do Brasil" data-fallback="hide">
           <div class="bp-id"><h2>Brasil</h2><p>As contas do governo federal · ${r.label}</p></div>
           <div data-period-modal>${window.BIT.selector(period, latest, U.months[0])}</div></div>
         ${window.BIK.mandates ? window.BIK.mandates(U, window.BI.series.public_sector_primary, r) : ''}

@@ -1,0 +1,31 @@
+// Platform preview (D134): the network follows its own period selector, which starts at the map's default period
+// (the current year up to the last month every source has, D37).
+(function () {
+  const sec = document.getElementById('rede');
+  const U = window.BI && window.BI.series && window.BI.series.union;
+  if (sec && U && window.BILG && window.BILGV) {
+    const latest = U.latest.nominal_result, lc = window.BIL.latestComplete();
+    const q = new URLSearchParams(location.search).get('grafo'); // ?grafo=year:2024 | mandate:2019-2022 | month:2026-03
+    let period = { mode: 'year', year: +lc.slice(0, 4), month: lc, mandate: '2023-2026' };
+    if (q) { const [mode, v] = q.split(':'); period = { ...period, mode, ...(mode === 'year' ? { year: +v } : mode === 'month' ? { month: v } : { mandate: v }) }; }
+    const pick = sec.querySelector('[data-graph-period]');
+    let view = null;
+    const draw = () => {
+      pick.innerHTML = window.BIT.selector(period, latest, '2019-01', 'graph-period');
+      window.BIT.bind(pick, period, latest, (np) => { period = np; draw(); });
+      if (view) view.update(window.BILG.build(window.BIT.resolve(period, latest)));
+    };
+    // D136: the network is on standby, a closed "Prévia" card; the 3D scene loads only when the visitor opens it.
+    const open = () => {
+      if (view) return;
+      sec.querySelector('[data-graph-body]').hidden = false;
+      sec.querySelector('[data-graph-open]').hidden = true;
+      view = window.BILGV.mount(sec.querySelector('[data-graph-stage]'), sec.querySelector('[data-graph-checks]'));
+      draw();
+      if (location.hash === '#escuro') sec.querySelector('[data-theme]').click();
+      sec.dataset.graphReady = '1';
+    };
+    sec.querySelector('[data-graph-open]').addEventListener('click', open);
+    if (q) open();
+  }
+})();

@@ -100,7 +100,7 @@ FAILED = "Não foi possível enviar agora. Tente de novo em alguns minutos."
 REQUIRED = "Preencha este campo."
 BAD_EMAIL = "Informe um e-mail válido."
 MIN_SECONDS = 3   # a send faster than this after the view opens is dropped (D124)
-MONO_FONT = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&display=swap"   # the crypto view's coins and addresses
+MONO_FONT = "assets/fonts/jetbrains-mono.css"   # the crypto view's coins and addresses, served by the site (vendor-fonts.py)
 
 BUTTON = (f'<button type="button" class="bi-apoie-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="bi-apoie">'
           f'{CHEST}<span>Apoie</span></button>')
@@ -416,7 +416,7 @@ CSS = """<style id="bi-apoie-css">
 }
 </style>"""
 
-# The modal's code. site_chrome.py puts it inside the chrome's own <script id="bi-chrome-js">, the one script the map loader on
+# The modal's code. site_chrome.py puts it in the chrome's own script, assets/bi-chrome.js, the one script the map loader on
 # Início runs at once (map_loader.py), so the button works while the map data loads.
 SCRIPT = """// The Apoie modal: opens from the header button, one view at a time, closes with the X, Escape or a click outside, and gives the
 // focus back to the button.

@@ -130,7 +130,9 @@ def build(data, on=True, profile="production"):
         files[env], old[env] = f.name, os.environ.get(env)
         os.environ[env] = f.name
     try:
-        return {k: site_chrome.parts(k, profile) for k in site_chrome.PAGES}
+        # "js" is the tag of assets/bi-chrome.js (no inline code, spec seguranca-doacoes, section 8); "script" is what that file
+        # holds for this build
+        return {k: {**site_chrome.parts(k, profile), "script": site_chrome.chrome_js(profile)} for k in site_chrome.PAGES}
     finally:
         for env, name in files.items():
             os.unlink(name)
@@ -406,8 +408,8 @@ class SendViewTest(unittest.TestCase):
         never opens it downloads nothing more (spec cripto-no-site, section 7)."""
         p = build(on_soon_crypto_live())["inicio"]
         self.assertNotIn("family=JetBrains", p["header"] + p["css"])
-        self.assertRegex(p["js"], r"if \(name === 'crypto'\) mono\(\);")
-        self.assertIn(apoie.MONO_FONT, p["js"])
+        self.assertRegex(p["script"], r"if \(name === 'crypto'\) mono\(\);")
+        self.assertIn(apoie.MONO_FONT, p["script"])
 
     def test_control_the_order_check_catches_a_moved_warning(self):
         h = self.view()
@@ -489,7 +491,7 @@ class SendRulesTest(unittest.TestCase):
 
     def test_the_send_is_not_in_the_page_until_asked(self):
         h = build(on_soon_crypto_live())["inicio"]
-        self.assertNotIn('src="assets/bi-cripto', h["header"] + h["js"])
+        self.assertNotIn('src="assets/bi-cripto', h["header"] + h["script"])
 
 
 class SpecProofTest(unittest.TestCase):
@@ -720,11 +722,20 @@ def scripts(page):
     return p.found
 
 
-def outside_without_integrity(page):
+def asset_text(name):
+    """A file of the site's assets/ as text (through a function: a JavaScript comment starts with "/", which test_layout would read
+    as an absolute path built from __file__)."""
+    return (Path(__file__).resolve().parents[2] / "docs" / "superpowers" / "previews" / "assets" / name).read_text(encoding="utf-8")
+
+
+def outside_without_integrity(page, read=None):
     """Each script a page loads from another site without an integrity hash (an empty list: none). A script element with an outside
     src needs integrity and crossorigin="anonymous"; one the map loader holds back needs data-integrity; through an import map,
     every outside address it maps exactly, and every module the page's own code imports through it, needs an integrity entry
-    (the modules those import in turn: apoie-check.cjs, the sri check, tampers with every outside file in a real browser)."""
+    (the modules those import in turn: apoie-check.cjs, the sri check, tampers with every outside file in a real browser). A module
+    the page loads from its own assets/ is read too (read(path), from the previews folder by default): an outside import there has
+    no hash to carry, since the site has no import map (spec seguranca-doacoes, section 8)."""
+    read = read or (lambda rel: (REPO / "docs" / "superpowers" / "previews" / rel).read_text(encoding="utf-8"))
     out, found = [], scripts(page)
     for attrs, _body in found:
         held = "data-src" in attrs
@@ -739,8 +750,11 @@ def outside_without_integrity(page):
     out += [u for u, h in integrity.items() if not SRI.match(h)]
     out += [u for u in imports.values() if OUTSIDE.match(u) and not u.endswith("/") and u not in integrity]
     code = "\n".join(body for attrs, body in found if attrs.get("type") == "module" or "data-module" in attrs)
-    for a, b in re.findall(r"""(?:import|export)\s[^'";]*?from\s*['"]([^'"]+)['"]|import\s*\(\s*['"]([^'"]+)['"]""", code):
-        spec = a or b
+    local = [a.get("src") or a.get("data-src") for a, _ in found if a.get("type") == "module" or "data-module" in a]
+    code += "\n" + "\n".join(read(s) for s in local if s and s.startswith("assets/"))
+    # import x from '...', export ... from '...', import('...'), and the side-effect form import '...'
+    for a, b, c in re.findall(r"""(?:import|export)\s[^'";]*?from\s*['"]([^'"]+)['"]|import\s*\(\s*['"]([^'"]+)['"]|\bimport\s*['"]([^'"]+)['"]""", code):
+        spec = a or b or c
         prefix = max((k for k in imports if k.endswith("/") and spec.startswith(k)), key=len, default=None)
         url = imports.get(spec) or (imports[prefix] + spec[len(prefix):] if prefix else spec)
         if OUTSIDE.match(url) and url not in integrity:
@@ -769,15 +783,18 @@ class OutsideScriptsTest(unittest.TestCase):
                     self.assertEqual(outside_without_integrity(page), [])
 
     def test_the_pages_load_what_the_hashes_cover(self):
-        """The outside scripts as measured on 2026-10-29: d3 and d3-sankey on Como o dinheiro anda, the seven three.js modules of
-        Início (the five its code imports and the two Line2 imports), and 3d-force-graph on the staging Início (the money network
-        preview, D172)."""
+        """The outside scripts as measured on 2026-10-29: d3 and d3-sankey on Como o dinheiro anda and 3d-force-graph on the staging
+        Início (the money network preview, D172). Since 2026-11-03 three.js is served by the site itself (spec seguranca-doacoes,
+        section 8): Início has no import map, and its module imports the seven copies in assets/vendor/three/ by path
+        (test_vendor_three.py checks each against the hash the import map pinned)."""
         prod, stag = published("production"), published("staging")
         self.assertIn('<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha384-', prod["dinheiro"])
-        m = json.loads(next(body for attrs, body in scripts(prod["inicio"]) if attrs.get("type") == "importmap"))
-        self.assertEqual(sorted(u.rsplit("/", 1)[1] for u in m["integrity"]),
-                         ["CSS2DRenderer.js", "Line2.js", "LineGeometry.js", "LineMaterial.js", "LineSegments2.js",
-                          "LineSegmentsGeometry.js", "three.module.js"])
+        self.assertFalse([a for a, _ in scripts(prod["inicio"]) if a.get("type") == "importmap"])
+        home = asset_text("home-map.js")
+        self.assertEqual(sorted(set(re.findall(r"from '(\./vendor/three/[^']+)'", home))),
+                         ["./vendor/three/build/three.module.js", "./vendor/three/examples/jsm/lines/Line2.js",
+                          "./vendor/three/examples/jsm/lines/LineGeometry.js", "./vendor/three/examples/jsm/lines/LineMaterial.js",
+                          "./vendor/three/examples/jsm/renderers/CSS2DRenderer.js"])
         self.assertIn('data-src="https://cdn.jsdelivr.net/npm/3d-force-graph@1.80.0/dist/3d-force-graph.min.js" data-integrity="sha384-',
                       stag["inicio"])
 
@@ -786,9 +803,7 @@ class OutsideScriptsTest(unittest.TestCase):
         cases = {
             "d3 without integrity": (prod["dinheiro"], lambda p: re.sub(r'(d3\.min\.js") integrity="[^"]+"', r"\1", p)),
             "d3-sankey without crossorigin": (prod["dinheiro"], lambda p: re.sub(r'(d3-sankey\.min\.js" integrity="[^"]+") crossorigin="anonymous"', r"\1", p)),
-            "a three.js module out of the list": (prod["inicio"], lambda p: re.sub(r'\s*"[^"]+/LineMaterial\.js": "sha384-[^"]+",?', "", p)),
-            "three.module.js out of the list": (prod["inicio"], lambda p: re.sub(r'\s*"[^"]+/three\.module\.js": "sha384-[^"]+",?', "", p)),
-            "a hash that is not one": (prod["inicio"], lambda p: re.sub(r'(/Line2\.js": ")sha384-[^"]+', r"\1md5-abc", p)),
+            "an import map back, with a module out of its list": (prod["inicio"], lambda p: p.replace("</head>", '<script type="importmap">{"imports": {"three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"}, "integrity": {}}</script></head>')),
             "the held 3d-force-graph without data-integrity": (stag["inicio"], lambda p: re.sub(r' data-integrity="[^"]+"', "", p)),
             "a new outside script": (prod["tres-poderes"], lambda p: p.replace("</body>", '<script src="https://cdn.example.org/x.js"></script></body>')),
             "one in capitals, with a spaced end tag": (prod["tres-poderes"],
@@ -799,6 +814,12 @@ class OutsideScriptsTest(unittest.TestCase):
                 planted = plant(page)
                 self.assertNotEqual(planted, page, "the plant landed")
                 self.assertNotEqual(outside_without_integrity(planted), [], name)
+        with self.subTest(plant="an outside import in the module file of Início"):
+            def planted_read(rel):
+                text = (REPO / "docs" / "superpowers" / "previews" / rel).read_text(encoding="utf-8")
+                return ("import 'https://cdn.example.org/x.js';\n" + text) if rel == "assets/home-map.js" else text
+            self.assertEqual(outside_without_integrity(prod["inicio"]), [])
+            self.assertNotEqual(outside_without_integrity(prod["inicio"], planted_read), [])
 
 
 PAGE_WIDE_COPY = re.compile(r"""closest\(\s*['"]\[data-copy\]['"]\s*\)""")
@@ -897,8 +918,9 @@ class PagesTest(unittest.TestCase):
             with self.subTest(page=key):
                 self.assertEqual(p["header"], site_chrome.header(key, rede=False))   # switches() keeps rede off in production
                 self.assertEqual(p["css"], site_chrome.HEAD)
-                self.assertEqual(p["js"], site_chrome.SCRIPT)
-                self.assertNotIn("bi-apoie", p["header"] + p["css"] + p["js"])
+                self.assertEqual(p["js"], site_chrome.TAG)
+                self.assertEqual(p["script"], site_chrome.SCRIPT_BODY + "\n" + site_chrome.FALLBACK_SCRIPT)
+                self.assertNotIn("bi-apoie", p["header"] + p["css"] + p["script"])
 
     def test_on_soon_the_cards_wait_and_the_form_works(self):
         for key, p in build(on_soon()).items():
@@ -1020,7 +1042,7 @@ class PagesTest(unittest.TestCase):
         for data in (on_soon(), on_live()):
             for key, p in build(data).items():
                 with self.subTest(page=key, live=data["crypto"]["status"]):
-                    self.assertEqual(email_scan.find(p["header"] + p["css"] + p["js"]), [])
+                    self.assertEqual(email_scan.find(p["header"] + p["css"] + p["script"]), [])
 
     def test_control_the_email_scan_catches_a_planted_address(self):
         p = build(on_soon())["inicio"]
@@ -1052,14 +1074,14 @@ class PagesTest(unittest.TestCase):
                 # the Pix and GitHub Sponsors on soon; crypto open (section 10.1)
                 self.assertEqual(len(re.findall(r'<div class="bi-ap-card bi-ap-soon">', h)), 2)
                 self.assertNotIn("a definir", text(h))
-                self.assertIn("if (!form.dataset.key) { fail.hidden = false; return; }", p["js"])
+                self.assertIn("if (!form.dataset.key) { fail.hidden = false; return; }", p["script"])
 
     def test_production_keeps_the_script_it_publishes(self):
         """The staging line for a keyless form goes only into the staging script: production's script is apoie.SCRIPT itself."""
         for key, p in build(committed()).items():
             with self.subTest(page=key):
-                self.assertNotIn("if (!form.dataset.key)", p["js"])
-                self.assertIn(apoie.SCRIPT, p["js"])
+                self.assertNotIn("if (!form.dataset.key)", p["script"])
+                self.assertIn(apoie.SCRIPT, p["script"])
         self.assertEqual(apoie.STAGING_SCRIPT.replace(
             "      if (!form.dataset.key) { fail.hidden = false; return; }   // staging without the access key: nothing is sent\n", ""),
             apoie.SCRIPT, "the staging script differs from production's by that one line only")

@@ -23,6 +23,8 @@
   const short = (a) => `${a.slice(0, 4)}...${a.slice(-4)}`;
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
   const hasLink = (family) => family === 'solana' || family === 'bitcoin' || family === 'xrp';
+  // a wallet's icon only as a data:image, the rule of MetaMask's EIP-6963 library and RainbowKit (spec seguranca-doacoes, section 8)
+  const iconOk = (icon) => typeof icon === 'string' && icon.replace(/\n/g, '').startsWith('data:image');
 
   addEventListener('eip6963:announceProvider', (e) => { if (!evmFound.some((w) => w.info.uuid === e.detail.info.uuid)) { evmFound.push(e.detail); render(); } });
   addEventListener('TIP6963:announceProvider', (e) => { if (!tronFound.some((w) => w.info.uuid === e.detail.info.uuid)) { tronFound.push(e.detail); render(); } });
@@ -68,7 +70,7 @@
     } else if (state.choosing) {                                            // several wallets: the donor picks one
       wallets.replaceChildren(...here.map((w) => {
         const b = el('button', '', w.info.name); b.type = 'button';
-        if (w.info.icon) { const i = el('img'); i.src = w.info.icon; i.alt = ''; b.prepend(i); }
+        if (iconOk(w.info.icon)) { const i = el('img'); i.src = w.info.icon; i.alt = ''; b.prepend(i); }
         b.addEventListener('click', () => pickWallet(w, n));
         return b;
       }));

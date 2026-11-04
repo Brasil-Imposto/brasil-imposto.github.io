@@ -29,70 +29,9 @@ CSS = """<style id="bi-loader-css">
 .bi-loader button { margin-top: 10px; height: 32px; padding: 0 14px; border: 1px solid #E3E7EC; border-radius: 99px; background: #fff; color: #14202B; font: 700 13px Manrope, system-ui, sans-serif; cursor: pointer; }
 </style>"""
 
-SCRIPT = r"""<script id="bi-loader-js">
-// D152, L1: download the map's data with the true percentage, then run the page's scripts in their order.
-(function () {
-  const card = document.getElementById('bi-loader');
-  const size = +card.dataset.size || 0;
-  const bar = card.querySelector('.bi-loader-bar i'), pct = card.querySelector('[data-pct]');
-  const err = card.querySelector('.bi-loader-err'), retry = card.querySelector('button');
-  let shown = 0, bytes = 0, unknown = !size;
-  const state = (s) => { card.dataset.state = s; };
-  const show = (n) => {                       // never backwards, never 100 before the page is ready
-    if (unknown) { pct.textContent = ''; bar.style.width = ''; return; }
-    n = Math.max(shown, Math.min(n, 99)); shown = n;
-    pct.textContent = n + '%'; bar.style.width = n + '%';
-  };
-  const giveUpNumber = () => { unknown = true; state('unknown'); show(0); };
-  if (unknown) state('unknown'); else state('loading');
-  const runDeferred = () => {                 // the page's scripts, in document order; the module last, as it was deferred
-    const held = [...document.querySelectorAll('script[type="text/x-bi-deferred"]')];
-    const classic = held.filter((s) => !s.hasAttribute('data-module')), modules = held.filter((s) => s.hasAttribute('data-module'));
-    const run = (s) => new Promise((ok, fail) => {
-      const n = document.createElement('script');
-      if (s.hasAttribute('data-module')) n.type = 'module';
-      if (s.dataset.integrity) { n.integrity = s.dataset.integrity; n.crossOrigin = 'anonymous'; }
-      if (s.dataset.src) { n.src = s.dataset.src; n.async = false; n.onload = ok; n.onerror = () => fail(new Error(s.dataset.src)); }
-      else n.textContent = s.textContent;
-      s.replaceWith(n);
-      if (!s.dataset.src) ok();
-    });
-    return [...classic, ...modules].reduce((p, s) => p.then(() => run(s)), Promise.resolve());
-  };
-  const runData = (src) => new Promise((ok, fail) => {
-    const n = document.createElement('script'); n.src = src; n.onload = ok; n.onerror = () => fail(new Error('bi-data.js'));
-    document.head.appendChild(n);
-  });
-  const finish = () => {                      // the card leaves when the page marks itself ready
-    const done = () => { if (!unknown) { shown = 99; pct.textContent = '100%'; bar.style.width = '100%'; } state('done'); setTimeout(() => { card.hidden = true; }, 250); };
-    if (document.body.dataset.ready === '1') return done();
-    new MutationObserver((m, o) => { if (document.body.dataset.ready === '1') { o.disconnect(); done(); } }).observe(document.body, { attributes: true, attributeFilter: ['data-ready'] });
-  };
-  const load = async () => {
-    err.hidden = true; retry.hidden = true;
-    if (location.protocol === 'file:') { unknown = true; state('file'); show(0); await runData('assets/bi-data.js'); return; }
-    if (!unknown) state('loading');
-    const res = await fetch('assets/bi-data.js', { cache: 'no-cache' });
-    if (!res.ok || !res.body) throw new Error('HTTP ' + res.status);
-    const reader = res.body.getReader(), parts = []; bytes = 0;
-    for (;;) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      parts.push(value); bytes += value.length; card.dataset.bytes = bytes;
-      if (!unknown && bytes > size) giveUpNumber();   // a file of another size: no invented number
-      show(Math.floor(bytes * 100 / (size || 1)));
-    }
-    if (!unknown && bytes !== size) giveUpNumber();
-    const url = URL.createObjectURL(new Blob(parts, { type: 'text/javascript' }));
-    try { await runData(url); } finally { URL.revokeObjectURL(url); }
-  };
-  const start = () => load().then(() => { finish(); return runDeferred(); }).catch(() => {
-    state('error'); err.hidden = false; retry.hidden = false; retry.focus();
-  });
-  retry.addEventListener('click', start);
-  start();
-})();
-</script>"""
+# The loader itself is assets/bi-loader.js, a file and not inline code: the site's CSP refuses inline scripts (spec
+# seguranca-doacoes, section 8). The id stays on the tag, as before.
+SCRIPT = '<script id="bi-loader-js" src="assets/bi-loader.js"></script>'
 
 
 def card(size):
@@ -103,38 +42,39 @@ def card(size):
             '<p class="bi-loader-err" hidden>Não foi possível carregar os dados.</p><button type="button" hidden>Tentar de novo</button></div>')
 
 
-def hold(tag):
+def hold(tag, allow_inline=False):
     """One script element held back unchanged until the data has run. An outside script keeps its hash: integrity with
     crossorigin="anonymous" becomes data-integrity, which the loader puts back (spec apoie, section 10.2, item 4)."""
     m = re.fullmatch(r'<script( [^>]*)?>(.*)</script>', tag, flags=re.S)
     attrs, body = m.group(1) or "", m.group(2)
     src = re.search(r' src="([^"]+)"', attrs)
     if src:
-        sri = re.fullmatch(f'src="{re.escape(src.group(1))}"' + r'(?: integrity="([^"]+)" crossorigin="anonymous")?', attrs.strip())
+        module = attrs.strip().startswith('type="module" ')
+        rest = attrs.strip()[len('type="module" '):] if module else attrs.strip()
+        sri = re.fullmatch(f'src="{re.escape(src.group(1))}"' + r'(?: integrity="([^"]+)" crossorigin="anonymous")?', rest)
         if not (body == "" and sri):
             raise SystemExit(tag[:80])
         integrity = f' data-integrity="{sri.group(1)}"' if sri.group(1) else ""
-        return f'<script type="text/x-bi-deferred" data-src="{src.group(1)}"{integrity}></script>'
-    if attrs.strip() == 'type="module"':
-        return f'<script type="text/x-bi-deferred" data-module>{body}</script>'
-    if not (attrs == ""):
-        raise SystemExit(tag[:80])
-    return f'<script type="text/x-bi-deferred">{body}</script>'
+        return f'<script type="text/x-bi-deferred" data-src="{src.group(1)}"{integrity}{" data-module" if module else ""}></script>'
+    if allow_inline and attrs == "":   # the author's local preview only (build-platform-preview.py --author-notes), never published
+        return f'<script type="text/x-bi-deferred">{body}</script>'
+    # the site's CSP refuses inline code (spec seguranca-doacoes, section 8): every script is a file
+    raise SystemExit(f"map_loader: inline script, put it in a file under assets/: {tag[:80]}")
 
 
-def apply(page, data_file):
+def apply(page, data_file, allow_inline=False):
     """The page with the loader; data_file is assets/bi-data.js, whose size goes into the page (absent: no number)."""
     data_file = Path(data_file)
     size = data_file.stat().st_size if data_file.exists() else 0
     if not (page.count(DATA_TAG) == 1 and page.count('<div class="hero-map"></div>') == 1):
         raise SystemExit('check failed: page.count(DATA_TAG) == 1 and page.count(\'<div class="hero-map"></div>\') == 1')
     head, tail = page.split(DATA_TAG)
-    keep = re.compile(r'<script id="bi-chrome-js">')
+    keep = re.compile(r'<script id="bi-chrome-js"[ >]')
     out, n = [], 0
     pos = 0
     for m in re.finditer(r'<script\b[^>]*>.*?</script>', tail, flags=re.S):
         out.append(tail[pos:m.start()])
-        out.append(m.group(0) if keep.match(m.group(0)) else hold(m.group(0)))
+        out.append(m.group(0) if keep.match(m.group(0)) else hold(m.group(0), allow_inline))
         n += not keep.match(m.group(0))
         pos = m.end()
     out.append(tail[pos:])

@@ -17,6 +17,12 @@ def page(key):
     return (PREVIEWS / site_chrome.ALL_PAGES[key][0]).read_text(encoding="utf-8")
 
 
+def asset_text(name):
+    """A file of the site's assets/ as text (through a function: a JavaScript comment starts with "/", which test_layout would read
+    as an absolute path built from __file__)."""
+    return (Path(__file__).resolve().parents[2] / "docs" / "superpowers" / "previews" / "assets" / name).read_text(encoding="utf-8")
+
+
 class SiteHeaderTest(unittest.TestCase):
     def test_each_page_carries_the_module_header(self):
         for key in site_chrome.ALL_PAGES:
@@ -40,6 +46,22 @@ class SiteHeaderTest(unittest.TestCase):
         for key in site_chrome.ALL_PAGES:
             text = re.sub(r"<[^>]+>", " ", site_chrome.extract(page(key), "header"))
             self.assertNotRegex(text, r"Rede\s*\(prévia\)")
+
+
+class ChromeScriptFileTest(unittest.TestCase):
+    """The chrome's script is a file (spec seguranca-doacoes, section 8): every page loads assets/bi-chrome.js, and the committed
+    file is what site_chrome composes for production."""
+
+    def test_the_committed_file_is_productions_script(self):
+        self.assertEqual((PREVIEWS / "assets" / site_chrome.CHROME_FILE).read_text(encoding="utf-8"), site_chrome.chrome_js("production"))
+
+    def test_every_page_loads_it_once(self):
+        for key, (name, _label) in site_chrome.ALL_PAGES.items():
+            with self.subTest(page=key):
+                self.assertEqual((PREVIEWS / name).read_text(encoding="utf-8").count(site_chrome.TAG), 1)
+
+    def test_control_a_stale_file_is_seen(self):
+        self.assertNotEqual(site_chrome.chrome_js("production") + "// stale\n", (PREVIEWS / "assets" / site_chrome.CHROME_FILE).read_text(encoding="utf-8"))
 
 
 class SiteBrandTest(unittest.TestCase):
@@ -163,7 +185,10 @@ class HomeLinkTest(unittest.TestCase):
 
     def forward_problems(self, html):
         out = []
-        for need in ("location.replace('./' + location.search + location.hash)", '<noscript><meta http-equiv="refresh" content="0; url=./">',
+        js = asset_text("forward.js")
+        if "getAttribute('href') + location.search + location.hash" not in js:
+            out.append("forward.js: the canonical link plus the query and the hash")
+        for need in ('<script src="assets/forward.js"></script>', '<noscript><meta http-equiv="refresh" content="0; url=./">',
                      '<link rel="canonical" href="./">', '<meta name="robots" content="noindex">'):
             if need not in html:
                 out.append(need)
@@ -186,7 +211,7 @@ class HomeLinkTest(unittest.TestCase):
         self.assertIn("build-site.py --profile production --out _site", self.WORKFLOW.read_text(encoding="utf-8"))
 
     def test_control_a_forward_that_drops_the_hash_fails(self):
-        broken = self.forward().replace(" + location.hash", "")
+        broken = self.forward().replace('<script src="assets/forward.js"></script>', "")
         self.assertTrue(self.forward_problems(broken))
 
 
