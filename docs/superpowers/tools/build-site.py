@@ -151,6 +151,8 @@ def build(profile, out):
     (out / site_chrome.HOME).write_text(FORWARD, encoding="utf-8")
     for key, old_name in site_chrome.OLD_NAMES.items():
         (out / old_name).write_text(forward_to(site_chrome.ALL_PAGES[key][0]), encoding="utf-8")
+    # security.txt (RFC 9116) where scanners look for it (spec seguranca-doacoes, section 10)
+    shutil.copytree(PREVIEWS / ".well-known", out / ".well-known")
     (out / ".nojekyll").write_text("", encoding="utf-8")
     if profile == "production":
         (out / "robots.txt").write_text(ROBOTS, encoding="utf-8")
