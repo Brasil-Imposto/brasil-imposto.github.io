@@ -195,3 +195,4 @@ Issues and pull requests are welcome, in Portuguese or English; every number nee
 `staging` branch, which publishes the test site <https://brasil-imposto.github.io/staging/> (online only during tests); production only receives what was
 checked there. How to contribute and
 how to document a pull request: <https://github.com/Brasil-Imposto>.
+
