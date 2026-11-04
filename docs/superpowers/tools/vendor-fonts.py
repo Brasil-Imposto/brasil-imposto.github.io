@@ -36,8 +36,8 @@ def main():
         for url, local in files.items():
             (OUT / local).write_bytes(fetch(url))
             css = css.replace(url, local)
-        if "fonts.gstatic.com" in css:
-            raise SystemExit(f"vendor-fonts: {name} still points at Google")
+        if re.search(r"url\(\s*['\"]?https?:", css):   # every font file is now a local name
+            raise SystemExit(f"vendor-fonts: {name} still points at an outside address")
         (OUT / f"{name}.css").write_text(f"/* {name}: the files Google Fonts serves, kept by the site (vendor-fonts.py); SIL OFL 1.1, OFL-{name}.txt */\n" + css,
                                          encoding="utf-8")
         (OUT / f"OFL-{name}.txt").write_bytes(fetch(license_url))
