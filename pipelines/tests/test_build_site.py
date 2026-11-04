@@ -117,8 +117,9 @@ class BuildSiteTest(unittest.TestCase):
                 self.assertEqual(built.read_bytes(), (PREVIEWS / name).read_bytes())
         self.assertEqual((self.prod / "robots.txt").read_text(encoding="utf-8"), "User-agent: *\nDisallow: /staging/\n")
         self.assertEqual((self.prod / site_chrome.HOME).read_text(encoding="utf-8"), build_site.FORWARD)
+        # .well-known: security.txt (spec seguranca-doacoes, section 10)
         self.assertEqual(sorted(p.name for p in self.prod.iterdir()), sorted(
-            [".nojekyll", "assets", "index.html", "robots.txt", site_chrome.HOME] + [n for k, (n, _) in site_chrome.ALL_PAGES.items() if k != "inicio"]
+            [".nojekyll", ".well-known", "assets", "index.html", "robots.txt", site_chrome.HOME] + [n for k, (n, _) in site_chrome.ALL_PAGES.items() if k != "inicio"]
             + list(site_chrome.OLD_NAMES.values())))
 
     def test_each_old_address_forwards_to_its_clean_page(self):
@@ -154,6 +155,12 @@ class BuildSiteTest(unittest.TestCase):
         self.assertEqual((self.prod / "assets" / site_chrome.CHROME_FILE).read_text(encoding="utf-8"), site_chrome.chrome_js("production"))
         self.assertEqual((self.stage / "assets" / site_chrome.CHROME_FILE).read_text(encoding="utf-8"), site_chrome.chrome_js("staging"))
         self.assertNotEqual(site_chrome.chrome_js("production"), site_chrome.chrome_js("staging"))
+
+    def test_each_build_serves_security_txt(self):
+        # RFC 9116's place, in both builds (spec seguranca-doacoes, section 10)
+        for site in (self.prod, self.stage):
+            with self.subTest(site=site.name):
+                self.assertEqual((site / ".well-known" / "security.txt").read_bytes(), (PREVIEWS / ".well-known" / "security.txt").read_bytes())
 
     def test_control_a_forward_to_the_wrong_page_is_found(self):
         html = build_site.forward_to("os-3-poderes.html")

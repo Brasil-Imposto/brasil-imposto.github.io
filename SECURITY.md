@@ -40,3 +40,17 @@ Report security issues privately through GitHub's private vulnerability reportin
 Do not open public issues for them. There is no project email yet. Only `main`, the published site, is supported.
 Deadlines: a high or critical CodeQL alert blocks the merge into `staging` and is fixed in the same pull request; a Dependabot
 security alert within 7 days; other alerts reviewed monthly; a leaked secret is rotated before anything else.
+
+## Endereços de doação em cripto
+
+Os únicos endereços do Brasil-Imposto, com a data e o commit em que cada um entrou no repositório. Confira o endereço que o site
+mostra contra esta lista, e esta lista contra o seu histórico: `git log -p -- SECURITY.md data/support.json`. Uma troca de
+endereço entra só por pull request, com a verificação `guard` e a etiqueta `seguranca-revisada` posta depois do último push.
+
+| Redes | Endereço | Desde | Commit |
+|---|---|---|---|
+| Bitcoin | `bc1qevkvnl6rvpfyyyjzk08lckz9xn3936qhp86zna` | 2026-10-30 | `2ab1705` |
+| Ethereum, BNB Smart Chain | `0xb947cC8445841cf40AFCA723804d06855bea7bc7` | 2026-10-30 | `2ab1705` |
+| Solana | `FUYqFTFwvF8fgm1NmbRXAEERtRLDry1DCQfNgbZyFv8f` | 2026-10-30 | `2ab1705` |
+| Tron | `TLoXMf8yCEtRJcbR3tqidYd76f1hi4r6cU` | 2026-10-30 | `2ab1705` |
+| XRP Ledger | `rwJXvMdap5E7C49ZkfAjpeAMLd15UmEch2` | 2026-10-30 | `2ab1705` |

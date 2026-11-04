@@ -1,0 +1,7 @@
+# Brasil-Imposto: how to report a security problem (RFC 9116). The project has no e-mail: the contact is the repository's private
+# vulnerability report, the way github.com's own security.txt gives a link.
+Contact: https://github.com/Brasil-Imposto/brasil-imposto.github.io/security/advisories/new
+Expires: 2027-10-31T23:59:59Z
+Canonical: https://brasil-imposto.github.io/.well-known/security.txt
+Policy: https://github.com/Brasil-Imposto/brasil-imposto.github.io/blob/main/SECURITY.md
+Preferred-Languages: pt, en
