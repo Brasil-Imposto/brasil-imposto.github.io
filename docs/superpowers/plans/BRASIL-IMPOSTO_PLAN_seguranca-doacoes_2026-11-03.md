@@ -74,7 +74,7 @@ Tudo o mais que aparecer no código sem quem o use vira pergunta ao autor dizend
 | `docs/superpowers/tools/vendor-three.py`, `vendor-fonts.py` | Novos. Baixam, conferem o hash e gravam os arquivos de fora | 1 |
 | `docs/superpowers/tools/eslint.config.mjs`, `eslint-suppressions.json` | Novos. A regra do Firefox e a lista do que já existe | 1 |
 | `docs/superpowers/previews/assets/vendor/three/` | Novo. Os 7 módulos do three.js 0.170.0 e a licença | 1 |
-| `docs/superpowers/previews/assets/fonts/` | Novo. Manrope e JetBrains Mono (OFL 1.1), `fonts.css` | 1 |
+| `docs/superpowers/previews/assets/fonts/` | Novo. Manrope e JetBrains Mono (OFL 1.1), `manrope.css` e `jetbrains-mono.css` | 1 |
 | `docs/superpowers/previews/assets/bi-chrome.js`, `bi-loader.js`, `home-map.js`, `map-notes-page.js`, `dinheiro-page.js`, `federal-cards.js`, `tres-poderes-page.js`, `forward.js` | Novos. Os scripts que hoje são inline | 1 |
 | `docs/superpowers/tools/site_chrome.py`, `map_loader.py`, `build-site.py`, `build-simulation.py`, `build-platform-preview.py`, `build-notes-page.py`, `apoie.py` | Escrevem `<script src>` no lugar do inline, a meta da CSP, a folha de fontes | 1 |
 | `docs/superpowers/previews/assets/federal-section.js`, `proposals.js`, `modals.js`, `bi-cripto.js`, `build-standalone-data.py` | Escape, ícones conferidos, `onerror` por ouvinte, ícone da carteira só `data:image` | 1 |
@@ -715,8 +715,8 @@ if (mode === '--control') {
 })();
 ```
 
-- [ ] **1.9.2** `vendor-fonts.py`: lê a URL `css2` que as páginas usam hoje, pede o CSS com o `User-Agent` de um Chrome atual (o Google entrega woff2 com `unicode-range` por subconjunto), baixa cada woff2 para `assets/fonts/`, escreve `assets/fonts/fonts.css` com os mesmos blocos `@font-face` apontando para os arquivos locais, e copia o texto da OFL 1.1 de cada família do repositório da própria fonte (Manrope e JetBrains Mono) para `assets/fonts/OFL-manrope.txt` e `OFL-jetbrains-mono.txt`. Os arquivos são os mesmos que o Google serve ao Chrome, então o desenho das letras não muda.
-- [ ] **1.9.3** O `<link>` do Google Fonts (e o `preconnect`) vira `<link rel="stylesheet" href="assets/fonts/fonts.css">` em todo construtor; `bi-cripto.js` carrega a mesma folha quando a vista abre (ou a folha já vem na página, se o peso medido da JetBrains Mono for pequeno: decidir pela medida, sem mudar o que aparece).
+- [ ] **1.9.2** `vendor-fonts.py`: lê a URL `css2` que as páginas usam hoje, pede o CSS com o `User-Agent` de um Chrome atual (o Google entrega woff2 com `unicode-range` por subconjunto), baixa cada woff2 para `assets/fonts/`, escreve `assets/fonts/manrope.css` e `assets/fonts/jetbrains-mono.css` com os mesmos blocos `@font-face` apontando para os arquivos locais, e copia o texto da OFL 1.1 de cada família do repositório da própria fonte (Manrope e JetBrains Mono) para `assets/fonts/OFL-manrope.txt` e `OFL-jetbrains-mono.txt`. Os arquivos são os mesmos que o Google serve ao Chrome, então o desenho das letras não muda.
+- [ ] **1.9.3** O `<link>` do Google Fonts (e o `preconnect`) vira `<link rel="stylesheet" href="assets/fonts/manrope.css">` em todo construtor; o modal carrega `assets/fonts/jetbrains-mono.css` quando a vista abre (ou a folha já vem na página, se o peso medido da JetBrains Mono for pequeno: decidir pela medida, sem mudar o que aparece).
 - [ ] **1.9.4** `fonts-check.cjs`: zero pedidos, exit 0; `--control`: `control caught`. Comparação pixel a pixel contra as fotos da linha de base (quatro páginas e a vista da cripto, 1440 e 420): iguais, com controle (uma foto com 1 px trocado tem de dar diferença).
 
 ### Tarefa 1.10: o ícone da carteira só se for `data:image` (P7)
