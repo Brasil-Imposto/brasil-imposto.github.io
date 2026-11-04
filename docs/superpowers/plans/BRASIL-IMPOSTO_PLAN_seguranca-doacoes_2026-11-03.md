@@ -42,7 +42,7 @@ A prova é a página no ar (`curl` com `?n=<hora>` e uma abertura nova no Chrome
 - **Fase 3 (#175 e `Brasil-Imposto/staging#4`):** o `guard` copia a forma do glsec (o rótulo sai a cada push; a verificação lê a etiqueta na hora), em vez das datas de etiqueta e push do esboço da 3.4.2. O CODEOWNERS já dava tudo ao time (`*`): as linhas dos caminhos do `guard` entraram para quando houver donos por área. A configuração mudou pela API depois do merge, e `settings-check.py` ficou verde; R1 e R3 provados nos #177 e #178.
 - **Fase 5 (#176) entrou antes da fase 3:** não dependia dela, e o `guard` passou a valer a partir do merge do #175.
 - **Fase 4 em parte:** `Brasil-Imposto/monitor` com `chain` (C1 e C5) e `heartbeat`; o estado no ramo `state`. O A1 vigia a `chain` com 45 minutos até a conferência de 5 minutos existir. A conferência dos arquivos servidos segue D222; a foto da configuração espera o GitHub App do autor.
-- **D222:** só o autor põe a etiqueta `seguranca-revisada`; a produção espera a aprovação dele no ambiente, no lote.
+- **D222 e D223:** a sessão põe a etiqueta `seguranca-revisada` depois de listar no pull request os caminhos sensíveis (D223 mudou D222, item 1); a produção espera a aprovação dele no ambiente, no lote.
 
 ## Escolhas do plano e quem as usa (D218)
 

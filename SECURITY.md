@@ -45,7 +45,7 @@ security alert within 7 days; other alerts reviewed monthly; a leaked secret is 
 
 Os únicos endereços do Brasil-Imposto, com a data e o commit em que cada um entrou no repositório. Confira o endereço que o site
 mostra contra esta lista, e esta lista contra o seu histórico: `git log -p -- SECURITY.md data/support.json`. Uma troca de
-endereço entra só por pull request, com a verificação `guard` e a etiqueta `seguranca-revisada`, posta pelo autor depois do último push.
+endereço entra só por pull request, com a verificação `guard` e a etiqueta `seguranca-revisada`, posta depois do último push e depois de listados no pull request os caminhos sensíveis que ele muda.
 
 | Redes | Endereço | Desde | Commit |
 |---|---|---|---|
