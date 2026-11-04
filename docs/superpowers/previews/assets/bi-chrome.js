@@ -29,7 +29,7 @@ document.addEventListener('error', (e) => {
   let monoAsked = false;
   const mono = () => {   // the crypto view's mono font: nobody who stays out of that view downloads it
     if (monoAsked) return; monoAsked = true;
-    const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;800&display=swap'; document.head.appendChild(l);
+    const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'assets/fonts/jetbrains-mono.css'; document.head.appendChild(l);
   };
   const show = (name) => {
     if (name === 'crypto') mono();

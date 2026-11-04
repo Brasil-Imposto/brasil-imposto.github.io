@@ -19,9 +19,7 @@ PAGE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Como ler o mapa · Brasil-Imposto</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts/manrope.css">
 <style>
   :root { --ink: #14202B; --muted: #5B6773; --faint: #8A95A1; --line: #E3E7EC; --paper: #FFFFFF; --soft: #F6F8FA; --green: #12803F; }
   * { box-sizing: border-box; }

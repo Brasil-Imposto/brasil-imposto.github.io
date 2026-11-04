@@ -10,6 +10,15 @@ const fs = require('fs');
 const path = require('path');
 const SUPPORT = JSON.parse(fs.readFileSync(process.env.BI_SUPPORT_JSON || path.join(__dirname, '..', '..', '..', 'data', 'support.json'), 'utf8'));
 const FROM = '0x1111111111111111111111111111111111111111';
+// P7 (spec seguranca-doacoes, section 14): wallets announcing an icon that is not a data:image (a javascript: link, an outside
+// address, markup) and the control, a valid PNG
+const hostileWallets = () => {
+  const provider = { request: async ({ method }) => (method === 'eth_requestAccounts' ? ['0x1111111111111111111111111111111111111111'] : method === 'eth_chainId' ? '0x1' : null), on: () => {} };
+  const icons = { Js: 'javascript:window.__p7=1', Remote: 'https://example.invalid/track.png', Markup: '<img src=x onerror=window.__p7=1>',
+    Png: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==' };
+  for (const [name, icon] of Object.entries(icons)) addEventListener('eip6963:requestProvider', () => dispatchEvent(new CustomEvent('eip6963:announceProvider', { detail: {
+    info: { uuid: 'h-' + name, name, icon, rdns: 'x.' + name.toLowerCase() }, provider } })));
+};
 const fakeWallets = () => {
   window.__calls = []; window.__fake = { chain: '0x1', reject: null, noChain: false, fail: null, hold: false, account: '0x1111111111111111111111111111111111111111' };
   const f = window.__fake, refuse = () => Object.assign(new Error('refused'), { code: 4001 });
@@ -56,6 +65,7 @@ const units = (text, decimals) => { const [w, f = ''] = text.split('.'); return 
     });
     if (two) await ctx.addInitScript(() => { window.__twoWallets = true; });
     if (!phone && !none) await ctx.addInitScript(fakeWallets);
+    if (how === 'hostile') await ctx.addInitScript(hostileWallets);
     const p = await ctx.newPage();
     await p.goto(base + 'como-ler-o-mapa.html'); await p.waitForSelector('.bi-apoie-btn');
     await p.$eval('.bi-apoie-btn', (e) => e.click()); await p.waitForTimeout(150);
@@ -162,6 +172,12 @@ const units = (text, decimals) => { const [w, f = ''] = text.split('.'); return 
   const c13 = await open(true); await pick(c13.p, 'USDT', 'bsc'); await c13.p.fill('#bi-ap-amount', '10'); await c13.p.waitForTimeout(150);
   const apps = await c13.p.$$eval('[data-wallets] a', (as) => as.map((a) => a.href));
   report('a phone on EVM: the links open the site in the wallet app, never with an address', apps.length === 2 && apps.every((a) => decodeURIComponent(a).includes('moeda=USDT&rede=bsc&valor=10') && !a.toLowerCase().includes(nets().find((n) => n.id === 'bsc').address.toLowerCase())), apps.join(' ').slice(0, 150)); await c13.ctx.close();
+  const c14 = await open('hostile'); await pick(c14.p, 'ETH', 'ethereum'); await c14.p.fill('#bi-ap-amount', '0.1'); await c14.p.click('[data-send]'); await c14.p.waitForTimeout(250);
+  const icons = await c14.p.$$eval('[data-wallets] button', (bs) => bs.map((b) => ({ name: b.textContent.trim(), img: b.querySelector('img') ? (b.querySelector('img').getAttribute('src') || '').slice(0, 24) : null })));
+  const byName = (n) => icons.find((x) => x.name.includes(n));
+  report('P7: a wallet icon that is not a data:image is not shown', ['Js', 'Remote', 'Markup'].every((n) => byName(n) && byName(n).img === null) && !(await c14.p.evaluate(() => window.__p7)), JSON.stringify(icons));
+  report('P7 control: a data:image icon is shown', !!byName('Png') && !!byName('Png').img, JSON.stringify(byName('Png') || null));
+  await c14.ctx.close();
   await browser.close();
   for (const r of rows) console.log(`${r.ok ? 'PASS' : 'FAIL'} ${r.name}: ${r.detail}`);
   const bad = rows.filter((r) => !r.ok), sends = rows.filter((r) => /^(send|link) /.test(r.name));

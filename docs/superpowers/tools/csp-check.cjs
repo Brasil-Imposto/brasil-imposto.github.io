@@ -17,14 +17,15 @@ const PAGES = ['index.html', 'index.html?open=SC', 'como-ler-o-mapa.html', 'como
       const p = await (await b.newContext({ viewport: { width: 1280, height: 860 } })).newPage();
       await p.addInitScript(() => { window.__violations = []; document.addEventListener('securitypolicyviolation', (e) => window.__violations.push(`${e.violatedDirective} ${e.blockedURI}`)); });
       await p.goto(base + u, { waitUntil: 'load', timeout: 120000 });
-      await p.waitForFunction(() => !document.querySelector('script[type="text/x-bi-deferred"]') || document.querySelector('.bi-loader[data-state]'), null, { timeout: 90000 }).catch(() => {});
+      // the map's loader has to finish (done, or error, which fails the page): a page without it has nothing to wait for
+      await p.waitForFunction(() => { const s = document.querySelector('.bi-loader')?.dataset.state; return !s || !['loading', 'unknown'].includes(s); }, null, { timeout: 120000 }).catch(() => {});
       await p.waitForTimeout(2000);
       const before = await p.evaluate(() => ({ v: window.__violations.slice(), loader: document.querySelector('.bi-loader')?.dataset.state || 'none' }));
       await p.evaluate(() => { const d = document.createElement('div'); d.innerHTML = '<img src="x" onerror="window.__p2=1">'; document.body.append(d); });
       await p.waitForTimeout(800);
       const p2 = await p.evaluate(() => window.__p2 === 1);
       ran += p2 ? 1 : 0;
-      const pageBad = mode !== '--control' && (before.v.length > 0 || before.loader === 'error');
+      const pageBad = mode !== '--control' && (before.v.length > 0 || !['none', 'done'].includes(before.loader));
       bad += pageBad ? 1 : 0;
       console.log(`${pageBad ? 'FAIL' : 'ok  '} ${u.padEnd(60)} violations ${before.v.length}${before.v.length ? ' (' + before.v[0] + ')' : ''}, loader ${before.loader}, injected handler ${p2 ? 'RAN' : 'blocked'}`);
       await p.context().close();
