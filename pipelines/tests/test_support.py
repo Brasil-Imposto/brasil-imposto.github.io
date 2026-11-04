@@ -454,8 +454,10 @@ def send_js(f=SEND_JS):
 
 
 def method_problems(js):
-    """A wallet method outside the closed list, or a word that asks for more than a plain transfer (an empty list: clean). Section 5, rule 4."""
-    return sorted(set(re.findall(r"method:\s*'([^']+)'", js)) - ALLOWED_METHODS) + FORBIDDEN.findall(js)
+    """A wallet method outside the closed list, or a word that asks for more than a plain transfer (an empty list: clean). Section 5, rule 4.
+    A wallet method is what goes into a provider's request({ method }); the page's reads of a public node (fetch with method POST, the
+    XRP Ledger's tx, spec seguranca-doacoes, section 8) ask the wallet nothing."""
+    return sorted(set(re.findall(r"request\(\s*\{\s*method:\s*'([^']+)'", js)) - ALLOWED_METHODS) + FORBIDDEN.findall(js)
 
 
 class SendRulesTest(unittest.TestCase):
@@ -929,7 +931,7 @@ class PagesTest(unittest.TestCase):
                 self.assertEqual(h.count('class="bi-apoie-btn"'), 1)
                 self.assertLess(h.index("</header>"), h.index('id="bi-apoie"'), "the modal sits outside the header")
                 cards = re.findall(r'<div class="bi-ap-card bi-ap-soon">(.*?)</div>', h)
-                self.assertEqual(len(cards), 3)
+                self.assertEqual(len(cards), 2)   # Cripto and Pix (D220: the GitHub Sponsors card left)
                 for c in cards:
                     self.assertIn('<span class="bi-ap-tag">Em breve</span>', c)
                     for mark in ("<a ", "<button", "<code", "data-go"):
@@ -938,11 +940,11 @@ class PagesTest(unittest.TestCase):
                     self.assertNotIn(f'data-view="{view}"', h)
                     self.assertNotIn(f'data-go="{view}"', h)
                 t = text(h)
-                for s in [apoie.PIX_CARD, apoie.SPONSORS_CARD, apoie.CRYPTO_CARD_SOON, apoie.OTHER_WAY, apoie.CONTACT_ASK, apoie.CONTACT_LGPD,
+                for s in [apoie.PIX_CARD, apoie.CRYPTO_CARD_SOON, apoie.OTHER_WAY, apoie.CONTACT_ASK, apoie.CONTACT_LGPD,
                           apoie.SENT, apoie.FAILED, apoie.LEAD, apoie.DEVELOPERS, "Fale com a gente", "Nome", "E-mail", "Mensagem"]:
                     self.assertIn(re.sub(r"\s+", " ", s), t, s[:50])
                 for gone in ("Quem recebe", "a definir", "teto de", "Cada endereço é público", "Doação acima de", "Apoiar com Pix",
-                             "Abrir a vaquinha"):
+                             "Abrir a vaquinha", apoie.SPONSORS_CARD):   # D220: the GitHub Sponsors card left the modal
                     self.assertNotIn(gone, t, gone)
                 kept = re.findall(r'<ul class="bi-ap-list">(.*?)</ul>', h)[0]
                 self.assertEqual(kept.count("<li>"), 5)
@@ -954,14 +956,16 @@ class PagesTest(unittest.TestCase):
     def main_view(self, data, profile="production"):
         return build(data, profile=profile)["inicio"]["header"]
 
-    def test_the_cards_are_pix_sponsors_crypto_in_three_columns_that_fall_to_one(self):
+    def test_the_cards_are_crypto_then_pix_in_two_columns_that_fall_to_one(self):
+        # D220 (spec seguranca-doacoes, section 12, item 4): the GitHub Sponsors card leaves; Cripto comes before Pix, which is not available yet
         h = self.main_view(on_soon())
         cards = re.search(r'<div class="bi-ap-cards">(.*?)</div><div class="bi-ap-other">', h, re.S).group(1)
-        self.assertEqual(re.findall(r"<h4>(.*?) <span", cards), ["Pix", "GitHub Sponsors", "Cripto"])
+        self.assertEqual(re.findall(r"<h4>(.*?) <span", cards), ["Cripto", "Pix"])
+        self.assertNotIn("GitHub Sponsors", cards)
         self.assertIn('<span class="bi-ap-nw">Brasil-Imposto</span>', cards, "Brasil-Imposto never breaks at its hyphen")
-        self.assertRegex(apoie.CSS, r"\.bi-ap-cards \{[^}]*grid-template-columns: repeat\(3, minmax\(0, 1fr\)\)")
-        narrow = re.search(r"@media \(max-width: 820px\) \{(.*?)\n\}", apoie.CSS, re.S).group(1)
-        self.assertRegex(narrow, r"\.bi-ap-cards \{ grid-template-columns: 1fr; \}")
+        self.assertRegex(apoie.CSS, r"\.bi-ap-cards \{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)")
+        narrow = re.search(r"@media \(max-width: 640px\) \{(.*?)\n\}", apoie.CSS, re.S).group(1)
+        self.assertRegex(narrow, r"\.bi-ap-cards \{ grid-template-columns: minmax\(0, 1fr\); \}")
         self.assertIn(".bi-ap-bar i { flex: 1; border-radius: 99px; background: #1F5FAF; }\n.bi-ap-bar i + i { background: #12803F; }", apoie.CSS,
                       "the bar is blue, then green, in the order of the columns")
 
@@ -975,7 +979,7 @@ class PagesTest(unittest.TestCase):
             self.assertIn(re.sub(r"\s+", " ", s), t, s[:60])
 
     def test_the_order_of_the_main_view(self):
-        marks = ["1. Infraestrutura", "2. Desenvolvedores", "Como apoiar", "Pix", "GitHub Sponsors", "Cripto", apoie.OTHER_WAY,
+        marks = ["1. Infraestrutura", "2. Desenvolvedores", "Como apoiar", "Cripto", "Pix", apoie.OTHER_WAY,
                  "Como cada mês é dividido", "Antes de apoiar"]
         h = self.main_view(on_soon())
         self.assertTrue(in_order(text(h), marks))
@@ -1071,8 +1075,8 @@ class PagesTest(unittest.TestCase):
                 h = p["header"]
                 self.assertIn('data-view="contact"', h)
                 self.assertIn('data-key=""', h)
-                # the Pix and GitHub Sponsors on soon; crypto open (section 10.1)
-                self.assertEqual(len(re.findall(r'<div class="bi-ap-card bi-ap-soon">', h)), 2)
+                # the Pix on soon; crypto open (section 10.1); the GitHub Sponsors card left the modal (D220)
+                self.assertEqual(len(re.findall(r'<div class="bi-ap-card bi-ap-soon">', h)), 1)
                 self.assertNotIn("a definir", text(h))
                 self.assertIn("if (!form.dataset.key) { fail.hidden = false; return; }", p["script"])
 
@@ -1092,7 +1096,7 @@ class PagesTest(unittest.TestCase):
             with self.subTest(page=key):
                 h = p["header"]
                 self.assertEqual(h.count('class="bi-apoie-btn"'), 1)
-                self.assertEqual(len(re.findall(r'<div class="bi-ap-card bi-ap-soon">', h)), 3)
+                self.assertEqual(len(re.findall(r'<div class="bi-ap-card bi-ap-soon">', h)), 2)
                 for gone in ('data-go="contact"', 'data-view="contact"', "api.web3forms.com", 'name="botcheck"'):
                     self.assertNotIn(gone, h, gone)
                 self.assertNotIn(re.sub(r"\s+", " ", apoie.OTHER_WAY), text(h))
@@ -1103,6 +1107,62 @@ class PagesTest(unittest.TestCase):
         d = on_soon(); d["contact_form"]["access_key"] = "not-a-key"
         with self.assertRaises(SystemExit):
             build(d)
+
+
+
+class PauseTest(unittest.TestCase):
+    """Spec seguranca-doacoes, section 4, attack S1: a network on "paused" keeps its button, dimmed, with "Pausada", and its address is in
+    no part of the page (neither the address row nor the data block the send reads); a coin whose networks are all paused says "Pausada"
+    the same way, and so does the Cripto card when every network is paused. Pausing is the status and a deploy (D219)."""
+
+    def paused(self, *ids):
+        d = committed()
+        for g in d["crypto"]["groups"]:
+            for n in g["networks"]:
+                if n["id"] in ids or ids == ("*",):
+                    n["status"] = "paused"
+        return d
+
+    def address(self, net):
+        return next(g["address"] for g in committed()["crypto"]["groups"] for n in g["networks"] if n["id"] == net)
+
+    def test_a_paused_network_keeps_its_button_and_shows_no_address(self):
+        for profile in ("production", "staging"):
+            with self.subTest(profile=profile):
+                h = build(self.paused("tron"), profile=profile)["inicio"]["header"]
+                self.assertIn('<button type="button" class="bi-ap-netbtn bi-ap-netpaused" disabled>Tron (TRC-20) <span class="bi-ap-tag">Pausada</span></button>', h)
+                self.assertNotIn('data-net-btn="tron"', h)
+                self.assertNotIn(self.address("tron"), h)
+                self.assertIn('data-net-btn="ethereum"', h, "the other networks of the coin stay open")
+
+    def test_control_a_live_network_opens_with_its_address(self):
+        h = build(committed())["inicio"]["header"]
+        self.assertIn('data-net-btn="tron"', h)
+        self.assertIn(self.address("tron"), h)
+        self.assertNotIn("bi-ap-netpaused", h)
+
+    def test_a_coin_with_every_network_paused_says_paused(self):
+        h = build(self.paused("bitcoin"))["inicio"]["header"]
+        self.assertRegex(h, r'<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled><img[^>]*>BTC <span class="bi-ap-tag">Pausada</span></button>')
+        self.assertNotIn('data-coin-btn="BTC"', h)
+        self.assertNotIn(self.address("bitcoin"), h)
+
+    def test_every_network_paused_dims_the_card_and_leaves_no_address(self):
+        d = self.paused("*")
+        self.assertEqual(support_data.problems(d), [], "a fully paused crypto is a valid file")
+        h = build(d)["inicio"]["header"]
+        card = re.search(r'<div class="bi-ap-card bi-ap-soon">(?:(?!</div>).)*?<h4>Cripto <span class="bi-ap-tag">Pausada</span></h4>.*?</div>', h, re.S)
+        self.assertIsNotNone(card)
+        self.assertIn(apoie.PAUSED_CARD, card.group(0))
+        self.assertNotIn('data-view="crypto"', h)
+        self.assertNotIn('data-go="crypto"', h)
+        for g in d["crypto"]["groups"]:
+            self.assertNotIn(g["address"], h, g["id"])
+
+    def test_the_status_accepts_paused_and_nothing_else_new(self):
+        self.assertEqual(support_data.STATUSES, ("soon", "live", "paused"))
+        d = committed(); d["crypto"]["groups"][0]["networks"][0]["status"] = "stopped"
+        self.assertTrue(support_data.problems(d))
 
 
 if __name__ == "__main__":

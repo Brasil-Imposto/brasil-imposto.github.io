@@ -1,0 +1,23 @@
+{
+ "block_number": 87695332,
+ "block_timestamp": 1793759625000,
+ "caller_contract_address": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+ "contract_address": "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+ "event_index": 0,
+ "event_name": "Transfer",
+ "result": {
+  "0": "0xf838e4abbc94b23befa026343b63fd7336e16b38",
+  "1": "0xcfab4a6d4fb6962c7fead13cb3330a42efb0a953",
+  "2": "6666000000",
+  "from": "0xf838e4abbc94b23befa026343b63fd7336e16b38",
+  "to": "0xcfab4a6d4fb6962c7fead13cb3330a42efb0a953",
+  "value": "6666000000"
+ },
+ "result_type": {
+  "from": "address",
+  "to": "address",
+  "value": "uint256"
+ },
+ "event": "Transfer(address indexed from, address indexed to, uint256 value)",
+ "transaction_id": "9aa6cce283717287d7662f5e5e2f2148713fd627fcf5ca26230c25511a517036"
+}
