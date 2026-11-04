@@ -24,10 +24,10 @@ Duas metas: (1) saber de toda tentativa que toque o que o projeto consegue obser
 | A. Repositório e organização | Rulesets também no `Brasil-Imposto/staging` | Homebrew (as regras da organização cobrem os repositórios dos sites) | Fixo |
 | | Ações só fixadas por commit, por política | Kubernetes, Semgrep, Safe | Fixo |
 | | A verificação `guard`: falha no pull request que toca arquivo sensível até a etiqueta posta depois do último push | glsec; o Prow do Kubernetes tira a etiqueta a cada push | Em cada pull request |
-| | CODEOWNERS e a segunda pessoa no ambiente de produção, sem aprovar a si mesma | Homebrew, uv, ruff | No lote (D214) |
+| | CODEOWNERS e toda publicação na produção esperando a aprovação do autor no ambiente (D221, D222); uma segunda pessoa quando houver (D214) | Homebrew, uv, ruff (ambiente com revisores obrigatórios) | No lote |
 | | Alarme quando a configuração de segurança muda | OpenSSF Allstar (sigstore, google), safe-settings | A cada 15 minutos |
 | B. Construção e publicação | O hash de cada arquivo publicado, gravado a cada publicação | Safe publica o checksum de cada versão; Uniswap e Aave, o hash IPFS | A cada publicação |
-| C. Site no ar | Todo arquivo servido conferido pelo hash contra a cópia boa, e os cinco endereços contra uma cópia própria do monitor | Recomendação escrita da Security Alliance (D219: fica sem usuário nomeado) | A cada 5 minutos |
+| C. Site no ar | Todo arquivo servido conferido pelo hash contra a cópia boa (a cada 5 minutos o que mudou, as quatro páginas com os endereços inteiras, tudo uma vez por dia, D222), e os cinco endereços contra uma cópia própria do monitor | Recomendação escrita da Security Alliance (D219: fica sem usuário nomeado) | A cada 5 minutos |
 | D. Navegador de quem visita | Textos dos dados escapados e regra contra inserir HTML sem limpar | Firefox (`no-unsanitized`) | No código e no `ci` |
 | | CSP numa meta, só com origens, sem código inline | Uniswap (D219) | Em cada página |
 | | Fontes servidas pelo próprio site | Signal, ethereum.org | Em cada página |
@@ -47,7 +47,7 @@ O monitor mora em `Brasil-Imposto/monitor`, público (D217), com os agendamentos
 - **Toda conferência roda nos servidores do GitHub** e falha quando acha algo; a falha vira o e-mail do próprio GitHub, com o link da execução. Passos do autor: avisos do Actions por e-mail só para falhas; o endereço da caixa do formulário verificado na conta e escolhido como destino dos avisos da organização.
 - **Os avisos do navegador de D216 não têm mais o que mandar:** os detectores da página saíram na auditoria (D219). A chave pública do Web3Forms segue só no formulário de contato.
 - **Sinal de vida:** um comentário diário, às 9h de Brasília, numa issue fixada do monitor ("Sinal de vida"), com as contagens do dia; o e-mail dele chega pelos avisos de quem acompanha o repositório. **Se não chegar até as 10h, vale como alarme.** É o padrão "Watchdog" do Prometheus: um sinal que sempre dispara, e a falta dele avisa.
-- **O monitor vigiado:** um agendamento a cada hora no repositório principal confere que o monitor rodou nos últimos 30 minutos e falha se não rodou. O monitor grava seu estado num commit diário, porque o GitHub desliga agendamentos de repositório público sem atividade em 60 dias; se mesmo assim desligar, o sinal de vida para.
+- **O monitor vigiado:** um agendamento a cada hora no repositório principal confere que a conferência mais frequente do monitor rodou há menos de três dos seus intervalos (hoje a `chain`, de 15 em 15 minutos: 45 minutos) e falha se não rodou. O monitor grava seu estado num commit diário, porque o GitHub desliga agendamentos de repositório público sem atividade em 60 dias; se mesmo assim desligar, o sinal de vida para.
 
 ## 4. Pausar e tirar do ar (D219)
 
@@ -60,8 +60,8 @@ O monitor mora em `Brasil-Imposto/monitor`, público (D217), com os agendamentos
 **Prevenir**
 - `Brasil-Imposto/staging`: ruleset igual ao da `main` (só por pull request, `dco`, sem force push, sem apagar), criado por API.
 - Ações: a política do GitHub que exige ação fixada por commit inteiro, nos dois repositórios e no monitor; a lista de ações permitidas só com as que usamos.
-- `guard`: verificação obrigatória que falha quando o pull request toca `data/support.json` (bloco `crypto`), `assets/bi-cripto*.js`, os vendors da cripto, `.github/`, `deploy/`, o gerador da CSP, o teste dos endereços fixados ou o próprio `guard`. Passa só com a etiqueta `seguranca-revisada` posta depois do último push; um push novo tira a etiqueta (como o glsec e o Prow fazem). Roda pelo código da `main`, nunca pelo do pull request.
-- CODEOWNERS com esses caminhos e a segunda pessoa no ambiente de produção, com "prevent self-review" (Homebrew), no lote (D214).
+- `guard`: verificação obrigatória que falha quando o pull request toca `data/support.json` (bloco `crypto`), `assets/bi-cripto*.js`, os vendors da cripto, `.github/`, `deploy/`, o gerador da CSP, o teste dos endereços fixados ou o próprio `guard`. Passa só com a etiqueta `seguranca-revisada` posta pelo autor, no GitHub, depois do último push (D222; as sessões nunca a põem); um push novo tira a etiqueta (como o glsec e o Prow fazem). Roda pelo código da `main`, nunca pelo do pull request.
+- CODEOWNERS com esses caminhos. No lote: toda publicação na produção espera a aprovação do autor como revisor obrigatório do ambiente de produção (D221, D222), porque o GitHub não deixa quem abriu um pull request aprová-lo e as sessões os abrem com a conta dele; uma segunda pessoa entra também quando houver (D214).
 
 **Detectar** (monitor, a cada 15 minutos; cada mudança alarma uma vez e vira a nova base, então o histórico fica no monitor)
 - O que o Allstar cobre: proteção de ramo e rulesets, administradores, colaboradores e workflows. A mesma conferência lê também apps instalados e suas permissões, webhooks, chaves de deploy, ambientes e suas regras, configuração do Pages e a política do Actions: é o mesmo mecanismo em mais endpoints (o Allstar não os cobre).
@@ -76,7 +76,7 @@ O monitor mora em `Brasil-Imposto/monitor`, público (D217), com os agendamentos
 
 ## 7. C. O site no ar (D219)
 
-- **A cada 5 minutos** (horário quebrado, `2-59/5`, porque o GitHub atrasa as horas cheias): todo arquivo servido conferido pelo sha256 contra o manifesto do commit que está no ar (lido na API de publicações, nunca só no manifesto); o bloco `#bi-cripto-data` lido e os cinco endereços e sete contratos comparados com `pins.json`, a cópia própria do monitor, que mora em outro repositório e só muda por pull request lá. A CSP tem de estar lá.
+- **A cada 5 minutos** (horário quebrado, `2-59/5`, porque o GitHub atrasa as horas cheias), na forma de D222: cada arquivo servido é pedido com a pergunta "mudou?" e só desce e é conferido pelo sha256, contra o manifesto do commit que está no ar (lido na API de publicações, nunca só no manifesto), quando mudou; as quatro páginas com os endereços descem inteiras; uma vez por dia, tudo desce e é conferido. O bloco `#bi-cripto-data` é lido e os cinco endereços e sete contratos comparados com `pins.json`, a cópia própria do monitor, que mora em outro repositório e só muda por pull request lá. A CSP tem de estar lá. Baixar tudo a cada 5 minutos daria cerca de 756 GB por mês, acima do limite flexível de 100 GB do Pages (medido em 2026-11-03).
 - Por que todo arquivo: no ataque ao Bybit o arquivo trocado ficou dois dias no servidor e o código só disparava para uma carteira; olhar só os endereços mostrados não teria visto.
 - Até o lote, a produção não tem cripto: a conferência roda no `ci` contra a montagem local e passa a olhar a produção no dia do lote.
 
@@ -162,7 +162,7 @@ Desenhadas no modal real (`docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_segur
 | C1 | Saída plantada nas respostas de um nó | Alarme | Respostas sem saída: zero alarmes |
 | C5 | Nó fora do ar três vezes | Alarme de "não deu para conferir" | Nó respondendo: verde |
 | C6 | A transação foi para outro endereço | Aviso a quem doou | A transação certa: "Confirmada na rede" |
-| A1 | Monitor parado há mais de 30 minutos | O agendamento do repositório principal falha | Monitor com rodada recente: passa |
+| A1 | Monitor parado há mais de três intervalos (45 minutos para a `chain`) | O agendamento do repositório principal falha | Monitor com rodada recente: passa |
 | S1 | Uma moeda ou rede com `status` `"paused"` | Botão apagado com "Pausada", sem endereço | `"live"`: abre |
 
 Mais um teste por defeito da seção 11, e a CSP provada com as carteiras de verdade na fase 6.
@@ -174,11 +174,11 @@ Mais um teste por defeito da seção 11, e a CSP provada com as carteiras de ver
 4. O monitor: foto da configuração, conferência de 5 minutos, blockchain, sinal de vida, monitor vigiado. Passos do autor na resposta final, em ordem de tela: o GitHub App, os avisos de e-mail, acompanhar o repositório; a linha do App e do monitor no registro de serviços.
 5. Folha de resposta, `security.txt`, registro de endereços.
 6. Carteiras de verdade em redes de teste, contra uma montagem local: MetaMask (Sepolia e BSC testnet), TronLink (Nile), UniSat (testnet4 ou signet), Crossmark (testnet do XRP Ledger), com as chaves geradas por script direto no Keychain e importadas sem aparecer (D217); um captcha de faucet fica com o autor.
-7. O teste de verdade do autor com o site de testes ligado só para isso; o gasto de teste de cada endereço; depois o lote da produção com o aviso de produção (D192) e a segunda pessoa no ambiente (D214).
+7. O teste de verdade do autor com o site de testes ligado só para isso; o gasto de teste de cada endereço; depois o lote da produção com o aviso de produção (D192), as regras novas e a aprovação do autor em cada publicação (D221, D222), e a segunda pessoa quando houver (D214).
 
 ## 15. Custo
 
-Nada pago. Repositório público roda o Actions de graça; o GitHub App e os nós públicos não custam. Um repositório privado teria só US$ 12 por mês de franquia, cerca de 2.000 minutos de Linux, e a conferência de 5 minutos sozinha passa disso.
+Nada pago, e nada que peça cartão. Repositório público roda o Actions de graça ("This usage remains free", documentação do GitHub, lida em 2026-11-04), e o Pages não cobra: passar do limite flexível de 100 GB por mês faz o GitHub poder parar de servir o site, por isso a forma de D222 para a conferência de 5 minutos; o GitHub App e os nós públicos não custam. Um repositório privado teria só US$ 12 por mês de franquia, cerca de 2.000 minutos de Linux, e a conferência de 5 minutos sozinha passa disso.
 
 ## 16. Fora desta spec
 
@@ -186,4 +186,4 @@ A carteira nova no celular (D214, TODO); um staging na Cloudflare, onde hospedar
 
 ## 17. Não confirmado
 
-Se o Pages serve `/.well-known/` (o `security.txt` cai na raiz se não servir); se os rulesets de organização valem no plano grátis (os do repositório valem); como MetaMask, TronLink, UniSat e Crossmark se comportam com a CSP (fase 6); se cada nó grátis aceita pedido do navegador de outra origem (a conferência de cada doação); o `style-src` exato da Uniswap; o que conta como atividade para o GitHub não desligar um agendamento além de um commit.
+Se os rulesets de organização valem no plano grátis (os do repositório valem); como MetaMask, TronLink, UniSat e Crossmark se comportam com a CSP (fase 6); o que conta como atividade para o GitHub não desligar um agendamento além de um commit. Confirmados nas fases 1 a 5: o Pages serve `/.well-known/`; os cinco nós grátis respondem a uma página na origem do site; o `style-src` da Uniswap é `'self' 'unsafe-inline'`.
