@@ -9,7 +9,8 @@ docs/superpowers/previews/assets/bi-cripto*.js
 docs/superpowers/previews/assets/vendor/*
 docs/superpowers/tools/csp.py
 pipelines/tests/test_support.py
-# Workflows, the deploy of the test site, this list and the guard itself, the address register
+# Workflows, the deploy of the test site, this list and the guard itself, the address register, security.txt
 .github/*
 deploy/*
 SECURITY.md
+docs/superpowers/previews/.well-known/*

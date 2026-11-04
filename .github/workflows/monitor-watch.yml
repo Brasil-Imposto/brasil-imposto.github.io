@@ -1,0 +1,25 @@
+# A1 (spec seguranca-doacoes, section 3): every hour, whether Brasil-Imposto/monitor's chain check ran in the last 45 minutes. A failed
+# run here is the alarm (GitHub's e-mail to whoever set this schedule, D216): the monitor stopped, or its schedule was turned off.
+name: monitor-watch
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  monitor-watch:
+    name: monitor-watch
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: .github/scripts/monitor_watch.py
+          sparse-checkout-cone-mode: false
+      - name: The monitor ran recently
+        run: |
+          last=$(gh api "repos/Brasil-Imposto/monitor/actions/workflows/chain.yml/runs?per_page=1" --jq '.workflow_runs[0].created_at // empty')
+          python3 .github/scripts/monitor_watch.py "$last"
