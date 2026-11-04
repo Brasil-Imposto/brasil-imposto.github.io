@@ -42,6 +42,8 @@ jobs:
         # the four page builders, the three published pages, assets/, index.html, the forwarding page at Início's old address
         # (D160), .nojekyll and robots.txt; only the switches of data/features.json that production turns on
         run: python3 docs/superpowers/tools/build-site.py --profile production --out _site
+      - name: The manifest of this publication, every file with its sha256 (spec seguranca-doacoes, section 6)
+        run: python3 docs/superpowers/tools/build-manifest.py write _site "$GITHUB_SHA" | tee -a "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: _site

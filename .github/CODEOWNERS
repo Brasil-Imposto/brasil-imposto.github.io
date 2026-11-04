@@ -1,2 +1,15 @@
 # Phase 0 of GOVERNANCE.md: the maintainers team (one person today) owns every path. Owners by area come in phase 1.
 * @Brasil-Imposto/maintainers
+
+# The paths of the guard (.github/guard-paths.txt, spec seguranca-doacoes, section 5), named one by one for when owners by area come;
+# a second reviewer on production comes with the crypto batch (D214).
+/data/support.json @Brasil-Imposto/maintainers
+/docs/superpowers/tools/support_data.py @Brasil-Imposto/maintainers
+/docs/superpowers/tools/apoie.py @Brasil-Imposto/maintainers
+/docs/superpowers/previews/assets/bi-cripto*.js @Brasil-Imposto/maintainers
+/docs/superpowers/previews/assets/vendor/ @Brasil-Imposto/maintainers
+/docs/superpowers/tools/csp.py @Brasil-Imposto/maintainers
+/pipelines/tests/test_support.py @Brasil-Imposto/maintainers
+/.github/ @Brasil-Imposto/maintainers
+/deploy/ @Brasil-Imposto/maintainers
+/SECURITY.md @Brasil-Imposto/maintainers

@@ -1,0 +1,63 @@
+# guard (spec seguranca-doacoes, section 5): fails while a pull request changes a path of .github/guard-paths.txt, until a maintainer
+# sets the label seguranca-revisada; a new push takes the label off. The form of glsec's "Sensitive paths" check; Kubernetes Prow
+# removes its lgtm label on a new push the same way.
+#
+# pull_request_target runs this file from the base branch, so a pull request cannot change the check it is measured by. That is safe
+# only because the job never checks out or runs code from the pull request: it checks out the base for .github/scripts/guard.py and
+# .github/guard-paths.txt, and reads the changed files and the labels through the API.
+name: guard
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, labeled, unlabeled]
+permissions: {}
+concurrency:
+  group: guard-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+env:
+  LABEL: seguranca-revisada
+jobs:
+  guard:
+    name: guard
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write # take the label off after a new push
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PR: ${{ github.event.pull_request.number }}
+      REPO: ${{ github.repository }}
+      ACTION: ${{ github.event.action }}
+    steps:
+      # the base branch, not the pull request: pull_request_target checks out the base by default
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            .github/scripts/guard.py
+            .github/guard-paths.txt
+          sparse-checkout-cone-mode: false
+      - name: A new push takes the label off
+        if: github.event.action == 'synchronize' && contains(github.event.pull_request.labels.*.name, 'seguranca-revisada')
+        run: |
+          if ! gh api -X DELETE "repos/$REPO/issues/$PR/labels/$LABEL" > /dev/null; then
+            echo "::error::new commits after the review, but the label $LABEL could not be removed; remove it, review again and set it again"
+            exit 1
+          fi
+          echo "Removed $LABEL."
+      - name: The changed files
+        run: |
+          # a rename counts with its old path too, so moving a file out of a sensitive path needs the label as well
+          hits=$(gh api --paginate "repos/$REPO/pulls/$PR/files" --jq '.[] | .filename, (.previous_filename // empty)' | python3 .github/scripts/guard.py)
+          if [ -z "$hits" ]; then
+            echo "No sensitive path changed."
+            exit 0
+          fi
+          # file names come from the pull request: every line is indented, so none can start a workflow command
+          { echo "### Sensitive paths changed"; echo; printf '%s\n' "$hits" | sed 's/^/    /'; } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$ACTION" != "synchronize" ] && gh api "repos/$REPO/issues/$PR/labels" --jq '.[].name' | grep -qx "$LABEL"; then
+            echo "Sensitive paths changed, reviewed ($LABEL is set):"
+            printf '%s\n' "$hits" | sed 's/^/  /'
+            exit 0
+          fi
+          echo "::error::this pull request changes sensitive paths; a maintainer reviews them and sets the label $LABEL"
+          printf '%s\n' "$hits" | sed 's/^/  /'
+          exit 1
