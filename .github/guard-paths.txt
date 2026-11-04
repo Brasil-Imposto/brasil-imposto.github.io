@@ -1,0 +1,15 @@
+# The paths whose change needs the label seguranca-revisada, set by a maintainer after the last push (spec seguranca-doacoes,
+# section 5). One pattern per line, matched by Python's fnmatch, where * also crosses folders. CODEOWNERS lists the same paths.
+# The donation's addresses and the code that shows and sends them
+data/support.json
+docs/superpowers/tools/support_data.py
+docs/superpowers/tools/apoie.py
+docs/superpowers/previews/assets/bi-cripto*.js
+# Outside code the site serves, the script policy, and the test that pins the addresses
+docs/superpowers/previews/assets/vendor/*
+docs/superpowers/tools/csp.py
+pipelines/tests/test_support.py
+# Workflows, the deploy of the test site, this list and the guard itself, the address register
+.github/*
+deploy/*
+SECURITY.md
