@@ -94,3 +94,25 @@ jobs:
           node csp-check.cjs "$RUNNER_TEMP/site" --control
           node fonts-check.cjs "$RUNNER_TEMP/site"
           node fonts-check.cjs "$RUNNER_TEMP/site" --control
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Brasil-Imposto/monitor
+          ref: 5952110570d68061e5dac89e23f556da1f25005f # the served-files check and pins.json, Brasil-Imposto/monitor#2
+          path: .monitor
+          persist-credentials: false
+      - name: "Attacks B1 (a served file changed, alone or with the manifest) and L1 (an address changed), the monitor's check on this build, each with its control"
+        # spec seguranca-doacoes, section 7: until the production batch the check runs here, on the staging build served the way
+        # GitHub Pages serves it (ETag, 304, gzip): a full pass, the "did it change?" pass of D222 (2), then the four controls.
+        # The addresses of data/support.json must equal the monitor's own copy, pins.json.
+        run: |
+          out=$(python3 docs/superpowers/tools/build-manifest.py write "$RUNNER_TEMP/site" "$GITHUB_SHA")
+          echo "$out"
+          set_hash=${out##*: }
+          node docs/superpowers/tools/static-server.cjs "$RUNNER_TEMP/site" 8795 --pages > "$RUNNER_TEMP/served-server.log" 2>&1 &
+          for i in $(seq 50); do curl -fsS -o /dev/null http://127.0.0.1:8795/index.html && break; sleep 0.2; done
+          served() { python3 .monitor/checks/served.py --base http://127.0.0.1:8795/ --commit "$GITHUB_SHA" --set-hash "$set_hash" "$@"; }
+          served --full --state "$RUNNER_TEMP/served.json"
+          served --state "$RUNNER_TEMP/served.json"
+          unchanged=$(python3 -c "import json,sys; print(len(json.load(open(sys.argv[1]))['files']) - 4)" "$RUNNER_TEMP/site/build-manifest.json")
+          test "$(grep -c '^304 ' "$RUNNER_TEMP/served-server.log")" -eq "$unchanged"   # the second pass: 304 for all but the 4 address pages
+          for c in b1 manifest l1 csp; do served --control "$c"; done
