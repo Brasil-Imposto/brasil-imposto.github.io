@@ -375,7 +375,7 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
 - **Depois de um deploy do Pages:** o Pages manda `cache-control: max-age=600`, e quem abriu o site pouco antes vê a versão
   antiga por até 10 minutos (2026-10-24: o autor achou que a promoção não tinha ido ao ar). Conferir com `curl` e `?n=<hora>`
   e uma abertura nova no Chrome sem tela, e dizer junto com "está no ar": Cmd+Shift+R.
-- **Tirar o staging do ar e religar:** `gh api -X DELETE repos/Brasil-Imposto/staging/pages` (404 em segundos, a produção não
+- **Tirar o staging do ar e religar:** `gh api -X DELETE repos/Brasil-Imposto/staging/pages` (a API diz na hora que não há mais Pages; a página dá 404 depois de cerca de 7 minutos, a cópia em cache, medido em 2026-11-03 e 04; a produção não
   muda); religar com `gh api -X POST repos/Brasil-Imposto/staging/pages -f build_type=workflow` e rodar o deploy. Desde
   2026-11-02 o staging fica fora do ar e só liga para os testes (D214), porque divide a origem com a produção; restringir a quem contribui, só no GitHub, pede o GitHub Enterprise Cloud (pago).
 - **Ações fixadas por commit:** conferir cada SHA contra a tag oficial (`repos/actions/<ação>/git/ref/tags/<versão>`,
@@ -570,3 +570,44 @@ O Chrome guarda os scripts da prévia: depois de mudar um `assets/*.js`, recarre
 - **Fatos do GitHub que moldam o monitor** (avisos por execução são um ajuste só da pessoa, a franquia de uma organização grátis em
   dólares, só um GitHub App lista os tokens com acesso à organização, o `GITHUB_TOKEN` pode disparar `workflow_dispatch`): na skill
   `agent-ops`, "Free GitHub organization facts for monitoring".
+
+### O código da segurança da doação, fases 1 a 5 (2026-11-03 e 04, D221 e D222)
+
+- **Um mapa de importação inline é código inline:** a CSP só de origens o recusa, e não existe mapa de importação em arquivo. Ficou o three.js
+  0.170.0 guardado no site (`assets/vendor/three/`, `vendor-three.py`), com o `from 'three'` dos complementos trocado pelo caminho relativo;
+  `test_vendor_three.py` desfaz a troca e confere o sha384 que o mapa fixava.
+- **A CSP e o script do menu são por montagem:** o script de fora de uma chave de `data/features.json` (o `3d-force-graph` da rede) entra na
+  CSP só onde a chave liga (o teste de vazamento de `test_build_site.py` pegou a primeira versão); o `assets/bi-chrome.js` versionado é o da
+  produção, e o `build-site.py` escreve na pasta de saída o do staging e a faixa (`staging-strip.js`).
+- **O `bi-data.js` sem `blob:`:** contados os bytes, ele roda pelo próprio endereço; com os cabeçalhos do Pages desce uma vez numa janela
+  normal e duas numa janela anônima (o cache em memória não guarda 19 MB).
+- **Envenenar todo texto acha mais do que o laboratório:** 254 mil textos em 15 mil campos acharam também o produto e a unidade de
+  `home-trade.js` e o nome do município de `statemap.js`. Os ícones são HTML de propósito: conferidos contra o vocabulário do Lucide na
+  construção (`icon_check.py`), e o envenenador pula `BI.icons`.
+- **Um controle tem de pousar e falhar pelo motivo plantado:** o primeiro `onload` plantado num ícone não mudou nada (o `<svg` do Lucide vem
+  seguido de quebra de linha); o caso "um erro antes da confirmação trava o botão" passou no código velho, porque o botão não fica
+  desligado: a página fica ocupada e ignora o clique seguinte. A sonda passou a clicar de novo.
+- **`test_layout` lê como caminho todo valor tirado de `__file__` que começa com "/":** um arquivo JavaScript começa com `//`; ler `assets/`
+  por uma função (`asset_text`). E um comentário no fim de uma linha de expressão engole o resto da linha.
+- **CodeQL depois de mover scripts para arquivos:** alertas antigos voltam como novos, porque o fluxo passa a ser visto. O
+  `js/unvalidated-dynamic-method-call` de `statehero.js` só cedeu com `Map` e `typeof f === 'function'` antes da chamada (o `Map` sozinho
+  não); `py/incomplete-url-substring-sanitization` pega até um `"host" in texto` que não sanitiza nada (usar um regex de `url(`); o alerta do
+  `generateUUID` do three.js foi dispensado pela API, com o motivo escrito.
+- **O portão de merge lê o run mais novo de cada verificação:** um run cancelado e substituído (o `visible-text` refeito pela etiqueta) não é o
+  estado dela; recusa se o mais novo de algum nome não for `success`.
+- **`visible-text` e fontes:** com a Manrope do site, a regra D83 mede o nome do vizinho com a fonte de verdade; no `ci` a base mede com a fonte
+  de reserva (o Google chega depois), e "Minas Gerais" aparece num lado e some no outro na janela do DF. A dica "arraste para o lado" de Os 3
+  Poderes aparece ou não conforme o momento da captura, também no `staging` sem mudança.
+- **`guard` (pull_request_target):** os runs ficam no commit da cabeça, e logo depois de um push a cabeça lida pode ser a velha; a sequência se
+  lê pelos runs (evento, commit, resultado). R1 e R3 provados nos #177 e #178.
+- **A conferência de cada doação:** os cinco nós grátis respondem a uma página na origem do site (medido em 2026-11-03); as respostas reais
+  gravadas estão em `pipelines/tests/fixtures/chain/`. Um endereço Tron que difere só nos caracteres da soma de verificação decodifica para a
+  mesma conta (o endereço "parecido" da rodada `seguranca-r1`); a conferência compara a conta decodificada, nunca o texto.
+- **A rodada `seguranca-r1` não renderiza mais** (o driver expira, `ERR s1b timeout`): a comparação da fase 2 foi contra o código e o CSS dela.
+  `overlay-check.cjs` e `ui-sweep.cjs` pedem o Chromium inteiro em `CHROME_HEADLESS`.
+- **A conferência de 5 minutos e o Pages (D222):** uma passada inteira baixa 87 MB (6.112 arquivos, com gzip), cerca de 756 GB por mês a cada 5
+  minutos, contra o limite flexível de 100 GB do Pages. O Actions de repositório público é grátis e o Pages não cobra: o risco era o site parar
+  de ser servido, não dinheiro. Ficou a pergunta "mudou?" a cada 5 minutos, as quatro páginas com os endereços inteiras e tudo uma vez por dia.
+- **O monitor (`Brasil-Imposto/monitor`):** o estado fica no ramo `state`, porque a `main` só aceita pull request; os commits de estado usam um
+  `user.email` sem endereço. O `dco.yml` do site tem um ramo de promoção que cita um endereço de sistema do GitHub: as cópias do
+  `Brasil-Imposto/staging` e do monitor ficaram sem ele.

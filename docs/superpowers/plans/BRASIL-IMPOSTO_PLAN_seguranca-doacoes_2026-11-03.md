@@ -17,7 +17,7 @@
 ```bash
 gh api -X POST repos/Brasil-Imposto/staging/pages -f build_type=workflow   # liga
 gh workflow run deploy.yml -R Brasil-Imposto/staging                       # publica o staging
-gh api -X DELETE repos/Brasil-Imposto/staging/pages                        # desliga (404 em segundos)
+gh api -X DELETE repos/Brasil-Imposto/staging/pages                        # desliga (a página dá 404 depois de cerca de 7 minutos)
 ```
 
 A prova é a página no ar (`curl` com `?n=<hora>` e uma abertura nova no Chrome sem tela), nunca o run verde.
@@ -35,6 +35,14 @@ A prova é a página no ar (`curl` com `?n=<hora>` e uma abertura nova no Chrome
 - **O verificador de scripts de fora tinha um buraco:** não via `import 'url';`. O controle novo pegou; o regex agora pega.
 - **Dependabot:** não vigia `docs/superpowers/tools/` (só `/` e `/site`); a 1.11.2 estava errada. Acrescentar é mudança à parte, levada ao autor.
 - **Sondas antigas:** `overlay-check.cjs` e `ui-sweep.cjs` precisam do Chromium inteiro em `CHROME_HEADLESS` (o mapa 3D não fica pronto no Chrome sem cabeça sem as opções do SwiftShader); assim, 90 de 90 e 0 achados.
+
+## O que mudou ao rodar as fases 2 a 5 (2026-11-03 e 04, D221 e D222)
+
+- **Fase 2 (#174):** cada caso visto falhando no `staging` antes (12 de 48 em `cripto-check.cjs`, 8 de 17 nos testes do núcleo, os da pausa). O caso "erro antes da confirmação" precisou clicar de novo para falhar no código velho. A frase desenhada "Já avisamos o Brasil-Imposto" ficou de fora: depois de D219 a página não manda aviso. A regra dos métodos de carteira de `test_support.py` passou a ler só o que entra no `request` de uma carteira, para a leitura dos nós públicos não contar como chamada de carteira. A rodada antiga não renderiza mais; a comparação foi contra o código e o CSS dela.
+- **Fase 3 (#175 e `Brasil-Imposto/staging#4`):** o `guard` copia a forma do glsec (o rótulo sai a cada push; a verificação lê a etiqueta na hora), em vez das datas de etiqueta e push do esboço da 3.4.2. O CODEOWNERS já dava tudo ao time (`*`): as linhas dos caminhos do `guard` entraram para quando houver donos por área. A configuração mudou pela API depois do merge, e `settings-check.py` ficou verde; R1 e R3 provados nos #177 e #178.
+- **Fase 5 (#176) entrou antes da fase 3:** não dependia dela, e o `guard` passou a valer a partir do merge do #175.
+- **Fase 4 em parte:** `Brasil-Imposto/monitor` com `chain` (C1 e C5) e `heartbeat`; o estado no ramo `state`. O A1 vigia a `chain` com 45 minutos até a conferência de 5 minutos existir. A conferência dos arquivos servidos segue D222; a foto da configuração espera o GitHub App do autor.
+- **D222:** só o autor põe a etiqueta `seguranca-revisada`; a produção espera a aprovação dele no ambiente, no lote.
 
 ## Escolhas do plano e quem as usa (D218)
 
@@ -77,7 +85,7 @@ Tudo o mais que aparecer no código sem quem o use vira pergunta ao autor dizend
 | `docs/superpowers/tools/build-manifest.py`, `.github/workflows/pages.yml` | O manifesto de cada publicação | 3 |
 | `docs/superpowers/tools/settings-check.py` | Novo. Confere rulesets e política de ações dos dois repositórios | 3 |
 | `Brasil-Imposto/monitor` (repositório novo) | `pins.json`, `checks/*.py`, `tests/`, workflows | 4 |
-| `.github/workflows/monitor-watch.yml` | A1: o monitor rodou nos últimos 30 minutos | 4 |
+| `.github/workflows/monitor-watch.yml` | A1: o monitor rodou há menos de três intervalos da conferência mais frequente | 4 |
 | `docs/security/BRASIL-IMPOSTO_RUNBOOK_resposta-incidente_2026-11-03.md`, `SECURITY.md`, `docs/superpowers/previews/.well-known/security.txt` | Folha de resposta, registro de endereços, `security.txt` | 5 |
 
 ---
@@ -919,7 +927,7 @@ Repositório novo `Brasil-Imposto/monitor`, público (D217), criado pela conta d
 
 ### Tarefa 4.0: medir o peso da conferência de 5 minutos, antes de qualquer código
 
-- [ ] **4.0.1** Somar os bytes de todo arquivo servido pela montagem de produção (com `build-manifest.json`) e multiplicar por 8.640 rodadas por mês. O GitHub Pages tem um limite flexível de banda por mês (ler o número na página "GitHub Pages limits" da documentação). Se a soma passar do limite, parar e levar ao autor, com os números: baixar todo arquivo a cada rodada, ou pedir cada arquivo com `If-None-Match` (o servidor responde 304 sem corpo quando nada mudou, e o arquivo só desce e é conferido pelo hash quando o servidor diz que mudou), ou os arquivos grandes de hora em hora. É uma escolha que a spec aprovada não fez; nenhuma opção entra sem o sim dele.
+- [x] **4.0.1** Medido em 2026-11-03: uma passada inteira baixa 87 MB (6.112 arquivos, com gzip), cerca de 756 GB por mês a cada 5 minutos, contra o limite flexível de 100 GB do Pages. Decidido em D222: a cada 5 minutos, cada arquivo é pedido com a pergunta "mudou?" (`If-None-Match`) e só desce e é conferido quando mudou; as quatro páginas com os endereços descem inteiras; tudo desce e é conferido uma vez por dia. Nada disso custa dinheiro.
 
 ### Tarefa 4.1: o repositório, `pins.json` e a base
 
@@ -933,7 +941,7 @@ Repositório novo `Brasil-Imposto/monitor`, público (D217), criado pela conta d
 - [ ] **4.2.1** Testes primeiro, com respostas gravadas: a foto normalizada (rulesets, administradores, colaboradores, workflows, apps instalados e permissões, webhooks só pelo tipo e eventos, chaves de deploy pelo título e hash, ambientes e regras, Pages, política de ações, tokens finos com acesso à organização) comparada à base guardada em `state/settings.json`. Cada tipo de mudança da seção 14 (ruleset apagado, colaborador novo, app novo, chave de deploy, webhook, ambiente sem revisor, Pages) dá um alarme com o tipo e o hash, nunca o valor; respostas iguais dão zero alarmes (o controle). Uma mudança alarma uma vez e vira a base nova.
 - [ ] **4.2.2** `settings.yml`: `schedule: cron: '7-59/15 * * * *'`, o token do GitHub App só leitura (`actions/create-github-app-token`, fixado por SHA conferido contra a tag; segredos `APP_ID` e `APP_PRIVATE_KEY` que o autor cola na tela do GitHub, passos na resposta final), a conferência; mudança: commit da base nova e `exit 1` (o e-mail de falha é o alarme). Os passos do autor para criar o App vêm na resposta final, na ordem da tela.
 
-### Tarefa 4.3: B1 e L1, a conferência dos arquivos servidos (a cada 5 minutos)
+### Tarefa 4.3: B1 e L1, a conferência dos arquivos servidos (a cada 5 minutos, na forma de D222)
 
 **Arquivos no monitor:** `checks/served.py`, `tests/test_served.py`, `.github/workflows/served.yml`.
 
@@ -951,7 +959,7 @@ Repositório novo `Brasil-Imposto/monitor`, público (D217), criado pela conta d
 
 - [ ] **4.5.1** `heartbeat.yml`: `cron: '0 12 * * *'` (9h em Brasília), um comentário na issue fixada "Sinal de vida" com as contagens do dia (rodadas, alarmes, por tipo), que chega por e-mail a quem acompanha o repositório. Teste do texto com as contagens gravadas.
 - [ ] **4.5.2** O commit diário do estado (o GitHub desliga agendamentos de repositório público sem atividade em 60 dias), no mesmo `heartbeat.yml`.
-- [ ] **4.5.3** A1, no repositório principal, `.github/workflows/monitor-watch.yml`: `cron: '23 * * * *'`, lê pela API pública a última execução do `served.yml` do monitor e falha se ela for mais velha que 30 minutos. Teste primeiro da decisão (`pipelines/tests/test_monitor_watch.py`): execução de 31 minutos atrás falha (A1); de 4 minutos passa (controle).
+- [x] **4.5.3** A1, no repositório principal, `.github/workflows/monitor-watch.yml`: `cron: '23 * * * *'`, lê pela API pública a última execução da conferência mais frequente do monitor e falha se ela tiver mais de três intervalos (hoje a `chain`, de 15 em 15 minutos: 45 minutos). Teste `pipelines/tests/test_monitor_watch.py`: 46 minutos falha, 4 passa (controle), nenhuma falha. No #179, à espera da etiqueta do autor.
 
 ### Tarefa 4.6: prova e os passos do autor
 
@@ -974,7 +982,7 @@ Ramo `docs/seguranca-fase-5`.
 ## Depois deste plano (fora do código das fases 1 a 5)
 
 - **Fase 6:** carteiras de verdade em redes de teste contra uma montagem local (MetaMask em Sepolia e na BSC testnet, TronLink na Nile, UniSat em testnet4 ou signet, Crossmark na testnet do XRP Ledger), chaves geradas por script direto no Keychain e importadas sem aparecer (D217); a CSP provada com as carteiras de verdade; o captcha do faucet fica com o autor.
-- **Fase 7:** o teste de verdade do autor com o site de testes ligado só para isso; o gasto de teste de cada endereço (dispara o alarme C1, como deve); depois o lote da produção, com o aviso de produção (D192) e a segunda pessoa no ambiente (D214).
+- **Fase 7:** o teste de verdade do autor com o site de testes ligado só para isso; o gasto de teste de cada endereço (dispara o alarme C1, como deve); depois o lote da produção, com o aviso de produção (D192), as regras novas do repositório e a aprovação do autor em cada publicação (D221, D222), e a segunda pessoa quando houver (D214).
 
 ## Conferência do plano contra a spec
 
@@ -991,4 +999,4 @@ Ramo `docs/seguranca-fase-5`.
 | Seção 11 (defeitos do envio) | Tarefa 2.1, 2.2 |
 | Seção 12 (telas) | Tarefas 2.2 a 2.5 |
 | Seção 14 (R1, R2, R3, B1, L1, P1, P2, P7, P9, C1, C5, C6, A1, S1) | R1 e R3: 3.4; R2: 4.2; B1 e L1: 3.5 e 4.3; P1: 1.2 e 1.3; P2: 1.8; P7: 1.10; P9: 1.9; C1 e C5: 4.4; C6: 2.4; A1: 4.5; S1: 2.3 |
-| Seção 17 (não confirmado) | `/.well-known/`: 5.2; rulesets de organização: 3.1; carteiras com a CSP: fase 6; nós e outra origem: 2.4.1; `style-src` da Uniswap: lido em 2026-11-03 (acima); atividade de agendamento: 4.5.2 |
+| Seção 17 (não confirmado) | Confirmados: `/.well-known/` servido (5.2, no ar em 2026-11-04); os nós respondem a outra origem (2.4.1); o `style-src` da Uniswap (lido em 2026-11-03). Abertos: rulesets de organização no plano grátis; carteiras com a CSP (fase 6); atividade de agendamento (4.5.2) |
