@@ -43,7 +43,8 @@
       ],
       "native_symbol": "BTC",
       "native_decimals": 8,
-      "tx_url": "https://mempool.space/tx/{tx}"
+      "tx_url": "https://mempool.space/tx/{tx}",
+      "node": "https://mempool.space/api/tx"
      }
     ]
    },
@@ -84,6 +85,7 @@
       "native_symbol": "ETH",
       "native_decimals": 18,
       "tx_url": "https://etherscan.io/tx/{tx}",
+      "node": "https://ethereum-rpc.publicnode.com",
       "chain_id": 1,
       "trust_coin_id": 60
      },
@@ -119,6 +121,7 @@
       "native_symbol": "BNB",
       "native_decimals": 18,
       "tx_url": "https://bscscan.com/tx/{tx}",
+      "node": "https://bsc-rpc.publicnode.com",
       "chain_id": 56,
       "trust_coin_id": 20000714,
       "add_chain": {
@@ -200,7 +203,8 @@
       ],
       "native_symbol": "TRX",
       "native_decimals": 6,
-      "tx_url": "https://tronscan.org/#/transaction/{tx}"
+      "tx_url": "https://tronscan.org/#/transaction/{tx}",
+      "node": "https://api.trongrid.io/wallet/gettransactioninfobyid"
      }
     ]
    },
@@ -227,6 +231,7 @@
       "native_symbol": "XRP",
       "native_decimals": 6,
       "tx_url": "https://xrpscan.com/tx/{tx}",
+      "node": "https://xrplcluster.com",
       "first_min": "1"
      }
     ]

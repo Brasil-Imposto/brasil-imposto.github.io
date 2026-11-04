@@ -1,7 +1,10 @@
 """The site's Content Security Policy, one meta for every page (spec seguranca-doacoes, section 8). D219: Uniswap's form, a list
 of origins in a page tag and no inline code; style-src, img-src and form-action as Uniswap's apps/web/public/csp.json has them
 (read 2026-11-03). Each CDN script is listed by its exact file, the way Uniswap scopes fonts.gstatic.com to one path."""
+from urllib.parse import urlsplit
+
 import features
+import support_data
 
 SCRIPT_FILES = (
     "https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js",                         # Como o dinheiro anda
@@ -9,7 +12,10 @@ SCRIPT_FILES = (
 )
 # a switch's outside scripts are listed only in the builds where the switch is on (data/features.json)
 FEATURE_SCRIPTS = {"rede": ("https://cdn.jsdelivr.net/npm/3d-force-graph@1.80.0/dist/3d-force-graph.min.js",)}   # Início, staging
-CONNECT = ("https://api.web3forms.com",)   # the contact form; phase 2 adds the public nodes of the donation check
+# the contact form, and the public node of each network where the page checks a donation (data/support.json, "node"; spec section 8)
+NODES = tuple(sorted({"{0.scheme}://{0.netloc}".format(urlsplit(n["node"])) for g in support_data.load()["crypto"]["groups"]
+                      for n in g["networks"] if n.get("node")}))
+CONNECT = ("https://api.web3forms.com",) + NODES
 DIRECTIVES = (
     ("default-src", ("'self'",)),
     ("script-src", ("'self'",) + SCRIPT_FILES),

@@ -68,3 +68,71 @@ test('the entry link is read with care: only coin, network and value, each check
   assert.deepStrictEqual(C.parseEntry('#apoie-cripto?moeda=USDT&rede=tron&valor=<script>', nets), { coin: 'USDT', net: 'tron', amount: '' });
   assert.strictEqual(C.parseEntry('#outra', nets), null);
 });
+
+// Spec seguranca-doacoes, section 12, item 1: the whole address in groups of 4, nothing dropped.
+test('the address in groups of 4, the whole of it', () => {
+  assert.deepStrictEqual(C.groupsOf4('TLoXMf8yCEtRJcbR3tqidYd76f1hiAr6cU'), ['TLoX', 'Mf8y', 'CEtR', 'JcbR', '3tqi', 'dYd7', '6f1h', 'iAr6', 'cU']);
+  for (const a of ['bc1qevkvnl6rvpexample0000000000000000000', '0xb9472F3cbDBb2B4fC8a4CE4dbC2C3d0f6ab2ff', 'rwJXvM']) assert.strictEqual(C.groupsOf4(a).join(''), a);
+  assert.deepStrictEqual(C.groupsOf4(''), []);
+});
+
+// Spec seguranca-doacoes, sections 8 and 14 (attack C6): the page reads the transaction on a public node and checks where the money
+// went. The answers in fixtures/chain/ are real, recorded from the same nodes; each case has its control (the same answer read
+// against another destination must say "wrong").
+const fx = (name) => JSON.parse(require('fs').readFileSync(path.join(__dirname, 'fixtures', 'chain', name), 'utf8'));
+const PROJECT_EVM = '0x1111111111111111111111111111111111111111';
+test('Tron: an address to its 20-byte hex and back, against what the node answers for the USDT contract', async () => {
+  assert.strictEqual(C.tronHex('TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'), 'a614f803b6fd780986a42c78ec9c7f77e6ded13c');
+  assert.strictEqual(fx('tron-token-info.json').contract_address, '41' + C.tronHex('TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'));
+  assert.strictEqual(await C.tronBase58('a614f803b6fd780986a42c78ec9c7f77e6ded13c'), 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t');
+  assert.strictEqual(C.tronHex('TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6O'), null);   // O is not in base58
+});
+test('EVM token: confirmed when a Transfer of the contract reaches the address; wrong otherwise', () => {
+  const rec = fx('ethereum-token-receipt.json'), usdt = '0xdAC17F958D2ee523a2206206994597C13D831ec7';
+  const log = rec.logs.find((l) => l.address.toLowerCase() === usdt.toLowerCase() && l.topics[0].startsWith('0xddf252ad'));
+  const to = '0x' + log.topics[2].slice(-40), units = BigInt(log.data);
+  assert.deepStrictEqual(C.checkTransfer('evm', { receipt: rec }, { to, contract: usdt }), { state: 'confirmed', units });
+  const wrong = C.checkTransfer('evm', { receipt: rec }, { to: PROJECT_EVM, contract: usdt });
+  assert.strictEqual(wrong.state, 'wrong');
+  assert.strictEqual(wrong.to.toLowerCase(), to.toLowerCase());
+  assert.deepStrictEqual(C.checkTransfer('evm', { receipt: null }, { to, contract: usdt }), { state: 'pending' });
+  assert.deepStrictEqual(C.checkTransfer('evm', { receipt: { ...rec, status: '0x0' } }, { to, contract: usdt }), { state: 'failed' });
+});
+test('EVM token on BNB Smart Chain, from its own recorded answer', () => {
+  const rec = fx('bsc-token-receipt.json'), usdt = '0x55d398326f99059fF775485246999027B3197955';
+  const log = rec.logs.find((l) => l.address.toLowerCase() === usdt.toLowerCase() && l.topics[0].startsWith('0xddf252ad'));
+  assert.strictEqual(C.checkTransfer('evm', { receipt: rec }, { to: '0x' + log.topics[2].slice(-40), contract: usdt }).state, 'confirmed');
+  assert.strictEqual(C.checkTransfer('evm', { receipt: rec }, { to: PROJECT_EVM, contract: usdt }).state, 'wrong');
+});
+test('EVM native coin: the transaction\'s recipient and value', () => {
+  const tx = fx('ethereum-native-tx.json'), receipt = fx('ethereum-native-receipt.json');
+  assert.deepStrictEqual(C.checkTransfer('evm', { receipt, tx }, { to: tx.to }), { state: 'confirmed', units: BigInt(tx.value) });
+  assert.deepStrictEqual(C.checkTransfer('evm', { receipt, tx }, { to: PROJECT_EVM }), { state: 'wrong', to: tx.to });
+});
+test('Tron TRC-20: the Transfer log of the contract, addresses as 20-byte hex', async () => {
+  const info = fx('tron-token-info.json'), ev = fx('tron-token-event.json');
+  const to = await C.tronBase58(ev.result.to.slice(2));
+  assert.deepStrictEqual(C.checkTransfer('tron', info, { to, contract: 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' }), { state: 'confirmed', units: BigInt(ev.result.value) });
+  const wrong = C.checkTransfer('tron', info, { to: 'TLoXMf8yCEtRJcbR3tqidYd76f1hiAr6cU', contract: 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' });
+  assert.strictEqual(wrong.state, 'wrong');
+  assert.strictEqual(await C.tronBase58(wrong.toHex), to);
+  assert.deepStrictEqual(C.checkTransfer('tron', {}, { to, contract: 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' }), { state: 'pending' });
+  assert.deepStrictEqual(C.checkTransfer('tron', { ...info, receipt: { result: 'REVERT' } }, { to, contract: 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' }), { state: 'failed' });
+});
+test('Bitcoin: an output paying the address, confirmed only once in a block', () => {
+  const tx = fx('bitcoin-tx.json'), out = tx.vout[0];
+  assert.deepStrictEqual(C.checkTransfer('bitcoin', tx, { to: out.scriptpubkey_address }), { state: 'confirmed', units: BigInt(out.value) });
+  assert.deepStrictEqual(C.checkTransfer('bitcoin', { ...tx, status: { confirmed: false } }, { to: out.scriptpubkey_address }), { state: 'pending' });
+  const wrong = C.checkTransfer('bitcoin', tx, { to: 'bc1qevkvnl6rvp0000000000000000000000000000' });
+  assert.strictEqual(wrong.state, 'wrong');
+  assert.strictEqual(wrong.to, out.scriptpubkey_address);
+  assert.deepStrictEqual(C.checkTransfer('bitcoin', null, { to: out.scriptpubkey_address }), { state: 'pending' });
+});
+test('XRP Ledger: validated, tesSUCCESS, the destination and the delivered amount', () => {
+  const r = fx('xrp-tx.json'), x = r.result;
+  assert.deepStrictEqual(C.checkTransfer('xrp', r, { to: x.Destination }), { state: 'confirmed', units: BigInt(x.meta.delivered_amount) });
+  assert.deepStrictEqual(C.checkTransfer('xrp', r, { to: 'rwJXvMProjectProjectProjectProjec' }), { state: 'wrong', to: x.Destination });
+  assert.deepStrictEqual(C.checkTransfer('xrp', fx('xrp-not-found.json'), { to: x.Destination }), { state: 'pending' });
+  assert.deepStrictEqual(C.checkTransfer('xrp', { result: { ...x, validated: false } }, { to: x.Destination }), { state: 'pending' });
+  assert.deepStrictEqual(C.checkTransfer('xrp', { result: { ...x, meta: { ...x.meta, TransactionResult: 'tecUNFUNDED_PAYMENT' } } }, { to: x.Destination }), { state: 'failed' });
+});

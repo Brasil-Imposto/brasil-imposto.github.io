@@ -10,6 +10,16 @@ const fs = require('fs');
 const path = require('path');
 const SUPPORT = JSON.parse(fs.readFileSync(process.env.BI_SUPPORT_JSON || path.join(__dirname, '..', '..', '..', 'data', 'support.json'), 'utf8'));
 const FROM = '0x1111111111111111111111111111111111111111';
+// The XRP Ledger through Crossmark (spec seguranca-doacoes, section 11): the result of the submit and the network it reports, set by the
+// test; the real SDK file is answered empty so this one stays.
+const fakeCrossmark = () => {
+  window.xrpl = { isCrossmark: true };
+  window.crossmark = { methods: {
+    signInAndWait: async () => ({ response: { data: { address: 'rFakeFakeFakeFakeFakeFakeFakeFake', network: { type: window.__fake.xrpNet || 'main' } } } }),
+    getNetwork: () => ({ type: window.__fake.xrpNet || 'main' }),
+    signAndSubmitAndWait: async (tx) => { window.__calls.push({ method: 'xrp:submit', tx });
+      return { response: { data: { resp: { result: { hash: 'ABCDEF0123456789', meta: { TransactionResult: window.__fake.xrpResult || 'tesSUCCESS' } } } } } }; } } };
+};
 // P7 (spec seguranca-doacoes, section 14): wallets announcing an icon that is not a data:image (a javascript: link, an outside
 // address, markup) and the control, a valid PNG
 const hostileWallets = () => {
@@ -26,7 +36,7 @@ const fakeWallets = () => {
     window.__calls.push({ method, params });
     if (f.reject === method) throw refuse();
     if (f.fail && f.fail.method === method) throw Object.assign(new Error('x'), { code: f.fail.code });
-    if (method === 'eth_requestAccounts') return [f.account];
+    if (method === 'eth_requestAccounts') { if (f.holdConnect) await new Promise((ok) => { f.releaseConnect = ok; }); return [f.account]; }
     if (method === 'eth_chainId') return f.chain;
     if (method === 'wallet_switchEthereumChain') { if (f.noChain) { f.noChain = false; throw Object.assign(new Error('x'), { code: 4902 }); } f.chain = params[0].chainId; return null; }
     if (method === 'wallet_addEthereumChain') return null;
@@ -37,10 +47,11 @@ const fakeWallets = () => {
     info: { uuid: 'u1', name: 'Fake', icon: 'data:image/gif;base64,R0lGODlhAQABAAAAACw=', rdns: 'x.fake' }, provider: evm } })));
   if (window.__twoWallets) addEventListener('eip6963:requestProvider', () => dispatchEvent(new CustomEvent('eip6963:announceProvider', { detail: {
     info: { uuid: 'u2', name: 'Second', icon: 'data:image/gif;base64,R0lGODlhAQABAAAAACw=', rdns: 'x.second' }, provider: { request: async (a) => { window.__calls.push({ second: true, ...a }); return evm.request(a); }, on: () => {} } } })));
-  const tronWeb = { transactionBuilder: { triggerSmartContract: async (contract, fn, opts, params, from) => { window.__calls.push({ method: 'trigger', contract, fn, params, from }); return { transaction: { txID: 'tx1' } }; } },
+  const tronWeb = { transactionBuilder: { triggerSmartContract: async (contract, fn, opts, params, from) => { window.__calls.push({ method: 'trigger', contract, fn, params, from }); return window.__fake.tronRefuse ? { result: { result: false, message: '5245564552542f6f70636f6465' }, transaction: { txID: 'tx1' } } : { result: { result: true }, transaction: { txID: 'tx1' } }; } },
     trx: { sign: async (t) => { window.__calls.push({ method: 'sign' }); if (f.reject === 'sign') throw 'Confirmation declined by user'; return t; }, sendRawTransaction: async () => ({ result: true, txid: 'tx1' }) } };
   window.tron = { isTronLink: true, tronWeb, request: async ({ method }) => { window.__calls.push({ method: 'tron:' + method }); return ['TQ7vFakeFakeFakeFakeFakeFakeFakek2Pd']; } };
-  window.unisat = { requestAccounts: async () => ['bc1qfake'], sendBitcoin: async (to, sats) => { window.__calls.push({ method: 'sendBitcoin', to, sats }); return 'btctx'; } };
+  window.unisat = { requestAccounts: async () => ['bc1qfake'], getChain: async () => ({ enum: window.__fake.btcChain || 'BITCOIN_MAINNET' }), getNetwork: async () => (window.__fake.btcChain && window.__fake.btcChain !== 'BITCOIN_MAINNET' ? 'testnet' : 'livenet'),
+    sendBitcoin: async (to, sats) => { window.__calls.push({ method: 'sendBitcoin', to, sats }); return 'btctx'; } };
 };
 const nets = () => SUPPORT.crypto.groups.flatMap((g) => g.networks.filter((n) => process.argv.includes('--staging') || n.status === 'live').map((n) => ({ ...n, address: g.address, family: g.format })));
 const units = (text, decimals) => { const [w, f = ''] = text.split('.'); return BigInt(w + f.padEnd(decimals, '0')); };
@@ -66,6 +77,7 @@ const units = (text, decimals) => { const [w, f = ''] = text.split('.'); return 
     if (two) await ctx.addInitScript(() => { window.__twoWallets = true; });
     if (!phone && !none) await ctx.addInitScript(fakeWallets);
     if (how === 'hostile') await ctx.addInitScript(hostileWallets);
+    if (how === 'xrp') { await ctx.addInitScript(fakeCrossmark); await ctx.route('**/assets/vendor/crossmark-sdk.js', (r) => r.fulfill({ status: 200, contentType: 'text/javascript', body: '' })); }
     const p = await ctx.newPage();
     await p.goto(base + 'como-ler-o-mapa.html'); await p.waitForSelector('.bi-apoie-btn');
     await p.$eval('.bi-apoie-btn', (e) => e.click()); await p.waitForTimeout(150);
@@ -142,12 +154,16 @@ const units = (text, decimals) => { const [w, f = ''] = text.split('.'); return 
   report('moment 2, connected', bar.includes('Carteira conectada') && bar.includes('0x11...1111') && bar.includes('Ethereum') && label === 'Confirmar doação de 0,5 ETH' && await shown(m.p, '[data-after]') && !(await shown(m.p, '[data-exchange]')), `${bar} / ${label}`);
   const eth = nets().find((n) => n.id === 'ethereum');
   await m.p.evaluate(() => { window.__fake.hold = true; }); await m.p.click('[data-send]'); await m.p.waitForTimeout(200);
-  const sum = await m.p.$eval('[data-confirm]', (e) => ({ text: e.textContent, last: e.querySelector('em').textContent, shown: e.getClientRects().length > 0 }));
+  // moment 3 (round seguranca-r1, option 1b, D220): the whole address, read back from its groups of 4 in their own block
+  const sum = await m.p.$eval('[data-confirm]', (e) => ({ text: e.textContent, groups: [...e.querySelectorAll('.bi-ap-addrblock .bi-ap-groups span')].map((s) => s.textContent),
+    label: (e.querySelector('.bi-ap-addrblock .bi-ap-lab') || {}).textContent || '', shown: e.getClientRects().length > 0 }));
   const others = await m.p.$$eval('[data-view="crypto"] > *', (es) => es.filter((e) => e.getClientRects().length && !e.matches('h2, [data-confirm]')).map((e) => e.className));
-  report('moment 3, confirm in the wallet', sum.shown && others.length === 0 && sum.text.includes(eth.address) && sum.last === eth.address.slice(-4) && sum.text.includes('0,5 ETH') && sum.text.includes(`Confira se o endereço termina em ${eth.address.slice(-4)}`), `others shown: ${others.join()}; ${sum.text.slice(0, 120)}`);
+  report('moment 3, the whole address in groups of 4', sum.shown && others.length === 0 && sum.groups.join('') === eth.address && sum.groups.every((g, k) => g.length === 4 || k === sum.groups.length - 1)
+    && sum.label === 'Para: endereço do Brasil-Imposto, rede Ethereum' && sum.text.includes('0,5 ETH') && sum.text.includes('Compare o endereço inteiro com o da carteira, grupo por grupo.')
+    && !sum.text.includes('termina em'), `${sum.groups.length} groups; ${sum.text.slice(0, 120)}`);
   await m.p.evaluate(() => window.__fake.release()); await m.p.waitForTimeout(200);
   const end = await m.p.$eval('[data-done]', (e) => ({ text: e.textContent, href: (e.querySelector('a') || {}).href, shown: e.getClientRects().length > 0 }));
-  report('moment 4, sent', end.shown && end.text.includes('Doação enviada. Obrigado!') && end.text.includes('0,5 ETH pela rede Ethereum.') && end.text.includes('Ver a transação no Etherscan') && end.text.includes('Pode levar alguns minutos para aparecer.') && end.href === eth.tx_url.replace('{tx}', '0xabc'), end.text.slice(0, 120)); await m.ctx.close();
+  report('moment 4, sent by the wallet and checking the network (option 3c)', end.shown && end.text.includes('Doação enviada. Obrigado!') && end.text.includes('Enviada pela sua carteira') && end.text.includes('0,5 ETH pela rede Ethereum') && end.text.includes('Conferindo na rede Ethereum...') && end.text.includes('Ver a transação no Etherscan') && end.href === eth.tx_url.replace('{tx}', '0xabc'), end.text.slice(0, 120)); await m.ctx.close();
   // the other cases of section 3.3
   const c6 = await open(false); await pick(c6.p, 'ETH', 'ethereum'); await c6.p.evaluate(() => { window.__fake.reject = 'eth_requestAccounts'; }); await c6.p.fill('#bi-ap-amount', '0.1'); await c6.p.click('[data-send]'); await c6.p.waitForTimeout(150);
   report('a refused connection', (await msg(c6.p)) === 'Conexão recusada na carteira. Nada foi enviado.', await msg(c6.p)); await c6.ctx.close();
@@ -172,6 +188,67 @@ const units = (text, decimals) => { const [w, f = ''] = text.split('.'); return 
   const c13 = await open(true); await pick(c13.p, 'USDT', 'bsc'); await c13.p.fill('#bi-ap-amount', '10'); await c13.p.waitForTimeout(150);
   const apps = await c13.p.$$eval('[data-wallets] a', (as) => as.map((a) => a.href));
   report('a phone on EVM: the links open the site in the wallet app, never with an address', apps.length === 2 && apps.every((a) => decodeURIComponent(a).includes('moeda=USDT&rede=bsc&valor=10') && !a.toLowerCase().includes(nets().find((n) => n.id === 'bsc').address.toLowerCase())), apps.join(' ').slice(0, 150)); await c13.ctx.close();
+  // spec seguranca-doacoes, section 11: the defects of the send, each against a well-behaved control
+  const msgOf = (p) => p.$eval('[data-msg]', (e) => (e.hidden ? '' : e.textContent));
+  const stepOf = (p) => p.evaluate(() => document.querySelector('.bi-ap-view[data-view="crypto"]').dataset.step || '');
+  for (const [name, result, ok] of [['an XRP payment the network refuses (tec) is not "sent"', 'tecUNFUNDED_PAYMENT', false], ['control: tesSUCCESS reaches the sent step', 'tesSUCCESS', true]]) {
+    const x = await open('xrp'); await x.p.evaluate((r) => { window.__fake.xrpResult = r; }, result); await pick(x.p, 'XRP', 'xrp-ledger'); await send(x.p, '2');
+    const step = await stepOf(x.p), m = await msgOf(x.p);
+    report(name, ok ? step === 'done' : step !== 'done' && /recusou/.test(m), `step ${step || 'none'}, message ${m.slice(0, 90)}`); await x.ctx.close();
+  }
+  for (const [name, change] of [['switching network while the wallet connects cancels the connection', true], ['control: without switching, the wallet connects', false]]) {
+    const s = await open(false); await pick(s.p, 'USDT', 'ethereum'); await s.p.evaluate(() => { window.__fake.holdConnect = true; });
+    await s.p.fill('#bi-ap-amount', '10'); await s.p.click('[data-send]'); await s.p.waitForTimeout(150);
+    if (change) { await s.p.click('.bi-ap-coin[data-coin="USDT"] [data-net-btn="bsc"]'); await s.p.waitForTimeout(150); }
+    await s.p.evaluate(() => window.__fake.releaseConnect && window.__fake.releaseConnect()); await s.p.waitForTimeout(250);
+    const conn = await shown(s.p, '[data-conn]'), net = await s.p.evaluate(() => document.querySelector('.bi-ap-view[data-view="crypto"]').dataset.net || '');
+    report(name, change ? !conn : conn, `connected ${conn}, network ${net}`); await s.ctx.close();
+  }
+  for (const [name, plant] of [['an error before the confirmation does not lock the button', true], ['control: no error, the send reaches the sent step', false]]) {
+    const e = await open(false); await pick(e.p, 'ETH', 'ethereum'); await e.p.fill('#bi-ap-amount', '0.1'); await e.p.click('[data-send]'); await e.p.waitForTimeout(200);
+    // the planted error fires once; then the same button has to work again (before the fix the page stayed busy and ignored it)
+    if (plant) await e.p.evaluate(() => { const box = document.querySelector('[data-confirm]'); box.replaceChildren = () => { delete box.replaceChildren; throw new Error('planted'); }; });
+    await e.p.click('[data-send]'); await e.p.waitForTimeout(300);
+    if (plant && (await stepOf(e.p)) !== 'done' && !(await e.p.$eval('[data-send]', (b) => b.hidden))) { await e.p.click('[data-send]'); await e.p.waitForTimeout(300); }
+    const step = await stepOf(e.p);
+    report(name, step === 'done', `step ${step || 'none'} after ${plant ? 'the error and a second click' : 'one click'}`); await e.ctx.close();
+  }
+  for (const [name, refuse] of [['Tron: a contract call the node refuses is explained, never sent', true], ['control: an accepted call goes on to the wallet', false]]) {
+    const r = await open(false); await r.p.evaluate((v) => { window.__fake.tronRefuse = v; }, refuse); await pick(r.p, 'USDT', 'tron'); await send(r.p, '10');
+    const m = await msgOf(r.p), signed = (await r.p.evaluate(() => window.__calls)).some((c) => c.method === 'sign');
+    report(name, refuse ? /recusou/.test(m) && !/saldo insuficiente/.test(m) && !signed && (await stepOf(r.p)) !== 'done' : (await stepOf(r.p)) === 'done', `message ${m.slice(0, 80)}, step ${await stepOf(r.p) || 'none'}`); await r.ctx.close();
+  }
+  for (const [name, chain, ok] of [['UniSat on a test network: nothing is asked', 'BITCOIN_TESTNET4', false], ['control: UniSat on the main network sends', 'BITCOIN_MAINNET', true]]) {
+    const u = await open(false); await u.p.evaluate((c) => { window.__fake.btcChain = c; }, chain); await pick(u.p, 'BTC', 'bitcoin'); await send(u.p, '0.001');
+    const sent = (await u.p.evaluate(() => window.__calls)).some((c) => c.method === 'sendBitcoin'), m = await msgOf(u.p);
+    report(name, ok ? sent : !sent && /rede de testes/.test(m), `sent ${sent}, message ${m.slice(0, 80)}`); await u.ctx.close();
+  }
+  for (const [name, net, ok] of [['Crossmark on a test network: nothing is submitted', 'test', false], ['control: Crossmark on the main network submits', 'main', true]]) {
+    const x = await open('xrp'); await x.p.evaluate((n) => { window.__fake.xrpNet = n; }, net); await pick(x.p, 'XRP', 'xrp-ledger'); await send(x.p, '2');
+    const sent = (await x.p.evaluate(() => window.__calls)).some((c) => c.method === 'xrp:submit'), m = await msgOf(x.p);
+    report(name, ok ? sent : !sent && /rede de testes/.test(m), `submitted ${sent}, message ${m.slice(0, 80)}`); await x.ctx.close();
+  }
+  // spec seguranca-doacoes, section 14, attack C6: after the wallet takes the send, the page reads the transaction on the network's public
+  // node. The node is answered here: the transfer reaching the project (the control), going to another address, not there yet, down.
+  const ethNet = nets().find((n) => n.id === 'ethereum'), usdt = ethNet.coins.find((c) => c.coin === 'USDT').contract;
+  const pad32 = (a) => '0x' + a.toLowerCase().replace(/^0x/, '').padStart(64, '0'), OTHER = '0x2222222222222222222222222222222222222222';
+  const receipt = (to) => ({ status: '0x1', to: usdt, logs: [{ address: usdt, topics: ['0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef', pad32(FROM), pad32(to)], data: pad32((10000000).toString(16)) }] });
+  const node = (ctx, answer) => ctx.route('https://ethereum-rpc.publicnode.com/**', (r) => {
+    const cors = { 'access-control-allow-origin': '*', 'access-control-allow-headers': 'content-type', 'access-control-allow-methods': 'POST' };
+    if (r.request().method() === 'OPTIONS') return r.fulfill({ status: 204, headers: cors });
+    if (answer === 'down') return r.fulfill({ status: 503, headers: cors, body: 'down' });
+    return r.fulfill({ status: 200, contentType: 'application/json', headers: cors, body: JSON.stringify({ jsonrpc: '2.0', id: 1, result: answer }) });
+  });
+  for (const [name, answer, wait, check] of [
+    ['C6 control: the transfer reached the project, "Confirmada na rede"', receipt(ethNet.address), 1500, (d) => d.text.includes('Doação confirmada. Obrigado!') && d.text.includes('Confirmada na rede Ethereum') && d.text.includes('Chegou ao endereço do Brasil-Imposto')],
+    ['C6: the transfer went to another address, the donor is warned with it whole', receipt(OTHER), 1500, (d) => d.text.includes('A transação não foi para o Brasil-Imposto') && d.groups === OTHER && !d.text.includes('Confirmada')],
+    ['C6: not on the network yet, still checking', null, 1500, (d) => d.text.includes('Conferindo na rede Ethereum...') && !d.text.includes('Confirmada')],
+    ['C5 in the page: the node down three times, "Não deu para conferir agora"', 'down', 12500, (d) => d.text.includes('Não deu para conferir agora') && d.text.includes('Veja a transação no Etherscan')],
+  ]) {
+    const k = await open(false); await node(k.ctx, answer); await pick(k.p, 'USDT', 'ethereum'); await send(k.p, '10'); await k.p.waitForTimeout(wait);
+    const d = await k.p.$eval('[data-done]', (e) => ({ text: e.textContent, groups: [...e.querySelectorAll('.bi-ap-groups span')].map((s) => s.textContent).join('') }));
+    report(name, check(d), d.text.slice(0, 140)); await k.ctx.close();
+  }
   const c14 = await open('hostile'); await pick(c14.p, 'ETH', 'ethereum'); await c14.p.fill('#bi-ap-amount', '0.1'); await c14.p.click('[data-send]'); await c14.p.waitForTimeout(250);
   const icons = await c14.p.$$eval('[data-wallets] button', (bs) => bs.map((b) => ({ name: b.textContent.trim(), img: b.querySelector('img') ? (b.querySelector('img').getAttribute('src') || '').slice(0, 24) : null })));
   const byName = (n) => icons.find((x) => x.name.includes(n));

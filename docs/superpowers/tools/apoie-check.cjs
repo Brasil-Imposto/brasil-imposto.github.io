@@ -5,8 +5,8 @@
 //   bottom   the same after the panel is scrolled to its end (the close button stays pinned)
 //   hscroll  no horizontal scroll: on the page (measured before the modal opens, since it locks the page) and inside the panel,
 //            in every view and with every coin
-//   columns  the three cards of "Como apoiar" (Pix, GitHub Sponsors, Cripto) sit in three equal columns above 820 px and one under
-//            the other at 820 px and below (the computed tracks and the cards' own positions)
+//   columns  the two cards of "Como apoiar", Cripto then Pix (D220: the GitHub Sponsors card left), sit in two equal columns above
+//            640 px and one under the other at 640 px and below (the computed tracks and the cards' own positions)
 //   soon     each card on "soon" shows "Em breve", holds no link, button or address, and a click on it opens nothing
 //   pix      Pix on "soon": its card shows "Em breve" and holds no button, link or address (the soon check, for the Pix card
 //            alone). Pix live (a test build, BI_SUPPORT_JSON pointing at a file outside the repository, read here for the
@@ -44,7 +44,7 @@
 // --control plants a failure for every check (hidden parts displayed, the close button not pinned, the modal under the header, a
 // header wider than the window, a button in each "soon" card, the field messages hidden, a clock that skips the minimum time,
 // a honeypot the page cannot read, Web3Forms' answers swapped, Escape swallowed, focus() disabled, the backdrop not
-// clickable, two columns of cards at every width, the Pix link sent to another address, the first ETH address and its explorer
+// clickable, three columns of cards at every width, the Pix link sent to another address, the first ETH address and its explorer
 // link changed on the page, the hashes taken out of the page so the changed outside scripts run, the coin icons blocked, the
 // send's own files blocked for the amount check and left to load for the reserve check);
 // every check must then fail,
@@ -76,7 +76,7 @@ const PLANT = `
   .bi-apoie { z-index: 500 !important; }
   .bi-end { min-width: 150vw !important; }
   .bi-ap-coins, .bi-ap-cards { min-width: 150vw !important; }
-  .bi-ap-cards.bi-ap-cards { grid-template-columns: 1fr 1fr !important; }
+  .bi-ap-cards.bi-ap-cards { grid-template-columns: 1fr 1fr 1fr !important; }
   .bi-ap-backdrop { pointer-events: none !important; }
   .bi-apoie .bi-ap-err.bi-ap-err { display: none !important; }`;
 
@@ -219,8 +219,8 @@ const PLANT = `
         return { n: kids.length, tracks: getComputedStyle(el).gridTemplateColumns.split(' ').length, rows: new Set(r.map((x) => Math.round(x.top))).size,
           even: Math.max(...r.map((x) => x.width)) - Math.min(...r.map((x) => x.width)) <= 1,
           titles: kids.map((k) => k.querySelector('h4').firstChild.textContent.trim()) }; });
-      const wantCols = w > 820 ? 3 : 1;
-      report(w, key, 'columns', cols.n === 3 && cols.tracks === wantCols && cols.rows === (wantCols === 3 ? 1 : 3) && cols.even && cols.titles.join() === 'Pix,GitHub Sponsors,Cripto',
+      const wantCols = w > 640 ? 2 : 1;
+      report(w, key, 'columns', cols.n === 2 && cols.tracks === wantCols && cols.rows === (wantCols === 2 ? 1 : 2) && cols.even && cols.titles.join() === 'Cripto,Pix',
         `${cols.n} cards (${cols.titles.join(', ')}) in ${cols.tracks} column(s) over ${cols.rows} row(s), ${cols.even ? 'equal' : 'unequal'} widths; wanted ${wantCols}`);
       const hs = { doc: pageWide, panel: await p.$eval('.bi-ap-panel', (e) => e.scrollWidth - e.clientWidth) };
       await p.$eval('.bi-ap-panel', (e) => { e.scrollTop = 0; });

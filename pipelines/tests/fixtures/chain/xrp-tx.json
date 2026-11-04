@@ -1,0 +1,68 @@
+{
+ "result": {
+  "Account": "rEYLNoaQM5bCMUNhrsvMasTMQ1YgZz5hzT",
+  "Amount": "1043",
+  "DeliverMax": "1043",
+  "Destination": "rLpPZhPkp9eV7NGLovdLrMAFT9e85ro5qH",
+  "Fee": "10",
+  "LastLedgerSequence": 108100932,
+  "Sequence": 107811289,
+  "SigningPubKey": "ED5C9D999B1B68EFE3333C7C9AEAB901C704F1B3D336A982C98286349314EF5242",
+  "TransactionType": "Payment",
+  "TxnSignature": "67D2484EB3052CD4656416E3B148FE852B4BBCA7FB241D0C709205796A367D0A5668C8335C3274EEE7280ED00A1F20BEC89E732D23150362D261A512F0490706",
+  "date": 847074881,
+  "hash": "292EFF4E872E22C108725766DFC0797C2D07CB1392C52270358B5646A0F90569",
+  "meta": {
+   "AffectedNodes": [
+    {
+     "ModifiedNode": {
+      "FinalFields": {
+       "Account": "rLpPZhPkp9eV7NGLovdLrMAFT9e85ro5qH",
+       "Balance": "1036536",
+       "Flags": 0,
+       "OwnerCount": 0,
+       "RegularKey": "r98eXNXy2KChfFw5sFf4B9Hq6sw1idHYup",
+       "Sequence": 107874997
+      },
+      "LedgerEntryType": "AccountRoot",
+      "LedgerIndex": "664B58E45584992D157D26798279672B76174A92FB3BFB6EA152862BFB8439A7",
+      "PreviousFields": {
+       "Balance": "1035493"
+      },
+      "PreviousTxnID": "9963F0513FA07EB97ED2AC9424806B36A36EDBFB314B5EDBC99943D90D008A90",
+      "PreviousTxnLgrSeq": 108100485
+     }
+    },
+    {
+     "ModifiedNode": {
+      "FinalFields": {
+       "Account": "rEYLNoaQM5bCMUNhrsvMasTMQ1YgZz5hzT",
+       "Balance": "1413317230",
+       "Flags": 0,
+       "OwnerCount": 552,
+       "RegularKey": "r98eXNXy2KChfFw5sFf4B9Hq6sw1idHYup",
+       "Sequence": 107811290,
+       "TicketCount": 133
+      },
+      "LedgerEntryType": "AccountRoot",
+      "LedgerIndex": "E02A3ED74401B6234E89D4112AFC18045AF26CA46DE52D9230659A43B261054E",
+      "PreviousFields": {
+       "Balance": "1413318283",
+       "Sequence": 107811289
+      },
+      "PreviousTxnID": "907EBBDF9349B3989BA57FDB602B0E4441B4CD5A392E9EC7B80674EFA0BD38CA",
+      "PreviousTxnLgrSeq": 108100927
+     }
+    }
+   ],
+   "TransactionIndex": 5,
+   "TransactionResult": "tesSUCCESS",
+   "delivered_amount": "1043"
+  },
+  "ledger_index": 108100929,
+  "inLedger": 108100929,
+  "validated": true,
+  "ctid": "C6717D4100050000",
+  "status": "success"
+ }
+}

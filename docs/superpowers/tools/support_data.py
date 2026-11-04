@@ -25,7 +25,7 @@ FORMATS = {
 }
 # Web3Forms' access key: a public UUID, "an alias to your email" (its FAQ); never the e-mail address itself
 ACCESS_KEY = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", re.I)
-STATUSES = ("soon", "live")
+STATUSES = ("soon", "live", "paused")   # paused: a network stopped by hand, with a pull request and a deploy (spec seguranca-doacoes, section 4)
 CHANNELS = ("pix", "sponsors", "crypto")                       # the order of the cards and of "Quem recebe"
 VAKINHA_HOSTS = ("vakinha.com.br", "www.vakinha.com.br")
 WEB3FORMS = "https://api.web3forms.com/submit"
@@ -42,14 +42,20 @@ def networks_of(data, coin, live=False):
             if c["coin"] == coin and (not live or n.get("status") == "live")]
 
 
+def opens(network, staging=False):
+    """A network that opens in this build: live, or soon on the staging build (the maintainer's first XRP goes through the test site);
+    a paused network never opens and its address is in no page (spec seguranca-doacoes, section 4)."""
+    return network.get("status") == "live" or (staging and network.get("status") == "soon")
+
+
 def send_data(data, staging=False):
     """What the send in the modal reads from the page: only the networks open in this build (staging also opens those on soon, so the
     maintainer can make the first XRP donation through the site). The destination the page sends to is the address here, and only it."""
-    keep = ("chain_id", "trust_coin_id", "add_chain", "first_min")
+    keep = ("chain_id", "trust_coin_id", "add_chain", "first_min", "node")   # node: where the page checks each donation (spec seguranca-doacoes, section 8)
     nets = []
     for g in data["crypto"]["groups"]:
         for n in g["networks"]:
-            if n["status"] == "live" or staging:
+            if opens(n, staging):
                 nets.append({"id": n["id"], "name": n["name"], "family": g["format"], "address": g["address"], "explorer": n["explorer"], "tx_url": n["tx_url"],
                              "native_symbol": n["native_symbol"], **{k: n[k] for k in keep if k in n},
                              "coins": {c["coin"]: {"contract": c["contract"], "decimals": c["decimals"], "issuer_listed": c["issuer_listed"]}
@@ -82,6 +88,8 @@ def structure_problems(data):
         if g["format"] not in FORMATS:
             out.append(f"{g['id']}: unknown address format {g['format']!r}")
         for n in g["networks"]:
+            if g["format"] != "solana" and not re.fullmatch(r"https://[\w.-]+(/[\w/.-]*)?", str(n.get("node") or "")):
+                out.append(f"{g['id']}/{n['id']}.node: the https address of the public node that checks a donation")   # Solana sends in the app
             if n.get("status") not in STATUSES:
                 out.append(f"{g['id']}/{n['id']}.status: one of {STATUSES}")
             if not (n["explorer_url"].startswith("https://") and n["explorer_url"].count("{address}") == 1):
@@ -258,8 +266,8 @@ def channel_problems(data, channel):
         for g in data["crypto"]["groups"]:
             if not g.get("address"):
                 out.append(f"crypto/{g['id']}: the address")
-        if not any(n.get("status") == "live" for g in data["crypto"]["groups"] for n in g["networks"]):
-            out.append("crypto: at least one network on live")
+        if not any(n.get("status") in ("live", "paused") for g in data["crypto"]["groups"] for n in g["networks"]):
+            out.append("crypto: at least one network on live (or paused, which shows the card as paused)")
     return out
 
 

@@ -55,6 +55,9 @@ SPONSORS_CARD = "Em dólar, uma vez pela sua conta do GitHub."
 CRYPTO_CARD = "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB. Cada endereço é público, com o link do explorador."
 CRYPTO_CARD_SOON = "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB."
 SOON = "Em breve"
+# spec seguranca-doacoes, section 4 (round seguranca-r1, question 2, D220): a network, a coin or the whole card stopped by hand
+PAUSED = "Pausada"
+PAUSED_CARD = "Pausada por segurança. Volte mais tarde."
 OTHER_WAY = "Quer apoiar de outro jeito, ou falar com a gente? Escreva por aqui."
 # "Quem recebe" gathers one part per open channel, in this order, joined by "; "
 RECEIVES = {"pix": "o Pix e o cartão vão para a Vakinha, que repassa o valor à pessoa mantenedora; cada repasse é publicado no "
@@ -118,10 +121,14 @@ def _row(group, network, _standard):
             f'<p class="bi-ap-note">{escape(ADDRESS_NOTE)}</p></div>')
 
 
-def _net_buttons(rows):
-    """Section "Escolha a Rede": one button per network, none chosen, even for a coin with a single network (spec cripto-no-site, 3.2)."""
-    out = "".join(f'<button type="button" class="bi-ap-netbtn" data-net-btn="{escape(n["id"])}" aria-pressed="false">'
-                  f'{escape(n["name"] + (f" ({s})" if s else ""))}</button>' for _g, n, s in rows)
+def _net_buttons(rows, paused=()):
+    """Section "Escolha a Rede": one button per network, none chosen, even for a coin with a single network (spec cripto-no-site, 3.2).
+    A paused network keeps its place, dimmed, with "Pausada", and opens nothing (spec seguranca-doacoes, section 4)."""
+    label = lambda n, s: escape(n["name"] + (f" ({s})" if s else ""))
+    out = "".join(f'<button type="button" class="bi-ap-netbtn bi-ap-netpaused" disabled>{label(n, s)} <span class="bi-ap-tag">{PAUSED}</span></button>'
+                  if n["id"] in paused else
+                  f'<button type="button" class="bi-ap-netbtn" data-net-btn="{escape(n["id"])}" aria-pressed="false">{label(n, s)}</button>'
+                  for _g, n, s in rows)
     return f'<span class="bi-ap-lab">Escolha a Rede</span><div class="bi-ap-nets">{out}</div>'
 
 
@@ -130,10 +137,11 @@ def _nowrap(text):
     return escape(text).replace("Brasil-Imposto", '<span class="bi-ap-nw">Brasil-Imposto</span>')
 
 
-def _card(icon, title, text, button, go, is_live):
-    """A way to support. While its channel is on "soon" the card says "Em breve" and has nothing to click."""
+def _card(icon, title, text, button, go, is_live, tag=SOON):
+    """A way to support. While its channel is on "soon" the card says "Em breve" and has nothing to click; a card whose networks are all
+    paused says "Pausada" the same way (spec seguranca-doacoes, section 4)."""
     if not is_live:
-        return (f'<div class="bi-ap-card bi-ap-soon">{icon}<h4>{escape(title)} <span class="bi-ap-tag">{SOON}</span></h4>'
+        return (f'<div class="bi-ap-card bi-ap-soon">{icon}<h4>{escape(title)} <span class="bi-ap-tag">{tag}</span></h4>'
                 f'<p>{_nowrap(text)}</p></div>')
     return (f'<div class="bi-ap-card">{icon}<h4>{escape(title)}</h4><p>{_nowrap(text)}</p>'
             f'<button type="button" class="bi-ap-cta" data-go="{go}">{escape(button)}</button></div>')
@@ -163,6 +171,9 @@ def modal(data, keyless=False, staging=False):
     without an access key: a send then shows the error line and makes no request. staging opens the networks still on "soon", so
     the maintainer can make the first XRP donation through the test site (spec cripto-no-site, section 4)."""
     pix_live, sponsors_live, crypto_live = (support_data.live(data, c) for c in support_data.CHANNELS)
+    nets = [n for g in data["crypto"]["groups"] for n in g["networks"]]
+    crypto_open = crypto_live and any(support_data.opens(n, staging) for n in nets)   # every network paused: the card says "Pausada"
+    crypto_paused = crypto_live and not crypto_open and any(n.get("status") == "paused" for n in nets)
     form_key = data["contact_form"].get("access_key")
     contact = bool(form_key) or keyless
     receives = _receives(data)
@@ -184,9 +195,10 @@ def modal(data, keyless=False, staging=False):
             f'<div class="bi-ap-col bi-ap-b"><h4>1. Infraestrutura</h4><p>{escape(INFRA)}</p></div>'
             f'<div class="bi-ap-col bi-ap-g"><h4>2. Desenvolvedores</h4><p>{escape(DEVELOPERS)}</p></div></div>'
             '<h3>Como apoiar</h3><div class="bi-ap-cards">'
+            # D220: the Cripto card first, while the Pix is not available; the GitHub Sponsors card leaves the modal (its data stays)
+            + (_card(COIN, "Cripto", PAUSED_CARD, "", "crypto", False, PAUSED) if crypto_paused else
+               _card(COIN, "Cripto", CRYPTO_CARD if crypto_live else CRYPTO_CARD_SOON, "Apoiar com cripto", "crypto", crypto_open))
             + _card(PIX, "Pix", PIX_CARD, "Apoiar com Pix", "pix", pix_live)
-            + _card(GITHUB, "GitHub Sponsors", SPONSORS_CARD, "Apoiar pelo GitHub Sponsors", "sponsors", sponsors_live)
-            + _card(COIN, "Cripto", CRYPTO_CARD if crypto_live else CRYPTO_CARD_SOON, "Apoiar com cripto", "crypto", crypto_live)
             + '</div>'
             + (f'<div class="bi-ap-other"><p>{escape(OTHER_WAY)}</p>'
                '<button type="button" class="bi-ap-cta" data-go="contact">Fale com a gente</button></div>' if contact else "")
@@ -202,18 +214,21 @@ def modal(data, keyless=False, staging=False):
                 f'<a class="bi-ap-cta" href="{escape(data["sponsors"]["sponsors_url"] or "")}" target="_blank" rel="noopener">'
                 'Abrir o GitHub Sponsors</a></section>') if sponsors_live else ""
     crypto = ""
-    if crypto_live:
+    if crypto_open:
         # Spec section 10: a coin with no network on "live" keeps its place in the row, dimmed, with the tag, and opens nothing
         coins, panels = "", ""
         for c in support_data.COINS:
-            rows = support_data.networks_of(data, c, live=not staging)
+            every = support_data.networks_of(data, c)
+            rows = [r for r in every if support_data.opens(r[1], staging)]
+            paused = {r[1]["id"] for r in every if r[1].get("status") == "paused"}
             # Spec section 10: the token's icon left of its name (assets/cripto), fetched only once the button is shown
             icon = f'<img src="assets/cripto/{c.lower()}.svg" alt="" width="20" height="20" loading="lazy">'
-            if not rows:
-                coins += f'<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled>{icon}{c} <span class="bi-ap-tag">{SOON}</span></button>'
+            if not rows:   # no network open: "Pausada" when one of them is paused, else "Em breve"
+                coins += f'<button type="button" class="bi-ap-coinbtn bi-ap-coinsoon" disabled>{icon}{c} <span class="bi-ap-tag">{PAUSED if paused else SOON}</span></button>'
                 continue
             coins += f'<button type="button" class="bi-ap-coinbtn" data-coin-btn="{c}" aria-pressed="false">{icon}{c}</button>'
-            panels += f'<div class="bi-ap-coin" data-coin="{c}" hidden>' + _net_buttons(rows) + "".join(_row(*r) for r in rows) + '</div>'
+            shown = [r for r in every if support_data.opens(r[1], staging) or r[1]["id"] in paused]   # the file's order
+            panels += f'<div class="bi-ap-coin" data-coin="{c}" hidden>' + _net_buttons(shown, paused) + "".join(_row(*r) for r in rows) + '</div>'
         blob = json.dumps(support_data.send_data(data, staging), ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
         send = ('<div class="bi-ap-send" hidden><label class="bi-ap-lab" for="bi-ap-amount">Valor</label>'
                 '<div class="bi-ap-amt"><input id="bi-ap-amount" inputmode="decimal" autocomplete="off" placeholder="0"><span data-unit></span></div>'
@@ -299,7 +314,7 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-box { margin: 16px 0 10px; padding: 14px 16px; border: 1px solid #E3E7EC; border-radius: 12px; background: #F6F8FA; }
 .bi-ap-box ol, .bi-ap-steps { margin: 0; padding-left: 20px; }
 .bi-ap-box li + li, .bi-ap-steps li + li { margin-top: 4px; }
-.bi-ap-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.bi-ap-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }   /* D220: two cards, two columns */
 .bi-ap-nw { white-space: nowrap; }
 .bi-ap-other + .bi-ap-box, .bi-ap-cards + .bi-ap-box { margin-top: 22px; }
 .bi-ap-card { display: flex; flex-direction: column; align-items: flex-start; padding: 16px; border: 1px solid #E3E7EC; border-radius: 14px; }
@@ -367,6 +382,28 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-spin { flex: none; box-sizing: border-box; width: 18px; height: 18px; border: 3px solid #E8D9A8; border-top-color: #7A5A00; border-radius: 99px; animation: bi-ap-spin 1s linear infinite; }
 @keyframes bi-ap-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .bi-ap-spin { animation: none; } }
+/* spec seguranca-doacoes, section 12, as drawn in round seguranca-r1 (D220): the whole address in groups of 4 in its own block (1b),
+   the two steps after sending and the transaction that went elsewhere (3c), a paused network (2) */
+.bi-ap-groups { display: flex; flex-wrap: wrap; gap: 4px 9px; font: 600 15px/1.6 "JetBrains Mono", ui-monospace, monospace; color: #14202B; letter-spacing: .02em; }
+.bi-ap-addrblock { margin-top: 12px; padding: 4px 12px 12px; border: 1px solid #E3E7EC; border-radius: 12px; background: #F6F8FA; }
+.bi-ap-addrblock .bi-ap-lab { margin: 10px 0 8px; }
+.bi-ap-badaddr { margin: 6px 0 10px; padding: 10px 12px; border-color: #F1C9CD; background: #FDF1F2; }
+.bi-ap-badaddr .bi-ap-groups { justify-content: center; }
+.bi-ap-ck.bi-ap-ck-bad { background: #B41E25; }
+.bi-ap-ck.bi-ap-ck-wait { background: #FFF8E6; }
+.bi-ap-ck.bi-ap-ck-wait .bi-ap-spin { width: 30px; height: 30px; border-width: 4px; }
+.bi-ap-chk { list-style: none; margin: 10px 0 6px; padding: 0; width: 100%; max-width: 360px; text-align: left; }
+.bi-ap-chk li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; }
+.bi-ap-chk li + li { border-top: 1px solid #E3E7EC; }
+.bi-ap-chk b { display: block; font: 800 15px/1.4 Manrope, system-ui, sans-serif; color: #14202B; }
+.bi-ap-chk small { display: block; font-size: 13.5px; line-height: 1.5; color: #5B6773; }
+.bi-ap-dot { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 20px; height: 20px; margin-top: 2px; border-radius: 99px; font: 800 12px Manrope, system-ui, sans-serif; }
+.bi-ap-dot.ok { background: #12803F; color: #fff; }
+.bi-ap-dot.none { background: #E3E7EC; color: #5B6773; }
+.bi-ap-dot.wait { background: none; }
+.bi-ap-chk li.wait .bi-ap-spin { width: 18px; height: 18px; }
+.bi-ap-netbtn.bi-ap-netpaused { color: #8A95A1; border-style: dashed; background: #F6F8FA; cursor: default; }
+.bi-ap-netbtn.bi-ap-netpaused .bi-ap-tag { margin-left: 6px; }
 .bi-ap-done { display: flex; flex-direction: column; align-items: center; margin-top: 6px; padding: 10px 0 4px; text-align: center; }
 .bi-ap-ck { display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; border-radius: 99px; background: #12803F; color: #fff; font: 800 30px Manrope, system-ui, sans-serif; }
 .bi-ap-body .bi-ap-done h3 { margin: 14px 0 4px; font-size: 22px; line-height: 1.5; }
@@ -395,9 +432,9 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-form .bi-ap-cta { justify-self: start; }
 @media (max-width: 820px) {
   .bi-end { gap: 8px; }
-  .bi-ap-cards { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
+  .bi-ap-cards { grid-template-columns: minmax(0, 1fr); }
   .bi-apoie { padding: 8px; }
   .bi-ap-panel { max-height: calc(100vh - 16px); max-height: calc(100dvh - 16px); border-radius: 14px; }
   .bi-ap-body { padding: 18px 16px 22px; }

@@ -1,0 +1,12 @@
+{
+ "result": {
+  "error": "txnNotFound",
+  "error_code": 29,
+  "error_message": "Transaction not found.",
+  "request": {
+   "command": "tx",
+   "transaction": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "status": "error"
+ }
+}
