@@ -41,7 +41,7 @@ A prova é a página no ar (`curl` com `?n=<hora>` e uma abertura nova no Chrome
 - **Fase 2 (#174):** cada caso visto falhando no `staging` antes (12 de 48 em `cripto-check.cjs`, 8 de 17 nos testes do núcleo, os da pausa). O caso "erro antes da confirmação" precisou clicar de novo para falhar no código velho. A frase desenhada "Já avisamos o Brasil-Imposto" ficou de fora: depois de D219 a página não manda aviso. A regra dos métodos de carteira de `test_support.py` passou a ler só o que entra no `request` de uma carteira, para a leitura dos nós públicos não contar como chamada de carteira. A rodada antiga não renderiza mais; a comparação foi contra o código e o CSS dela.
 - **Fase 3 (#175 e `Brasil-Imposto/staging#4`):** o `guard` copia a forma do glsec (o rótulo sai a cada push; a verificação lê a etiqueta na hora), em vez das datas de etiqueta e push do esboço da 3.4.2. O CODEOWNERS já dava tudo ao time (`*`): as linhas dos caminhos do `guard` entraram para quando houver donos por área. A configuração mudou pela API depois do merge, e `settings-check.py` ficou verde; R1 e R3 provados nos #177 e #178.
 - **Fase 5 (#176) entrou antes da fase 3:** não dependia dela, e o `guard` passou a valer a partir do merge do #175.
-- **Fase 4 em parte:** `Brasil-Imposto/monitor` com `chain` (C1 e C5) e `heartbeat`; o estado no ramo `state`. O A1 vigia a `chain` com 45 minutos até a conferência de 5 minutos existir. A conferência dos arquivos servidos segue D222; a foto da configuração espera o GitHub App do autor.
+- **Fase 4 em parte:** `Brasil-Imposto/monitor` com `chain` (C1 e C5) e `heartbeat`; o estado no ramo `state`. O A1 vigia a `chain` com 45 minutos até a conferência de 5 minutos existir. Medido depois, num dia inteiro: o agendador do GitHub entrega 3 de 96 rodadas da `chain` nesta organização; D224 põe um relógio de fora e troca o vigia pelo healthchecks.io (tarefa 4.7). A conferência dos arquivos servidos segue D222; a foto da configuração espera o GitHub App do autor.
 - **D222 e D223:** a sessão põe a etiqueta `seguranca-revisada` depois de listar no pull request os caminhos sensíveis (D223 mudou D222, item 1); a produção espera a aprovação dele no ambiente, no lote.
 
 ## Escolhas do plano e quem as usa (D218)
@@ -55,6 +55,8 @@ O que a spec deixou para o plano decidir, cada escolha com quem a usa, lido na f
 | three.js servido pelo próprio site, sem mapa de importação | Uniswap, mesmo arquivo: `scriptSrc` é `'self'`, `'wasm-unsafe-eval'` e um host de captcha; todo o código do app sai do próprio site. Um mapa de importação inline é código inline: a CSP só de origens o bloqueia, e não existe mapa de importação em arquivo. Security Alliance, "Third-Party Script Security": "self-hosting removes it" |
 | Escapar e proibir HTML sem escape, com uma lista que só encolhe para o que já existe | Firefox (`no-unsanitized` em erro); a lista é o recurso "bulk suppressions" do próprio ESLint (ler a página da documentação do ESLint no passo 1.4.1 antes de usar) |
 | `object-src 'none'`, `base-uri 'none'` | Texto da spec aprovada (seção 8) |
+| Um relógio de fora que chama `workflow_dispatch` (D224) | Upptime, página "Triggers" (o disparo pela API com um token fino de Actions em leitura e escrita), lida em 2026-11-04 |
+| Um vigia de fora que recebe um sinal a cada rodada (D224) | Firefly III, `.github/workflows/build.yml` do `exchange-rates` (manda o sinal ao hc-ping.com); página do GitHub Actions do healthchecks.io, lidas em 2026-11-04 |
 
 Tudo o mais que aparecer no código sem quem o use vira pergunta ao autor dizendo que não há precedente (D218).
 
@@ -960,12 +962,17 @@ Repositório novo `Brasil-Imposto/monitor`, público (D217), criado pela conta d
 
 - [ ] **4.5.1** `heartbeat.yml`: `cron: '0 12 * * *'` (9h em Brasília), um comentário na issue fixada "Sinal de vida" com as contagens do dia (rodadas, alarmes, por tipo), que chega por e-mail a quem acompanha o repositório. Teste do texto com as contagens gravadas.
 - [ ] **4.5.2** O commit diário do estado (o GitHub desliga agendamentos de repositório público sem atividade em 60 dias), no mesmo `heartbeat.yml`.
-- [x] **4.5.3** A1, no repositório principal, `.github/workflows/monitor-watch.yml`: `cron: '23 * * * *'`, lê pela API pública a última execução da conferência mais frequente do monitor e falha se ela tiver mais de três intervalos (hoje a `chain`, de 15 em 15 minutos: 45 minutos). Teste `pipelines/tests/test_monitor_watch.py`: 46 minutos falha, 4 passa (controle), nenhuma falha. No #179, à espera da etiqueta do autor.
+- [x] **4.5.3** A1, no repositório principal, `.github/workflows/monitor-watch.yml`: `cron: '23 * * * *'`, lê pela API pública a última execução da conferência mais frequente do monitor e falha se ela tiver mais de três intervalos (hoje a `chain`, de 15 em 15 minutos: 45 minutos). Teste `pipelines/tests/test_monitor_watch.py`: 46 minutos falha, 4 passa (controle), nenhuma falha. No #179, à espera da etiqueta do autor. Substituído por D224 (tarefa 4.7): rodava no mesmo agendador do GitHub (1 de 9 rodadas no dia medido), e seus e-mails de falha diziam a verdade sobre o monitor parado.
 
 ### Tarefa 4.6: prova e os passos do autor
 
 - [ ] **4.6.1** Cada workflow disparado à mão uma vez com um alarme plantado (uma base de teste diferente), visto falhando no GitHub, e uma vez limpo, visto passando; depois a base de verdade.
 - [ ] **4.6.2** Resposta final ao autor, na ordem e nas palavras de cada tela: criar o GitHub App da organização só leitura e instalar; gerar a chave e colar nos segredos do monitor (a chave nunca passa por esta sessão); avisos do Actions por e-mail só para falhas; o endereço da caixa do formulário verificado e escolhido para os avisos da organização; acompanhar o repositório do monitor.
+
+### Tarefa 4.7: o relógio e o vigia de fora (D224)
+
+- [ ] **4.7.1** O relógio: passos do autor, na ordem e nas palavras de cada tela, para a conta grátis no cron-job.org e o token fino só do `Brasil-Imposto/monitor` com Actions em leitura e escrita (o valor nunca passa pela sessão; o prazo do token vai ao autor como decisão, com a consequência); o trabalho que chama `POST /repos/Brasil-Imposto/monitor/actions/workflows/chain.yml/dispatches` (`{"ref": "main"}`) a cada 15 minutos; prova: rodadas `workflow_dispatch` criadas pelo relógio, contadas com `schedule_audit.py`; linhas no registro de serviços (só nomes). No lote, o `served.yml` entra no mesmo relógio, a cada 5 minutos.
+- [ ] **4.7.2** O vigia: passos do autor para o healthchecks.io (plano grátis); a URL do sinal só nos segredos do monitor; a `chain` manda o sinal no sucesso e o `/fail` na falha, como a página do GitHub Actions do healthchecks.io mostra; teste primeiro (o passo do sinal ausente: o teste falha) e o controle plantado: parar o relógio e ver o e-mail do sinal atrasado chegar. Depois, sair o `monitor-watch.yml`, o `monitor_watch.py` e o teste dele, com os caminhos sensíveis listados no pull request e a etiqueta de D223.
 
 ---
 
@@ -994,10 +1001,10 @@ Ramo `docs/seguranca-fase-5`.
 | Seção 7 (arquivos servidos) | Tarefas 4.0 e 4.3 |
 | Seção 8 (navegador) | Tarefas 1.2 a 1.10; 2.2; 2.4 |
 | Seção 9 (blockchain) | Tarefa 4.4 |
-| Seção 3 (alarmes, sinal de vida, monitor vigiado) | Tarefas 4.2 a 4.5 |
+| Seção 3 (alarmes, sinal de vida, relógio e vigia de fora) | Tarefas 4.2 a 4.5 e 4.7 |
 | Seção 4 (pausar) | Tarefa 2.3 |
 | Seção 10 (folha, `security.txt`, registro) | Fase 5 |
 | Seção 11 (defeitos do envio) | Tarefa 2.1, 2.2 |
 | Seção 12 (telas) | Tarefas 2.2 a 2.5 |
-| Seção 14 (R1, R2, R3, B1, L1, P1, P2, P7, P9, C1, C5, C6, A1, S1) | R1 e R3: 3.4; R2: 4.2; B1 e L1: 3.5 e 4.3; P1: 1.2 e 1.3; P2: 1.8; P7: 1.10; P9: 1.9; C1 e C5: 4.4; C6: 2.4; A1: 4.5; S1: 2.3 |
+| Seção 14 (R1, R2, R3, B1, L1, P1, P2, P7, P9, C1, C5, C6, A1, S1) | R1 e R3: 3.4; R2: 4.2; B1 e L1: 3.5 e 4.3; P1: 1.2 e 1.3; P2: 1.8; P7: 1.10; P9: 1.9; C1 e C5: 4.4; C6: 2.4; A1: 4.5 e 4.7; S1: 2.3 |
 | Seção 17 (não confirmado) | Confirmados: `/.well-known/` servido (5.2, no ar em 2026-11-04); os nós respondem a outra origem (2.4.1); o `style-src` da Uniswap (lido em 2026-11-03). Abertos: rulesets de organização no plano grátis; carteiras com a CSP (fase 6); atividade de agendamento (4.5.2) |
