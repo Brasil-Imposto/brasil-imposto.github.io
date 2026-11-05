@@ -42,12 +42,12 @@ Duas metas: (1) saber de toda tentativa que toque o que o projeto consegue obser
 
 O monitor mora em `Brasil-Imposto/monitor`, público (D217), com os agendamentos criados pela conta do autor: o GitHub manda o e-mail de um agendamento para quem o criou. Os logs só trazem tipos e hashes, nunca nomes, valores ou endereços de webhook.
 
-## 3. Onde os alarmes chegam (D216, com D219)
+## 3. Onde os alarmes chegam (D216, com D219 e D224)
 
 - **Toda conferência roda nos servidores do GitHub** e falha quando acha algo; a falha vira o e-mail do próprio GitHub, com o link da execução. Passos do autor: avisos do Actions por e-mail só para falhas; o endereço da caixa do formulário verificado na conta e escolhido como destino dos avisos da organização.
 - **Os avisos do navegador de D216 não têm mais o que mandar:** os detectores da página saíram na auditoria (D219). A chave pública do Web3Forms segue só no formulário de contato.
 - **Sinal de vida:** um comentário diário, às 9h de Brasília, numa issue fixada do monitor ("Sinal de vida"), com as contagens do dia; o e-mail dele chega pelos avisos de quem acompanha o repositório. **Se não chegar até as 10h, vale como alarme.** É o padrão "Watchdog" do Prometheus: um sinal que sempre dispara, e a falta dele avisa.
-- **O monitor vigiado:** um agendamento a cada hora no repositório principal confere que a conferência mais frequente do monitor rodou há menos de três dos seus intervalos (hoje a `chain`, de 15 em 15 minutos: 45 minutos) e falha se não rodou. O monitor grava seu estado num commit diário, porque o GitHub desliga agendamentos de repositório público sem atividade em 60 dias; se mesmo assim desligar, o sinal de vida para.
+- **O relógio e o vigia de fora (D224):** o agendador do GitHub entrega poucas rodadas nesta organização (no dia medido, 2026-11-04 e 05, 3 de 96 da `chain`, enquanto outras organizações tiveram de 121 a 197 de 288), então um relógio de fora, no cron-job.org, aperta "Run" nas conferências do monitor pela API do GitHub (`workflow_dispatch`, como a página "Triggers" do Upptime documenta), com um token fino só do monitor; os agendamentos do GitHub ficam como reserva. Quem roubar o token pode desligar ou apagar as rodadas do monitor, e o vigia vê isso como monitor parado. O healthchecks.io vigia o monitor: cada rodada da `chain` manda um sinal, e o sinal atrasado vira e-mail (como o workflow `exchange-rates` do Firefly III faz); ele substitui o agendamento a cada hora no repositório principal (`monitor-watch`), que rodava no mesmo agendador. O monitor grava seu estado num commit diário, porque o GitHub desliga agendamentos de repositório público sem atividade em 60 dias.
 
 ## 4. Pausar e tirar do ar (D219)
 
@@ -162,7 +162,7 @@ Desenhadas no modal real (`docs/superpowers/previews/BRASIL-IMPOSTO_DESIGN_segur
 | C1 | Saída plantada nas respostas de um nó | Alarme | Respostas sem saída: zero alarmes |
 | C5 | Nó fora do ar três vezes | Alarme de "não deu para conferir" | Nó respondendo: verde |
 | C6 | A transação foi para outro endereço | Aviso a quem doou | A transação certa: "Confirmada na rede" |
-| A1 | Monitor parado há mais de três intervalos (45 minutos para a `chain`) | O agendamento do repositório principal falha | Monitor com rodada recente: passa |
+| A1 | Monitor parado: o sinal da `chain` não chega no prazo do healthchecks.io (D224) | O healthchecks.io manda o e-mail | Sinal em dia: nenhum e-mail |
 | S1 | Uma moeda ou rede com `status` `"paused"` | Botão apagado com "Pausada", sem endereço | `"live"`: abre |
 
 Mais um teste por defeito da seção 11, e a CSP provada com as carteiras de verdade na fase 6.
@@ -178,7 +178,7 @@ Mais um teste por defeito da seção 11, e a CSP provada com as carteiras de ver
 
 ## 15. Custo
 
-Nada pago, e nada que peça cartão. Repositório público roda o Actions de graça ("This usage remains free", documentação do GitHub, lida em 2026-11-04), e o Pages não cobra: passar do limite flexível de 100 GB por mês faz o GitHub poder parar de servir o site, por isso a forma de D222 para a conferência de 5 minutos; o GitHub App e os nós públicos não custam. Um repositório privado teria só US$ 12 por mês de franquia, cerca de 2.000 minutos de Linux, e a conferência de 5 minutos sozinha passa disso.
+Nada pago, e nada que peça cartão. Repositório público roda o Actions de graça ("This usage remains free", documentação do GitHub, lida em 2026-11-04), e o Pages não cobra: passar do limite flexível de 100 GB por mês faz o GitHub poder parar de servir o site, por isso a forma de D222 para a conferência de 5 minutos; o GitHub App, os nós públicos, o cron-job.org e o plano grátis do healthchecks.io (D224) não custam. Um repositório privado teria só US$ 12 por mês de franquia, cerca de 2.000 minutos de Linux, e a conferência de 5 minutos sozinha passa disso.
 
 ## 16. Fora desta spec
 
