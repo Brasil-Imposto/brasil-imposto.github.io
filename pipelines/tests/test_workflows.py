@@ -5,11 +5,13 @@ comment, so a moved tag cannot change what runs. No workflow grants a write perm
 job that needs it, and the only ones allowed are Pages' (pages and id-token), in a job named deploy, the Scorecard's
 (security-events and id-token), in a job named scorecard, CodeQL's (security-events), in a job named analyze, and the guard's
 (pull-requests), in a job named guard.
+Every pip install runs with --require-hashes from .github/uv-requirements.txt, whose every requirement carries its hashes (D228).
 Every workflow that deploys to Pages builds its artifact itself (D228): a tar of _site that keeps the names starting with a dot
 (the site needs .well-known/security.txt and .nojekyll), uploaded as github-pages, and no upload-pages-artifact (v3.0.1 calls
 upload-artifact@v4 by tag, which the SHA rule refuses; v4 and later leave the dot files out by default; v5.0.0 stalled the deploy).
 Controls: a copy with an action at @v4, a copy with pages: write at the top, a copy with a write the job is not allowed, a copy whose
-tar leaves the dot files out, a copy whose artifact has another name, and a copy back on upload-pages-artifact, must fail.
+tar leaves the dot files out, a copy whose artifact has another name, a copy back on upload-pages-artifact, and a pip install
+by version, must fail.
 """
 import re
 import unittest
@@ -79,6 +81,22 @@ def pages_artifact_problems(name, text):
     return out
 
 
+def pip_problems(name, text):
+    """Each pip install must take its packages by hash from a requirements file."""
+    return [f"{name}:{n}: pip install without --require-hashes -r" for n, line in enumerate(text.splitlines(), 1)
+            if re.search(r"\bpip install\b", line) and not re.search(r"--require-hashes\b.*\s-r\s+\S+", line)]
+
+
+def requirement_problems(text):
+    """Each requirement of a hash file names an exact version and at least one sha256."""
+    out, entries = [], re.split(r"(?<!\\)\n", "\n".join(l for l in text.splitlines() if not l.startswith("#")))
+    for e in (x for x in entries if x.strip()):
+        name = e.split()[0]
+        if not re.fullmatch(r"[\w.-]+==[\w.]+", name) or not re.search(r"--hash=sha256:[0-9a-f]{64}", e):
+            out.append(f"{name}: not an exact version with its sha256")
+    return out
+
+
 class WorkflowsTest(unittest.TestCase):
     def test_every_action_is_pinned_and_every_write_is_scoped(self):
         self.assertGreaterEqual(len(FILES), 5)
@@ -103,6 +121,22 @@ class WorkflowsTest(unittest.TestCase):
                 found = pages_artifact_problems(f.name, bad)
                 self.assertEqual(len(found), 1, (f.name, word, found))
                 self.assertIn(word, found[0])
+
+    def test_every_pip_install_is_by_hash(self):
+        found = [p for f in FILES for p in pip_problems(f.name, f.read_text(encoding="utf-8"))]
+        self.assertEqual(found, [])
+        req = (REPO / ".github" / "uv-requirements.txt").read_text(encoding="utf-8")
+        self.assertEqual(requirement_problems(req), [])
+        self.assertEqual(len(re.findall(r"--hash=sha256:", req)), 19)
+
+    def test_control_a_pip_install_by_version_fails(self):
+        text = (REPO / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+        bad = text.replace("--require-hashes -r .github/uv-requirements.txt", "uv==0.11.32", 1)
+        self.assertNotEqual(bad, text)
+        self.assertEqual(len(pip_problems("ci.yml", bad)), 1)
+        req = (REPO / ".github" / "uv-requirements.txt").read_text(encoding="utf-8")
+        self.assertEqual(len(requirement_problems(req + "playwright==1.58.0\n")), 1)
+        self.assertEqual(len(requirement_problems(req.replace("uv==0.11.32", "uv>=0.11", 1))), 1)
 
     def test_control_an_action_by_tag_fails(self):
         text = (REPO / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
