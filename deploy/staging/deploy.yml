@@ -45,9 +45,12 @@ jobs:
         run: python3 docs/superpowers/tools/build-site.py --profile staging --out _site
       - name: The manifest of this publication, every file with its sha256 (spec seguranca-doacoes, section 6)
         run: python3 docs/superpowers/tools/build-manifest.py write _site "$(git rev-parse HEAD)" | tee -a "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+      # v4 and later leave out every name that starts with a dot unless include-hidden-files is set; the site needs
+      # .well-known/security.txt and .nojekyll (D227)
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: _site
+          include-hidden-files: true
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -59,4 +62,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
