@@ -1,22 +1,22 @@
 # uv for the workflows, installed by hash (pip install --require-hashes -r .github/uv-requirements.txt; D228): every file of
-# uv 0.11.32 on PyPI. A new version replaces the line and every hash, read from https://pypi.org/pypi/uv/<version>/json.
-uv==0.11.32 \
-    --hash=sha256:07ffc8322ce88b29dc0a905c102ea7d32c9021ee0353b641674e350c65fa930a \
-    --hash=sha256:125c142363d0842c8506a057da56bae182e2aa3957344f57dd9ef20ea10f06b0 \
-    --hash=sha256:19fb9f2dba53851c0ee6e7e5582bd355fcaa9b1387b5d688f5bb9efc543dc605 \
-    --hash=sha256:26d61d1b640d2dcfd7c3b64e75ada14c8eb477accba57f414c1a3759d6ab2253 \
-    --hash=sha256:2a56d1abf16337350e878b2c869b256b8448ecc4a722b98f8d41e1b3680a587b \
-    --hash=sha256:3da76cd4e2697de30928b8a8524bd39183ac1e08cb7e72833807c022b7cba6c4 \
-    --hash=sha256:43360834111ae917808a70b36f4fb0e53de8e0be422e4cd4445876ffae8decc2 \
-    --hash=sha256:5359a7b0de78ba99b2519d33c173e004c39111c4baebe1b7c3d111a2de2011e1 \
-    --hash=sha256:77f4356548ee8dc47efae154efd4e930c65570e7d4971c57bdef592f6eefb39c \
-    --hash=sha256:855632ee1d2a8491986efa54c562b806cd32477761889a1e13624b519d98a45e \
-    --hash=sha256:8e36fe8ff79ab7d13e9ad45d24bb9a52c1024caa6897cf62933bb3f760643d13 \
-    --hash=sha256:96625d832fe5b94ed0a029764cef0879ff47e3a525aec5c99d360a959e2f4aea \
-    --hash=sha256:bb1ae8189e315499a77f3cc27cac5985ab1d8cb79baa82e368b6c1e574a7d9cf \
-    --hash=sha256:be0799f1ad70c755d10de5aaf46af94199d4f16a992f90278f2662350cd3f4fe \
-    --hash=sha256:bf988bf510772785eac1edfc7cdedca074e8936b45e755b58f7f3e1e9ca86424 \
-    --hash=sha256:c82954b1bd507e767b1d996c2865ea3eb7d464a479ec0e4d60f0b8e2e07dee45 \
-    --hash=sha256:cd085addb35f074561d2c5659a088f5f10361502bd3ad4c8f5105f5a4b9d2817 \
-    --hash=sha256:f35b3b8b65ba4579f8b23645a19394f7e5f90b20b07376ecff18b3bb656a81ae \
-    --hash=sha256:f6f030a91a94655af11e41dafe1b41e1a90e1f2641bf13ff7ed7d4f5fb4f031d
+# uv 0.13.7 on PyPI. A new version replaces the line and every hash, read from https://pypi.org/pypi/uv/<version>/json.
+uv==0.13.7 \
+    --hash=sha256:08f16fd463926786b702b497473511deae4b3e17a2fa6d22180950d6059a120d \
+    --hash=sha256:158953b8669bee6f4bc2babdd997e34ff9f0d57170093cfe907f64448292b7c3 \
+    --hash=sha256:1bc8543d930464bbb22ac01bb1a660a448235e558014914de1e1cd5b993361b8 \
+    --hash=sha256:2835e2ab397d0db86323b9975dce75ecd76aa9cfa0d6a2aea84734aae7f8c9b3 \
+    --hash=sha256:2c9bdc4a872b60a93c5f26c0791089ea11585a4f9d3b3c017d78eb8487505e25 \
+    --hash=sha256:55e741a380a98008fc4985cf069855f36bc50242ef438e21a466786f5bc84da8 \
+    --hash=sha256:57ff66891d9a738ec087c23fdde842ac8e5eb63189ffed6ee95caee1b82ceb54 \
+    --hash=sha256:5e766791cb825d7a07e2ef9e622d307b48754fb682a31ba7bc5f272fab9ea395 \
+    --hash=sha256:5f37cc4d4660e4aee8a24d0dc179a0b0ce99506259c6796d37fa69bca9543a03 \
+    --hash=sha256:89df450624dec8c48b8b5a7adb654928cc50e95753f869c70cd65ef8333f2197 \
+    --hash=sha256:8b8ac028ae4ebb2a3f9d04907c61794f2cf8d7a7002bfbb4019a3dee28351fb2 \
+    --hash=sha256:8fc6019740794df995085f7b278d99dc11ccacffad9c63957278d3a6e272280b \
+    --hash=sha256:917733990ebc178318af0321d6873823ed5da707e1c4b1e5060ac2065a81f1f3 \
+    --hash=sha256:94f65a8ac5826dff76a93cb3cafbaad15def1788c63da2ce5ce09e0bd1303e7a \
+    --hash=sha256:952dcae9b1a7742f2fab28e82391fbfabe8807e4e9363f674b0f6be1053b8dd4 \
+    --hash=sha256:a90f5d95716ab83091f0f73a8e7ec64e557abf2a28537fcd719b2ac88e6f725a \
+    --hash=sha256:d30cafb7070901ba35353ec64cf228ae46caf79ac0f6fae329f95468b1482531 \
+    --hash=sha256:f91a229093163eefca89ea1b220a221d64c3beade05d03519a6584d1797a5a5f \
+    --hash=sha256:fd04bf01ba5f2829f4f94ca8f0c24a743f21e73d75045613ed6fc2fd66fc7bda

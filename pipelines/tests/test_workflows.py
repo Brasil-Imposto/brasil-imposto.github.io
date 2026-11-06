@@ -131,12 +131,14 @@ class WorkflowsTest(unittest.TestCase):
 
     def test_control_a_pip_install_by_version_fails(self):
         text = (REPO / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
-        bad = text.replace("--require-hashes -r .github/uv-requirements.txt", "uv==0.11.32", 1)
+        bad = text.replace("--require-hashes -r .github/uv-requirements.txt", "uv==0.13.7", 1)
         self.assertNotEqual(bad, text)
         self.assertEqual(len(pip_problems("ci.yml", bad)), 1)
         req = (REPO / ".github" / "uv-requirements.txt").read_text(encoding="utf-8")
         self.assertEqual(len(requirement_problems(req + "playwright==1.58.0\n")), 1)
-        self.assertEqual(len(requirement_problems(req.replace("uv==0.11.32", "uv>=0.11", 1))), 1)
+        loose = re.sub(r"^uv==[\w.]+", "uv>=0.11", req, count=1, flags=re.M)
+        self.assertNotEqual(loose, req)
+        self.assertEqual(len(requirement_problems(loose)), 1)
 
     def test_control_an_action_by_tag_fails(self):
         text = (REPO / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
