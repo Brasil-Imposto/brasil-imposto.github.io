@@ -29,6 +29,10 @@ jobs:
           uv sync --locked
       - name: Repository layout and Python environment
         run: uv run --locked python -m unittest discover -s pipelines/tests -v
+      - name: Fuzz the address checks for 60 seconds, after the fuzzer finds a planted crash (D228)
+        run: |
+          uv run --locked python pipelines/fuzz/fuzz_addresses.py control
+          uv run --locked python pipelines/fuzz/fuzz_addresses.py run 60
       - name: Entity files (exported from data/, each validated against its schema before it is written)
         run: uv run --locked python pipelines/export/build_entities.py
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0

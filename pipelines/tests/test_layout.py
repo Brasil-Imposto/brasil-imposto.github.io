@@ -111,10 +111,12 @@ class LayoutTest(unittest.TestCase):
 
 class ImportsTest(unittest.TestCase):
     def test_every_imported_module_resolves(self):
-        """Each module a pipeline imports is in the standard library, in the locked environment, or a file in a folder the
-        script can see: its own folder (Python puts it on sys.path when the script runs) or one it puts on sys.path."""
+        """Each module a pipeline imports is in the standard library, in the locked environment (installed here, or a package of
+        uv.lock that this machine leaves out by its marker, as atheris off Linux x86_64, D228), or a file in a folder the script
+        can see: its own folder (Python puts it on sys.path when the script runs) or one it puts on sys.path."""
         import importlib.util
         import sys
+        locked = set(re.findall(r'^\[\[package\]\]\nname = "([^"]+)"', (REPO / "uv.lock").read_text(encoding="utf-8"), re.M))
         problems, files = [], sorted((REPO / "pipelines").rglob("*.py"))
         for f in files:
             tree, values = file_paths(f)
@@ -124,7 +126,7 @@ class ImportsTest(unittest.TestCase):
                     [node.module] if isinstance(node, ast.ImportFrom) and node.module and not node.level else []
                 for mod in mods:
                     top = mod.split(".")[0]
-                    if top in sys.stdlib_module_names or importlib.util.find_spec(top) is not None:
+                    if top in sys.stdlib_module_names or importlib.util.find_spec(top) is not None or top in locked:
                         continue
                     if not any((d / f"{top}.py").exists() or (d / top / "__init__.py").exists() for d in folders):
                         problems.append(f"{f.relative_to(REPO)}:{node.lineno} imports {mod}, found nowhere")

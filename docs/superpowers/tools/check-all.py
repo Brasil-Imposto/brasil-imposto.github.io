@@ -5,6 +5,7 @@ Needs Python 3.12 with uv and Node 24 (.nvmrc); git for the check of the committ
 exits 1, so a red step here is the step that would be red in the ci. Last, it builds the site in both profiles (production and
 staging, #52) into a temporary folder and removes it.
 """
+import platform
 import shutil
 import subprocess
 import sys
@@ -23,6 +24,9 @@ def steps(tmp):
     yield "uv: the lock file matches pyproject.toml", ["uv", "lock", "--check"], ROOT
     yield "uv: the locked Python environment", ["uv", "sync", "--locked"], ROOT
     yield "tests of pipelines/", PY + ["-m", "unittest", "discover", "-s", "pipelines/tests"], ROOT
+    if sys.platform == "linux" and platform.machine() == "x86_64":   # atheris has wheels for Linux on x86_64 only (D228)
+        yield "fuzz: the fuzzer finds a planted crash", PY + ["pipelines/fuzz/fuzz_addresses.py", "control"], ROOT
+        yield "fuzz: the address checks for 60 seconds", PY + ["pipelines/fuzz/fuzz_addresses.py", "run", "60"], ROOT
     yield "entity files, each checked against its schema", PY + ["pipelines/export/build_entities.py"], ROOT
     yield "site: npm ci", ["npm", "ci", "--no-audit", "--no-fund"], ROOT / "site"
     for s in ("types", "check", "test", "build"):
