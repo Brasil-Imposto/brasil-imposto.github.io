@@ -4,7 +4,9 @@
 // fails the run. --control serves the pages with the destination swapped: the wallet must then show the planted address and the
 // case must fail, or the check is blind.
 //
-// Run: node docs/superpowers/tools/wallets-check.cjs metamask <extension folder> <test site folder> [--control]
+// Run: node docs/superpowers/tools/wallets-check.cjs metamask <extension folder> <test site folder> [--control | --mainnet-bsc]
+// --mainnet-bsc runs against a build with the real data (BNB Smart Chain, network 56): it stops at the wallet's add-network or
+// switch-network screen, prints what the wallet says there, and refuses; nothing is approved.
 // The test site comes from testnet-support.py and build-site.py (BI_SUPPORT_JSON), built in a copy of the tree; the keys come from
 // wallet-keys.py, read from the Keychain at use time and typed into the extension, never printed. The probe prints test ids, short
 // labels and addresses only, and nothing at all on a recovery-phrase screen.
@@ -82,6 +84,66 @@ const metamask = {
   ],
 };
 
+// UniSat (spec seguranca-doacoes, section 11): the page must refuse a wallet on a Bitcoin test network before anything is signed, and let
+// the main network through. UniSat builds its controls from plain elements, so the steps click by visible text. The test key goes in by
+// the single-key route (#/account/create-simple-wallet); the recovery-phrase route is never opened.
+const unisat = {
+  async setup(ctx, id) {
+    const page = await ctx.newPage(), base = `chrome-extension://${id}/index.html`, pw = keychain('bi-test-wallet-password');
+    const text = async (s) => { await page.getByText(s, { exact: true }).first().click({ timeout: 20000 }); await page.waitForTimeout(1500); };
+    await page.goto(base + '#/welcome'); await page.waitForTimeout(3000);
+    await text('I already have a wallet');
+    for (const l of await page.locator('input[type=password]').all()) await l.fill(pw);
+    await text('Continue');
+    await page.goto(base + '#/account/create-simple-wallet'); await page.waitForTimeout(2500);
+    await page.locator('input[placeholder*="WIF Private Key"]').fill(keychain('bi-test-btc-donor'));
+    await text('Continue'); await text('Native Segwit (P2WPKH)'); await text('Continue');
+    await page.waitForTimeout(3000); this.page = page; this.base = base;
+  },
+  async testnet4() {   // Settings, the network item, Bitcoin Testnet, Bitcoin Testnet4
+    const page = this.page; await page.goto(this.base + '#/settings'); await page.waitForTimeout(2500);
+    for (const s of ['Bitcoin', 'Bitcoin Testnet', 'Bitcoin Testnet4 (Beta)']) { await page.getByText(s, { exact: true }).last().click({ timeout: 20000 }); await page.waitForTimeout(1500); }
+  },
+  cases: [{ name: 'BTC, UniSat on the main network: the page lets it through', test: false }, { name: 'BTC, UniSat on Testnet4: refused before signing', test: true }],
+};
+
+async function runUnisat(ctx, id, control) {
+  const rows = [], csp = [];
+  await unisat.setup(ctx, id);
+  for (const c of unisat.cases) {
+    if (c.test) await unisat.testnet4();
+    const chain = await (async () => { const q = await ctx.newPage(); await q.goto(`http://127.0.0.1:${SITE_PORT}/como-ler-o-mapa.html`); await q.waitForTimeout(1500);
+      const v = await q.evaluate(async () => (window.unisat && window.unisat.getChain ? (await window.unisat.getChain()).enum : null)); await q.close(); return v; })();
+    const p = await ctx.newPage();
+    p.on('console', (m) => { if (/Content Security Policy|Refused to (load|execute|connect|apply)/.test(m.text())) csp.push(m.text().slice(0, 160)); });
+    if (control) await p.route('**/assets/bi-cripto.js*', async (r) => { const res = await r.fetch(); const was = await res.text(), body = was.replace("throw { code: 'test_network' };\n      return u.sendBitcoin", 'return u.sendBitcoin'); if (body === was) rows.push({ name: 'control plant landed', ok: false, detail: 'the network check was not found in bi-cripto.js' }); r.fulfill({ response: res, body }); });
+    await p.goto(`http://127.0.0.1:${SITE_PORT}/como-ler-o-mapa.html`); await p.waitForSelector('.bi-apoie-btn');
+    await p.locator('.bi-apoie-btn').first().click(); await p.waitForTimeout(300);
+    await p.locator('.bi-ap-view[data-view="main"] [data-go="crypto"]').click(); await p.waitForTimeout(300);
+    await p.click('[data-coin-btn="BTC"]'); await p.click('.bi-ap-coin[data-coin="BTC"] [data-net-btn="bitcoin"]');
+    await p.waitForFunction(() => window.BiCripto && window.BiCripto.ready);
+    await p.fill('#bi-ap-amount', '0.0001');
+    const signing = [];
+    ctx.on('page', (np) => { if (/notification\.html#\/(?!approval)/.test(np.url())) signing.push(np.url()); });
+    for (let k = 0; k < 3; k++) {
+      await p.click('[data-send]'); await p.waitForTimeout(1200);
+      const w = p.locator('[data-wallets] button', { hasText: 'UniSat' }); if (await w.count()) await w.first().click();
+      await p.waitForTimeout(3000);
+      const ask = ctx.pages().find((x) => /notification\.html#\/approval/.test(x.url()));
+      if (ask) { await ask.getByText('Connect', { exact: true }).first().click({ timeout: 10000 }).catch(() => {}); await p.waitForTimeout(2500); continue; }
+      if ((await p.locator('[data-msg]').innerText().catch(() => '')).trim()) break;
+    }
+    for (const x of ctx.pages()) if (/notification\.html/.test(x.url())) { signing.push(x.url()); await x.close().catch(() => {}); }
+    const msg = (await p.locator('[data-msg]').innerText().catch(() => '')).trim();
+    const refused = /rede de testes/.test(msg);
+    rows.push({ name: c.name, ok: c.test ? refused && !signing.length : !refused && /saldo insuficiente|Envio cancelado|sendBitcoin/.test(msg + signing.join(' ')) || (!c.test && signing.length > 0),
+      detail: `wallet reports ${chain || '?'}; page: ${msg.slice(0, 90) || '(no message)'}; signing windows: ${signing.length}` });
+    await p.close();
+  }
+  rows.push({ name: 'no CSP violation on the page', ok: csp.length === 0, detail: csp.slice(0, 3).join(' || ') || '0' });
+  return rows;
+}
+
 async function reloadSidePanel() {   // the side panel can stay on a request already answered; a reload routes it to the oldest pending one
   const t = (await (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json()).find((x) => /sidepanel\.html/.test(x.url));
   if (!t) return;
@@ -102,14 +164,24 @@ async function pending(ctx, seen) {   // the next request in the side panel, ope
 }
 
 (async () => {
-  const args = process.argv.slice(2), control = args.includes('--control');
+  const args = process.argv.slice(2), control = args.includes('--control'), mainnetBsc = args.includes('--mainnet-bsc');
   const [wallet, ext, site] = args.filter((a) => !a.startsWith('--'));
-  if (wallet !== 'metamask') throw new Error('wallets: metamask (TronLink, UniSat and Crossmark come next)');
-  const W = metamask, want = JSON.parse(fs.readFileSync(path.join(site, 'index.html'), 'utf8').match(/id="bi-cripto-data">(.*?)<\/script>/s)[1]).networks;
+  if (!['metamask', 'unisat'].includes(wallet)) throw new Error('wallets: metamask, unisat (TronLink and Crossmark come next)');
+  const W = mainnetBsc ? { ...metamask, cases: [{ coin: 'BNB', net: 'bsc', amount: '0.002', network: 'BNB Smart Chain', shows: '0,002' }] } : metamask, want = JSON.parse(fs.readFileSync(path.join(site, 'index.html'), 'utf8').match(/id="bi-cripto-data">(.*?)<\/script>/s)[1]).networks;
   const server = spawn(process.execPath, [path.join(__dirname, 'static-server.cjs'), site, String(SITE_PORT)], { stdio: 'ignore' });
   const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'bi-wallet-'));
   const { proc, browser, ctx, id } = await launch(path.resolve(ext), profile);
   const rows = [], csp = [], alerts = [];
+  if (wallet === 'unisat') {   // its own steps; --control removes the page's Bitcoin network check: the Testnet4 case must then fail
+    let out = [];
+    try { out = await runUnisat(ctx, id, control); } catch (e) { out = [{ name: 'the UniSat probe ran', ok: false, detail: String(e).split('\n')[0].slice(0, 160) }]; }
+    await browser.close().catch(() => {}); const gone = new Promise((ok) => proc.on('exit', ok)); proc.kill(); await Promise.race([gone, new Promise((ok) => setTimeout(ok, 5000))]);
+    server.kill(); try { fs.rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 300 }); } catch {}
+    for (const r of out) console.log(`${r.ok ? 'ok  ' : 'FAIL'} ${r.name}: ${r.detail}`);
+    if (control) { const t4 = out.find((r) => /Testnet4/.test(r.name)); const caught = !!t4 && !t4.ok && !out.some((r) => r.name === 'control plant landed');
+      console.log(`control: ${caught ? 'with the check removed, the Testnet4 case fails' : 'NOT caught'}`); process.exit(caught ? 0 : 1); }
+    process.exit(out.every((r) => r.ok) ? 0 : 1);
+  }
   try {
     await W.setup(ctx, id);
     for (const c of W.cases) for (let attempt = 1; attempt <= 2; attempt++) { let stage = 'start'; try {
@@ -141,6 +213,14 @@ async function pending(ctx, seen) {   // the next request in the side panel, ope
         if (kind === 'send') { confirm = tab; steps.push(`confirmation (${route})`); break; }
         if (!kind) { steps.push(`unknown screen (${route}): ` + (await controls(tab, 12)).join(' ; ')); await tab.close().catch(() => {}); break; }
         steps.push(`${kind} (${route})`);
+        if (mainnetBsc && (kind === 'add network' || kind === 'switch network')) {
+          const said = ((await tab.locator('body').innerText().catch(() => '')) || '').replace(/\s+/g, ' ');
+          const warn = said.match(/(According to our records[^.]*\.|does not match a known provider[^.]*\.|De acordo com nossos registros[^.]*\.)/);
+          const rpc = (said.match(/https:\/\/[a-z0-9.-]+[^ ]*/i) || [''])[0];
+          rows.push({ name: `network 56 screen (${kind})`, ok: !warn, detail: `rpc shown ${rpc || '(none)'}; wallet warning: ${warn ? warn[0] : 'none'}` });
+          await tab.locator('[data-testid="confirmation-footer-cancel-button"], [data-testid="confirm-footer-cancel-button"], [data-testid="page-container-footer-cancel"]').first().click().catch(() => {});
+          await tab.close().catch(() => {}); break;
+        }
         if (kind === 'add network' && await tab.locator(W.addNetwork.approve).first().isDisabled()) {   // MetaMask's alerts, read then acknowledged
           await tab.locator('[data-testid="inline-alert"]').first().click().catch(() => {}); await tab.waitForTimeout(1000);
           for (let a = 0; a < 5 && await tab.locator('[role="dialog"]').count(); a++) {
@@ -159,6 +239,14 @@ async function pending(ctx, seen) {   // the next request in the side panel, ope
         await tab.locator({ connect: '[data-testid="confirm-btn"]', 'switch network': '[data-testid="page-container-footer-next"]',
           'add network': W.addNetwork ? W.addNetwork.approve : 'none' }[kind]).first().click({ timeout: 5000 });
         await tab.waitForTimeout(1500); await tab.close().catch(() => {});
+      }
+      if (mainnetBsc) {   // no network screen came first: say what came, and the network on the confirmation, then refuse
+        if (!rows.some((r) => r.name.startsWith('network 56'))) {
+          const net = confirm ? (await confirm.locator('[data-testid="confirmation__details-network-name"]').first().innerText().catch(() => '')).trim() : '';
+          rows.push({ name: 'network 56: no add-network or switch screen', ok: true, detail: `steps: ${steps.join(' > ') || 'none'}; confirmation network: ${net || '(no confirmation)'}` });
+        }
+        if (confirm) { await confirm.locator('[data-testid="confirm-footer-cancel-button"]').click().catch(() => {}); await confirm.close().catch(() => {}); }
+        await p.close(); break;
       }
       if (!confirm) {
         const said = (await p.locator('[data-msg]').innerText().catch(() => '')).trim().slice(0, 120);
