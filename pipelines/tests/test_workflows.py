@@ -60,10 +60,17 @@ def pages_artifact_problems(name, text):
     out = []
     if "actions/upload-pages-artifact@" in text:
         out.append(f"{name}: uses upload-pages-artifact")
-    tar = re.search(r"tar \\\n((?:\s+.*\\\n)+\s+\.\n)", text)
-    if not tar or "--directory _site" not in tar.group(1):
+    lines, tar = text.splitlines(), ""
+    for i, line in enumerate(lines):
+        if line.strip() == "tar \\":   # the command's lines, each ending with a backslash, then the last one
+            j = i + 1
+            while j < len(lines) and lines[j].rstrip().endswith("\\"):
+                j += 1
+            tar = "\n".join(lines[i:j + 1])
+            break
+    if "--directory _site" not in tar:
         out.append(f"{name}: no tar of _site")
-    elif re.search(r"--exclude=['\"]?\.\[", tar.group(1)):
+    elif re.search(r"--exclude=['\"]?\.\[", tar):
         out.append(f"{name}: the tar leaves out the names that start with a dot")
     m = re.search(r"uses: actions/upload-artifact@[0-9a-f]{40} # v[\d.]+\n((?:[ ]{8,}\S.*\n)+)", text)   # the step's own lines only
     step = m.group(1) if m else ""
