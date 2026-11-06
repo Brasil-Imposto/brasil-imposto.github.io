@@ -5,7 +5,10 @@ comment, so a moved tag cannot change what runs. No workflow grants a write perm
 job that needs it, and the only ones allowed are Pages' (pages and id-token), in a job named deploy, the Scorecard's
 (security-events and id-token), in a job named scorecard, CodeQL's (security-events), in a job named analyze, and the guard's
 (pull-requests), in a job named guard.
-Controls: a copy with an action at @v4, a copy with pages: write at the top, and a copy with a write the job is not allowed, must fail.
+Every upload-pages-artifact step sets include-hidden-files: true: from v4 on the action leaves out every name that starts with a dot,
+and the site needs .well-known/security.txt and .nojekyll (D227).
+Controls: a copy with an action at @v4, a copy with pages: write at the top, a copy with a write the job is not allowed, and a copy
+without include-hidden-files, must fail.
 """
 import re
 import unittest
@@ -51,11 +54,42 @@ def problems(name, text):
     return out
 
 
+def hidden_file_problems(name, text):
+    """Each upload-pages-artifact step must carry include-hidden-files: true in its with: block."""
+    out, lines = [], text.splitlines()
+    for n, line in enumerate(lines, 1):
+        m = USES.match(line)
+        if not (m and m.group(1).startswith("actions/upload-pages-artifact@")):
+            continue
+        indent = len(line) - len(line.lstrip(" -")) if line.lstrip().startswith("-") else len(line) - len(line.lstrip())
+        step = []
+        for nxt in lines[n:]:
+            if nxt.strip() and (len(nxt) - len(nxt.lstrip())) < indent or nxt.lstrip().startswith("- "):
+                break
+            step.append(nxt.strip())
+        if "include-hidden-files: true" not in step:
+            out.append(f"{name}:{n}: upload-pages-artifact without include-hidden-files: true")
+    return out
+
+
 class WorkflowsTest(unittest.TestCase):
     def test_every_action_is_pinned_and_every_write_is_scoped(self):
         self.assertGreaterEqual(len(FILES), 5)
         found = [p for f in FILES for p in problems(f.name, f.read_text(encoding="utf-8"))]
         self.assertEqual(found, [])
+
+    def test_every_pages_artifact_keeps_the_dot_files(self):
+        steps = [f for f in FILES if "actions/upload-pages-artifact@" in f.read_text(encoding="utf-8")]
+        self.assertEqual(sorted(f.name for f in steps), ["deploy.yml", "pages.yml"])
+        found = [p for f in steps for p in hidden_file_problems(f.name, f.read_text(encoding="utf-8"))]
+        self.assertEqual(found, [])
+
+    def test_control_a_pages_artifact_without_the_dot_files_fails(self):
+        for f in (REPO / ".github" / "workflows" / "pages.yml", REPO / "deploy" / "staging" / "deploy.yml"):
+            text = f.read_text(encoding="utf-8")
+            bad = text.replace("          include-hidden-files: true\n", "", 1)
+            self.assertNotEqual(bad, text)
+            self.assertEqual(len(hidden_file_problems(f.name, bad)), 1)
 
     def test_control_an_action_by_tag_fails(self):
         text = (REPO / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
