@@ -231,7 +231,7 @@ def address_problem(fmt, address):
     bech32 or bech32m on bc1, base58check version 0x00 or 0x05 on 1 and 3. The 0x address: exactly its EIP-55 form. Tron:
     base58check version 0x41. XRP: base58check version 0x00 in the XRP alphabet. Solana: 32 bytes (it has no checksum)."""
     bad = f"{address!r} is not a valid {fmt} address"
-    if fmt not in FORMATS or not isinstance(address, str) or not FORMATS[fmt].match(address):
+    if fmt not in FORMATS or not isinstance(address, str) or not FORMATS[fmt].fullmatch(address):   # $ alone lets a final line break in (D229)
         return bad + " (its shape)"
     if fmt == "bitcoin":
         ok = segwit_program(address) is not None if address.startswith("bc1") else _payload_is(address, BITCOIN_B58, 21, (0, 5))
