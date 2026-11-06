@@ -226,9 +226,9 @@
   async function connect(w, n) {
     if (n.family === 'evm' || n.family === 'tron') return (await w.provider.request({ method: 'eth_requestAccounts' }))[0];
     if (n.family === 'bitcoin') return (await w.provider.requestAccounts())[0];
-    await new Promise((ok, no) => { const s = el('script'); s.src = 'assets/vendor/crossmark-sdk.js'; s.onload = ok; s.onerror = no; document.head.appendChild(s); });
-    for (let i = 0; i < 40 && !(window.crossmark && window.crossmark.methods); i++) await new Promise((ok) => setTimeout(ok, 100));
-    const r = await window.crossmark.methods.signInAndWait();
+    // The SDK the Crossmark extension injects (Crossmark's docs, "installing", option 3); in the real wallet window.crossmark has no
+    // methods (phase 6, 2026-11-05).
+    const r = await window.xrpl.crossmark.methods.signInAndWait();
     return r.response.data.address;
   }
 
@@ -258,9 +258,9 @@
       if (chain ? chain.enum !== 'BITCOIN_MAINNET' : u.getNetwork && (await u.getNetwork()) !== 'livenet') throw { code: 'test_network' };
       return u.sendBitcoin(n.address, Number(units));
     }
-    const xnet = window.crossmark.methods.getNetwork && window.crossmark.methods.getNetwork();
+    const x = window.xrpl.crossmark, xnet = (x.session && x.session.network) || (x.methods.getNetwork && x.methods.getNetwork());   // docs, "session"
     if (xnet && /test|dev/i.test(String(xnet.type || xnet.label || ''))) throw { code: 'test_network' };
-    const r = await window.crossmark.methods.signAndSubmitAndWait({ TransactionType: 'Payment', Account: state.account, Destination: n.address, Amount: units.toString() });
+    const r = await x.methods.signAndSubmitAndWait({ TransactionType: 'Payment', Account: state.account, Destination: n.address, Amount: units.toString() });
     const res = r.response.data.resp.result, code = (res.meta && res.meta.TransactionResult) || res.engine_result;
     if (code !== 'tesSUCCESS') throw { code: 'xrp_refused', detail: String(code || '') };   // spec seguranca-doacoes, section 11
     return res.hash;

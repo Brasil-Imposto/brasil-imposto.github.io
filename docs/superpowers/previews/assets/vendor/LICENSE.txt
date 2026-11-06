@@ -23,9 +23,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-crossmark-sdk.js: @crossmarkio/sdk 0.4.0 (pack/umd/index.js). O package.json e o registro do npm dizem MIT, mas o arquivo LICENSE que vem no
-pacote é o texto da GNU GPL v3, sem alteração, e o repositório de origem não é público. Valendo o mais restrito: esse texto acompanha a
-biblioteca em LICENSE-crossmark.txt. A GPL v3 pode ser combinada com a AGPL-3.0 do projeto.
