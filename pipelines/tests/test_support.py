@@ -586,6 +586,17 @@ class AddressChecksumTest(unittest.TestCase):
             with self.subTest(length=n):
                 self.assertEqual(support_data.sponge(data[:n], 0x06), hashlib.sha3_256(data[:n]).digest())
 
+    def test_a_line_break_or_space_around_an_address_is_its_shape_never_a_crash(self):
+        # the fuzzer of pipelines/fuzz/ found it (D229): the $ of a Python regex also matches before a final line break, so a Solana,
+        # Tron or XRP address with one passed the shape and broke base58 with a ValueError
+        data = json.loads((REPO / "data" / "support.json").read_text(encoding="utf-8"))
+        groups = [g for g in data["crypto"]["groups"] if g.get("address")]
+        self.assertEqual(sorted({g["format"] for g in groups}), sorted(support_data.FORMATS))
+        for g in groups:
+            for bad in (g["address"] + "\n", g["address"] + "\r\n", g["address"] + " ", "\n" + g["address"]):
+                with self.subTest(fmt=g["format"], address=bad):
+                    self.assertEqual(support_data.address_problem(g["format"], bad), f"{bad!r} is not a valid {g['format']} address (its shape)")
+
     def test_eip55_vectors(self):
         # the eight addresses of EIP-55's test cases (two whose checksum is all capitals, two all lowercase, four mixed)
         for a in ("0x52908400098527886E0F7030069857D2E4169EE7", "0x8617E340B3D01FA5F11F306F4090FD50E238070D",
