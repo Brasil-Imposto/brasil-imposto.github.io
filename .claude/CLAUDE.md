@@ -55,6 +55,9 @@ Site: <https://brasil-imposto.github.io>.
    `data/features.json`, desligada na produção. Enquanto o segredo `STAGING_DISPATCH_TOKEN` não existe, quem mergeia no `staging`
    roda o deploy do staging à mão ao fim do lote (`gh workflow run deploy.yml --repo Brasil-Imposto/staging --ref main`) e confere
    o site de testes.
+   Um pull request no `staging` ou na `main` precisa da aprovação de uma pessoa mantenedora que não fez o último push (D228); a
+   pessoa mantenedora une os próprios com `gh pr merge --admin`, que passa por cima de todas as regras, então só depois de ler que
+   o run mais novo de cada verificação terminou em `success`.
 7. Para fechar uma issue: os pull requests parciais dizem `Refs #N`; só o que cumpre o último critério diz `Closes #N`. O ramo padrão
    é o `staging`, então a issue fecha no merge no `staging`; num pull request para a `main` a palavra é ignorada. Antes de fechar,
    cada critério de "Pronto quando" com a sua prova; o que sobra vira uma issue nova, ligada; o comentário de fechamento lista os
@@ -103,6 +106,7 @@ Agent guide: Portuguese UI, English identifiers and commits; neutral text; no nu
 closes by hand; every period works; every check is proven against a planted failure; look at screenshots at 1440 and 420 px.
 Specs are approved by the maintainer before code, and a task that changes or adds anything on screen also needs a preview round the maintainer approves (D185). To close an issue, only the pull request that meets its last criterion says `Closes #N` (staging is the default
 branch, so it closes there); partial ones say `Refs #N`, and leftovers become a new linked issue. Before starting a task, check it has no owner yet (the spec's owner
-section, open issues, pull requests and branches). Pull requests go to `staging`; `main` receives approved tasks one at a
+section, open issues, pull requests and branches). Pull requests go to `staging` and need a maintainer's approval (maintainers merge their own with `gh pr merge --admin`, only after
+every check is green); `main` receives approved tasks one at a
 time, each in its own pull request with the maintainer's go (never the whole of `staging`), followed by the back-merge. Ask before changing a recorded decision, a method, sources, dependencies, the stack (as its own question, with measured popularity and alternatives) or
 repository settings.
