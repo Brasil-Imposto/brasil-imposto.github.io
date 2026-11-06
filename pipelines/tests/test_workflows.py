@@ -5,10 +5,11 @@ comment, so a moved tag cannot change what runs. No workflow grants a write perm
 job that needs it, and the only ones allowed are Pages' (pages and id-token), in a job named deploy, the Scorecard's
 (security-events and id-token), in a job named scorecard, CodeQL's (security-events), in a job named analyze, and the guard's
 (pull-requests), in a job named guard.
-Every upload-pages-artifact step sets include-hidden-files: true: from v4 on the action leaves out every name that starts with a dot,
-and the site needs .well-known/security.txt and .nojekyll (D227).
-Controls: a copy with an action at @v4, a copy with pages: write at the top, a copy with a write the job is not allowed, and a copy
-without include-hidden-files, must fail.
+Every workflow that deploys to Pages builds its artifact itself (D228): a tar of _site that keeps the names starting with a dot
+(the site needs .well-known/security.txt and .nojekyll), uploaded as github-pages, and no upload-pages-artifact (v3.0.1 calls
+upload-artifact@v4 by tag, which the SHA rule refuses; v4 and later leave the dot files out by default; v5.0.0 stalled the deploy).
+Controls: a copy with an action at @v4, a copy with pages: write at the top, a copy with a write the job is not allowed, a copy whose
+tar leaves the dot files out, a copy whose artifact has another name, and a copy back on upload-pages-artifact, must fail.
 """
 import re
 import unittest
@@ -54,21 +55,20 @@ def problems(name, text):
     return out
 
 
-def hidden_file_problems(name, text):
-    """Each upload-pages-artifact step must carry include-hidden-files: true in its with: block."""
-    out, lines = [], text.splitlines()
-    for n, line in enumerate(lines, 1):
-        m = USES.match(line)
-        if not (m and m.group(1).startswith("actions/upload-pages-artifact@")):
-            continue
-        indent = len(line) - len(line.lstrip(" -")) if line.lstrip().startswith("-") else len(line) - len(line.lstrip())
-        step = []
-        for nxt in lines[n:]:
-            if nxt.strip() and (len(nxt) - len(nxt.lstrip())) < indent or nxt.lstrip().startswith("- "):
-                break
-            step.append(nxt.strip())
-        if "include-hidden-files: true" not in step:
-            out.append(f"{name}:{n}: upload-pages-artifact without include-hidden-files: true")
+def pages_artifact_problems(name, text):
+    """A workflow with deploy-pages must archive _site with its dot files and upload the tar as github-pages."""
+    out = []
+    if "actions/upload-pages-artifact@" in text:
+        out.append(f"{name}: uses upload-pages-artifact")
+    tar = re.search(r"tar \\\n((?:\s+.*\\\n)+\s+\.\n)", text)
+    if not tar or "--directory _site" not in tar.group(1):
+        out.append(f"{name}: no tar of _site")
+    elif re.search(r"--exclude=['\"]?\.\[", tar.group(1)):
+        out.append(f"{name}: the tar leaves out the names that start with a dot")
+    m = re.search(r"uses: actions/upload-artifact@[0-9a-f]{40} # v[\d.]+\n((?:[ ]{8,}\S.*\n)+)", text)   # the step's own lines only
+    step = m.group(1) if m else ""
+    if "name: github-pages" not in step or "path: ${{ runner.temp }}/artifact.tar" not in step:
+        out.append(f"{name}: no upload of the tar as github-pages")
     return out
 
 
@@ -78,18 +78,24 @@ class WorkflowsTest(unittest.TestCase):
         found = [p for f in FILES for p in problems(f.name, f.read_text(encoding="utf-8"))]
         self.assertEqual(found, [])
 
-    def test_every_pages_artifact_keeps_the_dot_files(self):
-        steps = [f for f in FILES if "actions/upload-pages-artifact@" in f.read_text(encoding="utf-8")]
-        self.assertEqual(sorted(f.name for f in steps), ["deploy.yml", "pages.yml"])
-        found = [p for f in steps for p in hidden_file_problems(f.name, f.read_text(encoding="utf-8"))]
+    def test_every_pages_deploy_builds_its_artifact_with_the_dot_files(self):
+        deploys = [f for f in FILES if "actions/deploy-pages@" in f.read_text(encoding="utf-8")]
+        self.assertEqual(sorted(f.name for f in deploys), ["deploy.yml", "pages.yml"])
+        found = [p for f in deploys for p in pages_artifact_problems(f.name, f.read_text(encoding="utf-8"))]
         self.assertEqual(found, [])
 
-    def test_control_a_pages_artifact_without_the_dot_files_fails(self):
+    def test_control_a_pages_artifact_that_breaks_fails(self):
+        plants = [("            --exclude=.github \\\n", "            --exclude=.github \\\n            --exclude=.[^/]* \\\n", "dot"),
+                  ("          name: github-pages\n", "          name: site\n", "github-pages"),
+                  ("      - name: Archive the site for Pages\n", "      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0\n      - name: Archive the site for Pages\n", "upload-pages-artifact")]
         for f in (REPO / ".github" / "workflows" / "pages.yml", REPO / "deploy" / "staging" / "deploy.yml"):
             text = f.read_text(encoding="utf-8")
-            bad = text.replace("          include-hidden-files: true\n", "", 1)
-            self.assertNotEqual(bad, text)
-            self.assertEqual(len(hidden_file_problems(f.name, bad)), 1)
+            for old, new, word in plants:
+                bad = text.replace(old, new, 1)
+                self.assertNotEqual(bad, text, (f.name, word))
+                found = pages_artifact_problems(f.name, bad)
+                self.assertEqual(len(found), 1, (f.name, word, found))
+                self.assertIn(word, found[0])
 
     def test_control_an_action_by_tag_fails(self):
         text = (REPO / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")
