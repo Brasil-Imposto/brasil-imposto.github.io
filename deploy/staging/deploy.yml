@@ -45,12 +45,24 @@ jobs:
         run: python3 docs/superpowers/tools/build-site.py --profile staging --out _site
       - name: The manifest of this publication, every file with its sha256 (spec seguranca-doacoes, section 6)
         run: python3 docs/superpowers/tools/build-manifest.py write _site "$(git rev-parse HEAD)" | tee -a "$GITHUB_STEP_SUMMARY"
-      # v4 and later leave out every name that starts with a dot unless include-hidden-files is set; the site needs
-      # .well-known/security.txt and .nojekyll (D227)
-      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+      # The Pages artifact built here, as upload-pages-artifact's README allows (one tar named github-pages): the steps of
+      # upload-pages-artifact v3.0.1, whose inner upload-artifact@v4 the SHA rule refuses, with upload-artifact v4.6.2 by
+      # commit, the version the last good deploy used. The dot files stay in (.well-known/security.txt, .nojekyll). D228
+      - name: Archive the site for Pages
+        run: |
+          tar \
+            --dereference --hard-dereference \
+            --directory _site \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            --exclude=.git \
+            --exclude=.github \
+            .
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          path: _site
-          include-hidden-files: true
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
   deploy:
     needs: build
     runs-on: ubuntu-latest
