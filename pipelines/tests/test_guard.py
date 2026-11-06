@@ -26,7 +26,7 @@ class GuardPathsTest(unittest.TestCase):
 
     def test_every_path_of_the_spec_is_listed(self):
         for name in ("data/support.json", "docs/superpowers/previews/assets/bi-cripto.js", "docs/superpowers/previews/assets/bi-cripto-core.js",
-                     "docs/superpowers/previews/assets/vendor/crossmark-sdk.js", "docs/superpowers/previews/assets/vendor/three/build/three.module.js",
+                     "docs/superpowers/previews/assets/vendor/qrcode.js", "docs/superpowers/previews/assets/vendor/three/build/three.module.js",
                      ".github/workflows/pages.yml", ".github/scripts/guard.py", ".github/guard-paths.txt", "deploy/staging/deploy.yml",
                      "docs/superpowers/tools/csp.py", "pipelines/tests/test_support.py", "SECURITY.md", "docs/superpowers/previews/.well-known/security.txt"):
             with self.subTest(name=name):

@@ -11,14 +11,18 @@ const path = require('path');
 const SUPPORT = JSON.parse(fs.readFileSync(process.env.BI_SUPPORT_JSON || path.join(__dirname, '..', '..', '..', 'data', 'support.json'), 'utf8'));
 const FROM = '0x1111111111111111111111111111111111111111';
 // The XRP Ledger through Crossmark (spec seguranca-doacoes, section 11): the result of the submit and the network it reports, set by the
-// test; the real SDK file is answered empty so this one stays.
+// test. Shaped as the real extension (Crossmark 0.2.19, measured on 2026-11-05 in phase 6): the SDK the wallet injects is
+// window.xrpl.crossmark (Crossmark's docs, "installing", option 3); window.crossmark exists but its methods are empty; the network is
+// session.network, filled by the sign-in (docs, "session"); getNetwork answers nothing.
 const fakeCrossmark = () => {
-  window.xrpl = { isCrossmark: true };
-  window.crossmark = { methods: {
-    signInAndWait: async () => ({ response: { data: { address: 'rFakeFakeFakeFakeFakeFakeFakeFake', network: { type: window.__fake.xrpNet || 'main' } } } }),
-    getNetwork: () => ({ type: window.__fake.xrpNet || 'main' }),
+  const session = { network: null };
+  window.crossmark = { methods: undefined };
+  window.xrpl = { isCrossmark: true, crossmark: { session, methods: {
+    signInAndWait: async () => { session.network = { protocol: 'xrpl', type: window.__fake.xrpNet || 'main' };
+      return { response: { data: { address: 'rFakeFakeFakeFakeFakeFakeFakeFake' } } }; },
+    getNetwork: () => undefined,
     signAndSubmitAndWait: async (tx) => { window.__calls.push({ method: 'xrp:submit', tx });
-      return { response: { data: { resp: { result: { hash: 'ABCDEF0123456789', meta: { TransactionResult: window.__fake.xrpResult || 'tesSUCCESS' } } } } } }; } } };
+      return { response: { data: { resp: { result: { hash: 'ABCDEF0123456789', meta: { TransactionResult: window.__fake.xrpResult || 'tesSUCCESS' } } } } } }; } } } };
 };
 // P7 (spec seguranca-doacoes, section 14): wallets announcing an icon that is not a data:image (a javascript: link, an outside
 // address, markup) and the control, a valid PNG
@@ -77,7 +81,7 @@ const units = (text, decimals) => { const [w, f = ''] = text.split('.'); return 
     if (two) await ctx.addInitScript(() => { window.__twoWallets = true; });
     if (!phone && !none) await ctx.addInitScript(fakeWallets);
     if (how === 'hostile') await ctx.addInitScript(hostileWallets);
-    if (how === 'xrp') { await ctx.addInitScript(fakeCrossmark); await ctx.route('**/assets/vendor/crossmark-sdk.js', (r) => r.fulfill({ status: 200, contentType: 'text/javascript', body: '' })); }
+    if (how === 'xrp') await ctx.addInitScript(fakeCrossmark);
     const p = await ctx.newPage();
     await p.goto(base + 'como-ler-o-mapa.html'); await p.waitForSelector('.bi-apoie-btn');
     await p.$eval('.bi-apoie-btn', (e) => e.click()); await p.waitForTimeout(150);
