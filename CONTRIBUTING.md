@@ -23,7 +23,7 @@ O Brasil-Imposto só mostra dado oficial: toda contribuição traz a fonte.
 
 ### O que instalar
 
-- **Python 3.12 com o [uv](https://docs.astral.sh/uv/)** (o `ci` usa o uv 0.11.32). O uv instala o Python certo e as versões
+- **Python 3.12 com o [uv](https://docs.astral.sh/uv/)** (o `ci` usa o uv 0.13.7). O uv instala o Python certo e as versões
   fixadas em `uv.lock`.
 - **Node 24** (`.nvmrc`), para o site em Astro de `site/` e para as sondas.
 - **git**.
