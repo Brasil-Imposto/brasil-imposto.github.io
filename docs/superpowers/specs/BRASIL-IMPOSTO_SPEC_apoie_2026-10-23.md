@@ -353,3 +353,124 @@ endereços.
 - **`apoie-check.cjs`** ganhou duas conferências: `addresses` (nome da rede, endereço mostrado, endereço copiado lido da área de transferência de verdade e link do explorador, em cada moeda e rede) e `sri` (cada script de fora servido como publicado tem de ser aceito, e servido alterado não pode rodar). Nas versões de produção e de staging, todas passam; no controle, todas falham.
 - **O estado por rede (D205, D206):** cada rede tem `status`; a cripto está em `"live"` e o XRP Ledger em `"soon"`. Uma moeda sem rede aberta fica na fila, apagada (contorno tracejado), desligada, com "Em breve", sem painel, e a página não leva o endereço dela (opção A da rodada `apoie-xrp-r1`). O texto do cartão "Cripto" fica como aprovado em 10.1 (D208). Cada botão de moeda tem o ícone do token à esquerda do nome (D206, rodada `cripto-envio-r1` aprovada em D208): o conjunto aberto cryptocurrency-icons 0.18.1 (CC0), em `assets/cripto/`, carregado só quando aparece (o do SOL depois virou a marca da Solana, fora do CC0, D213); o XRP apagado leva o ícone em cinza.
 - **Dois defeitos achados pelas conferências novas:** o "copiar" dos cartões de casos (`assets/cases.js`) e o "Copiar link" de Os 3 Poderes pegavam todo clique em `[data-copy]` da página, então o "Copiar" da janela copiava só os dígitos do endereço na Início e o link da página em Os 3 Poderes. Os dois passaram a pegar só os próprios botões, e um teste recusa um "copiar" que pega a página inteira.
+
+## 11. Rodada 4 (2026-11-06): a regra pública do pagamento de quem contribui (D230, D231)
+
+Status: **aprovada pelo mantenedor em 2026-11-06 (D233), com a pergunta 11.7 respondida (D232).** Muda a regra da seção 9 (D201 e D202), o texto da coluna
+"2. Desenvolvedores" e do quadro "Como cada mês é dividido" (9.3), e a seção "Quem pode doar" do `GOVERNANCE.md`. Nenhum código
+antes da aprovação desta seção, e nenhuma tela antes da rodada de prévia dos textos (D185).
+
+**In English:** contributors are paid by a public rule. Each issue gets its weight (1, 2 or 3) from its difficulty label before
+anyone works on it; each month the infrastructure is paid first, then the rest is split by the weights of the issues closed that
+month, the maintainer included by the same rule; a public script computes the split from GitHub and a public monthly ledger records
+every donation, cost and payout. No back pay; unclaimed pay returns to the pool after 6 months; payment details are asked privately,
+only when there is money to pay; contributors know they may never be paid. The project says it is open source and non-profit, with
+one honest line: it is not yet a registered association, and donations reach the maintainer's wallets.
+
+### 11.1 Por que muda
+
+- Em 2026-11-06, 160 dos 161 pull requests unidos eram do mantenedor (as sessões com IA) e 1 de uma pessoa de fora. Pela regra de
+  D201 e D202 (peso no pull request no merge e, nas primeiras divisões, todo o trabalho desde 25/09/2026), quase toda a parte dos
+  desenvolvedores das primeiras doações iria para quem escolhe os pesos, e a regra não estava escrita no `GOVERNANCE.md` nem no
+  `CONTRIBUTING.md`; o `GOVERNANCE.md` ainda dizia "Hoje o projeto não recebe doação" e mantinha a devolução de cripto que D204 tirou.
+- Pesquisa de 2026-11-06 (privada, em `private/research/`): nenhum projeto achado paga a pessoa mantenedora pela mesma divisão de pull
+  requests nem paga o passado. Os mais próximos: a **Drips Wave** (a pessoa mantenedora põe a complexidade da issue antes do trabalho,
+  100, 150 ou 200 pontos; um fundo dividido pela parte de cada pessoa no ciclo; quem organiza pode descontar pontos por mau uso) e o
+  **Actual Budget** (um fundo mensal dividido por pontos que um script público calcula; cada pagamento publicado com o nome no GitHub).
+  Os projetos cívicos brasileiros lidos (Querido Diário, Base dos Dados, Serenata, Brasil.IO) não pagam por contribuição.
+
+### 11.2 A regra
+
+1. **O que conta:** uma issue com rótulo de dificuldade, posto antes de alguém começar (`difficulty:low` peso 1, `difficulty:medium`
+   peso 2, `difficulty:high` peso 3), fechada no mês por um pull request unido. O peso é da issue: dividir o trabalho em vários pull
+   requests não muda nada, e pull request sem issue com peso não entra na divisão (como na Drips Wave).
+2. **De quem é:** da pessoa atribuída à issue quando ela fecha, uma pessoa por issue. Quem quer uma issue pede nela, e uma pessoa
+   mantenedora atribui.
+3. **O peso se discute antes:** quem discorda diz na issue antes de começar; depois do merge o peso não muda. O script confere que o
+   rótulo veio antes da atribuição (pela linha do tempo da issue); se veio depois, a issue não conta. Uma pessoa mantenedora pode tirar
+   o peso de uma issue fechada por spam ou mau uso, com o motivo escrito na issue (como na Drips Wave).
+4. **A pessoa mantenedora entra pela mesma regra** (D231): o trabalho dela só conta numa issue com peso aberta antes, como o de
+   qualquer pessoa, sem valor fixo e sem teto. Quando houver uma segunda pessoa mantenedora, ela confirma o peso das issues da primeira
+   (o Actual Budget paga quem mantém por pontos públicos).
+5. **O mês:** do dia 1 ao último dia, na hora de Brasília. Fechado o mês: primeiro a infraestrutura do mês, pelo recibo de cada gasto;
+   o resto vai para quem tem issues com peso fechadas no mês, na proporção da soma dos pesos de cada pessoa. As partes são em centavos,
+   arredondadas para baixo, e os centavos que sobram ficam para o mês seguinte. Num mês sem issue com peso fechada, o resto fica para o
+   mês seguinte (D202).
+6. **Sem pagamento do passado** (D230): a regra vale a partir do primeiro mês com ela publicada no site da produção.
+7. **O cálculo é público:** um script do repositório lê do GitHub as issues fechadas no mês (rótulo, pessoa atribuída, datas da linha
+   do tempo) e o livro-caixa do mês (entradas e infraestrutura) e escreve a divisão; qualquer pessoa roda e chega aos mesmos centavos
+   (como o script de pontos do Actual Budget).
+8. **O pagamento** (D231): quem recebe escolhe cripto ou Pix. Nenhum dado de pagamento aparece em issue ou pull request: o pedido é
+   feito em particular, só quando houver valor a pagar. Antes do primeiro pagamento a outra pessoa, a resposta do contador sobre os
+   impostos (Q39) é um portão.
+9. **Não reclamado:** fica guardado 6 meses e depois volta para a divisão do mês seguinte, com a linha no livro-caixa (D231; o Actual
+   Budget zera o não reclamado duas vezes por ano).
+10. **Quem contribui sabe que talvez nunca receba:** o pagamento só existe quando há doação (D231).
+
+### 11.3 O livro-caixa público
+
+- Um arquivo por mês em `data/support-ledger/AAAA-MM.json` (fora de `data/ledger/`, que é o livro de fluxos do dinheiro público),
+  validado por um JSON Schema, com: cada entrada (data, canal, valor e, na cripto, o link da transação; nenhum nome de quem doou);
+  cada gasto de infraestrutura (serviço, valor, data e o recibo); a divisão do mês como o script escreve (o @ do GitHub, as issues, a
+  soma dos pesos, o valor); cada pagamento feito (o @ do GitHub, o valor, a data, o canal e, na cripto, o link da transação; no Pix,
+  só "Pix" e a data); o saldo; e quantos meses o saldo paga a infraestrutura no ritmo dos últimos três meses (como a Base dos Dados).
+- A conta fecha ao centavo: saldo do mês anterior + entradas - infraestrutura - pagamentos = saldo do mês, e o saldo bate com o que as
+  carteiras e a conta mostram no último dia (regra das contas, D94).
+- Onde o site mostra o livro-caixa (uma vista da janela do Apoie ou uma página) é a rodada de prévia (D185).
+
+### 11.4 Os textos (exatamente assim; a rodada de prévia mostra cada um no lugar)
+
+- **Abertura (troca o texto de 9.3):** "O Brasil-Imposto mostra, com dados oficiais e a fonte de cada número, para onde vai o imposto
+  pago no Brasil. É apartidário, de código aberto e sem fins lucrativos: toda funcionalidade é e continua disponível para todas as
+  pessoas, de graça. O seu apoio paga duas coisas, e nada além delas: a infraestrutura que mantém os dados corretos e no ar e o
+  trabalho de quem desenvolve o projeto."
+- **Linha nova, logo depois** (D231): "O Brasil-Imposto ainda não é uma associação registrada: as doações chegam às carteiras do
+  mantenedor, e cada entrada e saída é publicada." Quando o Pix abrir, "às carteiras" passa a "às carteiras e à conta".
+- **Coluna "2. Desenvolvedores" (troca):** "Quem fecha uma issue com peso, inclusive a pessoa mantenedora. O que sobra de cada mês,
+  depois da infraestrutura, é dividido pelo peso das issues fechadas no mês (1, 2 ou 3, posto na issue antes do trabalho). Quem
+  contribui sabe que talvez nunca receba: o pagamento só existe quando há doação, e cada um é publicado no livro-caixa."
+- **Quadro "Como cada mês é dividido" (troca os quatro itens):** "Primeiro, a infraestrutura do mês, pelo recibo de cada gasto." /
+  "O resto vai para quem fechou issues com peso no mês, inclusive a pessoa mantenedora, na proporção do peso (1, 2 ou 3), por um script
+  público que qualquer pessoa pode rodar." / "Num mês sem issue com peso fechada, o resto fica para o mês seguinte; valor não
+  reclamado volta à divisão depois de 6 meses." / "Tudo fica no livro-caixa público: cada doação, cada gasto e cada pagamento."
+- **Sai** o item "Nas primeiras divisões, contam todas as contribuições aceitas desde o início do projeto..." (D230).
+- **Coluna "1. Infraestrutura" (troca, D232):** "O custo real de cada mês, pelo recibo de cada gasto, só do que o projeto paga como
+  projeto: servidor, banco de dados, domínio e a ferramenta de IA que coleta e confere os dados, quando paga em nome do projeto. Hoje o
+  site é hospedado de graça no GitHub Pages e o projeto não paga nenhum serviço. A assinatura de IA de cada pessoa que contribui não
+  entra aqui: ela é paga pela divisão. É a primeira coisa paga com o apoio."
+
+### 11.5 `GOVERNANCE.md` e `CONTRIBUTING.md`
+
+- **`GOVERNANCE.md`, "Quem pode doar" (troca o texto inteiro):** valem a regra 4 e o livro-caixa; sem fins lucrativos, com a linha da
+  associação; a regra de 11.2 em seis linhas, com o link para esta seção; sai "Hoje o projeto não recebe doação" e sai a devolução de
+  cripto de carteira sem identificação (D204).
+- **`CONTRIBUTING.md`, seção nova "Issues com peso":** como pedir uma issue, o peso antes do trabalho, quem atribui, o aviso de que
+  talvez nunca haja pagamento, e que nenhum dado de pagamento vai em issue ou pull request.
+- **O modelo de pull request** ganha a linha "Closes #N da issue com peso, se houver".
+
+### 11.6 Provas
+
+- **O script da divisão**, testes primeiro, com casos gravados: dois meses com pesos 1, 2 e 3 entre duas pessoas e a pessoa
+  mantenedora, a soma das partes mais os centavos guardados igual ao que sobra da infraestrutura, ao centavo; controles que têm de
+  falhar: uma issue sem rótulo contada, um rótulo posto depois da atribuição contado, uma issue fechada sem pull request unido contada,
+  um centavo a mais numa parte.
+- **O livro-caixa:** o JSON Schema e a conta ao centavo de 11.3, com um controle (um real a mais numa entrada).
+- **Os textos:** `apoie-check.cjs` confere cada texto de 11.4 na janela, e o texto que sai some; `visible-text` nas quatro páginas.
+- Capturas em 1440 e 420 px da janela, olhadas antes de entregar.
+
+### 11.7 Pergunta ao mantenedor (rodada 2), respondida (D232)
+
+1. **O que conta como infraestrutura.** O texto aprovado da coluna "1. Infraestrutura" (9.3, D201) diz: "hoje, as ferramentas de
+   inteligência artificial usadas para coletar e conferir os dados". Cada pessoa que contribui paga a própria assinatura de IA (D201).
+   - **a) (escolhida, D232)** Só o que o projeto paga como projeto, cada um com recibo: servidor, banco de dados, domínio e a ferramenta de IA que coleta e
+     confere os dados, quando ela for paga em nome do projeto. A assinatura pessoal de quem contribui (a do mantenedor também) não
+     entra: ela já é paga pela divisão. Nota 75, recomendada: com pessoas que o mantenedor não conhece, nenhum recibo pessoal entra
+     antes da divisão, e o livro-caixa não mostra o preço da ferramenta de cada pessoa (D201).
+   - b) Também a assinatura de IA do mantenedor; a das outras pessoas não. Nota 40: uma regra só para uma pessoa.
+   - c) A assinatura de IA de toda pessoa que fechou issue com peso no mês, pelo recibo. Nota 50: o livro-caixa passa a mostrar o preço
+     da ferramenta de cada pessoa, o que D201 pediu para não mostrar, e uma assinatura de quem fechou uma issue pequena come a parte de
+     todas as outras.
+
+### 11.8 Quem faz (D164)
+
+A sessão local de 2026-11-06, depois da aprovação: a rodada de prévia dos textos, o plano, e os pull requests no `staging`.
