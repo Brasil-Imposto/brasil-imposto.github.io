@@ -410,13 +410,16 @@ one honest line: it is not yet a registered association, and donations reach the
 ### 11.3 O livro-caixa público
 
 - Um arquivo por mês em `data/support-ledger/AAAA-MM.json` (fora de `data/ledger/`, que é o livro de fluxos do dinheiro público),
-  validado por um JSON Schema, com: cada entrada (data, canal, valor e, na cripto, o link da transação; nenhum nome de quem doou);
+  validado por um JSON Schema, com: cada entrada (data, canal, valor e, na cripto, o link da transação; nenhum nome de quem doou, salvo a regra das fontes: toda fonte
+  acima de 5% da receita do ano é publicada com o nome, D234);
   cada gasto de infraestrutura (serviço, valor, data e o recibo); a divisão do mês como o script escreve (o @ do GitHub, as issues, a
   soma dos pesos, o valor); cada pagamento feito (o @ do GitHub, o valor, a data, o canal e, na cripto, o link da transação; no Pix,
   só "Pix" e a data); o saldo; e quantos meses o saldo paga a infraestrutura no ritmo dos últimos três meses (como a Base dos Dados).
 - A conta fecha ao centavo: saldo do mês anterior + entradas - infraestrutura - pagamentos = saldo do mês, e o saldo bate com o que as
   carteiras e a conta mostram no último dia (regra das contas, D94).
-- Onde o site mostra o livro-caixa (uma vista da janela do Apoie ou uma página) é a rodada de prévia (D185).
+- O livro-caixa fica numa página própria, "Livro-caixa do apoio" (`livro-caixa.html`), com link no rodapé e na linha do livro-caixa
+  da janela do Apoie (rodada `apoie-r4`, opção B, D234): o estado de hoje (o que entrou, o que saiu, o saldo) e, mês a mês, as
+  entradas, a infraestrutura, a divisão e os pagamentos, montados a partir de `data/support-ledger/` na construção do site.
 
 ### 11.4 Os textos (exatamente assim; a rodada de prévia mostra cada um no lugar)
 
@@ -474,3 +477,8 @@ one honest line: it is not yet a registered association, and donations reach the
 ### 11.8 Quem faz (D164)
 
 A sessão local de 2026-11-06, depois da aprovação: a rodada de prévia dos textos, o plano, e os pull requests no `staging`.
+
+### 11.9 Rodada de prévia `apoie-r4` (2026-11-06), respondida (D234)
+
+A prévia (`private/apoie/r4/`, gerador `private/apoie/build_apoie_r4.py`, a partir da montagem do staging) mostrou os textos de 11.4
+na janela de verdade e as duas formas do livro-caixa. O mantenedor escolheu a página própria (opção B); os textos ficam como desenhados.
