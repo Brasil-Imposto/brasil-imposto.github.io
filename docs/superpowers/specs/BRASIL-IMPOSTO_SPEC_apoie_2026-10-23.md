@@ -356,7 +356,7 @@ endereços.
 
 ## 11. Rodada 4 (2026-11-06): a regra pública do pagamento de quem contribui (D230, D231)
 
-Status: **escrita em 2026-11-06; a pergunta 11.7 respondida (D232); espera a aprovação do mantenedor.** Muda a regra da seção 9 (D201 e D202), o texto da coluna
+Status: **aprovada pelo mantenedor em 2026-11-06 (D233), com a pergunta 11.7 respondida (D232).** Muda a regra da seção 9 (D201 e D202), o texto da coluna
 "2. Desenvolvedores" e do quadro "Como cada mês é dividido" (9.3), e a seção "Quem pode doar" do `GOVERNANCE.md`. Nenhum código
 antes da aprovação desta seção, e nenhuma tela antes da rodada de prévia dos textos (D185).
 
