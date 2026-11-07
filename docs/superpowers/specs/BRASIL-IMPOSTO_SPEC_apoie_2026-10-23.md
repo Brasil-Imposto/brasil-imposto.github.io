@@ -356,7 +356,7 @@ endereços.
 
 ## 11. Rodada 4 (2026-11-06): a regra pública do pagamento de quem contribui (D230, D231)
 
-Status: **escrita em 2026-11-06; espera a aprovação do mantenedor.** Muda a regra da seção 9 (D201 e D202), o texto da coluna
+Status: **escrita em 2026-11-06; a pergunta 11.7 respondida (D232); espera a aprovação do mantenedor.** Muda a regra da seção 9 (D201 e D202), o texto da coluna
 "2. Desenvolvedores" e do quadro "Como cada mês é dividido" (9.3), e a seção "Quem pode doar" do `GOVERNANCE.md`. Nenhum código
 antes da aprovação desta seção, e nenhuma tela antes da rodada de prévia dos textos (D185).
 
@@ -434,7 +434,10 @@ one honest line: it is not yet a registered association, and donations reach the
   público que qualquer pessoa pode rodar." / "Num mês sem issue com peso fechada, o resto fica para o mês seguinte; valor não
   reclamado volta à divisão depois de 6 meses." / "Tudo fica no livro-caixa público: cada doação, cada gasto e cada pagamento."
 - **Sai** o item "Nas primeiras divisões, contam todas as contribuições aceitas desde o início do projeto..." (D230).
-- **Coluna "1. Infraestrutura":** depende da pergunta 11.7.
+- **Coluna "1. Infraestrutura" (troca, D232):** "O custo real de cada mês, pelo recibo de cada gasto, só do que o projeto paga como
+  projeto: servidor, banco de dados, domínio e a ferramenta de IA que coleta e confere os dados, quando paga em nome do projeto. Hoje o
+  site é hospedado de graça no GitHub Pages e o projeto não paga nenhum serviço. A assinatura de IA de cada pessoa que contribui não
+  entra aqui: ela é paga pela divisão. É a primeira coisa paga com o apoio."
 
 ### 11.5 `GOVERNANCE.md` e `CONTRIBUTING.md`
 
@@ -455,11 +458,11 @@ one honest line: it is not yet a registered association, and donations reach the
 - **Os textos:** `apoie-check.cjs` confere cada texto de 11.4 na janela, e o texto que sai some; `visible-text` nas quatro páginas.
 - Capturas em 1440 e 420 px da janela, olhadas antes de entregar.
 
-### 11.7 Pergunta ao mantenedor (rodada 2)
+### 11.7 Pergunta ao mantenedor (rodada 2), respondida (D232)
 
 1. **O que conta como infraestrutura.** O texto aprovado da coluna "1. Infraestrutura" (9.3, D201) diz: "hoje, as ferramentas de
    inteligência artificial usadas para coletar e conferir os dados". Cada pessoa que contribui paga a própria assinatura de IA (D201).
-   - a) Só o que o projeto paga como projeto, cada um com recibo: servidor, banco de dados, domínio e a ferramenta de IA que coleta e
+   - **a) (escolhida, D232)** Só o que o projeto paga como projeto, cada um com recibo: servidor, banco de dados, domínio e a ferramenta de IA que coleta e
      confere os dados, quando ela for paga em nome do projeto. A assinatura pessoal de quem contribui (a do mantenedor também) não
      entra: ela já é paga pela divisão. Nota 75, recomendada: com pessoas que o mantenedor não conhece, nenhum recibo pessoal entra
      antes da divisão, e o livro-caixa não mostra o preço da ferramenta de cada pessoa (D201).
