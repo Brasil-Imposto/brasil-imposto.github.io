@@ -1,0 +1,11 @@
+[
+ {"number": 30, "closedAt": "2027-01-10T15:00:00Z", "stateReason": "COMPLETED", "closerMerged": true,
+  "labels": ["difficulty:high"], "assignees": ["mantenedor"],
+  "labeled": [{"label": "difficulty:high", "at": "2027-01-02T10:00:00Z"}], "assigned": [{"login": "mantenedor", "at": "2027-01-02T11:00:00Z"}]},
+ {"number": 31, "closedAt": "2027-01-15T15:00:00Z", "stateReason": "COMPLETED", "closerMerged": true,
+  "labels": ["difficulty:medium"], "assignees": ["pessoa-a"],
+  "labeled": [{"label": "difficulty:medium", "at": "2027-01-03T10:00:00Z"}], "assigned": [{"login": "pessoa-a", "at": "2027-01-03T12:00:00Z"}]},
+ {"number": 32, "closedAt": "2027-01-20T15:00:00Z", "stateReason": "COMPLETED", "closerMerged": true,
+  "labels": ["difficulty:low"], "assignees": ["pessoa-b"],
+  "labeled": [{"label": "difficulty:low", "at": "2027-01-04T10:00:00Z"}], "assigned": [{"login": "pessoa-b", "at": "2027-01-04T12:00:00Z"}]}
+]

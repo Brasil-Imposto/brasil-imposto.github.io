@@ -1,0 +1,22 @@
+[
+ {"number": 12, "closedAt": "2026-12-05T15:00:00Z", "stateReason": "COMPLETED", "closerMerged": true,
+  "labels": ["difficulty:high", "area:data"], "assignees": ["pessoa-a"],
+  "labeled": [{"label": "difficulty:high", "at": "2026-12-01T10:00:00Z"}], "assigned": [{"login": "pessoa-a", "at": "2026-12-01T11:00:00Z"}]},
+ {"number": 15, "closedAt": "2026-12-20T15:00:00Z", "stateReason": "COMPLETED", "closerMerged": true,
+  "labels": ["difficulty:medium"], "assignees": ["pessoa-a"],
+  "labeled": [{"label": "difficulty:medium", "at": "2026-12-02T10:00:00Z"}], "assigned": [{"login": "pessoa-a", "at": "2026-12-03T10:00:00Z"}]},
+ {"number": 18, "closedAt": "2026-12-31T23:30:00Z", "stateReason": "COMPLETED", "closerMerged": true,
+  "labels": ["difficulty:low"], "assignees": ["pessoa-b"],
+  "labeled": [{"label": "difficulty:low", "at": "2026-12-04T10:00:00Z"}], "assigned": [{"login": "pessoa-b", "at": "2026-12-04T12:00:00Z"}]},
+ {"number": 20, "closedAt": "2026-12-10T15:00:00Z", "stateReason": "COMPLETED", "closerMerged": true,
+  "labels": ["area:docs"], "assignees": ["pessoa-b"], "labeled": [], "assigned": [{"login": "pessoa-b", "at": "2026-12-05T10:00:00Z"}]},
+ {"number": 21, "closedAt": "2026-12-11T15:00:00Z", "stateReason": "COMPLETED", "closerMerged": true,
+  "labels": ["difficulty:high"], "assignees": ["pessoa-b"],
+  "labeled": [{"label": "difficulty:high", "at": "2026-12-09T10:00:00Z"}], "assigned": [{"login": "pessoa-b", "at": "2026-12-06T10:00:00Z"}]},
+ {"number": 22, "closedAt": "2026-12-12T15:00:00Z", "stateReason": "COMPLETED", "closerMerged": false,
+  "labels": ["difficulty:low"], "assignees": ["pessoa-b"],
+  "labeled": [{"label": "difficulty:low", "at": "2026-12-01T10:00:00Z"}], "assigned": [{"login": "pessoa-b", "at": "2026-12-02T10:00:00Z"}]},
+ {"number": 23, "closedAt": "2027-01-01T04:00:00Z", "stateReason": "COMPLETED", "closerMerged": true,
+  "labels": ["difficulty:low"], "assignees": ["pessoa-b"],
+  "labeled": [{"label": "difficulty:low", "at": "2026-12-01T10:00:00Z"}], "assigned": [{"login": "pessoa-b", "at": "2026-12-02T10:00:00Z"}]}
+]
