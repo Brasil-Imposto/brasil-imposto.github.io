@@ -3,6 +3,8 @@ how a difference is reported. Controls: a change under data/ or in a builder mus
 with its line on both sides. The comparison itself runs in the visible-text workflow, where a planted word fails it.
 """
 import importlib.util
+import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -29,6 +31,31 @@ class VisibleTextCheckTest(unittest.TestCase):
 
     def test_control_a_page_missing_on_one_side_is_reported(self):
         self.assertEqual(vt.differences({"notas:page": "x"}, {}), [("notas:page", 1, "x", "<nada>")])
+
+
+def fake_tree(root, switch_in_production, with_switches=True):
+    """A tree with only what pages_of reads: a site_chrome.py with the page tables, and data/features.json."""
+    tools = root / "docs/superpowers/tools"
+    tools.mkdir(parents=True)
+    chrome = 'ALL_PAGES = {"inicio": ("home.html", "Início"), "livro": ("livro-caixa.html", "Livro-caixa do apoio")}\n'
+    (tools / "site_chrome.py").write_text(chrome + ('SWITCHED_PAGES = {"livro": "livro-caixa"}\n' if with_switches else ""), encoding="utf-8")
+    (root / "data").mkdir()
+    (root / "data/features.json").write_text(json.dumps({"features": [{"key": "livro-caixa", "production": switch_in_production}]}),
+                                             encoding="utf-8")
+    return root
+
+
+class PagesOfTest(unittest.TestCase):
+    def test_a_page_whose_switch_is_off_in_production_is_not_captured(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertEqual(vt.pages_of(fake_tree(Path(tmp) / "off", False)), {"inicio": "index.html"})
+            # controls: the switch on, and a tree from before the switches, capture the page
+            self.assertEqual(vt.pages_of(fake_tree(Path(tmp) / "on", True)), {"inicio": "index.html", "livro": "livro-caixa.html"})
+            self.assertIn("livro", vt.pages_of(fake_tree(Path(tmp) / "old", False, with_switches=False)))
+
+    def test_this_tree_leaves_the_ledger_page_out_of_production(self):
+        self.assertNotIn("livro", vt.pages_of(Path(__file__).resolve().parents[2]))
+
 
 
 if __name__ == "__main__":

@@ -37,6 +37,7 @@ jobs:
           python docs/superpowers/tools/build-platform-preview.py
           python docs/superpowers/tools/build-site-chrome.py
           python docs/superpowers/tools/build-notes-page.py
+          python docs/superpowers/tools/build-ledger-page.py
           git diff --exit-code -- docs/superpowers/previews/
       - name: Assemble the site (the production profile, spec staging section 3)
         # the four page builders, the three published pages, assets/, index.html, the forwarding page at Início's old address

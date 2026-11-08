@@ -5,7 +5,6 @@ month is its closing balance minus what earlier splits still owe after that mont
 import json
 from pathlib import Path
 
-from jsonschema import Draft202012Validator, FormatChecker
 
 REPO = Path(__file__).resolve().parents[2]
 DIR = REPO / "data" / "support-ledger"
@@ -45,6 +44,8 @@ def pool_cents(months, month):
 
 
 def problems(months):
+    # imported here: the page builder (build-ledger-page.py) reads the ledger with Python's own packages only, as every builder
+    from jsonschema import Draft202012Validator, FormatChecker
     out, validator, prev = [], Draft202012Validator(SCHEMA, format_checker=FormatChecker()), None
     for m in months:
         errors = [f"{m.get('month')}: {e.message}" for e in validator.iter_errors(m)]

@@ -25,7 +25,8 @@ import csp  # noqa: E402
 import map_loader  # noqa: E402
 import site_chrome  # noqa: E402
 
-BUILDERS = ("build-cases.py", "build-standalone-data.py", "build-simulation.py", "build-platform-preview.py", "build-notes-page.py")
+BUILDERS = ("build-cases.py", "build-standalone-data.py", "build-simulation.py", "build-platform-preview.py", "build-notes-page.py",
+            "build-ledger-page.py")
 # the notes of the map for Como ler o mapa (D159), made from the map's data once build-standalone-data.py has written it
 NODE_BUILDERS = ("build-map-notes.cjs",)
 def script_tags(path):
@@ -138,7 +139,7 @@ def build(profile, out):
     if profile == "staging":   # the chrome's script with the staging switches; the committed file is production's
         (out / "assets" / site_chrome.CHROME_FILE).write_text(site_chrome.chrome_js("staging"), encoding="utf-8")
         (out / "assets" / "staging-strip.js").write_text(STRIP_JS, encoding="utf-8")
-    for key, (name, _label) in site_chrome.ALL_PAGES.items():
+    for key, (name, _label) in site_chrome.built_pages(profile).items():   # a page whose switch is off is not served
         target = out / ("index.html" if key == "inicio" else name)
         committed = (PREVIEWS / name).read_bytes().decode("utf-8")
         page = with_features(committed, key, profile)

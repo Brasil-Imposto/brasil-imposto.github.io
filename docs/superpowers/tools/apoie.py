@@ -74,9 +74,11 @@ BEFORE = [("Quem recebe:", ""),   # filled from RECEIVES, only with a channel op
            "número: todo número vem da fonte oficial, e as regras de neutralidade valem para todos."),
           ("De quem não aceitamos:", " partido, candidato e ocupante de cargo eletivo. Toda fonte acima de 5% da receita do ano é "
            "publicada com o nome."),
-          ("", "Tudo o que entra e tudo o que sai é publicado, mês a mês, no livro-caixa do projeto."),
+          ("", "Tudo o que entra e tudo o que sai é publicado, mês a mês, no livro-caixa do projeto."),   # LEDGER_LINE
           ("Em reais:", " doação em cripto ou em dólar entra no livro-caixa em reais, pela cotação do dia em que chegou."),
           ("Imposto de renda:", " a doação não é dedutível; o projeto não é uma entidade beneficente.")]
+# the line of "Antes de apoiar" whose last words link to the ledger page, where the livro-caixa switch is on (spec apoie 11.3, D234)
+LEDGER_LINE, LEDGER_WORDS = BEFORE[3][1], "livro-caixa do projeto"
 PIX_STEPS = ["Abra a vaquinha do Brasil-Imposto na Vakinha.", "Digite o valor que quiser.",
              "Pague com Pix, pelo app do seu banco, ou com cartão."]
 PIX_FACTS = ("A Vakinha recebe a doação e repassa o valor ao projeto. Na tela do seu banco, o Pix aparece para {bank}. A Vakinha fica "
@@ -168,11 +170,12 @@ def _receives(data):
     return "; ".join(parts) + "." if parts else ""
 
 
-def modal(data, keyless=False, staging=False):
+def modal(data, keyless=False, staging=False, ledger_href=None):
     """The modal's markup: the main view, the contact view, and the view of each payment channel that is live. A value still
     null leaves its sentence out (production never shows a missing value). keyless (the staging build) draws the contact form
     without an access key: a send then shows the error line and makes no request. staging opens the networks still on "soon", so
-    the maintainer can make the first XRP donation through the test site (spec cripto-no-site, section 4)."""
+    the maintainer can make the first XRP donation through the test site (spec cripto-no-site, section 4). ledger_href, given where
+    the livro-caixa switch is on, links the last words of the ledger line to the ledger page (spec apoie 11.3, D234)."""
     pix_live, sponsors_live, crypto_live = (support_data.live(data, c) for c in support_data.CHANNELS)
     nets = [n for g in data["crypto"]["groups"] for n in g["networks"]]
     crypto_open = crypto_live and any(support_data.opens(n, staging) for n in nets)   # every network paused: the card says "Pausada"
@@ -185,6 +188,9 @@ def modal(data, keyless=False, staging=False):
         if k == "Quem recebe:":
             if receives:   # comes back when a channel goes live
                 before.append(f"<li><b>{escape(k)}</b> {receives}</li>")
+            continue
+        if ledger_href and v == LEDGER_LINE:
+            before.append("<li>" + escape(v).replace(LEDGER_WORDS, f'<a href="{escape(ledger_href)}">{LEDGER_WORDS}</a>') + "</li>")
             continue
         before.append(f"<li><b>{escape(k)}</b>{escape(v)}</li>" if k else f"<li>{escape(v)}</li>")
     box = ('<div class="bi-ap-box"><h4>Como cada mês é dividido</h4><ol>' + "".join(f"<li>{escape(x)}</li>" for x in MONTH)

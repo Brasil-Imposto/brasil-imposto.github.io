@@ -40,6 +40,7 @@ jobs:
           python docs/superpowers/tools/build-platform-preview.py
           python docs/superpowers/tools/build-site-chrome.py
           python docs/superpowers/tools/build-notes-page.py
+          python docs/superpowers/tools/build-ledger-page.py
           git diff --exit-code -- docs/superpowers/previews/
       - name: Build the staging site
         run: python3 docs/superpowers/tools/build-site.py --profile staging --out _site

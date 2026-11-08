@@ -31,9 +31,15 @@ class FeaturesFileTest(unittest.TestCase):
 
     def test_apoie_is_on_in_staging(self):
         d = committed()
-        self.assertEqual([f["key"] for f in d["features"]], ["apoie", "trade", "rede"])
+        self.assertEqual([f["key"] for f in d["features"]], ["apoie", "trade", "rede", "livro-caixa"])
         self.assertIs(features.on("apoie", "staging", d), True)
         self.assertIsInstance(features.on("apoie", "production", d), bool)
+
+    def test_the_ledger_page_is_on_in_staging_only(self):
+        # the support ledger page (spec apoie 11.3, D234), off in production until the batch; its issue is the one opened for it
+        d = committed()
+        self.assertEqual((features.on("livro-caixa", "staging", d), features.on("livro-caixa", "production", d)), (True, False))
+        self.assertEqual(next(f["issue"] for f in d["features"] if f["key"] == "livro-caixa"), 207)
 
     def test_trade_is_on_in_staging_only(self):
         # O que o Brasil vende on Início, only in staging (D159, spec home-trim); its issue is the one the switch was opened for

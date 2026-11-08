@@ -38,5 +38,6 @@ docs/superpowers/previews/*.html
 !docs/superpowers/previews/os-3-poderes.html
 !docs/superpowers/previews/como-o-dinheiro-anda.html
 !docs/superpowers/previews/como-ler-o-mapa.html
+!docs/superpowers/previews/livro-caixa.html
 # per-entity JSON files, generated at build time from data/ (D151, answer 3)
 site/src/generated/

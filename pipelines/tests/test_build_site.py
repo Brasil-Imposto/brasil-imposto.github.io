@@ -23,11 +23,12 @@ ACCESS_KEY = "00000000-1111-4222-8333-444444444444"   # a dummy Web3Forms access
 # what each switch leaves in a page when it is built in: its class names, its style and its script
 MARKS = {"apoie": ("bi-apoie", "bi-ap-", "bi-apoie-css"),
          "trade": ("data-trade", "o-que-o-brasil-vende", "home-trade", "BIHT", "O que o Brasil vende ao exterior, produto por produto"),
-         "rede": ('id="rede"', "data-graph", "ledger-graph", "3d-force-graph", "bi-ledger-interest", "platform.css", "Rede do dinheiro", "#rede")}
+         "rede": ('id="rede"', "data-graph", "ledger-graph", "3d-force-graph", "bi-ledger-interest", "platform.css", "Rede do dinheiro", "#rede"),
+         "livro-caixa": ('href="livro-caixa.html"', "Livro-caixa do apoio", "led-today")}
 # what a switch's content leaves in a script or style of assets/ (home-feed.js keeps the hook window.BIHT and names its file in a
 # comment, so in assets/ only the section itself counts, with its own files)
 ASSET_MARKS = {"apoie": ("bi-apoie-css",), "trade": ("data-trade", "o-que-o-brasil-vende", "O que o Brasil vende ao exterior, produto por produto"),
-               "rede": ("data-graph-stage", "BILGV")}
+               "rede": ("data-graph-stage", "BILGV"), "livro-caixa": ("livro-caixa.html",)}
 
 
 def status():
@@ -111,7 +112,7 @@ class BuildSiteTest(unittest.TestCase):
         cls.tmp.cleanup()
 
     def test_production_is_the_committed_pages_plus_robots(self):
-        for key, (name, _) in site_chrome.ALL_PAGES.items():
+        for key, (name, _) in site_chrome.built_pages("production").items():
             with self.subTest(page=key):
                 built = self.prod / ("index.html" if key == "inicio" else name)
                 self.assertEqual(built.read_bytes(), (PREVIEWS / name).read_bytes())
@@ -119,8 +120,26 @@ class BuildSiteTest(unittest.TestCase):
         self.assertEqual((self.prod / site_chrome.HOME).read_text(encoding="utf-8"), build_site.FORWARD)
         # .well-known: security.txt (spec seguranca-doacoes, section 10)
         self.assertEqual(sorted(p.name for p in self.prod.iterdir()), sorted(
-            [".nojekyll", ".well-known", "assets", "index.html", "robots.txt", site_chrome.HOME] + [n for k, (n, _) in site_chrome.ALL_PAGES.items() if k != "inicio"]
+            [".nojekyll", ".well-known", "assets", "index.html", "robots.txt", site_chrome.HOME] + [n for k, (n, _) in site_chrome.built_pages("production").items() if k != "inicio"]
             + list(site_chrome.OLD_NAMES.values())))
+
+    def test_the_ledger_page_only_where_its_switch_is_on(self):
+        # spec apoie 11.3 (D234): the page and the footer link in staging, neither in production, while livro-caixa is off there
+        for site, present in ((self.prod, False), (self.stage, True)):
+            with self.subTest(site=site.name):
+                self.assertEqual((site / "livro-caixa.html").exists(), present)
+                foot = (site / "como-ler-o-mapa.html").read_text(encoding="utf-8")
+                self.assertEqual('href="livro-caixa.html"' in foot, present)
+        self.assertIn("Saldo: R$ 0,00.", re.sub(r"</?span[^>]*>", "", (self.stage / "livro-caixa.html").read_text(encoding="utf-8")))
+        self.assertEqual(site_chrome.built_pages("production").keys() | {"livro"}, site_chrome.ALL_PAGES.keys())
+
+    def test_control_the_ledger_link_in_a_production_page_is_found(self):
+        site = Path(self.tmp.name) / "ledger-control"
+        (site / "assets").mkdir(parents=True)
+        shutil.copyfile(self.stage / "como-ler-o-mapa.html", site / "como-ler-o-mapa.html")   # staging's footer carries the link
+        data = json.loads((REPO / "data" / "features.json").read_text(encoding="utf-8"))
+        found = [x for x in leaks(site, data) if "livro-caixa" in x]
+        self.assertIn('como-ler-o-mapa.html: livro-caixa (href="livro-caixa.html")', found)
 
     def test_each_old_address_forwards_to_its_clean_page(self):
         # Q86: the design-round names keep working in both builds, with the query and the hash
@@ -144,7 +163,7 @@ class BuildSiteTest(unittest.TestCase):
                     s = test_csp.scan(html)
                     self.assertEqual((s.inline, s.handlers, s.js_urls), ([], [], []))
                     # a page of a switch's build carries that build's policy; the forwarding pages, production's
-                    real = ["index.html"] + [n for k, (n, _) in site_chrome.ALL_PAGES.items() if k != "inicio"]   # Início's file name only forwards
+                    real = ["index.html"] + [n for k, (n, _) in site_chrome.built_pages(site.name).items() if k != "inicio"]   # Início's file name only forwards
                     want = test_csp.csp.meta(site.name) if page.name in real else test_csp.csp.META
                     self.assertEqual(html.count('http-equiv="Content-Security-Policy"'), 1)
                     self.assertEqual(html.count(want), 1)
@@ -191,12 +210,14 @@ class BuildSiteTest(unittest.TestCase):
         support = json.loads((REPO / "data" / "support.json").read_text(encoding="utf-8"))
         support["contact_form"]["access_key"] = ACCESS_KEY
         switched = {"features": [{"key": "apoie", "issue": 46, "description": "O botão Apoie", "staging": True, "production": True},
-                                 {"key": "rede", "issue": 130, "description": "A prévia da Rede do dinheiro", "staging": True, "production": False}]}
+                                 {"key": "rede", "issue": 130, "description": "A prévia da Rede do dinheiro", "staging": True, "production": False},
+                                 {"key": "livro-caixa", "issue": 207, "description": "A página Livro-caixa do apoio", "staging": True, "production": False}]}
         (tmp / "support.json").write_text(json.dumps(support), encoding="utf-8")
         (tmp / "features.json").write_text(json.dumps(switched), encoding="utf-8")
         site = tmp / "control"
         site.mkdir()
-        for key, (name, _) in site_chrome.ALL_PAGES.items():   # the committed pages with apoie built in, as production would make them
+        served = site_chrome.built_pages("production")
+        for key, (name, _) in served.items():   # the committed pages with apoie built in, as production would make them
             env = {"BI_SUPPORT_JSON": str(tmp / "support.json"), "BI_FEATURES_JSON": str(tmp / "features.json")}
             old = {k: os.environ.get(k) for k in env}
             os.environ.update(env)
@@ -211,7 +232,7 @@ class BuildSiteTest(unittest.TestCase):
             if f["key"] == "apoie":
                 f["production"] = False
         found = leaks(site, off)
-        self.assertEqual(len(found), len(site_chrome.ALL_PAGES) * len(MARKS["apoie"]), found)
+        self.assertEqual(len(found), len(served) * len(MARKS["apoie"]), found)
 
     def test_trade_is_off_in_production_and_on_in_staging(self):
         data = json.loads((REPO / "data" / "features.json").read_text(encoding="utf-8"))

@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[3]
 PY = ["uv", "run", "--locked", "python"]
 TOOLS = "docs/superpowers/tools"
 BUILDERS = ["build-cases.py", "build-standalone-data.py", "build-simulation.py", "build-platform-preview.py",
-            "build-site-chrome.py", "build-notes-page.py"]
+            "build-site-chrome.py", "build-notes-page.py", "build-ledger-page.py"]
 
 
 def steps(tmp):
