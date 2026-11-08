@@ -32,6 +32,7 @@ Um assunto por pull request, aberto para o ramo `staging` (nunca para a `main`).
 
 <!-- Todo item não marcado precisa de uma linha explicando por quê. -->
 
+- [ ] Se este pull request resolve uma issue com peso, ele diz `Closes #N` dela.
 - [ ] Cada número novo tem fonte oficial com link, ano de referência e data de coleta
 - [ ] O script em `pipelines/` ou `docs/superpowers/tools/` refaz o arquivo sozinho, a partir da fonte
 - [ ] A checagem ao centavo passa, e o controle com um erro plantado falha (as duas saídas estão acima)
