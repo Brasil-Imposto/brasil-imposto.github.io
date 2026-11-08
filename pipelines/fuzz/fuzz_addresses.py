@@ -41,7 +41,7 @@ def check_one(data, planted=False):
     result = support_data.address_problem(fmt, address)
     if not (result is None or isinstance(result, str)):
         raise AssertionError(f"address_problem returned {result!r}")
-    if fmt == "evm" and support_data.FORMATS["evm"].match(address):
+    if fmt == "evm" and support_data.FORMATS["evm"].fullmatch(address):   # match's $ lets a final line break in (D229)
         form = support_data.eip55(address)
         if support_data.eip55(form) != form or support_data.address_problem("evm", form) is not None:
             raise AssertionError(f"the EIP-55 form of {address!r} is not stable")

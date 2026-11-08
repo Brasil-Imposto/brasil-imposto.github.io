@@ -525,6 +525,11 @@ class RulesTest(unittest.TestCase):
         d = on_soon(); d["contact_form"]["access_key"] = "someone" + chr(64) + "example.org"
         self.assertTrue(any(p.startswith("contact_form.access_key") for p in support_data.problems(d)))
 
+    def test_control_an_access_key_with_a_final_line_break_fails(self):
+        # D229's class: match's $ lets a final line break in; the key is checked with fullmatch
+        d = on_soon(); d["contact_form"]["access_key"] = ACCESS_KEY + "\n"
+        self.assertTrue(any(p.startswith("contact_form.access_key") for p in support_data.problems(d)))
+
     def test_a_status_outside_soon_and_live_fails(self):
         d = on_soon(); d["sponsors"]["status"] = "open"
         self.assertTrue(any(p.startswith("sponsors.status") for p in support_data.problems(d)))

@@ -283,7 +283,7 @@ def problems(data):
             if p:
                 out.append(f"crypto/{g['id']}: {p}")
     key = data["contact_form"].get("access_key")
-    if key is not None and not (isinstance(key, str) and ACCESS_KEY.match(key)):
+    if key is not None and not (isinstance(key, str) and ACCESS_KEY.fullmatch(key)):   # fullmatch, as for the addresses (D229)
         out.append("contact_form.access_key: the Web3Forms access key (a UUID, never an e-mail address)")
     for channel in CHANNELS:
         if data[channel].get("status") == "live":
