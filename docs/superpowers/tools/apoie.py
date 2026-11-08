@@ -35,21 +35,24 @@ BACK = ('<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" str
         'fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 
 LEAD = ("O Brasil-Imposto mostra, com dados oficiais e a fonte de cada número, para onde vai o imposto pago no Brasil. É "
-        "apartidário e de código aberto. O seu apoio paga duas coisas, e nada além delas: a infraestrutura que mantém os dados "
-        "corretos e no ar e o trabalho de quem desenvolve o projeto.")
+        "apartidário, de código aberto e sem fins lucrativos: toda funcionalidade é e continua disponível para todas as pessoas, "
+        "de graça. O seu apoio paga duas coisas, e nada além delas: a infraestrutura que mantém os dados corretos e no ar e o "
+        "trabalho de quem desenvolve o projeto.")
+ASSOC = ("O Brasil-Imposto ainda não é uma associação registrada: as doações chegam às carteiras do mantenedor, e cada entrada e "
+         "saída é publicada.")
 MONEY_TITLE = "Para onde vai o dinheiro do apoio"
-INFRA = ("O custo real de cada mês, que muda de um mês para outro, com a nota de cada gasto: hoje, as ferramentas de inteligência "
-         "artificial usadas para coletar e conferir os dados; depois, servidor e banco de dados, quando o site precisar. O site é "
-         "hospedado de graça no GitHub Pages. É a primeira coisa paga com o apoio.")
-DEVELOPERS = ("Quem entrega trabalho aceito no repositório, inclusive a pessoa mantenedora. O que sobra de cada mês, depois da "
-              "infraestrutura, é dividido entre quem contribuiu pelo peso de cada contribuição aceita (1, 2 ou 3, escrito no pull "
-              "request antes do merge), e cada pagamento é publicado no livro-caixa.")
-MONTH = ["Primeiro, a infraestrutura do mês, pelo custo real, que muda de um mês para outro.",
-         "O resto vai para quem contribuiu, inclusive a pessoa mantenedora, dividido pelo peso de cada contribuição aceita no mês "
-         "(1, 2 ou 3).",
-         "Nas primeiras divisões, contam todas as contribuições aceitas desde o início do projeto, em 25/09/2026, de todas as "
-         "pessoas, até esse saldo ser pago; depois, só as do mês.",
-         "Num mês sem contribuição aceita, o resto fica guardado para os meses seguintes, e o saldo aparece no livro-caixa."]
+INFRA = ("O custo real de cada mês, pelo recibo de cada gasto, só do que o projeto paga como projeto: servidor, banco de dados, "
+         "domínio e a ferramenta de IA que coleta e confere os dados, quando paga em nome do projeto. Hoje o site é hospedado de "
+         "graça no GitHub Pages e o projeto não paga nenhum serviço. A assinatura de IA de cada pessoa que contribui não entra "
+         "aqui: ela é paga pela divisão. É a primeira coisa paga com o apoio.")
+DEVELOPERS = ("Quem fecha uma issue com peso, inclusive a pessoa mantenedora. O que sobra de cada mês, depois da infraestrutura, é "
+              "dividido pelo peso das issues fechadas no mês (1, 2 ou 3, posto na issue antes do trabalho). Quem contribui sabe que "
+              "talvez nunca receba: o pagamento só existe quando há doação, e cada um é publicado no livro-caixa.")
+MONTH = ["Primeiro, a infraestrutura do mês, pelo recibo de cada gasto.",
+         "O resto vai para quem fechou issues com peso no mês, inclusive a pessoa mantenedora, na proporção do peso (1, 2 ou 3), por "
+         "um script público que qualquer pessoa pode rodar.",
+         "Num mês sem issue com peso fechada, o resto fica para o mês seguinte; valor não reclamado volta à divisão depois de 6 meses.",
+         "Tudo fica no livro-caixa público: cada doação, cada gasto e cada pagamento."]
 PIX_CARD = "Em reais, qualquer valor, com Pix ou cartão, pela vaquinha do Brasil-Imposto."
 SPONSORS_CARD = "Em dólar, uma vez pela sua conta do GitHub."
 CRYPTO_CARD = "Sete moedas: BTC, ETH, SOL, USDT, USDC, XRP e BNB. Cada endereço é público, com o link do explorador."
@@ -190,6 +193,7 @@ def modal(data, keyless=False, staging=False):
             '<div class="bi-ap-head"><img src="assets/brand/brasil-imposto-logo.svg" alt="">'
             '<h2 id="bi-ap-title" tabindex="-1">Apoie o Brasil-Imposto</h2></div>'
             f'<p class="bi-ap-lead">{escape(LEAD)}</p>'
+            f'<p class="bi-ap-assoc">{escape(ASSOC)}</p>'
             f'<h3>{escape(MONEY_TITLE)}</h3><div class="bi-ap-bar" aria-hidden="true"><i></i><i></i></div>'
             '<div class="bi-ap-cols">'
             f'<div class="bi-ap-col bi-ap-b"><h4>1. Infraestrutura</h4><p>{escape(INFRA)}</p></div>'
@@ -303,6 +307,8 @@ CSS = """<style id="bi-apoie-css">
 .bi-ap-body h4 { margin: 0 0 6px; font-size: 14px; }
 .bi-ap-body p, .bi-ap-body li { font-size: 14px; line-height: 1.55; color: #33404C; }
 .bi-ap-body p { margin: 0 0 10px; }
+/* spec apoie 11.4 (D231): the association line under the lead, as drawn in round apoie-r4 */
+.bi-ap-body .bi-ap-assoc { margin: 10px 0 0; font-size: 13.5px; color: #4A5560; }
 .bi-ap-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; padding-right: 48px; }
 .bi-ap-head img { width: 42px; height: 42px; flex: none; }
 .bi-ap-bar { display: flex; gap: 3px; height: 6px; margin: 0 0 12px; }
