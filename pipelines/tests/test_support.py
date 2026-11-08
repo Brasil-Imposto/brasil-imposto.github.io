@@ -65,7 +65,7 @@ def in_order(t, marks):
     return True
 
 
-# What the modal said before section 9; a build must show none of it. "Para onde vai o dinheiro" is the old title, and
+# What the modal said before section 9 (and before section 11, below); a build must show none of it. "Para onde vai o dinheiro" is the old title, and
 # the new one begins with it, so it is matched as a whole phrase.
 OLD_TEXTS = ["Não pagamos por número de commits, de linhas ou de pull requests",
              "A pessoa mantenedora recebe um valor fixo por mês para revisar, publicar e manter o projeto, com teto de R$ 3.000,00.",
@@ -73,7 +73,12 @@ OLD_TEXTS = ["Não pagamos por número de commits, de linhas ou de pull requests
              "Com o restante, as tarefas pagas que entraram no mês",
              "Depois, o valor fixo da manutenção, até o teto.",
              "1. Desenvolvedores", "2. Infraestrutura",
-             "Não compra conteúdo: ninguém que apoia muda o que o site mostra"]
+             "Não compra conteúdo: ninguém que apoia muda o que o site mostra",
+             # and what section 11 took out (D230 to D232): the old weight rule, the back pay and the AI tools as infrastructure
+             "Quem entrega trabalho aceito no repositório",
+             "escrito no pull request antes do merge",
+             "Nas primeiras divisões, contam todas as contribuições aceitas desde o início do projeto",
+             "hoje, as ferramentas de inteligência artificial usadas para coletar e conferir os dados"]
 
 
 def removed_texts(t):
@@ -980,12 +985,26 @@ class PagesTest(unittest.TestCase):
 
     def test_the_main_view_texts_of_section_9_3(self):
         t = text(self.main_view(on_soon()))
-        for s in [apoie.LEAD, apoie.MONEY_TITLE, apoie.INFRA, apoie.DEVELOPERS, apoie.PIX_CARD, *apoie.MONTH,
-                  "Quem entrega trabalho aceito no repositório, inclusive a pessoa mantenedora.",
+        for s in [apoie.LEAD, apoie.ASSOC, apoie.MONEY_TITLE, apoie.INFRA, apoie.DEVELOPERS, apoie.PIX_CARD, *apoie.MONTH,
+                  "Quem fecha uma issue com peso, inclusive a pessoa mantenedora.",
                   'O que o apoio compra: trabalho e infraestrutura. Junto com a doação, você pode pedir pelo "Fale com a gente" uma '
                   'funcionalidade que ainda não existe; os pedidos entram no planejamento das próximas atualizações. Nenhum apoio muda '
                   'um número: todo número vem da fonte oficial, e as regras de neutralidade valem para todos.']:
             self.assertIn(re.sub(r"\s+", " ", s), t, s[:60])
+
+    def test_the_texts_of_section_11_4(self):
+        self.assertIn("sem fins lucrativos: toda funcionalidade é e continua disponível para todas as pessoas, de graça.", apoie.LEAD)
+        self.assertEqual(apoie.ASSOC, "O Brasil-Imposto ainda não é uma associação registrada: as doações chegam às carteiras do "
+                                      "mantenedor, e cada entrada e saída é publicada.")
+        self.assertIn("só do que o projeto paga como projeto", apoie.INFRA)
+        self.assertIn("Hoje o site é hospedado de graça no GitHub Pages e o projeto não paga nenhum serviço.", apoie.INFRA)
+        self.assertIn("posto na issue antes do trabalho", apoie.DEVELOPERS)
+        self.assertIn("Quem contribui sabe que talvez nunca receba", apoie.DEVELOPERS)
+        self.assertEqual(len(apoie.MONTH), 4)
+        self.assertFalse(any("25/09/2026" in m or "primeiras divisões" in m for m in apoie.MONTH))
+        h = self.main_view(on_soon(), "staging")
+        self.assertIn(apoie.ASSOC, text(h))
+        self.assertLess(text(h).index(apoie.LEAD[:40]), text(h).index(apoie.ASSOC))
 
     def test_the_order_of_the_main_view(self):
         marks = ["1. Infraestrutura", "2. Desenvolvedores", "Como apoiar", "Cripto", "Pix", apoie.OTHER_WAY,

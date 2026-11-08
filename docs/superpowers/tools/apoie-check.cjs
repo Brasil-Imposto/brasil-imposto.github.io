@@ -7,6 +7,7 @@
 //            in every view and with every coin
 //   columns  the two cards of "Como apoiar", Cripto then Pix (D220: the GitHub Sponsors card left), sit in two equal columns above
 //            640 px and one under the other at 640 px and below (the computed tracks and the cards' own positions)
+//   texts    (spec apoie 11.4) the main view's rendered text holds every text of section 11.4 and none of the texts that left
 //   soon     each card on "soon" shows "Em breve", holds no link, button or address, and a click on it opens nothing
 //   pix      Pix on "soon": its card shows "Em breve" and holds no button, link or address (the soon check, for the Pix card
 //            alone). Pix live (a test build, BI_SUPPORT_JSON pointing at a file outside the repository, read here for the
@@ -46,7 +47,8 @@
 // a honeypot the page cannot read, Web3Forms' answers swapped, Escape swallowed, focus() disabled, the backdrop not
 // clickable, three columns of cards at every width, the Pix link sent to another address, the first ETH address and its explorer
 // link changed on the page, the hashes taken out of the page so the changed outside scripts run, the coin icons blocked, the
-// send's own files blocked for the amount check and left to load for the reserve check);
+// send's own files blocked for the amount check and left to load for the reserve check, the association line taken out and
+// an old text of the panel put back);
 // every check must then fail,
 // or the probe is blind.
 // Env: PW_CORE (path to playwright-core), CHROME_HEADLESS (chrome-headless-shell binary).
@@ -68,6 +70,24 @@ const unhash = (html) => html.replace(/ integrity="[^"]*"/g, '').replace(/ data-
 const rehash = (html) => html.replace(/(sha(?:256|384|512)-)(.)/g, (m, alg, c) => alg + (c === 'A' ? 'B' : 'A'));
 const PAGES = ['BRASIL-IMPOSTO_DESIGN_platform-preview_2026-10-09.html', 'os-3-poderes.html',
   'como-o-dinheiro-anda.html'];
+// spec apoie 11.4 (D230 to D232): the texts the main view shows, copied from the spec, not read from apoie.py, so the probe
+// does not reuse the code it checks; and the texts that left with section 11
+const TEXTS_11_4 = [
+   "O Brasil-Imposto mostra, com dados oficiais e a fonte de cada número, para onde vai o imposto pago no Brasil. É apartidário, de código aberto e sem fins lucrativos: toda funcionalidade é e continua disponível para todas as pessoas, de graça. O seu apoio paga duas coisas, e nada além delas: a infraestrutura que mantém os dados corretos e no ar e o trabalho de quem desenvolve o projeto.",
+   "O Brasil-Imposto ainda não é uma associação registrada: as doações chegam às carteiras do mantenedor, e cada entrada e saída é publicada.",
+   "O custo real de cada mês, pelo recibo de cada gasto, só do que o projeto paga como projeto: servidor, banco de dados, domínio e a ferramenta de IA que coleta e confere os dados, quando paga em nome do projeto. Hoje o site é hospedado de graça no GitHub Pages e o projeto não paga nenhum serviço. A assinatura de IA de cada pessoa que contribui não entra aqui: ela é paga pela divisão. É a primeira coisa paga com o apoio.",
+   "Quem fecha uma issue com peso, inclusive a pessoa mantenedora. O que sobra de cada mês, depois da infraestrutura, é dividido pelo peso das issues fechadas no mês (1, 2 ou 3, posto na issue antes do trabalho). Quem contribui sabe que talvez nunca receba: o pagamento só existe quando há doação, e cada um é publicado no livro-caixa.",
+   "Primeiro, a infraestrutura do mês, pelo recibo de cada gasto.",
+   "O resto vai para quem fechou issues com peso no mês, inclusive a pessoa mantenedora, na proporção do peso (1, 2 ou 3), por um script público que qualquer pessoa pode rodar.",
+   "Num mês sem issue com peso fechada, o resto fica para o mês seguinte; valor não reclamado volta à divisão depois de 6 meses.",
+   "Tudo fica no livro-caixa público: cada doação, cada gasto e cada pagamento."
+  ];
+const GONE_11_4 = [
+   "Nas primeiras divisões, contam todas as contribuições aceitas desde o início do projeto",
+   "Quem entrega trabalho aceito no repositório",
+   "escrito no pull request antes do merge",
+   "hoje, as ferramentas de inteligência artificial usadas para coletar e conferir os dados"
+  ];
 const AT = String.fromCharCode(64);
 const PERSON = { name: 'Pessoa de Teste', email: 'teste' + AT + 'exemplo.org', message: 'Mensagem de teste da sonda.' };
 const PLANT = `
@@ -176,7 +196,7 @@ const PLANT = `
         return u.startsWith(base) ? r.continue() : r.abort();
       });
       if (control) {
-        await ctx.addInitScript((css) => {
+        await ctx.addInitScript(({ css, GONE }) => {
           HTMLElement.prototype.focus = function () {};
           addEventListener('keydown', (e) => { if (e.key === 'Escape') e.stopImmediatePropagation(); }, true);
           const real = Date.now.bind(Date); let n = 0; Date.now = () => real() + 10000 * (n++);  // every reading 10 s later
@@ -187,11 +207,13 @@ const PLANT = `
             const s = document.createElement('style'); s.textContent = css; document.head.appendChild(s);
             document.querySelectorAll('.bi-ap-soon').forEach((c) => c.insertAdjacentHTML('beforeend', '<button type="button" data-go="main">x</button>'));
             document.querySelectorAll('[data-view="pix"] a').forEach((a) => { a.href = 'https://exemplo.org/'; });   // the Pix link goes elsewhere
+            const assoc = document.querySelector('.bi-ap-assoc');   // the association line out, an old text of the panel back
+            if (assoc) { const old = document.createElement('p'); old.textContent = GONE; assoc.replaceWith(old); }
             const net = document.querySelector('.bi-ap-coin[data-coin="ETH"] .bi-ap-net');   // the first ETH address, swapped
             if (net) { const c = net.querySelector('code'); c.textContent = c.textContent.slice(0, -1) + 'x';
               net.querySelector('[data-copy]').dataset.copy = c.textContent; net.querySelector('a').href = 'https://exemplo.org/'; }
           });
-        }, PLANT);
+        }, { css: PLANT, GONE: GONE_11_4[0] });
       }
       const p = await ctx.newPage();
       await p.goto(base + page);
@@ -224,6 +246,10 @@ const PLANT = `
         `${cols.n} cards (${cols.titles.join(', ')}) in ${cols.tracks} column(s) over ${cols.rows} row(s), ${cols.even ? 'equal' : 'unequal'} widths; wanted ${wantCols}`);
       const hs = { doc: pageWide, panel: await p.$eval('.bi-ap-panel', (e) => e.scrollWidth - e.clientWidth) };
       await p.$eval('.bi-ap-panel', (e) => { e.scrollTop = 0; });
+      const said = await p.$eval('.bi-ap-view[data-view="main"]', (e) => e.innerText.replace(/\s+/g, ' '));
+      const missing = TEXTS_11_4.filter((s) => !said.includes(s)), back = GONE_11_4.filter((s) => said.includes(s));
+      report(w, key, 'texts', !missing.length && !back.length, `${TEXTS_11_4.length - missing.length} of ${TEXTS_11_4.length} texts of 11.4 shown`
+        + (missing.length ? `; missing: ${missing.map((s) => s.slice(0, 40)).join(' | ')}` : '') + (back.length ? `; back: ${back.map((s) => s.slice(0, 40)).join(' | ')}` : ''));
       // the cards on "soon"
       const soon = await p.$$eval('.bi-ap-soon', (cs) => cs.map((c) => ({ tag: [...c.querySelectorAll('.bi-ap-tag')].some((t) => t.textContent.trim() === 'Em breve' && t.getClientRects().length),
         clickable: c.querySelectorAll('a, button, code, [data-go]').length })));
