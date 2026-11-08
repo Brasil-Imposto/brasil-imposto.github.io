@@ -25,8 +25,17 @@ PAGES = {
 # Pages with the common header and footer that are not in the header's list (D159): the notes of the map, linked from the
 # footer and from the map itself.
 NOTES_PAGE = "como-ler-o-mapa.html"
-OTHER_PAGES = {"notas": (NOTES_PAGE, "Como ler o mapa")}
+# The support ledger (spec apoie 11.3, D234): its own page, linked from the footer and from the Apoie modal, where its switch is on.
+LEDGER_PAGE = "livro-caixa.html"
+OTHER_PAGES = {"notas": (NOTES_PAGE, "Como ler o mapa"), "livro": (LEDGER_PAGE, "Livro-caixa do apoio")}
 ALL_PAGES = {**PAGES, **OTHER_PAGES}
+SWITCHED_PAGES = {"livro": "livro-caixa"}   # pages a build serves only where their switch is on (build-site.py)
+
+
+def built_pages(profile):
+    """The pages a build of the profile serves: every page, less one whose switch is off there."""
+    return {k: v for k, v in ALL_PAGES.items() if k not in SWITCHED_PAGES or features.on(SWITCHED_PAGES[k], profile)}
+
 # The design-round names the pages were published under until 2026-10-26 (Q86, D172 question 28): shared links to them keep
 # working, since the site build writes a page at each one that forwards to the clean address, with its query and hash.
 OLD_NAMES = {"tres-poderes": "BRASIL-IMPOSTO_DESIGN_tres-poderes-round-3_2026-10-21.html",
@@ -142,10 +151,11 @@ def header(current, rede=True):
             + ('<p>Rede do dinheiro (prévia), decisões e licenças ficam no rodapé.</p></nav>' if rede else '<p>Decisões e licenças ficam no rodapé.</p></nav>'))
 
 
-def footer(rede=True):
-    """The footer, the same on every page; the link to the money network only with its switch (D172, Q-A2)."""
+def footer(rede=True, ledger=False):
+    """The footer, the same on every page; the link to the money network only with its switch (D172, Q-A2), and the one to the
+    support ledger only with its own (spec apoie 11.3, D234)."""
     links = [(f"{HOME_HREF}#rede", "Rede do dinheiro (prévia)", ' data-here')] if rede else []
-    links += [(NOTES_PAGE, "Como ler o mapa", ""),
+    links += [(NOTES_PAGE, "Como ler o mapa", "")] + ([(LEDGER_PAGE, "Livro-caixa do apoio", "")] if ledger else []) + [
              (REPO_URL, "Código aberto no GitHub", ""),
              (f"{REPO_URL}/blob/main/docs/decisions/README.md", "Decisões do projeto", ""),
              (f"{REPO_URL}/blob/main/CONTRIBUTING.md", "Como ajudar", ""), (f"{REPO_URL}#licenças", "Licenças", "")]
@@ -163,7 +173,7 @@ MARK = {"csp": ("<!-- site-chrome:csp -->", "<!-- /site-chrome:csp -->"),
         "js": ("<!-- site-chrome:js -->", "<!-- /site-chrome:js -->")}
 
 
-def with_support(head, data, keyless=False):
+def with_support(head, data, keyless=False, ledger=False):
     """The header with the Apoie button after the page links (next to Menu on phones) and its modal after the bar (spec apoie).
     The modal sits outside <header>: the bar's backdrop-filter would make it the box a fixed child is placed in."""
     a, b = '<nav class="bi-links"', "</header>"
@@ -171,21 +181,22 @@ def with_support(head, data, keyless=False):
         raise SystemExit("site_chrome: the header changed; place the Apoie button again")
     head = head.replace(a, '<div class="bi-end">' + a).replace(b, "</div>" + b)
     return head.replace('<button type="button" class="bi-menu-btn"', apoie.BUTTON + '<button type="button" class="bi-menu-btn"', 1) \
-        + apoie.modal(data, keyless, staging=keyless)
+        + apoie.modal(data, keyless, staging=keyless, ledger_href=LEDGER_PAGE if ledger else None)
 
 
 def parts(current, profile="production"):
     """Everything the markers carry on one page, for one build (spec staging): the Apoie button and its modal come in only when
     the apoie switch of data/features.json is on for the profile, and production only with the data its rule asks for
     (support_data.problems); off, the pages are what they were."""
-    on, rede = features.on("apoie", profile), features.on("rede", profile)
+    on, rede, ledger = features.on("apoie", profile), features.on("rede", profile), features.on("livro-caixa", profile)
     data = support_data.load()
     wrong = support_data.problems(data)
     if wrong:
         raise SystemExit("data/support.json: " + "; ".join(wrong))
     if not on:
-        return {"csp": csp.meta(profile), "css": HEAD, "header": header(current, rede), "footer": footer(rede), "js": TAG}
-    return {"csp": csp.meta(profile), "css": HEAD + "\n" + apoie.CSS, "header": with_support(header(current, rede), data, keyless=profile == "staging"), "footer": footer(rede),
+        return {"csp": csp.meta(profile), "css": HEAD, "header": header(current, rede), "footer": footer(rede, ledger), "js": TAG}
+    return {"csp": csp.meta(profile), "css": HEAD + "\n" + apoie.CSS,
+            "header": with_support(header(current, rede), data, keyless=profile == "staging", ledger=ledger), "footer": footer(rede, ledger),
             "js": TAG}
 
 

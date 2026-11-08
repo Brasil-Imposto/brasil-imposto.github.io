@@ -40,7 +40,12 @@ def pages_of(tree):
         spec.loader.exec_module(mod)
     finally:
         sys.path.pop(0)
-    return {key: ("index.html" if key == "inicio" else name) for key, (name, _) in mod.ALL_PAGES.items()}
+    # the production build leaves out a page whose switch is off there (site_chrome.SWITCHED_PAGES); the switches are read from
+    # the tree's own file, since the tree's site_chrome may import the other tree's features module, already loaded
+    switched = getattr(mod, "SWITCHED_PAGES", {})
+    on = {f["key"]: f["production"] for f in json.loads((tree / "data/features.json").read_text(encoding="utf-8"))["features"]}
+    return {key: ("index.html" if key == "inicio" else name) for key, (name, _) in mod.ALL_PAGES.items()
+            if key not in switched or on[switched[key]]}
 
 
 def serve(folder):

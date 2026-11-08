@@ -39,6 +39,8 @@
 //   escape   Escape closes the modal
 //   focus    after closing, the focus is back on the Apoie button
 //   outside  a click outside the panel closes it
+//   ledger   (only with --staging; spec apoie 11.3, D234) the link on "livro-caixa do projeto" in "Antes de apoiar" opens
+//            livro-caixa.html, which shows the balance of the last month of data/support-ledger/ and has no horizontal scroll
 // Usage: node apoie-check.cjs <base url of a served test build> [--control] [--staging] [--widths=1440,420,320]
 // --staging says the build is the staging profile, where the networks on "soon" open (the first XRP goes through the test site).
 // For a build with the Pix live, give the same data file that built it: BI_SUPPORT_JSON=/path/support.json
@@ -48,7 +50,7 @@
 // clickable, three columns of cards at every width, the Pix link sent to another address, the first ETH address and its explorer
 // link changed on the page, the hashes taken out of the page so the changed outside scripts run, the coin icons blocked, the
 // send's own files blocked for the amount check and left to load for the reserve check, the association line taken out and
-// an old text of the panel put back);
+// an old text of the panel put back, the ledger link sent to another page);
 // every check must then fail,
 // or the probe is blind.
 // Env: PW_CORE (path to playwright-core), CHROME_HEADLESS (chrome-headless-shell binary).
@@ -88,6 +90,11 @@ const GONE_11_4 = [
    "escrito no pull request antes do merge",
    "hoje, as ferramentas de inteligência artificial usadas para coletar e conferir os dados"
   ];
+// the balance the ledger page must show: the closing of the last month of data/support-ledger/, as R$ 1.234,56
+const LEDGER_DIR = path.join(__dirname, '..', '..', '..', 'data', 'support-ledger');
+const CLOSING = fs.readdirSync(LEDGER_DIR).filter((f) => f.endsWith('.json')).sort()
+  .map((f) => JSON.parse(fs.readFileSync(path.join(LEDGER_DIR, f), 'utf8')).closing_cents).pop() || 0;
+const SALDO = `Saldo: R$ ${String(Math.floor(CLOSING / 100)).replace(/\B(?=(\d{3})+(?!\d))/g, '.')},${String(CLOSING % 100).padStart(2, '0')}.`;
 const AT = String.fromCharCode(64);
 const PERSON = { name: 'Pessoa de Teste', email: 'teste' + AT + 'exemplo.org', message: 'Mensagem de teste da sonda.' };
 const PLANT = `
@@ -209,6 +216,7 @@ const PLANT = `
             document.querySelectorAll('[data-view="pix"] a').forEach((a) => { a.href = 'https://exemplo.org/'; });   // the Pix link goes elsewhere
             const assoc = document.querySelector('.bi-ap-assoc');   // the association line out, an old text of the panel back
             if (assoc) { const old = document.createElement('p'); old.textContent = GONE; assoc.replaceWith(old); }
+            document.querySelectorAll('.bi-ap-list a').forEach((a) => { if (a.textContent.trim() === 'livro-caixa do projeto') a.href = 'como-ler-o-mapa.html'; });
             const net = document.querySelector('.bi-ap-coin[data-coin="ETH"] .bi-ap-net');   // the first ETH address, swapped
             if (net) { const c = net.querySelector('code'); c.textContent = c.textContent.slice(0, -1) + 'x';
               net.querySelector('[data-copy]').dataset.copy = c.textContent; net.querySelector('a').href = 'https://exemplo.org/'; }
@@ -419,6 +427,20 @@ const PLANT = `
       await tap(p, '.bi-apoie-btn'); await p.waitForTimeout(150);
       await p.mouse.click(3, (await p.evaluate(() => innerHeight)) - 3); await p.waitForTimeout(150);
       report(w, key, 'outside', !(await isOpen(p)), 'a click at the window corner, outside the panel');
+      if (STAGING) {   // last: the click leaves the page
+        await tap(p, '.bi-apoie-btn'); await p.waitForTimeout(150);
+        const link = await p.evaluateHandle(() => [...document.querySelectorAll('.bi-ap-view[data-view="main"] .bi-ap-list a')]
+          .find((a) => a.textContent.trim() === 'livro-caixa do projeto') || null);
+        let led = { at: 'no link on "livro-caixa do projeto"', saldo: false, wide: 0 };
+        if (await link.evaluate((a) => !!a)) {
+          await Promise.all([p.waitForURL(/livro-caixa\.html$/, { timeout: 10000 }).catch(() => {}), link.evaluate((a) => a.click())]);
+          await p.waitForLoadState('load'); await p.waitForTimeout(300);
+          led = await p.evaluate((want) => ({ at: location.pathname.split('/').pop(), saldo: document.body.innerText.includes(want),
+            wide: document.documentElement.scrollWidth - innerWidth }), SALDO);
+        }
+        report(w, key, 'ledger', led.at === 'livro-caixa.html' && led.saldo && led.wide <= 0,
+          `the link opened ${led.at}; "${SALDO}" ${led.saldo ? 'shown' : 'absent'}; ${led.wide}px past the width`);
+      }
       await ctx.close();
     }
   }

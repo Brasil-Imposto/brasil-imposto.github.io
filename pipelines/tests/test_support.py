@@ -123,7 +123,8 @@ def on_live():
 
 def switches(production, staging=True):
     return {"features": [{"key": "apoie", "issue": 46, "description": "O botão Apoie", "staging": staging, "production": production},
-                         {"key": "rede", "issue": 130, "description": "A prévia da Rede do dinheiro", "staging": True, "production": False}]}
+                         {"key": "rede", "issue": 130, "description": "A prévia da Rede do dinheiro", "staging": True, "production": False},
+                         {"key": "livro-caixa", "issue": 207, "description": "A página Livro-caixa do apoio", "staging": True, "production": False}]}
 
 
 def build(data, on=True, profile="production"):
@@ -786,7 +787,7 @@ def outside_without_integrity(page, read=None):
 def published(profile):
     """Each page with the Apoie button as the site build serves it in the profile (build-site.py, without running the builders)."""
     pages = {}
-    for key, (name, _label) in site_chrome.ALL_PAGES.items():
+    for key, (name, _label) in site_chrome.built_pages(profile).items():
         page = build_site.with_features((REPO / "docs" / "superpowers" / "previews" / name).read_text(encoding="utf-8"), key, profile)
         pages[key] = page if profile == "production" else build_site.staging_page(page, key)
     return pages
@@ -1010,6 +1011,14 @@ class PagesTest(unittest.TestCase):
         h = self.main_view(on_soon(), "staging")
         self.assertIn(apoie.ASSOC, text(h))
         self.assertLess(text(h).index(apoie.LEAD[:40]), text(h).index(apoie.ASSOC))
+
+    def test_the_ledger_line_links_to_its_page_only_where_its_switch_is_on(self):
+        # spec apoie 11.3 (D234): "livro-caixa do projeto" in the line of "Antes de apoiar" links to livro-caixa.html in staging only
+        link = '<li>Tudo o que entra e tudo o que sai é publicado, mês a mês, no <a href="livro-caixa.html">livro-caixa do projeto</a>.</li>'
+        self.assertEqual(self.main_view(on_soon(), "staging").count(link), 1)
+        prod = self.main_view(on_soon(), "production")
+        self.assertNotIn("livro-caixa.html", prod)
+        self.assertIn("<li>Tudo o que entra e tudo o que sai é publicado, mês a mês, no livro-caixa do projeto.</li>", prod)
 
     def test_the_order_of_the_main_view(self):
         marks = ["1. Infraestrutura", "2. Desenvolvedores", "Como apoiar", "Cripto", "Pix", apoie.OTHER_WAY,

@@ -20,6 +20,13 @@
    "description": "A prévia da Rede do dinheiro na Início e o link \"Rede do dinheiro (prévia)\" do rodapé; fica no staging até a prévia ser aprovada para a produção (D172, Q-A2)",
    "staging": true,
    "production": false
+  },
+  {
+   "key": "livro-caixa",
+   "issue": 207,
+   "description": "A página Livro-caixa do apoio, o link no rodapé e o link na linha do livro-caixa da janela do Apoie (spec do Apoie, seção 11.3, D234)",
+   "staging": true,
+   "production": false
   }
  ]
 }
