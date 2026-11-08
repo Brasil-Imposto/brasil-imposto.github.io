@@ -43,6 +43,8 @@ Site: <https://brasil-imposto.github.io>.
 1. Uma spec aprovada pela pessoa mantenedora antes de qualquer código (`docs/superpowers/specs/`). Se a tarefa muda ou acrescenta
    algo na tela, também uma rodada de prévia aprovada por ela antes do código (D185).
 2. Antes de começar, confira se a tarefa já tem dono: a seção "Quem faz o quê" da spec e as issues, pull requests e ramos abertos dela (`gh issue list --search`, `gh pr list --search`, `git ls-remote origin`). Se tiver, não comece outra: comente na issue. Um pull request aberto recebe commits só de quem o abriu, salvo pedido da pessoa mantenedora.
+   Trabalho que deve contar na divisão das doações precisa de uma issue com rótulo de dificuldade posto antes de começar, também o da
+   pessoa mantenedora e o das sessões com agentes (D231).
 3. O plano, com uma tarefa por vez.
 4. Testes primeiro.
 5. Revisão, um assunto por pull request, commits assinados (`git commit -s`, DCO).
@@ -106,7 +108,8 @@ Agent guide: Portuguese UI, English identifiers and commits; neutral text; no nu
 closes by hand; every period works; every check is proven against a planted failure; look at screenshots at 1440 and 420 px.
 Specs are approved by the maintainer before code, and a task that changes or adds anything on screen also needs a preview round the maintainer approves (D185). To close an issue, only the pull request that meets its last criterion says `Closes #N` (staging is the default
 branch, so it closes there); partial ones say `Refs #N`, and leftovers become a new linked issue. Before starting a task, check it has no owner yet (the spec's owner
-section, open issues, pull requests and branches). Pull requests go to `staging` and need a maintainer's approval (maintainers merge their own with `gh pr merge --admin`, only after
+section, open issues, pull requests and branches); work that should count in the donation split needs an issue with a
+difficulty label put before the work starts. Pull requests go to `staging` and need a maintainer's approval (maintainers merge their own with `gh pr merge --admin`, only after
 every check is green); `main` receives approved tasks one at a
 time, each in its own pull request with the maintainer's go (never the whole of `staging`), followed by the back-merge. Ask before changing a recorded decision, a method, sources, dependencies, the stack (as its own question, with measured popularity and alternatives) or
 repository settings.

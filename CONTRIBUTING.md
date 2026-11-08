@@ -109,6 +109,14 @@ No fim de um dia com produção sai a versão do dia (D190): `docs/superpowers/t
 (`v1.N.0`), `--date AAAA-MM-DD` dá as notas, uma linha por pull request que entrou na `main` naquele dia, e `--changelog` refaz o
 `CHANGELOG.md`, que vai ao `staging` por pull request e à produção com a próxima tarefa.
 
+### Issues com peso
+
+Uma issue com `difficulty:low`, `difficulty:medium` ou `difficulty:high` tem peso 1, 2 ou 3 na divisão das doações do mês (regra no
+`GOVERNANCE.md`, "Quem pode doar"). Para pegar uma, peça na própria issue; uma pessoa mantenedora atribui. Se o peso parecer errado,
+diga na issue antes de começar: depois do merge ele não muda. O pull request diz `Closes #N`. Nunca escreva dado de pagamento em
+issue ou pull request. O projeto é sem fins lucrativos e talvez nunca haja pagamento: ele só existe quando há doação, e cada um fica
+no livro-caixa público.
+
 ### In English
 
 To develop: install Python 3.12 with uv and Node 24, then run `uv sync --locked` and
@@ -116,3 +124,6 @@ To develop: install Python 3.12 with uv and Node 24, then run `uv sync --locked`
 and a half on a clean clone) and stops at the first failure. Data flows from `pipelines/` to `data/`, the builders in
 `docs/superpowers/tools/` write the committed pages, and `build-site.py` assembles the site in its production or staging profile.
 Pull requests go to `staging` with `ci` and `dco` green (`git commit -s`).
+An issue labelled `difficulty:low`, `difficulty:medium` or `difficulty:high` weighs 1, 2 or 3 in the month's split of the
+donations: ask for it in the issue, a maintainer assigns it, the weight is argued before the work, and the pull request says
+`Closes #N`; never write payment details in an issue or a pull request, and know that there may never be a payment.

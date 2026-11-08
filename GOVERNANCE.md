@@ -51,10 +51,20 @@ Declarações dos mantenedores:
 
 ## Quem pode doar
 
-Hoje o projeto não recebe doação. Quando receber, valem a regra 4 acima e estas: tudo o que entra e tudo o que sai fica
-publicado mês a mês; uma doação em cripto acima de um valor, vinda de carteira sem identificação, é devolvida (o valor é
-definido e publicado antes da primeira doação). O pedido de apoio só vai ao site quando o projeto cumprir o padrão de qualidade
-dos dados que o justifica.
+O Brasil-Imposto é de código aberto e sem fins lucrativos: toda funcionalidade é e continua disponível para todas as pessoas, de
+graça. Ainda não é uma associação registrada: as doações chegam às carteiras do mantenedor, e cada entrada e saída é publicada no
+livro-caixa do apoio. Vale a regra 4 acima.
+
+Como o dinheiro é dividido ([spec do Apoie, seção 11](docs/superpowers/specs/BRASIL-IMPOSTO_SPEC_apoie_2026-10-23.md)):
+
+1. Primeiro, a infraestrutura do mês, pelo recibo de cada gasto, só do que o projeto paga como projeto.
+2. O resto vai para quem fechou no mês uma issue com peso (o rótulo `difficulty:low`, `difficulty:medium` ou `difficulty:high`, peso
+   1, 2 ou 3, posto antes do trabalho), inclusive a pessoa mantenedora, na proporção do peso, por um script público.
+3. O peso se discute na issue antes de começar; depois do merge não muda. Uma pessoa mantenedora pode tirar o peso de uma issue
+   fechada por spam ou mau uso, com o motivo escrito na issue.
+4. Não há pagamento do trabalho anterior à regra. Valor não reclamado volta à divisão depois de 6 meses.
+5. Nenhum dado de pagamento vai em issue ou pull request: o pedido é feito em particular, só quando houver valor a pagar.
+6. Quem contribui sabe que talvez nunca receba: o pagamento só existe quando há doação.
 
 ## Mudança de método
 
@@ -95,4 +105,8 @@ party; a party member never approves alone a pull request about their own party;
 officeholders, and every source above 5% of the year's income is published. Method changes get 7 to 10 days of comment in
 Discussions before merging. A dispute over a number or a reading becomes an issue with the official
 sources of both sides; the maintainer decides by the official source, and when two official sources differ the page shows both
-and says which one enters the sum.
+and says which one enters the sum. The project is open source and non-profit, not yet a registered association: donations reach
+the maintainer's wallets and every entry and exit is published in the support ledger. Each month pays the project's own
+infrastructure first, by receipt; the rest goes to whoever closed issues weighted by a difficulty label put before the work
+(1, 2 or 3), the maintainer included, computed by a public script. No back pay; unclaimed pay returns to the split after 6
+months; payment details never go in issues or pull requests; contributors may never be paid.
