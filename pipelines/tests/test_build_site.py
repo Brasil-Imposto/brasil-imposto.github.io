@@ -130,7 +130,7 @@ class BuildSiteTest(unittest.TestCase):
                 self.assertEqual((site / "livro-caixa.html").exists(), present)
                 foot = (site / "como-ler-o-mapa.html").read_text(encoding="utf-8")
                 self.assertEqual('href="livro-caixa.html"' in foot, present)
-        self.assertIn("Saldo: R$ 0,00.", (self.stage / "livro-caixa.html").read_text(encoding="utf-8"))
+        self.assertIn("Saldo: R$ 0,00.", re.sub(r"</?span[^>]*>", "", (self.stage / "livro-caixa.html").read_text(encoding="utf-8")))
         self.assertEqual(site_chrome.built_pages("production").keys() | {"livro"}, site_chrome.ALL_PAGES.keys())
 
     def test_control_the_ledger_link_in_a_production_page_is_found(self):

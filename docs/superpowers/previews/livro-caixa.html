@@ -25,6 +25,7 @@
   .led-month th, .led-month td { text-align: left; padding: 6px 6px; border-bottom: 1px solid #E3E8ED; vertical-align: top; }
   .led-month th { font-size: 12.5px; color: #5A6672; font-weight: 700; }
   .led-num { text-align: right !important; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .led-nw { white-space: nowrap; }
   .led-tot td { font-weight: 800; border-bottom: 0; }
   .led-p { margin: 0; font-size: 14px; }
   .led-sum { margin: 14px 0 0; font-weight: 700; font-size: 14px; }
@@ -266,8 +267,8 @@ html.bi-locked, html.bi-locked body { overflow: hidden; }
 <main><div class="led-page">
 <h1>Livro-caixa do apoio</h1>
 <p class="led-lead">Cada doação, cada gasto de infraestrutura e cada pagamento a quem contribui, mês a mês. A divisão de cada mês é calculada por um <a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/blob/main/pipelines/support/split_month.py">script público</a>, que qualquer pessoa pode rodar e chegar aos mesmos centavos. Nenhum nome de quem doou aparece, salvo o que a <a href="https://github.com/Brasil-Imposto/brasil-imposto.github.io/blob/main/GOVERNANCE.md#regras-de-neutralidade">regra das fontes</a> pede: toda fonte acima de 5% da receita do ano é publicada com o nome.</p>
-<div class="led-today"><b>Até agora:</b> nenhuma doação recebida, nenhum gasto de infraestrutura (o site é hospedado de graça no GitHub Pages) e nenhum pagamento. Saldo: R$ 0,00.</div>
-<section class="led-month" id="mes-2026-11"><h2>Novembro de 2026</h2><p class="led-sum">A conta fecha: saldo anterior R$ 0,00 + entradas R$ 0,00 - infraestrutura R$ 0,00 - pagamentos R$ 0,00 = saldo R$ 0,00.</p></section>
+<div class="led-today"><b>Até agora:</b> nenhuma doação recebida, nenhum gasto de infraestrutura (o site é hospedado de graça no GitHub Pages) e nenhum pagamento. Saldo: <span class="led-nw">R$ 0,00</span>.</div>
+<section class="led-month" id="mes-2026-11"><h2>Novembro de 2026</h2><p class="led-sum">A conta fecha: saldo anterior <span class="led-nw">R$ 0,00</span> + entradas <span class="led-nw">R$ 0,00</span> - infraestrutura <span class="led-nw">R$ 0,00</span> - pagamentos <span class="led-nw">R$ 0,00</span> = saldo <span class="led-nw">R$ 0,00</span>.</p></section>
 </div></main>
 <!-- site-chrome:js -->
 <script id="bi-chrome-js" src="assets/bi-chrome.js"></script>

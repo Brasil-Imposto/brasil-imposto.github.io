@@ -44,6 +44,7 @@ CSS = """
   .led-month th, .led-month td { text-align: left; padding: 6px 6px; border-bottom: 1px solid #E3E8ED; vertical-align: top; }
   .led-month th { font-size: 12.5px; color: #5A6672; font-weight: 700; }
   .led-num { text-align: right !important; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .led-nw { white-space: nowrap; }
   .led-tot td { font-weight: 800; border-bottom: 0; }
   .led-p { margin: 0; font-size: 14px; }
   .led-sum { margin: 14px 0 0; font-weight: 700; font-size: 14px; }
@@ -88,6 +89,11 @@ def money(cents):
     return f"R$ {reais:,}".replace(",", ".") + f",{rest:02d}"
 
 
+def amount(cents):
+    """An amount inside a sentence, never broken between "R$" and the number."""
+    return f'<span class="led-nw">{money(cents)}</span>'
+
+
 def day(iso):
     return f"{iso[8:10]}/{iso[5:7]}"
 
@@ -118,12 +124,12 @@ def today(months):
     """The state today; with nothing received, spent or paid, the exact text of round apoie-r4."""
     got, infra = sum(total(m["entries"]) for m in months), sum(total(m["infra"]) for m in months)
     paid = sum(total(m["payouts"]) for m in months)
-    parts = ["nenhuma doação recebida" if not got else f"{money(got)} em doações recebidas",
+    parts = ["nenhuma doação recebida" if not got else f"{amount(got)} em doações recebidas",
              "nenhum gasto de infraestrutura (o site é hospedado de graça no GitHub Pages)" if not infra
-             else f"{money(infra)} em gastos de infraestrutura",
-             "nenhum pagamento" if not paid else f"{money(paid)} em pagamentos a quem contribuiu"]
+             else f"{amount(infra)} em gastos de infraestrutura",
+             "nenhum pagamento" if not paid else f"{amount(paid)} em pagamentos a quem contribuiu"]
     balance = months[-1]["closing_cents"] if months else 0
-    return f'<div class="led-today"><b>Até agora:</b> {parts[0]}, {parts[1]} e {parts[2]}. Saldo: {money(balance)}.</div>'
+    return f'<div class="led-today"><b>Até agora:</b> {parts[0]}, {parts[1]} e {parts[2]}. Saldo: {amount(balance)}.</div>'
 
 
 def channel_of(entry):
@@ -164,7 +170,7 @@ def month_block(m):
             out.append("<h3>Divisão de quem contribuiu</h3>" + table(["Quem", "Issues fechadas", "#Pontos", "#Parte"], rows, foot))
         else:
             out.append(f'<h3>Divisão de quem contribuiu</h3><p class="led-p">Nenhuma issue com peso fechada no mês: '
-                       f"{money(s['kept_cents'])} ficam para o mês seguinte.</p>")
+                       f"{amount(s['kept_cents'])} ficam para o mês seguinte.</p>")
     if m["payouts"]:
         rows = [[e("@" + x["login"]), money(x["amount_cents"]),
                  "Pix" if x["channel"] == "pix" else "Cripto" + (f" ({link(x['tx_url'], 'transação')})" if x.get("tx_url") else ""),
@@ -173,8 +179,8 @@ def month_block(m):
     if m["returned"]:
         rows = [[e("@" + x["login"]), e(month_name(x["split_month"])), money(x["amount_cents"]), e(day(x["date"]))] for x in m["returned"]]
         out.append("<h3>Não reclamado, de volta à divisão</h3>" + table(["Quem", "Divisão de", "#Valor", "Dia"], rows))
-    out.append(f'<p class="led-sum">A conta fecha: saldo anterior {money(sums[0])} + entradas {money(sums[1])} - infraestrutura '
-               f"{money(sums[2])} - pagamentos {money(sums[3])} = saldo {money(m['closing_cents'])}.</p></section>")
+    out.append(f'<p class="led-sum">A conta fecha: saldo anterior {amount(sums[0])} + entradas {amount(sums[1])} - infraestrutura '
+               f"{amount(sums[2])} - pagamentos {amount(sums[3])} = saldo {amount(m['closing_cents'])}.</p></section>")
     return "".join(out)
 
 

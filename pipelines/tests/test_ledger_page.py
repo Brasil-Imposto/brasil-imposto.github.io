@@ -27,7 +27,8 @@ DEC = {"month": "2026-12", "opening_cents": 0,
 
 
 def text(html):
-    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html))
+    """The page's words: an inline span adds no space (as the browser renders it), every other tag does."""
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", re.sub(r"</?span[^>]*>", "", html)))
 
 
 class LedgerPageTest(unittest.TestCase):
