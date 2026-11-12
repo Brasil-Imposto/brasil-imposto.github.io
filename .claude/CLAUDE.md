@@ -41,7 +41,8 @@ Site: <https://brasil-imposto.github.io>.
 ## Fluxo de trabalho
 
 1. Uma spec aprovada pela pessoa mantenedora antes de qualquer código (`docs/superpowers/specs/`). Se a tarefa muda ou acrescenta
-   algo na tela, também uma rodada de prévia aprovada por ela antes do código (D185).
+   algo na tela, também uma rodada de prévia aprovada por ela antes do código (D185). Um plano aprovado que já traz o código da
+   tela não substitui essa rodada, e uma rodada que pergunta onde algo fica não aprova o desenho do que fica lá.
 2. Antes de começar, confira se a tarefa já tem dono: a seção "Quem faz o quê" da spec e as issues, pull requests e ramos abertos dela (`gh issue list --search`, `gh pr list --search`, `git ls-remote origin`). Se tiver, não comece outra: comente na issue. Um pull request aberto recebe commits só de quem o abriu, salvo pedido da pessoa mantenedora.
    Trabalho que deve contar na divisão das doações precisa de uma issue com rótulo de dificuldade posto antes de começar, também o da
    pessoa mantenedora e o das sessões com agentes (D231).
@@ -77,7 +78,9 @@ Site: <https://brasil-imposto.github.io>.
   estados, com `--audit` e o controle `--plant`), `site-check.cjs` (pedidos, erros, `body[data-ready="1"]`, rolagem horizontal
   e capturas, com `--control`), `tres-poderes-unknown-probe.cjs` (com `--control`), `tres-poderes-judiciary-check.cjs`
   (o STF na tela depois de D154, com `--control`), `overlay-check.cjs` (modais, fichas e saltos acima e abaixo do cabeçalho),
-  `ui-sweep.cjs` (rolagem horizontal, controle coberto, texto cortado) e `sheet-width-check.cjs`, os três com `--control`, e
+  `ui-sweep.cjs` (rolagem horizontal, controle coberto, texto cortado) e `sheet-width-check.cjs`, os três com `--control`,
+  `overflow-check.cjs` (texto fora da caixa e letras empilhadas em cada estado que se abre: as fichas, as janelas de estado e o
+  Apoie, com `--control`; D235), e
   `apoie-check.cjs` (o botão Apoie e a janela, numa construção de teste com `BI_SUPPORT_JSON`, com `--control`).
 - A checagem ao centavo pega erro de valor, não erro de recorte: compare o que o recorte deixa de fora com a série que conta
   aquilo pelo destino (veja `docs/ai/learned-patterns.md`).
@@ -106,7 +109,7 @@ estático no GitHub Pages. A mudança espera o inventário das APIs (D182, #158)
 
 Agent guide: Portuguese UI, English identifiers and commits; neutral text; no number without an official source; every sum
 closes by hand; every period works; every check is proven against a planted failure; look at screenshots at 1440 and 420 px.
-Specs are approved by the maintainer before code, and a task that changes or adds anything on screen also needs a preview round the maintainer approves (D185). To close an issue, only the pull request that meets its last criterion says `Closes #N` (staging is the default
+Specs are approved by the maintainer before code, and a task that changes or adds anything on screen also needs a preview round the maintainer approves (D185), even when an approved plan already holds the screen's code. To close an issue, only the pull request that meets its last criterion says `Closes #N` (staging is the default
 branch, so it closes there); partial ones say `Refs #N`, and leftovers become a new linked issue. Before starting a task, check it has no owner yet (the spec's owner
 section, open issues, pull requests and branches); work that should count in the donation split needs an issue with a
 difficulty label put before the work starts. Pull requests go to `staging` and need a maintainer's approval (maintainers merge their own with `gh pr merge --admin`, only after

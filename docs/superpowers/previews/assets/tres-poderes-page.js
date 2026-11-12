@@ -416,7 +416,8 @@
     return h + `</div><div class="bars-max"><span>maior mês: ${brl(max)}</span><span>${vals.some(([m]) => m > last) ? `listras: depois de ${MONTHS[last]}, ainda chegando` : ''}</span></div>`;
   }
   function openGeneric(x, M) {
-    const srcs = [...new Set(x.items.map((it) => it.source).filter(Boolean))];
+    // the sources of every number the sheet shows: the pay components and the spending tied to the post (D235)
+    const srcs = [...new Set([...x.items, ...(x.office_costs || []), ...(x.trips || [])].map((it) => it.source).filter(Boolean))];
     return `<div class="crumb">Os 3 Poderes › ${HOUSE_FULL[x.house]}${x.court ? ' › ' + esc(x.court) : ''} › <b>${esc(x.name)}</b></div>`
       + `<div class="p-head">${ph(x)}<div><h2>${esc(x.name)}</h2><div class="meta">${metaHTML(x)}</div>`
       + `<div class="links">${x.page ? `<a href="${esc(x.page)}" target="_blank" rel="noopener">Página oficial ↗</a>` : ''}<button type="button" data-copy>Copiar link</button><a class="fix" href="${esc(fixUrl(x))}" target="_blank" rel="noopener">Pedir correção</a></div></div></div>`
