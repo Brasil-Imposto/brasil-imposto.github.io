@@ -38,7 +38,7 @@ to-the-cent check, the monthly split script, and the ledger page behind a stagin
 **Arquivos:** `GOVERNANCE.md` (seção "Quem pode doar"), `CONTRIBUTING.md` (seção nova), `.github/PULL_REQUEST_TEMPLATE.md`,
 `.claude/CLAUDE.md` (passo 2 do fluxo). Caminho do `guard`: `.github/*`.
 
-- [ ] **Passo 1: `GOVERNANCE.md`, troca o texto inteiro de "Quem pode doar" por:**
+- [x] **Passo 1: `GOVERNANCE.md`, troca o texto inteiro de "Quem pode doar" por:**
 
 ```markdown
 ## Quem pode doar
@@ -59,7 +59,7 @@ Como o dinheiro é dividido (spec do Apoie, seção 11):
 6. Quem contribui sabe que talvez nunca receba: o pagamento só existe quando há doação.
 ```
 
-- [ ] **Passo 2: `CONTRIBUTING.md`, seção nova depois de "Revisão":**
+- [x] **Passo 2: `CONTRIBUTING.md`, seção nova depois de "Revisão":**
 
 ```markdown
 ### Issues com peso
@@ -71,22 +71,22 @@ issue ou pull request. O projeto é sem fins lucrativos e talvez nunca haja paga
 no livro-caixa público.
 ```
 
-- [ ] **Passo 3: `.github/PULL_REQUEST_TEMPLATE.md`, linha nova no topo da lista de conferência:**
+- [x] **Passo 3: `.github/PULL_REQUEST_TEMPLATE.md`, linha nova no topo da lista de conferência:**
 
 ```markdown
-- [ ] Se este pull request resolve uma issue com peso, ele diz `Closes #N` dela.
+- [x] Se este pull request resolve uma issue com peso, ele diz `Closes #N` dela.
 ```
 
-- [ ] **Passo 4: `.claude/CLAUDE.md`, no fim do passo 2 do fluxo, a frase:**
+- [x] **Passo 4: `.claude/CLAUDE.md`, no fim do passo 2 do fluxo, a frase:**
 
 ```markdown
    Trabalho que deve contar na divisão das doações precisa de uma issue com rótulo de dificuldade posto antes de começar, também o da
    pessoa mantenedora e o das sessões com agentes (D231).
 ```
 
-- [ ] **Passo 5:** conferir: `python3 -c "t=open('GOVERNANCE.md').read();assert 'não recebe doação' not in t and 'é devolvida' not in t"`;
+- [x] **Passo 5:** conferir: `python3 -c "t=open('GOVERNANCE.md').read();assert 'não recebe doação' not in t and 'é devolvida' not in t"`;
   a contagem de travessões dos quatro arquivos dá 0 com um controle; `uv run --locked python -m unittest discover -s pipelines/tests`.
-- [ ] **Passo 6:** commit `docs(governance): the public rule that pays contributors (spec apoie 11, D230 to D234)`, pull request,
+- [x] **Passo 6:** commit `docs(governance): the public rule that pays contributors (spec apoie 11, D230 to D234)`, pull request,
   etiqueta do `guard` listando `.github/PULL_REQUEST_TEMPLATE.md`.
 
 ---
@@ -95,7 +95,7 @@ no livro-caixa público.
 
 **Arquivos:** `docs/superpowers/tools/apoie.py`, `pipelines/tests/test_support.py`. Caminho do `guard`: `apoie.py`.
 
-- [ ] **Passo 1: o teste primeiro.** Em `pipelines/tests/test_support.py`, no teste dos textos da vista principal (o que hoje percorre
+- [x] **Passo 1: o teste primeiro.** Em `pipelines/tests/test_support.py`, no teste dos textos da vista principal (o que hoje percorre
   `apoie.LEAD, apoie.MONEY_TITLE, apoie.INFRA, apoie.DEVELOPERS, ... *apoie.MONTH`), acrescentar `apoie.ASSOC` à lista e um teste novo:
 
 ```python
@@ -116,9 +116,9 @@ no livro-caixa público.
 
   (`self.header` e `text` são os auxiliares que a classe dos textos já usa; se o nome for outro, usar o da classe.)
 
-- [ ] **Passo 2:** rodar `uv run --locked python -m unittest pipelines.tests.test_support -k section_11_4`; esperado: falha (`ASSOC` não
+- [x] **Passo 2:** rodar `uv run --locked python -m unittest pipelines.tests.test_support -k section_11_4`; esperado: falha (`ASSOC` não
   existe).
-- [ ] **Passo 3: `apoie.py`.** Trocar as constantes pelos textos exatos da spec (11.4, D232):
+- [x] **Passo 3: `apoie.py`.** Trocar as constantes pelos textos exatos da spec (11.4, D232):
 
 ```python
 LEAD = ("O Brasil-Imposto mostra, com dados oficiais e a fonte de cada número, para onde vai o imposto pago no Brasil. É "
@@ -144,11 +144,11 @@ MONTH = ["Primeiro, a infraestrutura do mês, pelo recibo de cada gasto.",
   e, no `modal()`, logo depois do parágrafo de `LEAD`, o parágrafo `f'<p class="bi-ap-assoc">{escape(ASSOC)}</p>'`, com o CSS
   `.bi-ap-assoc { margin: 10px 0 0; font-size: 13.5px; color: #4A5560; }` em `apoie.CSS` (o desenho aprovado da rodada `apoie-r4`).
 
-- [ ] **Passo 4:** rodar o teste: passa. Rodar `uv run --locked python -m unittest discover -s pipelines/tests` e os construtores (a
+- [x] **Passo 4:** rodar o teste: passa. Rodar `uv run --locked python -m unittest discover -s pipelines/tests` e os construtores (a
   janela entra nas páginas commitadas: `build-platform-preview.py`, `build-site-chrome.py`, `build-notes-page.py`), conferindo que
   `git diff --stat docs/superpowers/previews/` só mostra as páginas com a janela.
-- [ ] **Passo 5:** controle: trocar `ASSOC` por um texto com um caractere a mais faz o teste falhar; desfazer.
-- [ ] **Passo 6:** commit `feat(apoie): the panel texts of the public pay rule (spec apoie 11.4, D230 to D232)`, pull request, etiqueta do
+- [x] **Passo 5:** controle: trocar `ASSOC` por um texto com um caractere a mais faz o teste falhar; desfazer.
+- [x] **Passo 6:** commit `feat(apoie): the panel texts of the public pay rule (spec apoie 11.4, D230 to D232)`, pull request, etiqueta do
   `guard` listando `docs/superpowers/tools/apoie.py`.
 
 ---
@@ -158,7 +158,7 @@ MONTH = ["Primeiro, a infraestrutura do mês, pelo recibo de cada gasto.",
 **Arquivos:** criar `schemas/support-ledger.schema.json`, `data/support-ledger/2026-11.json`, `pipelines/support/__init__.py` (vazio),
 `pipelines/support/ledger.py`, `pipelines/tests/test_support_ledger.py`.
 
-- [ ] **Passo 1: o esquema** `schemas/support-ledger.schema.json`:
+- [x] **Passo 1: o esquema** `schemas/support-ledger.schema.json`:
 
 ```json
 {
@@ -208,13 +208,13 @@ MONTH = ["Primeiro, a infraestrutura do mês, pelo recibo de cada gasto.",
 }
 ```
 
-- [ ] **Passo 2: o primeiro mês** `data/support-ledger/2026-11.json` (o mês da regra; nada recebido):
+- [x] **Passo 2: o primeiro mês** `data/support-ledger/2026-11.json` (o mês da regra; nada recebido):
 
 ```json
 {"month": "2026-11", "opening_cents": 0, "entries": [], "infra": [], "split": null, "payouts": [], "returned": [], "closing_cents": 0}
 ```
 
-- [ ] **Passo 3: o teste primeiro** `pipelines/tests/test_support_ledger.py`:
+- [x] **Passo 3: o teste primeiro** `pipelines/tests/test_support_ledger.py`:
 
 ```python
 """The support ledger (spec apoie 11.3): every month valid against its schema, the balance closing to the cent, the owed amounts never
@@ -268,8 +268,8 @@ if __name__ == "__main__":
     unittest.main()
 ```
 
-- [ ] **Passo 4:** rodar; esperado: falha de importação (`pipelines.support.ledger` não existe).
-- [ ] **Passo 5: `pipelines/support/ledger.py`:**
+- [x] **Passo 4:** rodar; esperado: falha de importação (`pipelines.support.ledger` não existe).
+- [x] **Passo 5: `pipelines/support/ledger.py`:**
 
 ```python
 """The support ledger (spec apoie 11.3): one JSON per month in data/support-ledger/, valid against schemas/support-ledger.schema.json.
@@ -344,9 +344,9 @@ def problems(months):
   mesmo mês serem lidos, porque os pagamentos de uma divisão saem no mês seguinte; o controle do passo 3 pega um pagamento de 10.001
   centavos contra 10.000 devidos.
 
-- [ ] **Passo 6:** rodar `uv run --locked python -m unittest pipelines.tests.test_support_ledger -v`; esperado: 5 testes passam. O
+- [x] **Passo 6:** rodar `uv run --locked python -m unittest pipelines.tests.test_support_ledger -v`; esperado: 5 testes passam. O
   controle do pagamento acima do devido tem um mês de janeiro que fecha ao centavo, para que só a conferência da dívida possa falhar.
-- [ ] **Passo 7:** `uv run --locked python -m unittest discover -s pipelines/tests` (o `test_layout` acha `pipelines/support/`); commit
+- [x] **Passo 7:** `uv run --locked python -m unittest discover -s pipelines/tests` (o `test_layout` acha `pipelines/support/`); commit
   `feat(support): the public support ledger, its schema and the to-the-cent check (spec apoie 11.3, D230)`; pull request.
 
 ---
@@ -356,7 +356,7 @@ def problems(months):
 **Arquivos:** criar `pipelines/support/split_month.py`, `pipelines/tests/test_split_month.py`,
 `pipelines/tests/fixtures/split/issues-2026-12.json`.
 
-- [ ] **Passo 1: o caso gravado** `pipelines/tests/fixtures/split/issues-2026-12.json`, na forma que `normalize()` devolve (horas em UTC;
+- [x] **Passo 1: o caso gravado** `pipelines/tests/fixtures/split/issues-2026-12.json`, na forma que `normalize()` devolve (horas em UTC;
   dezembro na hora de Brasília vai de 2026-12-01T03:00:00Z a 2027-01-01T03:00:00Z):
 
 ```json
@@ -388,7 +388,7 @@ def problems(months):
   #20 (sem rótulo), #21 (rótulo depois da atribuição), #22 (fechada sem pull request unido) e #23 (janeiro em Brasília). Pontos: pessoa-a
   5, pessoa-b 1. Partes: 41.666 e 8.333; centavos guardados: 1.
 
-- [ ] **Passo 2: o teste primeiro** `pipelines/tests/test_split_month.py`:
+- [x] **Passo 2: o teste primeiro** `pipelines/tests/test_split_month.py`:
 
 ```python
 """The monthly split (spec apoie 11.2): only issues closed in the month (Brasília time) by a merged pull request, with one difficulty
@@ -449,8 +449,8 @@ if __name__ == "__main__":
     unittest.main()
 ```
 
-- [ ] **Passo 3:** rodar; esperado: falha de importação.
-- [ ] **Passo 4: `pipelines/support/split_month.py`:**
+- [x] **Passo 3:** rodar; esperado: falha de importação.
+- [x] **Passo 4: `pipelines/support/split_month.py`:**
 
 ```python
 """The monthly split of the support (spec apoie 11.2): who closed weighted issues in a month and their share of what is left after
@@ -551,11 +551,11 @@ if __name__ == "__main__":
     print(json.dumps(compute(fetch(month), month, pool), ensure_ascii=False, indent=1))
 ```
 
-- [ ] **Passo 5:** rodar `uv run --locked python -m unittest pipelines.tests.test_split_month -v`; esperado: 5 testes passam.
-- [ ] **Passo 6:** rodar de verdade, só leitura: `uv run --locked python -m pipelines.support.split_month 2026-11 0`; esperado: um JSON
+- [x] **Passo 5:** rodar `uv run --locked python -m unittest pipelines.tests.test_split_month -v`; esperado: 5 testes passam.
+- [x] **Passo 6:** rodar de verdade, só leitura: `uv run --locked python -m pipelines.support.split_month 2026-11 0`; esperado: um JSON
   com `shares` vazias ou com as issues com peso fechadas em novembro, e `skipped` listando as fechadas sem a regra. Conferir uma issue
   da lista à mão na linha do tempo do GitHub.
-- [ ] **Passo 7:** `uv run --locked python -m unittest discover -s pipelines/tests`; commit
+- [x] **Passo 7:** `uv run --locked python -m unittest discover -s pipelines/tests`; commit
   `feat(support): the monthly split script (spec apoie 11.2, D230 and D231)`; pull request.
 
 ---
@@ -568,7 +568,7 @@ if __name__ == "__main__":
 (o mesmo arquivo, depois deste merge), `pipelines/tests/test_build_site.py`, `apoie.py` (o link da linha do livro-caixa). Caminhos do
 `guard`: `.github/*`, `deploy/*`, `apoie.py`.
 
-- [ ] **Passo 1: a chave** em `data/features.json`, depois de `rede`:
+- [x] **Passo 1: a chave** em `data/features.json`, depois de `rede`:
 
 ```json
   {
@@ -583,7 +583,7 @@ if __name__ == "__main__":
   O implementador abre a issue da tarefa antes do código e põe o número dela em `issue` (o esquema `schemas/features.schema.json` pede
   um inteiro; conferir se aceita 0 ou se pede o número real).
 
-- [ ] **Passo 2: o teste primeiro**, em `pipelines/tests/test_build_site.py`:
+- [x] **Passo 2: o teste primeiro**, em `pipelines/tests/test_build_site.py`:
 
 ```python
     def test_the_ledger_page_only_where_its_switch_is_on(self):
@@ -599,8 +599,8 @@ if __name__ == "__main__":
   e, no teste que lista os arquivos do site (linha que monta `[".nojekyll", ".well-known", "assets", "index.html", ...]`), tirar
   `livro-caixa.html` da lista da produção.
 
-- [ ] **Passo 3:** rodar; esperado: falha (a página não existe).
-- [ ] **Passo 4: `site_chrome.py`.** Acrescentar a página fora do cabeçalho e o link do rodapé com a chave:
+- [x] **Passo 3:** rodar; esperado: falha (a página não existe).
+- [x] **Passo 4: `site_chrome.py`.** Acrescentar a página fora do cabeçalho e o link do rodapé com a chave:
 
 ```python
 LEDGER_PAGE = "livro-caixa.html"
@@ -612,7 +612,7 @@ SWITCHED_PAGES = {"livro": "livro-caixa"}   # pages built only where their switc
   `(LEDGER_PAGE, "Livro-caixa do apoio", "")` só quando `ledger`; em `parts()`, `ledger = features.on("livro-caixa", profile)` passado
   aos dois `footer(...)`.
 
-- [ ] **Passo 5: `build-site.py`.** No laço das páginas, pular a página cuja chave está desligada:
+- [x] **Passo 5: `build-site.py`.** No laço das páginas, pular a página cuja chave está desligada:
 
 ```python
     for key, (name, _label) in site_chrome.ALL_PAGES.items():
@@ -622,7 +622,7 @@ SWITCHED_PAGES = {"livro": "livro-caixa"}   # pages built only where their switc
 
   e `"build-ledger-page.py"` no fim de `BUILDERS`.
 
-- [ ] **Passo 6: `build-ledger-page.py`**, no molde de `build-notes-page.py` (mesmo `<head>`, marcadores do `site_chrome`, CSS do desenho
+- [x] **Passo 6: `build-ledger-page.py`**, no molde de `build-notes-page.py` (mesmo `<head>`, marcadores do `site_chrome`, CSS do desenho
   aprovado `private/apoie/build_apoie_r4.py`, constante `CSS`, as regras `.r4-led-*`, renomeadas `.led-*`): lê
   `pipelines.support.ledger.load_all()`, escreve `docs/superpowers/previews/livro-caixa.html` com:
   - o título "Livro-caixa do apoio" e o texto de abertura da rodada `apoie-r4` (com o link para o script
@@ -637,21 +637,21 @@ SWITCHED_PAGES = {"livro": "livro-caixa"}   # pages built only where their switc
   Depois `python3 docs/superpowers/tools/site_chrome.py`-style: a página passa por `site_chrome.inject(page, "livro")` como as outras
   (ver `build-notes-page.py`, fim do arquivo).
 
-- [ ] **Passo 7: as listas dos construtores.** A linha `python docs/superpowers/tools/build-ledger-page.py` depois de
+- [x] **Passo 7: as listas dos construtores.** A linha `python docs/superpowers/tools/build-ledger-page.py` depois de
   `build-notes-page.py` em `.github/workflows/ci.yml`, `.github/workflows/pages.yml` e `deploy/staging/deploy.yml`, e
   `"build-ledger-page.py"` no fim de `BUILDERS` de `check-all.py`. O `deploy.yml` do `Brasil-Imposto/staging` recebe a mesma linha num
   pull request de lá, unido depois deste.
 
-- [ ] **Passo 8: o link da janela.** Em `apoie.py`, a linha "Tudo o que entra e tudo o que sai é publicado, mês a mês, no livro-caixa do
+- [x] **Passo 8: o link da janela.** Em `apoie.py`, a linha "Tudo o que entra e tudo o que sai é publicado, mês a mês, no livro-caixa do
   projeto." ganha o link `<a href="livro-caixa.html">livro-caixa do projeto</a>` só quando a chave `livro-caixa` estiver ligada no
   perfil (o `modal()` recebe o perfil como já recebe `staging`); teste em `test_support.py`: o link no staging, nenhum link na produção.
 
-- [ ] **Passo 9:** rodar `uv run --locked python docs/superpowers/tools/check-all.py`; esperado: tudo verde, e `git status` mostra a
+- [x] **Passo 9:** rodar `uv run --locked python docs/superpowers/tools/check-all.py`; esperado: tudo verde, e `git status` mostra a
   página nova commitável e nenhuma outra prévia mudada além das com a janela.
-- [ ] **Passo 10: a tela.** Montar o staging numa pasta temporária, servir, olhar `livro-caixa.html` e a janela em 1440 e 420 px;
+- [x] **Passo 10: a tela.** Montar o staging numa pasta temporária, servir, olhar `livro-caixa.html` e a janela em 1440 e 420 px;
   `apoie-check.cjs --staging` com uma conferência nova: o link da linha do livro-caixa leva à página, e a página mostra "Saldo: R$ 0,00";
   `visible-text` nas quatro páginas.
-- [ ] **Passo 11:** commit `feat(site): the support ledger page behind the livro-caixa switch (spec apoie 11.3, D234)`; pull request com a
+- [x] **Passo 11:** commit `feat(site): the support ledger page behind the livro-caixa switch (spec apoie 11.3, D234)`; pull request com a
   etiqueta do `guard` listando os caminhos; depois do merge, o pull request do `deploy.yml` no `Brasil-Imposto/staging`, o deploy do
   staging (ligar, publicar, conferir no ar `livro-caixa.html` e a janela, desligar, D214).
 
